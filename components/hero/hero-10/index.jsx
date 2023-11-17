@@ -10,8 +10,11 @@ const index = () => {
 
       <div className="auto-container">
         <div className="cotnent-box">
-          <div className="title-box" data-aso-delay="500" data-aos="fade-up">
-            <h3>Your Dream Jobs is Waiting</h3>
+          <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{marginTop:'-130px'}}>
+            <h3>Welcome to Future Fit International (FFI)</h3>
+            <h4 style={{ color: "#fff" }}>Where Bridging Talent and Opportunities Across Canada is Our Specialty </h4>
+            <br/>
+            <h4 style={{ color: "#fff" }}>Find Your Dream Jobs</h4>
           </div>
 
           <div

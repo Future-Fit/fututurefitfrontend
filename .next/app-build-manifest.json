@@ -121,6 +121,17 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(blog)/blog-list-v3/page.js"
+    ],
+    "/(employers-single)/employers-single-v1/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(employers-single)/employers-single-v1/[id]/page.css",
+      "static/chunks/app/(employers-single)/employers-single-v1/[id]/page.js"
+    ],
+    "/(others)/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(others)/login/page.js"
     ]
   }
 }

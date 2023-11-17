@@ -32,41 +32,37 @@ const Index = () => {
     >
       <SidebarHeader />
       {/* End pro-header */}
-
-      
         <Sidebar>
           <Menu>
-            {mobileMenuData.map((item) => (
-              <SubMenu
-                className={
-                  isActiveParentChaild(item.items, usePathname())
-                    ? "menu-active"
-                    : ""
-                }
-                label={item.label}
-                key={item.id}
-              >
-                {item.items.map((menuItem, i) => (
+            {mobileMenuData.map((menuItem, i) => (
+              // <SubMenu
+              //   className={
+              //     isActiveParentChaild(item.items, usePathname())
+              //       ? "menu-active"
+              //       : ""
+              //   }
+              //   label={item.label}
+              //   key={item.id}
+              // >
+                // {item.items.map((menuItem, i) => (
                   <MenuItem
 
                   onClick={()=>router.push(menuItem.routePath)}
                     className={
-                      isActiveLink(menuItem.routePath, usePathname())
-                        ? "menu-active-link"
-                        : ""
-                    }
-                    key={i}
+                      router.asPath === menuItem.routePath
+                  ? "menu-active-link"
+                  : ""
+              }
+              key={i}
                     // routerLink={<Link href={menuItem.routePath} />}
                   >
-                    {menuItem.name}
+                    {menuItem.label}
                   </MenuItem>
-                ))}
-              </SubMenu>
+                // ))}
+              // </SubMenu>
             ))}
           </Menu>
         </Sidebar>
-
-
       <SidebarFooter />
     </div>
   );
