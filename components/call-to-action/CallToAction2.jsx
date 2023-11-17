@@ -9,8 +9,9 @@ const CallToAction2 = () => {
       <div className="auto-container" data-aos="fade-up">
         <div className="sec-title light text-center">
           <h2>Your Dream Jobs Are Waiting for You</h2>
+          {/* <h3>Where Bridging Talent and Opportunities Across Canada is Our Specialty</h3> */}
           <div className="text">
-            Over 10 thousands interactions, 2,000 success stories Make yours now.
+          Where Bridging Talent and Opportunities Across Canada is Our Specialty
           </div>
         </div>
 

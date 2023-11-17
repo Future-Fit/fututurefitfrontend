@@ -16,7 +16,7 @@ const Footer = () => {
                     <Image
                       width={154}
                       height={50}
-                      src="/images/logo-2.svg"
+                      src="/images/logo-2.png"
                       alt="brand"
                     />
                   </a>

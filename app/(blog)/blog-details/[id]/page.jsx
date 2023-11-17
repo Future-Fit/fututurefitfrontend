@@ -6,10 +6,12 @@ import MobileMenu from "@/components/header/MobileMenu";
 import DetailsContent from "@/components/blog-meu-pages/blog-details/details-content";
 import blogs from "@/data/blogs";
 import Image from "next/image";
+import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import Footer from "@/components/home-1/Footer";
 
 export const metadata = {
-  title: "Blog Details Dyanmic V1 || Superio - Job Borad React NextJS Template",
-  description: "Superio - Job Borad React NextJS Template",
+  title: "Blog Details | Future Fit International Job Portal",
+  description: "Future Fit International Job Portal",
 };
 
 const BlogDetailsDynamic = ({ params }) => {
@@ -25,7 +27,7 @@ const BlogDetailsDynamic = ({ params }) => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader />
+      <DefaulHeader2 />
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
@@ -64,8 +66,8 @@ const BlogDetailsDynamic = ({ params }) => {
         <DetailsContent />
       </section>
       {/* <!-- End Blog Single --> */}
-
-      <FooterDefault footerStyle="alternate5" />
+      <Footer />
+      {/* <FooterDefault footerStyle="alternate5" /> */}
       {/* <!-- End Main Footer --> */}
     </>
   );

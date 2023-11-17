@@ -91,7 +91,7 @@ const index = () => {
           <div className="sec-title text-center">
             <h2>Testimonials From Our Customers</h2>
             <div className="text">
-              Very Great Portal for Application
+              Future Fit International
             </div>
           </div>
           {/* <!-- Sec Title --> */}

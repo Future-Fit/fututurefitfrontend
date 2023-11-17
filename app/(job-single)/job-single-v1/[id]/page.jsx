@@ -13,10 +13,12 @@ import SocialTwo from "@/components/job-single-pages/social/SocialTwo";
 import JobDetailsDescriptions from "@/components/job-single-pages/shared-components/JobDetailsDescriptions";
 import ApplyJobModalContent from "@/components/job-single-pages/shared-components/ApplyJobModalContent";
 import Image from "next/image";
+import Footer from "@/components/home-1/Footer";
+import DefaulHeader2 from "@/components/header/DefaulHeader2";
 
 export const metadata = {
-  title: "Job Single Dyanmic V1 || Superio - Job Borad React NextJS Template",
-  description: "Superio - Job Borad React NextJS Template",
+  title: "Job Detail | Future Fit International Job Portal",
+  description: "Future Fit International Job Portal",
 };
 
 const JobSingleDynamicV1 = ({ params }) => {
@@ -31,7 +33,7 @@ const JobSingleDynamicV1 = ({ params }) => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader />
+      <DefaulHeader2 />
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
@@ -238,8 +240,8 @@ const JobSingleDynamicV1 = ({ params }) => {
         {/* <!-- job-detail-outer--> */}
       </section>
       {/* <!-- End Job Detail Section --> */}
-
-      <FooterDefault footerStyle="alternate5" />
+      <Footer/>
+      {/* <FooterDefault footerStyle="alternate5" /> */}
       {/* <!-- End Main Footer --> */}
     </>
   );

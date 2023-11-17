@@ -26,10 +26,10 @@ const Footer = () => {
                   <a href="thebeehost@support.com">+188 xxx xxxx</a>
                 </p>
                 <p className="address">
-                168 Charlotte Street, Suite 404, Ottawa
+                  168 Charlotte Street, Suite 404, Ottawa
                   <br /> Canada. <br />
                   <a href="mailto:info@futurefitinternational.com " className="email">
-                  info@futurefitinternational.com 
+                    info@futurefitinternational.com
                   </a>
                 </p>
               </div>
