@@ -1,18 +1,17 @@
-import Header from "./Header";
 import Hero10 from "../hero/hero-10"
 import Block1 from "../block/Block1";
-import JobFeatured2 from "../job-featured/JobFeatured2";
-import FeaturedBlock from "../block/FeaturedBlock";
 import DefaulHeader2 from "../header/DefaulHeader2";
 import JobFeatured4 from "../job-featured/JobFeatured4";
 import CallToAction2 from "../call-to-action/CallToAction2";
-import Candidates from "../candidates/Candidates";
 import Blog from "../blog/Blog";
 import CallToAction3 from "../call-to-action/CallToAction3";
 import Footer from "./Footer";
 import LoginPopup from "../common/form/login/LoginPopup";
 import MobileMenu from "../header/MobileMenu";
 import Link from "next/link";
+import CallToAction11 from "../call-to-action/CallToAction11";
+import CallToAction from "../call-to-action/CallToAction";
+import AppSection from "../app-section/AppSection";
 
 const index = () => {
   return (
@@ -29,17 +28,23 @@ const index = () => {
 
       <Hero10 />
       {/* <!-- End Hero Section --> */}
+      <section className="app-section">
+        <div className="auto-container">
+          <AppSection />
+        </div>
+      </section>
+      <CallToAction11/>
 
       <section className="work-section">
         <div className="auto-container">
           <div className="sec-title text-center">
-            <h2>How It Works?</h2>
+            <h2>Services</h2>
             <div className="text">Job for anyone, anywhere</div>
           </div>
           {/* End sec-title */}
 
           <div className="row" data-aos="fade-up">
-            <Block1 />
+            <Block1/>
           </div>
         </div>
       </section>
@@ -60,7 +65,7 @@ const index = () => {
 
           <div className="btn-box">
             <Link
-              href="/job-list-v2"
+              href="/job-list-v6"
               className="theme-btn btn-style-one bg-blue"
             >
               <span className="btn-title">Load More Listing</span>
@@ -86,7 +91,7 @@ const index = () => {
       </section> */}
       {/* <!-- End Features Section --> */}
 
-      <CallToAction2 />
+      
       {/* <!-- End Call To Action --> */}
 
       {/* <section className="candidates-section">
@@ -107,7 +112,7 @@ const index = () => {
       </section> */}
       {/* <!-- End Candidates Section --> */}
 
-      <section className="news-section-two">
+      {/* <section className="news-section-two">
         <div className="auto-container">
           <div className="sec-title text-center">
             <h2>Recent News Articles</h2>
@@ -115,15 +120,15 @@ const index = () => {
               Fresh job related news content posted each day.
             </div>
           </div>
-          {/* End ."sec-title */}
           <div className="row" data-aos="fade-up">
             <Blog />
           </div>
         </div>
-      </section>
+      </section> */}
+      
       {/* <!-- End News Section --> */}
 
-      <CallToAction3 />
+      {/* <CallToAction10 /> */}
       {/* <!-- End Call To Action --> */}
 
       <Footer />

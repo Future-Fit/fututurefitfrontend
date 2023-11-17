@@ -1,3 +1,4 @@
+import DefaulHeader2 from "@/components/header/DefaulHeader2";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import FooterDefault from "../../footer/common-footer";
 import DefaulHeader from "../../header/DefaulHeader";
@@ -5,6 +6,7 @@ import MobileMenu from "../../header/MobileMenu";
 import Address from "./Address";
 import ContactForm from "./ContactForm";
 import MapBox from "./MapBox";
+import Footer from "@/components/home-1/Footer";
 
 const index = () => {
   return (
@@ -15,7 +17,7 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader />
+      <DefaulHeader2 />
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
@@ -40,7 +42,7 @@ const index = () => {
 
           {/* <!-- Contact Form --> */}
           <div className="contact-form default-form">
-            <h3>Leave A Message</h3>
+            <h3>Leave Us A Message</h3>
             <ContactForm />
             {/* <!--Contact Form--> */}
           </div>
@@ -48,8 +50,8 @@ const index = () => {
         </div>
       </section>
       {/* <!-- Contact Section --> */}
-
-      <FooterDefault footerStyle="alternate5" />
+      <Footer/>
+      {/* <FooterDefault footerStyle="alternate5" /> */}
       {/* <!-- End Main Footer --> */}
     </>
   );

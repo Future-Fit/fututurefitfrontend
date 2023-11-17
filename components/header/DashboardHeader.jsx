@@ -43,8 +43,8 @@ const DashboardHeader = () => {
                                 <Link href="/">
                                     <Image
                                         alt="brand"
-                                        src="/images/logo.svg"
-                                        width={154}
+                                        src="/images/logo-no-background.png"
+                                        width={50}
                                         height={50}
                                         priority
                                     />
@@ -81,11 +81,11 @@ const DashboardHeader = () => {
                                 <Image
                                     alt="avatar"
                                     className="thumb"
-                                    src="/images/resource/company-6.png"
-                                    width={50}
-                                    height={50}
+                                    src="/images/resource/logo-no-background.png"
+                                    width={40}
+                                    height={40}
                                 />
-                                <span className="name">My Account</span>
+                                <span className="name">FFI</span>
                             </a>
 
                             <ul className="dropdown-menu">

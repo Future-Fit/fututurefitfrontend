@@ -1,3 +1,4 @@
+import Footer from "@/components/home-1/Footer";
 import FooterDefault from "../../../components/footer/common-footer";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import DefaulHeader2 from "../../header/DefaulHeader2";
@@ -43,8 +44,8 @@ const index = () => {
         {/* End container */}
       </section>
       {/* <!--End Listing Page Section --> */}
-
-      <FooterDefault footerStyle="alternate5" />
+      <Footer/>
+      {/* <FooterDefault footerStyle="alternate5" /> */}
       {/* <!-- End Main Footer --> */}
     </>
   );

@@ -12,7 +12,7 @@ const JobCategorie4 = () => {
           <div className="inner-box">
             <span className={`icon ${item.icon}`}></span>
             <h4>
-              <Link href="/job-list-v4">{item.catTitle}</Link>
+              <Link href="/job-list-v6">{item.catTitle}</Link>
             </h4>
             <span className="count">({item.jobNumber} open positions)</span>
           </div>

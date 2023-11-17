@@ -14,19 +14,24 @@ const CallToAction11 = () => {
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-4 offset-lg-1">
               <div className="sec-title pb-16">
-                <h2 className="">Looking To Post a Job</h2>
-                <div className="text">
-                  Advertise your jobs to millions of monthly
-                  <br /> users and search 15.8 million CVs in our
-                  <br /> database.
+                <h2 className="">Why Choose Us</h2>
+                <div className="text" style={{ textAlign: "justify" }}>
+
+                  <ul className="list-style-one">
+                    <li>Experienced in talent management.</li>
+                    <li>Extensive global network.</li>
+                    <li>Promoting diverse inclusivity.</li>
+                    <li>Community-focused collaboration.</li>
+                    </ul>
+
                 </div>
 
                 <div className="mt-20">
                   <Link
-                    href="/employers-dashboard/post-jobs"
+                    href="/job-list-v6"
                     className="theme-btn"
                   >
-                    Post a Job
+                   Get Started
                   </Link>
                 </div>
               </div>

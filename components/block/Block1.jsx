@@ -5,20 +5,20 @@ const Block1 = () => {
     {
       id: 1,
       icon: "/images/resource/work-1.png",
-      title: "Free Resume Assessments",
-      text: `Employers on average spend 31 seconds scanning resumes to identify potential matches.`,
+      title: "Skilled Labour",
+      text: `Unlock Your Potential, Discover Your Future, Are you a skilled worker seeking exciting career prospects in Canada? We specialize in matching your expertise with employers that recognize and value your talents in the Canadian job market.`,
     },
     {
       id: 2,
       icon: "/images/resource/work-2.png",
-      title: "Job Fit Scoring",
-      text: `Employers on average spend 31 seconds scanning resumes to identify potential matches.`,
+      title: "Employers and Business Owners",
+      text: `Expand your horizons and connect with talented professionals from around the world. We foster international business relationships, helping you tap into diverse markets, skillsets, and expertise, all while contributing to Canada’s economic growth. We help you find the right talent for your company. `,
     },
     {
       id: 3,
       icon: "/images/resource/work-3.png",
-      title: "Help Every Step of the Way",
-      text: `Employers on average spend 31 seconds scanning resumes to identify potential matches.`,
+      title: "International Students",
+      text: `Dreaming of studying in Canada? Join the thousands of international students who have made Canada their second home. Discover world-class education, a multicultural environment, and boundless opportunities for personal and educational growth. `,
     },
   ];
   return (
@@ -31,11 +31,11 @@ const Block1 = () => {
                 width={105}
                 height={113}
                 src={item.icon}
-                alt="how it works"
+                alt="Services"
               />
             </figure>
             <h5>{item.title}</h5>
-            <p>{item.text}</p>
+            <p style={{textAlign:"justify"}}>{item.text}</p>
           </div>
         </div>
       ))}

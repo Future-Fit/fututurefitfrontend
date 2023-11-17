@@ -1,8 +1,8 @@
 {
   "/page": "app/page.js",
-  "/not-found": "app/not-found.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(job-list)/job-list-v6/page": "app/(job-list)/job-list-v6/page.js",
   "/(others)/about/page": "app/(others)/about/page.js",
   "/(blog)/blog-list-v1/page": "app/(blog)/blog-list-v1/page.js",
-  "/(others)/login/page": "app/(others)/login/page.js",
-  "/(job-list)/job-list-v1/page": "app/(job-list)/job-list-v1/page.js"
+  "/(others)/contact/page": "app/(others)/contact/page.js"
 }

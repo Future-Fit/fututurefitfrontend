@@ -12,8 +12,21 @@ module.exports = [
   },
   {
     id: 3,
+    label: "Jobs",
+    routePath: "/job-list-v6",
+
+  },
+  {
+    id: 4,
     label: "Blog",
-    routePath: "/job-list-v1",
+    routePath: "/blog-list-v1",
+
+  },
+  
+  {
+    id: 5,
+    label: "Contact",
+    routePath: "/contact",
 
   },
   

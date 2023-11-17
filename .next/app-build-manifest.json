@@ -11,127 +11,80 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/(home)/home-2/page": [
+    "/(others)/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(home)/home-2/page.js"
+      "static/chunks/app/(others)/about/page.js"
     ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/(job-list)/job-list-v1/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v1/page.js"
-    ],
-    "/(job-list)/job-list-v2/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v2/page.js"
-    ],
-    "/(job-single)/job-single-v1/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-single)/job-single-v1/[id]/page.js"
-    ],
-    "/(job-list)/job-list-v11/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v11/page.js"
-    ],
-    "/(job-list)/job-list-v12/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v12/page.js"
-    ],
-    "/(home)/home-10/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(home)/home-10/page.js"
-    ],
-    "/(home)/home-4/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(home)/home-4/page.js"
-    ],
-    "/(job-single)/job-single-v5/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-single)/job-single-v5/[id]/page.js"
-    ],
-    "/(home)/home-5/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(home)/home-5/page.js"
-    ],
-    "/(home)/home-6/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(home)/home-6/page.js"
-    ],
-    "/(home)/home-7/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(home)/home-7/page.js"
-    ],
-    "/(job-list)/job-list-v5/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v5/page.js"
-    ],
     "/(job-list)/job-list-v6/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(job-list)/job-list-v6/page.js"
-    ],
-    "/employers-dashboard/post-jobs/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/post-jobs/page.js"
-    ],
-    "/(others)/about/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(others)/about/page.js"
     ],
     "/(blog)/blog-list-v1/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(blog)/blog-list-v1/page.js"
     ],
-    "/shop/shop-single/[id]/page": [
+    "/employers-dashboard/post-jobs/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/shop/shop-single/[id]/page.css",
-      "static/chunks/app/shop/shop-single/[id]/page.js"
+      "static/chunks/app/employers-dashboard/post-jobs/page.js"
     ],
-    "/(others)/pricing/page": [
+    "/employers-dashboard/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(others)/pricing/page.js"
+      "static/chunks/app/employers-dashboard/dashboard/page.js"
     ],
-    "/(blog)/blog-list-v2/page": [
+    "/employers-dashboard/company-profile/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(blog)/blog-list-v2/page.js"
+      "static/chunks/app/employers-dashboard/company-profile/page.js"
     ],
-    "/(blog)/blog-list-v3/page": [
+    "/employers-dashboard/manage-jobs/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(blog)/blog-list-v3/page.js"
+      "static/chunks/app/employers-dashboard/manage-jobs/page.js"
     ],
-    "/(employers-single)/employers-single-v1/[id]/page": [
+    "/employers-dashboard/all-applicants/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(employers-single)/employers-single-v1/[id]/page.css",
-      "static/chunks/app/(employers-single)/employers-single-v1/[id]/page.js"
+      "static/chunks/app/employers-dashboard/all-applicants/page.js"
+    ],
+    "/employers-dashboard/shortlisted-resumes/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/employers-dashboard/shortlisted-resumes/page.js"
+    ],
+    "/employers-dashboard/packages/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/employers-dashboard/packages/page.js"
     ],
     "/(others)/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(others)/login/page.js"
+    ],
+    "/(others)/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(others)/contact/page.js"
+    ],
+    "/(job-list)/job-list-v3/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(job-list)/job-list-v3/page.js"
+    ],
+    "/(job-list)/job-list-v4/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(job-list)/job-list-v4/page.js"
     ]
   }
 }

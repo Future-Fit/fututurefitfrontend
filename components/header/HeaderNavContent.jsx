@@ -236,6 +236,40 @@ const HeaderNavContent = () => {
             </ul>
           </li> */}
           {/* End Candidates menu items */}
+          <li
+            className={`${
+              isActiveParent("/job-list-v6", usePathname()) ? "current" : ""
+            }`}
+          >
+            {/* <span>Home</span>
+            <div className="mega-menu">
+              <div className="mega-menu-bar row pt-0">
+                {homeItems.map((item) => (
+                  <div
+                    className="column col-lg-3 col-md-3 col-sm-12"
+                    key={item.id}
+                  >
+                    <ul>
+                      {item.items.map((menu, i) => (
+                        <li
+                          className={
+                            isActiveLink(menu.routePath, usePathname())
+                              ? "current"
+                              : ""
+                          }
+                          
+                          key={i}
+                        > */}
+                          <Link href="/job-list-v6">Jobs</Link>
+                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+                        {/* </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div> */}
+          </li>
 
           <li
             className={`${
@@ -271,6 +305,42 @@ const HeaderNavContent = () => {
               </div>
             </div> */}
           </li>
+
+          <li
+            className={`${
+              isActiveParent("/contact", usePathname()) ? "current" : ""
+            }`}
+          >
+            {/* <span>Home</span>
+            <div className="mega-menu">
+              <div className="mega-menu-bar row pt-0">
+                {homeItems.map((item) => (
+                  <div
+                    className="column col-lg-3 col-md-3 col-sm-12"
+                    key={item.id}
+                  >
+                    <ul>
+                      {item.items.map((menu, i) => (
+                        <li
+                          className={
+                            isActiveLink(menu.routePath, usePathname())
+                              ? "current"
+                              : ""
+                          }
+                          
+                          key={i}
+                        > */}
+                          <Link href="/contact">Contact</Link>
+                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+                        {/* </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div> */}
+          </li>
+
 
           {/* <li
             className={`${
