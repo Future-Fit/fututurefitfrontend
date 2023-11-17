@@ -11,6 +11,9 @@ import Testimonial2 from "../../testimonial/Testimonial2";
 import Block1 from "../../block/Block1";
 import Breadcrumb from "../../common/Breadcrumb";
 import Image from "next/image";
+import DefaulHeader2 from "@/components/header/DefaulHeader2";
+// /Users/mac/Documents/FutureFit/fututurefitfrontend/components/home-1/Footer.jsx
+import Footer from "../../../components/home-1/Footer";
 
 const index = () => {
   return (
@@ -21,7 +24,8 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader />
+      <DefaulHeader2 />
+      {/* <DefaulHeader /> */}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
@@ -115,7 +119,7 @@ const index = () => {
       </section>
       {/* <!-- End Clients Section--> */}
 
-      <FooterDefault />
+      <Footer />
       {/* <!-- End Main Footer --> */}
     </>
   );

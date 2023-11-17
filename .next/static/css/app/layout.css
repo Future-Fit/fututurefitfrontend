@@ -27659,8 +27659,8 @@ Global Settings
 
 ***/
 :root {
-  --primary-color: #1967d2;
-  --primary-hover-bg-color: #0146a6;
+  --primary-color: #0d6efd;
+  --primary-hover-bg-color: #317de8;
   --primary-2nd-color: #f9ab00;
   --primary-2nd-hover-bg-color: #e9a000;
 }
@@ -33080,7 +33080,7 @@ Main Header
 
 .main-header.fixed-header {
   position: fixed;
-  background: #ffffff;
+  background: #B3E5FC;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 

@@ -1,5 +1,7 @@
 {
   "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(home)/home-2/page": "app/(home)/home-2/page.js"
+  "/(others)/about/page": "app/(others)/about/page.js",
+  "/(blog)/blog-list-v1/page": "app/(blog)/blog-list-v1/page.js",
+  "/(blog)/blog-list-v2/page": "app/(blog)/blog-list-v2/page.js",
+  "/(blog)/blog-list-v3/page": "app/(blog)/blog-list-v3/page.js"
 }

@@ -2,13 +2,13 @@ const CopyrightFooter = () => {
   return (
     <div className="copyright-text">
       <p>
-        © {new Date().getFullYear()} Superio by{" "}
+        © {new Date().getFullYear()} Future Fit International{" "}
         <a
-          href="https://themeforest.net/user/ib-themes"
+          href="https://zoomtechet.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          ib-themes
+          ZooM Tech Trading PLC
         </a>
         . All Right Reserved.
       </p>

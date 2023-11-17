@@ -19,15 +19,17 @@ const CopyrightFooter2 = () => {
               </Link>
             </div>
             <div className="copyright-text">
-              © {new Date().getFullYear()} Superio by{" "}
-              <a
-                href="https://themeforest.net/user/ib-themes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                ib-themes
-              </a>
-              . All Right Reserved.
+              <p>
+                © {new Date().getFullYear()} Future Fit International{" "}
+                <a
+                  href="https://zoomtechet.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ZooM Tech Trading PLC
+                </a>
+                . All Right Reserved.
+              </p>
             </div>
           </div>
 

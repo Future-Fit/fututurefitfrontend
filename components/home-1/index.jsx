@@ -1,18 +1,18 @@
-import Link from "next/link";
-import About from "../about/About";
-import AppSection from "../app-section/AppSection";
-import Blog from "../blog/Blog";
-import CallToAction from "../call-to-action/CallToAction";
-import LoginPopup from "../common/form/login/LoginPopup";
-import Partner from "../common/partner/Partner";
-import FooterDefault from "../footer/common-footer";
-import Funfact from "../fun-fact-counter/Funfact";
+import Header from "./Header";
+import Hero10 from "../hero/hero-10"
+import Block1 from "../block/Block1";
+import JobFeatured2 from "../job-featured/JobFeatured2";
+import FeaturedBlock from "../block/FeaturedBlock";
 import DefaulHeader2 from "../header/DefaulHeader2";
+import JobFeatured4 from "../job-featured/JobFeatured4";
+import CallToAction2 from "../call-to-action/CallToAction2";
+import Candidates from "../candidates/Candidates";
+import Blog from "../blog/Blog";
+import CallToAction3 from "../call-to-action/CallToAction3";
+import Footer from "./Footer";
+import LoginPopup from "../common/form/login/LoginPopup";
 import MobileMenu from "../header/MobileMenu";
-import Hero1 from "../hero/hero-1";
-import JobCategorie1 from "../job-categories/JobCategorie1";
-import JobFeatured1 from "../job-featured/JobFeatured1";
-import Testimonial from "../testimonial/Testimonial";
+import Link from "next/link";
 
 const index = () => {
   return (
@@ -20,35 +20,32 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
-      {/* End Header with upload cv btn */}
+      <DefaulHeader2/>
+      {/* <Header /> */}
+      {/* <!--End Main Header --> */}
 
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <Hero1 />
-      {/* End Hero Section */}
+      <Hero10 />
+      {/* <!-- End Hero Section --> */}
 
-      <section className="job-categories ui-job-categories">
+      <section className="work-section">
         <div className="auto-container">
           <div className="sec-title text-center">
-            <h2>Popular Job Categories</h2>
-            <div className="text">2020 jobs live - 293 added today.</div>
+            <h2>How It Works?</h2>
+            <div className="text">Job for anyone, anywhere</div>
           </div>
+          {/* End sec-title */}
 
-          <div
-            className="row "
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom"
-          >
-            {/* <!-- Category Block --> */}
-            <JobCategorie1 />
+          <div className="row" data-aos="fade-up">
+            <Block1 />
           </div>
         </div>
       </section>
-      {/* End Job Categorie Section */}
+      {/* <!-- End Work Section --> */}
 
-      <section className="job-section">
+      <section className="job-section-two">
         <div className="auto-container">
           <div className="sec-title text-center">
             <h2>Featured Jobs</h2>
@@ -57,13 +54,13 @@ const index = () => {
             </div>
           </div>
 
-          <div className="row " data-aos="fade-up">
-            <JobFeatured1 />
+          <div className="row" data-aos="fade-up">
+            <JobFeatured4 />
           </div>
 
           <div className="btn-box">
             <Link
-              href="/job-list-v1"
+              href="/job-list-v2"
               className="theme-btn btn-style-one bg-blue"
             >
               <span className="btn-title">Load More Listing</span>
@@ -71,55 +68,46 @@ const index = () => {
           </div>
         </div>
       </section>
-      {/* End Job Featured Section */}
+      {/* <!-- End Job Section --> */}
 
-      <section className="testimonial-section">
-        <div className="container-fluid">
-          {/* <!-- Sec Title --> */}
-          <div className="sec-title text-center">
-            <h2>Testimonials From Our Customers</h2>
+      {/* <section className="features-section">
+        <div className="auto-container">
+          <div className="sec-title">
+            <h2>Featured Cities</h2>
             <div className="text">
               Lorem ipsum dolor sit amet elit, sed do eiusmod tempor
             </div>
           </div>
-        </div>
-        <div className="carousel-outer" data-aos="fade-up">
-          {/* <!-- Testimonial Carousel --> */}
-          <div className="testimonial-carousel gap-x25 center-item-active slick-list-visible">
-            <Testimonial />
+
+          <div className="row" data-aos="fade-up">
+            <FeaturedBlock />
           </div>
         </div>
-      </section>
-      {/* <!-- End Testimonial Section --> */}
+      </section> */}
+      {/* <!-- End Features Section --> */}
 
-      <section className="clients-section">
-        <div className="sponsors-outer" data-aos="fade">
-          {/* <!--Sponsors Carousel--> */}
-          <ul className="sponsors-carousel">
-            <Partner />
-          </ul>
-        </div>
-      </section>
-      {/* <!-- End Clients Section--> */}
+      <CallToAction2 />
+      {/* <!-- End Call To Action --> */}
 
-      <section className="about-section">
+      {/* <section className="candidates-section">
         <div className="auto-container">
-          <div className="row">
-            <About />
-          </div>
-
-          {/* <!-- Fun Fact Section --> */}
-          <div className="fun-fact-section">
-            <div className="row">
-              <Funfact />
+          <div className="sec-title">
+            <h2>Featured Candidates</h2>
+            <div className="text">
+              Lorem ipsum dolor sit amet elit, sed do eiusmod tempor
             </div>
           </div>
-          {/* <!-- Fun Fact Section --> */}
-        </div>
-      </section>
-      {/* <!-- End About Section --> */}
 
-      <section className="news-section">
+          <div className="carousel-outer" data-aos="fade-up">
+            <div className="candidates-carousel default-dots">
+              <Candidates />
+            </div>
+          </div>
+        </div>
+      </section> */}
+      {/* <!-- End Candidates Section --> */}
+
+      <section className="news-section-two">
         <div className="auto-container">
           <div className="sec-title text-center">
             <h2>Recent News Articles</h2>
@@ -135,17 +123,10 @@ const index = () => {
       </section>
       {/* <!-- End News Section --> */}
 
-      <section className="app-section">
-        <div className="auto-container">
-          <AppSection />
-        </div>
-      </section>
-      {/* <!-- End App Section --> */}
-
-      <CallToAction />
+      <CallToAction3 />
       {/* <!-- End Call To Action --> */}
 
-      <FooterDefault />
+      <Footer />
       {/* <!-- End Main Footer --> */}
     </>
   );

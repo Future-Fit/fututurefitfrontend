@@ -1,15 +1,18 @@
 // is active parent check
+
 export const isActiveParent = (data = [], path) => {
-  if (data?.length !== 0) {
-    return data?.some(({ items }) =>
-      items?.some(
+  if (Array.isArray(data) && data.length !== 0) {
+    return data.some(({ items }) =>
+      Array.isArray(items) && items.some(
         (menu) =>
           menu.routePath?.split("/")[1]?.replace(/\/\d+/, "") ===
           path?.split("/")[1]?.replace(/\/\d+/, "")
       )
     );
   }
+  return false;
 };
+
 
 // is active parent childe check
 export const isActiveParentChaild = (data = [], path) => {

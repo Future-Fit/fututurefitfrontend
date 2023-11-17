@@ -6,6 +6,9 @@ import MobileMenu from "../../header/MobileMenu";
 import BlogPagination from "../blog-sidebar/BlogPagination";
 import BlogSidebar from "../blog-sidebar";
 import Breadcrumb from "../../common/Breadcrumb";
+import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import Footer from "../../../components/home-1/Footer";
+
 
 const index = () => {
   return (
@@ -16,7 +19,10 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader />
+      <DefaulHeader2 />
+
+
+      {/* <DefaulHeader /> */}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
@@ -51,8 +57,8 @@ const index = () => {
         </div>
       </div>
       {/* <!-- End Sidebar Container --> */}
-
-      <FooterDefault footerStyle="alternate5" />
+      <Footer/>
+      {/* <FooterDefault footerStyle="alternate5" /> */}
       {/* <!-- End Main Footer --> */}
     </>
   );

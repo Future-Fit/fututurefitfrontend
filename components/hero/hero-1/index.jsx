@@ -1,26 +1,22 @@
+import Link from "next/link";
 import SearchForm from "../../common/job-search/SearchForm";
-import ImageBox from "./ImageBox";
 import PopularSearch from "../PopularSearch";
+import ImageBox from "./ImageBox";
+import Image from "next/image";
 
 const index = () => {
   return (
-    <section className="banner-section">
+    <section className="banner-section-two">
       <div className="auto-container">
         <div className="row">
           <div className="content-column col-lg-7 col-md-12 col-sm-12">
-            <div
-              className="inner-column"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
+            <div className="inner-column wow fadeInUp" data-aos="fade-up">
               <div className="title-box">
                 <h3>
-                  There Are <span className="colored">93,178</span> Postings
-                  Here
-                  <br /> For you!
+                  Find Your Dream here <br />
                 </h3>
                 <div className="text">
-                  Find Jobs, Employment & Career Opportunities
+                  Find Jobs, Employment, International Students & Career Opportunities
                 </div>
               </div>
 
@@ -33,15 +29,35 @@ const index = () => {
               {/* <!-- Popular Search --> */}
               <PopularSearch />
               {/* <!-- End Popular Search --> */}
+
+              <div className="bottom-box">
+                <div className="count-employers">
+                  <span className="title">10k+ Candidates</span>
+                  <Image
+                    width={194}
+                    height={50}
+                    src="/images/resource/multi-peoples.png"
+                    alt="multi people"
+                  />
+                </div>
+                <Link
+                  href="/candidates-dashboard/cv-manager"
+                  className="upload-cv"
+                >
+                  <span className="icon flaticon-file"></span> Upload your CV
+                </Link>
+              </div>
             </div>
           </div>
-          {/* End .col */}
+          {/* End content-column */}
 
           <div className="image-column col-lg-5 col-md-12">
             <ImageBox />
           </div>
         </div>
+        {/* End .row */}
       </div>
+      {/* End auto-container */}
     </section>
   );
 };

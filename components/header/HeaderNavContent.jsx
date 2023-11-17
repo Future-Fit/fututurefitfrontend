@@ -25,10 +25,10 @@ const HeaderNavContent = () => {
           {/* current dropdown */}
           <li
             className={`${
-              isActiveParent(homeItems, usePathname()) ? "current" : ""
-            } dropdown`}
+              isActiveParent("/", usePathname()) ? "current" : ""
+            }`}
           >
-            <span>Home</span>
+            {/* <span>Home</span>
             <div className="mega-menu">
               <div className="mega-menu-bar row pt-0">
                 {homeItems.map((item) => (
@@ -44,20 +44,58 @@ const HeaderNavContent = () => {
                               ? "current"
                               : ""
                           }
+                          
                           key={i}
-                        >
-                          <Link href={menu.routePath}>{menu.name}</Link>
-                        </li>
+                        > */}
+                          <Link href="/">Home</Link>
+                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+                        {/* </li>
                       ))}
                     </ul>
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </li>
           {/* End homepage menu items */}
 
           <li
+            className={`${
+              isActiveParent("/about", usePathname()) ? "current" : ""
+            }`}
+          >
+            {/* <span>Home</span>
+            <div className="mega-menu">
+              <div className="mega-menu-bar row pt-0">
+                {homeItems.map((item) => (
+                  <div
+                    className="column col-lg-3 col-md-3 col-sm-12"
+                    key={item.id}
+                  >
+                    <ul>
+                      {item.items.map((menu, i) => (
+                        <li
+                          className={
+                            isActiveLink(menu.routePath, usePathname())
+                              ? "current"
+                              : ""
+                          }
+                          
+                          key={i}
+                        > */}
+                          <Link href="/about">About Us</Link>
+                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+                        {/* </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div> */}
+          </li>
+          {/* End homepage menu items */}
+
+          {/* <li
             className={`${
               isActiveParent(findJobItems, usePathname()) ? "current" : ""
             } dropdown has-mega-menu`}
@@ -90,10 +128,10 @@ const HeaderNavContent = () => {
                 ))}
               </div>
             </div>
-          </li>
+          </li> */}
           {/* End findjobs menu items */}
 
-          <li
+          {/* <li
             className={`${
               isActiveParent(employerItems, usePathname()) ||
               usePathname()?.split("/")[1] === "employers-dashboard"
@@ -142,10 +180,10 @@ const HeaderNavContent = () => {
                 </Link>
               </li>
             </ul>
-          </li>
+          </li> */}
           {/* End Employers menu items */}
 
-          <li
+          {/* <li
             className={`${
               isActiveParent(candidateItems, usePathname()) ||
               usePathname()?.split("/")[1] === "candidates-dashboard"
@@ -196,12 +234,47 @@ const HeaderNavContent = () => {
                 </Link>
               </li>
             </ul>
-          </li>
+          </li> */}
           {/* End Candidates menu items */}
 
           <li
             className={`${
-              isActiveParentChaild(blogItems, usePathname()) ? "current" : ""
+              isActiveParent("/blog-list-v1", usePathname()) ? "current" : ""
+            }`}
+          >
+            {/* <span>Home</span>
+            <div className="mega-menu">
+              <div className="mega-menu-bar row pt-0">
+                {homeItems.map((item) => (
+                  <div
+                    className="column col-lg-3 col-md-3 col-sm-12"
+                    key={item.id}
+                  >
+                    <ul>
+                      {item.items.map((menu, i) => (
+                        <li
+                          className={
+                            isActiveLink(menu.routePath, usePathname())
+                              ? "current"
+                              : ""
+                          }
+                          
+                          key={i}
+                        > */}
+                          <Link href="/blog-list-v1">Blog</Link>
+                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+                        {/* </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div> */}
+          </li>
+
+          {/* <li
+            className={`${
+              isActiveParentChaild("/blog-list-v1", usePathname()) ? "current" : ""
             } dropdown`}
           >
             <span>Blog</span>
@@ -213,14 +286,16 @@ const HeaderNavContent = () => {
                   }
                   key={i}
                 >
+                          <Link href="/blog-list-v1">Blog</Link>
+
                   <Link href={item.routePath}>{item.name}</Link>
                 </li>
               ))}
             </ul>
-          </li>
+          </li> */}
           {/* End Blog menu items */}
 
-          <li
+          {/* <li
             className={`${
               isActiveParentChaild(pageItems, usePathname()) ||
               isActiveParentChaild(shopItems[0].items, usePathname())
@@ -268,7 +343,7 @@ const HeaderNavContent = () => {
                 </li>
               ))}
             </ul>
-          </li>
+          </li> */}
           {/* End Pages menu items */}
         </ul>
       </nav>

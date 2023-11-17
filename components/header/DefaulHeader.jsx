@@ -36,9 +36,9 @@ const DefaulHeader = () => {
             <div className="logo">
               <Link href="/">
                 <Image
-                  width={154}
+                  width={50}
                   height={50}
-                  src="/images/logo.svg"
+                  src="/images/logo-no-background.png"
                   alt="brand"
                 />
               </Link>

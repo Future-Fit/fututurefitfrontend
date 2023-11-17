@@ -6,13 +6,13 @@ const CopyrightFooter = () => {
       <div className="auto-container">
         <div className="outer-box">
           <div className="copyright-text">
-            © {new Date().getFullYear()} Superio by{" "}
+            © {new Date().getFullYear()} Future Fit International By {" "}
             <a
-              href="https://themeforest.net/user/ib-themes"
+              href="https://zoomtechet.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              ib-themes
+              Zoom Tech Trading PLC
             </a>
             . All Right Reserved.
           </div>

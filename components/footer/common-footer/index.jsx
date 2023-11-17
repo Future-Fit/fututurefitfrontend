@@ -14,22 +14,23 @@ const index = ({ footerStyle = "" }) => {
                 <div className="logo">
                   <a href="#">
                     <Image
-                      width={154}
+                      width={50}
                       height={50}
-                      src="/images/logo.svg"
+                      src="/images/logo-no-background.png"
                       alt="brand"
                     />
                   </a>
                 </div>
                 <p className="phone-num">
                   <span>Call us </span>
-                  <a href="thebeehost@support.com">123 456 7890</a>
+                  <a href="+188xxxxxxxx">+188 xxx xxxx</a>
                 </p>
                 <p className="address">
-                  329 Queensberry Street, North Melbourne VIC
+                168 Charlotte Street, Suite 404, Ottawa
+                
                   <br /> 3051, Australia. <br />
-                  <a href="mailto:support@superio.com" className="email">
-                    support@superio.com
+                  <a href="mailto:info@futurefitinternational.com" className="email">
+                  info@futurefitinternational.com
                   </a>
                 </p>
               </div>
