@@ -33,7 +33,7 @@ const FormContent2 = () => {
           id="password-field"
           type="Password"
           name="password"
-          placeholder="COnfirm Password"
+          placeholder="Confirm Password"
         />
       </div>
 
