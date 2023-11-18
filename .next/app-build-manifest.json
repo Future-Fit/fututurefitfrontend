@@ -1,5 +1,10 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -11,110 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/(others)/about/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(others)/about/page.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
-    "/(job-list)/job-list-v6/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v6/page.js"
-    ],
-    "/(blog)/blog-list-v1/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(blog)/blog-list-v1/page.js"
-    ],
     "/employers-dashboard/post-jobs/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/employers-dashboard/post-jobs/page.js"
     ],
-    "/employers-dashboard/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/dashboard/page.js"
-    ],
-    "/employers-dashboard/company-profile/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/company-profile/page.js"
-    ],
-    "/employers-dashboard/manage-jobs/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/manage-jobs/page.js"
-    ],
-    "/employers-dashboard/all-applicants/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/all-applicants/page.js"
-    ],
-    "/employers-dashboard/shortlisted-resumes/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/shortlisted-resumes/page.js"
-    ],
-    "/employers-dashboard/packages/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/packages/page.js"
-    ],
     "/(others)/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(others)/login/page.js"
-    ],
-    "/(others)/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(others)/contact/page.js"
-    ],
-    "/(job-list)/job-list-v3/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v3/page.js"
-    ],
-    "/(job-list)/job-list-v4/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v4/page.js"
-    ],
-    "/(job-list)/job-list-v1/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v1/page.js"
-    ],
-    "/(job-list)/job-list-v2/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-list)/job-list-v2/page.js"
-    ],
-    "/(job-single)/job-single-v1/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-single)/job-single-v1/[id]/page.js"
-    ],
-    "/(job-single)/job-single-v3/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(job-single)/job-single-v3/[id]/page.js"
-    ],
-    "/(others)/register/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(others)/register/page.js"
-    ],
-    "/(blog)/blog-details/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(blog)/blog-details/[id]/page.js"
     ]
   }
 }

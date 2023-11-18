@@ -1,9 +1,7 @@
 {
   "/page": "app/page.js",
+  "/not-found": "app/not-found.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(others)/about/page": "app/(others)/about/page.js",
-  "/(others)/contact/page": "app/(others)/contact/page.js",
   "/employers-dashboard/post-jobs/page": "app/employers-dashboard/post-jobs/page.js",
-  "/(others)/login/page": "app/(others)/login/page.js",
-  "/(blog)/blog-details/[id]/page": "app/(blog)/blog-details/[id]/page.js"
+  "/(others)/login/page": "app/(others)/login/page.js"
 }
