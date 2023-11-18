@@ -1,4 +1,4 @@
-// File: /root/FutureFit/fututurefitfrontend/app/employers-dashboard/post-jobs/page.jsx
+// File: /Users/mac/Documents/FutureFit/fututurefitfrontend/app/employers-dashboard/post-jobs/page.jsx
 import * as entry from '../../../../../app/employers-dashboard/post-jobs/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

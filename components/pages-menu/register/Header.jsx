@@ -35,7 +35,7 @@ const Header = () => {
                   <Image
                     width={154}
                     height={50}
-                    src="/images/logo-2.png"
+                    src="/images/logo-no-background.png"
                     alt="logo"
                     title="brand"
                   />
@@ -44,7 +44,7 @@ const Header = () => {
                   <Image
                     width={154}
                     height={50}
-                    src="/images/logo.svg"
+                    src="/images/logo-no-background.png"
                     alt="logo"
                     title="brand"
                   />
@@ -57,12 +57,21 @@ const Header = () => {
           <div className="outer-box">
             {/* <!-- Login/Register --> */}
             <div className="btn-box">
-              <Link
-                href="/employers-dashboard/post-jobs"
+            <Link
+              href="#"
+              data-bs-toggle="modal"
+              // href="/employers-dashboard/post-jobs"
+              className="theme-btn btn-style-one"
+            >
+              <span className="btn-title">Job Post</span>
+            </Link>
+              {/* <Link
+                href="/login"
+                // href="/employers-dashboard/post-jobs"
                 className="theme-btn btn-style-one"
               >
                 <span className="btn-title">Job Post</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
           {/* End outer-box */}

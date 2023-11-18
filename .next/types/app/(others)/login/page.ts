@@ -1,4 +1,4 @@
-// File: /root/FutureFit/fututurefitfrontend/app/(others)/login/page.jsx
+// File: /Users/mac/Documents/FutureFit/fututurefitfrontend/app/(others)/login/page.jsx
 import * as entry from '../../../../../app/(others)/login/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
