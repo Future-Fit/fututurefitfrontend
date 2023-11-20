@@ -5,16 +5,57 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/not-found": [
+    "/candidates-dashboard/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/css/app/candidates-dashboard/dashboard/page.css",
+      "static/chunks/app/candidates-dashboard/dashboard/page.js"
+    ],
+    "/candidates-dashboard/my-profile/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/candidates-dashboard/my-profile/page.css",
+      "static/chunks/app/candidates-dashboard/my-profile/page.js"
+    ],
+    "/candidates-dashboard/job-alerts/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/candidates-dashboard/job-alerts/page.css",
+      "static/chunks/app/candidates-dashboard/job-alerts/page.js"
+    ],
+    "/candidates-dashboard/cv-manager/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/candidates-dashboard/cv-manager/page.css",
+      "static/chunks/app/candidates-dashboard/cv-manager/page.js"
+    ],
+    "/candidates-dashboard/packages/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/candidates-dashboard/packages/page.css",
+      "static/chunks/app/candidates-dashboard/packages/page.js"
+    ],
+    "/candidates-dashboard/messages/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/candidates-dashboard/messages/page.css",
+      "static/chunks/app/candidates-dashboard/messages/page.js"
+    ],
+    "/(others)/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(others)/login/page.js"
     ]
   }
 }

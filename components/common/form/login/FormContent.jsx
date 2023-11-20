@@ -2,7 +2,7 @@
 import Link from "next/link";
 import LoginWithSocial from "./LoginWithSocial";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const FormContent = () => {
 
@@ -11,11 +11,12 @@ const FormContent = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [redirectTo, setRedirectTo] = useState(null); // Define the redirectTo state
-
+const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     // Perform login API request here using username and password
+    console.log("datas are", username, password);
     try {
       const response = await fetch("http://190.92.151.79:8000/auth/login", {
         method: "POST",
@@ -23,8 +24,8 @@ const FormContent = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username,
-          password,
+          email: username,
+          password: password,
         }),
       });
       
@@ -37,11 +38,14 @@ const FormContent = () => {
 
         // Redirect based on user type
         if (user.user_type_id === 1) {
-          setRedirectTo("/candidates-dashboard/dashboard");
+          router.push('/candidates-dashboard/dashboard')
+          // setRedirectTo("/candidates-dashboard/dashboard");
         } else if (user.user_type_id === 2) {
-          setRedirectTo("/candidates-dashboard/dashboard");
+          router.push('/candidates-dashboard/dashboard')
+          // setRedirectTo("/candidates-dashboard/dashboard");
         }else if (user.user_type_id === 3) {
-          setRedirectTo("/employers-dashboard/dashboard");
+          router.push('/candidates-dashboard/dashboard')
+          // setRedirectTo("/employers-dashboard/dashboard");
         }
       } else {
         // Login failed, display error message
@@ -59,7 +63,7 @@ const FormContent = () => {
       <form method="post"  onSubmit={handleLogin}>
         <div className="form-group">
           <label>Username</label>
-          <input type="text" name="username" placeholder="Username" required />
+          <input type="text" name="username" placeholder="Username" required value={username}  onChange={(e)=>setUsername(e.target.value)}/>
         </div>
         {/* name */}
 
@@ -70,6 +74,7 @@ const FormContent = () => {
             name="password"
             placeholder="Password"
             required
+            value={password}  onChange={(e)=>setPassword(e.target.value)}
           />
         </div>
         {/* password */}

@@ -1,3 +1,9 @@
 {
-  "/page": "app/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/not-found": "app/not-found.js",
+  "/candidates-dashboard/packages/page": "app/candidates-dashboard/packages/page.js",
+  "/candidates-dashboard/messages/page": "app/candidates-dashboard/messages/page.js",
+  "/(others)/login/page": "app/(others)/login/page.js",
+  "/candidates-dashboard/dashboard/page": "app/candidates-dashboard/dashboard/page.js"
 }
