@@ -10,7 +10,7 @@ import FormContent2 from "./FormContent2";
 const Register = () => {
   return (
     <div className="form-inner">
-      <h3>Create a Free FFI Account</h3>
+      <h3>Create an Account</h3>
 
       <Tabs>
         <div className="form-group register-dual">
