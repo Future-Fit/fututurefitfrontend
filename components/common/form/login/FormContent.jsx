@@ -1,17 +1,17 @@
 "use client"
 import Link from "next/link";
 import LoginWithSocial from "./LoginWithSocial";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const FormContent = () => {
 
-  // const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [redirectTo, setRedirectTo] = useState(null); // Define the redirectTo state
-const router = useRouter();
+  
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,24 +28,23 @@ const router = useRouter();
           password: password,
         }),
       });
-      
+
       const data = await response.json();
       if (response.ok) {
         // Login successful
         const { accessToken, user } = data.data;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userType", user.user_type_id);
+        localStorage.setItem("loggedInUserId", user.id);
 
         // Redirect based on user type
         if (user.user_type_id === 1) {
           router.push('/candidates-dashboard/dashboard')
-          // setRedirectTo("/candidates-dashboard/dashboard");
-        } else if (user.user_type_id === 2) {
-          router.push('/candidates-dashboard/dashboard')
-          // setRedirectTo("/candidates-dashboard/dashboard");
-        }else if (user.user_type_id === 3) {
-          router.push('/candidates-dashboard/dashboard')
-          // setRedirectTo("/employers-dashboard/dashboard");
+        } else if (user.user_type_id === 3) {
+          router.push('/employers-dashboard/dashboard')
+        } else if (user.user_type_id === 4) {
+          router.push('/employers-dashboard/dashboard')
+
         }
       } else {
         // Login failed, display error message
@@ -60,10 +59,10 @@ const router = useRouter();
       <h3>Login to FFI</h3>
 
       {/* <!--Login Form--> */}
-      <form method="post"  onSubmit={handleLogin}>
+      <form method="post" onSubmit={handleLogin}>
         <div className="form-group">
           <label>Username</label>
-          <input type="text" name="username" placeholder="Username" required value={username}  onChange={(e)=>setUsername(e.target.value)}/>
+          <input type="text" name="username" placeholder="Username" required value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
         {/* name */}
 
@@ -74,7 +73,7 @@ const router = useRouter();
             name="password"
             placeholder="Password"
             required
-            value={password}  onChange={(e)=>setPassword(e.target.value)}
+            value={password} onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         {/* password */}
@@ -107,7 +106,7 @@ const router = useRouter();
       </form>
       {/* End form */}
 
-      {error && <div className="error-message" style={{color:'red', fontWeight:'bold'}}>{error}</div>}
+      {error && <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>{error}</div>}
 
       {redirectTo && (
         <Link href={redirectTo}>

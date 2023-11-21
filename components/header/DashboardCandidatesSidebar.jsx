@@ -9,6 +9,7 @@ import { isActiveLink } from "../../utils/linkActiveChecker";
 import { useDispatch, useSelector } from "react-redux";
 import { menuToggle } from "../../features/toggle/toggleSlice";
 import { usePathname } from "next/navigation";
+import { clearSession } from "../common/form/login/sessionHandler";
 
 const DashboardCandidatesSidebar = () => {
   const { menu } = useSelector((state) => state.toggle);
@@ -21,6 +22,10 @@ const DashboardCandidatesSidebar = () => {
     dispatch(menuToggle());
   };
 
+  const filteredData = candidatesuData.filter(
+    (item) => item.name !== "Change Password" && item.name !== "Logout"
+  );
+
   return (
     <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
       {/* Start sidebar close icon */}
@@ -32,8 +37,8 @@ const DashboardCandidatesSidebar = () => {
       {/* End sidebar close icon */}
 
       <div className="sidebar-inner">
-        <ul className="navigation">
-          {candidatesuData.map((item) => (
+      <ul className="navigation">
+          {filteredData.map((item) => (
             <li
               className={`${
                 isActiveLink(item.routePath, usePathname()) ? "active" : ""
@@ -47,30 +52,7 @@ const DashboardCandidatesSidebar = () => {
             </li>
           ))}
         </ul>
-        {/* End navigation */}
-
-        <div className="skills-percentage">
-          <h4>Skills Percentage</h4>
-          <p>
-            `Put value for <strong>Cover Image</strong> field to increase your
-            skill up to <strong>85%</strong>`
-          </p>
-          <div style={{ width: 200, height: 200, margin: "auto" }}>
-            <CircularProgressbar
-              background
-              backgroundPadding={6}
-              styles={buildStyles({
-                backgroundColor: "#7367F0",
-                textColor: "#fff",
-                pathColor: "#fff",
-                trailColor: "transparent",
-              })}
-              value={percentage}
-              text={`${percentage}%`}
-            />
-          </div>{" "}
-          {/* <!-- Pie Graph --> */}
-        </div>
+        
       </div>
     </div>
   );

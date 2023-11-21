@@ -7,7 +7,7 @@ import { isActiveLink } from "../../utils/linkActiveChecker";
 import { useDispatch, useSelector } from "react-redux";
 import { menuToggle } from "../../features/toggle/toggleSlice";
 import { usePathname } from "next/navigation";
-
+import { clearSession } from "../common/form/login/sessionHandler";
 const DashboardEmployerSidebar = () => {
 
     const { menu } = useSelector((state) => state.toggle);
@@ -17,6 +17,10 @@ const DashboardEmployerSidebar = () => {
     const menuToggleHandler = () => {
         dispatch(menuToggle());
     };
+
+    const filteredData = employerMenuData.filter(
+        (item) => item.name !== "Change Password" && item.name !== "Logout"
+    );
 
     return (
         <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
@@ -30,19 +34,15 @@ const DashboardEmployerSidebar = () => {
 
             <div className="sidebar-inner">
                 <ul className="navigation">
-                    {employerMenuData.map((item) => (
+                    {filteredData.map((item) => (
                         <li
-                            className={`${
-                                isActiveLink(item.routePath, usePathname())
-                                    ? "active"
-                                    : ""
-                            } mb-1`}
+                            className={`${isActiveLink(item.routePath, usePathname()) ? "active" : ""
+                                } mb-1`}
                             key={item.id}
                             onClick={menuToggleHandler}
                         >
                             <Link href={item.routePath}>
-                                <i className={`la ${item.icon}`}></i>{" "}
-                                {item.name}
+                                <i className={`la ${item.icon}`}></i> {item.name}
                             </Link>
                         </li>
                     ))}

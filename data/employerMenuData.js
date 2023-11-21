@@ -73,14 +73,22 @@ module.exports = [
     id: 11,
     name: "Logout",
     icon: "la-sign-out",
-    routePath: "/login",
-    active: "",
-  },
-  {
-    id: 12,
-    name: "Delete Profile",
-    icon: "la-trash",
     routePath: "/",
     active: "",
+    onClick: () => {
+      // Implement logout logic here
+      // For example, clear session and log the user out
+      clearSession(); // Your session clearing function
+      // Perform logout action (redirect to login page, etc.)
+      // For instance:
+      // window.location.href = "/login"; // Redirect to login page
+    },
   },
+  // {
+  //   id: 12,
+  //   name: "Delete Profile",
+  //   icon: "la-trash",
+  //   routePath: "/",
+  //   active: "",
+  // },
 ];

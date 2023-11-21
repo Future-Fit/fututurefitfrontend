@@ -7,12 +7,16 @@ import employerMenuData from "../../data/employerMenuData";
 import HeaderNavContent from "./HeaderNavContent";
 import { isActiveLink } from "../../utils/linkActiveChecker";
 import { usePathname } from "next/navigation";
+import { clearSession } from "../common/form/login/sessionHandler";
 
 
 const DashboardHeader = () => {
     const [navbar, setNavbar] = useState(false);
 
-
+    const handleLogout = () => {
+        clearSession(); // Clear the session
+        window.location.href = '/'; // Redirect to the login page
+    };
 
     const changeBackground = () => {
         if (window.scrollY >= 0) {
@@ -89,26 +93,19 @@ const DashboardHeader = () => {
                             </a>
 
                             <ul className="dropdown-menu">
-                                {employerMenuData.map((item) => (
-                                    <li
-                                        className={`${
-                                            isActiveLink(
-                                                item.routePath,
-                                                usePathname()
-                                            )
-                                                ? "active"
-                                                : ""
-                                        } mb-1`}
-                                        key={item.id}
-                                    >
-                                        <Link href={item.routePath}>
-                                            <i
-                                                className={`la ${item.icon}`}
-                                            ></i>{" "}
-                                            {item.name}
-                                        </Link>
-                                    </li>
-                                ))}
+                                {/* Change Password Option */}
+                                <li className={`${isActiveLink('/employers-dashboard/change-password', usePathname()) ? "active" : ""} mb-1`}>
+                                    <Link href="/employers-dashboard/change-password">
+                                        <i className="la la-lock"></i> Change Password
+                                    </Link>
+                                </li>
+
+                                {/* Logout Option */}
+                                <li className="mb-1">
+                                    <a href="#" onClick={handleLogout}>
+                                        <i className="la la-sign-out"></i> Logout
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         {/* End dropdown */}
