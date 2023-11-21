@@ -1,10 +1,9 @@
 {
   "pages": {
-    "/candidates-dashboard/change-password/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/candidates-dashboard/change-password/page.css",
-      "static/chunks/app/candidates-dashboard/change-password/page.js"
+      "static/chunks/app/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,78 +15,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
-    "/candidates-dashboard/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/candidates-dashboard/dashboard/page.css",
-      "static/chunks/app/candidates-dashboard/dashboard/page.js"
-    ],
-    "/employers-dashboard/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/dashboard/page.js"
-    ],
-    "/employers-dashboard/company-profile/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/company-profile/page.js"
-    ],
-    "/(others)/about/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(others)/about/page.js"
-    ],
-    "/employers-dashboard/post-jobs/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/post-jobs/page.js"
-    ],
-    "/employers-dashboard/manage-jobs/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/manage-jobs/page.js"
-    ],
-    "/employers-dashboard/all-applicants/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/all-applicants/page.js"
-    ],
-    "/employers-dashboard/shortlisted-resumes/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/shortlisted-resumes/page.js"
-    ],
-    "/employers-dashboard/packages/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/packages/page.js"
-    ],
-    "/employers-dashboard/messages/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/messages/page.js"
-    ],
-    "/employers-dashboard/resume-alerts/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/resume-alerts/page.js"
-    ],
-    "/employers-dashboard/change-password/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employers-dashboard/change-password/page.js"
-    ],
-    "/candidates-dashboard/my-profile/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/candidates-dashboard/my-profile/page.css",
-      "static/chunks/app/candidates-dashboard/my-profile/page.js"
     ]
   }
 }

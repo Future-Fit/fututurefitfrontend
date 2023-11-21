@@ -1,8 +1,4 @@
 {
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
-  "/candidates-dashboard/my-profile/page": "app/candidates-dashboard/my-profile/page.js",
-  "/employers-dashboard/dashboard/page": "app/employers-dashboard/dashboard/page.js",
-  "/candidates-dashboard/change-password/page": "app/candidates-dashboard/change-password/page.js",
-  "/candidates-dashboard/dashboard/page": "app/candidates-dashboard/dashboard/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
