@@ -3,9 +3,9 @@ import dynamic from "next/dynamic";
 import Invoice from "@/components/pages-menu/invoice";
 
 export const metadata = {
-  title: 'Invoice || Superio - Job Borad React NextJS Template',
+  title: 'Invoice || Future Fit International - Job Portal Platform',
   description:
-    'Superio - Job Borad React NextJS Template',
+    'Future Fit International - Job Portal Platform',
   
 }
 

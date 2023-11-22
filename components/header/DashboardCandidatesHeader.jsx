@@ -25,6 +25,11 @@ const DashboardCandidatesHeader = () => {
     };
 
     useEffect(() => {
+        window.addEventListener("scroll", changeBackground);
+    }, []);
+
+
+    useEffect(() => {
         const fetchUserData = async () => {
             const accessToken = localStorage.getItem("accessToken");
 

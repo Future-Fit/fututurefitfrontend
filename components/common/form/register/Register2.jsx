@@ -45,7 +45,7 @@ const Register2 = () => {
         <div className="text">
           Already have an account?{" "}
           <Link href="/login" className="call-modal login">
-            LogIn
+            Sign In
           </Link>
         </div>
         {/* <div className="divider">

@@ -2,8 +2,8 @@ import React from "react";
 import Home from "@/components/home-1";
 
 export const metadata = {
-  title: "Home-1 || Superio - Job Borad React NextJS Template",
-  description: "Superio - Job Borad React NextJS Template",
+  title: "Home | Future Fit International - Job Portal Platform",
+  description: "Future Fit International - Job Portal Platform",
 };
 
 const index = () => {

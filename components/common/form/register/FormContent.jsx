@@ -6,12 +6,12 @@ const FormContent = () => {
   const [selectedFile, setSelectedFile] = useState(null); // State to store the selected file
 
   const [formData, setFormData] = useState({
-    user_type_id: 4,
+    user_type_id: 3,
     fname: "",
     lname: "",
     phone: "",
-    gender: "M",
-    date_of_birth: "",
+    // gender: "",
+    // date_of_birth: "",
     email: "",
     password: ""
   });
@@ -47,7 +47,7 @@ const FormContent = () => {
       try {
         const { confirmPassword, ...dataToSend } = formData;
         const formDataToSend = new FormData();
-        formDataToSend.append('user_image', selectedFile); // Make sure this matches the backend
+        // formDataToSend.append('user_image', selectedFile); // Make sure this matches the backend
 
         Object.keys(dataToSend).forEach(key => {
           formDataToSend.append(key, dataToSend[key]);
@@ -67,8 +67,8 @@ const FormContent = () => {
             fname: "",
             lname: "",
             phone: "",
-            gender: "M",
-            date_of_birth: "",
+            // gender: "M",
+            // date_of_birth: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -116,46 +116,45 @@ const FormContent = () => {
     <form method="post" onSubmit={handleSubmit}>
 
       <div className="form-group">
-        <label>First Name</label>
+        <label>First Name *</label>
         <input type="text" name="fname" placeholder="First Name" required value={formData.fname}
           onChange={handleChange} />
       </div>
       <div className="form-group">
-        <label>Last Name</label>
+        <label>Last Name *</label>
         <input type="text" name="lname" placeholder="Last Name" required value={formData.lname}
           onChange={handleChange} />
       </div>
       <div className="form-group">
         <label>Phone Number</label>
-        <input type="text" name="phone" placeholder="Phone Number" required value={formData.phone}
+        <input type="text" name="phone" placeholder="Phone Number" value={formData.phone}
           onChange={handleChange} />
       </div>
 
-      <div className="form-group col-md-12">
+      {/* <div className="form-group col-md-12">
         <label>Gender</label>
-        {/* <select name="gender" value={formData.gender} */}
         <input type="text" name="gender" placeholder="Gender" required value={formData.gender}
           onChange={handleChange} />
-      </div>
+      </div> */}
 
-      <div className="form-group">
+      {/* <div className="form-group">
         <label>Date of Birth</label>
         <input type="text" name="date_of_birth"
           placeholder="1991/11/22"
           required
           value={formData.date_of_birth}
           onChange={handleChange} />
-      </div>
+      </div> */}
 
       <div className="form-group">
-        <label>Email Address</label>
+        <label>Email Address *</label>
         <input type="email" name="email" placeholder="Username" required
           value={formData.email}
           onChange={handleChange} />
       </div>
 
       <div className="form-group">
-        <label>Password</label>
+        <label>Password *</label>
         <input
           id="password-field"
           type="password"
@@ -169,7 +168,7 @@ const FormContent = () => {
       </div>
 
       <div className="form-group">
-        <label>Confirm Password</label>
+        <label>Confirm Password *</label>
         <input
           id="confirm-password-field"
           type="password"
@@ -182,7 +181,7 @@ const FormContent = () => {
         {passwordError && <span className="error-message">{passwordError}</span>}
       </div>
 
-      <div className="uploading-outer">
+      {/* <div className="uploading-outer">
         <div className="uploadButton">
           <input
             className="uploadButton-input"
@@ -207,12 +206,12 @@ const FormContent = () => {
           Max file size is 1MB, Minimum dimension: 330x300 And
           Suitable files are .jpg & .png
         </div>
-      </div>
+      </div> */}
 
 
       <div className="form-group">
         <button className="theme-btn btn-style-one" type="submit">
-          Register Now
+          Sign Up
         </button>
       </div>
       {registrationMessage && (

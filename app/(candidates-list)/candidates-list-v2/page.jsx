@@ -3,9 +3,9 @@ import dynamic from "next/dynamic";
 import CandidatesList from "@/components/candidates-listing-pages/candidates-list-v2";
 
 export const metadata = {
-  title: 'Candidates List V2 || Superio - Job Borad React NextJS Template',
+  title: 'Candidates List V2 || Future Fit International - Job Portal Platform',
   description:
-    'Superio - Job Borad React NextJS Template',
+    'Future Fit International - Job Portal Platform',
   
 }
 

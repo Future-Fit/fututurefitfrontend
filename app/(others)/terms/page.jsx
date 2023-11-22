@@ -3,9 +3,9 @@ import dynamic from "next/dynamic";
 import Terms from "@/components/pages-menu/terms";
 
 export const metadata = {
-  title: 'Terms || Superio - Job Borad React NextJS Template',
+  title: 'Terms || Future Fit International - Job Portal Platform',
   description:
-    'Superio - Job Borad React NextJS Template',
+    'Future Fit International - Job Portal Platform',
   
 }
 

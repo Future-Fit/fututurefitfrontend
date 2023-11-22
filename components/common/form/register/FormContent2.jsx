@@ -10,8 +10,8 @@ const FormContent2 = () => {
     fname: "",
     lname: "",
     phone: "",
-    gender: "M",
-    date_of_birth: "",
+    // gender: "M",
+    // date_of_birth: "",
     email: "",
     password: ""
   });
@@ -47,7 +47,7 @@ const FormContent2 = () => {
       try {
         const { confirmPassword, ...dataToSend } = formData;
         const formDataToSend = new FormData();
-        formDataToSend.append('user_image', selectedFile); // Make sure this matches the backend
+        // formDataToSend.append('user_image', selectedFile); // Make sure this matches the backend
 
         Object.keys(dataToSend).forEach(key => {
           formDataToSend.append(key, dataToSend[key]);
@@ -67,8 +67,8 @@ const FormContent2 = () => {
             fname: "",
             lname: "",
             phone: "",
-            gender: "M",
-            date_of_birth: "",
+            // gender: "M",
+            // date_of_birth: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -117,24 +117,23 @@ const FormContent2 = () => {
     <form method="post" onSubmit={handleSubmit}>
 
       <div className="form-group">
-        <label>First Name</label>
+        <label>Business Name</label>
         <input type="text" name="fname" placeholder="First Name" required value={formData.fname}
           onChange={handleChange} />
       </div>
-      <div className="form-group">
+      {/* <div className="form-group">
         <label>Last Name</label>
         <input type="text" name="lname" placeholder="Last Name" required value={formData.lname}
           onChange={handleChange} />
-      </div>
+      </div> */}
       <div className="form-group">
         <label>Phone Number</label>
         <input type="text" name="phone" placeholder="Phone Number" required value={formData.phone}
           onChange={handleChange} />
       </div>
 
-      <div className="form-group col-md-12">
+      {/* <div className="form-group col-md-12">
         <label>Gender</label>
-        {/* <select name="gender" value={formData.gender} */}
         <input type="text" name="gender" placeholder="Gender" required value={formData.gender}
           onChange={handleChange} />
 
@@ -147,7 +146,7 @@ const FormContent2 = () => {
           required
           value={formData.date_of_birth}
           onChange={handleChange} />
-      </div>
+      </div> */}
 
       <div className="form-group">
         <label>Email Address</label>
@@ -183,7 +182,7 @@ const FormContent2 = () => {
         />
         {passwordError && <span className="error-message">{passwordError}</span>}
       </div>
-
+{/* 
       <div className="uploading-outer">
         <div className="uploadButton">
           <input
@@ -209,12 +208,12 @@ const FormContent2 = () => {
           Max file size is 1MB, Minimum dimension: 330x300 And
           Suitable files are .jpg & .png
         </div>
-      </div>
+      </div> */}
 
 
       <div className="form-group">
         <button className="theme-btn btn-style-one" type="submit">
-          Register Now
+          Sign Up
         </button>
       </div>
       {registrationMessage && (

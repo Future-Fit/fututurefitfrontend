@@ -10,20 +10,20 @@ import FormContent2 from "./FormContent2";
 const Register = () => {
   return (
     <div className="form-inner">
-      <h3>Create an Account</h3>
+      <h3>Create Account</h3>
 
       <Tabs>
         <div className="form-group register-dual">
           <TabList className="btn-box row">
             <Tab className="col-lg-6 col-md-12">
               <button className="theme-btn btn-style-four">
-                <i className="la la-user"></i> Job Seeker
+                <i className="la la-user"></i> Job Seekers/Students
               </button>
             </Tab>
 
             <Tab className="col-lg-6 col-md-12">
               <button className="theme-btn btn-style-four">
-                <i className="la la-briefcase"></i> Employer
+                <i className="la la-briefcase"></i> Business/Universities 
               </button>
             </Tab>
           </TabList>
@@ -52,13 +52,13 @@ const Register = () => {
             data-bs-dismiss="modal"
             data-bs-target="#loginPopupModal"
           >
-            LogIn
+            Sign In
           </Link>
         </div>
-        <div className="divider">
+        {/* <div className="divider">
           <span>or</span>
         </div>
-        <LoginWithSocial />
+        <LoginWithSocial /> */}
       </div>
       {/* End bottom-box LoginWithSocial */}
     </div>

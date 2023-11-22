@@ -16,8 +16,8 @@ import ApplyJobModalContent from "@/components/job-single-pages/shared-component
 import Image from "next/image";
 
 export const metadata = {
-  title: "Job Single Dyanmic V4 || Superio - Job Borad React NextJS Template",
-  description: "Superio - Job Borad React NextJS Template",
+  title: "Job Single Dyanmic V4 || Future Fit International - Job Portal Platform",
+  description: "Future Fit International - Job Portal Platform",
 };
 
 const JobSingleDynamicV1 = ({ params }) => {

@@ -56,7 +56,7 @@ const FormContent = () => {
   };
   return (
     <div className="form-inner">
-      <h3>Login to FFI</h3>
+      <h3>Sign In to FFI</h3>
 
       {/* <!--Login Form--> */}
       <form method="post" onSubmit={handleLogin}>
@@ -99,7 +99,7 @@ const FormContent = () => {
             type="submit"
             name="log-in"
           >
-            Log In
+            Sign In
           </button>
         </div>
         {/* login */}
@@ -123,15 +123,15 @@ const FormContent = () => {
             data-bs-toggle="modal"
             data-bs-target="#registerModal"
           >
-            Signup
+            Sign Up
           </Link>
         </div>
 
-        <div className="divider">
+        {/* <div className="divider">
           <span>or</span>
         </div>
 
-        <LoginWithSocial />
+        <LoginWithSocial /> */}
       </div>
       {/* End bottom-box LoginWithSocial */}
     </div>

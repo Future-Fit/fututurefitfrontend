@@ -8,7 +8,7 @@ const LoginWithSocial = () => {
       </div> */}
       <div className="col-md-12">
         <a href="#" className="theme-btn social-btn-two google-btn">
-          <i className="fab fa-google"></i> SignIn in Google
+          <i className="fab fa-google"></i> Sign In in Google
         </a>
       </div>
     </div>

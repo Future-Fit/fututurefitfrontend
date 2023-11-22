@@ -7,7 +7,7 @@ const Seo = ({ pageTitle }) => (
     {/* <Head>
       <title>
         {pageTitle &&
-          `${pageTitle} || Superio - Job Borad React NextJS Template}`}
+          `${pageTitle} || Future Fit International - Job Portal Platform}`}
       </title>
       <meta
         name="viewport"

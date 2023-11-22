@@ -90,7 +90,7 @@ const DefaulHeader2 = () => {
                 data-bs-target="#loginPopupModal"
                 onClick={handleLoginRedirect}
               >
-                Login / Register
+                Sign In / Sign Up
               </a>
               <Link
                 // href="/employers-dashboard/post-jobs"
