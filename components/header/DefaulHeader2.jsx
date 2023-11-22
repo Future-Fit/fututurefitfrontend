@@ -46,7 +46,7 @@ const DefaulHeader2 = () => {
   };
 
   const headerStyle = {
-    backgroundColor: navbar ? '#B3E5FC' : 'rgba(0, 0, 0, 0.5)', 
+    backgroundColor: navbar ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.5)', 
     transition: 'background-color 0.3s ease',
   };
 
