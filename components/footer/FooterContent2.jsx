@@ -27,7 +27,7 @@ const FooterContent2 = () => {
     }
   ];
 
-  const footerMenu3 =[
+  const footerMenu3 = [
     {
       id: 1,
       list: [
@@ -43,7 +43,7 @@ const FooterContent2 = () => {
   ]
   return (
     <>
-      <div className="footer-column col-lg-3 col-md-6 col-sm-12">
+      <div className="footer-column col-lg-4 col-md-6 col-sm-12">
         <div className="footer-widget links-widget">
           <h4 className="widget-title">Find Jobs</h4>
           <div className="widget-content">
@@ -58,7 +58,7 @@ const FooterContent2 = () => {
         </div>
       </div>
 
-      <div className="footer-column col-lg-3 col-md-6 col-sm-12">
+      <div className="footer-column col-lg-4 col-md-6 col-sm-12">
         <div className="footer-widget links-widget">
           <h4 className="widget-title">Support</h4>
           <div className="widget-content d-flex">
@@ -75,10 +75,10 @@ const FooterContent2 = () => {
         </div>
       </div>
 
-      
+
       {/* End .footer-column */}
 
-      <div className="footer-column col-lg-3 col-md-12 col-sm-12">
+      <div className="footer-column col-lg-4 col-md-12 col-sm-12">
         <div className="footer-widget links-widget">
           <h4 className="widget-title">FAQ</h4>
           <div className="widget-content d-flex">
@@ -96,7 +96,7 @@ const FooterContent2 = () => {
       </div>
       {/* End .footer-column */}
 
-      <div className="footer-column col-lg-3 col-md-12 col-sm-12">
+      {/* <div className="footer-column col-lg-3 col-md-12 col-sm-12">
         <div className="footer-widget links-widget">
           <h4 className="widget-title">Help</h4>
           <div className="widget-content d-flex">
@@ -111,11 +111,7 @@ const FooterContent2 = () => {
             ))}
           </div>
         </div>
-      </div>
-
-      <div className="social-links" style={{justifyContent:"center"}}>
-            <Social />
-          </div>
+      </div> */}
       {/* End .footer-column */}
     </>
   );

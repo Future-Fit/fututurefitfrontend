@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CopyrightFooter from "../footer/common-footer/CopyrightFooter";
 import FooterContent2 from "../footer/FooterContent2";
+import Social from "../footer/common-footer/Social";
 
 const Footer = () => {
   return (
@@ -47,6 +48,10 @@ const Footer = () => {
             {/* End col-xl-8 */}
           </div>
         </div>
+      </div>
+
+      <div className="social-links" style={{ justifyContent: "center" }}>
+        <Social />
       </div>
       {/* End auto-container */}
 

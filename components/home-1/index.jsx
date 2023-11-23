@@ -42,10 +42,15 @@ const index = () => {
             <div className="text">Job for anyone, anywhere</div>
           </div>
           {/* End sec-title */}
-
           <div className="row" data-aos="fade-up">
             <Block1/>
           </div>
+          
+          <div className="btn-box text-center"> {/* Updated with 'text-center' class */}
+          <Link href="/service" className="theme-btn btn-style-one bg-blue">
+            <span className="btn-title" style={{ height: '25px' }}>Learn More</span>
+          </Link>
+        </div>
         </div>
       </section>
       {/* <!-- End Work Section --> */}
