@@ -3,8 +3,7 @@ import SearchForm from "./SearchForm";
 
 const FooterContent2 = () => {
   const footerMenu1 = [
-    // { id: 1, name: "US Jobs", routeLink: "/" },
-    { id: 2, name: "Canada Jobs", routeLink: "/" },
+    { id: 1, name: "Canada Jobs", routeLink: "/" },
     { id: 2, name: "Canada Student Visa", routeLink: "/" },
     { id: 3, name: "UK Jobs", routeLink: "/" },
     { id: 4, name: "Emplois en France", routeLink: "/" },
