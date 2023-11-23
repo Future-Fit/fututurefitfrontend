@@ -21,12 +21,12 @@ const DefaulHeader2 = () => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
-    return () => {
-      window.removeEventListener("scroll", changeBackground);
-    };
-  }, [navbar]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", changeBackground);
+  //   return () => {
+  //     window.removeEventListener("scroll", changeBackground);
+  //   };
+  // }, [navbar]);
 
   const handleLoginRedirect = (e) => {
     // Check for logged-in user on button click
@@ -46,8 +46,8 @@ const DefaulHeader2 = () => {
   };
 
   const headerStyle = {
-    backgroundColor: navbar ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.5)', 
-    transition: 'background-color 0.3s ease',
+    backgroundColor: navbar ? '#808080' : '#808080', 
+    // transition: 'background-color 0.3s ease',
   };
 
   return (
@@ -92,7 +92,7 @@ const DefaulHeader2 = () => {
               >
                 Sign In / Sign Up
               </a>
-              <Link
+              {/* <Link
                 // href="/employers-dashboard/post-jobs"
                 href="#"
                 // className="theme-btn btn-style-six call-modal"
@@ -102,7 +102,7 @@ const DefaulHeader2 = () => {
                 className="theme-btn btn-style-five"
               >
                 <span className="btn-title">Job Post</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

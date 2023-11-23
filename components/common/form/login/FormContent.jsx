@@ -57,6 +57,7 @@ const FormContent = () => {
   return (
     <div className="form-inner">
       <h3>Sign In to FFI</h3>
+      <h3 style={{fontSize:'15px', fontWeight:'lighter'}}>Description</h3>
 
       {/* <!--Login Form--> */}
       <form method="post" onSubmit={handleLogin}>
@@ -86,9 +87,9 @@ const FormContent = () => {
                 <span className="custom-checkbox"></span> Remember me
               </label>
             </div>
-            {/* <a href="#" className="pwd">
-              Forgot password?
-            </a> */}
+            <a href="#" className="pwd">
+              Forgot Username/Password?
+            </a>
           </div>
         </div>
         {/* forgot password */}
