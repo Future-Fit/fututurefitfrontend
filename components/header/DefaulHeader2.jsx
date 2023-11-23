@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import HeaderNavContent from "./HeaderNavContent";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+// import './dropdownremover'
 
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
@@ -18,8 +18,6 @@ const DefaulHeader2 = () => {
   const handleLanguageChange = (language) => {
     // Function to handle language change
     setSelectedLanguage(language);
-    // Implement logic to set the language in your application
-    // For this example, I'll just log the selected language
     console.log(`Selected Language: ${language}`);
   };
 
@@ -72,7 +70,7 @@ const DefaulHeader2 = () => {
   };
 
   const headerStyle = {
-    backgroundColor: navbar ? '#808080' : '#808080',
+    backgroundColor: navbar ? '#4682B4' : '#4682B4',
     // transition: 'background-color 0.3s ease',
   };
 
@@ -117,21 +115,62 @@ const DefaulHeader2 = () => {
               >
                 Sign In / Sign Up
               </a>
-              {/* <Link
-                // href="/employers-dashboard/post-jobs"
-                href="#"
-                // className="theme-btn btn-style-six call-modal"
-                data-bs-toggle="modal"
-                data-bs-target="#loginPopupModal"
-                // href="/login"
-                className="theme-btn btn-style-five"
-              >
-                <span className="btn-title">Job Post</span>
-              </Link> */}
-
-              {/* Language Dropdown */}
               <div className="dropdown">
+
                 <button
+                  className="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="languageDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style={{
+                    position: 'relative',
+                    backgroundColor: '#4682B4',
+                    borderColor: '#4682B4',
+                    backgroundImage: 'none',
+                    boxShadow: 'none',
+                    borderRadius: '5px',
+                    marginRight: '-100px'
+                  }}
+                >
+                  <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
+                </button>
+
+                {/* <button
+                  className="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="languageDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style={{
+                    paddingRight: '30px',
+                    position: 'relative',
+                    backgroundColor: '#4682B4',
+                    borderColor: '#4682B4',
+                    backgroundImage: 'none', // Remove background image (caret)
+                    boxShadow: 'none', // Remove the default box-shadow
+                    borderRadius: '5px', // Optionally add border-radius
+                  }}
+                >
+                  <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
+                  <span
+                    className="arrow-down"
+                    style={{
+                      display: 'none !important', // Hide default arrow
+                      position: 'absolute',
+                      right: '10px', // Adjust as needed
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      backgroundColor: '#4682B4',
+                      width: '0',
+                      height: '0',
+                      borderLeft: '4px solid transparent',
+                      borderRight: '4px solid transparent',
+                      borderTop: '4px solid #000', // Change color if needed
+                    }}
+                  ></span>
+                </button> */}
+                {/* <button
                   className="btn btn-secondary dropdown-toggle"
                   type="button"
                   id="languageDropdown"
@@ -139,8 +178,7 @@ const DefaulHeader2 = () => {
                   aria-expanded="false"
                 >
                   <i className="fas fa-globe"></i>
-                  {/* {selectedLanguage} */}
-                </button>
+                </button> */}
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                   <li>
                     <a

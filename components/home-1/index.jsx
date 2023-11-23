@@ -19,7 +19,7 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2/>
+      <DefaulHeader2 />
       {/* <Header /> */}
       {/* <!--End Main Header --> */}
 
@@ -33,7 +33,7 @@ const index = () => {
           <AppSection />
         </div>
       </section>
-      <CallToAction11/>
+      <CallToAction />
 
       <section className="work-section">
         <div className="auto-container">
@@ -43,14 +43,14 @@ const index = () => {
           </div>
           {/* End sec-title */}
           <div className="row" data-aos="fade-up">
-            <Block1/>
+            <Block1 />
           </div>
-          
-          <div className="btn-box text-center"> {/* Updated with 'text-center' class */}
-          <Link href="/service" className="theme-btn btn-style-one bg-blue">
-            <span className="btn-title" style={{ height: '25px' }}>Learn More</span>
-          </Link>
-        </div>
+
+          <div className="btn-box text-center" style={{ marginBottom: '20px', marginTop: '20px' }}> {/* Updated with 'text-center' class */}
+            <Link href="/service" className="theme-btn btn-style-one bg-blue">
+              <span className="btn-title" style={{ height: '25px' }}>Learn More</span>
+            </Link>
+          </div>
         </div>
       </section>
       {/* <!-- End Work Section --> */}
@@ -73,7 +73,7 @@ const index = () => {
               href="/job-list-v6"
               className="theme-btn btn-style-one bg-blue"
             >
-              <span className="btn-title" style={{height:'25px'}}>Load More Listing</span>
+              <span className="btn-title" style={{ height: '25px' }}>Load More Listing</span>
             </Link>
           </div>
         </div>
@@ -96,7 +96,7 @@ const index = () => {
       </section> */}
       {/* <!-- End Features Section --> */}
 
-      
+
       {/* <!-- End Call To Action --> */}
 
       {/* <section className="candidates-section">
@@ -130,7 +130,7 @@ const index = () => {
           </div>
         </div>
       </section> */}
-      
+
       {/* <!-- End News Section --> */}
 
       {/* <CallToAction10 /> */}

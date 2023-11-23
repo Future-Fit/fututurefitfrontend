@@ -43,7 +43,7 @@ const HeroSliderGallery = () => {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust alpha (last value) for transparency
+    backgroundColor: 'rgba(70, 130, 180, 0.5)', // Adjust alpha (last value) for transparency
   };
 
   return (

@@ -31,14 +31,18 @@ const AppSection = () => {
               partner in the pursuit of your aspirations.
             </div>
           </div>
-          <div className="mt-20">
+
+          <a href="/about" className="theme-btn btn-style-one bg-blue">
+                <span className="btn-title" style={{height:'25px'}}>Learn More</span>
+              </a>
+          {/* <div className="mt-20">
             <Link
               href="/about"
               className="theme-btn"
             >
               Learn More
             </Link>
-          </div>
+          </div> */}
           {/* <div className="download-btn">
             <a href="#">
               <Image

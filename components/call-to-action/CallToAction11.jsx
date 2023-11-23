@@ -25,15 +25,19 @@ const CallToAction11 = () => {
                     </ul>
 
                 </div>
-
-                <div className="mt-20">
+                <div className="btn-box text-center" style={{ marginBottom: '20px', marginTop: '20px' }}> {/* Updated with 'text-center' class */}
+            <Link href="/service" className="theme-btn btn-style-one bg-blue">
+              <span className="btn-title" style={{ height: '25px' }}>Learn More</span>
+            </Link>
+          </div>
+                {/* <div className="mt-20">
                   <Link
                     href="/job-list-v6"
                     className="theme-btn"
                   >
                    Get Started
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

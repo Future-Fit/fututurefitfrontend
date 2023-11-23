@@ -33,7 +33,7 @@ const Header = () => {
               <div className="logo">
                 <Link href="/" className="noSticky">
                   <Image
-                    width={154}
+                    width={50}
                     height={50}
                     src="/images/logo-no-background.png"
                     alt="logo"
@@ -42,7 +42,7 @@ const Header = () => {
                 </Link>
                 <Link href="/" className="isSticky">
                   <Image
-                    width={154}
+                    width={50}
                     height={50}
                     src="/images/logo-no-background.png"
                     alt="logo"

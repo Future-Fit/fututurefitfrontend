@@ -53,16 +53,16 @@ const SidebarFooter = () => {
       </div> */}
       <br />
 
-      <a href="#"
+      {/* <a href="#"
         data-bs-toggle="modal"
         data-bs-target="#loginPopupModal"
         onClick={handleLoginRedirect}
         className="theme-btn btn-style-one mm-listitem__text">
         Job Post
-      </a>
+      </a> */}
       {/* job post btn */}
 
-      <div className="mm-listitem__text">
+      {/* <div className="mm-listitem__text">
         <div className="contact-info">
           <span className="phone-num">
             <span>Contact Us</span>
@@ -80,7 +80,6 @@ const SidebarFooter = () => {
             info@futurefitinternational.com
           </a>
         </div>
-        {/* End .contact-info */}
 
         <div className="social-links">
           {socialContent.map((item) => (
@@ -94,8 +93,7 @@ const SidebarFooter = () => {
             </a>
           ))}
         </div>
-        {/* End social-links */}
-      </div>
+      </div> */}
       {/* End .mm-listitem__text */}
     </div>
   );
