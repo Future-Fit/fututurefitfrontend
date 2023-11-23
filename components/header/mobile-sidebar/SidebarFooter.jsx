@@ -37,24 +37,24 @@ const SidebarFooter = () => {
     <div className="mm-add-listing mm-listitem pro-footer">
       {/* <div className="outer-box">
         <div className="d-flex align-items-center btn-box2"> */}
-          <a
-            href="#"
-            className="theme-btn btn-style-one mm-listitem__text"
-            // className="theme-btn btn-style-six call-modal"
-            data-bs-toggle="modal"
+      <a
+        href="#"
+        className="theme-btn btn-style-one mm-listitem__text"
+        // className="theme-btn btn-style-six call-modal"
+        data-bs-toggle="modal"
 
-            data-bs-target="#loginPopupModal"
-            onClick={handleLoginRedirect}
-          >
-            Sign In / Sign Up
-          </a>
+        data-bs-target="#loginPopupModal"
+        onClick={handleLoginRedirect}
+      >
+        Sign In / Sign Up
+      </a>
 
-        {/* </div>
+      {/* </div>
       </div> */}
-      <br/>
+      <br />
 
-      <a href="#" 
-      data-bs-toggle="modal"
+      <a href="#"
+        data-bs-toggle="modal"
         data-bs-target="#loginPopupModal"
         onClick={handleLoginRedirect}
         className="theme-btn btn-style-one mm-listitem__text">
@@ -65,12 +65,16 @@ const SidebarFooter = () => {
       <div className="mm-listitem__text">
         <div className="contact-info">
           <span className="phone-num">
-            <span>Call us</span>
+            <span>Contact Us</span>
             <a href="tel:+1 88 xxx xxxx">+188 xxx xxxx</a>
           </span>
           <span className="address">
-            168 Charlotte Street, Suite 404, Ottawa <br />
+            168 Charlotte Street, Suite 404, Ottawa, ON <br />
             Canada.
+          </span>
+          <span className="address">
+            242 Building, Chirkos 04, Addis Ababa <br />
+            Ethiopia.
           </span>
           <a href="mailto:info@futurefitinternational.com " className="email">
             info@futurefitinternational.com

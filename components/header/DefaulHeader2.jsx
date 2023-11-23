@@ -11,6 +11,32 @@ import { useRouter } from "next/navigation";
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
   const [showModal, setShowModal] = useState(false); // State to manage modal visibility
+  const [selectedLanguage, setSelectedLanguage] = useState('English'); // State to manage selected language
+  const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
+
+
+  const handleLanguageChange = (language) => {
+    // Function to handle language change
+    setSelectedLanguage(language);
+    // Implement logic to set the language in your application
+    // For this example, I'll just log the selected language
+    console.log(`Selected Language: ${language}`);
+  };
+
+  const handleItemHover = () => {
+    // Set inline style for hovered item
+    setHoveredItemStyle({
+      backgroundColor: '#f0f0f0', // Change to your desired hover background color
+      // paddingRight: '15px', // Add padding for smooth transition
+      // borderRadius: '10px 5px 5px 10px', // Rounded corners on the right side
+    });
+  };
+
+  const handleItemLeave = () => {
+    // Clear inline style when mouse leaves the item
+    setHoveredItemStyle({});
+  };
+
 
   const router = useRouter();
 
@@ -46,15 +72,14 @@ const DefaulHeader2 = () => {
   };
 
   const headerStyle = {
-    backgroundColor: navbar ? '#808080' : '#808080', 
+    backgroundColor: navbar ? '#808080' : '#808080',
     // transition: 'background-color 0.3s ease',
   };
 
   return (
     <header
-      className={`main-header header-style-two ${
-        navbar ? "fixed-header animated slideInDown" : ""
-      }`}
+      className={`main-header header-style-two ${navbar ? "fixed-header animated slideInDown" : ""
+        }`}
       style={headerStyle} // Apply the inline style here
     >
       <div className="auto-container">
@@ -103,6 +128,56 @@ const DefaulHeader2 = () => {
               >
                 <span className="btn-title">Job Post</span>
               </Link> */}
+
+              {/* Language Dropdown */}
+              <div className="dropdown">
+                <button
+                  className="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="languageDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i className="fas fa-globe"></i>
+                  {/* {selectedLanguage} */}
+                </button>
+                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onMouseEnter={handleItemHover}
+                      onMouseLeave={handleItemLeave}
+                      onClick={() => handleLanguageChange('English')}
+                    >
+                      English
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onMouseEnter={handleItemHover}
+                      onMouseLeave={handleItemLeave}
+                      onClick={() => handleLanguageChange('Amharic')}
+                    >
+                      Amharic
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onMouseEnter={handleItemHover}
+                      onMouseLeave={handleItemLeave}
+                      onClick={() => handleLanguageChange('French')}
+                    >
+                      French
+                    </a>
+                  </li>
+                  {/* Add more languages as needed */}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

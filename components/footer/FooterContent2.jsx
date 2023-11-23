@@ -1,7 +1,9 @@
 import Link from "next/link";
 import SearchForm from "./SearchForm";
+import Social from "./common-footer/Social";
 
 const FooterContent2 = () => {
+
   const footerMenu1 = [
     { id: 1, name: "Canada Jobs", routeLink: "/" },
     { id: 2, name: "Canada Student Visa", routeLink: "/" },
@@ -22,9 +24,12 @@ const FooterContent2 = () => {
         { name: "Lending Licnses", routeLink: "/" },
         { name: "Disclaimers", routeLink: "/" },
       ],
-    },
+    }
+  ];
+
+  const footerMenu3 =[
     {
-      id: 2,
+      id: 1,
       list: [
         { name: "Support", routeLink: "/" },
         { name: "How It Works", routeLink: "/" },
@@ -35,7 +40,7 @@ const FooterContent2 = () => {
         { name: "Contact Us", routeLink: "/" },
       ],
     },
-  ];
+  ]
   return (
     <>
       <div className="footer-column col-lg-3 col-md-6 col-sm-12">
@@ -52,11 +57,30 @@ const FooterContent2 = () => {
           </div>
         </div>
       </div>
+
+      <div className="footer-column col-lg-3 col-md-6 col-sm-12">
+        <div className="footer-widget links-widget">
+          <h4 className="widget-title">Support</h4>
+          <div className="widget-content d-flex">
+            {footerMenu3.map((item) => (
+              <ul className="list" key={item.id}>
+                {item.list.map((menu, i) => (
+                  <li key={i}>
+                    <Link href={menu.routeLink}>{menu.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      
       {/* End .footer-column */}
 
-      <div className="footer-column col-lg-5 col-md-6 col-sm-12">
+      <div className="footer-column col-lg-3 col-md-12 col-sm-12">
         <div className="footer-widget links-widget">
-          <h4 className="widget-title">Frequently Asked Questions</h4>
+          <h4 className="widget-title">FAQ</h4>
           <div className="widget-content d-flex">
             {footerMenu2.map((item) => (
               <ul className="list" key={item.id}>
@@ -72,17 +96,26 @@ const FooterContent2 = () => {
       </div>
       {/* End .footer-column */}
 
-      <div className="footer-column col-lg-4 col-md-12 col-sm-12">
-        <div className="footer-widget">
-          <h4 className="widget-title">Subscribe for News Letter</h4>
-          <div className="widget-content">
-            <div className="newsletter-form">
-              <div className="text">Don’t worry, We don’t send any spam.</div>
-              <SearchForm />
-            </div>
+      <div className="footer-column col-lg-3 col-md-12 col-sm-12">
+        <div className="footer-widget links-widget">
+          <h4 className="widget-title">Help</h4>
+          <div className="widget-content d-flex">
+            {footerMenu2.map((item) => (
+              <ul className="list" key={item.id}>
+                {item.list.map((menu, i) => (
+                  <li key={i}>
+                    <Link href={menu.routeLink}>{menu.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
           </div>
         </div>
       </div>
+
+      <div className="social-links" style={{justifyContent:"center"}}>
+            <Social />
+          </div>
       {/* End .footer-column */}
     </>
   );

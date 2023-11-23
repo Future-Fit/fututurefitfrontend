@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Block1 = () => {
   const blockContent = [
@@ -7,18 +8,24 @@ const Block1 = () => {
       icon: "/images/resource/work-1.png",
       title: "Skilled Labour",
       text: `Unlock Your Potential, Discover Your Future, Are you a skilled worker seeking exciting career prospects in Canada? We specialize in matching your expertise with employers that recognize and value your talents in the Canadian job market.`,
+      link: "/skilled-labour", // Replace with the appropriate link for Skilled Labour
+
     },
     {
       id: 2,
       icon: "/images/resource/work-2.png",
       title: "Employers and Business Owners",
-      text: `Expand your horizons and connect with talented professionals from around the world. We foster international business relationships, helping you tap into diverse markets, skillsets, and expertise, all while contributing to Canada’s economic growth. We help you find the right talent for your company. `,
+      text: `Expand your horizons and connect with talented professionals from around the world. We foster international business relationships, helping you tap into diverse markets, skillsets, and expertise, all while contributing to Canada’s... `,
+      link: "/employers-business-owners", // Replace with the appropriate link for Employers and Business Owners
+
     },
     {
       id: 3,
       icon: "/images/resource/work-3.png",
       title: "International Students",
-      text: `Dreaming of studying in Canada? Join the thousands of international students who have made Canada their second home. Discover world-class education, a multicultural environment, and boundless opportunities for personal and educational growth. `,
+      text: `Dreaming of studying in Canada? Join the thousands of international students who have made Canada their second home. Discover world-class education, a multicultural environment, and boundless opportunities for personal and ... `,
+      link: "/international-students", // Replace with the appropriate link for International Students
+
     },
   ];
   return (
@@ -36,6 +43,12 @@ const Block1 = () => {
             </figure>
             <h5>{item.title}</h5>
             <p style={{textAlign:"justify"}}>{item.text}</p>
+            <div className="mt-20">
+              {/* Link to the respective page for each block */}
+              <Link href={item.link} className="theme-btn">
+                Learn More
+              </Link>
+            </div>
           </div>
         </div>
       ))}

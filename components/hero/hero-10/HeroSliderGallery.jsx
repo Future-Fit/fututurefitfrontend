@@ -1,5 +1,4 @@
 
-
 'use client'
 
 import Slider from "react-slick";
@@ -38,6 +37,15 @@ const HeroSliderGallery = () => {
     );
   }
 
+  const overlayStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust alpha (last value) for transparency
+  };
+
   return (
     <div className="banner-carousel arrow-center-between arrow-rounded hide-arrow-1024">
       <Slider
@@ -46,8 +54,14 @@ const HeroSliderGallery = () => {
         nextArrow={<Arrow type="next" />}
         prevArrow={<Arrow type="prev" />}
       >
-        <div className="slide-item bg-image image-1"></div>
-        <div className="slide-item bg-image image-2"></div>
+        <div className="slide-item bg-image image-1">
+        <div style={overlayStyle}></div>
+
+        </div>
+        <div className="slide-item bg-image image-2">
+        <div style={overlayStyle}></div>
+
+        </div>
       </Slider>
     </div>
   );

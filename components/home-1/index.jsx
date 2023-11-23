@@ -68,7 +68,7 @@ const index = () => {
               href="/job-list-v6"
               className="theme-btn btn-style-one bg-blue"
             >
-              <span className="btn-title">Load More Listing</span>
+              <span className="btn-title" style={{height:'25px'}}>Load More Listing</span>
             </Link>
           </div>
         </div>

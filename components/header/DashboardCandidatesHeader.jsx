@@ -24,9 +24,9 @@ const DashboardCandidatesHeader = () => {
         }
     };
 
-    useEffect(() => {
-        window.addEventListener("scroll", changeBackground);
-    }, []);
+    // useEffect(() => {
+    //     window.addEventListener("scroll", changeBackground);
+    // }, []);
 
 
     useEffect(() => {

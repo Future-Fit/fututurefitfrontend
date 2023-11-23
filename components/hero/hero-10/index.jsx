@@ -27,7 +27,7 @@ const index = () => {
           {/* <!-- Job Search Form --> */}
 
           <div className="top-features">
-            <div className="row" data-aos-delay="900" data-aos="fade-up">
+            <div className="row" data-aos-delay="700" data-aos="fade-up">
               <JobCategorie4 />
             </div>
           </div>

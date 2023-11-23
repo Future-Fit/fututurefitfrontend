@@ -47,7 +47,7 @@ Main Footer
 
 .main-footer .logo {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 .main-footer .logo img {
@@ -74,7 +74,7 @@ Main Footer
 
 .main-footer .address {
   font-size: 14px;
-  line-height: 30px;
+  line-height: 20px;
   color: #696969;
   font-weight: 400;
 }
@@ -193,7 +193,7 @@ Main Footer
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;

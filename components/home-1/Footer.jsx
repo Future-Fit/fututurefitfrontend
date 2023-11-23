@@ -9,7 +9,7 @@ const Footer = () => {
         {/* <!--Widgets Section--> */}
         <div className="widgets-section" data-aos="fade-up">
           <div className="row">
-            <div className="big-column col-xl-4 col-lg-3 col-md-12">
+            <div className="big-column col-xl-3 col-lg-3 col-md-12">
               <div className="footer-column about-widget">
                 <div className="logo">
                   <a href="#">
@@ -22,16 +22,19 @@ const Footer = () => {
                   </a>
                 </div>
                 <p className="phone-num">
-                  <span>Call us </span>
+                  <span>Contact Us</span>
                   <a href="thebeehost@support.com">+188 xxx xxxx</a>
                 </p>
                 <p className="address">
-                  168 Charlotte Street, Suite 404, Ottawa
+                  168 Charlotte Street, Suite 404, Ottawa, ON
                   <br /> Canada. <br />
+                  </p>
+                  <p className="address">
+                  242 Building, Chirkos 04, Addis Ababa
+                  <br /> Ethiopia. <br /> </p>
                   <a href="mailto:info@futurefitinternational.com " className="email">
                     info@futurefitinternational.com
                   </a>
-                </p>
               </div>
             </div>
             {/* End footer left widget */}

@@ -15,26 +15,26 @@ export default function ScrollToTop() {
     });
   };
 
-  useEffect(() => {
-    // Button is displayed after scrolling for 500 pixels
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 500) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+  // useEffect(() => {
+  //   // Button is displayed after scrolling for 500 pixels
+  //   const toggleVisibility = () => {
+  //     if (window.pageYOffset > 500) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", toggleVisibility);
+  //   window.addEventListener("scroll", toggleVisibility);
 
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+  //   return () => window.removeEventListener("scroll", toggleVisibility);
+  // }, []);
 
   return (
     <>
       {isVisible && (
         <>
-          <div className="scroll-to-top scroll-to-target" onClick={scrollToTop}>
+          <div className="scroll-to-top scroll-to-target">
             <span className="fa fa-angle-up"></span>
           </div>
         </>

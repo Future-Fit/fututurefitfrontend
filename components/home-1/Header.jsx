@@ -16,9 +16,9 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", changeBackground);
+  // }, []);
 
   return (
     // <!-- Main Header-->
