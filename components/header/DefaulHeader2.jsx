@@ -71,6 +71,7 @@ const DefaulHeader2 = () => {
 
   const headerStyle = {
     backgroundColor: navbar ? '#4682B4' : '#4682B4',
+    boxShadow: navbar ? '0 3px 5px rgba(0, 0, 0, 0.5)' : 'none',
     // transition: 'background-color 0.3s ease',
   };
 
@@ -135,50 +136,6 @@ const DefaulHeader2 = () => {
                 >
                   <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
                 </button>
-
-                {/* <button
-                  className="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="languageDropdown"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  style={{
-                    paddingRight: '30px',
-                    position: 'relative',
-                    backgroundColor: '#4682B4',
-                    borderColor: '#4682B4',
-                    backgroundImage: 'none', // Remove background image (caret)
-                    boxShadow: 'none', // Remove the default box-shadow
-                    borderRadius: '5px', // Optionally add border-radius
-                  }}
-                >
-                  <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
-                  <span
-                    className="arrow-down"
-                    style={{
-                      display: 'none !important', // Hide default arrow
-                      position: 'absolute',
-                      right: '10px', // Adjust as needed
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      backgroundColor: '#4682B4',
-                      width: '0',
-                      height: '0',
-                      borderLeft: '4px solid transparent',
-                      borderRight: '4px solid transparent',
-                      borderTop: '4px solid #000', // Change color if needed
-                    }}
-                  ></span>
-                </button> */}
-                {/* <button
-                  className="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="languageDropdown"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i className="fas fa-globe"></i>
-                </button> */}
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                   <li>
                     <a

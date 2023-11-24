@@ -7,6 +7,27 @@ import { useRouter } from "next/navigation";
 
 const SidebarFooter = () => {
   const [showModal, setShowModal] = useState(false); // State to manage modal visibility
+  const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
+
+  const handleLanguageChange = (language) => {
+    // Function to handle language change
+    setSelectedLanguage(language);
+    console.log(`Selected Language: ${language}`);
+  };
+
+  const handleItemHover = () => {
+    // Set inline style for hovered item
+    setHoveredItemStyle({
+      backgroundColor: '#f0f0f0', // Change to your desired hover background color
+      // paddingRight: '15px', // Add padding for smooth transition
+      // borderRadius: '10px 5px 5px 10px', // Rounded corners on the right side
+    });
+  };
+
+  const handleItemLeave = () => {
+    // Clear inline style when mouse leaves the item
+    setHoveredItemStyle({});
+  };
 
   const router = useRouter();
 
@@ -37,7 +58,7 @@ const SidebarFooter = () => {
     <div className="mm-add-listing mm-listitem pro-footer">
       {/* <div className="outer-box">
         <div className="d-flex align-items-center btn-box2"> */}
-      <a
+      {/* <a
         href="#"
         className="theme-btn btn-style-one mm-listitem__text"
         // className="theme-btn btn-style-six call-modal"
@@ -47,54 +68,9 @@ const SidebarFooter = () => {
         onClick={handleLoginRedirect}
       >
         Sign In / Sign Up
-      </a>
-
-      {/* </div>
-      </div> */}
-      <br />
-
-      {/* <a href="#"
-        data-bs-toggle="modal"
-        data-bs-target="#loginPopupModal"
-        onClick={handleLoginRedirect}
-        className="theme-btn btn-style-one mm-listitem__text">
-        Job Post
       </a> */}
-      {/* job post btn */}
 
-      {/* <div className="mm-listitem__text">
-        <div className="contact-info">
-          <span className="phone-num">
-            <span>Contact Us</span>
-            <a href="tel:+1 88 xxx xxxx">+188 xxx xxxx</a>
-          </span>
-          <span className="address">
-            168 Charlotte Street, Suite 404, Ottawa, ON <br />
-            Canada.
-          </span>
-          <span className="address">
-            242 Building, Chirkos 04, Addis Ababa <br />
-            Ethiopia.
-          </span>
-          <a href="mailto:info@futurefitinternational.com " className="email">
-            info@futurefitinternational.com
-          </a>
-        </div>
-
-        <div className="social-links">
-          {socialContent.map((item) => (
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={item.id}
-            >
-              <i className={`fab ${item.icon}`}></i>
-            </a>
-          ))}
-        </div>
-      </div> */}
-      {/* End .mm-listitem__text */}
+      
     </div>
   );
 };

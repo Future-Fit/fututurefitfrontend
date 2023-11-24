@@ -1,22 +1,10 @@
 import LoginPopup from "../../common/form/login/LoginPopup";
-import Partner from "../../common/partner/Partner";
-import FooterDefault from "../../footer/common-footer";
-import DefaulHeader from "../../header/DefaulHeader";
 import MobileMenu from "../../header/MobileMenu";
-import Funfact from "../../fun-fact-counter/Funfact";
-import ImgBox from "./ImgBox";
-import IntroDescriptions from "./IntroDescriptions";
-import CallToAction2 from "../../call-to-action/CallToAction2";
 import Testimonial2 from "../../testimonial/Testimonial2";
-import Block1 from "../../block/Block1";
-import Breadcrumb from "../../common/Breadcrumb";
-import Image from "next/image";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
-// /Users/mac/Documents/FutureFit/fututurefitfrontend/components/home-1/Footer.jsx
 import Footer from "../../../components/home-1/Footer";
-import CallToAction12 from "@/components/call-to-action/CallToAction12";
-import CallToAction11 from "@/components/call-to-action/CallToAction11";
 import AppSectionAbout from "@/components/app-section/AppSectionAbout";
+import CallToAction from "@/components/call-to-action/CallToAction";
 
 const index = () => {
   return (
@@ -34,7 +22,7 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <Breadcrumb title="Who We are" meta="About Us" />
+      {/* <Breadcrumb title="Who We are" meta="About Us" /> */}
       {/* <!--End Page Title--> */}
 
       <section className="app-section">
@@ -45,24 +33,24 @@ const index = () => {
 
       {/* <CallToAction12/> */}
 
-      <section className="about-section-three">
-        <div className="auto-container">
+      {/* <section className="about-section-three">
+        <div className="auto-container"> */}
           {/* <ImgBox /> */}
 
-          <div className="fun-fact-section">
+          {/* <div className="fun-fact-section">
             <div className="row">
               <Funfact />
             </div>
-          </div>
+          </div> */}
 
           {/* <IntroDescriptions /> */}
-        </div>
-      </section>
+        {/* </div>
+      </section> */}
       {/* <!-- End About Section Three --> */}
 
-      <CallToAction2 />
+      {/* <CallToAction2 /> */}
 
-      <CallToAction11/>
+      <CallToAction/>
       
       {/* <!-- End CallToAction2 --> */}
 

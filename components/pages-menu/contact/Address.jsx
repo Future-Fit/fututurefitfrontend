@@ -8,8 +8,14 @@ const Address = () => {
       title: "Address",
       text: (
         <>
-          168 Charlotte Street, Suite 404, Ottawa
-          <br /> Canada.
+          168 Charlotte Street, Suite 404, Ottawa,ON
+          <br /> K1N 8K6.
+        </>
+      ),
+      text1: (
+        <>
+          242 Building, Chirkos 04, Addis Ababa <br />
+          Ethiopia.
         </>
       ),
     },
@@ -19,8 +25,15 @@ const Address = () => {
       title: "Call Us",
       text: (
         <>
-          <a href="tel:+1-888-xxx-xxxx" className="phone">
-          +1-888-xxx-xxxx
+          <a href="tel:+1-800-422-8061" className="phone">
+            +1-800-422-8061
+          </a>
+        </>
+      ),
+      text1: (
+        <>
+          <a href="tel:+251933859295" className="phone">
+          +251933859295
           </a>
         </>
       ),
@@ -55,6 +68,7 @@ const Address = () => {
             </span>
             <h4>{item.title}</h4>
             <p>{item.text}</p>
+            <p>{item.text1}</p>
           </div>
         </div>
       ))}

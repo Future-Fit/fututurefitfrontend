@@ -55,13 +55,13 @@ const HeroSliderGallery = () => {
         prevArrow={<Arrow type="prev" />}
       >
         <div className="slide-item bg-image image-1">
-        <div style={overlayStyle}></div>
+          <div style={overlayStyle}></div>
 
         </div>
-        <div className="slide-item bg-image image-2">
-        <div style={overlayStyle}></div>
+        {/* <div className="slide-item bg-image image-2">
+          <div style={overlayStyle}></div>
 
-        </div>
+        </div> */}
       </Slider>
     </div>
   );

@@ -3,9 +3,13 @@ import CopyrightFooter from "../footer/common-footer/CopyrightFooter";
 import FooterContent2 from "../footer/FooterContent2";
 import Social from "../footer/common-footer/Social";
 
+const footerStyle = {
+  boxShadow: '0 -2px 4px rgba(0, 0, 0, 0.5)', // Add boxShadow property for the footer
+};
+
 const Footer = () => {
   return (
-    <footer className="main-footer style-two">
+    <footer className="main-footer style-two" style={footerStyle}>
       <div className="auto-container">
         {/* <!--Widgets Section--> */}
         <div className="widgets-section" data-aos="fade-up">
@@ -24,11 +28,11 @@ const Footer = () => {
                 </div>
                 <p className="phone-num">
                   <span>Contact Us</span>
-                  <a href="thebeehost@support.com">+188 xxx xxxx</a>
+                  <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
                 </p>
                 <p className="address">
                   168 Charlotte Street, Suite 404, Ottawa, ON
-                  <br /> Canada. <br />
+                  <br /> K1N 8K6. <br />
                   </p>
                   <p className="address">
                   242 Building, Chirkos 04, Addis Ababa
