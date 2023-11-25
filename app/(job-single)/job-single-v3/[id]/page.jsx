@@ -225,7 +225,7 @@ const JobSingleDynamicV3 = ({ params }) => {
         {/* <!-- job-detail-outer--> */}
       </section>
       {/* <!-- End Job Detail Section --> */}
-      <Footer/>
+      <FooterDefault/>
       {/* <FooterDefault footerStyle="alternate5" /> */}
       {/* <!-- End Main Footer --> */}
     </>

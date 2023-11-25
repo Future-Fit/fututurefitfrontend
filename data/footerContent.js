@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: 1,
-    title: "For Candidates",
+    title: "Find Jobs",
     menuList: [
       { name: "Browse Jobs", route: "/job-list-v11" },
       { name: "Browse Categories", route: "/job-list-v3" },
@@ -15,7 +15,7 @@ module.exports = [
   },
   {
     id: 2,
-    title: "For Employers",
+    title: "Support",
     menuList: [
       {
         name: "Browse Candidates",
@@ -28,7 +28,7 @@ module.exports = [
   },
   {
     id: 3,
-    title: "About Us",
+    title: "FAQ",
     menuList: [
       { name: "About Us", route: "/about" },
       { name: "Job Page Invoice", route: "/invoice" },
@@ -39,7 +39,7 @@ module.exports = [
   },
   {
     id: 4,
-    title: "Helpful Resources",
+    title: "Help",
     menuList: [
       { name: "Site Map", route: "/" },
       { name: "Terms of Use", route: "/terms" },

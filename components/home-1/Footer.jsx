@@ -3,11 +3,13 @@ import CopyrightFooter from "../footer/common-footer/CopyrightFooter";
 import FooterContent2 from "../footer/FooterContent2";
 import Social from "../footer/common-footer/Social";
 
-const footerStyle = {
-  boxShadow: '0 -2px 4px rgba(0, 0, 0, 0.5)', // Add boxShadow property for the footer
-};
 
-const Footer = () => {
+
+const Footer =  () => {
+
+  const footerStyle = {
+    boxShadow: '0 -3px 6px rgba(0, 0, 0, 0.5)', // Updated boxShadow property for the footer
+  };
   return (
     <footer className="main-footer style-two" style={footerStyle}>
       <div className="auto-container">
@@ -19,7 +21,7 @@ const Footer = () => {
                 <div className="logo">
                   <a href="#">
                     <Image
-                      width={50}
+                      width={150}
                       height={50}
                       src="/images/logo-no-background.png"
                       alt="brand"

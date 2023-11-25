@@ -8,7 +8,7 @@ Main Footer
 
 .main-footer {
   position: relative;
-  background-color: #ffffff;
+  background-color: #4682B4;
 }
 
 .main-footer.alternate {
@@ -23,8 +23,8 @@ Main Footer
 
 .main-footer .widgets-section {
   position: relative;
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 0px;  
 }
 
 .main-footer .footer-column {
@@ -40,7 +40,7 @@ Main Footer
   position: relative;
   font-size: 18px;
   font-weight: 500;
-  color: #2f2d51;
+  color: #fff;
   line-height: 1.4em;
   margin-bottom: 30px;
 }
@@ -66,21 +66,22 @@ Main Footer
 .main-footer .phone-num span {
   position: relative;
   display: block;
+  color: #fff;
 }
 
 .main-footer .phone-num a {
-  color: var(--primary-color);
+  color: #fff;
 }
 
 .main-footer .address {
   font-size: 14px;
   line-height: 20px;
-  color: #696969;
+  color: #fff;
   font-weight: 400;
 }
 
 .main-footer .address a {
-  color: #696969;
+  color: #fff;
 }
 
 /*=== Cities Widget ===*/
@@ -100,13 +101,13 @@ Main Footer
   font-size: 14px;
   line-height: 10px;
   font-weight: 200;
-  color: #696969;
+  color: #fff;
   margin-bottom: 15px;
 }
 
 .main-footer .list li a {
   display: inline-block;
-  color: #696969;
+  color: #fff;
   -webkit-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
@@ -168,13 +169,13 @@ Main Footer
   font-size: 10px;
   line-height: 24px;
   font-weight: 400;
-  color: #696969;
+  color: #fff;
   padding: 0;
 }
 
 .main-footer .copyright-text a {
   display: inline-block;
-  color: #696969;
+  color: #fff;
   line-height: 30px;
   -webkit-transition: all 300ms ease;
   -o-transition: all 300ms ease;

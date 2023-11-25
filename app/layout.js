@@ -16,7 +16,7 @@ if (typeof window !== "undefined") {
 export default function RootLayout({ children }) {
   useEffect(() => {
     Aos.init({
-      duration: 1400,
+      duration: 800,
       once: true,
     });
   }, []);

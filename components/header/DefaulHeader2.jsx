@@ -71,7 +71,7 @@ const DefaulHeader2 = () => {
 
   const headerStyle = {
     backgroundColor: navbar ? '#4682B4' : '#4682B4',
-    boxShadow: navbar ? '0 3px 5px rgba(0, 0, 0, 0.5)' : 'none',
+    boxShadow: navbar ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
     // transition: 'background-color 0.3s ease',
   };
 
@@ -90,7 +90,7 @@ const DefaulHeader2 = () => {
               <div className="logo">
                 <Link href="/">
                   <Image
-                    width={50}
+                    width={150}
                     height={50}
                     src="/images/logo-no-background.png"
                     alt="Future Fit Logo"

@@ -131,6 +131,7 @@
   box-shadow: 0px 6px 15px rgb(64 79 104 / 5%) !important;
   @media (max-width: 1266px) {
     display: block;
+    color: #fff;
   }
 
   .login-box .icon-user {
@@ -141,6 +142,7 @@
     background-image: url(../../images/icons/user.svg);
     background-repeat: no-repeat;
     background-position: center;
+    color: #fff;
   }
 }
 .offcanvas {
@@ -185,7 +187,7 @@
     .mobile-nav-toggler {
       font-size: 25px;
       font-size: 25px;
-      color: #222;
+      color: #fff;
       margin-left: 20px;
     }
   }
@@ -201,6 +203,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 15px;
+  background-color: #4682B4;
 
   .fix-icon {
     font-size: 28px;

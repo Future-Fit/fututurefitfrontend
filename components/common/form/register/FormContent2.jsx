@@ -10,8 +10,6 @@ const FormContent2 = () => {
     fname: "",
     lname: "",
     phone: "",
-    // gender: "M",
-    // date_of_birth: "",
     email: "",
     password: ""
   });
@@ -67,8 +65,6 @@ const FormContent2 = () => {
             fname: "",
             lname: "",
             phone: "",
-            // gender: "M",
-            // date_of_birth: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -117,46 +113,29 @@ const FormContent2 = () => {
     <form method="post" onSubmit={handleSubmit}>
 
       <div className="form-group">
-        <label>Business Name</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Business Name</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
         <input type="text" name="fname" placeholder="First Name" required value={formData.fname}
           onChange={handleChange} />
       </div>
-      {/* <div className="form-group">
-        <label>Last Name</label>
-        <input type="text" name="lname" placeholder="Last Name" required value={formData.lname}
-          onChange={handleChange} />
-      </div> */}
+
       <div className="form-group">
         <label>Phone Number</label>
         <input type="text" name="phone" placeholder="Phone Number" required value={formData.phone}
           onChange={handleChange} />
       </div>
 
-      {/* <div className="form-group col-md-12">
-        <label>Gender</label>
-        <input type="text" name="gender" placeholder="Gender" required value={formData.gender}
-          onChange={handleChange} />
-
-      </div>
-
       <div className="form-group">
-        <label>Date of Birth</label>
-        <input type="text" name="date_of_birth"
-          placeholder="1991/11/22"
-          required
-          value={formData.date_of_birth}
-          onChange={handleChange} />
-      </div> */}
-
-      <div className="form-group">
-        <label>Email Address</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Email Address</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
         <input type="email" name="email" placeholder="Username" required
           value={formData.email}
           onChange={handleChange} />
       </div>
 
       <div className="form-group">
-        <label>Password</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Password</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
         <input
           id="password-field"
           type="password"
@@ -170,7 +149,8 @@ const FormContent2 = () => {
       </div>
 
       <div className="form-group">
-        <label>Confirm Password</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Confirm Password</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
         <input
           id="confirm-password-field"
           type="password"
@@ -182,35 +162,6 @@ const FormContent2 = () => {
         />
         {passwordError && <span className="error-message">{passwordError}</span>}
       </div>
-{/* 
-      <div className="uploading-outer">
-        <div className="uploadButton">
-          <input
-            className="uploadButton-input"
-            type="file"
-            name="user_image" // Updated to match the backend field name
-            accept="image/*"
-            id="upload"
-            required
-            onChange={handleFileChange}
-          />
-          <label className="uploadButton-button ripple-effect" htmlFor="upload">
-            Upload Logo
-          </label>
-          <span className="uploadButton-file-name"></span>
-        </div>
-        {logoImg && (
-          <div className="image-preview">
-            <img src={logoImg} alt="Preview" />
-          </div>
-        )}
-        <div className="text">
-          Max file size is 1MB, Minimum dimension: 330x300 And
-          Suitable files are .jpg & .png
-        </div>
-      </div> */}
-
-
       <div className="form-group">
         <button className="theme-btn btn-style-one" type="submit">
           Sign Up

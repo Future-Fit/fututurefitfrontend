@@ -29,11 +29,5 @@ module.exports = [
     routePath: "/contact",
 
   },
-  
-  // {
-  //   id: 4,
-  //   label: "Login",
-  //   routePath: "/login",
-   
-  // },
+
 ];

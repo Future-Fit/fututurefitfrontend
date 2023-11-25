@@ -2,11 +2,13 @@ import Link from "next/link";
 import MobileSidebar from "./mobile-sidebar";
 import Image from "next/image";
 
+
 const MobileMenu = () => {
+
   return (
     // <!-- Main Header-->
     <header className="main-header main-header-mobile">
-      <div className="auto-container">
+      <div className="auto-container" style={{boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'}}>
         {/* <!-- Main box --> */}
         <div className="inner-box">
           <div className="nav-outer">
@@ -14,10 +16,10 @@ const MobileMenu = () => {
               <div className="logo">
                 <Link href="/">
                   <Image
-                    width={50}
+                    width={150}
                     height={50}
                     src="/images/logo-no-background.png"
-                    alt="brand"
+                    alt="FFI"
                   />
                 </Link>
               </div>

@@ -116,12 +116,17 @@ const FormContent = () => {
     <form method="post" onSubmit={handleSubmit}>
 
       <div className="form-group">
-        <label>First Name *</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>First Name</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+
+        {/* <label>First Name *</label> */}
         <input type="text" name="fname" placeholder="First Name" required value={formData.fname}
           onChange={handleChange} />
       </div>
       <div className="form-group">
-        <label>Last Name *</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Last Name</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+
         <input type="text" name="lname" placeholder="Last Name" required value={formData.lname}
           onChange={handleChange} />
       </div>
@@ -147,14 +152,17 @@ const FormContent = () => {
       </div> */}
 
       <div className="form-group">
-        <label>Email Address *</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Email Address</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+
         <input type="email" name="email" placeholder="Username" required
           value={formData.email}
           onChange={handleChange} />
       </div>
 
       <div className="form-group">
-        <label>Password *</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Password</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
         <input
           id="password-field"
           type="password"
@@ -168,7 +176,8 @@ const FormContent = () => {
       </div>
 
       <div className="form-group">
-        <label>Confirm Password *</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Confirm Password</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
         <input
           id="confirm-password-field"
           type="password"

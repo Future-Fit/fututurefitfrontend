@@ -8,7 +8,7 @@ export const homeItems = [
       },
       {
         name: "Home Page 02",
-        routePath: "/home-2",
+        routePath: "/service",
       },
       {
         name: "Home Page 03",
@@ -305,6 +305,10 @@ export const pageItems = [
   {
     name: "About",
     routePath: "/about",
+  },
+  {
+    name: "Service",
+    routePath: "/service",
   },
   {
     name: "Pricing",

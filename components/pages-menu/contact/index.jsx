@@ -50,7 +50,7 @@ const index = () => {
         </div>
       </section>
       {/* <!-- Contact Section --> */}
-      <Footer/>
+      <FooterDefault/>
       {/* <FooterDefault footerStyle="alternate5" /> */}
       {/* <!-- End Main Footer --> */}
     </>

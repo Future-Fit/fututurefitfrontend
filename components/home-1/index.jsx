@@ -12,6 +12,8 @@ import Link from "next/link";
 import CallToAction11 from "../call-to-action/CallToAction11";
 import CallToAction from "../call-to-action/CallToAction";
 import AppSection from "../app-section/AppSection";
+import FooterDefault from "../footer/common-footer";
+
 
 const index = () => {
   return (
@@ -58,8 +60,8 @@ const index = () => {
       <section className="job-section-two">
         <div className="auto-container">
           <div className="sec-title text-center">
-            <h2>Featured Jobs</h2>
-            <div className="text">
+            <h2 style={{color: '#fff'}}>Featured Jobs</h2>
+            <div  style={{color: '#fff'}} className="text">
               Know your worth and find the job that qualify your life
             </div>
           </div>
@@ -136,7 +138,7 @@ const index = () => {
       {/* <CallToAction10 /> */}
       {/* <!-- End Call To Action --> */}
 
-      <Footer />
+      <FooterDefault />
       {/* <!-- End Main Footer --> */}
     </>
   );
