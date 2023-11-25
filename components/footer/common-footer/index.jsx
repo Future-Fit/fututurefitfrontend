@@ -27,8 +27,10 @@ const index = () => {
                   </a>
                 </div>
                 <p className="phone-num">
-                  <span>Contact Us Now</span>
-                  <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
+                  <span>Contact Us</span>
+                  <a href="tel: +1-800-422-8061">+1-800-422-8061</a> <br/>
+                  <a href="tel: +251933859295">+251933859295</a>
+
                 </p>
                 <p className="address">
                   168 Charlotte Street, Suite 404, Ottawa, ON
