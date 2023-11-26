@@ -16,19 +16,38 @@ import {
   isActiveParentChaild,
 } from "../../../utils/linkActiveChecker";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 
 const Index = () => {
   const router = useRouter()
+  const sidebarRef = useRef(null);
+  const [sidebarHeight, setSidebarHeight] = useState('100vh'); // Initial height
+  const [selectedLanguage, setSelectedLanguage] = useState('English'); // State to manage selected language
+
+
+  useEffect(() => {
+    const calculateSidebarHeight = () => {
+      if (sidebarRef.current) {
+        const menuItemsHeight = sidebarRef.current.scrollHeight;
+        setSidebarHeight(`${menuItemsHeight}px`);
+      }
+    };
+
+    // Recalculate height when the component mounts or content changes
+    calculateSidebarHeight();
+    window.addEventListener("resize", calculateSidebarHeight);
+    return () => {
+      window.removeEventListener("resize", calculateSidebarHeight);
+    };
+  }, [router.asPath]);
 
   const sidebarContainerStyle = {
     display: 'flex',
-    flexDirection: 'column', // Set the direction to column
-    height: '100vh', // Set the height of the sidebar to cover the full viewport height
-    width: '200px', // Define your sidebar width
+    flexDirection: 'column',
+    height: sidebarHeight, // Set sidebar height dynamically
+    width: '200px',
     background: '#f2f2f2',
-    // Add any other necessary styles
   };
 
   return (
@@ -40,7 +59,7 @@ const Index = () => {
     >
       <SidebarHeader />
       {/* End pro-header */}
-      <Sidebar >
+      <Sidebar ref={sidebarRef}>
         <Menu>
           {mobileMenuData.map((menuItem, i) => (
             <MenuItem

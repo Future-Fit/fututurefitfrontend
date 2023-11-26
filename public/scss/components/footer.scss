@@ -134,7 +134,8 @@ Main Footer
   -webkit-transform: translateX(25px);
   -ms-transform: translateX(25px);
   transform: translateX(25px);
-  color: var(--primary-color);
+  color: #6720af;
+  // color: var(--primary-color);
 }
 
 /*=== Social Widget ===*/
@@ -144,7 +145,7 @@ Main Footer
   width: 100%;
   padding: 0px 0;
   text-align: center;
-  border-top: 1px solid #ecedf2;
+  border-top: 1px solid #58585c;
   min-height: 10px;
 }
 
@@ -184,7 +185,7 @@ Main Footer
 
 .main-footer .copyright-text a:hover {
   text-decoration: underline;
-  color: var(--primary-color);
+  color: #6720af;
 }
 
 .main-footer .footer-bottom .outer-box {
