@@ -150,8 +150,9 @@
 }
 .mobile_menu-contnet {
   &.offcanvas {
-    min-height: 100vh;
+    min-height: fit-content;
     overflow-y: auto;
+    border-radius: 20px;
 
     .ps-sidebar-root {
       width: 100%;

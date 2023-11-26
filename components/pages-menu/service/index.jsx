@@ -2,10 +2,10 @@ import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import Testimonial2 from "../../testimonial/Testimonial2";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
-import Footer from "../../../components/home-1/Footer";
-import AppSectionAbout from "@/components/app-section/AppSectionAbout";
 import CallToAction from "@/components/call-to-action/CallToAction";
 import FooterDefault from "../../../components/footer/common-footer";
+import AppSection4 from "@/components/app-section/AppSection4";
+import AppSectionAbout from "@/components/app-section/AppSectionAbout";
 
 
 const index = () => {
