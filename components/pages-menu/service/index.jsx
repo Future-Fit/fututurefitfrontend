@@ -6,6 +6,7 @@ import CallToAction from "@/components/call-to-action/CallToAction";
 import FooterDefault from "../../../components/footer/common-footer";
 import AppSection4 from "@/components/app-section/AppSection4";
 import AppSectionAbout from "@/components/app-section/AppSectionAbout";
+import Testimonial from "@/components/testimonial/Testimonial";
 
 
 const index = () => {
@@ -29,7 +30,7 @@ const index = () => {
 
       <section className="app-section">
         <div className="auto-container">
-          <AppSectionAbout />
+          {/* <AppSectionAbout /> */}
         </div>
       </section>
 
@@ -52,7 +53,7 @@ const index = () => {
 
       {/* <CallToAction2 /> */}
 
-      <CallToAction/>
+      {/* <CallToAction/> */}
       
       {/* <!-- End CallToAction2 --> */}
 
@@ -68,27 +69,27 @@ const index = () => {
           </div>
           {/* End left img group */}
 
-          <div className="testimonial-right">
+          {/* <div className="testimonial-right"> */}
             {/* <Image
               width={504}
               height={451}
               src="/images/resource/testimonial-right.png"
               alt="testimonial"
             /> */}
-          </div>
+          {/* </div> */}
           {/* End right img group */}
 
           <div className="sec-title text-center">
-            <h2>Testimonials From Our Customers</h2>
-            <div className="text">
+            <h2>Services We Offer</h2>
+            {/* <div className="text">
               Future Fit International
-            </div>
+            </div> */}
           </div>
           {/* <!-- Sec Title --> */}
 
           <div className="carousel-outer" data-aos="fade-up">
             <div className="testimonial-carousel">
-              <Testimonial2 />
+              <Testimonial />
             </div>
             {/* <!-- Testimonial Carousel --> */}
           </div>

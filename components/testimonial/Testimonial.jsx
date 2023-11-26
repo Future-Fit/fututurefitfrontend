@@ -24,7 +24,7 @@ const Testimonial = () => {
             <div className="inner-box">
               <h4 className="title">{item.feedback}</h4>
               <div className="text">{item.feedbackText}</div>
-              <div className="info-box">
+              {/* <div className="info-box">
                 <div className="thumb">
                   <Image
                     width={50}
@@ -36,7 +36,7 @@ const Testimonial = () => {
                 </div>
                 <h4 className="name">{item.name}</h4>
                 <span className="designation">{item.designation}</span>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}
