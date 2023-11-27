@@ -71,7 +71,7 @@ const HeaderNavContent = () => {
               Service
             </a>
             <ul className="dropdown-menu" aria-labelledby="serviceDropdown">
-              <li><Link href="/service/job-seekers">Job Seekers</Link></li>
+              <li><Link href="/job-list-v6">Job Seekers</Link></li>
               <li><Link href="/service/businesses">Businesses</Link></li>
               <li><Link href="/service/students">Students</Link></li>
               <li><Link href="/service/universities-colleges">Universities/Colleges</Link></li>
@@ -252,10 +252,10 @@ const HeaderNavContent = () => {
             </ul>
           </li> */}
           {/* End Candidates menu items */}
-          <li
+          {/* <li
             className={`${isActiveParent("/job-list-v6", usePathname()) ? "current" : ""
               }`}
-          >
+          > */}
             {/* <span>Home</span>
             <div className="mega-menu">
               <div className="mega-menu-bar row pt-0">
@@ -275,7 +275,7 @@ const HeaderNavContent = () => {
                           
                           key={i}
                         > */}
-            <Link href="/job-list-v6">Jobs</Link>
+            {/* <Link href="/job-list-v6">Jobs</Link> */}
             {/* <Link href={menu.routePath}>{menu.name}</Link> */}
             {/* </li>
                       ))}
@@ -284,7 +284,7 @@ const HeaderNavContent = () => {
                 ))}
               </div>
             </div> */}
-          </li>
+          {/* </li> */}
 
           <li
             className={`${isActiveParent("/blog-list-v1", usePathname()) ? "current" : ""
