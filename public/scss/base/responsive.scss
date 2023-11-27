@@ -182,7 +182,7 @@
 
 		.main-box {
 			padding: 0 15px;
-			background-color: #4682B4;
+			background-color: var(--primary-color);
 		}
 	}
 
@@ -747,7 +747,7 @@
 	}
 
 	.main-header {
-		background: #4682B4;
+		background: var(--primary-color);
 
 		.logo img {
 			max-width: none;
@@ -1230,7 +1230,7 @@
 
 	.main-header {
 		box-shadow: none;
-		background-color: #4682B4;
+		background-color: var(--primary-color);
 	}
 
 	.aplicants-upper-bar .aplicantion-status li {

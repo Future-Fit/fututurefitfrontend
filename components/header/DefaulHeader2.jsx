@@ -12,22 +12,22 @@ const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
   const [showModal, setShowModal] = useState(false); // State to manage modal visibility
   const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
-
-  const [selectedLanguage, setSelectedLanguage] = useState(
-    localStorage.getItem('selectedLanguage') || 'EN'
-  );
+  const defaultLanguage = 'EN';
+  const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
-    localStorage.setItem('selectedLanguage', language); // Save selected language to localStorage
+    localStorage.setItem('selectedLanguage', language);
     console.log(`Selected Language: ${language}`);
   };
 
+
   useEffect(() => {
-    // Set the selected language from localStorage on page load
-    const storedLanguage = localStorage.getItem('selectedLanguage');
-    if (storedLanguage) {
-      setSelectedLanguage(storedLanguage);
+    if (typeof window !== 'undefined') {
+      const storedLanguage = localStorage.getItem('selectedLanguage');
+      if (storedLanguage) {
+        setSelectedLanguage(storedLanguage);
+      }
     }
   }, []);
 
@@ -47,9 +47,7 @@ const DefaulHeader2 = () => {
   const handleItemHover = () => {
     // Set inline style for hovered item
     setHoveredItemStyle({
-      backgroundColor: '#f0f0f0', // Change to your desired hover background color
-      // paddingRight: '15px', // Add padding for smooth transition
-      // borderRadius: '10px 5px 5px 10px', // Rounded corners on the right side
+      backgroundColor: '#f0f0f0',
     });
   };
 
@@ -93,7 +91,7 @@ const DefaulHeader2 = () => {
   };
 
   const headerStyle = {
-    backgroundColor: navbar ? '#4682B4' : '#4682B4',
+    backgroundColor: navbar ? '#3B578E' : '#3B578E',
     boxShadow: navbar ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
   };
 
@@ -148,8 +146,8 @@ const DefaulHeader2 = () => {
                   aria-expanded="false"
                   style={{
                     position: 'relative',
-                    backgroundColor: '#4682B4',
-                    borderColor: '#4682B4',
+                    backgroundColor: '#3B578E',
+                    borderColor: '#3B578E',
                     backgroundImage: 'none',
                     boxShadow: 'none',
                     borderRadius: '5px',

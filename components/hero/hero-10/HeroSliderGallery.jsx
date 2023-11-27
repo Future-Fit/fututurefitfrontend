@@ -13,7 +13,6 @@ const HeroSliderGallery = () => {
     fade: true,
   };
 
-  // custom navigation
   function Arrow(props) {
     let className =
       props.type === "next"
@@ -43,7 +42,7 @@ const HeroSliderGallery = () => {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(70, 130, 180, 0.5)', // Adjust alpha (last value) for transparency
+    backgroundColor: 'rgba(59, 78, 120, 0.7)',
   };
 
   return (
@@ -56,12 +55,20 @@ const HeroSliderGallery = () => {
       >
         <div className="slide-item bg-image image-1">
           <div style={overlayStyle}></div>
-
         </div>
-        {/* <div className="slide-item bg-image image-2">
+        <div className="slide-item bg-image image-2">
           <div style={overlayStyle}></div>
+        </div>
+        <div className="slide-item bg-image image-3">
+          <div style={overlayStyle}></div>
+        </div>
+        <div className="slide-item bg-image image-4">
+          <div style={overlayStyle}></div>
+        </div>
+        <div className="slide-item bg-image image-5">
+          <div style={overlayStyle}></div>
+        </div>
 
-        </div> */}
       </Slider>
     </div>
   );

@@ -8,30 +8,28 @@ import { useEffect, useState } from "react";
 
 const MobileMenu = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
-  // const [selectedLanguage, setSelectedLanguage] = useState('EN'); // State to manage selected language
+  const [hoveredItemStyle, setHoveredItemStyle] = useState({});
+  const defaultLanguage = 'EN';
+  const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
 
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const [selectedLanguage, setSelectedLanguage] = useState(
-    localStorage.getItem('selectedLanguage') || 'EN'
-  );
-
   useEffect(() => {
-    // Set the selected language from localStorage on page load
-    const storedLanguage = localStorage.getItem('selectedLanguage');
-    if (storedLanguage) {
-      setSelectedLanguage(storedLanguage);
+    if (typeof window !== 'undefined') {
+      const storedLanguage = localStorage.getItem('selectedLanguage');
+      if (storedLanguage) {
+        setSelectedLanguage(storedLanguage);
+      }
     }
   }, []);
 
   const handleLanguageChange = (language) => {
-    // Function to handle language change
     setSelectedLanguage(language);
-    localStorage.setItem('selectedLanguage', language); // Save selected language to localStorage
-
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedLanguage', language);
+    }
     console.log(`Selected Language: ${language}`);
   };
 
@@ -109,8 +107,8 @@ const MobileMenu = () => {
                 aria-expanded="false"
                 style={{
                   position: 'relative',
-                  backgroundColor: '#4682B4',
-                  borderColor: '#4682B4',
+                  backgroundColor: '#3B578E',
+                  borderColor: '#3B578E',
                   backgroundImage: 'none',
                   boxShadow: 'none',
                   borderRadius: '5px',
