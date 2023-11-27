@@ -19,7 +19,7 @@ const index = () => {
               <div className="logo">
                   <a href="#">
                     <Image
-                      width={150}
+                      width={50}
                       height={50}
                       src="/images/logo-no-background.png"
                       alt="brand"

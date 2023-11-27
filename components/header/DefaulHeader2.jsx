@@ -11,15 +11,38 @@ import { useRouter } from "next/navigation";
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
   const [showModal, setShowModal] = useState(false); // State to manage modal visibility
-  const [selectedLanguage, setSelectedLanguage] = useState('English'); // State to manage selected language
   const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
 
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem('selectedLanguage') || 'EN'
+  );
 
   const handleLanguageChange = (language) => {
-    // Function to handle language change
     setSelectedLanguage(language);
+    localStorage.setItem('selectedLanguage', language); // Save selected language to localStorage
     console.log(`Selected Language: ${language}`);
   };
+
+  useEffect(() => {
+    // Set the selected language from localStorage on page load
+    const storedLanguage = localStorage.getItem('selectedLanguage');
+    if (storedLanguage) {
+      setSelectedLanguage(storedLanguage);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 10;
+      setNavbar(scrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleItemHover = () => {
     // Set inline style for hovered item
@@ -72,7 +95,6 @@ const DefaulHeader2 = () => {
   const headerStyle = {
     backgroundColor: navbar ? '#4682B4' : '#4682B4',
     boxShadow: navbar ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
-    // transition: 'background-color 0.3s ease',
   };
 
   return (
@@ -90,7 +112,7 @@ const DefaulHeader2 = () => {
               <div className="logo">
                 <Link href="/">
                   <Image
-                    width={150}
+                    width={50}
                     height={50}
                     src="/images/logo-no-background.png"
                     alt="Future Fit Logo"
@@ -135,6 +157,7 @@ const DefaulHeader2 = () => {
                   }}
                 >
                   <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
+                  {selectedLanguage}
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                   <li>
@@ -143,9 +166,21 @@ const DefaulHeader2 = () => {
                       href="#"
                       onMouseEnter={handleItemHover}
                       onMouseLeave={handleItemLeave}
-                      onClick={() => handleLanguageChange('English')}
+                      onClick={() => handleLanguageChange('EN')}
                     >
-                      English
+                      EN
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onMouseEnter={handleItemHover}
+                      onMouseLeave={handleItemLeave}
+                      onClick={() => handleLanguageChange('FR')}
+                    >
+                      FR
                     </a>
                   </li>
                   <li>
@@ -154,20 +189,9 @@ const DefaulHeader2 = () => {
                       href="#"
                       onMouseEnter={handleItemHover}
                       onMouseLeave={handleItemLeave}
-                      onClick={() => handleLanguageChange('Amharic')}
+                      onClick={() => handleLanguageChange('AM')}
                     >
-                      Amharic
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onMouseEnter={handleItemHover}
-                      onMouseLeave={handleItemLeave}
-                      onClick={() => handleLanguageChange('French')}
-                    >
-                      French
+                      AM
                     </a>
                   </li>
                   {/* Add more languages as needed */}

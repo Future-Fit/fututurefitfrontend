@@ -61,18 +61,46 @@ const Index = () => {
       {/* End pro-header */}
       <Sidebar ref={sidebarRef}>
         <Menu>
-          {mobileMenuData.map((menuItem, i) => (
-            <MenuItem
-              onClick={() => router.push(menuItem.routePath)}
-              className={
-                router.asPath === menuItem.routePath
-                  ? "menu-active-link"
-                  : ""
-              }
-              key={i}
-            >
-              {menuItem.label}
-            </MenuItem>
+          {mobileMenuData.map((item) => (
+            // Check if the item has sub-items
+            (item.items && item.items.length > 0) ? (
+              <SubMenu
+                className={
+                  isActiveParentChaild(item.items, usePathname())
+                    ? "menu-active"
+                    : ""
+                }
+                label={item.label}
+                key={item.id}
+              >
+                {item.items.map((menuItem, i) => (
+                  <MenuItem
+                    onClick={() => router.push(menuItem.routePath)}
+                    className={
+                      isActiveLink(menuItem.routePath, usePathname())
+                        ? "menu-active-link"
+                        : ""
+                    }
+                    key={i}
+                  >
+                    {menuItem.name}
+                  </MenuItem>
+                ))}
+              </SubMenu>
+            ) : (
+              // Render regular MenuItem for items without sub-items
+              <MenuItem
+                onClick={() => router.push(item.routePath)}
+                className={
+                  isActiveLink(item.routePath, usePathname())
+                    ? "menu-active-link"
+                    : ""
+                }
+                key={item.id}
+              >
+                {item.label}
+              </MenuItem>
+            )
           ))}
         </Menu>
       </Sidebar>
@@ -82,41 +110,3 @@ const Index = () => {
 };
 
 export default Index;
-
-
-
-  // return (
-  //   <div>
-  //     {/* Menu icon to open the sidebar */}
-  //     <button onClick={toggleSidebar}>
-  //       <span className="menu-icon">☰</span> {/* Replace with your menu icon */}
-  //     </button>
-
-  //     <div style={isOpen ? openStyle : closedStyle}>
-  //       <SidebarHeader />
-
-  //       <Sidebar>
-  //         <Menu>
-  //           {mobileMenuData.map((menuItem, i) => (
-  //             <MenuItem
-  //               onClick={() => {
-  //                 router.push(menuItem.routePath);
-  //                 toggleSidebar();
-  //               }}
-  //               className={
-  //                 router.asPath === menuItem.routePath ? "menu-active-link" : ""
-  //               }
-  //               key={i}
-  //             >
-  //               {menuItem.label}
-  //             </MenuItem>
-  //           ))}
-  //         </Menu>
-  //       </Sidebar>
-
-  //       <SidebarFooter />
-  //       {/* Close button */}
-  //       <button onClick={toggleSidebar}>Close</button>
-  //     </div>
-  //   </div>
-  // );

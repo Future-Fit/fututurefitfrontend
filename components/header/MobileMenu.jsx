@@ -3,21 +3,35 @@
 import Link from "next/link";
 import MobileSidebar from "./mobile-sidebar";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const MobileMenu = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
-  const [selectedLanguage, setSelectedLanguage] = useState('English'); // State to manage selected language
+  // const [selectedLanguage, setSelectedLanguage] = useState('EN'); // State to manage selected language
 
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem('selectedLanguage') || 'EN'
+  );
+
+  useEffect(() => {
+    // Set the selected language from localStorage on page load
+    const storedLanguage = localStorage.getItem('selectedLanguage');
+    if (storedLanguage) {
+      setSelectedLanguage(storedLanguage);
+    }
+  }, []);
+
   const handleLanguageChange = (language) => {
     // Function to handle language change
     setSelectedLanguage(language);
+    localStorage.setItem('selectedLanguage', language); // Save selected language to localStorage
+
     console.log(`Selected Language: ${language}`);
   };
 
@@ -39,7 +53,7 @@ const MobileMenu = () => {
   return (
     // <!-- Main Header-->
     <header className="main-header main-header-mobile">
-      <div className="auto-container" style={{boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'}}>
+      <div className="auto-container" style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)' }}>
         {/* <!-- Main box --> */}
         <div className="inner-box">
           <div className="nav-outer">
@@ -47,7 +61,7 @@ const MobileMenu = () => {
               <div className="logo">
                 <Link href="/">
                   <Image
-                    width={150}
+                    width={50}
                     height={50}
                     src="/images/logo-no-background.png"
                     alt="FFI"
@@ -86,62 +100,65 @@ const MobileMenu = () => {
             </a>
             {/* right humberger menu */}
 
-            <div className="dropdown" style={{marginRight:'35px'}}>
-                <button
-                  className="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="languageDropdown"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  style={{
-                    position: 'relative',
-                    backgroundColor: '#4682B4',
-                    borderColor: '#4682B4',
-                    backgroundImage: 'none',
-                    boxShadow: 'none',
-                    borderRadius: '5px',
-                    marginRight: '-100px'
-                  }}
-                >
-                  <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
-                </button>
-                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onMouseEnter={handleItemHover}
-                      onMouseLeave={handleItemLeave}
-                      onClick={() => handleLanguageChange('English')}
-                    >
-                      English
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onMouseEnter={handleItemHover}
-                      onMouseLeave={handleItemLeave}
-                      onClick={() => handleLanguageChange('Amharic')}
-                    >
-                      Amharic
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onMouseEnter={handleItemHover}
-                      onMouseLeave={handleItemLeave}
-                      onClick={() => handleLanguageChange('French')}
-                    >
-                      French
-                    </a>
-                  </li>
-                  {/* Add more languages as needed */}
-                </ul>
-              </div>
+            <div className="dropdown" style={{ marginRight: '50px' }}>
+              <button
+                className="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="languageDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={{
+                  position: 'relative',
+                  backgroundColor: '#4682B4',
+                  borderColor: '#4682B4',
+                  backgroundImage: 'none',
+                  boxShadow: 'none',
+                  borderRadius: '5px',
+                  marginRight: '-100px'
+                }}
+              >
+                <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
+                {selectedLanguage}
+              </button>
+              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                <li>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onMouseEnter={handleItemHover}
+                    onMouseLeave={handleItemLeave}
+                    onClick={() => handleLanguageChange('EN')}
+                  >
+                    EN
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onMouseEnter={handleItemHover}
+                    onMouseLeave={handleItemLeave}
+                    onClick={() => handleLanguageChange('FR')}
+                  >
+                    FR
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onMouseEnter={handleItemHover}
+                    onMouseLeave={handleItemLeave}
+                    onClick={() => handleLanguageChange('AM')}
+                  >
+                    AM
+                  </a>
+                </li>
+                {/* Add more languages as needed */}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

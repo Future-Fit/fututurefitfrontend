@@ -87,7 +87,7 @@ const FormContent = () => {
                 <span className="custom-checkbox"></span> Remember me
               </label>
             </div>
-            <a href="#" className="pwd">
+            <a href="#" style={{color:'#909090'}} className="pwd">
               Forgot Username/Password?
             </a>
           </div>

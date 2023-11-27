@@ -3,9 +3,9 @@ module.exports = [
     id: 1,
     title: "Find Jobs",
     menuList: [
-      { name: "Browse Jobs", route: "/job-list-v6" },
-      { name: "Browse Categories", route: "//job-list-v6" },
-      { name: "Candidate Dashboard", route: "/" },
+      { name: "Browse Jobs", route: "/job-list-v6", modalTarget: "#loginPopupModal"},
+      { name: "Browse Categories", route: "/job-list-v6" },
+      { name: "Candidate Dashboard", route: "/", modalTarget: "#loginPopupModal" },
       { name: "Job Alerts", route: "/" },
       {
         name: "My Bookmarks",
@@ -15,19 +15,6 @@ module.exports = [
   },
   {
     id: 2,
-    title: "Support",
-    menuList: [
-      {
-        name: "Browse Candidates",
-        route: "/",
-      },
-      { name: "Employer Dashboard", route: "/" },
-      { name: "Add Job", route: "/" },
-      { name: "Job Packages", route: "/" },
-    ],
-  },
-  {
-    id: 3,
     title: "FAQ",
     menuList: [
       { name: "About Us", route: "/about" },
@@ -38,7 +25,7 @@ module.exports = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: "Help",
     menuList: [
       { name: "Site Map", route: "/" },

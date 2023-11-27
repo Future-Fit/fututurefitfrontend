@@ -24,9 +24,8 @@ const HeaderNavContent = () => {
         <ul className="navigation" id="navbar">
           {/* current dropdown */}
           <li
-            className={`${
-              isActiveParent("/", usePathname()) ? "current" : ""
-            }`}
+            className={`${isActiveParent("/", usePathname()) ? "current" : ""
+              }`}
           >
             {/* <span>Home</span>
             <div className="mega-menu">
@@ -47,9 +46,9 @@ const HeaderNavContent = () => {
                           
                           key={i}
                         > */}
-                          <Link href="/">Home</Link>
-                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
-                        {/* </li>
+            <Link href="/">Home</Link>
+            {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+            {/* </li>
                       ))}
                     </ul>
                   </div>
@@ -60,39 +59,56 @@ const HeaderNavContent = () => {
           {/* End homepage menu items */}
 
           <li
-            className={`${
-              isActiveParent("/about", usePathname()) ? "current" : ""
-            }`}
+            className={`${isActiveParent("/about", usePathname()) ? "current" : ""
+              }`}
           >
-            {/* <span>Home</span>
-            <div className="mega-menu">
-              <div className="mega-menu-bar row pt-0">
-                {homeItems.map((item) => (
-                  <div
-                    className="column col-lg-3 col-md-3 col-sm-12"
-                    key={item.id}
-                  >
-                    <ul>
-                      {item.items.map((menu, i) => (
-                        <li
-                          className={
-                            isActiveLink(menu.routePath, usePathname())
-                              ? "current"
-                              : ""
-                          }
-                          
-                          key={i}
-                        > */}
-                          <Link href="/about">About Us</Link>
-                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
-                        {/* </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div> */}
+
+            <Link href="/about">About Us</Link>
+
           </li>
+          <li className={`nav-item dropdown ${isActiveParent("/service", usePathname()) ? "current" : ""}`}>
+            <a className="nav-link dropdown-toggle" href="#" id="serviceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Service
+            </a>
+            <ul className="dropdown-menu" aria-labelledby="serviceDropdown">
+              <li><Link href="/service/job-seekers">Job Seekers</Link></li>
+              <li><Link href="/service/businesses">Businesses</Link></li>
+              <li><Link href="/service/students">Students</Link></li>
+              <li><Link href="/service/universities-colleges">Universities/Colleges</Link></li>
+              <li><Link href="/service/training">Training</Link></li>
+              <li><Link href="/service/other">Other</Link></li>
+              {/* Add more dropdown items as needed */}
+            </ul>
+          </li>
+
+          {/* <li
+            className={`${isActiveParent("/service", usePathname()) ? "current" : ""
+              }`}
+          >
+            <span>Service</span>
+            <ul className="dropdown-menu">
+              <li>
+                <Link href="/service/job-seekers">Job Seekers</Link>
+              </li>
+              <li>
+                <Link href="/service/businesses">Businesses</Link>
+              </li>
+              <li>
+                <Link href="/service/students">Students</Link>
+              </li>
+              <li>
+                <Link href="/service/universities-colleges">Universities/Colleges</Link>
+              </li>
+              <li>
+                <Link href="/service/training">Training</Link>
+              </li>
+              <li>
+                <Link href="/service/other">Other</Link>
+              </li>
+              {/* Add more dropdown items as needed 
+            </ul>
+          </li> */}
+          {/* <Link href="/service">Service</Link> */}
           {/* End homepage menu items */}
 
           {/* <li
@@ -237,9 +253,8 @@ const HeaderNavContent = () => {
           </li> */}
           {/* End Candidates menu items */}
           <li
-            className={`${
-              isActiveParent("/job-list-v6", usePathname()) ? "current" : ""
-            }`}
+            className={`${isActiveParent("/job-list-v6", usePathname()) ? "current" : ""
+              }`}
           >
             {/* <span>Home</span>
             <div className="mega-menu">
@@ -260,9 +275,9 @@ const HeaderNavContent = () => {
                           
                           key={i}
                         > */}
-                          <Link href="/job-list-v6">Jobs</Link>
-                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
-                        {/* </li>
+            <Link href="/job-list-v6">Jobs</Link>
+            {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+            {/* </li>
                       ))}
                     </ul>
                   </div>
@@ -272,9 +287,8 @@ const HeaderNavContent = () => {
           </li>
 
           <li
-            className={`${
-              isActiveParent("/blog-list-v1", usePathname()) ? "current" : ""
-            }`}
+            className={`${isActiveParent("/blog-list-v1", usePathname()) ? "current" : ""
+              }`}
           >
             {/* <span>Home</span>
             <div className="mega-menu">
@@ -295,9 +309,9 @@ const HeaderNavContent = () => {
                           
                           key={i}
                         > */}
-                          <Link href="/blog-list-v1">Blog</Link>
-                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
-                        {/* </li>
+            <Link href="/blog-list-v1">Blog</Link>
+            {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+            {/* </li>
                       ))}
                     </ul>
                   </div>
@@ -307,9 +321,8 @@ const HeaderNavContent = () => {
           </li>
 
           <li
-            className={`${
-              isActiveParent("/contact", usePathname()) ? "current" : ""
-            }`}
+            className={`${isActiveParent("/contact", usePathname()) ? "current" : ""
+              }`}
           >
             {/* <span>Home</span>
             <div className="mega-menu">
@@ -330,9 +343,9 @@ const HeaderNavContent = () => {
                           
                           key={i}
                         > */}
-                          <Link href="/contact">Contact</Link>
-                          {/* <Link href={menu.routePath}>{menu.name}</Link> */}
-                        {/* </li>
+            <Link href="/contact">Contact</Link>
+            {/* <Link href={menu.routePath}>{menu.name}</Link> */}
+            {/* </li>
                       ))}
                     </ul>
                   </div>
