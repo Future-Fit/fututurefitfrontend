@@ -6,7 +6,7 @@ import CallToAction from "../call-to-action/CallToAction";
 import LoginPopup from "../common/form/login/LoginPopup";
 import Partner from "../common/partner/Partner";
 import FooterDefault from "../footer/common-footer";
-import Funfact from "../fun-fact-counter/Funfact";
+import Funfact from "../.fun-fact-counter/Funfact";
 import DefaulHeader2 from "../header/DefaulHeader2";
 import MobileMenu from "../header/MobileMenu";
 import Hero1 from "../hero/hero-2";

@@ -7,7 +7,7 @@ import BrowseUsaJobs from "../job-categories/BrowseUsaJobs";
 import Blog3 from "../blog/Blog3";
 import Candidates from "../candidates/Candidates";
 import TopsJobs from "../job-featured/TopsJobs";
-import FunFact from "../fun-fact-counter/Funfact";
+import FunFact from "../.fun-fact-counter/Funfact";
 import Testimonial5 from "../testimonial/Testimonial5";
 import RegBanner2 from "../block/RegBanner2";
 import LoginPopup from "../common/form/login/LoginPopup";
