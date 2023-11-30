@@ -53,7 +53,7 @@ const ContactForm = () => {
         </div>
         {/* End .col */}
 
-        <div className="col-lg-12 col-md-12 col-sm-12 form-group">
+        <div className="col-lg-12 col-md-12 col-sm-12 form-group d-flex align-items-center justify-content-center">
           <button
             className="theme-btn btn-style-one"
             type="submit"

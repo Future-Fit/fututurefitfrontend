@@ -32,7 +32,7 @@ const Contact = () => {
             type="submit"
             name="submit-form"
           >
-            Send Message
+            Send Message now
           </button>
         </div>
         {/* End .col */}

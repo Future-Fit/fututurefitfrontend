@@ -42,7 +42,7 @@ const Register = () => {
       </Tabs>
       {/* End form-group */}
 
-      <div className="bottom-box">
+      <div className="bottom-box" style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="text">
           Already have an account?{" "}
           <Link

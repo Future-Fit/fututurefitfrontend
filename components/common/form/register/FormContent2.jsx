@@ -162,7 +162,7 @@ const FormContent2 = () => {
         />
         {passwordError && <span className="error-message">{passwordError}</span>}
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
         <button className="theme-btn btn-style-one" type="submit">
           Sign Up
         </button>

@@ -94,7 +94,7 @@ const FormContent = () => {
         </div>
         {/* forgot password */}
 
-        <div className="form-group">
+        <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
           <button
             className="theme-btn btn-style-one"
             type="submit"
@@ -116,7 +116,7 @@ const FormContent = () => {
       )}
 
       <div className="bottom-box">
-        <div className="text">
+        <div className="text d-flex align-items-center justify-content-center">
           Don&apos;t have an account?{" "}
           <Link
             href="#"
