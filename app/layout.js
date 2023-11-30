@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           name="description"
-          content="Superio - Future Fit International"
+          content="Future Fit - Job Portal Platform"
         />
         <meta name="ibthemes" content="ATFN" />
 
