@@ -24,12 +24,12 @@ const AppSectionAbout = () => {
               About Us
             </h2>
             <div className="text" style={{textAlign:"justify"}}>
-            At FFI, our passion is empowering individuals, businesses and institutions by establishing and growing a thriving, diverse 
-            and professional ecosystem where great skills, talent and ambitions meet unfulfilled business opportunities – be it in availing 
-            incredible career opportunities for career seekers or those looking for short-term gigs to finding international educational and 
-            vocational institutions for students to hosting and offering training programs that provide targeted skills development. 
-            Our global reach and expertise uniquely gives us the insight and advantage to intimately understand the challenges that our 
-            clients face in the pursuit of their aspirations and desire to fulfill their business needs and opportunities
+            At FFI, our passion is empowering individuals, businesses and educational institutions by establishing a thriving, diverse 
+            and professional ecosystem where great skills, talent and ambitions meet business and educational opportunities.
+            Whether you are looking for that incredible life-long career opportunity, just a short-term gig, an international 
+            university/college education or a vocational training/course, we will provide you an unparalleled, one-stop service that 
+            exceeds your expectations. Our global reach and domain expertise allows us to have insight to intimately understand the needs 
+            and challenges our clients face in the pursuit of their aspirations and business goals.
             </div>
           </div>
         </div>

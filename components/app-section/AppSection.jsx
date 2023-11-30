@@ -24,17 +24,17 @@ const AppSection = () => {
               About Us
             </h2>
             <div className="text" style={{ textAlign: "justify" }}>
-              At FFI, our passion is enabling individuals, businesses, and institutions to make great connections.
+              At FFI, our passion is enabling individuals, businesses, and institutions make great connections.
               Our ever-expanding global reach and expertise gives us the ability to provide growing networking and
-              matching opportunities for our business clients, career seekers, and international students. With years
-              of experience in the fields of talent management, international business, and education, let us be your
-              partner in the pursuit of your aspirations.
+              matching opportunities for job seekers, students, businesses and colleges/universities. With years
+              of experience in talent management, international business, education and government services, we are
+              your champions in the pursuit of your aspirations and goals.
             </div>
           </div>
 
-          <a href="/about" className="theme-btn btn-style-one bg-blue">
-                <span className="btn-title" style={{height:'25px'}}>Learn More</span>
-              </a>
+          {/* <a href="/about" className="theme-btn btn-style-one bg-blue">
+            <span className="btn-title" style={{ height: '25px' }}>Learn More</span>
+          </a> */}
           {/* <div className="mt-20">
             <Link
               href="/about"

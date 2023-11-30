@@ -9,7 +9,7 @@
 	}
 
 	.main-header .logo {
-		padding: 15px 0;
+		padding: 0px 0;
 	}
 
 	.banner-section {
@@ -424,7 +424,7 @@
 	}
 
 	.job-search-form .form-group:last-child {
-		text-align: left !important;
+		text-align: center !important;
 	}
 
 	.banner-section-three .image-column .image-box {
@@ -1705,7 +1705,8 @@
 
 	.job-search-form .form-group .theme-btn {
 		display: block;
-		width: 100%;
+		width: 0%;
+		align-content: center;
 		border-radius: 5px !important;
 	}
 

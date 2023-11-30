@@ -14,7 +14,7 @@ const JobCategorie4 = () => {
             <h4>
               <Link href="/job-list/job-list-v4">{item.catTitle}</Link>
             </h4>
-            <span className="count">({item.jobNumber} open positions)</span>
+            <Link href="#"><span className="count">{item.jobNumber}</span> </Link> 
           </div>
         </div>
       ))}

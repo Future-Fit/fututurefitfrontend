@@ -7,17 +7,17 @@ const CallToAction = () => {
         <div className="outer-box" data-aos="fade-up">
           <div className="content-column">
             <div className="sec-title">
-              <h2 style={{color: '#fff'}}>Why Choose Us</h2>
+              <h3>Why Choose Us?</h3>
               <div className="text" >
               <ul className="list-style-one" >
-                    <li style={{color: '#fff'}}>Experienced in talent management.</li>
-                    <li style={{color: '#fff'}}>Extensive global network.</li>
-                    <li style={{color: '#fff'}}>Promoting diverse inclusivity.</li>
-                    <li style={{color: '#fff'}}>Community-focused collaboration.</li>
+                    <li>Experienced in talent management</li>
+                    <li>Extensive global network</li>
+                    <li>Promote diversity & inclusivity</li>
+                    <li>Support community-focused collaboration</li>
                     </ul>
               </div>
-              <a href="/job-list-v6" className="theme-btn btn-style-one bg-blue">
-                <span className="btn-title" style={{height:'25px'}}>Get Started</span>
+              <a href="/about" className="theme-btn btn-style-one bg-blue">
+                <span className="btn-title" >Learn More</span>
               </a>
             </div>
           </div>

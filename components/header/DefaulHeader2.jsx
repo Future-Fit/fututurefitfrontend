@@ -110,8 +110,8 @@ const DefaulHeader2 = () => {
               <div className="logo">
                 <Link href="/">
                   <Image
-                    width={50}
-                    height={50}
+                    width={70}
+                    height={70}
                     src="/images/logo-no-background.png"
                     alt="Future Fit Logo"
                   />

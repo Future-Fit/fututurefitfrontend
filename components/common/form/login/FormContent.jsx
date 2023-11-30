@@ -18,7 +18,7 @@ const FormContent = () => {
     // Perform login API request here using username and password
     console.log("datas are", username, password);
     try {
-      const response = await fetch("http://190.92.151.79:8000/auth/login", {
+      const response = await fetch("//190.92.151.79:8000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
