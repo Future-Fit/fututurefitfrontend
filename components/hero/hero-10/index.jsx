@@ -4,19 +4,14 @@ import HeroSliderGallery from "./HeroSliderGallery";
 
 const index = () => {
 
-  const carouselStyle = {
-    border: '22px solid #000', // Adjust the color and thickness as needed
-    padding: '100px', // Optional, for some space inside the border
-    margin: '10px' // Optional, for space outside the border
-  };
-
   return (
     <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', paddingRight:'-100px !important' }}>
       <div className="auto-container" style={{ position: 'relative' }}>
         <div
           style={{
             position: 'relative',
-            borderRadius: '30%',
+            borderRadius: '0%',
+            height: '100vh',
             overflow: 'hidden',
             margin: '0 auto',
             padding: '20px',

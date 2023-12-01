@@ -59,14 +59,14 @@ const index = () => {
           </div>
         </div>
       </section> */}
-      <section className="app-section">
+      <section className="app-section" >
         <div className="auto-container">
         <div style={{ borderRadius: '30%', overflow: 'hidden' }}>
           <AppSection />
         </div>
         </div>
       </section>
-      <CallToAction />
+      {/* <CallToAction /> */}
 
       <section className="work-section">
         <div className="auto-container">

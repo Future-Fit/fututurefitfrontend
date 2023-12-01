@@ -33,10 +33,32 @@ const DashboardHeader = () => {
     return (
         // <!-- Main Header-->
         <header
+        className="main-header header-shaddow"
+        style={{
+            position: navbar ? 'fixed' : 'relative',
+            top: navbar ? '0' : 'auto',
+            width: '100%',
+            zIndex: navbar ? '1000' : 'auto',
+            boxShadow: navbar ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none',
+            transition: 'top 0.3s ease-in-out'
+            // Add other necessary styles here
+        }}
+    >
+        {/* <header
             className={`main-header header-shaddow  ${
                 navbar ? "fixed-header " : ""
             }`}
-        >
+
+            style={{
+                position: navbar ? 'fixed' : 'relative',
+                top: navbar ? '0' : 'auto',
+                width: '100%',
+                zIndex: navbar ? '1000' : 'auto',
+                boxShadow: navbar ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none',
+                transition: 'top 0.3s ease-in-out'
+                // Add other necessary styles here
+            }}
+        > */}
             <div className="container-fluid">
                 {/* <!-- Main box --> */}
                 <div className="main-box">

@@ -49,7 +49,6 @@ const index = () => {
                 </div>
               </div>
               {/* En .sect-title */}
-
               <div className="outer-box">
                 <JobFeatured7 />
               </div>

@@ -31,6 +31,20 @@ const AppSection = () => {
               your champions in the pursuit of your aspirations and goals.
             </div>
           </div>
+          <div className="sec-title">
+              <h3>Why Choose Us?</h3>
+              <div className="text" >
+              <ul className="list-style-one" >
+                    <li>Experienced in talent management</li>
+                    <li>Extensive global network</li>
+                    <li>Promote diversity & inclusivity</li>
+                    <li>Support community-focused collaboration</li>
+                    </ul>
+              </div>
+              <a href="/about" className="theme-btn btn-style-one bg-blue">
+                <span className="btn-title" >Learn More</span>
+              </a>
+            </div>
 
           {/* <a href="/about" className="theme-btn btn-style-one bg-blue">
             <span className="btn-title" style={{ height: '25px' }}>Learn More</span>
