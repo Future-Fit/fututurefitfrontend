@@ -1,19 +1,19 @@
 module.exports = [
   {
     id: 1,
-    icon: "flaticon-money-1",
+    icon: "flaticon-promotion",
     catTitle: "Employers",
     jobNumber: "Post Jobs / Browse Candidates",
   },
   {
     id: 2,
-    icon: "flaticon-promotion",
+    icon: "flaticon-rocket-ship",
     catTitle: "Job Seekers",
     jobNumber: "Search Jobs / Upload Resume",
   },
   {
     id: 3,
-    icon: "flaticon-vector",
+    icon: "flaticon-web-programming",
     catTitle: "Students",
     jobNumber: "Search / Apply"
   },

@@ -21,7 +21,7 @@ const DefaulHeader2 = () => {
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
     localStorage.setItem('selectedLanguage', language);
-    console.log(`Selected Language: ${language}`);
+    // console.log(`Selected Language: ${language}`);
   };
 
 
@@ -130,27 +130,42 @@ const DefaulHeader2 = () => {
 
           <div className="outer-box">
             <div className="d-flex align-items-center btn-box2">
-            {loggedInUserId ? (
-        // If user is logged in, display user profile link
-        <a
-          href="#"
-          className="theme-btn btn-style-six call-modal"
-          onClick={()=> router.push('candidates-dashboard/dashboard')}
-        >
-          <FaUser size={22} color="white" />
-        </a>
-      ) : (
-        // If user is not logged in, display login/register text
-        <a
-          href="#"
-          className="theme-btn btn-style-six call-modal"
-          data-bs-toggle="modal"
-          data-bs-target="#loginPopupModal"
-          onClick={handleLoginRedirect}
-        >
-          Login/Signup
-        </a>
-      )}
+              {loggedInUserId ? (
+                // If user is logged in, display user profile link
+
+                <a
+                  href="#"
+                  className="theme-btn btn-style-six call-modal"
+                  onClick={() => router.push('candidates-dashboard/dashboard')}
+                >
+                  <i className="fas fa-user" style={{ fontSize: '22px', color: 'white' }}></i>
+                </a>
+                // <a
+                //   href="#"
+                //   className="theme-btn btn-style-six call-modal"
+                //   onClick={() => router.push('candidates-dashboard/dashboard')}
+                // >
+                //   <i className="fas fa-user" style={{ fontSize: '22px', color: 'white' }}></i>
+                // </a>
+                // <a
+                //   href="#"
+                //   className="theme-btn btn-style-six call-modal"
+                //   onClick={()=> router.push('candidates-dashboard/dashboard')}
+                // >
+                //   <FaUser size={22} color="white" />
+                // </a>
+              ) : (
+                // If user is not logged in, display login/register text
+                <a
+                  href="#"
+                  className="theme-btn btn-style-six call-modal"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginPopupModal"
+                  onClick={handleLoginRedirect}
+                >
+                  Sign In / Sign Up
+                </a>
+              )}
               <div className="dropdown">
 
                 <button

@@ -8,6 +8,9 @@ import Link from "next/link";
 import CallToAction from "../call-to-action/CallToAction";
 import AppSection from "../app-section/AppSection";
 import FooterDefault from "../footer/common-footer";
+import Block8 from "../block/Block8";
+import Block6 from "../block/Block6";
+import Partner2 from "../common/partner/Partner2";
 
 
 const index = () => {
@@ -23,70 +26,57 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-
-      {/* <section className="app-section" style={{ background: '#3B578E', padding: '30px 10px 30px 10px' }}>
-        <div className="auto-container" style={{ position: 'relative' }}>
-          <div
-            style={{
-              position: 'relative',
-              borderRadius: '20%',
-              overflow: 'hidden',
-              margin: '0 auto', // Center horizontally
-              padding: '100px', // Padding to create space for the content
-            }}
-          > */}
-            <Hero10 />
-          {/* </div>
-        </div>
-      </section> */}
+      <Hero10 />
 
 
+      <section className="layout-pt-60">
+        <div className="auto-container">
+          <div className="row justify-content-center">
+            <div className="col-lg-5">
+              <div className="sec-title text-center">
+                <h2>3 Simple Steps</h2>
+              </div>
+            </div>
+          </div>
+          {/* End .row */}
 
-      {/* <!-- End Hero Section --> */}
-      {/* <section className="app-section" style={{ background: '#3B578E', padding: '50px 0' }}>
-        <div className="auto-container" style={{ position: 'relative' }}>
-          <div
-            style={{
-              position: 'relative',
-              borderRadius: '20%',
-              overflow: 'hidden',
-              margin: '0 auto', // Center horizontally
-              backgroundColor: '#ffffff',
-              padding: '100px', // Padding to create space for the content
-            }}
-          >
-            <AppSection />
+          <div className="row grid-base" data-aos="fade-up">
+            <Block6 />
           </div>
         </div>
-      </section> */}
+      </section>
+
+
       <section className="app-section" >
         <div className="auto-container">
-        <div style={{ borderRadius: '30%', overflow: 'hidden' }}>
-          <AppSection />
-        </div>
+          <div style={{ borderRadius: '30%', overflow: 'hidden' }}>
+            <AppSection />
+          </div>
         </div>
       </section>
       {/* <CallToAction /> */}
 
-      <section className="work-section">
+      <section className="layout-pt-10 layout-pb-30">
         <div className="auto-container">
           <div className="sec-title text-center">
             <h2>Services</h2>
-            <div className="text">Job for anyone, anywhere</div>
+            <div className="text">
+              Job for anyone, anywhere
+            </div>
           </div>
           {/* End sec-title */}
-          <div className="row" data-aos="fade-up">
-            <Block1 />
-          </div>
 
-          <div className="btn-box text-center" style={{ marginBottom: '20px', marginTop: '20px' }}> {/* Updated with 'text-center' class */}
+          <div className="row grid-base " data-aos="fade-up">
+            <Block8 />
+            {/* <!-- Work Block --> */}
+          </div>
+          <div className="btn-box text-center" style={{ marginBottom: '20px', marginTop: '20px' }}>
             <Link href="/service" className="theme-btn btn-style-one bg-blue">
               <span className="btn-title">Learn More</span>
             </Link>
           </div>
         </div>
       </section>
-      {/* <!-- End Work Section --> */}
 
       <section className="job-section-two">
         <div className="auto-container">
@@ -111,6 +101,17 @@ const index = () => {
           </div>
         </div>
       </section>
+
+      <section className="clients-section-two alternate">
+        <div className="auto-container">
+          <div className="sponsors-outer wow fadeInUp">
+            <div className="sponsors-carousel">
+              <Partner2 />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* <!-- End Job Section --> */}
 
       <FooterDefault />
