@@ -38,7 +38,7 @@ const DashboardCandidatesHeader = () => {
             }
 
             try {
-                const response = await fetch("http://190.92.151.79:8000/users/me", {
+                const response = await fetch("https://api.futurefitinternational.com/users/me", {
                     headers: {
                         Authorization: `Bearer ${accessToken}`
                     }

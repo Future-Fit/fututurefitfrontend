@@ -27,7 +27,7 @@ module.exports = [
         routePath: "/service/students",
       },
       {
-        name: "Universities/Colleges",
+        name: "Universities & Colleges",
         routePath: "/service/universities-colleges",
       },
       {
@@ -35,26 +35,20 @@ module.exports = [
         routePath: "/service/training",
       },
       {
-        name: "Other",
+        name: "Travle & Visa",
         routePath: "/service/other",
       },
     ],
   },
   {
     id: 4,
-    label: "Jobs",
-    routePath: "/job-list-v6",
-
-  },
-  {
-    id: 5,
     label: "Blog",
     routePath: "/blog-list-v1",
 
   },
 
   {
-    id: 6,
+    id: 5,
     label: "Contact",
     routePath: "/contact",
 

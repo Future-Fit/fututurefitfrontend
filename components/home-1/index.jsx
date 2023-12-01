@@ -23,11 +23,47 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <Hero10 />
+
+      {/* <section className="app-section" style={{ background: '#3B578E', padding: '30px 10px 30px 10px' }}>
+        <div className="auto-container" style={{ position: 'relative' }}>
+          <div
+            style={{
+              position: 'relative',
+              borderRadius: '20%',
+              overflow: 'hidden',
+              margin: '0 auto', // Center horizontally
+              padding: '100px', // Padding to create space for the content
+            }}
+          > */}
+            <Hero10 />
+          {/* </div>
+        </div>
+      </section> */}
+
+
+
       {/* <!-- End Hero Section --> */}
+      {/* <section className="app-section" style={{ background: '#3B578E', padding: '50px 0' }}>
+        <div className="auto-container" style={{ position: 'relative' }}>
+          <div
+            style={{
+              position: 'relative',
+              borderRadius: '20%',
+              overflow: 'hidden',
+              margin: '0 auto', // Center horizontally
+              backgroundColor: '#ffffff',
+              padding: '100px', // Padding to create space for the content
+            }}
+          >
+            <AppSection />
+          </div>
+        </div>
+      </section> */}
       <section className="app-section">
         <div className="auto-container">
+        <div style={{ borderRadius: '30%', overflow: 'hidden' }}>
           <AppSection />
+        </div>
         </div>
       </section>
       <CallToAction />
@@ -55,8 +91,8 @@ const index = () => {
       <section className="job-section-two">
         <div className="auto-container">
           <div className="sec-title text-center">
-            <h2 style={{color: '#fff'}}>Featured Jobs</h2>
-            <div  style={{color: '#fff'}} className="text">
+            <h2 style={{ color: '#fff' }}>Featured Jobs</h2>
+            <div style={{ color: '#fff' }} className="text">
               Jobs that are trending and highly in demand
             </div>
           </div>

@@ -53,7 +53,7 @@ const FormContent = () => {
           formDataToSend.append(key, dataToSend[key]);
         });
 
-        const response = await fetch("http://190.92.151.79:8000/users/create", {
+        const response = await fetch("https://api.futurefitinternational.com/users/create", {
           method: "POST",
           body: formDataToSend,
         });
