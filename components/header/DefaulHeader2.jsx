@@ -7,6 +7,8 @@ import HeaderNavContent from "./HeaderNavContent";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 // import './dropdownremover'
+import { FaUser } from 'react-icons/fa';
+
 
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
@@ -14,6 +16,7 @@ const DefaulHeader2 = () => {
   const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
+  const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -127,15 +130,27 @@ const DefaulHeader2 = () => {
 
           <div className="outer-box">
             <div className="d-flex align-items-center btn-box2">
-              <a
-                href="#"
-                className="theme-btn btn-style-six call-modal"
-                data-bs-toggle="modal"
-                data-bs-target="#loginPopupModal"
-                onClick={handleLoginRedirect}
-              >
-                Sign In / Sign Up
-              </a>
+            {loggedInUserId ? (
+        // If user is logged in, display user profile link
+        <a
+          href="#"
+          className="theme-btn btn-style-six call-modal"
+          onClick={()=> router.push('candidates-dashboard/dashboard')}
+        >
+          <FaUser size={22} color="white" />
+        </a>
+      ) : (
+        // If user is not logged in, display login/register text
+        <a
+          href="#"
+          className="theme-btn btn-style-six call-modal"
+          data-bs-toggle="modal"
+          data-bs-target="#loginPopupModal"
+          onClick={handleLoginRedirect}
+        >
+          Login/Signup
+        </a>
+      )}
               <div className="dropdown">
 
                 <button

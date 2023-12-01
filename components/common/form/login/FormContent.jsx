@@ -3,6 +3,7 @@ import Link from "next/link";
 import LoginWithSocial from "./LoginWithSocial";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import DefaultConfig from "app.config.js";
 
 const FormContent = () => {
 
@@ -18,7 +19,7 @@ const FormContent = () => {
     // Perform login API request here using username and password
     console.log("datas are", username, password);
     try {
-      const response = await fetch("https://api.futurefitinternational.com/auth/login", {
+      const response = await fetch(`${DefaultConfig.url}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +39,7 @@ const FormContent = () => {
         localStorage.setItem("loggedInUserId", user.id);
 
         // Redirect based on user type
-        if (user.user_type_id === 1) {
+        if (user.user_type_id === 1 || user.user_type_id === 2 ) {
           router.push('/candidates-dashboard/dashboard')
         } else if (user.user_type_id === 3) {
           router.push('/employers-dashboard/dashboard')

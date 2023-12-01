@@ -29,34 +29,34 @@ const DashboardCandidatesHeader = () => {
     // }, []);
 
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            const accessToken = localStorage.getItem("accessToken");
+    // useEffect(() => {
+    //     const fetchUserData = async () => {
+    //         const accessToken = localStorage.getItem("accessToken");
 
-            if (!accessToken) {
-                return;
-            }
+    //         if (!accessToken) {
+    //             return;
+    //         }
 
-            try {
-                const response = await fetch("https://api.futurefitinternational.com/users/me", {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`
-                    }
-                });
+    //         try {
+    //             const response = await fetch("https://api.futurefitinternational.com/users/me", {
+    //                 headers: {
+    //                     Authorization: `Bearer ${accessToken}`
+    //                 }
+    //             });
 
-                if (response.ok) {
-                    const userData = await response.json();
-                    setUser(userData);
-                } else {
-                    console.error("Failed to fetch user data");
-                }
-            } catch (error) {
-                console.error("Error fetching user data:", error);
-            }
-        };
+    //             if (response.ok) {
+    //                 const userData = await response.json();
+    //                 setUser(userData);
+    //             } else {
+    //                 console.error("Failed to fetch user data");
+    //             }
+    //         } catch (error) {
+    //             console.error("Error fetching user data:", error);
+    //         }
+    //     };
 
-        fetchUserData();
-    }, []);
+    //     fetchUserData();
+    // }, []);
 
     const handleLogout = () => {
         clearSession(); // Clear the session
@@ -125,6 +125,7 @@ const DashboardCandidatesHeader = () => {
                             </a>
 
                             <ul className="dropdown-menu">
+                           
                                 {/* Change Password Option */}
                                 <li className={`${isActiveLink('/candidates-dashboard/change-password', usePathname()) ? "active" : ""} mb-1`}>
                                     <Link href="/candidates-dashboard/change-password">

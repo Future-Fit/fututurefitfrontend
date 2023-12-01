@@ -1,3 +1,5 @@
+
+"use client"
 import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardCandidatesSidebar from "../../../header/DashboardCandidatesSidebar";
@@ -9,7 +11,11 @@ import CopyrightFooter from "../../CopyrightFooter";
 import DashboardCandidatesHeader from "../../../header/DashboardCandidatesHeader";
 import MenuToggler from "../../MenuToggler";
 
+// import DefaultConfig from "app.config.js";
+
 const index = () => {
+
+
   return (
     <div className="page-wrapper dashboard">
       <span className="header-span"></span>

@@ -2,8 +2,27 @@
 'use client'
 
 import Select from "react-select";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 const FormInfoBox = () => {
+  const [userDetail, setUserDetail] = useState(null);
+
+useEffect(() => {
+  const userId = localStorage.getItem("loggedInUserId");
+  console.log('user id', userId);
+  if (userId) {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/users/${userId}`);
+        console.log('Response from server:', response.data);
+        setUserDetail(response.data);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+    fetchUserDetails();
+  }
+}, []);
   const catOptions = [
     { value: "Banking", label: "Banking" },
     { value: "Digital & Creative", label: "Digital & Creative" },
@@ -21,13 +40,14 @@ const FormInfoBox = () => {
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Full Name</label>
-          <input type="text" name="name" placeholder="Jerome" required />
+          <input type="text" name="name" value={userDetail?.fname + ' ' + userDetail?.lname}
+ placeholder="Jerome" required />
         </div>
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Job Title</label>
-          <input type="text" name="name" placeholder="UI Designer" required />
+          <input value={userDetail?.job_title} type="text" name="name" placeholder="UI Designer" required />
         </div>
 
         {/* <!-- Input --> */}
@@ -36,6 +56,7 @@ const FormInfoBox = () => {
           <input
             type="text"
             name="name"
+            value={userDetail?.phone}
             placeholder="0 123 456 7890"
             required
           />
@@ -47,6 +68,7 @@ const FormInfoBox = () => {
           <input
             type="text"
             name="name"
+            value={userDetail?.email}
             placeholder="creativelayers"
             required
           />
@@ -115,6 +137,7 @@ const FormInfoBox = () => {
         <div className="form-group col-lg-6 col-md-12">
           <label>Languages</label>
           <input
+          value={userDetail?.jobCategories[0].name}
             type="text"
             name="name"
             placeholder="English, Turkish"
@@ -126,10 +149,10 @@ const FormInfoBox = () => {
         <div className="form-group col-lg-6 col-md-12">
           <label>Categories </label>
           <Select
-            defaultValue={[catOptions[1]]}
+            defaultValue={[userDetail?.jobCategories[0].name]}
             isMulti
             name="colors"
-            options={catOptions}
+            options={userDetail?.jobCategories}
             className="basic-multi-select"
             classNamePrefix="select"
             required
@@ -139,7 +162,7 @@ const FormInfoBox = () => {
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Allow In Search & Listing</label>
-          <select className="chosen-single form-select" required>
+          <select className="chosen-single form-select" required value={userDetail?.allowSearch}>
             <option>Yes</option>
             <option>No</option>
           </select>
@@ -148,7 +171,7 @@ const FormInfoBox = () => {
         {/* <!-- About Company --> */}
         <div className="form-group col-lg-12 col-md-12">
           <label>Description</label>
-          <textarea placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
+          <textarea value={userDetail?.description} placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
         </div>
 
         {/* <!-- Input --> */}
