@@ -13,7 +13,7 @@ useEffect(() => {
   if (userId) {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/users/${userId}`);
+        const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
         console.log('Response from server:', response.data);
         setUserDetail(response.data);
       } catch (error) {
@@ -137,9 +137,8 @@ useEffect(() => {
         <div className="form-group col-lg-6 col-md-12">
           <label>Languages</label>
           <input
-          value={userDetail?.jobCategories[0].name}
-            type="text"
-            name="name"
+  value={userDetail?.jobCategories && userDetail.jobCategories.length > 0 ? userDetail.jobCategories[0].name : ''}
+  name="name"
             placeholder="English, Turkish"
             required
           />
@@ -149,10 +148,10 @@ useEffect(() => {
         <div className="form-group col-lg-6 col-md-12">
           <label>Categories </label>
           <Select
-            defaultValue={[userDetail?.jobCategories[0].name]}
+            defaultValue={[catOptions[0]]}
             isMulti
             name="colors"
-            options={userDetail?.jobCategories}
+            options={catOptions}
             className="basic-multi-select"
             classNamePrefix="select"
             required
