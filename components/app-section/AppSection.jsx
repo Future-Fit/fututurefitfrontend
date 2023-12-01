@@ -4,9 +4,9 @@ import Link from "next/link";
 const AppSection = () => {
   return (
     <div className="row">
-      <div className="image-column col-lg-6 col-md-12 col-sm-12">
-        <div className="bg-shape"></div>
-        <figure className="image" data-aos="fade-right">
+      <div className="image-column col-lg-6 col-md-12 col-sm-12" >
+        <div className="bg-shape" style={{paddingTop:'30px'}}></div>
+        <figure className="image" data-aos="fade-right" style={{paddingTop:'10px'}}>
           <Image
             width={477}
             height={556}
@@ -20,7 +20,7 @@ const AppSection = () => {
       <div className="content-column col-lg-6 col-md-12 col-sm-12">
         <div className="inner-column" data-aos="fade-left">
           <div className="sec-title">
-            <h2>
+            <h2 style={{paddingTop:'10px'}}>
               About Us
             </h2>
             <div className="text" style={{ textAlign: "justify" }}>
@@ -34,7 +34,7 @@ const AppSection = () => {
           <div className="sec-title">
               <h3>Why Choose Us?</h3>
               <div className="text" >
-              <ul className="list-style-one" >
+              <ul className="list-style-one" style={{alignContent:'start'}}>
                     <li>Experienced in talent management</li>
                     <li>Extensive global network</li>
                     <li>Promote diversity & inclusivity</li>

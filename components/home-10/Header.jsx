@@ -17,9 +17,9 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", changeBackground);
+  // }, []);
 
   return (
     // <!-- Main Header-->
@@ -52,7 +52,7 @@ const Header = () => {
           </div>
           {/* End .nav-outer */}
 
-          <div className="outer-box">
+          {/* <div className="outer-box">
             <div className="btn-box">
               <a
                 href="#"
@@ -69,7 +69,7 @@ const Header = () => {
                 Job Post
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

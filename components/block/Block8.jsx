@@ -38,8 +38,8 @@ const Block8 = () => {
               <span className={`icon ${item.icon}`}></span>
             </div>
 
-            <h5 className="title">{item.title}</h5>
-            <p style={{ textAlign: "justify" }} className="text">{item.text}</p>
+            <h5 style={{ textAlign: "justify", color:'#fff' }} className="title">{item.title}</h5>
+            <p style={{ textAlign: "justify", color:'#fff' }} className="text">{item.text}</p>
           </div>
         </div>
       ))}

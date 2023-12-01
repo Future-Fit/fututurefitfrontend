@@ -29,12 +29,12 @@ const index = () => {
       <Hero10 />
 
 
-      <section className="layout-pt-60">
+      <section className="" style={{background:'#3B578E', paddingTop:'30px'}}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
               <div className="sec-title text-center">
-                <h2>3 Simple Steps</h2>
+                <h2 style={{color:'#fff'}}>3 Simple Steps</h2>
               </div>
             </div>
           </div>
@@ -45,22 +45,23 @@ const index = () => {
           </div>
         </div>
       </section>
+      {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
 
 
       <section className="app-section" >
-        <div className="auto-container">
-          <div style={{ borderRadius: '30%', overflow: 'hidden' }}>
+        <div className="auto-container" style={{paddingTop:'10px'}}>
+          <div style={{ borderRadius: '10%', overflow: 'hidden' }}>
             <AppSection />
           </div>
         </div>
       </section>
       {/* <CallToAction /> */}
 
-      <section className="layout-pt-10 layout-pb-30">
-        <div className="auto-container">
-          <div className="sec-title text-center">
-            <h2>Services</h2>
-            <div className="text">
+      <section className="layout-pt-10 layout-pb-30" style={{background:'#3B578E'}}>
+        <div className="auto-container" style={{paddingBottom: '30px'}}>
+          <div className="sec-title text-center" style={{color:'#fff'}}>
+            <h2 style={{color:'#fff', paddingTop:'10px'}}>Services</h2>
+            <div style={{color:'#fff'}} className="text">
               Job for anyone, anywhere
             </div>
           </div>
@@ -70,7 +71,7 @@ const index = () => {
             <Block8 />
             {/* <!-- Work Block --> */}
           </div>
-          <div className="btn-box text-center" style={{ marginBottom: '20px', marginTop: '20px' }}>
+          <div className="btn-box text-center" style={{marginTop: '20px' }}>
             <Link href="/service" className="theme-btn btn-style-one bg-blue">
               <span className="btn-title">Learn More</span>
             </Link>
@@ -81,8 +82,8 @@ const index = () => {
       <section className="job-section-two">
         <div className="auto-container">
           <div className="sec-title text-center">
-            <h2 style={{ color: '#fff' }}>Featured Jobs</h2>
-            <div style={{ color: '#fff' }} className="text">
+            <h2 >Featured Jobs</h2>
+            <div className="text">
               Jobs that are trending and highly in demand
             </div>
           </div>
@@ -102,7 +103,7 @@ const index = () => {
         </div>
       </section>
 
-      <section className="clients-section-two alternate">
+      <section className="clients-section-two alternate" style={{background:'#3B578E'}}>
         <div className="auto-container">
           <div className="sponsors-outer wow fadeInUp">
             <div className="sponsors-carousel">
