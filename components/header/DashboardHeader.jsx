@@ -8,10 +8,30 @@ import HeaderNavContent from "./HeaderNavContent";
 import { isActiveLink } from "../../utils/linkActiveChecker";
 import { usePathname } from "next/navigation";
 import { clearSession } from "../common/form/login/sessionHandler";
+import axios from "axios";
 
 
 const DashboardHeader = () => {
     const [navbar, setNavbar] = useState(false);
+
+    const [userDetail, setUserDetail] = useState(null);
+
+    useEffect(() => {
+        const userId = localStorage.getItem("loggedInUserId");
+        console.log('user id', userId);
+        if (userId) {
+          const fetchUserDetails = async () => {
+            try {
+              const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
+              console.log('Response from server:', response.data);
+              setUserDetail(response.data);
+            } catch (error) {
+              console.error("Error fetching user details:", error);
+            }
+          };
+          fetchUserDetails();
+        }
+      }, []);
 
     const handleLogout = () => {
         clearSession(); // Clear the session
@@ -85,15 +105,15 @@ const DashboardHeader = () => {
                     {/* End .nav-outer */}
 
                     <div className="outer-box">
-                        <button className="menu-btn">
+                        {/* <button className="menu-btn">
                             <span className="count">1</span>
                             <span className="icon la la-heart-o"></span>
-                        </button>
+                        </button> */}
                         {/* wishlisted menu */}
 
-                        <button className="menu-btn">
+                        {/* <button className="menu-btn">
                             <span className="icon la la-bell"></span>
-                        </button>
+                        </button> */}
                         {/* End notification-icon */}
 
                         {/* <!-- Dashboard Option --> */}
@@ -111,7 +131,7 @@ const DashboardHeader = () => {
                                     width={40}
                                     height={40}
                                 />
-                                <span className="name">FFI</span>
+                                <span style={{color:'#fff'}} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>
 
                             <ul className="dropdown-menu">

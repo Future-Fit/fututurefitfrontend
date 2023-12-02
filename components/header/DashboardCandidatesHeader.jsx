@@ -7,12 +7,32 @@ import candidatesMenuData from "../../data/candidatesMenuData";
 import HeaderNavContent from "./HeaderNavContent";
 import { isActiveLink } from "../../utils/linkActiveChecker";
 import { clearSession } from "../common/form/login/sessionHandler";
+import axios from "axios";
+
 
 import { usePathname } from "next/navigation";
 
 const DashboardCandidatesHeader = () => {
     const [navbar, setNavbar] = useState(false);
     const [user, setUser] = useState(null);
+    const [userDetail, setUserDetail] = useState(null);
+
+    useEffect(() => {
+        const userId = localStorage.getItem("loggedInUserId");
+        console.log('user id', userId);
+        if (userId) {
+          const fetchUserDetails = async () => {
+            try {
+              const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
+              console.log('Response from server:', response.data);
+              setUserDetail(response.data);
+            } catch (error) {
+              console.error("Error fetching user details:", error);
+            }
+          };
+          fetchUserDetails();
+        }
+      }, []);
 
 
 
@@ -95,15 +115,15 @@ const DashboardCandidatesHeader = () => {
                     {/* End .nav-outer */}
 
                     <div className="outer-box">
-                        <button className="menu-btn">
-                            <span className="count">1</span>
-                            <span className="icon la la-heart-o"></span>
-                        </button>
+                        {/* <button className="menu-btn">
+                            <span style={{backgroundColor:'red'}} className="count">1</span>
+                            <span style={{color:'#fff'}} className="icon la la-heart-o"></span>
+                        </button> */}
                         {/* wishlisted menu */}
 
-                        <button className="menu-btn">
-                            <span className="icon la la-bell"></span>
-                        </button>
+                        {/* <button className="menu-btn">
+                            <span style={{color:'#fff'}} className="icon la la-bell"></span>
+                        </button> */}
                         {/* End notification-icon */}
 
                         {/* <!-- Dashboard Option --> */}
@@ -121,7 +141,7 @@ const DashboardCandidatesHeader = () => {
                                     width={50}
                                     height={50}
                                 />
-                                <span className="name">My Account</span>
+                                <span style={{color:'#fff'}} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>
 
                             <ul className="dropdown-menu">

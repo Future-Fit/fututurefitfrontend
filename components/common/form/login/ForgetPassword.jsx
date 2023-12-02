@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import DefaultConfig from "app.config.js";
 
-const FormContent = () => {
+const ForgetPassword = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -94,12 +94,12 @@ const FormContent = () => {
       {/* <!--Login Form--> */}
       <form method="post" onSubmit={handleSubmit} >
         <div className="form-group">
-          <label>Username</label>
+          <label>Email Address</label>
           <input type="text" name="username" placeholder="Username" required value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
         {/* name */}
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>Password</label>
           <input
             type="password"
@@ -108,10 +108,10 @@ const FormContent = () => {
             required
             value={password} onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
+        </div> */}
         {/* password */}
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <div className="field-outer">
             <div className="input-group checkboxes square">
               <input
@@ -124,31 +124,11 @@ const FormContent = () => {
                 <span className="custom-checkbox"></span> Remember me
               </label>
             </div>
-
-
-            <div className="bottom-box">
-              <div className="text d-flex align-items-center justify-content-center">
-                <Link
-                  href="#"
-                  className="call-modal signup"
-                  data-bs-toggle="modal"
-                  data-bs-target="#forgetPassPopupModal"
-                >
-                  Forgot Username/Password?
-                </Link>
-              </div>
-
-              {/* <div className="divider">
-          <span>or</span>
-        </div>
-
-        <LoginWithSocial /> */}
-            </div>
-            {/* <a href="#" style={{ color: '#909090' }} className="pwd">
+            <a href="#" style={{ color: '#909090' }} className="pwd">
               Forgot Username/Password?
-            </a> */}
+            </a>
           </div>
-        </div>
+        </div> */}
         {/* forgot password */}
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
@@ -157,7 +137,7 @@ const FormContent = () => {
             type="submit"
             name="log-in"
           >
-            Sign In
+            Reset Password
           </button>
         </div>
         {/* login */}
@@ -177,7 +157,7 @@ const FormContent = () => {
           Don&apos;t have an account?{" "}
           <Link
             href="#"
-            className="call-modal   "
+            className="call-modal signup"
             data-bs-toggle="modal"
             data-bs-target="#registerModal"
           >
@@ -196,4 +176,4 @@ const FormContent = () => {
   );
 };
 
-export default FormContent;
+export default ForgetPassword;
