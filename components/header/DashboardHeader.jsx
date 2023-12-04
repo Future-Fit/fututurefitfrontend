@@ -20,65 +20,31 @@ const DashboardHeader = () => {
         const userId = localStorage.getItem("loggedInUserId");
         console.log('user id', userId);
         if (userId) {
-          const fetchUserDetails = async () => {
-            try {
-              const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
-              console.log('Response from server:', response.data);
-              setUserDetail(response.data);
-            } catch (error) {
-              console.error("Error fetching user details:", error);
-            }
-          };
-          fetchUserDetails();
+            const fetchUserDetails = async () => {
+                try {
+                    const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
+                    console.log('Response from server:', response.data);
+                    setUserDetail(response.data);
+                } catch (error) {
+                    console.error("Error fetching user details:", error);
+                }
+            };
+            fetchUserDetails();
         }
-      }, []);
+    }, []);
 
     const handleLogout = () => {
         clearSession(); // Clear the session
         window.location.href = '/'; // Redirect to the login page
     };
 
-    const changeBackground = () => {
-        if (window.scrollY >= 0) {
-            setNavbar(true);
-        } else {
-            setNavbar(false);
-        }
-    };
-
-    // useEffect(() => {
-    //     window.addEventListener("scroll", changeBackground);
-    // }, []);
-
     return (
         // <!-- Main Header-->
         <header
-        className="main-header header-shaddow"
-        style={{
-            position: navbar ? 'fixed' : 'relative',
-            top: navbar ? '0' : 'auto',
-            width: '100%',
-            zIndex: navbar ? '1000' : 'auto',
-            boxShadow: navbar ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none',
-            transition: 'top 0.3s ease-in-out'
-            // Add other necessary styles here
-        }}
-    >
-        {/* <header
-            className={`main-header header-shaddow  ${
-                navbar ? "fixed-header " : ""
-            }`}
+            className={`main-header header-shaddow  ${navbar ? "fixed-header " : ""
+                }`}
+        >
 
-            style={{
-                position: navbar ? 'fixed' : 'relative',
-                top: navbar ? '0' : 'auto',
-                width: '100%',
-                zIndex: navbar ? '1000' : 'auto',
-                boxShadow: navbar ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none',
-                transition: 'top 0.3s ease-in-out'
-                // Add other necessary styles here
-            }}
-        > */}
             <div className="container-fluid">
                 {/* <!-- Main box --> */}
                 <div className="main-box">
@@ -105,16 +71,6 @@ const DashboardHeader = () => {
                     {/* End .nav-outer */}
 
                     <div className="outer-box">
-                        {/* <button className="menu-btn">
-                            <span className="count">1</span>
-                            <span className="icon la la-heart-o"></span>
-                        </button> */}
-                        {/* wishlisted menu */}
-
-                        {/* <button className="menu-btn">
-                            <span className="icon la la-bell"></span>
-                        </button> */}
-                        {/* End notification-icon */}
 
                         {/* <!-- Dashboard Option --> */}
                         <div className="dropdown dashboard-option">
@@ -127,11 +83,11 @@ const DashboardHeader = () => {
                                 <Image
                                     alt="avatar"
                                     className="thumb"
-                                    src="/images/resource/logo-no-background.png"
-                                    width={40}
-                                    height={40}
+                                    src="/images/logo-no-background.png"
+                                    width={50}
+                                    height={50}
                                 />
-                                <span style={{color:'#fff'}} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
+                                <span style={{ color: '#fff' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>
 
                             <ul className="dropdown-menu">

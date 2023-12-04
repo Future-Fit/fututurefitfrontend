@@ -1,3 +1,5 @@
+const { clearSession } = require("@/components/common/form/login/sessionHandler");
+
 module.exports = [
   {
     id: 1,
@@ -76,16 +78,17 @@ module.exports = [
     routePath: "/",
     active: "",
     onClick: () => {
-      clearSession(); // Your session clearing function
-      window.location.href = "/"; // Redirect the user to the login page
+      try {
+        console.error("About to clear");
 
+        clearSession(); // Attempt to clear the session
+        console.error("Cleared");
+
+        window.location.href = '/'; // Redirect to the login page
+      } catch (error) {
+        console.error("Error during logout:", error);
+        // Handle errors if any occur during logout
+      }
     },
   },
-  // {
-  //   id: 12,
-  //   name: "Delete Profile",
-  //   icon: "la-trash",
-  //   routePath: "/",
-  //   active: "",
-  // },
 ];

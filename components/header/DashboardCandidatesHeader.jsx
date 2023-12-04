@@ -21,62 +21,18 @@ const DashboardCandidatesHeader = () => {
         const userId = localStorage.getItem("loggedInUserId");
         console.log('user id', userId);
         if (userId) {
-          const fetchUserDetails = async () => {
-            try {
-              const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
-              console.log('Response from server:', response.data);
-              setUserDetail(response.data);
-            } catch (error) {
-              console.error("Error fetching user details:", error);
-            }
-          };
-          fetchUserDetails();
+            const fetchUserDetails = async () => {
+                try {
+                    const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
+                    console.log('Response from server:', response.data);
+                    setUserDetail(response.data);
+                } catch (error) {
+                    console.error("Error fetching user details:", error);
+                }
+            };
+            fetchUserDetails();
         }
-      }, []);
-
-
-
-    const changeBackground = () => {
-        if (window.scrollY >= 0) {
-            setNavbar(true);
-        } else {
-            setNavbar(false);
-        }
-    };
-
-    // useEffect(() => {
-    //     window.addEventListener("scroll", changeBackground);
-    // }, []);
-
-
-    // useEffect(() => {
-    //     const fetchUserData = async () => {
-    //         const accessToken = localStorage.getItem("accessToken");
-
-    //         if (!accessToken) {
-    //             return;
-    //         }
-
-    //         try {
-    //             const response = await fetch("https://api.futurefitinternational.com/users/me", {
-    //                 headers: {
-    //                     Authorization: `Bearer ${accessToken}`
-    //                 }
-    //             });
-
-    //             if (response.ok) {
-    //                 const userData = await response.json();
-    //                 setUser(userData);
-    //             } else {
-    //                 console.error("Failed to fetch user data");
-    //             }
-    //         } catch (error) {
-    //             console.error("Error fetching user data:", error);
-    //         }
-    //     };
-
-    //     fetchUserData();
-    // }, []);
+    }, []);
 
     const handleLogout = () => {
         clearSession(); // Clear the session
@@ -115,16 +71,6 @@ const DashboardCandidatesHeader = () => {
                     {/* End .nav-outer */}
 
                     <div className="outer-box">
-                        {/* <button className="menu-btn">
-                            <span style={{backgroundColor:'red'}} className="count">1</span>
-                            <span style={{color:'#fff'}} className="icon la la-heart-o"></span>
-                        </button> */}
-                        {/* wishlisted menu */}
-
-                        {/* <button className="menu-btn">
-                            <span style={{color:'#fff'}} className="icon la la-bell"></span>
-                        </button> */}
-                        {/* End notification-icon */}
 
                         {/* <!-- Dashboard Option --> */}
                         <div className="dropdown dashboard-option">
@@ -141,11 +87,11 @@ const DashboardCandidatesHeader = () => {
                                     width={50}
                                     height={50}
                                 />
-                                <span style={{color:'#fff'}} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
+                                <span style={{ color: '#fff' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>
 
                             <ul className="dropdown-menu">
-                           
+
                                 {/* Change Password Option */}
                                 <li className={`${isActiveLink('/candidates-dashboard/change-password', usePathname()) ? "active" : ""} mb-1`}>
                                     <Link href="/candidates-dashboard/change-password">

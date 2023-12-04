@@ -15,121 +15,18 @@ const ForgetPassword = () => {
 
   const router = useRouter();
 
-  const handleRememberMe = (e) => {
-    setRememberMe(e.target.checked);
-  };
 
-  useEffect(() => {
-    // Check if "Remember Me" is selected and populate fields if credentials exist in local storage
-    const storedUsername = localStorage.getItem("rememberedUsername");
-    const storedPassword = localStorage.getItem("rememberedPassword");
-
-    if (rememberMe && storedUsername && storedPassword) {
-      setUsername(storedUsername);
-      setPassword(storedPassword);
-    }
-  }, [rememberMe]);
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    // Perform login API request here using username and password
-    console.log("datas are", username, password);
-    try {
-      const response = await fetch(`${DefaultConfig.url}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: username,
-          password: password,
-        }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        // Login successful
-        const { accessToken, user } = data.data;
-        localStorage.setItem("accessToken", accessToken);
-        localStorage.setItem("userType", user.user_type_id);
-        localStorage.setItem("loggedInUserId", user.id);
-
-        // Redirect based on user type
-        if (user.user_type_id === 1 || user.user_type_id === 2) {
-          router.push('/candidates-dashboard/dashboard')
-        } else if (user.user_type_id === 3) {
-          router.push('/employers-dashboard/dashboard')
-        } else if (user.user_type_id === 4) {
-          router.push('/employers-dashboard/dashboard')
-
-        }
-      } else {
-        // Login failed, display error message
-        setError(data.message || "Login failed");
-      }
-    } catch (error) {
-      setError("An error occurred while logging in");
-    }
-  };
-
-
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (rememberMe) {
-      // If "Remember Me" is checked, store credentials in local storage
-      localStorage.setItem("rememberedUsername", username);
-      localStorage.setItem("rememberedPassword", password);
-    } else {
-      // If not checked, clear stored credentials
-      localStorage.removeItem("rememberedUsername");
-      localStorage.removeItem("rememberedPassword");
-    }
-    handleLogin(e); // Proceed with login
-  };
   return (
     <div className="form-inner">
-      <h3>Sign In to FFI</h3>
-      <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>Description</h3>
+      <h3>Reset Your Password</h3>
+      <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>Reset Password</h3>
 
       {/* <!--Login Form--> */}
-      <form method="post" onSubmit={handleSubmit} >
+      <form method="post" >
         <div className="form-group">
           <label>Email Address</label>
-          <input type="text" name="username" placeholder="Username" required value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="text" name="username" placeholder="Email Address" required value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
-        {/* name */}
-
-        {/* <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            value={password} onChange={(e) => setPassword(e.target.value)}
-          />
-        </div> */}
-        {/* password */}
-
-        {/* <div className="form-group">
-          <div className="field-outer">
-            <div className="input-group checkboxes square">
-              <input
-                type="checkbox"
-                name="remember-me"
-                id="remember"
-                checked={rememberMe}
-                onChange={handleRememberMe} />
-              <label htmlFor="remember" className="remember">
-                <span className="custom-checkbox"></span> Remember me
-              </label>
-            </div>
-            <a href="#" style={{ color: '#909090' }} className="pwd">
-              Forgot Username/Password?
-            </a>
-          </div>
-        </div> */}
-        {/* forgot password */}
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
           <button
@@ -164,14 +61,7 @@ const ForgetPassword = () => {
             Sign Up
           </Link>
         </div>
-
-        {/* <div className="divider">
-          <span>or</span>
-        </div>
-
-        <LoginWithSocial /> */}
       </div>
-      {/* End bottom-box LoginWithSocial */}
     </div>
   );
 };

@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { menuToggle } from "../../features/toggle/toggleSlice";
 import { usePathname } from "next/navigation";
 import { clearSession } from "../common/form/login/sessionHandler";
+import Image from "next/image";
+
 const DashboardEmployerSidebar = () => {
 
     const { menu } = useSelector((state) => state.toggle);
@@ -18,23 +20,33 @@ const DashboardEmployerSidebar = () => {
         dispatch(menuToggle());
     };
 
-    const filteredData = employerMenuData.filter(
-        (item) => item.name !== "Change Password" && item.name !== "Logout"
-    );
+    // const filteredData = employerMenuData.filter(
+    //     (item) => item.name !== "Change Password" && item.name !== "Logout"
+    // );
 
     return (
         <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
-            {/* Start sidebar close icon */}
             <div className="pro-header text-end pb-0 mb-0 show-1023">
-                <div className="fix-icon" onClick={menuToggleHandler}>
-                    <span className="flaticon-close"></span>
+                <div className="pro-header">
+                    <Link href="/">
+                        <Image width={50} height={50}
+                            src="/images/logo-no-background.png"
+                            alt="brand" />
+                    </Link>
+                    {/* End logo */}
+
+                    <div className="fix-icon" onClick={menuToggleHandler} data-bs-dismiss="offcanvas" aria-label="Close">
+                        <span className="flaticon-close" style={{ color: '#fff' }}></span>
+                    </div>
+                    {/* icon close */}
                 </div>
+
             </div>
             {/* End sidebar close icon */}
 
             <div className="sidebar-inner">
                 <ul className="navigation">
-                    {filteredData.map((item) => (
+                    {employerMenuData.map((item) => (
                         <li
                             className={`${isActiveLink(item.routePath, usePathname()) ? "active" : ""
                                 } mb-1`}

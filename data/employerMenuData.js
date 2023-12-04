@@ -1,3 +1,5 @@
+const { clearSession } = require("@/components/common/form/login/sessionHandler");
+
 module.exports = [
   {
     id: 1,
@@ -76,12 +78,7 @@ module.exports = [
     routePath: "/",
     active: "",
     onClick: () => {
-      // Implement logout logic here
-      // For example, clear session and log the user out
-      clearSession(); // Your session clearing function
-      // Perform logout action (redirect to login page, etc.)
-      // For instance:
-      // window.location.href = "/login"; // Redirect to login page
+      clearSession(); 
     },
   },
   // {

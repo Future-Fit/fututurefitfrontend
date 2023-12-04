@@ -1,4 +1,5 @@
 import Register from "../register/Register";
+import ForgetPassword from "./ForgetPassword";
 import FormContent from "./FormContent";
 
 const LoginPopup = () => {
@@ -47,7 +48,7 @@ const LoginPopup = () => {
               <div id="login-modal">
                 {/* <!-- Login Form --> */}
                 <div className="login-form default-form">
-                  <FormContent />
+                  <ForgetPassword />
                 </div>
                 {/* <!--End Login Form --> */}
               </div>

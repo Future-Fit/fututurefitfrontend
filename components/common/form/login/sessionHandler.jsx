@@ -1,4 +1,4 @@
-export const clearSession = () => {
+const clearSession = () => {
   try {
       console.log("Clearing session...");
       localStorage.removeItem('accessToken'); // Clear authentication token
@@ -11,4 +11,8 @@ export const clearSession = () => {
   } catch (error) {
       console.error("Error clearing session:", error);
   }
+};
+module.exports = {
+  clearSession: clearSession,
+  // ... (other menu items)
 };

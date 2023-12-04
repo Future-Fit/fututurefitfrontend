@@ -27,7 +27,7 @@ const ChatBox = () => {
               className="fix-icon position-absolute top-0 end-0 show-1023"
               onClick={chatToggle}
             >
-              <span className="flaticon-close"></span>
+              <span className="flaticon-close" style={{color:'#fff'}}></span>
             </div>
             {/* close chatbox in mobile menu */}
             <div className="search-box-one">
