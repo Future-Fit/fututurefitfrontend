@@ -6,7 +6,7 @@ const FormContent2 = () => {
   const [selectedFile, setSelectedFile] = useState(null); // State to store the selected file
 
   const [formData, setFormData] = useState({
-    user_type_id: 1,
+    user_type_id: 3,
     fname: "",
     lname: "",
     phone: "",

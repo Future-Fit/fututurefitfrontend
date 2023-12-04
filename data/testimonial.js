@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: 1,
-    feedback: "Skilled Labour",
+    feedback: "Collegies",
     feedbackText: `Unlock Your Potential, Discover Your Future, Are you a skilled worker seeking exciting career prospects in Canada? 
     We specialize in matching your expertise with employers that recognize and value your talents in the Canadian job market.`,
     avatar: "/images/resource/logo-no-background.png",
@@ -10,7 +10,7 @@ module.exports = [
   },
   {
     id: 2,
-    feedback: "Employers and Business Owners",
+    feedback: "Universites",
     feedbackText: `Expand your horizons and connect with talented professionals from around the world. We foster 
     international business relationships, helping you tap into diverse markets, skillsets, and expertise, all while 
     contributing to Canada’s...`,

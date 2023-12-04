@@ -1,12 +1,23 @@
-import Footer from "@/components/home-1/Footer";
+"use client"
 import FooterDefault from "../../../components/footer/common-footer";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import DefaulHeader2 from "../../header/DefaulHeader2";
 import MobileMenu from "../../header/MobileMenu";
 import FilterJobBox from "./FilterJobBox";
 import JobSearchForm from "./JobSearchForm";
+import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
+import DashboardHeader from "../../header/DashboardHeader";
+import { useEffect, useState } from "react";
 
 const index = () => {
+  const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
   return (
     <>
       {/* <!-- Header Span --> */}
@@ -15,7 +26,9 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
+      {userType === 3 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* End Header with upload cv btn */}
 
       <MobileMenu />

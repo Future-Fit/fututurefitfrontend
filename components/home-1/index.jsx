@@ -1,25 +1,40 @@
+"use client"
+
 import Hero10 from "../hero/hero-10"
-import Block1 from "../block/Block1";
 import DefaulHeader2 from "../header/DefaulHeader2";
 import JobFeatured4 from "../job-featured/JobFeatured4";
 import LoginPopup from "../common/form/login/LoginPopup";
 import MobileMenu from "../header/MobileMenu";
 import Link from "next/link";
-import CallToAction from "../call-to-action/CallToAction";
-import AppSection from "../app-section/AppSection";
 import FooterDefault from "../footer/common-footer";
 import Block8 from "../block/Block8";
 import Block6 from "../block/Block6";
 import Partner2 from "../common/partner/Partner2";
+import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
+import DashboardHeader from "../header/DashboardHeader";
+import { useEffect, useState } from "react";
+
 
 
 const index = () => {
+
+  const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
+
   return (
     <>
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
+      {userType === 3 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <Header /> */}
       {/* <!--End Main Header --> */}
 
@@ -46,16 +61,6 @@ const index = () => {
         </div>
       </section>
       {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
-
-
-      {/* <section className="app-section" >
-        <div className="auto-container" style={{paddingTop:'10px'}}>
-          <div style={{ borderRadius: '10%', overflow: 'hidden' }}>
-            <AppSection />
-          </div>
-        </div>
-      </section> */}
-      {/* <CallToAction /> */}
 
       <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
         <div className="auto-container" style={{ paddingBottom: '30px', paddingTop: '30px' }}>
@@ -105,7 +110,7 @@ const index = () => {
 
       <section className="clients-section-two alternate" style={{ background: '#3B578E' }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
-          <h2 style={{ color: '#fff', paddingTop: '10px' }}>Business</h2>
+          <h2 style={{ color: '#fff', paddingTop: '10px',  fontWeight: 'bolder' }}>Business</h2>
 
           <div className="sponsors-outer wow fadeInUp">
             <div className="sponsors-carousel">

@@ -15,6 +15,9 @@ import ApplyJobModalContent from "@/components/job-single-pages/shared-component
 import Image from "next/image";
 import Footer from "@/components/home-1/Footer";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
+import DashboardHeader from "../header/DashboardHeader";
+
 
 export const metadata = {
   title: "Job Detail | Future Fit International Job Portal",
@@ -33,7 +36,9 @@ const JobSingleDynamicV1 = ({ params }) => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
+      {userType === 3 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />

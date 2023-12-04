@@ -6,20 +6,19 @@ const CallToAction3 = () => {
       <div className="auto-container">
         <div className="outer-box">
           <div className="sec-title">
-            <h2>Let employers find you</h2>
+            <h2>Travel & Visa</h2>
             <div className="text">
-              Advertise your jobs to millions of monthly users and search 15.8
-              million CVs in our database.
+              Travel and Visa Detail Here
             </div>
           </div>
           {/* End sec title */}
 
           <div className="btn-box">
             <Link
-              href="/job-list-v7"
+              href="/job-list-v6"
               className="theme-btn btn-style-one bg-blue"
             >
-              <span className="btn-title">Search Job</span>
+              <span className="btn-title">Learn More</span>
             </Link>
           </div>
           {/* End btn-box */}

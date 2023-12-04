@@ -1,11 +1,30 @@
+"use client"
 import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
 import FooterDefault from "../../../components/footer/common-footer";
 import Testimonial from "@/components/testimonial/Testimonial";
-
+import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
+import DashboardHeader from "../../header/DashboardHeader";
+import { useEffect, useState } from "react";
+import AppSectionAbout from "@/components/app-section/AppSectionAbout";
+import CallToAction2 from "@/components/call-to-action/CallToAction2";
+import CallToAction from "@/components/call-to-action/CallToAction";
+import Block1 from "@/components/block/Block1";
+import CallToAction11 from "@/components/call-to-action/CallToAction11";
+import CallToAction3 from "@/components/call-to-action/CallToAction3";
 
 const index = () => {
+
+  const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
+
   return (
     <>
       {/* <!-- Header Span --> */}
@@ -14,7 +33,9 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
+      {userType === 3 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <DefaulHeader /> */}
       {/* <!--End Main Header --> */}
 
@@ -26,7 +47,7 @@ const index = () => {
 
       <section className="app-section">
         <div className="auto-container">
-          {/* <AppSectionAbout /> */}
+          <AppSectionAbout />
         </div>
       </section>
 
@@ -34,23 +55,23 @@ const index = () => {
 
       {/* <section className="about-section-three">
         <div className="auto-container"> */}
-          {/* <ImgBox /> */}
+      {/* <ImgBox /> */}
 
-          {/* <div className="fun-fact-section">
+      {/* <div className="fun-fact-section">
             <div className="row">
               <Funfact />
             </div>
           </div> */}
 
-          {/* <IntroDescriptions /> */}
-        {/* </div>
+      {/* <IntroDescriptions /> */}
+      {/* </div>
       </section> */}
       {/* <!-- End About Section Three --> */}
 
-      {/* <CallToAction2 /> */}
+      <CallToAction2 />
 
-      {/* <CallToAction/> */}
-      
+      <CallToAction/>
+
       {/* <!-- End CallToAction2 --> */}
 
       <section className="testimonial-section-two">
@@ -66,7 +87,7 @@ const index = () => {
           {/* End left img group */}
 
           {/* <div className="testimonial-right"> */}
-            {/* <Image
+          {/* <Image
               width={504}
               height={451}
               src="/images/resource/testimonial-right.png"
@@ -76,7 +97,7 @@ const index = () => {
           {/* End right img group */}
 
           <div className="sec-title text-center">
-            <h2>Services We Offer</h2>
+            <h2>Collegies & Universities</h2>
             {/* <div className="text">
               Future Fit International
             </div> */}
@@ -93,26 +114,22 @@ const index = () => {
       </section>
       {/* <!-- End Testimonial Section --> */}
 
-      {/* <section className="work-section style-two">
+      <section className="work-section style-two">
         <div className="auto-container">
           <div className="sec-title text-center">
-            <h2>How It Works?</h2>
+            <h2>Training</h2>
             <div className="text">Job for anyone, anywhere</div>
           </div>
           <div className="row" data-aos="fade-up">
             <Block1 />
           </div>
         </div>
-      </section> */}
-      {/* <!-- End Work Section --> */}
+      </section> 
+      {/* End Work Section  */}
 
-      {/* <section className="clients-section">
-        <div className="sponsors-outer" data-aos="fade">
-          <ul className="sponsors-carousel">
-            <Partner />
-          </ul>
-        </div>
-      </section> */}
+
+<CallToAction3/>
+      
       {/* <!-- End Clients Section--> */}
 
       <FooterDefault />

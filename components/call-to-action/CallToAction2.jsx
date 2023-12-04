@@ -8,19 +8,18 @@ const CallToAction2 = () => {
     >
       <div className="auto-container" data-aos="fade-up">
         <div className="sec-title light text-center">
-          <h2>Your Dream Jobs Are Waiting for You</h2>
+          <h2>Business</h2>
           {/* <h3>Where Bridging Talent and Opportunities Across Canada is Our Specialty</h3> */}
           <div className="text">
-          Where Bridging Talent and Opportunities Across Canada is Our Specialty
+          Detail About Business
           </div>
         </div>
-
         <div className="btn-box">
-          <Link href="/job-list-v6" className="theme-btn btn-style-three">
-            Search Job
+          <Link href="/job-list-v6" className="theme-btn btn-style-one bg-blue">
+            Login
           </Link>
-          <Link href="/register" className="theme-btn btn-style-two">
-            Apply Job Now
+          <Link href="/register" className="theme-btn btn-style-one bg-blue">
+            Register
           </Link>
         </div>
       </div>

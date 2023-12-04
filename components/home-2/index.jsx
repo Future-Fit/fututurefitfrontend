@@ -14,7 +14,8 @@ import JobCategorie1 from "../job-categories/JobCategorie1";
 import JobFeatured1 from "../job-featured/JobFeatured1";
 import Testimonial from "../testimonial/Testimonial";
 import Header from "./Header";
-
+import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
+import DashboardHeader from "../header/DashboardHeader";
 
 const index = () => {
   return (
@@ -22,7 +23,9 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
+      {userType === 3 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <Header /> */}
 
       {/* End Header with upload cv btn */}

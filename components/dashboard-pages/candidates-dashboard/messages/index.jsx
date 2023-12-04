@@ -12,7 +12,7 @@ import ChatBox from "./components";
 import DashboardCandidatesHeader from "../../../header/DashboardCandidatesHeader";
 import MenuToggler from "../../MenuToggler";
 import { useSelector } from "react-redux";
-
+import FooterDefault from "../../../footer/common-footer";
 const Index = () => {
   const { chatSidebar } = useSelector((state) => state.toggle);
 
@@ -62,7 +62,7 @@ const Index = () => {
       </section>
       {/* <!-- End Dashboard --> */}
 
-      <CopyrightFooter />
+      <FooterDefault />
       {/* <!-- End Copyright --> */}
     </div>
     // End page-wrapper

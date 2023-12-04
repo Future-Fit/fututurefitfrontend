@@ -1,16 +1,27 @@
+"use client"
 import Blog6 from "../../blog/Blog6";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import FooterDefault from "../../footer/common-footer";
-import DefaulHeader from "../../header/DefaulHeader";
 import MobileMenu from "../../header/MobileMenu";
 import BlogPagination from "../blog-sidebar/BlogPagination";
 import BlogSidebar from "../blog-sidebar";
-import Breadcrumb from "../../common/Breadcrumb";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
-import Footer from "../../../components/home-1/Footer";
+import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
+import DashboardHeader from "../../header/DashboardHeader";
+import { useEffect, useState } from "react";
 
 
 const index = () => {
+
+  const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
+
   return (
     <>
       {/* <!-- Header Span --> */}
@@ -19,17 +30,13 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
+      {userType === 3 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
 
-
-      {/* <DefaulHeader /> */}
-      {/* <!--End Main Header --> */}
 
       <MobileMenu />
       {/* End MobileMenu */}
-
-      {/* <Breadcrumb title="Blog" meta="Blog" />  */}
-      {/* <!--End Page Title--> */}
 
       <div className="sidebar-page-container">
         <div className="auto-container">

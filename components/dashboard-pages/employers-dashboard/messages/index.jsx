@@ -9,7 +9,7 @@ import CopyrightFooter from "../../CopyrightFooter";
 import ChatBox from "./components";
 import MenuToggler from "../../MenuToggler";
 import { useSelector } from "react-redux";
-
+import FooterDefault from "../../../footer/common-footer";
 const Index = () => {
   const { chatSidebar } = useSelector((state) => state.toggle);
   return (
@@ -58,7 +58,7 @@ const Index = () => {
       </section>
       {/* <!-- End Dashboard --> */}
 
-      <CopyrightFooter />
+      <FooterDefault />
       {/* <!-- End Copyright --> */}
     </div>
     // End page-wrapper

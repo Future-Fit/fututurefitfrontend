@@ -1,14 +1,25 @@
+"use client"
 import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import Testimonial2 from "../../testimonial/Testimonial2";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
-import Footer from "../../../components/home-1/Footer";
 import AppSectionAbout from "@/components/app-section/AppSectionAbout";
 import CallToAction from "@/components/call-to-action/CallToAction";
 import FooterDefault from "../../../components/footer/common-footer";
-
+import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
+import DashboardHeader from "../../header/DashboardHeader";
+import { useEffect, useState } from "react";
 
 const index = () => {
+
+  const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
   return (
     <>
       {/* <!-- Header Span --> */}
@@ -17,7 +28,10 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
+      {userType === 3 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
+      
       {/* <DefaulHeader /> */}
       {/* <!--End Main Header --> */}
 
@@ -33,24 +47,6 @@ const index = () => {
         </div>
       </section>
 
-      {/* <CallToAction12/> */}
-
-      {/* <section className="about-section-three">
-        <div className="auto-container"> */}
-          {/* <ImgBox /> */}
-
-          {/* <div className="fun-fact-section">
-            <div className="row">
-              <Funfact />
-            </div>
-          </div> */}
-
-          {/* <IntroDescriptions /> */}
-        {/* </div>
-      </section> */}
-      {/* <!-- End About Section Three --> */}
-
-      {/* <CallToAction2 /> */}
 
       <CallToAction/>
       
@@ -95,28 +91,6 @@ const index = () => {
         </div>
       </section>
       {/* <!-- End Testimonial Section --> */}
-
-      {/* <section className="work-section style-two">
-        <div className="auto-container">
-          <div className="sec-title text-center">
-            <h2>How It Works?</h2>
-            <div className="text">Job for anyone, anywhere</div>
-          </div>
-          <div className="row" data-aos="fade-up">
-            <Block1 />
-          </div>
-        </div>
-      </section> */}
-      {/* <!-- End Work Section --> */}
-
-      {/* <section className="clients-section">
-        <div className="sponsors-outer" data-aos="fade">
-          <ul className="sponsors-carousel">
-            <Partner />
-          </ul>
-        </div>
-      </section> */}
-      {/* <!-- End Clients Section--> */}
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}

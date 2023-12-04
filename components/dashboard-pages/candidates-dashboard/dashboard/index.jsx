@@ -9,6 +9,7 @@ import CopyrightFooter from "../../CopyrightFooter";
 import JobApplied from "./components/JobApplied";
 import DashboardCandidatesHeader from "../../../header/DashboardCandidatesHeader";
 import MenuToggler from "../../MenuToggler";
+import FooterDefault from "../../../footer/common-footer";
 
 const Index = () => {
   return (
@@ -88,7 +89,7 @@ const Index = () => {
       </section>
       {/* <!-- End Dashboard --> */}
 
-      <CopyrightFooter />
+      <FooterDefault />
       {/* <!-- End Copyright --> */}
     </div>
     // End page-wrapper

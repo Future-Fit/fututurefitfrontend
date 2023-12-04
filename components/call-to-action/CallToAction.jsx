@@ -7,7 +7,7 @@ const CallToAction = () => {
         <div className="outer-box" data-aos="fade-up">
           <div className="content-column">
             <div className="sec-title">
-              <h3>Why Choose Us?</h3>
+              <h3>Students?</h3>
               <div className="text" >
               <ul className="list-style-one" >
                     <li>Experienced in talent management</li>

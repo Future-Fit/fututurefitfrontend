@@ -7,7 +7,7 @@ import CopyrightFooter from "../../CopyrightFooter";
 import PostJobSteps from "./components/PostJobSteps";
 import PostBoxForm from "./components/PostBoxForm";
 import MenuToggler from "../../MenuToggler";
-
+import FooterDefault from "../../../footer/common-footer";
 const index = () => {
   return (
     <div className="page-wrapper dashboard">
@@ -60,7 +60,7 @@ const index = () => {
       </section>
       {/* <!-- End Dashboard --> */}
 
-      <CopyrightFooter />
+      <FooterDefault />
       {/* <!-- End Copyright --> */}
     </div>
     // End page-wrapper

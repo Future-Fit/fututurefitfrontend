@@ -5,13 +5,11 @@ import { useEffect, useState } from "react";
 import HeaderNavContent from "./HeaderNavContent";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-// import './dropdownremover'
-import { FaUser } from 'react-icons/fa';
 
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
-  const [showModal, setShowModal] = useState(false); // State to manage modal visibility
-  const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
+  const [showModal, setShowModal] = useState(false); 
+  const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
@@ -84,19 +82,20 @@ const DefaulHeader2 = () => {
 
 
   const handleLoginRedirect = (e) => {
-    // Check for logged-in user on button click
+
     const accessToken = localStorage.getItem("accessToken");
+
     const userType = localStorage.getItem("userType");
 
     if (accessToken && userType) {
-      e.preventDefault(); // Prevent default link behavior
-      if (userType === "1") {
+      e.preventDefault();
+      if (userType === "4") {
         router.push("/candidates-dashboard/dashboard");
-      } else if (userType === "2" || userType === "3" || userType === "4") {
+      } else if (userType === "3") {
         router.push("/employers-dashboard/dashboard");
       }
     } else {
-      setShowModal(true); // Show the modal if no logged-in user is found
+      setShowModal(true);
     }
   };
 
@@ -132,7 +131,7 @@ const DefaulHeader2 = () => {
 
           <div className="outer-box">
             <div className="d-flex align-items-center btn-box2">
-              {loggedInUserId ? (
+              {/* {loggedInUserId ? (
                 // If user is logged in, display user profile link
 
                 <a
@@ -142,7 +141,7 @@ const DefaulHeader2 = () => {
                 >
                   <i className="fas fa-user" style={{ fontSize: '22px', color: 'white' }}></i>
                 </a>
-              ) : (
+              ) : ( */}
                 <a
                   href="#"
                   className="theme-btn btn-style-six call-modal"
@@ -152,7 +151,7 @@ const DefaulHeader2 = () => {
                 >
                   Sign In / Sign Up
                 </a>
-              )}
+              {/* )} */}
               <div className="dropdown">
 
                 <button

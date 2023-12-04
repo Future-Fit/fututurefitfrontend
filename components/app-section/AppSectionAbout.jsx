@@ -21,15 +21,10 @@ const AppSectionAbout = () => {
         <div className="inner-column" data-aos="fade-left">
           <div className="sec-title">
             <h2>
-              About Us
+              Job Seekers
             </h2>
             <div className="text" style={{textAlign:"justify"}}>
-            At FFI, our passion is empowering individuals, businesses and educational institutions by establishing a thriving, diverse 
-            and professional ecosystem where great skills, talent and ambitions meet business and educational opportunities.
-            Whether you are looking for that incredible life-long career opportunity, just a short-term gig, an international 
-            university/college education or a vocational training/course, we will provide you an unparalleled, one-stop service that 
-            exceeds your expectations. Our global reach and domain expertise allows us to have insight to intimately understand the needs 
-            and challenges our clients face in the pursuit of their aspirations and business goals.
+            Detail About Job Seeker
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ import Notification from "./components/Notification";
 import Applicants from "./components/Applicants";
 import CopyrightFooter from "../../CopyrightFooter";
 import MenuToggler from "../../MenuToggler";
-
+import FooterDefault from "../../../footer/common-footer";
 const Index = () => {
   return (
     <div className="page-wrapper dashboard">
@@ -88,7 +88,7 @@ const Index = () => {
       </section>
       {/* <!-- End Dashboard --> */}
 
-      <CopyrightFooter />
+      <FooterDefault />
       {/* <!-- End Copyright --> */}
     </div>
     // End page-wrapper

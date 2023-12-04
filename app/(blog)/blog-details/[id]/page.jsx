@@ -1,23 +1,35 @@
+"use client"
 import dynamic from "next/dynamic";
 import LoginPopup from "@/components/common/form/login/LoginPopup";
 import FooterDefault from "@/components/footer/common-footer";
-import DefaulHeader from "@/components/header/DefaulHeader";
 import MobileMenu from "@/components/header/MobileMenu";
 import DetailsContent from "@/components/blog-meu-pages/blog-details/details-content";
 import blogs from "@/data/blogs";
 import Image from "next/image";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
-import Footer from "@/components/home-1/Footer";
+import DashboardCandidatesHeader from "../../../../components/header/DashboardCandidatesHeader";
+import DashboardHeader from "../../../../components/header/DashboardHeader";
+import { useEffect, useState } from "react";
 
-export const metadata = {
-  title: "Blog Details | Future Fit International Job Portal",
-  description: "Future Fit International Job Portal",
-};
+
+// export const metadata = {
+//   title: "Blog Details | Future Fit International Job Portal",
+//   description: "Future Fit International Job Portal",
+// };
 
 const BlogDetailsDynamic = ({ params }) => {
   const id = params.id;
 
   const blog = blogs.find((item) => item.id == id) || blogs[0];
+
+  const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
 
   return (
     <>
@@ -27,7 +39,9 @@ const BlogDetailsDynamic = ({ params }) => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader2 />
+      {userType === 3 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
@@ -66,7 +80,7 @@ const BlogDetailsDynamic = ({ params }) => {
         <DetailsContent />
       </section>
       {/* <!-- End Blog Single --> */}
-      <Footer />
+      <FooterDefault/>
       {/* <FooterDefault footerStyle="alternate5" /> */}
       {/* <!-- End Main Footer --> */}
     </>
