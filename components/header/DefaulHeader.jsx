@@ -17,9 +17,34 @@ const DefaulHeader = () => {
     }
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", changeBackground);
-  // }, []);
+
+  const [headerStyle, setHeaderStyle] = useState({
+    backgroundColor: '#3B578E',
+    boxShadow: 'none',
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 10;
+      setNavbar(scrolled);
+
+      // Update header style based on scroll
+      const updatedHeaderStyle = {
+        backgroundColor: scrolled ? '#3B578E' : '#3B578E',
+        boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
+      };
+      setHeaderStyle(updatedHeaderStyle);
+    };
+
+    // Initial check for scroll position
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     // <!-- Main Header-->
@@ -27,6 +52,7 @@ const DefaulHeader = () => {
       className={`main-header  ${
         navbar ? "fixed-header animated slideInDown" : ""
       }`}
+      style={headerStyle} 
     >
       {/* <!-- Main box --> */}
       <div className="main-box">
@@ -36,8 +62,8 @@ const DefaulHeader = () => {
             <div className="logo">
               <Link href="/">
                 <Image
-                  width={50}
-                  height={50}
+                  width={70}
+                  height={70}
                   src="/images/logo-no-background.png"
                   alt="brand"
                 />

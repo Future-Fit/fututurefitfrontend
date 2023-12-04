@@ -1,4 +1,3 @@
-
 'use client'
 
 import Link from "next/link";
@@ -8,7 +7,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 // import './dropdownremover'
 import { FaUser } from 'react-icons/fa';
-
 
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
@@ -34,11 +32,26 @@ const DefaulHeader2 = () => {
     }
   }, []);
 
+  const [headerStyle, setHeaderStyle] = useState({
+    backgroundColor: '#3B578E',
+    boxShadow: 'none',
+  });
+
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 10;
       setNavbar(scrolled);
+
+      // Update header style based on scroll
+      const updatedHeaderStyle = {
+        backgroundColor: scrolled ? '#3B578E' : '#3B578E',
+        boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
+      };
+      setHeaderStyle(updatedHeaderStyle);
     };
+
+    // Initial check for scroll position
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
 
@@ -69,12 +82,6 @@ const DefaulHeader2 = () => {
     }
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", changeBackground);
-  //   return () => {
-  //     window.removeEventListener("scroll", changeBackground);
-  //   };
-  // }, [navbar]);
 
   const handleLoginRedirect = (e) => {
     // Check for logged-in user on button click
@@ -91,11 +98,6 @@ const DefaulHeader2 = () => {
     } else {
       setShowModal(true); // Show the modal if no logged-in user is found
     }
-  };
-
-  const headerStyle = {
-    backgroundColor: navbar ? '#3B578E' : '#3B578E',
-    boxShadow: navbar ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
   };
 
   return (
@@ -140,22 +142,7 @@ const DefaulHeader2 = () => {
                 >
                   <i className="fas fa-user" style={{ fontSize: '22px', color: 'white' }}></i>
                 </a>
-                // <a
-                //   href="#"
-                //   className="theme-btn btn-style-six call-modal"
-                //   onClick={() => router.push('candidates-dashboard/dashboard')}
-                // >
-                //   <i className="fas fa-user" style={{ fontSize: '22px', color: 'white' }}></i>
-                // </a>
-                // <a
-                //   href="#"
-                //   className="theme-btn btn-style-six call-modal"
-                //   onClick={()=> router.push('candidates-dashboard/dashboard')}
-                // >
-                //   <FaUser size={22} color="white" />
-                // </a>
               ) : (
-                // If user is not logged in, display login/register text
                 <a
                   href="#"
                   className="theme-btn btn-style-six call-modal"

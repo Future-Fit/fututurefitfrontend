@@ -29,7 +29,7 @@ const index = () => {
       <Hero10 />
 
 
-      <section className="" style={{background:'#f5f7fc', paddingTop:'30px', paddingBottom:'30px'}}>
+      <section className="" style={{ background: '#f5f7fc', paddingTop: '30px', paddingBottom: '30px' }}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
@@ -57,11 +57,11 @@ const index = () => {
       </section> */}
       {/* <CallToAction /> */}
 
-      <section className="layout-pt-10 layout-pb-30" style={{background:'#3B578E'}}>
-        <div className="auto-container" style={{paddingBottom: '30px'}}>
-          <div className="sec-title text-center" style={{color:'#fff'}}>
-            <h2 style={{color:'#fff', paddingTop:'10px'}}>Services</h2>
-            <div style={{color:'#fff'}} className="text">
+      <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
+        <div className="auto-container" style={{ paddingBottom: '30px', paddingTop: '30px' }}>
+          <div className="sec-title text-center" style={{ color: '#fff' }}>
+            <h2 style={{ color: '#fff', paddingTop: '10px' }}>Services</h2>
+            <div style={{ color: '#fff' }} className="text">
               Job for anyone, anywhere
             </div>
           </div>
@@ -71,7 +71,7 @@ const index = () => {
             <Block8 />
             {/* <!-- Work Block --> */}
           </div>
-          <div className="btn-box text-center" style={{marginTop: '20px' }}>
+          <div className="btn-box text-center" style={{ marginTop: '20px' }}>
             <Link href="/service" className="theme-btn btn-style-one bg-blue">
               <span className="btn-title">Learn More</span>
             </Link>
@@ -103,8 +103,10 @@ const index = () => {
         </div>
       </section>
 
-      <section className="clients-section-two alternate" style={{background:'#3B578E'}}>
-        <div className="auto-container">
+      <section className="clients-section-two alternate" style={{ background: '#3B578E' }}>
+        <div className="auto-container" style={{ textAlign: 'center' }}>
+          <h2 style={{ color: '#fff', paddingTop: '10px' }}>Business</h2>
+
           <div className="sponsors-outer wow fadeInUp">
             <div className="sponsors-carousel">
               <Partner2 />
@@ -112,6 +114,7 @@ const index = () => {
           </div>
         </div>
       </section>
+
 
       {/* <!-- End Job Section --> */}
 

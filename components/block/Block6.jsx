@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Block6 = () => {
   const blockContent = [
     {
@@ -33,6 +35,11 @@ const Block6 = () => {
               </div>
               <h5>{item.title}</h5>
               <p>{item.text}</p>
+              <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+                <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                  <span className="btn-title">{item.title}</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

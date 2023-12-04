@@ -56,8 +56,8 @@ const DashboardHeader = () => {
                                     <Image
                                         alt="brand"
                                         src="/images/logo-no-background.png"
-                                        width={50}
-                                        height={50}
+                                        width={70}
+                                        height={70}
                                         priority
                                     />
                                 </Link>

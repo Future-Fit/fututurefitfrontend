@@ -5,7 +5,7 @@ import Slider from "react-slick";
 
 const HeroSliderGallery = () => {
   const settings = {
-    dots: false,
+    dots: true,
     speed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -68,7 +68,6 @@ const HeroSliderGallery = () => {
         <div className="slide-item bg-image image-5">
           <div style={overlayStyle}></div>
         </div>
-
       </Slider>
     </div>
   );
