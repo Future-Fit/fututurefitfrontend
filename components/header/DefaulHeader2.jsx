@@ -34,18 +34,18 @@ const DefaulHeader2 = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrolled = window.scrollY > 10;
-  //     setNavbar(scrolled);
-  //   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 10;
+      setNavbar(scrolled);
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleItemHover = () => {
     // Set inline style for hovered item

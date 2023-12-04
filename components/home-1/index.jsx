@@ -29,12 +29,12 @@ const index = () => {
       <Hero10 />
 
 
-      <section className="" style={{background:'#3B578E', paddingTop:'30px'}}>
+      <section className="" style={{background:'#f5f7fc', paddingTop:'30px', paddingBottom:'30px'}}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
               <div className="sec-title text-center">
-                <h2 style={{color:'#fff'}}>3 Simple Steps</h2>
+                <h2 >3 Simple Steps</h2>
               </div>
             </div>
           </div>
@@ -48,13 +48,13 @@ const index = () => {
       {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
 
 
-      <section className="app-section" >
+      {/* <section className="app-section" >
         <div className="auto-container" style={{paddingTop:'10px'}}>
           <div style={{ borderRadius: '10%', overflow: 'hidden' }}>
             <AppSection />
           </div>
         </div>
-      </section>
+      </section> */}
       {/* <CallToAction /> */}
 
       <section className="layout-pt-10 layout-pb-30" style={{background:'#3B578E'}}>

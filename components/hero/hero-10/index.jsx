@@ -5,18 +5,18 @@ import HeroSliderGallery from "./HeroSliderGallery";
 const index = () => {
 
   return (
-    // <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', paddingRight:'-100px !important' }}>
-    //   <div className="auto-container" style={{ position: 'relative' }}>
-    //     <div
-    //       style={{
-    //         position: 'relative',
-    //         borderRadius: '0%',
-    //         height: '100vh',
-    //         overflow: 'hidden',
-    //         margin: '0 auto',
-    //         padding: '20px',
-    //       }}
-    //     >
+    <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', paddingBottom: '40px', paddingRight:'-100px !important' }}>
+      <div className="auto-container" style={{ position: 'relative' }}>
+        <div
+          style={{
+            position: 'relative',
+            borderRadius: '0%',
+            height: '100vh',
+            overflow: 'hidden',
+            margin: '0 auto',
+            padding: '20px',
+          }}
+        >
     
           <section className="banner-section-ten">
             <HeroSliderGallery />
@@ -41,6 +41,9 @@ const index = () => {
                 </div>
               </div>
             </div>
+          </section>
+          </div>
+          </div>
           </section>
   );
 };
