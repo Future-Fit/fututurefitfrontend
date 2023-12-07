@@ -1,3 +1,4 @@
+"use client"
 import dynamic from "next/dynamic";
 import jobs from "@/data/job-featured";
 import LoginPopup from "@/components/common/form/login/LoginPopup";
@@ -15,19 +16,20 @@ import ApplyJobModalContent from "@/components/job-single-pages/shared-component
 import Image from "next/image";
 import Footer from "@/components/home-1/Footer";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
-import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
-import DashboardHeader from "../../header/DashboardHeader";
+import DashboardCandidatesHeader from "../../../../components/header/DashboardCandidatesHeader"
+import DashboardHeader from "../../../../components/header/DashboardHeader";
+import { useState } from "react";
 
 
-export const metadata = {
-  title: "Job Detail | Future Fit International Job Portal",
-  description: "Future Fit International Job Portal",
-};
+// export const metadata = {
+//   title: "Job Detail | Future Fit International Job Portal",
+//   description: "Future Fit International Job Portal",
+// };
 
 const JobSingleDynamicV1 = ({ params }) => {
   const id = params.id;
   const company = jobs.find((item) => item.id == id) || jobs[0];
-
+  const [userType, setUserType] = useState();
   return (
     <>
       {/* <!-- Header Span --> */}

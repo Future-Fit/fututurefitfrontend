@@ -5,8 +5,9 @@ import DefaulHeader2 from "../../header/DefaulHeader2";
 import MobileMenu from "../../header/MobileMenu";
 import FilterJobBox from "./FilterJobBox";
 import JobSearchForm from "./JobSearchForm";
-import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
-import DashboardHeader from "../../header/DashboardHeader";
+// import DashboardCandidatesHeader from "../../.. header/DashboardCandidatesHeader";
+import DashboardCandidatesHeader from "../../../components/header/DashboardCandidatesHeader"
+import DashboardHeader from "../../../components/header/DashboardHeader";
 import { useEffect, useState } from "react";
 
 const index = () => {

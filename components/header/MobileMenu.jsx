@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 
 const MobileMenu = () => {
+  const [navbar, setNavbar] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
@@ -15,6 +16,32 @@ const MobileMenu = () => {
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  const [headerStyle, setHeaderStyle] = useState({
+    backgroundColor: '#3B578E',
+    boxShadow: 'none',
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 10;
+
+      // Update header style based on scroll
+      setHeaderStyle({
+        backgroundColor: scrolled ? '#3B578E' : '#3B578E',
+        boxShadow: scrolled ? '0 2px 6px rgba(0, 0, 0, 0.5)' : 'none',
+      });
+    };
+
+    // Initial check for scroll position
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -47,11 +74,14 @@ const MobileMenu = () => {
     setHoveredItemStyle({});
   };
 
+  // style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)' }}
 
   return (
     // <!-- Main Header-->
-    <header className="main-header main-header-mobile">
-      <div className="auto-container" style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)' }}>
+    <header className={`main-header main-header-mobile  ${navbar ? "fixed-header animated slideInDown" : ""
+  }`}
+    style={headerStyle}>
+      <div className="auto-container">
         {/* <!-- Main box --> */}
         <div className="inner-box">
           <div className="nav-outer">

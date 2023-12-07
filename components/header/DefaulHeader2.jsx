@@ -84,7 +84,6 @@ const DefaulHeader2 = () => {
   const handleLoginRedirect = (e) => {
 
     const accessToken = localStorage.getItem("accessToken");
-
     const userType = localStorage.getItem("userType");
 
     if (accessToken && userType) {
