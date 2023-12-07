@@ -53,17 +53,16 @@ const FormContent = () => {
         localStorage.setItem("userType", user.user_type_id);
         localStorage.setItem("loggedInUserId", user.id);
 
-        // Redirect based on user type
         if (user.user_type_id === 1 || user.user_type_id === 2) {
-          router.push('/candidates-dashboard/dashboard')
-        } else if (user.user_type_id === 3) {
-          router.push('/employers-dashboard/dashboard')
-        } else if (user.user_type_id === 4) {
-          router.push('/employers-dashboard/dashboard')
-
+          router.push('/candidates-dashboard/dashboard');
+        } else if (user.user_type_id === 3 || user.user_type_id === 4) {
+          router.push('/employers-dashboard/dashboard');
         }
+        $('#loginPopupModal').modal('hide');
+
+    $(".modal-backdrop").remove();
+
       } else {
-        // Login failed, display error message
         setError(data.message || "Login failed");
       }
     } catch (error) {

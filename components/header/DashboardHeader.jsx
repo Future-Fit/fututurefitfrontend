@@ -16,6 +16,7 @@ const DashboardHeader = () => {
     const defaultLanguage = 'EN';
     const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
     const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
+    const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
 
     const handleLanguageChange = (language) => {
         setSelectedLanguage(language);
