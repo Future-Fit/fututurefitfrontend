@@ -49,7 +49,7 @@ const index = () => {
           <div className="row justify-content-center">
             <div className="col-lg-5">
               <div className="sec-title text-center">
-                <h2 >3 Simple Steps</h2>
+                <h2 >Join Us in 3 Simple Steps</h2>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@ const index = () => {
           <div className="sec-title text-center" style={{ color: '#fff' }}>
             <h2 style={{ color: '#fff', paddingTop: '10px' }}>Services</h2>
             <div style={{ color: '#fff' }} className="text">
-              Job for anyone, anywhere
+              AT FFI, our goal is to connect those seeking opportunities with the a global network of resources. 
             </div>
           </div>
           {/* End sec-title */}

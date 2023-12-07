@@ -15,8 +15,8 @@ import ApplyJobModalContent from "@/components/job-single-pages/shared-component
 import Image from "next/image";
 import Footer from "@/components/home-1/Footer";
 import DefaulHeader2 from "@/components/header/DefaulHeader2";
-import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
-import DashboardHeader from "../header/DashboardHeader";
+import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
+import DashboardHeader from "../../header/DashboardHeader";
 
 
 export const metadata = {

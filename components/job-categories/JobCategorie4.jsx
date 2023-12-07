@@ -16,10 +16,10 @@ const JobCategorie4 = () => {
             </h4>
 
             <div className="btn-box text-center" style={{ marginTop: '10px' }}>
-              <Link href="/service" className="theme-btn btn-style-one bg-blue">
+              {/* <Link href="/service" className="theme-btn btn-style-one bg-blue"> */}
                 {/* <span className="btn-title">Learn More</span> */}
-                <span className="count">{item.jobNumber}</span>
-              </Link>
+                {/* <span className="count">{item.jobNumber}</span> */}
+              {/* </Link> */}
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ const Block8 = () => {
       id: 1,
       icon: "icon-drawing",
       title: "Skilled Labour",
-      text: `Unlock Your Potential, Discover Your Future, Are you a skilled worker seeking exciting career prospects in Canada? We specialize in matching your expertise with employers that recognize and value your talents in the Canadian job market.`,
+      text: `Unlock your potential... are you a skilled worker seeking exciting career prospects in Canada or elsewhere? We specialize in matching your expertise with opportunities that recognize and value your talents and ambitions.`,
 
     },
     {

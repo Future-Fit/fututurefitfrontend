@@ -25,9 +25,9 @@ const index = () => {
               <div className="cotnent-box">
                 <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '15px' }}>
                   <h3 style={{ fontWeight: '600' }}>Welcome to Future Fit International</h3>
-                  <h2 style={{ color: "#b2dfdb" }}> Your Gateway to the Future!</h2>
+                  <h2 style={{ color: "#b2dfdb" }}> Explore Opportunties, Turn Ambitions into Reality!</h2>
                   <br />
-                  <h4 style={{ color: "#fff" }}> Explore Opportunties and Turn Your Ambitions into Reality. </h4>
+                  <h4 style={{ color: "#fff" }}> What Are You Interested in? </h4>
                 </div>
 
                 <div className="job-search-form" data-aos-delay="700" data-aos="fade-up">

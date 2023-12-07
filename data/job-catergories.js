@@ -2,19 +2,19 @@ module.exports = [
   {
     id: 1,
     icon: "flaticon-promotion",
-    catTitle: "Employers",
-    jobNumber: "Post Jobs / Browse Candidates",
+    catTitle: "Businesses",
+    jobNumber: "Post Opportunities / Browse Candidates",
   },
   {
     id: 2,
     icon: "flaticon-rocket-ship",
     catTitle: "Job Seekers",
-    jobNumber: "Search Jobs / Upload Resume",
+    jobNumber: "Search Jobs / Build Profile",
   },
   {
     id: 3,
     icon: "flaticon-web-programming",
-    catTitle: "Students",
+    catTitle: "Education & Other",
     jobNumber: "Search / Apply"
   },
   {

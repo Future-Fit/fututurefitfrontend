@@ -9,6 +9,7 @@ import FooterDefault from "../../../components/footer/common-footer";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardHeader";
 import { useEffect, useState } from "react";
+import AppSection from "@/components/app-section/AppSection";
 
 const index = () => {
 
@@ -43,7 +44,8 @@ const index = () => {
 
       <section className="app-section">
         <div className="auto-container">
-          <AppSectionAbout />
+          {/* <AppSectionAbout /> */}
+          <AppSection/>
         </div>
       </section>
 
