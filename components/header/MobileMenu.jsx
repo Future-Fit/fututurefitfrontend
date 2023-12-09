@@ -20,28 +20,38 @@ const MobileMenu = () => {
   const [headerStyle, setHeaderStyle] = useState({
     backgroundColor: '#3B578E',
     boxShadow: 'none',
+    position: 'fixed',
+    zIndex: 999,
+    willChange: 'transform',
+    width: '100%', // Ensure full width
+    top: 0 // Ensure it sticks to the top
   });
 
   useEffect(() => {
     const handleScroll = () => {
+      // This will check if the user has scrolled more than 10px
       const scrolled = window.scrollY > 10;
-
-      // Update header style based on scroll
       setHeaderStyle({
-        backgroundColor: scrolled ? '#3B578E' : '#3B578E',
+        backgroundColor: '#3B578E',
         boxShadow: scrolled ? '0 2px 6px rgba(0, 0, 0, 0.5)' : 'none',
+        position: 'fixed',
+        zIndex: 999,
+        willChange: 'transform',
+        width: '100%',
+        top: 0
       });
     };
 
-    // Initial check for scroll position
-    handleScroll();
-
+    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    // Call handler right away so state gets updated with initial window scroll
+    handleScroll();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -78,9 +88,8 @@ const MobileMenu = () => {
 
   return (
     // <!-- Main Header-->
-    <header className={`main-header main-header-mobile  ${navbar ? "fixed-header animated slideInDown" : ""
-  }`}
-    style={headerStyle}>
+    <header className={`main-header main-header-mobile  ${navbar ? "fixed-header animated slideInDown" : ""}`}
+      style={headerStyle}>
       <div className="auto-container">
         {/* <!-- Main box --> */}
         <div className="inner-box">

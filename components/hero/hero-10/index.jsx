@@ -1,8 +1,24 @@
+"use client"
+import { useEffect, useState } from "react";
 import SearchForm3 from "../../common/job-search/SearchForm3";
 import JobCategorie4 from "../../job-categories/JobCategorie4";
 import HeroSliderGallery from "./HeroSliderGallery";
 
 const index = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
 
   return (
     <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', paddingBottom: '40px', paddingRight: '-100px !important' }}>
@@ -24,7 +40,11 @@ const index = () => {
             <div className="auto-container">
               <div className="cotnent-box">
                 <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '15px' }}>
-                  <h3 style={{ fontWeight: '600' }}>Welcome to Future Fit International</h3>
+                  {isMobile ? (
+                    <h3 style={{ fontWeight: '600', /* Other mobile styles */ }}>Welcome to FFI</h3>
+                  ) : (
+                    <h3 style={{ fontWeight: '600', /* Other desktop styles */ }}>Welcome to Future Fit International</h3>
+                  )}
                   <h2 style={{ color: "#b2dfdb" }}> Explore Opportunties, Turn Ambitions into Reality!</h2>
                   <br />
                   <h4 style={{ color: "#fff" }}> What Are You Interested in? </h4>

@@ -115,7 +115,7 @@ const FormContent2 = () => {
       <div className="form-group">
         <label style={{ display: 'inline-block', marginLeft: '5px' }}>Business Name</label>
         <label style={{ color: 'red', display: 'inline-block' }}>*</label>
-        <input type="text" name="fname" placeholder="First Name" required value={formData.fname}
+        <input type="text" name="fname" placeholder="Business Name" required value={formData.fname}
           onChange={handleChange} />
       </div>
 
