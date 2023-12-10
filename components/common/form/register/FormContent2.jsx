@@ -33,6 +33,8 @@ const FormContent2 = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setRegistrationMessage(null);
+
     // const formDataToSend = { ...formData, file: selectedFile }; // Include the file in the form data
 
     if (formData.password !== formData.confirmPassword) {

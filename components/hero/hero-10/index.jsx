@@ -11,10 +11,14 @@ const index = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleWindowResize);
-
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth);
+      window.addEventListener('resize', handleWindowResize);
+    }
     return () => {
-      window.removeEventListener('resize', handleWindowResize);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleWindowResize);
+      }
     };
   }, []);
 

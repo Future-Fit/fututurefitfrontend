@@ -11,13 +11,13 @@ const JobFeatured4 = () => {
           key={item.id}
         >
           <div className="inner-box">
-            <ul className="job-other-info">
+            {/* <ul className="job-other-info">
               {item.jobType.map((val, i) => (
                 <li key={i} className={`${val.styleClass}`}>
                   {val.type}
                 </li>
               ))}
-            </ul>
+            </ul> */}
             <span className="company-logo">
               <Image
                 width={90}
@@ -26,7 +26,7 @@ const JobFeatured4 = () => {
                 alt="featured job"
               />
             </span>
-            <span className="company-name">Catalyst</span>
+            {/* <span className="company-name">Catalyst</span> */}
             <h4>
               <Link href={`/job-single-v1/${item.id}`}>{item.jobTitle}</Link>
             </h4>
@@ -34,14 +34,22 @@ const JobFeatured4 = () => {
               <span className="icon flaticon-map-locator"></span>
               {item.location}
             </div>
-            <ul className="post-tags">
-              {item.jobTag.map((val, i) => (
+            {/* <ul className="post-tags"> */}
+              <div className="btn-box" style={{marginBottom:'10px', marginTop: '10px'}}>
+                <Link
+                  href="/job-list-v6"
+                  className="theme-btn btn-style-one bg-blue"
+                >
+                  <span className="btn-title">Apply</span>
+                </Link>
+              </div>
+              {/* {item.jobTag.map((val, i) => (
                 <li key={i}>
                   <a href="#">{val}</a>
                 </li>
               ))}
-              <li className="colored">+2</li>
-            </ul>
+              <li className="colored">+2</li> */}
+            {/* </ul> */}
           </div>
         </div>
         // End job-block

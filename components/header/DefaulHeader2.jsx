@@ -165,8 +165,7 @@ const DefaulHeader2 = () => {
                     borderColor: '#3B578E',
                     backgroundImage: 'none',
                     boxShadow: 'none',
-                    borderRadius: '5px',
-                    marginRight: '-100px'
+                    borderRadius: '5px'
                   }}
                 >
                   <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>

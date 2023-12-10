@@ -4,18 +4,23 @@ module.exports = [
     icon: "flaticon-promotion",
     catTitle: "Businesses",
     jobNumber: "Post Opportunities / Browse Candidates",
+    popupText: "Hello World Businesses"
   },
   {
     id: 2,
     icon: "flaticon-rocket-ship",
     catTitle: "Job Seekers",
     jobNumber: "Search Jobs / Build Profile",
+    popupText: "Hello World Job Seekers"
+
   },
   {
     id: 3,
     icon: "flaticon-web-programming",
     catTitle: "Education & Other",
-    jobNumber: "Search / Apply"
+    jobNumber: "Search / Apply",
+    popupText: "Hello World Education & Other Hello World Education & Other Hello World Education & Other Hello World Education & Other Hello World Education & Other Hello World Education & Other Hello World Education & Other"
+
   },
   {
     id: 4,

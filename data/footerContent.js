@@ -24,15 +24,15 @@ module.exports = [
       { name: "Contact", route: "/contact" },
     ],
   },
-  {
-    id: 3,
-    title: "Help",
-    menuList: [
-      { name: "Site Map", route: "/" },
-      { name: "Terms of Use", route: "/terms" },
-      { name: "Privacy Center", route: "/" },
-      { name: "Security Center", route: "/" },
-      { name: "Accessibility Center", route: "/" },
-    ],
-  },
+  // {
+  //   id: 3,
+  //   title: "Help",
+  //   menuList: [
+  //     { name: "Site Map", route: "/" },
+  //     { name: "Terms of Use", route: "/terms" },
+  //     { name: "Privacy Center", route: "/" },
+  //     { name: "Security Center", route: "/" },
+  //     { name: "Accessibility Center", route: "/" },
+  //   ],
+  // },
 ];

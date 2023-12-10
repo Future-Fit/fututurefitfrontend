@@ -67,7 +67,6 @@ const DashboardCandidatesHeader = () => {
             setHeaderStyle(updatedHeaderStyle);
         };
 
-        // Initial check for scroll position
         handleScroll();
 
         window.addEventListener("scroll", handleScroll);

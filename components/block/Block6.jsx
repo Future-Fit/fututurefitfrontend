@@ -35,7 +35,7 @@ const Block6 = () => {
               </div>
               <h5>{item.title}</h5>
               <p>{item.text}</p>
-              <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+              <div className="btn-box text-center" style={{ marginTop: '10px' }}>
                 <Link href="/service" className="theme-btn btn-style-one bg-blue">
                   <span className="btn-title">{item.title}</span>
                 </Link>

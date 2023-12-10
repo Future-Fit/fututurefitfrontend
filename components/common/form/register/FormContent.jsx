@@ -10,8 +10,6 @@ const FormContent = () => {
     fname: "",
     lname: "",
     phone: "",
-    // gender: "",
-    // date_of_birth: "",
     email: "",
     password: ""
   });
@@ -35,6 +33,7 @@ const FormContent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setRegistrationMessage(null);
     // const formDataToSend = { ...formData, file: selectedFile }; // Include the file in the form data
 
     if (formData.password !== formData.confirmPassword) {
@@ -47,7 +46,6 @@ const FormContent = () => {
       try {
         const { confirmPassword, ...dataToSend } = formData;
         const formDataToSend = new FormData();
-        // formDataToSend.append('user_image', selectedFile); // Make sure this matches the backend
 
         Object.keys(dataToSend).forEach(key => {
           formDataToSend.append(key, dataToSend[key]);
@@ -67,14 +65,11 @@ const FormContent = () => {
             fname: "",
             lname: "",
             phone: "",
-            // gender: "M",
-            // date_of_birth: "",
             email: "",
             password: "",
             confirmPassword: "",
           });
 
-          // Reset logo image
           setLogoImg("");
 
         } else {
@@ -83,8 +78,6 @@ const FormContent = () => {
       } catch (error) {
         // Handle network errors or other exceptions
         setRegistrationMessage("An error occurred: " + error);
-
-        // console.error("An error occurred", error);
       }
     } else {
       setPasswordError("Password should contain at least 8 characters, including uppercase, lowercase, number, and special character.");
@@ -136,21 +129,6 @@ const FormContent = () => {
           onChange={handleChange} />
       </div>
 
-      {/* <div className="form-group col-md-12">
-        <label>Gender</label>
-        <input type="text" name="gender" placeholder="Gender" required value={formData.gender}
-          onChange={handleChange} />
-      </div> */}
-
-      {/* <div className="form-group">
-        <label>Date of Birth</label>
-        <input type="text" name="date_of_birth"
-          placeholder="1991/11/22"
-          required
-          value={formData.date_of_birth}
-          onChange={handleChange} />
-      </div> */}
-
       <div className="form-group">
         <label style={{ display: 'inline-block', marginLeft: '5px' }}>Email Address</label>
         <label style={{ color: 'red', display: 'inline-block' }}>*</label>
@@ -189,34 +167,6 @@ const FormContent = () => {
         />
         {passwordError && <span className="error-message">{passwordError}</span>}
       </div>
-
-      {/* <div className="uploading-outer">
-        <div className="uploadButton">
-          <input
-            className="uploadButton-input"
-            type="file"
-            name="user_image" // Updated to match the backend field name
-            accept="image/*"
-            id="upload"
-            required
-            onChange={handleFileChange}
-          />
-          <label className="uploadButton-button ripple-effect" htmlFor="upload">
-            Upload Logo
-          </label>
-          <span className="uploadButton-file-name"></span>
-        </div>
-        {logoImg && (
-          <div className="image-preview">
-            <img src={logoImg} alt="Preview" />
-          </div>
-        )}
-        <div className="text">
-          Max file size is 1MB, Minimum dimension: 330x300 And
-          Suitable files are .jpg & .png
-        </div>
-      </div> */}
-
 
       <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
         <button className="theme-btn btn-style-one" type="submit">

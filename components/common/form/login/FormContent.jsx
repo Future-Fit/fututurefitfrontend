@@ -52,15 +52,17 @@ const FormContent = () => {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userType", user.user_type_id);
         localStorage.setItem("loggedInUserId", user.id);
-
-        if (user.user_type_id === 1 || user.user_type_id === 2) {
-          router.push('/candidates-dashboard/dashboard');
-        } else if (user.user_type_id === 3 || user.user_type_id === 4) {
+        if (user.user_type_id === 3) {
           router.push('/employers-dashboard/dashboard');
+        } else if (user.user_type_id === 4) {
+          // router.push('/candidates-dashboard/dashboard');
+          router.push('/candidates-dashboard/my-profile');
+          
+
         }
         $('#loginPopupModal').modal('hide');
 
-    $(".modal-backdrop").remove();
+        $(".modal-backdrop").remove();
 
       } else {
         setError(data.message || "Login failed");
@@ -69,7 +71,6 @@ const FormContent = () => {
       setError("An error occurred while logging in");
     }
   };
-
 
   // Function to handle form submission
   const handleSubmit = (e) => {
