@@ -1,38 +1,24 @@
 module.exports = [
   {
     id: 1,
-    title: "Find Jobs",
+    title: "Important Links",
     menuList: [
+      { name: "About Us", route: "/about" },
       { name: "Browse Jobs", route: "/job-list-v6", modalTarget: "#loginPopupModal"},
-      { name: "Browse Categories", route: "/job-list-v6" },
-      { name: "Candidate Dashboard", route: "/", modalTarget: "#loginPopupModal" },
-      { name: "Job Alerts", route: "/" },
-      {
-        name: "My Bookmarks",
-        route: "/",
-      },
+      { name: "Post Jobs", route: "/job-list-v6" },
+      { name: "Student Services", route: "/", modalTarget: "#loginPopupModal" },
+      { name: "Travel, Visa & Others", route: "/" },
     ],
   },
   {
     id: 2,
-    title: "FAQ",
+    title: "Company",
     menuList: [
       { name: "About Us", route: "/about" },
-      { name: "Job Page Invoice", route: "/" },
-      { name: "Terms Page", route: "/" },
-      { name: "Blog", route: "/blog-list-v1" },
-      { name: "Contact", route: "/contact" },
+      { name: "Careers", route: "/" },
+      { name: "FAQ", route: "/" },
+      { name: "Terms & Conditions", route: "/" },
+      { name: "Security & Privacy", route: "/" },
     ],
   },
-  // {
-  //   id: 3,
-  //   title: "Help",
-  //   menuList: [
-  //     { name: "Site Map", route: "/" },
-  //     { name: "Terms of Use", route: "/terms" },
-  //     { name: "Privacy Center", route: "/" },
-  //     { name: "Security Center", route: "/" },
-  //     { name: "Accessibility Center", route: "/" },
-  //   ],
-  // },
 ];

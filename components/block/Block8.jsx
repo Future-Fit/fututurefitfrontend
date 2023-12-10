@@ -3,29 +3,29 @@ const Block8 = () => {
     {
       id: 1,
       icon: "icon-drawing",
-      title: "Skilled Labour",
-      text: `Unlock your potential... are you a skilled worker seeking exciting career prospects in Canada...`,
+      title: "Skilled Workers",
+      text: `Match expertise with diverse, exciting opportunities`,
 
     },
     {
       id: 2,
       icon: "icon-process",
-      title: "Employers and Business Owners",
-      text: `Expand your horizons and connect with talented professionals from around the world... `,
+      title: "Employers and Businesses",
+      text: `Post your job lists and fulfill open positions quickly`,
 
     },
     {
       id: 3,
       icon: "icon-task",
-      title: "International Students",
-      text: `Dreaming of studying in Canada? Join the thousands of international students who have... `,
+      title: "Education and Training",
+      text: `Student services to Canadian colleges/universities`,
 
     },
     {
       id: 4,
       icon: "icon-one-finger-click",
-      title: "International Students",
-      text: `Dreaming of studying in Canada? Join the thousands of international students who have... `,
+      title: "Travel/Visa/Other",
+      text: `Facilitate travel, visa, resettlemnt and other services`,
 
     },
   ];

@@ -49,7 +49,7 @@ const index = () => {
           <div className="row justify-content-center">
             <div className="col-lg-5">
               <div className="sec-title text-center">
-                <h2 >Join Us in 3 Simple Steps</h2>
+                <h2 >Join FFI in 3 Simple Steps</h2>
               </div>
             </div>
           </div>
@@ -65,10 +65,10 @@ const index = () => {
       <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
         <div className="auto-container" style={{ paddingBottom: '30px', paddingTop: '30px' }}>
           <div className="sec-title text-center" style={{ color: '#fff' }}>
-            <h2 style={{ color: '#fff', paddingTop: '10px' }}>Services</h2>
-            <div style={{ color: '#fff' }} className="text">
+            <h2 style={{ color: '#fff', paddingTop: '10px' }}>Services We Provide</h2>
+            {/* <div style={{ color: '#fff' }} className="text">
               AT FFI, our goal is to connect those seeking opportunities with the a global network of resources. 
-            </div>
+            </div> */}
           </div>
           {/* End sec-title */}
 
@@ -110,7 +110,7 @@ const index = () => {
 
       <section className="clients-section-two alternate" style={{ background: '#3B578E' }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
-          <h2 style={{ color: '#fff', paddingTop: '10px',  fontWeight: 'bolder' }}>Business</h2>
+          <h2 style={{ color: '#fff', paddingTop: '10px',  fontWeight: 'bolder' }}>Partners We Work With</h2>
 
           <div className="sponsors-outer wow fadeInUp">
             <div className="sponsors-carousel">
