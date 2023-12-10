@@ -1,6 +1,5 @@
 "use client"
 import Link from "next/link";
-import LoginWithSocial from "./LoginWithSocial";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import DefaultConfig from "app.config.js";
@@ -57,17 +56,14 @@ const FormContent = () => {
         } else if (user.user_type_id === 4) {
           // router.push('/candidates-dashboard/dashboard');
           router.push('/candidates-dashboard/my-profile');
-          
-
         }
-        $('#loginPopupModal').modal('hide');
-
-        $(".modal-backdrop").remove();
-
+        // $('#loginPopupModal').modal('hide');
+        // $(".modal-backdrop").remove();
       } else {
         setError(data.message || "Login failed");
       }
     } catch (error) {
+      console.error("What is the error here", error); // Log the specific error for debugging
       setError("An error occurred while logging in");
     }
   };
@@ -95,7 +91,12 @@ const FormContent = () => {
       <form method="post" onSubmit={handleSubmit} >
         <div className="form-group">
           <label>Username</label>
-          <input type="text" name="username" placeholder="Username" required value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required value={username}
+            onChange={(e) => setUsername(e.target.value)} />
         </div>
         {/* name */}
 
@@ -106,7 +107,8 @@ const FormContent = () => {
             name="password"
             placeholder="Password"
             required
-            value={password} onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         {/* password */}
@@ -124,7 +126,6 @@ const FormContent = () => {
                 <span className="custom-checkbox"></span> Remember me
               </label>
             </div>
-
 
             <div className="bottom-box">
               <div className="text d-flex align-items-center justify-content-center">
@@ -172,12 +173,14 @@ const FormContent = () => {
         </Link>
       )}
 
-      <div className="bottom-box">
-        <div className="text d-flex align-items-center justify-content-center">
+      <div
+        className="bottom-box">
+        <div
+          className="text d-flex align-items-center justify-content-center">
           Don&apos;t have an account?{" "}
           <Link
             href="#"
-            className="call-modal   "
+            className="call-modal"
             data-bs-toggle="modal"
             data-bs-target="#registerModal"
           >
