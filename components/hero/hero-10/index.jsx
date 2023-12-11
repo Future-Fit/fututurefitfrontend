@@ -25,32 +25,36 @@ const index = () => {
   const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
 
   return (
-    <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', paddingBottom: '40px' }}>
-      <div className="auto-container" style={{ position: 'relative' }}>
+    <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', height: '100vh' }}>
+      <div className="auto-container" style={{ height: '100vh !important', }}>
         <div
           style={{
             position: 'relative',
             borderRadius: '0%',
-            height: '100vh',
+            height: '85vh',
             overflow: 'hidden',
             margin: '0 auto',
-            padding: '20px',
           }}
         >
 
           <section className="banner-section-ten">
             <HeroSliderGallery />
 
-            <div className="auto-container">
+            <div className="auto-container" style={{ height: '60vh' }}>
               <div className="cotnent-box">
                 <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '15px' }}>
                   {isMobile ? (
-                    <h3 style={{ fontWeight: '600', /* Other mobile styles */ }}>Welcome to FFI</h3>
+                    <>
+                      <h3 style={{ fontWeight: '600', /* Other mobile styles */ }}>Welcome to FFI</h3>
+                      <h2 style={{ color: "#b2dfdb", fontSize: '20px'}}> Explore Opportunties, Turn Ambitions into Reality!</h2>
+                    </>
                   ) : (
-                    <h3 style={{ fontWeight: '600', marginTop: '100px' /* Other desktop styles */ }}>Welcome to Future Fit International</h3>
+                    <>
+                      <h3 style={{ fontWeight: '600', marginTop: '100px' /* Other desktop styles */ }}>Welcome to Future Fit International</h3>
+                      <h2 style={{ color: "#b2dfdb" }}> Explore Opportunties, Turn Ambitions into Reality!</h2>
+                    </>
+
                   )}
-                  <h2 style={{ color: "#b2dfdb" }}> Explore Opportunties, Turn Ambitions into Reality!</h2>
-                  <br />
                   <h4 style={{ color: "#fff" }}> What Are You Interested in? </h4>
                 </div>
 
@@ -60,7 +64,7 @@ const index = () => {
 
                 <div className="top-features">
                   <div className="row" data-aos-delay="700" data-aos="fade-up">
-                    <JobCategorie4 />
+                    <JobCategorie4 isMobile={isMobile} />
                   </div>
                 </div>
               </div>

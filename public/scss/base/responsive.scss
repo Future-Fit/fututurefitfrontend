@@ -784,7 +784,7 @@
 		border-radius: 0;
 
 		&:last-child {
-			padding-top: 10px;
+			padding-top: 0px;
 			padding-bottom: 0;
 			border-bottom: 0;
 		}
@@ -858,7 +858,7 @@
 	.job-search-form {
 		.form-group {
 			border: 0;
-			margin-bottom: 20px;
+			margin-bottom: 10px;
 
 			.icon {
 				font-size: 20px;
@@ -1102,7 +1102,7 @@
 	}
 
 	.clients-section-two.alternate {
-		padding: 50px 0;
+		padding: 10px 0;
 	}
 
 	.banner-section-ten .job-search-form form,
@@ -1349,7 +1349,7 @@
 	.contact-section,
 	.testimonial-section,
 	.job-section {
-		padding: 50px 0;
+		padding: 10px 0;
 	}
 
 	.work-section,
@@ -1363,7 +1363,7 @@
 	.tnc-section,
 	.fun-fact-section,
 	.about-section {
-		padding: 50px 0 0;
+		padding: 10px 0 0;
 	}
 
 	.pricing-section,

@@ -44,7 +44,7 @@ const index = () => {
       <Hero10 />
 
 
-      <section className="" style={{ background: '#f5f7fc', paddingTop: '30px', paddingBottom: '30px' }}>
+      <section className="" style={{ background: '#f5f7fc', paddingTop: '10px', paddingBottom: '10px' }}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
@@ -65,7 +65,7 @@ const index = () => {
       <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
         <div className="auto-container" style={{ paddingBottom: '10px', paddingTop: '10px' }}>
           <div className="sec-title text-center" style={{ color: '#fff' }}>
-            <h2 style={{ color: '#fff', paddingTop: '10px' }}>Services We Provide</h2>
+            <h2 style={{ color: '#fff'}}>Services We Provide</h2>
             {/* <div style={{ color: '#fff' }} className="text">
               AT FFI, our goal is to connect those seeking opportunities with the a global network of resources. 
             </div> */}

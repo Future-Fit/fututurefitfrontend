@@ -41,7 +41,7 @@ const HeroSliderGallery = () => {
     top: 0,
     left: 0,
     width: '100%',
-    height: '70vh',
+    height: '100vh',
     backgroundColor: 'rgba(59, 78, 120, 0.7)',
   };
 
