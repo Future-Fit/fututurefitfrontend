@@ -63,7 +63,7 @@ const index = () => {
       {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
 
       <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
-        <div className="auto-container" style={{ paddingBottom: '30px', paddingTop: '30px' }}>
+        <div className="auto-container" style={{ paddingBottom: '10px', paddingTop: '10px' }}>
           <div className="sec-title text-center" style={{ color: '#fff' }}>
             <h2 style={{ color: '#fff', paddingTop: '10px' }}>Services We Provide</h2>
             {/* <div style={{ color: '#fff' }} className="text">
