@@ -15,12 +15,13 @@ const JobCategorie4 = ({ isMobile }) => {
 
   const imageContainerStyle = {
     position: 'relative', // Needed to position the text over the image
-    width: '300px', // Match the width of the Image component
-    height: '300px', // Match the height of the Image component
+    width: '200px', // Match the width of the Image component
+    height: '200px', // Match the height of the Image component
     textAlign: 'center', // Center-align the text
     display: 'flex', // Use flexbox for centering
     alignItems: 'center', // Vertically center
-    justifyContent: 'center' // Horizontally center
+    justifyContent: 'center', // Horizontally center
+    marginTop: '-60px' // Margin to align to top
   };
 
   const textStyle = {
@@ -65,6 +66,7 @@ const JobCategorie4 = ({ isMobile }) => {
                alt="Thinking Bubble"
                layout="fill" // This makes the image responsive within the container
                objectFit="contain" // Keeps the aspect ratio of the image
+               style={{transform:'scaleX(-1) scaleY(-1)'}}
              />
              <div style={textStyle}>{item.popupText}</div>
            </div>

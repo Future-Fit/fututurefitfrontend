@@ -38,7 +38,7 @@ const Index = () => {
                           </iframe>
                         </div>
                       </div>
-                      <div style={{ width: '50%', paddingLeft: '5px' }}>
+                      <div style={{ width: '50%', paddingLeft: '20px' }}>
                         <p className="phone-num">
                           <span>Ethiopia Office</span>
                           <a href="tel: +251933859295">+251933859295</a>

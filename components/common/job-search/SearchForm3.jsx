@@ -17,7 +17,7 @@ const SearchForm3 = () => {
           <input
             type="text"
             name="field_name"
-            placeholder="Search by Keyword, Company, Job Title, etc."
+            placeholder="Search by Keyword, Company, Job, etc."
           />
         </div>
 

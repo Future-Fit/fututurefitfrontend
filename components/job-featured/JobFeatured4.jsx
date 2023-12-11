@@ -38,7 +38,8 @@ const JobFeatured4 = () => {
               <div className="btn-box" style={{marginBottom:'10px', marginTop: '10px'}}>
                 <Link
                   href="/job-list-v6"
-                  className="theme-btn btn-style-one bg-blue"
+                  // className="theme-btn btn-style-one bg-blue"
+                  style={{fontWeight:'bold', textDecoration:'underline', color:'#3B578E'}}
                 >
                   <span className="btn-title">Apply</span>
                 </Link>

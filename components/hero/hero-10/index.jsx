@@ -25,7 +25,7 @@ const index = () => {
   const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
 
   return (
-    <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', height: '100vh' }}>
+    <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', paddingBottom: '0px', height: '100vh' }}>
       <div className="auto-container" style={{ height: '100vh !important', }}>
         <div
           style={{

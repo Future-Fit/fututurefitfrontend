@@ -45,6 +45,11 @@ const Block6 = () => {
           </div>
         </div>
       ))}
+      <div className="btn-box text-center" style={{ marginTop: '10px' }}>
+        <Link href="/service" className="theme-btn btn-style-one bg-blue">
+          <span className="btn-title">Sign Up</span>
+        </Link>
+      </div>
     </>
   );
 };

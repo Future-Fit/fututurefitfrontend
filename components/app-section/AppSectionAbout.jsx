@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const AppSectionAbout = () => {
   return (
-    <div className="row">
+    <div className="row" style={{backgroundColor:"#3B578E"}}>
       <div className="image-column col-lg-6 col-md-12 col-sm-12">
         <div className="bg-shape"></div>
         <figure className="image" data-aos="fade-right">
@@ -20,11 +20,11 @@ const AppSectionAbout = () => {
       <div className="content-column col-lg-6 col-md-12 col-sm-12">
         <div className="inner-column" data-aos="fade-left">
           <div className="sec-title">
-            <h2>
-              Job Seekers
+            <h2 style={{color:'white'}}>
+              About US
             </h2>
-            <div className="text" style={{textAlign:"justify"}}>
-            Detail About Job Seeker
+            <div className="text" style={{textAlign:"justify", color:'white'}}>
+            Details About FFI
             </div>
           </div>
         </div>
