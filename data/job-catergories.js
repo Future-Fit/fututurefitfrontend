@@ -19,7 +19,7 @@ module.exports = [
     icon: "flaticon-web-programming",
     catTitle: "Education & Other",
     jobNumber: "Search / Apply",
-    popupText: "Hello World Education & Other Hello World Education & Other Hello World Education & Other Hello World Education & Other Hello World Education & Other Hello World Education & Other Hello World Education & Other"
+    popupText: "Hello World Education & Other"
 
   },
   {
