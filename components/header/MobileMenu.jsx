@@ -4,7 +4,6 @@ import Link from "next/link";
 import MobileSidebar from "./mobile-sidebar";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 
 const MobileMenu = () => {
@@ -13,13 +12,10 @@ const MobileMenu = () => {
   const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
-  const [showModal, setShowModal] = useState(false); // Added state for modal
-  const router = useRouter();
+
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
-  // const isLoggedIn = Boolean(localStorage.getItem("accessToken")) && Boolean(localStorage.getItem("userType"));
-
 
   const [headerStyle, setHeaderStyle] = useState({
     backgroundColor: '#3B578E',
@@ -33,6 +29,7 @@ const MobileMenu = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // This will check if the user has scrolled more than 10px
       const scrolled = window.scrollY > 10;
       setHeaderStyle({
         backgroundColor: '#3B578E',
@@ -55,27 +52,6 @@ const MobileMenu = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const accessToken = localStorage.getItem("accessToken");
-  //     const userType = localStorage.getItem("userType");
-
-  //     if (accessToken && userType) {
-  //       if (userType === "4") {
-  //         // Redirect candidate
-  //         setShowModal(false);
-  //         router.push("/candidates-dashboard/dashboard");
-  //       } else if (userType === "3") {
-  //         // Redirect employer
-  //         setShowModal(false);
-  //         router.push("/employers-dashboard/dashboard");
-  //       }
-  //     } else {
-  //       setShowModal(true); // Show modal if not logged in
-  //     }
-  //   }
-  // }, []);
-
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -85,12 +61,7 @@ const MobileMenu = () => {
       }
     }
   }, []);
-  const toggleModal = ()=>{
-    const storedLanguage = localStorage.getItem('');
-    
-const prev = showModal;
-setShowModal(!prev);    
-  }
+
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
     if (typeof window !== 'undefined') {
@@ -111,24 +82,6 @@ setShowModal(!prev);
   const handleItemLeave = () => {
     // Clear inline style when mouse leaves the item
     setHoveredItemStyle({});
-  };
-
-  const handleLoginRedirect = (e) => {
-    const accessToken = localStorage.getItem("accessToken");
-    const userType = localStorage.getItem("userType");
-
-    if (accessToken && userType) {
-      e.preventDefault();
-      if (userType === "4") {
-        setShowModal(false);
-        router.push("/candidates-dashboard/dashboard");
-      } else if (userType === "3") {
-        setShowModal(false);
-        router.push("/employers-dashboard/dashboard");
-      }
-    } else {
-      setShowModal(true);
-    }
   };
 
   // style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)' }}
@@ -161,30 +114,19 @@ setShowModal(!prev);
           {/* End .nav-outer */}
 
           <div className="outer-box">
-            {/* <div className="login-box">
-              <a
-                href="#"
-                className="call-modal"
-                data-bs-toggle={isLoggedIn ? "" : "modal"}
-                data-bs-target={isLoggedIn ? "" : "#loginPopupModal"}
-                onClick={handleLoginRedirect}
-              >
-                <span className="icon icon-user"></span>
-              </a>
-            </div> */}
             <div className="login-box">
               <a
                 href="#"
                 className="call-modal"
+                data-bs-toggle="modal"
                 data-bs-target="#loginPopupModal"
-                onClick={handleLoginRedirect}
               >
                 <span className="icon icon-user"></span>
               </a>
             </div>
             {/* login popup end */}
 
-            {/* <a
+            <a
               href="#"
               className="mobile-nav-toggler"
               data-bs-toggle="offcanvas"
@@ -192,7 +134,7 @@ setShowModal(!prev);
               onClick={handleToggleSidebar}
             >
               <span className="flaticon-menu-1"></span>
-            </a> */}
+            </a>
             {/* right humberger menu */}
 
             <div className="dropdown" style={{ marginRight: '50px' }}>
