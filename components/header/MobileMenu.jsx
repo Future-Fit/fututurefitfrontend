@@ -13,7 +13,7 @@ const MobileMenu = () => {
   const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
-  const [showModal, setShowModal] = useState(false); // Added state for modal
+  // Added state for modal
   const router = useRouter();
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -116,19 +116,21 @@ setShowModal(!prev);
   const handleLoginRedirect = (e) => {
     const accessToken = localStorage.getItem("accessToken");
     const userType = localStorage.getItem("userType");
-
+    const modalElement = document.getElementById("login-modal");
     if (accessToken && userType) {
       e.preventDefault();
       if (userType === "4") {
-        setShowModal(false);
+        modalElement.style.display = "none";
+        const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+        modalBackDrop[0].style.display = "none";
         router.push("/candidates-dashboard/my-profile");
       } else if (userType === "3") {
-        setShowModal(false);
+        modalElement.style.display = "none";
+        const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+        modalBackDrop[0].style.display = "none";
         router.push("/employers-dashboard/dashboard");
       }
-    } else {
-      setShowModal(true);
-    }
+    } 
   };
 
   // style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)' }}
@@ -176,6 +178,7 @@ setShowModal(!prev);
               <a
                 href="#"
                 className="call-modal"
+                data-bs-toggle="modal" 
                 data-bs-target="#loginPopupModal"
                 onClick={handleLoginRedirect}
               >
