@@ -85,16 +85,17 @@ const DefaulHeader2 = () => {
 
     const accessToken = localStorage.getItem("accessToken");
     const userType = localStorage.getItem("userType");
-
+    const modalElement = document.getElementById("loginPopupModal");
+   
     if (accessToken && userType) {
       e.preventDefault();
       if (userType === "4") {
+        modalElement.style.display = "none";
         router.push("/candidates-dashboard/dashboard");
       } else if (userType === "3") {
+        modalElement.style.display = "none";
         router.push("/employers-dashboard/dashboard");
       }
-    } else {
-      setShowModal(true);
     }
   };
 
@@ -144,7 +145,7 @@ const DefaulHeader2 = () => {
                 <a
                   href="#"
                   className="theme-btn btn-style-six call-modal"
-                  data-bs-toggle="modal"
+                  data-bs-toggle="modal" 
                   data-bs-target="#loginPopupModal"
                   onClick={handleLoginRedirect}
                 >

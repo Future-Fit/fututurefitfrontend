@@ -12,7 +12,8 @@ const MobileMenu = () => {
   const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
-
+  // Added state for modal
+  const router = useRouter();
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -84,6 +85,26 @@ const MobileMenu = () => {
     setHoveredItemStyle({});
   };
 
+  const handleLoginRedirect = (e) => {
+    const accessToken = localStorage.getItem("accessToken");
+    const userType = localStorage.getItem("userType");
+    const modalElement = document.getElementById("login-modal");
+    if (accessToken && userType) {
+      e.preventDefault();
+      if (userType === "4") {
+        modalElement.style.display = "none";
+        const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+        modalBackDrop[0].style.display = "none";
+        router.push("/candidates-dashboard/my-profile");
+      } else if (userType === "3") {
+        modalElement.style.display = "none";
+        const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+        modalBackDrop[0].style.display = "none";
+        router.push("/employers-dashboard/dashboard");
+      }
+    } 
+  };
+
   // style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)' }}
 
   return (
@@ -118,7 +139,7 @@ const MobileMenu = () => {
               <a
                 href="#"
                 className="call-modal"
-                data-bs-toggle="modal"
+                data-bs-toggle="modal" 
                 data-bs-target="#loginPopupModal"
               >
                 <span className="icon icon-user"></span>
@@ -134,7 +155,7 @@ const MobileMenu = () => {
               onClick={handleToggleSidebar}
             >
               <span className="flaticon-menu-1"></span>
-            </a>
+            </a> 
             {/* right humberger menu */}
 
             <div className="dropdown" style={{ marginRight: '50px' }}>

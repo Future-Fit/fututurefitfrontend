@@ -52,13 +52,22 @@ const FormContent = () => {
         localStorage.setItem("userType", user.user_type_id);
         localStorage.setItem("loggedInUserId", user.id);
         if (user.user_type_id === 3) {
+          const modalElement = document.getElementById("loginPopupModal");
+          console.log(modalElement);
+          modalElement.style.display  = "none";
+          const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+          modalBackDrop[0].style.display = "none";
           router.push('/employers-dashboard/dashboard');
         } else if (user.user_type_id === 4) {
+          const modalElement = document.getElementById("loginPopupModal");
+          const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+          modalBackDrop[0].style.display = "none";
+          modalElement.style.display  = "none";
           // router.push('/candidates-dashboard/dashboard');
           router.push('/candidates-dashboard/my-profile');
         }
-        // $('#loginPopupModal').modal('hide');
-        // $(".modal-backdrop").remove();
+       
+
       } else {
         setError(data.message || "Login failed");
       }
