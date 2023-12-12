@@ -58,8 +58,9 @@ const FormContent = () => {
           const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
           modalBackDrop[0].style.display = "none";
           const body = document.getElementsByTagName("body");
+          body[0].classList.remove("modal-open");
+          body[0].style.overflow = "auto";
 
-          body[0].classList.remove("open-modal");
           router.push('/employers-dashboard/dashboard');
         } else if (user.user_type_id === 4) {
           const modalElement = document.getElementById("loginPopupModal");
@@ -67,9 +68,8 @@ const FormContent = () => {
           modalBackDrop[0].style.display = "none";
           modalElement.style.display  = "none";
           const body = document.getElementsByTagName("body");
-           
-
-          body[0].classList.remove("open-modal");
+          body[0].classList.remove("modal-open");
+          body[0].style.overflow = "auto";
           // router.push('/candidates-dashboard/dashboard');
           router.push('/candidates-dashboard/my-profile');
         }

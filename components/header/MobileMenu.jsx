@@ -88,17 +88,22 @@ const MobileMenu = () => {
     const accessToken = localStorage.getItem("accessToken");
     const userType = localStorage.getItem("userType");
     const modalElement = document.getElementById("login-modal");
+    const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+    const body = document.getElementsByTagName("body");
+
     if (accessToken && userType) {
       e.preventDefault();
       if (userType === "4") {
         modalElement.style.display = "none";
-        const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
         modalBackDrop[0].style.display = "none";
+        body[0].classList.remove("modal-open");
+        body[0].style.overflow = "auto";
         router.push("/candidates-dashboard/my-profile");
       } else if (userType === "3") {
         modalElement.style.display = "none";
-        const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
         modalBackDrop[0].style.display = "none";
+        body[0].classList.remove("modal-open");
+        body[0].style.overflow = "auto";
         router.push("/employers-dashboard/dashboard");
       }
     } 
@@ -140,6 +145,7 @@ const MobileMenu = () => {
                 className="call-modal"
                 data-bs-toggle="modal" 
                 data-bs-target="#loginPopupModal"
+                onClick={handleLoginRedirect}
               >
                 <span className="icon icon-user"></span>
               </a>
