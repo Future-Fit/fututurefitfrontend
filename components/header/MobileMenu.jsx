@@ -4,8 +4,7 @@ import Link from "next/link";
 import MobileSidebar from "./mobile-sidebar";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-
+import { useRouter } from "next/navigation";
 const MobileMenu = () => {
   const [navbar, setNavbar] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
