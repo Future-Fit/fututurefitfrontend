@@ -121,7 +121,7 @@ setShowModal(!prev);
       e.preventDefault();
       if (userType === "4") {
         setShowModal(false);
-        router.push("/candidates-dashboard/dashboard");
+        router.push("/candidates-dashboard/my-profile");
       } else if (userType === "3") {
         setShowModal(false);
         router.push("/employers-dashboard/dashboard");
@@ -184,7 +184,7 @@ setShowModal(!prev);
             </div>
             {/* login popup end */}
 
-            {/* <a
+            <a
               href="#"
               className="mobile-nav-toggler"
               data-bs-toggle="offcanvas"
@@ -192,7 +192,7 @@ setShowModal(!prev);
               onClick={handleToggleSidebar}
             >
               <span className="flaticon-menu-1"></span>
-            </a> */}
+            </a> 
             {/* right humberger menu */}
 
             <div className="dropdown" style={{ marginRight: '50px' }}>
