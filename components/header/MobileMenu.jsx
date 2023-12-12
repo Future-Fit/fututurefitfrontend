@@ -85,7 +85,12 @@ const MobileMenu = () => {
       }
     }
   }, []);
-
+  const toggleModal = ()=>{
+    const storedLanguage = localStorage.getItem('');
+    
+const prev = showModal;
+setShowModal(!prev);    
+  }
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
     if (typeof window !== 'undefined') {
@@ -108,21 +113,23 @@ const MobileMenu = () => {
     setHoveredItemStyle({});
   };
 
-  // const handleLoginRedirect = (e) => {
-  //   const accessToken = localStorage.getItem("accessToken");
-  //   const userType = localStorage.getItem("userType");
+  const handleLoginRedirect = (e) => {
+    const accessToken = localStorage.getItem("accessToken");
+    const userType = localStorage.getItem("userType");
 
-  //   if (accessToken && userType) {
-  //     e.preventDefault();
-  //     if (userType === "4") {
-  //       router.push("/candidates-dashboard/dashboard");
-  //     } else if (userType === "3") {
-  //       router.push("/employers-dashboard/dashboard");
-  //     }
-  //   } else {
-  //     setShowModal(true);
-  //   }
-  // };
+    if (accessToken && userType) {
+      e.preventDefault();
+      if (userType === "4") {
+        setShowModal(false);
+        router.push("/candidates-dashboard/dashboard");
+      } else if (userType === "3") {
+        setShowModal(false);
+        router.push("/employers-dashboard/dashboard");
+      }
+    } else {
+      setShowModal(true);
+    }
+  };
 
   // style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)' }}
 
@@ -169,8 +176,8 @@ const MobileMenu = () => {
               <a
                 href="#"
                 className="call-modal"
-                data-bs-toggle="modal"
                 data-bs-target="#loginPopupModal"
+                onClick={handleLoginRedirect}
               >
                 <span className="icon icon-user"></span>
               </a>
