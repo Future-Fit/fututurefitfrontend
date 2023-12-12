@@ -5,6 +5,7 @@ import Image from "next/image";
 const JobCategorie4 = ({ isMobile }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
+
   const handleMouseEnter = (itemId) => {
     setHoveredItem(itemId);
   };
@@ -12,6 +13,16 @@ const JobCategorie4 = ({ isMobile }) => {
   const handleMouseLeave = () => {
     setHoveredItem(null);
   };
+
+  const blockStyle = {
+    position: 'relative',
+    width: '200px',
+    height: '200px',
+    overflow: 'hidden',
+    margin: '10px',
+    cursor: 'pointer',
+  };
+
 
   const imageContainerStyle = {
     position: 'relative', // Needed to position the text over the image
@@ -37,6 +48,26 @@ const JobCategorie4 = ({ isMobile }) => {
     left: '50%',
     transform: 'translate(-50%, -50%)', // This ensures the text is centered both horizontally and vertically
   };
+  const desktopContainerStyle = (itemId) => ({
+    position: 'relative',
+    width: '270px',
+    height: '200px',
+    overflow: 'hidden',
+    cursor: 'pointer',
+    transition: 'transform 0.3s ease',
+    transform: hoveredItem === itemId ? 'scale(1.1)' : 'scale(1)',
+  });
+
+  const mobileContainerStyle = (itemId) => ({
+    position: 'relative',
+    width: '270px',
+    height: '200px',
+    overflow: 'hidden',
+    margin: '10px',
+    cursor: 'pointer',
+    transition: 'transform 0.3s ease', // Smooth transition for hover effect
+    transform: hoveredItem === itemId ? 'scale(1.1)' : 'scale(1)', // Scale up on hover
+  });
 
   return (
     <>
@@ -44,6 +75,11 @@ const JobCategorie4 = ({ isMobile }) => {
         <div
           className={`feature-block-two col-lg-4 col-md-4 col-sm-12 ${isMobile ? 'col-xs-6' : ''}`}
           key={item.id}
+          onMouseEnter={() => handleMouseEnter(item.id)}
+          onMouseLeave={handleMouseLeave}
+          // style={containerStyle(item.id)}
+          style={isMobile ? mobileContainerStyle : desktopContainerStyle(item.id)}
+
         >
           <div className="inner-box">
             <span
@@ -60,16 +96,16 @@ const JobCategorie4 = ({ isMobile }) => {
               {item.catTitle}
             </h4>
             {hoveredItem === item.id && (
-             <div style={imageContainerStyle}>
-             <Image
-               src="/images/thinking-icon.svg"
-               alt="Thinking Bubble"
-               layout="fill" // This makes the image responsive within the container
-               objectFit="contain" // Keeps the aspect ratio of the image
-               style={{transform:'scaleX(-1) scaleY(-1)'}}
-             />
-             <div style={textStyle}>{item.popupText}</div>
-           </div>
+              <div style={imageContainerStyle}>
+                <Image
+                  src="/images/thinking-icon.svg"
+                  alt="Thinking Bubble"
+                  layout="fill" // This makes the image responsive within the container
+                  objectFit="contain" // Keeps the aspect ratio of the image
+                  style={{ transform: 'scaleX(-1) scaleY(-1)' }}
+                />
+                <div style={textStyle}>{item.popupText}</div>
+              </div>
             )}
             <div className="btn-box text-center" style={{ marginTop: '10px' }}>
             </div>

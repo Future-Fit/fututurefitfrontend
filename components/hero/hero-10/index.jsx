@@ -5,7 +5,7 @@ import JobCategorie4 from "../../job-categories/JobCategorie4";
 import HeroSliderGallery from "./HeroSliderGallery";
 
 const index = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);

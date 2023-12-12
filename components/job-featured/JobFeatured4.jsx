@@ -11,13 +11,7 @@ const JobFeatured4 = () => {
           key={item.id}
         >
           <div className="inner-box">
-            {/* <ul className="job-other-info">
-              {item.jobType.map((val, i) => (
-                <li key={i} className={`${val.styleClass}`}>
-                  {val.type}
-                </li>
-              ))}
-            </ul> */}
+          
             <span className="company-logo">
               <Image
                 width={90}
@@ -44,13 +38,7 @@ const JobFeatured4 = () => {
                   <span className="btn-title">Apply</span>
                 </Link>
               </div>
-              {/* {item.jobTag.map((val, i) => (
-                <li key={i}>
-                  <a href="#">{val}</a>
-                </li>
-              ))}
-              <li className="colored">+2</li> */}
-            {/* </ul> */}
+             
           </div>
         </div>
         // End job-block
