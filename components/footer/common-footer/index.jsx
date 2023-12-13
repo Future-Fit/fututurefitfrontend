@@ -1,4 +1,3 @@
-import Image from "next/image";
 import CopyrightFooter from "./CopyrightFooter";
 import FooterContent from "./FooterContent";
 import Social from "../../footer/common-footer/Social";
@@ -14,7 +13,11 @@ const Index = () => {
         {/* Widgets Section */}
         <div className="widgets-section" data-aos="fade-up">
           <div className="row">
-            <div className="big-column col-xl-4 col-lg-3 col-md-12">
+            
+            <div 
+            // className="footer-column col-lg-5 col-md-4 col-sm-12"
+            className="big-column col-xl-4 col-lg-5 col-md-12"
+            >
               <div className="footer-column about-widget">
                 <div className="contact-details">
                   <div className="contact-column" style={{ width: '100%' }}>
@@ -22,7 +25,7 @@ const Index = () => {
                       <span>Contact Us</span>
                     </p>
                     <div style={{ width: '100%', display: 'flex' }}>
-                      <div style={{ width: '50%', paddingRight: '5px' }}>
+                      <div style={{ width: '50%', paddingRight: '25px' }}>
                         <p className="phone-num">
                           <span>Canada Office</span>
                           <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
@@ -38,7 +41,7 @@ const Index = () => {
                           </iframe>
                         </div>
                       </div>
-                      <div style={{ width: '50%', paddingLeft: '20px' }}>
+                      <div style={{ width: '50%', paddingLeft: '0px' }}>
                         <p className="phone-num">
                           <span>Ethiopia Office</span>
                           <a href="tel: +251933859295">+251933859295</a>

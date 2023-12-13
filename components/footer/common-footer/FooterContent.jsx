@@ -21,13 +21,14 @@ const FooterContent = () => {
     }
   };
 
-  
+
   return (
     <>
       {footerContent.map((item) => (
         <div
-          className="footer-column col-lg-4 col-md-6 col-sm-12"
+          className="footer-column col-lg-5 col-md-2 col-sm-12" // Adjusted column width
           key={item.id}
+          style={{ marginLeft: '20px' }} // Reduced margin
         >
           <div className="footer-widget links-widget">
             <h4 className="widget-title">{item.title}</h4>
@@ -43,6 +44,26 @@ const FooterContent = () => {
           </div>
         </div>
       ))}
+      {/* {footerContent.map((item) => (
+        <div
+          className="footer-column col-lg-4 col-md-8 col-sm-12"
+          key={item.id}
+          style={{marginLeft: '50px'}}
+        >
+          <div className="footer-widget links-widget">
+            <h4 className="widget-title">{item.title}</h4>
+            <div className="widget-content">
+              <ul className="list">
+                {item?.menuList?.map((menu, i) => (
+                  <li key={i}>
+                    <Link href={menu.route}>{menu.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))} */}
     </>
   );
 };

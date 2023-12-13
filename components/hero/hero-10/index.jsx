@@ -57,7 +57,7 @@ const index = () => {
                       }}>
                         <h4 style={{
                           color: 'white',
-                          textAlign: 'left', // Align text to the left
+                          textAlign: 'justify', // Align text to the left
                           margin: 0, // Remove any default margins
                         }}>
                           At FFI, our passion is enabling individuals, businesses, and institutions make great connections.
@@ -84,7 +84,7 @@ const index = () => {
                       }}>
                         <h4 style={{
                           color: 'white',
-                          textAlign: 'left', // Align text to the left
+                          textAlign: 'justify', // Align text to the left
                           margin: 0, // Remove any default margins
                         }}>
                           At FFI, our passion is enabling individuals, businesses, and institutions make great connections.

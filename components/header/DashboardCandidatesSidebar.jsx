@@ -32,11 +32,11 @@ const DashboardCandidatesSidebar = () => {
     <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
       {/* Start sidebar close icon */}
       <div className="pro-header text-end pb-0 mb-0 show-1023">
-        <div className="pro-header">
+        <div className="pro-header" style={{paddingTop: '50px'}}>
           <Link href="/">
-            <Image width={50} height={50}
+            {/* <Image width={50} height={50}
               src="/images/logo-no-background.png"
-              alt="brand" />
+              alt="brand" /> */}
           </Link>
           {/* End logo */}
 

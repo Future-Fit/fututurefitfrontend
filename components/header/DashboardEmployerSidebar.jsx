@@ -27,13 +27,12 @@ const DashboardEmployerSidebar = () => {
     return (
         <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
             <div className="pro-header text-end pb-0 mb-0 show-1023">
-                <div className="pro-header">
+                <div className="pro-header" style={{paddingTop: '50px'}}>
                     <Link href="/">
-                        <Image width={50} height={50}
+                        {/* <Image width={50} height={50}
                             src="/images/logo-no-background.png"
-                            alt="brand" />
+                            alt="brand" /> */}
                     </Link>
-                    {/* End logo */}
 
                     <div className="fix-icon" onClick={menuToggleHandler} data-bs-dismiss="offcanvas" aria-label="Close">
                         <span className="flaticon-close" style={{ color: '#fff' }}></span>
