@@ -65,22 +65,35 @@ const Partner2 = () => {
     { id: 8, link: "#", imgNumber: "5" },
   ];
 
+  const sliderCompanyName = [
+    { id: 1, link: "#", companyName: "Test 1" },
+    { id: 2, link: "#", companyName: "Test 2" },
+    { id: 3, link: "#", companyName: "Test 3" },
+    { id: 4, link: "#", companyName: "Test 4" },
+    { id: 5, link: "#", companyName: "Test 5" },
+    { id: 6, link: "#", companyName: "Test 6" },
+    { id: 7, link: "#", companyName: "Test 7" },
+    { id: 8, link: "#", companyName: "Test 5" },
+  ];
   return (
     <>
       <Slider {...settings} arrows={false}>
-        {sliderGallery.map((item) => (
-          <li className="slide-item" key={item.id}>
-            <figure className="image-box">
-              <a href={item.link}>
-                <Image
-                  width={91}
-                  height={40}
-                  src={`/images/index-11/clients/${item.imgNumber}.svg`}
-                  alt="brand"
-                />
-              </a>
-            </figure>
-          </li>
+        {sliderCompanyName.map((item) => (
+          // <li className="slide-item" key={item.id}>
+            <li className="slide-item" key={item.id}>
+              <a href={item.link}>{item.companyName}</a>
+            </li>
+          //   <figure className="image-box">
+          //     <a href={item.link}>
+          //       <Image
+          //         width={91}
+          //         height={40}
+          //         src={`/images/index-11/clients/${item.imgNumber}.svg`}
+          //         alt="brand"
+          //       />
+          //     </a>
+          //   </figure>
+          // </li>
         ))}
       </Slider>
     </>
