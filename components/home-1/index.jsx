@@ -21,6 +21,7 @@ import CallToAction2 from "../call-to-action/CallToAction2";
 import CallToAction3 from "../call-to-action/CallToAction3";
 import CallToActions from "../job-listing-pages/components/CallToActions";
 import CallToActionSearch from "../call-to-action/CallToActionSearch";
+import VideoPlayer from "../app-section/VideoPlayer";
 
 
 
@@ -50,6 +51,8 @@ const index = () => {
       {/* End MobileMenu */}
 
       <Hero10 />
+
+      <VideoPlayer/>
 
       <CallToActionSearch/>
 
