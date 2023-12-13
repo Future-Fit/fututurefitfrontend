@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Block6 = () => {
   const blockContent = [
@@ -8,6 +9,7 @@ const Block6 = () => {
       title: "Browse",
       text: `Search our database to explore opportunities or review profiles.`,
       bgClass: "-blue",
+      arrow1: "/images/arrow-right.svg"
     },
     {
       id: 2,
@@ -15,6 +17,7 @@ const Block6 = () => {
       title: "Register",
       text: `Sign up to customize your experience.`,
       bgClass: "-red",
+      arrow2: "/images/arrow-right.svg"
     },
     {
       id: 3,
@@ -27,7 +30,7 @@ const Block6 = () => {
   return (
     <>
       {blockContent.map((item) => (
-        <div className="col-lg-4 col-md-6 col-sm-12" key={item.id}>
+        <div className="col-lg-4 col-md-4 col-sm-12" key={item.id}>
           <div className="work-block -type-2 mb-0">
             <div className="inner-box">
               <div className={`icon-wrap ${item.bgClass}`}>
@@ -37,6 +40,8 @@ const Block6 = () => {
               <p>{item.text}</p>
             </div>
           </div>
+          {/* <Image
+            src={item.arrow1} width={20} height={20} alt="arrow icon" /> */}
         </div>
       ))}
       <div className="btn-box text-center" style={{ marginTop: '10px' }}>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SearchForm3 from "../../common/job-search/SearchForm3";
 import JobCategorie4 from "../../job-categories/JobCategorie4";
 import HeroSliderGallery from "./HeroSliderGallery";
+import VideoPlayer from "@/components/app-section/VideoPlayer";
 
 const index = () => {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -50,12 +51,13 @@ const index = () => {
 
                       <div style={{
                         padding: '20px 20px 20px 20px',
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
                         borderRadius: '10px',
                         display: 'inline-block',
                         alignContent: 'start'
                       }}>
-                        <h4 style={{
+                        <VideoPlayer />
+                        {/* <h4 style={{
                           color: 'white',
                           textAlign: 'justify', // Align text to the left
                           margin: 0, // Remove any default margins
@@ -65,7 +67,7 @@ const index = () => {
                           matching opportunities for job seekers, students, businesses and colleges/universities. With years
                           of experience in talent management, international business, education and government services, we are
                           your champions in the pursuit of your aspirations and goals.
-                        </h4>
+                        </h4> */}
                       </div>
                     </>
                   ) : (
@@ -75,14 +77,15 @@ const index = () => {
 
                       <div style={{
                         padding: '20px 20px 20px 20px',
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
                         borderRadius: '10px',
                         display: 'inline-block',
-                        marginTop: '150px',
+                        marginTop: '10px',
                         width: '1000px',
                         alignContent: 'start'
                       }}>
-                        <h4 style={{
+                        <VideoPlayer />
+                        {/* <h4 style={{
                           color: 'white',
                           textAlign: 'justify', // Align text to the left
                           margin: 0, // Remove any default margins
@@ -92,7 +95,7 @@ const index = () => {
                           matching opportunities for job seekers, students, businesses and colleges/universities. With years
                           of experience in talent management, international business, education and government services, we are
                           your champions in the pursuit of your aspirations and goals.
-                        </h4>
+                        </h4> */}
                       </div>
                     </>
 

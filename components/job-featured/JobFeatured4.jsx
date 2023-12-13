@@ -12,14 +12,14 @@ const JobFeatured4 = () => {
         >
           <div className="inner-box">
           
-            <span className="company-logo">
+            {/* <span className="company-logo">
               <Image
                 width={90}
                 height={90}
                 src={item.logo}
                 alt="featured job"
               />
-            </span>
+            </span> */}
             {/* <span className="company-name">Catalyst</span> */}
             <h4>
               <Link href={`/job-single-v1/${item.id}`}>{item.jobTitle}</Link>

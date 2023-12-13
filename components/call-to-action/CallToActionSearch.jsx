@@ -38,11 +38,11 @@ const CallToActionSearch = () => {
           <SearchForm3 />
         </div>
 
-        <div className="top-features">
+        {/* <div className="top-features">
           <div className="row" data-aos-delay="700" data-aos="fade-up">
             <JobCategorie4 isMobile={isMobile} />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

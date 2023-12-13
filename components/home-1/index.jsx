@@ -54,12 +54,11 @@ const index = () => {
 
       
 
-      <section className="app-section" style={{backgroundColor: '#3B578E'}}>
+      {/* <section className="app-section" style={{backgroundColor: '#3B578E'}}>
         <div className="auto-container">
-          {/* <AppSectionAbout /> */}
           <VideoPlayer/>
         </div>
-      </section>
+      </section> */}
       <CallToActionSearch/>
 
       <section className="" style={{ background: '#f5f7fc', paddingTop: '20px', paddingBottom: '20px' }}>

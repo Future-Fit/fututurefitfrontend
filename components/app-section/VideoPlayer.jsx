@@ -45,7 +45,7 @@ const VideoPlayer = () => {
   };
 
   return (
-    <div className="row" style={{ backgroundColor: "#3B578E", padding: '20px', borderRadius: '10px' }}>
+    <div className="row" style={{ padding: '20px', borderRadius: '10px' }}>
 
       <div className="image-column col-lg-6 col-md-12 col-sm-12">
         {/* <div className="bg-shape"></div> */}
