@@ -36,11 +36,11 @@ const Block6 = () => {
               {/* <h5 style={{fontWeight:600,fontSize:'30px',color:'blue'}}>{item.title}</h5> */}
               <h5>{item.title}</h5>
               <p>{item.text}</p>
-              <div className="btn-box text-center" style={{ marginTop: '10px' }}>
+              {/* <div className="btn-box text-center" style={{ marginTop: '10px' }}>
                 <Link href="/service" className="theme-btn btn-style-one bg-blue">
                   <span className="btn-title">{item.title}</span>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

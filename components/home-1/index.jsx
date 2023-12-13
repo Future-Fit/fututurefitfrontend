@@ -52,8 +52,14 @@ const index = () => {
 
       <Hero10 />
 
-      <VideoPlayer/>
+      
 
+      <section className="app-section" >
+        <div className="auto-container">
+          {/* <AppSectionAbout /> */}
+          <VideoPlayer/>
+        </div>
+      </section>
       <CallToActionSearch/>
 
       <section className="" style={{ background: '#f5f7fc', paddingTop: '20px', paddingBottom: '20px' }}>
