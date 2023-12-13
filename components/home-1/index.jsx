@@ -15,6 +15,12 @@ import DashboardHeader from "../header/DashboardHeader";
 import { useEffect, useState } from "react";
 import AppSection from "../app-section/AppSection";
 import AppSectionAbout from "../app-section/AppSectionAbout";
+import CallToAction from "../call-to-action/CallToAction";
+import CallToAction11 from "../call-to-action/CallToAction11";
+import CallToAction2 from "../call-to-action/CallToAction2";
+import CallToAction3 from "../call-to-action/CallToAction3";
+import CallToActions from "../job-listing-pages/components/CallToActions";
+import CallToActionSearch from "../call-to-action/CallToActionSearch";
 
 
 
@@ -45,6 +51,7 @@ const index = () => {
 
       <Hero10 />
 
+      <CallToActionSearch/>
 
       <section className="" style={{ background: '#f5f7fc', paddingTop: '20px', paddingBottom: '20px' }}>
         <div className="auto-container">

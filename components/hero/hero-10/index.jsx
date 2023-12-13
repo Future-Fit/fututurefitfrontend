@@ -46,7 +46,7 @@ const index = () => {
                   {isMobile ? (
                     <>
                       <h3 style={{ fontWeight: '600', /* Other mobile styles */ }}>Welcome to FFI</h3>
-                      <h2 style={{ color: "#b2dfdb", fontSize: '20px'}}> Explore Opportunties, Turn Ambitions into Reality!</h2>
+                      <h2 style={{ color: "#b2dfdb", fontSize: '20px' }}> Explore Opportunties, Turn Ambitions into Reality!</h2>
                     </>
                   ) : (
                     <>
@@ -55,18 +55,25 @@ const index = () => {
                     </>
 
                   )}
-                  <h4 style={{ color: "#fff" }}> What Are You Interested in? </h4>
+
+                  <h4 style={{color:'white', paddingTop: '30px', padding: '20px 100px 20px', textAlign: 'justify', backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
+                    At FFI, our passion is enabling individuals, businesses, and institutions make great connections.
+                    Our ever-expanding global reach and expertise gives us the ability to provide growing networking and
+                    matching opportunities for job seekers, students, businesses and colleges/universities. With years
+                    of experience in talent management, international business, education and government services, we are
+                    your champions in the pursuit of your aspirations and goals.
+                  </h4>
                 </div>
 
-                <div className="job-search-form" data-aos-delay="700" data-aos="fade-up">
+                {/* <div className="job-search-form" data-aos-delay="700" data-aos="fade-up">
                   <SearchForm3 />
-                </div>
+                </div> */}
 
-                <div className="top-features">
+                {/* <div className="top-features">
                   <div className="row" data-aos-delay="700" data-aos="fade-up">
                     <JobCategorie4 isMobile={isMobile} />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </section>
