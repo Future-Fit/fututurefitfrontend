@@ -1,6 +1,39 @@
+"use client"
+import axios  from "axios";
+import DefaultConfig from "app.config.js";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 const ContactForm = () => {
+  const router = useRouter();
+ 
+  const sendEmail = async (e)=>{
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value ;
+  const name= document.getElementById("username").value;
+  const message = document.getElementById("message").value; 
+    var data = {
+email,
+subject,
+name,
+message
+
+    }
+    try{
+      const response = await axios.post(`${DefaultConfig.url}/message`,data,{headers:{"Content-Type":"application/json"}});
+if(response.status == 201){
+  if(confirm("we have received your message we will reply to you")){
+    router.push("/");
+  }
+}
+    }catch(Ex){
+
+      alert(Ex);
+    }
+
+
+  }
   return (
-    <form>
+    <form onSubmit={sendEmail} method="POST">
       <div className="row">
         <div className="form-group col-lg-12 col-md-12 col-sm-12">
           <div className="response"></div>
@@ -10,6 +43,7 @@ const ContactForm = () => {
         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
           <label>Your Name</label>
           <input
+          id="username"
             type="text"
             name="username"
             className="username"
@@ -22,6 +56,7 @@ const ContactForm = () => {
         <div className="col-lg-6 col-md-12 col-sm-12 form-group">
           <label>Your Email</label>
           <input
+            id="email"
             type="email"
             name="email"
             className="email"
@@ -34,6 +69,8 @@ const ContactForm = () => {
         <div className="col-lg-12 col-md-12 col-sm-12 form-group">
           <label>Subject</label>
           <input
+             id="subject"
+
             type="text"
             name="subject"
             className="subject"
@@ -46,6 +83,7 @@ const ContactForm = () => {
         <div className="col-lg-12 col-md-12 col-sm-12 form-group">
           <label>Your Message</label>
           <textarea
+            id="message"
             name="message"
             placeholder="Write your message..."
             required=""
