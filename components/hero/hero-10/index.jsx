@@ -47,7 +47,7 @@ const index = () => {
                   {isMobile ? (
                     <>
                       <h3 style={{ fontWeight: '600', /* Other mobile styles */ }}>Welcome to FFI</h3>
-                      <h2 style={{ color: "#b2dfdb", fontSize: '20px' }}> Explore Opportunties, Turn Ambitions into Reality!</h2>
+                      <h2 style={{ color: "#b2dfdb", fontSize: '20px' }}> Where Opportunties Meet Ambitions!</h2>
 
                       <div style={{
                         padding: '20px 20px 20px 20px',
@@ -73,7 +73,7 @@ const index = () => {
                   ) : (
                     <>
                       <h3 style={{ fontWeight: '600', marginTop: '100px' /* Other desktop styles */ }}>Welcome to Future Fit International</h3>
-                      <h2 style={{ color: "#b2dfdb" }}> Explore Opportunties, Turn Ambitions into Reality!</h2>
+                      <h2 style={{ color: "#b2dfdb" }}> Where Opportunties Meet Ambitions!</h2>
 
                       <div style={{
                         padding: '20px 20px 20px 20px',

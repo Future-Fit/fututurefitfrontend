@@ -50,20 +50,20 @@ const VideoPlayer = () => {
       <div className="image-column col-lg-6 col-md-12 col-sm-12">
         {/* <div className="bg-shape"></div> */}
         <div className="slide-item" style={frameStyle}>
-        <video
-          ref={videoRef}
-          src={`/images/VIDEO.mp4?${new Date().getTime()}`}
-          controls
-          autoPlay
-          muted={isMuted}
-          style={videoStyle}
-        >
-          Your browser does not support the video tag.
-        </video>
-        {/* <button onClick={toggleMute} style={buttonStyle}>
+          <video
+            ref={videoRef}
+            src={`/images/VIDEO.mp4?${new Date().getTime()}`}
+            controls
+            autoPlay
+            muted={isMuted}
+            style={videoStyle}
+          >
+            Your browser does not support the video tag.
+          </video>
+          {/* <button onClick={toggleMute} style={buttonStyle}>
           {isMuted ? 'Unmute' : 'Mute'}
         </button> */}
-      </div>
+        </div>
         {/* <figure className="image" data-aos="fade-right">
           <Image
             width={477}
@@ -78,14 +78,22 @@ const VideoPlayer = () => {
       <div className="content-column col-lg-6 col-md-12 col-sm-12">
         <div className="inner-column" data-aos="fade-left">
           <div className="sec-title">
-            <h2 style={{color:'white'}}>
-              About US
+            <h2 style={{ color: 'white' }}>
+              Who We Are...
             </h2>
-            <div className="text" style={{textAlign:"justify", color:'white'}}>
-            At FFI, our passion is enabling individuals, businesses, and institutions make great connections. Our ever-expanding global 
-            reach and expertise gives us the ability to provide growing networking and matching opportunities for job seekers, students, 
-            businesses and colleges/universities. With years of experience in talent management, international business, education and 
-            government services, we are your champions in the pursuit of your aspirations and goals.            
+            <div className="text" style={{ textAlign: "justify", color: 'white' }}>
+              * Passionate about enabling great connections <br></br>
+              * Experts in talent management and international business <br></br>
+              * A one-stop network of global opportunties and talent profiles <br></br>
+            </div>
+            <h2 style={{ color: 'white' }}>
+              What We Do...
+            </h2>
+            <div className="text" style={{ textAlign: "justify", color: 'white' }}>
+              * Fulfill the needs of businesses/institutions from a global talent pool <br></br>
+              * Help realize the dreams of career/job seekers and students <br></br>
+              * Provide travel, visa and resettlement related services <br></br>
+              * Provide a unified global talent and opportunity matching ecosystem <br></br>
             </div>
           </div>
         </div>
