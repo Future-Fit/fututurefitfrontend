@@ -1,14 +1,25 @@
+
 const Contact = () => {
+
+
+
+
+
   return (
-    <form>
+    <form  >
       <div className="row clearfix">
         <div className="col-lg-12 col-md-12 col-sm-12 form-group">
-          <input type="text" name="username" placeholder="Your Name" required />
+          <input 
+          
+          
+          
+          type="text" name="username" placeholder="Your nn" required />
         </div>
         {/* End .col */}
 
         <div className="col-lg-12 col-md-12 col-sm-12 form-group">
           <input
+       
             type="email"
             name="email"
             placeholder="Email Address"
@@ -19,6 +30,7 @@ const Contact = () => {
 
         <div className="col-lg-12 col-md-12 col-sm-12 form-group">
           <textarea
+      
             className="darma"
             name="message"
             placeholder="Message"
@@ -31,6 +43,7 @@ const Contact = () => {
             className="theme-btn btn-style-one"
             type="submit"
             name="submit-form"
+       
           >
             Send Message now
           </button>
