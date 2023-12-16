@@ -1,190 +1,130 @@
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const VideoPlayer = () => {
-  const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(true);
-
-  const toggleMute = () => {
-    setIsMuted(!isMuted);
-  };
-
+  const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth);
+      window.addEventListener('resize', handleWindowResize);
     }
-  }, [isMuted]);
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleWindowResize);
+      }
+    };
+  }, []);
+
+  const videoRef = useRef(null);
 
   const frameStyle = {
-    border: '4px solid #fff',
-    boxShadow: '0px 0px 8px 2px rgba(0, 0, 0, 0.5)',
-    borderRadius: '10px',
-    padding: '10px',
-    maxWidth: '477', // Adjust this value to fit your header's width
-    maxHeight: '556', // Adjust this value to maintain aspect ratio (16:9 in this case)
-    margin: 'auto', // Center the frame within its container
+    boxShadow: '0px 0px 2px 2px rgba(0, 0, 0, 0.3)',
+    maxWidth: '477px', // Ensure units are specified
+    maxHeight: '590px', // Ensure units are specified
+    margin: 'auto',
+    overflow: 'hidden', // Add this to hide any overflow
   };
 
   const videoStyle = {
     width: '100%',
-    height: 'auto', // Maintain aspect ratio
-    borderRadius: '6px',
+    height: 'auto', // Change to 'auto' for maintaining aspect ratio
+    maxWidth: '477px', // Ensure units are specified
+    display: 'block', // This can help remove unwanted gaps
   };
 
-  const buttonStyle = {
-    position: 'absolute',
-    zIndex: 2,
-    bottom: '10px',
-    left: '10px',
-    padding: '5px 10px',
-    backgroundColor: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  };
+  const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
 
   return (
-    <div className="row" style={{ padding: '20px', borderRadius: '10px' }}>
+    <div className="row" style={{ padding: '10px', borderRadius: '10px' }}>
+      {isMobile ? (
+        <>
+          <div className="image-column col-lg-6 col-md-12 col-sm-12">
+            {/* <div className="bg-shape"></div> */}
+            <div className="slide-item" style={frameStyle}>
 
-      <div className="image-column col-lg-6 col-md-12 col-sm-12">
-        {/* <div className="bg-shape"></div> */}
-        <div className="slide-item" style={frameStyle}>
-          <video
-            ref={videoRef}
-            src={`/images/VIDEO.mp4?${new Date().getTime()}`}
-            controls
-            autoPlay
-            muted={isMuted}
-            style={videoStyle}
-          >
-            Your browser does not support the video tag.
-          </video>
-          {/* <button onClick={toggleMute} style={buttonStyle}>
-          {isMuted ? 'Unmute' : 'Mute'}
-        </button> */}
-        </div>
-        {/* <figure className="image" data-aos="fade-right">
-          <Image
-            width={477}
-            height={556}
-            src="/images/resource/banner-img-3.png"
-            alt="About"
-          />
-        </figure> */}
-      </div>
-      {/* <!-- Image Column --> */}
-
-      <div className="content-column col-lg-6 col-md-12 col-sm-12">
-        <div className="inner-column" data-aos="fade-left">
-          <div className="sec-title">
-            <h2 style={{ color: 'white' }}>
-              Who We Are...
-            </h2>
-            <div className="text" style={{ textAlign: "justify", color: 'white' }}>
-              * Passionate about enabling great connections <br></br>
-              * Experts in talent management and international business <br></br>
-              * A one-stop network of global opportunties and talent profiles <br></br>
-            </div>
-            <h2 style={{ color: 'white' }}>
-              What We Do...
-            </h2>
-            <div className="text" style={{ textAlign: "justify", color: 'white' }}>
-              * Fulfill the needs of businesses/institutions from a global talent pool <br></br>
-              * Help realize the dreams of career/job seekers and students <br></br>
-              * Provide travel, visa and resettlement related services <br></br>
-              * Provide a unified global talent and opportunity matching ecosystem <br></br>
+              <video
+                ref={videoRef}
+                src={`/images/VIDEO.mp4?${new Date().getTime()}`}
+                controls
+                autoPlay
+                muted
+                style={videoStyle}
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
-        </div>
-      </div>
-      {/* End .col */}
-      {/* <div className="slide-item" style={frameStyle}>
-        <video
-          ref={videoRef}
-          src={`/images/VIDEO.mp4?${new Date().getTime()}`}
-          controls
-          autoPlay
-          muted={isMuted}
-          style={videoStyle}
-        >
-          Your browser does not support the video tag.
-        </video>
-        <button onClick={toggleMute} style={buttonStyle}>
-          {isMuted ? 'Unmute' : 'Mute'}
-        </button>
-      </div> */}
+          {/* <!-- Image Column --> */}
+          <div className="content-column col-lg-6 col-md-12 col-sm-12">
+            <div className="inner-column" data-aos="fade-left">
+              <div className="sec-title">
+                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
+                  Who We Are ...
+                </h2>
+                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px'  }}>
+                  * Passionate about enabling great connections <br></br>
+                  * Experienced global management agency <br></br>
+                  * Ecosystem where ambition meets opportunity <br></br>
+                </div>
+                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
+                  What We Do ...
+                </h2>
+                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px' }}>
+                  * Fulfill business & institutional resource needs <br></br>
+                  * Realize dreams for job seekers & students <br></br>
+                  * Provide travel, visa & resettlement services <br></br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="col-lg-6 col-md-12 col-sm-12">
+            {/* <div className="bg-shape"></div> */}
+            <div className="slide-item" style={frameStyle}>
+              <video
+                ref={videoRef}
+                src={`/images/VIDEO.mp4?${new Date().getTime()}`}
+                controls
+                autoPlay
+                muted
+                style={videoStyle}
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          {/* <!-- Image Column --> */}
+          <div className="content-column col-lg-6 col-md-12 col-sm-12">
+            <div className="inner-column" data-aos="fade-left" style={{ alignItems: 'flex-start' }}>
+              <div className="sec-title">
+                <h2 style={{textAlign: "left",  color: 'white', fontSize: '20px'  }}>
+                  Who We Are ...
+                </h2>
+                <div className="text" style={{ textAlign: "justify", color: 'white', marginBottom: '20px' }}>
+                  * Passionate about enabling great connections <br></br>
+                  * Experienced global management agency <br></br>
+                  * Ecosystem where ambition meets opportunity <br></br>
+                </div>
+                <h2 style={{textAlign: "left",  color: 'white', fontSize: '20px'  }}>
+                  What We Do ...
+                </h2>
+                <div className="text" style={{ textAlign: "justify", color: 'white' }}>
+                  * Fulfill business & institutional resource needs <br></br>
+                  * Realize dreams for job seekers & students <br></br>
+                  * Provide travel, visa & resettlement services <br></br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
 
 export default VideoPlayer;
-
-
-// "use Client"
-
-// import Image from "next/image";
-// import Link from "next/link";
-// import { useEffect, useRef, useState } from "react";
-
-// const VideoPlayer = () => {
-//   const videoRef = useRef(null);
-
-//   const [isMuted, setIsMuted] = useState(true);
-//   const toggleMute = () => {
-//     setIsMuted(!isMuted);
-//   };
-
-//   useEffect(() => {
-//     if (videoRef.current) {
-//       videoRef.current.muted = isMuted;
-//     }
-//   }, [isMuted]);
-
-//   return (
-//     <div className="row" style={{ backgroundColor: "#3B578E" }}>
-
-//       <div className="slide-item">
-//         <video
-//           src={`/images/VIDEO.mp4?${new Date().getTime()}`}
-//           controls
-//           autoPlay
-//           muted={isMuted}
-//         >
-//           Your browser does not support the video tag.
-//         </video>
-//         <button onClick={toggleMute} style={{ position: 'absolute', zIndex: 2 }}>
-//           {isMuted ? 'Unmute' : 'Mute'}
-//         </button>
-//       </div>
-//       {/* <div className="image-column col-lg-6 col-md-12 col-sm-12">
-//         <div className="bg-shape"></div>
-//         <figure className="image" data-aos="fade-right">
-//           <Image
-//             width={477}
-//             height={556}
-//             src="/images/resource/banner-img-3.png"
-//             alt="About"
-//           />
-//         </figure>
-//       </div>
-//       {/* <!-- Image Column -->
-
-//       <div className="content-column col-lg-6 col-md-12 col-sm-12">
-//         <div className="inner-column" data-aos="fade-left">
-//           <div className="sec-title">
-//             <h2 style={{color:'white'}}>
-//               About US
-//             </h2>
-//             <div className="text" style={{textAlign:"justify", color:'white'}}>
-//             Details About FFI
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//       {/* End .col */}
-//     </div>
-//   );
-// };
-
-// export default VideoPlayer;

@@ -1,7 +1,4 @@
-
-
-'use client'
-
+import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 
@@ -26,7 +23,6 @@ const Partner2 = () => {
           slidesToShow: 5,
         },
       },
-
       {
         breakpoint: 768,
         settings: {
@@ -54,46 +50,43 @@ const Partner2 = () => {
     ],
   };
 
-  const sliderGallery = [
-    { id: 1, link: "#", imgNumber: "1" },
-    { id: 2, link: "#", imgNumber: "2" },
-    { id: 3, link: "#", imgNumber: "3" },
-    { id: 4, link: "#", imgNumber: "4" },
-    { id: 5, link: "#", imgNumber: "5" },
-    { id: 6, link: "#", imgNumber: "6" },
-    { id: 7, link: "#", imgNumber: "7" },
-    { id: 8, link: "#", imgNumber: "5" },
+  const sliderPartners = [
+    { id: 1, link: "#", imgNumber: "1", companyName: "Test 1" },
+    { id: 2, link: "#", imgNumber: "2", companyName: "Test 2" },
+    { id: 3, link: "#", imgNumber: "3", companyName: "Test 3" },
+    { id: 4, link: "#", imgNumber: "4", companyName: "Test 4" },
+    { id: 5, link: "#", imgNumber: "5", companyName: "Test 5" },
+    { id: 6, link: "#", imgNumber: "6", companyName: "Test 6" },
+    { id: 7, link: "#", imgNumber: "7", companyName: "Test 7" },
+    { id: 8, link: "#", imgNumber: "5", companyName: "Test 8" },
   ];
 
-  const sliderCompanyName = [
-    { id: 1, link: "#", companyName: "Test 1" },
-    { id: 2, link: "#", companyName: "Test 2" },
-    { id: 3, link: "#", companyName: "Test 3" },
-    { id: 4, link: "#", companyName: "Test 4" },
-    { id: 5, link: "#", companyName: "Test 5" },
-    { id: 6, link: "#", companyName: "Test 6" },
-    { id: 7, link: "#", companyName: "Test 7" },
-    { id: 8, link: "#", companyName: "Test 5" },
-  ];
+  const imageStyle = {
+    display: "inline-block",
+    marginRight: "15px", // Adjust spacing between image and text
+  };
+
   return (
     <>
       <Slider {...settings} arrows={false}>
-        {sliderCompanyName.map((item) => (
-          // <li className="slide-item" key={item.id}>
-            <li className="slide-item" key={item.id}>
-              <a href={item.link}>{item.companyName}</a>
-            </li>
-          //   <figure className="image-box">
-          //     <a href={item.link}>
-          //       <Image
-          //         width={91}
-          //         height={40}
-          //         src={`/images/index-11/clients/${item.imgNumber}.svg`}
-          //         alt="brand"
-          //       />
-          //     </a>
-          //   </figure>
-          // </li>
+        {sliderPartners.map((item) => (
+          <div className="slide-item" key={item.id}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <figure className="image-box" style={imageStyle}>
+                <a href={item.link}>
+                  <Image
+                    width={91}
+                    height={40}
+                    src={`/images/index-11/clients/${item.imgNumber}.svg`}
+                    alt="brand"
+                  />
+                </a>
+              </figure>
+              <div className="company-name">
+                <a href={item.link}>{item.companyName}</a>
+              </div>
+            </div>
+          </div>
         ))}
       </Slider>
     </>

@@ -51,14 +51,7 @@ const index = () => {
       {/* End MobileMenu */}
 
       <Hero10 />
-
       
-
-      {/* <section className="app-section" style={{backgroundColor: '#3B578E'}}>
-        <div className="auto-container">
-          <VideoPlayer/>
-        </div>
-      </section> */}
       <CallToActionSearch/>
 
       <section className="" style={{ background: '#f5f7fc', paddingTop: '20px', paddingBottom: '20px' }}>

@@ -1,7 +1,5 @@
 "use client"
 import { useEffect, useState } from "react";
-import SearchForm3 from "../../common/job-search/SearchForm3";
-import JobCategorie4 from "../../job-categories/JobCategorie4";
 import HeroSliderGallery from "./HeroSliderGallery";
 import VideoPlayer from "@/components/app-section/VideoPlayer";
 
@@ -26,8 +24,8 @@ const index = () => {
   const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
 
   return (
-    <section className="app-section" style={{ background: '#3B578E', paddingTop: '100px', paddingBottom: '0px', height: '100vh' }}>
-      <div className="auto-container" style={{ height: '100vh !important', }}>
+    <section className="app-section" style={{ background: '#3B578E', paddingTop: '0px', paddingBottom: '0px', height: '100vh' }}>
+      <div className="auto-container" style={{ height: '85vh !important' }}>
         <div
           style={{
             position: 'relative',
@@ -37,7 +35,6 @@ const index = () => {
             margin: '0 auto',
           }}
         >
-
           <section className="banner-section-ten">
             <HeroSliderGallery />
 
@@ -46,38 +43,29 @@ const index = () => {
                 <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '15px' }}>
                   {isMobile ? (
                     <>
-                      <h3 style={{ fontWeight: '600', /* Other mobile styles */ }}>Welcome to FFI</h3>
-                      <h2 style={{ color: "#b2dfdb", fontSize: '20px' }}> Where Opportunties Meet Ambitions!</h2>
+                      <h3 style={{ fontWeight: '600', paddingTop: '60px'/* Other mobile styles */ }}>Welcome to FFI</h3>
+                      <h2 style={{ color: "#b2dfdb", fontSize: '18px' }}> Where Ambition Meets Opportunity!</h2>
+                      <hr style={{ border: '2px solid red', margin: '10px 0', display: 'block', clear: 'both' }} />
 
                       <div style={{
-                        padding: '20px 20px 20px 20px',
-                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        // padding: '20px 20px 20px 20px',
+                        // backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        backgroundColor: 'rgba(0, 0, 0, 0)',
                         borderRadius: '10px',
                         display: 'inline-block',
                         alignContent: 'start'
                       }}>
                         <VideoPlayer />
-                        {/* <h4 style={{
-                          color: 'white',
-                          textAlign: 'justify', // Align text to the left
-                          margin: 0, // Remove any default margins
-                        }}>
-                          At FFI, our passion is enabling individuals, businesses, and institutions make great connections.
-                          Our ever-expanding global reach and expertise gives us the ability to provide growing networking and
-                          matching opportunities for job seekers, students, businesses and colleges/universities. With years
-                          of experience in talent management, international business, education and government services, we are
-                          your champions in the pursuit of your aspirations and goals.
-                        </h4> */}
                       </div>
                     </>
                   ) : (
                     <>
                       <h3 style={{ fontWeight: '600', marginTop: '100px' /* Other desktop styles */ }}>Welcome to Future Fit International</h3>
-                      <h2 style={{ color: "#b2dfdb" }}> Where Opportunties Meet Ambitions!</h2>
-
+                      <h2 style={{ color: "#b2dfdb" }}> Where Ambition Meets Opportunty!</h2>
                       <div style={{
                         padding: '20px 20px 20px 20px',
-                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        // backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        backgroundColor: 'rgba(0, 0, 0, 0)',
                         borderRadius: '10px',
                         display: 'inline-block',
                         marginTop: '10px',
@@ -85,23 +73,9 @@ const index = () => {
                         alignContent: 'start'
                       }}>
                         <VideoPlayer />
-                        {/* <h4 style={{
-                          color: 'white',
-                          textAlign: 'justify', // Align text to the left
-                          margin: 0, // Remove any default margins
-                        }}>
-                          At FFI, our passion is enabling individuals, businesses, and institutions make great connections.
-                          Our ever-expanding global reach and expertise gives us the ability to provide growing networking and
-                          matching opportunities for job seekers, students, businesses and colleges/universities. With years
-                          of experience in talent management, international business, education and government services, we are
-                          your champions in the pursuit of your aspirations and goals.
-                        </h4> */}
                       </div>
                     </>
-
                   )}
-
-
                 </div>
               </div>
             </div>

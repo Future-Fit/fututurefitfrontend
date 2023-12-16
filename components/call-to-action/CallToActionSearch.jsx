@@ -32,7 +32,7 @@ const CallToActionSearch = () => {
       style={{ backgroundImage: "url(/images/background/1.jpg)" }}
     >
       <div className="auto-container" data-aos="fade-up">
-        <h4 style={{ color: "#fff" }}> What Are You Interested in? </h4>
+        <h4 style={{ color: "#fff", paddingBottom: '10px'}}> What Are You Interested in? </h4>
 
         <div className="job-search-form" data-aos-delay="700" data-aos="fade-up">
           <SearchForm3 />

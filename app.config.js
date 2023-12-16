@@ -1,5 +1,5 @@
 const apiConfig = {
-    url: "https://futurefitinternational.com/",
+    url: "https://api.futurefitinternational.com",
      
   };
   
