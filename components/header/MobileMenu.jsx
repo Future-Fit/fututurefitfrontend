@@ -11,6 +11,8 @@ const MobileMenu = () => {
   const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
+  const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
+
 
   const loggedIn = localStorage.getItem("accessToken") && localStorage.getItem("userType");
 

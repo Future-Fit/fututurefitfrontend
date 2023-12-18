@@ -80,16 +80,26 @@ const FormContent2 = () => {
           setUserData(responseData.result); // Save user data to state
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
 
-          setFormData({
-            fname: "",
-            phone: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-          });
+          resetForm()
 
-          // Reset logo image
-          setLogoImg("");
+          try {
+          
+            await fetch("https://api.futurefitinternational.com/auth/verify-email", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: formData.email,
+              }),
+            });
+            console.log("Verification email sent successfully!");
+            setRegistrationMessage("Verification email sent successfully!, Please Check Your Email")
+          } catch (error) {
+            console.error("Failed to send verification email:", error);
+            setRegistrationMessage("Failed to send verification email")
+
+          }
 
         } else {
           setRegistrationMessage(responseData.message || "Registration failed");

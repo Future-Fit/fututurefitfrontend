@@ -45,9 +45,27 @@ const index = () => {
       {/* <Breadcrumb title="Who We are" meta="About Us" /> */}
       {/* <!--End Page Title--> */}
 
-      <section className="app-section" >
+      {/* <section className="app-section" >
         <div className="auto-container" >
           <AppSectionAbout />
+        </div>
+      </section> */}
+
+      <section className="testimonial-section -light-yellow">
+        <div className="container-fluid">
+          {/* <!-- Sec Title --> */}
+          <div className="sec-title text-center">
+            <h2>Job Seekers</h2>
+            <div className="text">
+              Here is our service for you 
+            </div>
+          </div>
+        </div>
+        <div className="carousel-outer" data-aos="fade-up">
+          {/* <!-- Testimonial Carousel --> */}
+          <div className="testimonial-carousel gap-x25 center-item-active slick-list-visible">
+            <Testimonial />
+          </div>
         </div>
       </section>
       {/* <!-- End Clients Section--> */}

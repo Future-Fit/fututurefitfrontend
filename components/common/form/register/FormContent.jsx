@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { Toast } from 'react-bootstrap';
 
-
 const FormContent = ({ onReset }) => {
 
   const [logoImg, setLogoImg] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null); // State to store the selected file
 
   const [formData, setFormData] = useState({
     user_type_id: 4,
@@ -17,22 +15,7 @@ const FormContent = ({ onReset }) => {
   });
   const [passwordError, setPasswordError] = useState("");
   const [registrationMessage, setRegistrationMessage] = useState(null);
-  const [userData, setUserData] = useState(null); // New state for user data
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      console.log('Selected File:', file);
-      setSelectedFile(file);
-      setLogoImg(URL.createObjectURL(file));
-    }
-  };
-
-  // logo image
-  const logoHandler = (file) => {
-    setLogoImg(file);
-  };
-
+  const [userData, setUserData] = useState(null); 
 
   const resetForm = () => {
     setFormData({
@@ -58,7 +41,6 @@ const FormContent = ({ onReset }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setRegistrationMessage(null);
-    // const formDataToSend = { ...formData, file: selectedFile }; // Include the file in the form data
 
     if (formData.password !== formData.confirmPassword) {
       setPasswordError("Passwords do not match");
@@ -86,17 +68,23 @@ const FormContent = ({ onReset }) => {
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
 
           resetForm();
-
-          setFormData({
-            fname: "",
-            lname: "",
-            phone: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
+          // Additional API call to send verification email
+        try {
+          
+          await fetch("https://api.futurefitinternational.com/auth/verify-email", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: formData.email,
+            }),
           });
-
-          setLogoImg("");
+          console.log("Verification email sent successfully!");
+          setRegistrationMessage("Verification email sent successfully!, Please Check Your Email")
+        } catch (error) {
+          console.error("Failed to send verification email:", error);
+        }
 
         } else {
           setRegistrationMessage(responseData.message || "Registration failed");
@@ -121,12 +109,6 @@ const FormContent = ({ onReset }) => {
       setPasswordError("");
     }
   };
-
-  const formatDate = (date) => {
-    const [year, month, day] = date.split('-');
-    return `${year}/${month}/${day}`;
-  };
-
   const validatePassword = (password) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
     return passwordRegex.test(password);
@@ -219,8 +201,7 @@ const FormContent = ({ onReset }) => {
           setFormData('')
           setPasswordError('')
           setRegistrationMessage('')
-          
-          // Handle closing the toast here if needed
+
         }}
         show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
         delay={3000}
@@ -241,18 +222,6 @@ const FormContent = ({ onReset }) => {
           {passwordError ? passwordError : registrationMessage}
         </Toast.Body>
       </Toast>
-
-      {/* {registrationMessage && (
-        <div className={registrationMessage === "Registration successful!" ? "success-message" : "error-message"}>
-          {registrationMessage}
-          {userData && registrationMessage === "Registration successful!" && (
-            <div>
-              <p>User ID: {userData.id}</p>
-              <p>Email: {userData.email}</p>
-            </div>
-          )}
-        </div>
-      )} */}
     </form>
   );
 };

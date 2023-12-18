@@ -11,6 +11,7 @@ import DashboardHeader from "../../header/DashboardHeader";
 import { useEffect, useState } from "react";
 import AppSection from "@/components/app-section/AppSection";
 import Block7 from "@/components/block/Block7";
+import About10 from "@/components/about/About10";
 
 const index = () => {
 
@@ -43,6 +44,8 @@ const index = () => {
       {/* <Breadcrumb title="Who We are" meta="About Us" /> */}
       {/* <!--End Page Title--> */}
 
+      <About10/>
+
       <section className="app-section">
         <div className="auto-container">
           {/* <AppSectionAbout /> */}
@@ -61,6 +64,7 @@ const index = () => {
       <CallToAction />
 
       {/* <!-- End CallToAction2 --> */}
+
 
       <section className="testimonial-section-two">
         <div className="container-fluid">
