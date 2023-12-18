@@ -32,7 +32,10 @@ const HeroSliderGallery = () => {
     const iconClass = type === 'next' ? 'fa fa-arrow-right' : 'fa fa-arrow-left';
 
     return (
-      <button className={`slick-arrow ${className}`} onClick={onClick}>
+      <button 
+      className={`slick-arrow ${className}`} 
+      onClick={onClick} 
+      style={{top: '30%'}}>
         <span className={iconClass}></span>
       </button>
     );

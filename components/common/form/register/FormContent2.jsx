@@ -31,6 +31,21 @@ const FormContent2 = () => {
     setLogoImg(file);
   };
 
+  const resetForm = () => {
+    setFormData({
+      user_type_id: 3,
+      fname: "",
+      lname: "",
+      phone: "",
+      email: "",
+      password: ""
+    });
+    setPasswordError("");
+    setLogoImg("");
+    setRegistrationMessage(null);
+    setUserData(null);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setRegistrationMessage(null);
@@ -65,7 +80,6 @@ const FormContent2 = () => {
 
           setFormData({
             fname: "",
-            lname: "",
             phone: "",
             email: "",
             password: "",
@@ -123,7 +137,7 @@ const FormContent2 = () => {
 
       <div className="form-group">
         <label>Phone Number</label>
-        <input type="text" name="phone" placeholder="Phone Number" required value={formData.phone}
+        <input type="text" name="phone" placeholder="Phone Number" value={formData.phone}
           onChange={handleChange} />
       </div>
 

@@ -1,8 +1,17 @@
+import { useState } from "react";
 import Register from "../register/Register";
 import ForgetPassword from "./ForgetPassword";
 import FormContent from "./FormContent";
 
 const LoginPopup = () => {
+
+  const [resetForm, setResetForm] = useState(() => () => {});
+  const onModalClose = () => {
+    if (typeof resetForm === 'function') {
+      resetForm();
+    }
+  };
+  
   return (
     <>
       <div className="modal fade" id="loginPopupModal">
@@ -12,6 +21,7 @@ const LoginPopup = () => {
               type="button"
               className="closed-modal"
               data-bs-dismiss="modal"
+              onClick={onModalClose}
             ></button>
             {/* End close modal btn */}
 
@@ -20,7 +30,8 @@ const LoginPopup = () => {
               <div id="login-modal">
                 {/* <!-- Login Form --> */}
                 <div className="login-form default-form">
-                  <FormContent />
+                  {/* <FormContent /> */}
+                  <FormContent onReset={setResetForm} />
                 </div>
                 {/* <!--End Login Form --> */}
               </div>
@@ -67,6 +78,7 @@ const LoginPopup = () => {
               type="button"
               className="closed-modal"
               data-bs-dismiss="modal"
+              onClick={onModalClose}
             ></button>
             {/* End close modal btn */}
 
@@ -75,7 +87,7 @@ const LoginPopup = () => {
               <div id="login-modal">
                 {/* <!-- Login Form --> */}
                 <div className="login-form default-form">
-                  <Register />
+                  <Register onReset={setResetForm} />
                 </div>
                 {/* <!--End Login Form --> */}
               </div>

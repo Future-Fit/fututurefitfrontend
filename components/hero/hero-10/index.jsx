@@ -21,17 +21,16 @@ const index = () => {
     };
   }, []);
 
-  const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
- 
+  const isMobile = windowWidth <= 767;
 
   return (
-    <section className="app-section" style={{ background: '#3B578E', paddingTop: '110px', paddingBottom: '0px', height: '80vh' }}>
-      <div className="auto-container" style={{ height: '65vh !important' }}>
+    <section className="app-section" style={{ background: '#3B578E', paddingTop: '30px', marginTop: '85px', paddingBottom: '0px', height: '80vh' }}>
+      <div className="auto-container" style={{ height: '85vh !important' }}>
         <div
           style={{
             position: 'relative',
             borderRadius: '0%',
-            height: '65vh',
+            height: '70vh',
             overflow: 'hidden',
             margin: '0 auto'
           }}
@@ -44,14 +43,12 @@ const index = () => {
                 <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '0px' }}>
                   {isMobile ? (
                     <>
-                      <h3 style={{ fontWeight: '600', paddingTop: '-10px'/* Other mobile styles */ }}>Welcome to FFI</h3>
+                      <h3 style={{ fontWeight: '600', paddingTop: '35px'/* Other mobile styles */ }}>Welcome to FFI</h3>
                       <h2 style={{ color: "#b2dfdb", fontSize: '18px' }}> Where Ambition Meets Opportunity!</h2>
-
-                      <div style={{ borderTop: "2px solid #b2dfdb", marginTop: 4, marginLeft: 65, marginRight: 65 }}></div>
+                      {/* <hr style={{ border: '2px solid red', margin: '10px 0', display: 'block', clear: 'both' }} /> */}
 
                       <div style={{
-                        // padding: '20px 20px 20px 20px',
-                        // backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
                         backgroundColor: 'rgba(0, 0, 0, 0)',
                         borderRadius: '10px',
                         display: 'inline-block',
@@ -69,7 +66,6 @@ const index = () => {
 
                       <div style={{
                         padding: '20px 20px 20px 20px',
-                        // backgroundColor: 'rgba(0, 0, 0, 0.1)',
                         backgroundColor: 'rgba(0, 0, 0, 0)',
                         borderRadius: '10px',
                         display: 'inline-block',

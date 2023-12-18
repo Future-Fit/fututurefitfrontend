@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const FormContent = () => {
+const FormContent = ({ onReset }) => {
 
   const [logoImg, setLogoImg] = useState("");
   const [selectedFile, setSelectedFile] = useState(null); // State to store the selected file
@@ -30,6 +30,28 @@ const FormContent = () => {
   const logoHandler = (file) => {
     setLogoImg(file);
   };
+
+
+  const resetForm = () => {
+    setFormData({
+      user_type_id: 4,
+      fname: "",
+      lname: "",
+      phone: "",
+      email: "",
+      password: ""
+    });
+    setPasswordError("");
+    setLogoImg("");
+    setRegistrationMessage(null);
+    setUserData(null);
+  };
+
+  useEffect(() => {
+    if (typeof onReset === 'function') {
+      onReset(resetForm);
+    }
+  }, [onReset]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,6 +83,8 @@ const FormContent = () => {
           setUserData(responseData.result); // Save user data to state
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
 
+          resetForm();
+
           setFormData({
             fname: "",
             lname: "",
@@ -74,6 +98,7 @@ const FormContent = () => {
 
         } else {
           setRegistrationMessage(responseData.message || "Registration failed");
+          resetForm();
         }
       } catch (error) {
         // Handle network errors or other exceptions
@@ -111,21 +136,31 @@ const FormContent = () => {
       <div className="form-group">
         <label style={{ display: 'inline-block', marginLeft: '5px' }}>First Name</label>
         <label style={{ color: 'red', display: 'inline-block' }}>*</label>
-
-        {/* <label>First Name *</label> */}
-        <input type="text" name="fname" placeholder="First Name" required value={formData.fname}
+        <input
+          type="text"
+          name="fname"
+          placeholder="First Name"
+          required value={formData.fname}
           onChange={handleChange} />
       </div>
       <div className="form-group">
         <label style={{ display: 'inline-block', marginLeft: '5px' }}>Last Name</label>
         <label style={{ color: 'red', display: 'inline-block' }}>*</label>
 
-        <input type="text" name="lname" placeholder="Last Name" required value={formData.lname}
+        <input
+          type="text"
+          name="lname"
+          placeholder="Last Name"
+          required value={formData.lname}
           onChange={handleChange} />
       </div>
       <div className="form-group">
         <label>Phone Number</label>
-        <input type="text" name="phone" placeholder="Phone Number" value={formData.phone}
+        <input
+          type="text"
+          name="phone"
+          placeholder="Phone Number"
+          value={formData.phone}
           onChange={handleChange} />
       </div>
 
@@ -133,7 +168,10 @@ const FormContent = () => {
         <label style={{ display: 'inline-block', marginLeft: '5px' }}>Email Address</label>
         <label style={{ color: 'red', display: 'inline-block' }}>*</label>
 
-        <input type="email" name="email" placeholder="Username" required
+        <input
+          type="email"
+          name="email"
+          placeholder="Username" required
           value={formData.email}
           onChange={handleChange} />
       </div>

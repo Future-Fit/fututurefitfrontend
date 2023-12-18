@@ -4,19 +4,50 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import DefaultConfig from "app.config.js";
 
-const FormContent = () => {
+const FormContent = ({ onReset }) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [redirectTo, setRedirectTo] = useState(null); // Define the redirectTo state
   const [rememberMe, setRememberMe] = useState(false); // Track the "Remember Me" checkbox state
+  const [formData, setFormData] = useState();
 
   const router = useRouter();
 
   const handleRememberMe = (e) => {
     setRememberMe(e.target.checked);
   };
+
+  const clearError = () => {
+    setError(""); // Clear the error message
+  };
+
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    clearError(); // Clear error when username changes
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    clearError(); // Clear error when password changes
+  };
+
+  const resetForm = () => {
+    setUsername("");
+    setPassword("");
+    setError("");
+    setRedirectTo(null);
+    setRememberMe(false);
+    // Reset other states as needed
+  };
+  
+  useEffect(() => {
+    if (typeof onReset === 'function') {
+      onReset(resetForm);
+    }
+  }, [onReset]);
+  
 
   useEffect(() => {
     // Check if "Remember Me" is selected and populate fields if credentials exist in local storage
@@ -60,7 +91,6 @@ const FormContent = () => {
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
-
           router.push('/employers-dashboard/dashboard');
         } else if (user.user_type_id === 4) {
           const modalElement = document.getElementById("loginPopupModal");
@@ -70,11 +100,8 @@ const FormContent = () => {
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
-          // router.push('/candidates-dashboard/dashboard');
           router.push('/candidates-dashboard/my-profile');
         }
-       
-
       } else {
         setError(data.message || "Login failed");
       }
@@ -112,7 +139,9 @@ const FormContent = () => {
             name="username"
             placeholder="Username"
             required value={username}
-            onChange={(e) => setUsername(e.target.value)} />
+            onChange={handleUsernameChange} 
+            />
+
         </div>
         {/* name */}
 
@@ -124,7 +153,9 @@ const FormContent = () => {
             placeholder="Password"
             required
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange} // Use the new handler for password change
+
+            // onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         {/* password */}

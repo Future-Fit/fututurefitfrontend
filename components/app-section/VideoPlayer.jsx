@@ -25,7 +25,7 @@ const VideoPlayer = () => {
     maxWidth: '477px', // Ensure units are specified
     maxHeight: '590px', // Ensure units are specified
     margin: 'auto',
-    overflow: 'hidden', // Add this to hide any overflow
+    // overflow: 'hidden', // Add this to hide any overflow
   };
 
   const videoStyle = {
