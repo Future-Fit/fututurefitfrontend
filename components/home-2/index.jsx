@@ -23,8 +23,8 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      {userType === 3 && <DashboardCandidatesHeader />}
-      {userType === 4 && <DashboardHeader />}
+      {userType === 3 && <DashboardHeader />}
+      {userType === 4 && <DashboardCandidatesHeader />}
       {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <Header /> */}
 

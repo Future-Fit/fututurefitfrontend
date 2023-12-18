@@ -1,10 +1,28 @@
+"use client"
+
+import DefaulHeader2 from "@/components/header/DefaulHeader2";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import FooterDefault from "../../footer/common-footer";
 import DefaulHeader from "../../header/DefaulHeader";
 import MobileMenu from "../../header/MobileMenu";
 import TermsText from "./TermsText";
+import { useEffect, useState } from "react";
+import DashboardHeader from "@/components/header/DashboardHeader";
+import DashboardEmployerSidebar from "@/components/header/DashboardEmployerSidebar";
+import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
+
 
 const index = () => {
+
+  const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
+
   return (
     <>
       {/* <!-- Header Span --> */}
@@ -13,7 +31,9 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DefaulHeader />
+      {userType === 3 && <DashboardHeader />}
+      {userType === 4 && <DashboardCandidatesHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
