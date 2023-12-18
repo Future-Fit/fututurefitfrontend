@@ -13,13 +13,13 @@ const HeaderNavContent = () => {
   return (
     <>
       <nav className="nav main-menu" >
-        <ul className="navigation" id="navbar" style={{color:'#fff'}}>
+        <ul className="navigation" id="navbar" style={{ color: '#fff' }}>
           {/* current dropdown */}
           <li
             className={`${isActiveParent("/", usePathname()) ? "current" : ""
               }`}
           >
-            <Link href="/" style={{color:'#fff'}}>Home</Link>
+            <Link href="/" style={{ color: '#fff' }}>Home</Link>
           </li>
           {/* End homepage menu items */}
 
@@ -27,14 +27,21 @@ const HeaderNavContent = () => {
             className={`${isActiveParent("/about", usePathname()) ? "current" : ""
               }`}
           >
-            <Link style={{color:'#fff'}} href="/about">About Us</Link>
+            <Link style={{ color: '#fff' }} href="/about">About Us</Link>
           </li>
           <li className={`nav-item dropdown ${isActiveParent("/service", usePathname()) ? "current" : ""}`}>
-            <a style={{color:'#fff'}} className="nav-link dropdown-toggle" href="#" id="serviceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              style={{ color: '#fff' }}
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="serviceDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
               Services
             </a>
             <ul className="dropdown-menu" aria-labelledby="serviceDropdown">
-              <li><Link href="/job-list-v6">Job Seekers</Link></li>
+              <li><Link href="/service/job-seekers">Job Seekers</Link></li>
               <li><Link href="/service/businesses">Businesses</Link></li>
               <li><Link href="/service/students">Students</Link></li>
               <li><Link href="/service/universities-colleges">Universities & Colleges</Link></li>
@@ -48,13 +55,13 @@ const HeaderNavContent = () => {
             className={`${isActiveParent("/blog-list-v1", usePathname()) ? "current" : ""
               }`}
           >
-            <Link style={{color:'#fff'}} href="/blog-list-v1">Blog</Link>
+            <Link style={{ color: '#fff' }} href="/blog-list-v1">Blog</Link>
           </li>
           <li
             className={`${isActiveParent("/contact", usePathname()) ? "current" : ""
               }`}
           >
-            <Link style={{color:'#fff'}} href="/contact">Contact</Link>
+            <Link style={{ color: '#fff' }} href="/contact">Contact</Link>
           </li>
         </ul>
       </nav>

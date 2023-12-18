@@ -7,6 +7,8 @@ import DefaulHeader from "../../header/DefaulHeader";
 import MobileMenu from "../../header/MobileMenu";
 import FaqChild from "./FaqChild";
 import { useEffect, useState } from "react";
+import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
+import DashboardHeader from "@/components/header/DashboardHeader";
 
 const index = () => {
 
@@ -42,7 +44,7 @@ const index = () => {
         <div className="auto-container">
           <div className="sec-title text-center">
             <h2>Frequently Asked Questions</h2>
-            <div className="text">Home / Faq</div>
+            {/* <div className="text">Home / Faq</div> */}
           </div>
 
           <h3>Payments</h3>

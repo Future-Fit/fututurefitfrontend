@@ -70,7 +70,7 @@ const index = () => {
 
       <CallToAction2 />
 
-      <CallToAction />
+      <CallToAction/>
 
       {/* <!-- End CallToAction2 --> */}
 
@@ -124,12 +124,12 @@ const index = () => {
             <Block1 />
           </div>
         </div>
-      </section>
+      </section> 
       {/* End Work Section  */}
 
 
-      <CallToAction3 />
-
+<CallToAction3/>
+      
       {/* <!-- End Clients Section--> */}
 
       <FooterDefault />

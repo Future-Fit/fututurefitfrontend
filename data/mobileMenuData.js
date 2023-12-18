@@ -36,7 +36,7 @@ module.exports = [
       },
       {
         name: "Travle & Visa",
-        routePath: "/service/other",
+        routePath: "/service/travel-visa",
       },
     ],
   },
