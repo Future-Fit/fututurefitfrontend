@@ -46,7 +46,7 @@ const HeaderNavContent = () => {
               <li><Link href="/service/students">Students</Link></li>
               <li><Link href="/service/universities-colleges">Universities & Colleges</Link></li>
               <li><Link href="/service/training">Training</Link></li>
-              <li><Link href="/service/other">Travel & Visa</Link></li>
+              <li><Link href="/service/travel-visa">Travel & Visa</Link></li>
               {/* Add more dropdown items as needed */}
             </ul>
           </li>

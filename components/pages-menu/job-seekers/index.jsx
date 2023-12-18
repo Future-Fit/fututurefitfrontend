@@ -45,91 +45,11 @@ const index = () => {
       {/* <Breadcrumb title="Who We are" meta="About Us" /> */}
       {/* <!--End Page Title--> */}
 
-      <section className="app-section">
-        <div className="auto-container">
+      <section className="app-section" >
+        <div className="auto-container" >
           <AppSectionAbout />
         </div>
       </section>
-
-      {/* <CallToAction12/> */}
-
-      {/* <section className="about-section-three">
-        <div className="auto-container"> */}
-      {/* <ImgBox /> */}
-
-      {/* <div className="fun-fact-section">
-            <div className="row">
-              <Funfact />
-            </div>
-          </div> */}
-
-      {/* <IntroDescriptions /> */}
-      {/* </div>
-      </section> */}
-      {/* <!-- End About Section Three --> */}
-
-      <CallToAction2 />
-
-      <CallToAction/>
-
-      {/* <!-- End CallToAction2 --> */}
-
-      <section className="testimonial-section-two">
-        <div className="container-fluid">
-          <div className="testimonial-left">
-            {/* <Image
-              width={504}
-              height={451}
-              src="/images/resource/testimonial-left.png"
-              alt="testimonial"
-            /> */}
-          </div>
-          {/* End left img group */}
-
-          {/* <div className="testimonial-right"> */}
-          {/* <Image
-              width={504}
-              height={451}
-              src="/images/resource/testimonial-right.png"
-              alt="testimonial"
-            /> */}
-          {/* </div> */}
-          {/* End right img group */}
-
-          <div className="sec-title text-center">
-            <h2>Collegies & Universities</h2>
-            {/* <div className="text">
-              Future Fit International
-            </div> */}
-          </div>
-          {/* <!-- Sec Title --> */}
-
-          <div className="carousel-outer" data-aos="fade-up">
-            <div className="testimonial-carousel">
-              <Testimonial />
-            </div>
-            {/* <!-- Testimonial Carousel --> */}
-          </div>
-        </div>
-      </section>
-      {/* <!-- End Testimonial Section --> */}
-
-      <section className="work-section style-two">
-        <div className="auto-container">
-          <div className="sec-title text-center">
-            <h2>Training</h2>
-            <div className="text">Job for anyone, anywhere</div>
-          </div>
-          <div className="row" data-aos="fade-up">
-            <Block1 />
-          </div>
-        </div>
-      </section> 
-      {/* End Work Section  */}
-
-
-<CallToAction3/>
-      
       {/* <!-- End Clients Section--> */}
 
       <FooterDefault />

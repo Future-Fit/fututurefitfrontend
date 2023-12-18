@@ -4,7 +4,7 @@ const CallToAction2 = () => {
   return (
     <section
       className="call-to-action-two"
-      style={{ backgroundImage: "url(/images/background/1.jpg)" }}
+      style={{ backgroundImage: "url(/images/background/1.jpg)", borderRadius: '5px' }}
     >
       <div className="auto-container" data-aos="fade-up">
         <div className="sec-title light text-center">
@@ -14,14 +14,14 @@ const CallToAction2 = () => {
           Detail About Business
           </div>
         </div>
-        <div className="btn-box">
+        {/* <div className="btn-box">
           <Link href="/job-list-v6" className="theme-btn btn-style-one bg-blue">
             Login
           </Link>
           <Link href="/register" className="theme-btn btn-style-one bg-blue">
             Register
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );
