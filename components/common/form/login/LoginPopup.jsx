@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import Register from "../register/Register";
 import ForgetPassword from "./ForgetPassword";

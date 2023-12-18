@@ -91,7 +91,7 @@ const DefaulHeader2 = () => {
       e.preventDefault();
       if (userType === "4") {
         modalElement.style.display = "none";
-        router.push("/candidates-dashboard/dashboard");
+        router.push("/candidates-dashboard/my-profile");
       } else if (userType === "3") {
         modalElement.style.display = "none";
         router.push("/employers-dashboard/dashboard");
@@ -101,7 +101,8 @@ const DefaulHeader2 = () => {
 
   return (
     <header
-      className={`main-header header-style-two ${navbar ? "fixed-header animated slideInDown" : ""
+    // dear sami add/remove the following next to fixed-header to add/remove the animation  "animated slideInDown" with out double quote
+      className={`main-header header-style-two ${navbar ? "fixed-header" : ""
         }`}
       style={headerStyle} // Apply the inline style here
     >
@@ -131,17 +132,6 @@ const DefaulHeader2 = () => {
 
           <div className="outer-box">
             <div className="d-flex align-items-center btn-box2">
-              {/* {loggedInUserId ? (
-                // If user is logged in, display user profile link
-
-                <a
-                  href="#"
-                  className="theme-btn btn-style-six call-modal"
-                  onClick={() => router.push('candidates-dashboard/dashboard')}
-                >
-                  <i className="fas fa-user" style={{ fontSize: '22px', color: 'white' }}></i>
-                </a>
-              ) : ( */}
                 <a
                   href="#"
                   className="theme-btn btn-style-six call-modal"

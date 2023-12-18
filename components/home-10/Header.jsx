@@ -25,7 +25,7 @@ const Header = () => {
     // <!-- Main Header-->
     <header
       className={`main-header header-style-four  ${
-        navbar ? "fixed-header animated slideInDown" : ""
+        navbar ? "fixed-header" : ""
       }`}
     >
       <div className="container-fluid">

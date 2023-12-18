@@ -11,6 +11,9 @@ const MobileMenu = () => {
   const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
+
+  const loggedIn = localStorage.getItem("accessToken") && localStorage.getItem("userType");
+
   // Added state for modal
   const router = useRouter();
   const handleToggleSidebar = () => {
@@ -26,6 +29,33 @@ const MobileMenu = () => {
     width: '100%', // Ensure full width
     top: 0 // Ensure it sticks to the top
   });
+
+  const clearSession = () => {
+    try {
+      console.log("Clearing session...");
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('userType');
+      localStorage.removeItem('loggedInUserId');
+
+      console.log("Session cleared successfully.");
+    } catch (error) {
+      console.error("Error clearing session:", error);
+    }
+  };
+
+  const handleLogout = () => {
+    clearSession()
+    window.location.href = '/';
+  };
+
+  const handleProfileRedirect = () => {
+    const userType = localStorage.getItem("userType");
+    if (userType === "4") {
+      router.push("/candidates-dashboard/my-profile");
+    } else if (userType === "3") {
+      router.push("/employers-dashboard/dashboard");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,9 +103,7 @@ const MobileMenu = () => {
   const handleItemHover = () => {
     // Set inline style for hovered item
     setHoveredItemStyle({
-      backgroundColor: '#f0f0f0', // Change to your desired hover background color
-      // paddingRight: '15px', // Add padding for smooth transition
-      // borderRadius: '10px 5px 5px 10px', // Rounded corners on the right side
+      backgroundColor: '#f0f0f0',
     });
   };
 
@@ -88,7 +116,7 @@ const MobileMenu = () => {
     const accessToken = localStorage.getItem("accessToken");
     const userType = localStorage.getItem("userType");
     const modalElement = document.getElementById("login-modal");
-    const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+    const modalBackDrop = document.getElementsByClassName('modal-backdrop');
     const body = document.getElementsByTagName("body");
 
     if (accessToken && userType) {
@@ -106,14 +134,12 @@ const MobileMenu = () => {
         body[0].style.overflow = "auto";
         router.push("/employers-dashboard/dashboard");
       }
-    } 
+    }
   };
-
-  // style={{ boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)' }}
 
   return (
     // <!-- Main Header-->
-    <header className={`main-header main-header-mobile  ${navbar ? "fixed-header animated slideInDown" : ""}`}
+    <header className={`main-header main-header-mobile  ${navbar ? "fixed-header" : ""}`}
       style={headerStyle}>
       <div className="auto-container">
         {/* <!-- Main box --> */}
@@ -139,19 +165,26 @@ const MobileMenu = () => {
           {/* End .nav-outer */}
 
           <div className="outer-box">
-            <div className="login-box">
-              <a
-                href="#"
-                className="call-modal"
-                data-bs-toggle="modal" 
-                data-bs-target="#loginPopupModal"
-                onClick={handleLoginRedirect}
-              >
-                <span className="icon icon-user"></span>
-              </a>
-            </div>
-            {/* login popup end */}
 
+            {loggedIn ? (
+              <div className="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
+                <div className="login-box" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+                  <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
+                    <span className="icon icon-user"></span> {/* User Icon */}
+                  </a>
+                  <div className="dropdown-menu" style={{ position: 'absolute', top: '100%', left: 0 }}>
+                    <a className="dropdown-item" href="#" onClick={handleProfileRedirect}>My Profile</a>
+                    <a className="dropdown-item" href="#" onClick={handleLogout}>Logout</a>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="login-box" style={{ display: 'flex', alignItems: 'center' }}>
+                <a href="#" className="call-modal" data-bs-toggle="modal" data-bs-target="#loginPopupModal" onClick={handleLoginRedirect}>
+                  <span className="icon icon-user"></span>
+                </a>
+              </div>
+            )}
             <a
               href="#"
               className="mobile-nav-toggler"
@@ -160,7 +193,7 @@ const MobileMenu = () => {
               onClick={handleToggleSidebar}
             >
               <span className="flaticon-menu-1"></span>
-            </a> 
+            </a>
             {/* right humberger menu */}
 
             <div className="dropdown" style={{ marginRight: '50px' }}>

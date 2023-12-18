@@ -38,9 +38,9 @@ const SidebarFooter = () => {
 
     if (accessToken && userType) {
       e.preventDefault(); // Prevent default link behavior
-      if (userType === "1") {
-        router.push("/candidates-dashboard/dashboard");
-      } else if (userType === "2" || userType === "3" || userType === "4") {
+      if (userType === "4") {
+        router.push("/candidates-dashboard/my-profile");
+      } else if (userType === "3") {
         router.push("/employers-dashboard/dashboard");
       }
     } else {

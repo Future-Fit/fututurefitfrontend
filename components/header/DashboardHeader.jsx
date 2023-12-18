@@ -99,7 +99,7 @@ const DashboardHeader = () => {
     return (
         // <!-- Main Header-->
         <header
-            className={`main-header header-style-two  ${navbar ? "fixed-header animated slideInDown" : ""
+            className={`main-header header-style-two  ${navbar ? "fixed-header" : ""
                 }`}
             style={headerStyle}
         >
@@ -142,9 +142,9 @@ const DashboardHeader = () => {
                                 <Image
                                     alt="avatar"
                                     className="thumb"
-                                    src="/images/logo-no-background.png"
-                                    width={50}
-                                    height={50}
+                                    src="/images/user-flat.svg"
+                                    width={60}
+                                    height={60}
                                 />
                                 <span style={{ color: '#fff' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>

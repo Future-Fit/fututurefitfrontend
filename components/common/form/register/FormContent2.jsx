@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Toast } from 'react-bootstrap';
+
 
 const FormContent2 = () => {
 
@@ -161,7 +163,7 @@ const FormContent2 = () => {
           onChange={handleChange}
           required
         />
-        {passwordError && <span className="error-message">{passwordError}</span>}
+        {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
       </div>
 
       <div className="form-group">
@@ -176,26 +178,54 @@ const FormContent2 = () => {
           onChange={handleChange}
           required
         />
-        {passwordError && <span className="error-message">{passwordError}</span>}
+        {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
       </div>
       <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
         <button className="theme-btn btn-style-one" type="submit">
           Submit
         </button>
       </div>
-      {registrationMessage && (
+
+      <Toast
+        onClose={() => {
+          setFormData('')
+          setPasswordError('')
+          setRegistrationMessage('')
+          
+          // Handle closing the toast here if needed
+        }}
+        show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
+        delay={3000}
+        autohide
+        style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          minWidth: '200px',
+        }}
+      >
+        <Toast.Header closeButton={false}>
+          {/* Set the toast title/header based on the type of message */}
+          <strong className="me-auto">{passwordError ? 'Error' : 'Message'}</strong>
+        </Toast.Header>
+        <Toast.Body>
+          {/* Display the appropriate message */}
+          {passwordError ? passwordError : registrationMessage}
+        </Toast.Body>
+      </Toast>
+
+
+      {/* {registrationMessage && (
         <div className={registrationMessage === "Registration successful!" ? "success-message" : "error-message"}>
           {registrationMessage}
           {userData && registrationMessage === "Registration successful!" && (
             <div>
-              {/* Display userData here */}
               <p>User ID: {userData.id}</p>
               <p>Email: {userData.email}</p>
-              {/* Display other user data as needed */}
             </div>
           )}
         </div>
-      )}
+      )} */}
     </form>
   );
 };

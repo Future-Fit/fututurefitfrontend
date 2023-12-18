@@ -50,7 +50,7 @@ const DefaulHeader = () => {
     // <!-- Main Header-->
     <header
       className={`main-header  ${
-        navbar ? "fixed-header animated slideInDown" : ""
+        navbar ? "fixed-header" : ""
       }`}
       style={headerStyle} 
     >
@@ -64,7 +64,8 @@ const DefaulHeader = () => {
                 <Image
                   width={70}
                   height={70}
-                  src="/images/logo-no-background.png"
+                  src="/images/user-flat.svg"
+                  color="white"
                   alt="brand"
                 />
               </Link>

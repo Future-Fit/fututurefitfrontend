@@ -10,6 +10,7 @@ import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardHeader";
 import { useEffect, useState } from "react";
 import AppSection from "@/components/app-section/AppSection";
+import Block7 from "@/components/block/Block7";
 
 const index = () => {
 
@@ -32,7 +33,7 @@ const index = () => {
       {userType === 3 && <DashboardCandidatesHeader />}
       {userType === 4 && <DashboardHeader />}
       {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
-      
+
       {/* <DefaulHeader /> */}
       {/* <!--End Main Header --> */}
 
@@ -45,13 +46,20 @@ const index = () => {
       <section className="app-section">
         <div className="auto-container">
           {/* <AppSectionAbout /> */}
-          <AppSection/>
+          <AppSection />
+        </div>
+      </section>
+      <section className="app-section">
+        <div className="auto-container">
+          <div className="row grid-base" data-aos="fade-up">
+            <Block7 />
+          </div>
         </div>
       </section>
 
 
-      <CallToAction/>
-      
+      <CallToAction />
+
       {/* <!-- End CallToAction2 --> */}
 
       <section className="testimonial-section-two">

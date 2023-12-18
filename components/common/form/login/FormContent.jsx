@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import DefaultConfig from "app.config.js";
+import { Toast } from 'react-bootstrap';
 
 const FormContent = ({ onReset }) => {
 
@@ -41,13 +42,13 @@ const FormContent = ({ onReset }) => {
     setRememberMe(false);
     // Reset other states as needed
   };
-  
+
   useEffect(() => {
     if (typeof onReset === 'function') {
       onReset(resetForm);
     }
   }, [onReset]);
-  
+
 
   useEffect(() => {
     // Check if "Remember Me" is selected and populate fields if credentials exist in local storage
@@ -85,8 +86,8 @@ const FormContent = ({ onReset }) => {
         if (user.user_type_id === 3) {
           const modalElement = document.getElementById("loginPopupModal");
           console.log(modalElement);
-          modalElement.style.display  = "none";
-          const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+          modalElement.style.display = "none";
+          const modalBackDrop = document.getElementsByClassName('modal-backdrop');
           modalBackDrop[0].style.display = "none";
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
@@ -94,9 +95,9 @@ const FormContent = ({ onReset }) => {
           router.push('/employers-dashboard/dashboard');
         } else if (user.user_type_id === 4) {
           const modalElement = document.getElementById("loginPopupModal");
-          const modalBackDrop =  document.getElementsByClassName('modal-backdrop');
+          const modalBackDrop = document.getElementsByClassName('modal-backdrop');
           modalBackDrop[0].style.display = "none";
-          modalElement.style.display  = "none";
+          modalElement.style.display = "none";
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
@@ -139,11 +140,11 @@ const FormContent = ({ onReset }) => {
             name="username"
             placeholder="Username"
             required value={username}
-            onChange={handleUsernameChange} 
-            />
+            onChange={handleUsernameChange}
+          />
 
         </div>
-        {/* name */}
+        {/* username */}
 
         <div className="form-group">
           <label>Password</label>
@@ -153,9 +154,7 @@ const FormContent = ({ onReset }) => {
             placeholder="Password"
             required
             value={password}
-            onChange={handlePasswordChange} // Use the new handler for password change
-
-            // onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
           />
         </div>
         {/* password */}
@@ -168,14 +167,15 @@ const FormContent = ({ onReset }) => {
                 name="remember-me"
                 id="remember"
                 checked={rememberMe}
-                onChange={handleRememberMe} />
+                onChange={handleRememberMe}
+              />
               <label htmlFor="remember" className="remember">
-                <span className="custom-checkbox"></span> Remember me
+                <span className="custom-checkbox" ></span> Remember me
               </label>
             </div>
 
             <div className="bottom-box">
-              <div className="text d-flex align-items-center justify-content-center">
+              <div className="text d-flex">
                 <Link
                   href="#"
                   className="call-modal signup"
@@ -185,19 +185,9 @@ const FormContent = ({ onReset }) => {
                   Forgot Username/Password?
                 </Link>
               </div>
-
-              {/* <div className="divider">
-          <span>or</span>
-        </div>
-
-        <LoginWithSocial /> */}
             </div>
-            {/* <a href="#" style={{ color: '#909090' }} className="pwd">
-              Forgot Username/Password?
-            </a> */}
           </div>
         </div>
-        {/* forgot password */}
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
           <button
@@ -212,7 +202,7 @@ const FormContent = ({ onReset }) => {
       </form>
       {/* End form */}
 
-      {error && <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>{error}</div>}
+      {/* {error && <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>{error}</div>} */}
 
       {redirectTo && (
         <Link href={redirectTo}>
@@ -242,6 +232,24 @@ const FormContent = ({ onReset }) => {
         <LoginWithSocial /> */}
       </div>
       {/* End bottom-box LoginWithSocial */}
+
+      <Toast
+        onClose={() => setError('')} // Function to clear error on close
+        show={Boolean(error)} // Show toast only if error exists
+        delay={3000} // Display duration in milliseconds
+        autohide
+        style={{
+          position: 'fixed',
+          top: '20px', // Adjust top position as needed
+          right: '20px', // Adjust right position as needed
+          minWidth: '200px',
+        }}
+      >
+        <Toast.Header closeButton={false}>
+          <strong className="me-auto">Error</strong>
+        </Toast.Header>
+        <Toast.Body>{error}</Toast.Body>
+      </Toast>
     </div>
   );
 };

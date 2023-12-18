@@ -34,7 +34,7 @@ const ShopHeader = () => {
     // <!-- Main Header-->
     <header
       className={`main-header  ${
-        navbar ? "fixed-header animated slideInDown" : ""
+        navbar ? "fixed-header" : ""
       }`}
     >
       {/* <!-- Main box --> */}

@@ -24,7 +24,7 @@ const Header = () => {
     // <!-- Main Header-->
     <header
       className={`main-header  ${
-        navbar ? "fixed-header animated slideInDown" : ""
+        navbar ? "fixed-header" : ""
       }`}
     >
       {/* <!-- Main box --> */}

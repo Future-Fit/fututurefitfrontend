@@ -51,9 +51,9 @@ const Partner2 = () => {
   };
 
   const sliderPartners = [
-    { id: 1, link: "#", imgNumber: "1", companyName: "Quebec Provincial Government" },
-    { id: 2, link: "#", imgNumber: "2", companyName: "Ontario Provincial Government" },
-    { id: 3, link: "#", imgNumber: "3", companyName: "Alberta Provincial Government" },
+    { id: 1, link: "#", imgNumber: "1", companyName: "Quebec Provincial Government" , textColor: 'green'},
+    { id: 2, link: "#", imgNumber: "2", companyName: "Ontario Provincial Government", textColor: 'yellow' },
+    { id: 3, link: "#", imgNumber: "3", companyName: "Alberta Provincial Government", textColor: 'red' },
     { id: 4, link: "#", imgNumber: "4", companyName: "City of Ottawa" },
     { id: 5, link: "#", imgNumber: "5", companyName: "City of Toronto" },
     { id: 6, link: "#", imgNumber: "6", companyName: "City of Calgary" },
@@ -63,27 +63,28 @@ const Partner2 = () => {
 
   const imageStyle = {
     display: "inline-block",
-    marginRight: "15px", // Adjust spacing between image and text
+    marginRight: "15px",
+    marginLeft: "15px" // Adjust spacing between image and text
   };
 
   return (
     <>
-      <Slider {...settings} arrows={false}>
+    <Slider {...settings} arrows={false}>
         {sliderPartners.map((item) => (
           <div className="slide-item" key={item.id}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <figure className="image-box" style={imageStyle}>
                 <a href={item.link}>
                   <Image
-                    width={91}
+                    width={100}
                     height={40}
-                    // src={`/images/index-11/clients/${item.imgNumber}.svg`}
+                    src={`/images/index-11/clients/${item.imgNumber}.svg`}
                     alt="brand"
                   />
                 </a>
               </figure>
-              <div className="company-name">
-                <a href={item.link}>{item.companyName}</a>
+              <div className="company-name" style={{ width: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                <a href={item.link} style={{color: item.textColor}}>{item.companyName}</a>
               </div>
             </div>
           </div>

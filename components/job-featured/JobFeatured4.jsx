@@ -29,7 +29,7 @@ const JobFeatured4 = () => {
               {item.location}
             </div>
             {/* <ul className="post-tags"> */}
-              <div className="btn-box" style={{marginBottom:'10px', marginTop: '10px'}}>
+              {/* <div className="btn-box" style={{marginBottom:'10px', marginTop: '10px'}}>
                 <Link
                   href="/job-list-v6"
                   // className="theme-btn btn-style-one bg-blue"
@@ -37,7 +37,7 @@ const JobFeatured4 = () => {
                 >
                   <span className="btn-title">Apply</span>
                 </Link>
-              </div>
+              </div> */}
              
           </div>
         </div>
