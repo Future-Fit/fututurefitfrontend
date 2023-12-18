@@ -2,9 +2,9 @@ module.exports = [
   {
     id: 1,
     logo: "/images/resource/company-logo/1-1.png",
-    jobTitle: "Software Engineer (Android), Libraries",
-    company: "Segment",
-    location: "London, UK",
+    jobTitle: "Travel Nurse RN",
+    company: "Cardiac",
+    location: "Quebec, Canada",
     time: "11 hours ago",
     salary: "$35k - $45k",
     jobType: [
@@ -39,9 +39,9 @@ module.exports = [
   {
     id: 2,
     logo: "/images/resource/company-logo/1-2.png",
-    jobTitle: "Recruiting Coordinator",
-    company: "Catalyst",
-    location: "London, UK",
+    jobTitle: "Virtual Care Nurse",
+    company: "Remote",
+    location: "Toronto, ON, Canada",
     time: "11 hours ago",
     salary: "$35k - $45k",
     jobType: [
@@ -76,9 +76,9 @@ module.exports = [
   {
     id: 3,
     logo: "/images/resource/company-logo/1-3.png",
-    jobTitle: "Product Manager, Studio",
-    company: "Invision",
-    location: "London, UK",
+    jobTitle: "Registered Nurse (RN)",
+    company: "Ambulatory Care Unit (ACU)",
+    location: "Vancouver, BC",
     time: "11 hours ago",
     salary: "$35k - $45k",
     jobType: [
@@ -109,9 +109,9 @@ module.exports = [
   {
     id: 4,
     logo: "/images/resource/company-logo/1-4.png",
-    jobTitle: "Senior Product Designer",
+    jobTitle: "Senior Software Designer",
     company: "Upwork",
-    location: "London, UK",
+    location: "Toronto, ON",
     time: "11 hours ago",
     salary: "$35k - $45k",
     jobType: [
@@ -146,9 +146,9 @@ module.exports = [
   {
     id: 5,
     logo: "/images/resource/company-logo/1-5.png",
-    jobTitle: "Senior Full Stack Engineer, Creator Success",
+    jobTitle: "Full Stack Engineer, Creator Success",
     company: "Medium",
-    location: "London, UK",
+    location: "Calgary, AB, Canada",
     time: "11 hours ago",
     salary: "$35k - $45k",
     jobType: [
@@ -183,9 +183,9 @@ module.exports = [
   {
     id: 6,
     logo: "/images/resource/company-logo/1-6.png",
-    jobTitle: "Software Engineer (Android), Libraries",
+    jobTitle: "Project Manager (Construction)",
     company: "Figma",
-    location: "London, UK",
+    location: "Ottawa, ON, Canada",
     time: "11 hours ago",
     salary: "$35k - $45k",
     jobType: [

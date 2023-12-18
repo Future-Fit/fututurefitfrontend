@@ -100,8 +100,8 @@ const FormContent = () => {
   };
   return (
     <div className="form-inner">
-      <h3>Sign In to FFI</h3>
-      <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>Description</h3>
+      <h3>Sign In</h3>
+      <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>If you have already signed up with us, please sign in below.</h3>
 
       {/* <!--Login Form--> */}
       <form method="post" onSubmit={handleSubmit} >
@@ -193,7 +193,7 @@ const FormContent = () => {
         className="bottom-box">
         <div
           className="text d-flex align-items-center justify-content-center">
-          Don&apos;t have an account?{" "}
+          If you don&apos;t have an account with us, please&nbsp;
           <Link
             href="#"
             className="call-modal"

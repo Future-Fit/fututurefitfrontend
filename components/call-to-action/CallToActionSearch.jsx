@@ -29,10 +29,11 @@ const CallToActionSearch = () => {
   return (
     <section
       className="call-to-action-two"
-      style={{ backgroundImage: "url(/images/background/1.jpg)" }}
+      // style={{ backgroundImage: "url(/images/background/1.jpg)" }}
+      style={{ backgroundColor: "#3B578E" }}
     >
       <div className="auto-container" data-aos="fade-up">
-        <h4 style={{ color: "#fff", paddingBottom: '10px'}}> What Are You Interested in? </h4>
+        <h4 style={{ color: "#fff", paddingBottom: '10px'}}> What Are You Interested In? </h4>
 
         <div className="job-search-form" data-aos-delay="700" data-aos="fade-up">
           <SearchForm3 />

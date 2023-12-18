@@ -170,7 +170,7 @@ const FormContent = () => {
 
       <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
         <button className="theme-btn btn-style-one" type="submit">
-          Sign Up
+          Submit
         </button>
       </div>
       {registrationMessage && (

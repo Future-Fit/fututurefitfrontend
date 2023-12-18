@@ -7,13 +7,13 @@ const CallToAction = () => {
         <div className="outer-box" data-aos="fade-up">
           <div className="content-column">
             <div className="sec-title">
-              <h3>Students?</h3>
+              <h3>Why Choose Us?</h3>
               <div className="text" >
               <ul className="list-style-one" >
-                    <li>Experienced in talent management</li>
-                    <li>Extensive global network</li>
-                    <li>Promote diversity & inclusivity</li>
-                    <li>Support community-focused collaboration</li>
+                    <li>We are experienced in talent management</li>
+                    <li>We have built an extensive global network</li>
+                    <li>We promote diversity & inclusivity</li>
+                    <li>We support community-focused collaboration</li>
                     </ul>
               </div>
               <a href="/about" className="theme-btn btn-style-one bg-blue">

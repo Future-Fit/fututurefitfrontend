@@ -3,29 +3,29 @@ const Block8 = () => {
     {
       id: 1,
       icon: "icon-drawing",
-      title: "Skilled Workers",
-      text: `Match expertise with diverse, exciting opportunities`,
+      title: "For Job Seekers",
+      text: `Help You Find A Great Job in Canada and Beyond`,
 
     },
     {
       id: 2,
       icon: "icon-process",
-      title: "Employers and Businesses",
-      text: `Post your job lists and fulfill open positions quickly`,
+      title: "For Students",
+      text: `Facilitate Canadian University/College Applications`,
 
     },
     {
       id: 3,
       icon: "icon-task",
-      title: "Education and Training",
-      text: `Student services to Canadian colleges/universities`,
+      title: "For Businesses/Institutions",
+      text: `Introduce Your Organization to Global Talent Pool`,
 
     },
     {
       id: 4,
       icon: "icon-one-finger-click",
-      title: "Travel/Visa/Other",
-      text: `Facilitate travel, visa, resettlemnt and other services`,
+      title: "For Everyone",
+      text: `Provide Travel, Visa, and Resettlement Services`,
 
     },
   ];

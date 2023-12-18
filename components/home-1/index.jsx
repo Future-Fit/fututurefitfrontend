@@ -51,15 +51,15 @@ const index = () => {
       {/* End MobileMenu */}
 
       <Hero10 />
-      
-      <CallToActionSearch/>
+
+      <CallToActionSearch />
 
       <section className="" style={{ background: '#f5f7fc', paddingTop: '20px', paddingBottom: '20px' }}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
               <div className="sec-title text-center">
-                <h2 >Join FFI in 3 Simple Steps</h2>
+                <h2 >Become A Member in 3 Simple Steps</h2>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ const index = () => {
       <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
         <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
           <div className="sec-title text-center" style={{ color: '#fff' }}>
-            <h2 style={{ color: '#fff'}}>Services We Provide</h2>
+            <h2 style={{ color: '#fff' }}>Our Specialized Services</h2>
             {/* <div style={{ color: '#fff' }} className="text">
               AT FFI, our goal is to connect those seeking opportunities with the a global network of resources. 
             </div> */}
@@ -97,10 +97,10 @@ const index = () => {
       <section className="job-section-two">
         <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
           <div className="sec-title text-center">
-            <h2 >Featured Opportunties</h2>
-            <div className="text">
+            <h2 >Trending Job Opportunities</h2>
+            {/* <div className="text">
               Trending and in high demand
-            </div>
+            </div> */}
           </div>
 
           <div className="row" data-aos="fade-up">
@@ -118,11 +118,11 @@ const index = () => {
         </div>
       </section>
 
-{/* <AppSectionAbout /> */}
+      {/* <AppSectionAbout /> */}
 
-      <section className="clients-section-two alternate" style={{ paddingTop: '20px', paddingBottom: '20px', backgroundColor:'#3B578E'}}>
+      <section className="clients-section-two alternate" style={{ paddingTop: '20px', paddingBottom: '20px', backgroundColor: '#3B578E' }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
-          <h2 style={{ color: '#FFF', paddingTop: '10px',  fontWeight: 'bolder' }}>Partners We Work With</h2>
+          <h2 style={{ color: '#FFF', paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bolder' }}>Partners We Work With</h2>
 
           <div className="sponsors-outer wow fadeInUp">
             <div className="sponsors-carousel">

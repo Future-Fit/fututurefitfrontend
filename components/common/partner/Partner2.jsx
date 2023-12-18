@@ -51,14 +51,14 @@ const Partner2 = () => {
   };
 
   const sliderPartners = [
-    { id: 1, link: "#", imgNumber: "1", companyName: "Test 1" },
-    { id: 2, link: "#", imgNumber: "2", companyName: "Test 2" },
-    { id: 3, link: "#", imgNumber: "3", companyName: "Test 3" },
-    { id: 4, link: "#", imgNumber: "4", companyName: "Test 4" },
-    { id: 5, link: "#", imgNumber: "5", companyName: "Test 5" },
-    { id: 6, link: "#", imgNumber: "6", companyName: "Test 6" },
-    { id: 7, link: "#", imgNumber: "7", companyName: "Test 7" },
-    { id: 8, link: "#", imgNumber: "5", companyName: "Test 8" },
+    { id: 1, link: "#", imgNumber: "1", companyName: "Quebec Provincial Government" },
+    { id: 2, link: "#", imgNumber: "2", companyName: "Ontario Provincial Government" },
+    { id: 3, link: "#", imgNumber: "3", companyName: "Alberta Provincial Government" },
+    { id: 4, link: "#", imgNumber: "4", companyName: "City of Ottawa" },
+    { id: 5, link: "#", imgNumber: "5", companyName: "City of Toronto" },
+    { id: 6, link: "#", imgNumber: "6", companyName: "City of Calgary" },
+    { id: 7, link: "#", imgNumber: "7", companyName: "UBM" },
+    { id: 8, link: "#", imgNumber: "5", companyName: "ONTA" },
   ];
 
   const imageStyle = {
@@ -77,7 +77,7 @@ const Partner2 = () => {
                   <Image
                     width={91}
                     height={40}
-                    src={`/images/index-11/clients/${item.imgNumber}.svg`}
+                    // src={`/images/index-11/clients/${item.imgNumber}.svg`}
                     alt="brand"
                   />
                 </a>

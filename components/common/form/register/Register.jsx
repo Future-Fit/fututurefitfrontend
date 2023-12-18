@@ -17,13 +17,13 @@ const Register = () => {
           <TabList className="btn-box row">
             <Tab className="col-lg-6 col-md-12">
               <button className="theme-btn btn-style-four" style={{paddingLeft: '10px'}}>
-                <i className="la la-user"></i> Job Seekers/Students
+                <i className="la la-user"></i> Job Seeker/Student
               </button>
             </Tab>
 
             <Tab className="col-lg-6 col-md-12">
               <button className="theme-btn btn-style-four" style={{paddingLeft: '10px'}}>
-                <i className="la la-briefcase"></i> Business/Universities 
+                <i className="la la-briefcase"></i> Business/Institution 
               </button>
             </Tab>
           </TabList>

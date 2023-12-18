@@ -24,26 +24,43 @@ const AppSection = () => {
               About Us
             </h2>
             <div className="text" style={{ textAlign: "justify" }}>
-              At FFI, our passion is enabling individuals, businesses, and institutions make great connections.
-              Our ever-expanding global reach and expertise gives us the ability to provide growing networking and
-              matching opportunities for job seekers, students, businesses and colleges/universities. With years
-              of experience in talent management, international business, education and government services, we are
-              your champions in the pursuit of your aspirations and goals.
+              <span> Future Fit International is a trusted partner, working across borders to match ambitions and skills
+              with education and job opportunities. Our passion is to empower individuals and organizations. 
+              Because we understand the challenges that individuals face in their pursuit of success and what 
+              businesses and educational institutions strive for, we have built a thriving ecosystem where these driving  
+              forces can converge and flourish. </span>
+
+              <p> We work with the following: 
+              1. Canadian employers and all levels of government and industry to help backfill skilled positions that 
+                 have not been filled by Canadians.
+              2. Foreign-trained workers to identify opportunities to work in Canada. 
+              3. Canadian colleges and universities looking to grow their international student populations.
+              4. Foreign-based students hoping to pursue their educational ambitions in Canada. </p> <p></p>
+
+              <p> We provide an end-to-end experience for all of our clients: foreign students, foreign-trained workers, 
+              Canadian companies, and colleges and universities. These services include: pre-screenings, interviews, 
+              credentials and skills verification, document preparation services, visa acquisition, work visas, work 
+              and school applications, company screening, immigration workshops and seminars, government liaison services,
+              language testing, orientation and training, travel and settlement processes, and more. </p> <p></p>
+
+              <p> FFI is currently active in Canada and Ethiopia. We will be expanding to Ghana and Tanzania in 2024. </p>
+
+              <p> Address: 168 Charlotte Street, Ottawa, Ontario K1N 8K6" </p>
             </div>
           </div>
           <div className="sec-title">
-              <h3>Why Choose Us?</h3>
-              <div className="text" >
+              {/* <h3>Why Choose Us?</h3> */}
+              {/* <div className="text" >
               <ul className="list-style-one" style={{alignContent:'start'}}>
-                    <li>Experienced in talent management</li>
-                    <li>Extensive global network</li>
-                    <li>Promote diversity & inclusivity</li>
-                    <li>Support community-focused collaboration</li>
+                    <li>We have extensive experience in talent management</li>
+                    <li>We have built an extensive global network</li>
+                    <li>We promote diversity & inclusivity</li>
+                    <li>We support community-focused collaboration</li>
                     </ul>
-              </div>
-              <a href="/about" className="theme-btn btn-style-one bg-blue">
+              </div> */}
+              {/* <a href="/about" className="theme-btn btn-style-one bg-blue">
                 <span className="btn-title" >Learn More</span>
-              </a>
+              </a> */}
             </div>
 
           {/* <a href="/about" className="theme-btn btn-style-one bg-blue">

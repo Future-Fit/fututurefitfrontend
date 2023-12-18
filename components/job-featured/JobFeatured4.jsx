@@ -5,7 +5,7 @@ import Image from "next/image";
 const JobFeatured4 = () => {
   return (
     <>
-      {jobFeatured.slice(20, 26).map((item) => (
+      {jobFeatured.slice(0, 6).map((item) => (
         <div
           className="job-block-four col-lg-4 col-md-6 col-sm-12"
           key={item.id}
@@ -33,7 +33,7 @@ const JobFeatured4 = () => {
                 <Link
                   href="/job-list-v6"
                   // className="theme-btn btn-style-one bg-blue"
-                  style={{fontWeight:'bold', textDecoration:'underline', color:'#3B578E'}}
+                  style={{fontWeight:'bold', color:'#3B578E'}}
                 >
                   <span className="btn-title">Apply</span>
                 </Link>

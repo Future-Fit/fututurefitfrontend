@@ -27,22 +27,22 @@ const Block6 = () => {
     {
       id: 1,
       icon: "icon-case",
-      title: "Browse",
-      text: `Search our database to explore opportunities or review profiles.`,
+      title: "Learn About Us",
+      // text: `Search our database to explore opportunities or review profiles.`,
       bgClass: "-blue"
     },
     {
       id: 2,
       icon: "icon-contact",
-      title: "Register",
-      text: `Sign up to customize your experience.`,
+      title: "Create A Profile",
+      // text: `Sign up to customize your experience.`,
       bgClass: "-red"
     },
     {
       id: 3,
       icon: "icon-institution",
-      title: "Login",
-      text: `Sign in to build your profile or post jobs.`,
+      title: "Realize Your Vision",
+      // text: `Sign in to build your profile or post jobs.`,
       bgClass: "-yellow"
     },
   ];

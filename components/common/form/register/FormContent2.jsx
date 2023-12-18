@@ -115,9 +115,9 @@ const FormContent2 = () => {
     <form method="post" onSubmit={handleSubmit}>
 
       <div className="form-group">
-        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Business Name</label>
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Business/Institution Name</label>
         <label style={{ color: 'red', display: 'inline-block' }}>*</label>
-        <input type="text" name="fname" placeholder="Business Name" required value={formData.fname}
+        <input type="text" name="fname" placeholder="Business/Institution Name" required value={formData.fname}
           onChange={handleChange} />
       </div>
 
@@ -166,7 +166,7 @@ const FormContent2 = () => {
       </div>
       <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
         <button className="theme-btn btn-style-one" type="submit">
-          Sign Up
+          Submit
         </button>
       </div>
       {registrationMessage && (
