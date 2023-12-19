@@ -19,7 +19,7 @@ const VerifyEmail = ({ token }) => {
             const response = await axios.post(`https://api.futurefitinternational.com/auth/verifyEmail/${token}`);
             setVerifyInfo(response.data);
             console.log('Email Verified:', response.data);
-            router.push('/');
+            router.push('/login');
         } catch (error) {
             // Handle errors
             setError('Token Expired.');
@@ -45,7 +45,7 @@ const VerifyEmail = ({ token }) => {
 
             <div className="page-wrapper dashboard">
             {/* ... Other components and content */}
-            <p style={{ color: 'green' }}>{error ? error : 'Thank You, Email Verified'}</p>
+            <p style={{ color: 'green', marginTop: '30px' }}>{error ? error : 'Thank You, Email Verified'}</p>
         </div>
             {/* <FooterDefault /> */}
         </div>

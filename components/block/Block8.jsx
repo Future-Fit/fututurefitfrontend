@@ -9,20 +9,27 @@ const Block8 = () => {
     },
     {
       id: 2,
-      icon: "icon-process",
-      title: "For Students",
-      text: `Facilitate Canadian University/College Applications`,
-
-    },
-    {
-      id: 3,
       icon: "icon-task",
-      title: "For Businesses/Institutions",
+      title: "For Businesses",
       text: `Introduce Your Organization to Global Talent Pool`,
 
     },
     {
+      id: 3,
+      icon: "icon-process",
+      title: "For Students",
+      text: `Facilitate Your College Applications`,
+
+    },
+    {
       id: 4,
+      icon: "icon-task",
+      title: "For Universities/Colleges",
+      text: `Promote Canadian Institutions Globally`,
+
+    },
+    {
+      id: 5,
       icon: "icon-one-finger-click",
       title: "For Everyone",
       text: `Provide Travel, Visa, and Resettlement Services`,

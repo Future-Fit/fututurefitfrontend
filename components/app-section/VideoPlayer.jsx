@@ -62,19 +62,21 @@ const VideoPlayer = () => {
             <div className="inner-column" data-aos="fade-left">
               <div className="sec-title">
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
-                  Who We Are ...
+                  We Are ...
                 </h2>
                 <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
                   * Passionate about enabling great connections <br></br>
-                  * Experienced talent management agency <br></br>
-                  * Trusted partner with global footprint <br></br>
+                  * Experienced in talent placement/management <br></br>
+                  * Trusted & results-oriented global partner <br></br>
                 </div>
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
-                  What We Do ...
+                  We Do ...
                 </h2>
                 <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px' }}>
-                  * Fulfill business & institutional resource needs <br></br>
-                  * Realize the dreams of job seekers & students <br></br>
+                  * Identify skilled talent for Canadian businesses <br></br>
+                  * Find job opportunities for trained workers <br></br>
+                  * Promote Canadian universities/colleges <br></br>
+                  * Help students with college applications  <br></br>
                   * Provide travel, visa & resettlement services <br></br>
                 </div>
               </div>
@@ -103,19 +105,21 @@ const VideoPlayer = () => {
             <div className="inner-column" data-aos="fade-left" style={{ alignItems: 'flex-start' }}>
               <div className="sec-title">
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
-                  Who We Are ...
+                  We Are ...
                 </h2>
                 <div className="text" style={{ textAlign: "justify", color: 'white', marginBottom: '20px' }}>
                   * Passionate about enabling great connections <br></br>
-                  * Experienced talent management agency <br></br>
-                  * Trusted partner with global footprint <br></br>
+                  * Experienced in talent placement/management <br></br>
+                  * Trusted & results-oriented global partner <br></br>
                 </div>
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
-                  What We Do ...
+                  We Do ...
                 </h2>
                 <div className="text" style={{ textAlign: "justify", color: 'white' }}>
-                  * Fulfill business & institutional resource needs <br></br>
-                  * Realize the dreams of job seekers & students <br></br>
+                  * Identify skilled talent for Canadian businesses <br></br>
+                  * Find job opportunities for trained workers <br></br>
+                  * Promote Canadian universities/colleges <br></br>
+                  * Help students with college applications  <br></br>
                   * Provide travel, visa & resettlement services <br></br>
                 </div>
               </div>
