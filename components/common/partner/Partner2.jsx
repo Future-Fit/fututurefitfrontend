@@ -51,7 +51,7 @@ const Partner2 = () => {
   };
 
   const sliderPartners = [
-    { id: 1, link: "#", imgNumber: "1", companyName: "Quebec Provincial Government" , textColor: 'green'},
+    { id: 1, link: "#", imgNumber: "1", companyName: "Quebec Provincial Government", textColor: 'green' },
     { id: 2, link: "#", imgNumber: "2", companyName: "Ontario Provincial Government", textColor: 'yellow' },
     { id: 3, link: "#", imgNumber: "3", companyName: "Alberta Provincial Government", textColor: 'red' },
     { id: 4, link: "#", imgNumber: "4", companyName: "City of Ottawa" },
@@ -63,13 +63,22 @@ const Partner2 = () => {
 
   const imageStyle = {
     display: "inline-block",
-    marginRight: "15px",
-    marginLeft: "15px" // Adjust spacing between image and text
+    marginRight: "5px",
+    marginLeft: "5px" // Adjust spacing between image and text
+  };
+  
+  const companyNameStyle = {
+    whiteSpace: 'normal', // allows text to wrap instead of forcing it in one line
+    overflow: 'visible', // ensures that overflowing text is not hidden
+    display: 'inline-block',
+    maxWidth: '450px', // set a maximum width for the text
+    marginLeft: '10px' // optional, for additional spacing between the image and text
   };
 
   return (
     <>
-    <Slider {...settings} arrows={false}>
+
+      <Slider {...settings} arrows={false}>
         {sliderPartners.map((item) => (
           <div className="slide-item" key={item.id}>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -83,8 +92,8 @@ const Partner2 = () => {
                   />
                 </a>
               </figure>
-              <div className="company-name" style={{ width: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                <a href={item.link} style={{color: item.textColor}}>{item.companyName}</a>
+              <div className="company-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', display: 'inline-block' }}>
+                <a href={item.link} style={{ color: item.textColor }}>{item.companyName}</a>
               </div>
             </div>
           </div>
