@@ -8,13 +8,25 @@ import { useRouter } from "next/navigation";
 const MobileMenu = () => {
   const [navbar, setNavbar] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
-  const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
+  // const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
 
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    const userType = localStorage.getItem("userType");
+    const storedLoggedInUserId = localStorage.getItem("loggedInUserId");
 
-  const loggedIn = localStorage.getItem("accessToken") && localStorage.getItem("userType");
+    if (accessToken && userType && storedLoggedInUserId) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  }, []);
+
+  // const loggedIn = localStorage.getItem("accessToken") && localStorage.getItem("userType");
 
   // Added state for modal
   const router = useRouter();
