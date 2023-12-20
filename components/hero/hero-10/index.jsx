@@ -66,7 +66,7 @@ const index = () => {
         </div >
       </section >
     ) : (
-      <section className="app-section" style={{ background: '#3B578E', paddingTop: '0px', marginTop: '80px', paddingBottom: '0px', height: '80vh' }}>
+      <section className="app-section" style={{ background: '#3B578E', paddingTop: '40px', marginTop: '85px', paddingBottom: '0px', height: '80vh' }}>
         <div className="auto-container" style={{ height: '85vh !important' }}>
           <div
             style={{

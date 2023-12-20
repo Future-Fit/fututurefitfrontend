@@ -54,11 +54,11 @@ const FormContent = ({ onReset }) => {
   useEffect(() => {
     // Check if "Remember Me" is selected and populate fields if credentials exist in local storage
     const storedUsername = localStorage.getItem("rememberedUsername");
-    const storedPassword = localStorage.getItem("rememberedPassword");
+    // const storedPassword = localStorage.getItem("rememberedPassword");
 
-    if (rememberMe && storedUsername && storedPassword) {
+    if (rememberMe && storedUsername) {
       setUsername(storedUsername);
-      setPassword(storedPassword);
+      // setPassword(storedPassword);
     }
   }, [rememberMe]);
 
@@ -120,7 +120,7 @@ const FormContent = ({ onReset }) => {
             });
 
             if (verificationResponse.ok) {
-              setError("Verification link sent. Please check your email.");
+              setError("Since your email is not verfified, we have sent you verification link. Please check your email. Thank you");
             } else {
               setError("Failed to send verification link");
             }
@@ -263,8 +263,9 @@ const FormContent = ({ onReset }) => {
         autohide
         style={{
           position: 'fixed',
-          top: '20px',
-          right: '20px',
+          top: '50%', // Adjust the top position
+          left: '50%', // Adjust the left position
+          transform: 'translate(-50%, -50%)', // Center the toast using transform
           minWidth: '200px',
           zIndex: 10000, // Ensure the Toast is above the backdrop
         }}

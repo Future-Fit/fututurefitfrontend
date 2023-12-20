@@ -7,6 +7,7 @@ import LoginPopup from "@/components/common/form/login/LoginPopup";
 import { useEffect, useState } from "react";
 import DashboardHeader from "@/components/header/DashboardHeader";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
+import FormContent2 from "@/components/common/form/login/FormContent2";
 
 
 const index = () => {
@@ -40,7 +41,7 @@ const index = () => {
         <div className="outer-box">
           {/* <!-- Login Form --> */}
           <div className="login-form default-form">
-            <FormContent />
+            <FormContent2 />
           </div>
           {/* <!--End Login Form --> */}
         </div>

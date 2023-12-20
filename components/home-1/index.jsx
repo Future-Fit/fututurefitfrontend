@@ -72,6 +72,7 @@ const index = () => {
       </section>
       {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
 
+
       <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
         <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
           <div className="sec-title text-center" style={{ color: '#fff' }}>

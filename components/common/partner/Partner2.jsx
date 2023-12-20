@@ -51,14 +51,14 @@ const Partner2 = () => {
   };
 
   const sliderPartners = [
-    { id: 1, link: "#", imgNumber: "1", companyName: "Quebec Provincial Government", textColor: 'green' },
-    { id: 2, link: "#", imgNumber: "2", companyName: "Ontario Provincial Government", textColor: 'yellow' },
-    { id: 3, link: "#", imgNumber: "3", companyName: "Alberta Provincial Government", textColor: 'red' },
-    { id: 4, link: "#", imgNumber: "4", companyName: "City of Ottawa" },
-    { id: 5, link: "#", imgNumber: "5", companyName: "City of Toronto" },
-    { id: 6, link: "#", imgNumber: "6", companyName: "City of Calgary" },
-    { id: 7, link: "#", imgNumber: "7", companyName: "UBM" },
-    { id: 8, link: "#", imgNumber: "5", companyName: "ONTA" },
+    { id: 1, link: "/partners", imgNumber: "1", companyName: "Quebec Provincial Government", textColor: 'green' },
+    { id: 2, link: "/partners", imgNumber: "2", companyName: "Ontario Provincial Government", textColor: 'yellow' },
+    { id: 3, link: "/partners", imgNumber: "3", companyName: "Alberta Provincial Government", textColor: 'red' },
+    { id: 4, link: "/partners", imgNumber: "4", companyName: "City of Ottawa" },
+    { id: 5, link: "/partners", imgNumber: "5", companyName: "City of Toronto" },
+    { id: 6, link: "/partners", imgNumber: "6", companyName: "City of Calgary" },
+    { id: 7, link: "/partners", imgNumber: "7", companyName: "UBM" },
+    { id: 8, link: "/partners", imgNumber: "5", companyName: "ONTA" },
   ];
 
   const imageStyle = {

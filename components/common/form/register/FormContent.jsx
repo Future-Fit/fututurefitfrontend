@@ -209,9 +209,11 @@ const FormContent = ({ onReset }) => {
         autohide
         style={{
           position: 'fixed',
-          top: '20px',
-          right: '20px',
+          top: '50%', // Adjust the top position
+          left: '50%', // Adjust the left position
+          transform: 'translate(-50%, -50%)', // Center the toast using transform
           minWidth: '200px',
+          zIndex: 10000, // Ensure the Toast is above the backdrop
         }}
       >
         <Toast.Header closeButton={true}>
