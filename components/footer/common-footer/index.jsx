@@ -24,10 +24,10 @@ const Index = () => {
                     <p className="phone-num">
                       <span>Contact Us</span>
                     </p>
-                    <div className="d-flex flex-wrap" style={{ width: '100%', gap:'20px' }}>
-                      <div   style={{flexGrow:1,   }}>
+                    <div className="d-flex flex-wrap" style={{ width: '100%', gap: '20px' }}>
+                      <div style={{ flexGrow: 1, }}>
                         <p className="phone-num">
-                          <span>Canada Office</span>
+                          <span> <img src="/images/canada.png" width={40} height={20} alt="Canada"/></span>
                           <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
                         </p>
                         <div style={{ width: '100%', height: '100px', border: '1px solid #ccc', borderRadius: '5px', overflow: 'hidden' }}>
@@ -41,9 +41,11 @@ const Index = () => {
                           </iframe>
                         </div>
                       </div>
-                      <div  className="flex-fill"  >
+                      <div className="flex-fill"  >
                         <p className="phone-num">
-                          <span>Ethiopia Office</span>
+                        <span> <img src="/images/ethiopia.png" width={50} height={20} alt="Ethiopia"/></span>
+
+                          {/* <span>Ethiopia Office</span> */}
                           <a href="tel: +251933859295">+251933859295</a>
                         </p>
                         <div style={{ width: '100%', height: '100px', border: '1px solid #ccc', borderRadius: '5px', overflow: 'hidden' }}>
@@ -61,9 +63,9 @@ const Index = () => {
                       </div>
                       <div className="flex-fill">
 
-<FooterContent />
+                        <FooterContent />
 
-</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -71,7 +73,7 @@ const Index = () => {
                   info@futurefitinternational.com
                 </a>
               </div>
-            
+
             </div>
             {/* End footer left widget */}
 

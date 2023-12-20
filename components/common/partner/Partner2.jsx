@@ -128,9 +128,9 @@ const Partner2 = () => {
                 flexGrow: 1, // Allows the text container to grow
               }}
             >
-              <a href={item.link} style={{ color: item.textColor }}>
+              {/* <a href={item.link} style={{ color: item.textColor }}>
                 {item.companyName}
-              </a>
+              </a> */}
             </div>
           </div>
         ))}

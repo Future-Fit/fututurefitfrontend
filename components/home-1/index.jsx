@@ -14,6 +14,7 @@ import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
 import DashboardHeader from "../header/DashboardHeader";
 import { useEffect, useState } from "react";
 import CallToActionSearch from "../call-to-action/CallToActionSearch";
+import WordCloudSection from "../block/WordCloudSection";
 
 
 
@@ -124,6 +125,14 @@ const index = () => {
           </div>
         </div>
       </section>
+
+      <section className="">
+      <div className="auto-container">
+          <WordCloudSection/>
+        </div>
+      </section>
+
+
 
 
       {/* <!-- End Job Section --> */}
