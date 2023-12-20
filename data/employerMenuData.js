@@ -77,15 +77,5 @@ module.exports = [
     icon: "la-sign-out",
     routePath: "/",
     active: "",
-    onClick: () => {
-      clearSession(); 
-    },
   },
-  // {
-  //   id: 12,
-  //   name: "Delete Profile",
-  //   icon: "la-trash",
-  //   routePath: "/",
-  //   active: "",
-  // },
 ];

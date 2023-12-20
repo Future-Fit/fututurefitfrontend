@@ -51,6 +51,7 @@ const Register = () => {
             data-bs-toggle="modal"
             data-bs-dismiss="modal"
             data-bs-target="#loginPopupModal"
+            style={{color:'blue'}}
           >
             Sign In
           </Link>

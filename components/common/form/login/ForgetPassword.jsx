@@ -116,7 +116,7 @@ const ForgetPassword = () => {
               className="call-modal signup"
               data-bs-toggle="modal"
               data-bs-target="#registerModal"
-             
+             style={{color:'blue'}}
             >
               Sign Up
             </Link>

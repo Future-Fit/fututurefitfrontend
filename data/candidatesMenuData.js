@@ -77,18 +77,5 @@ module.exports = [
     icon: "la-sign-out",
     routePath: "/",
     active: "",
-    onClick: () => {
-      try {
-        console.error("About to clear");
-
-        clearSession(); // Attempt to clear the session
-        console.error("Cleared");
-
-        window.location.href = '/'; // Redirect to the login page
-      } catch (error) {
-        console.error("Error during logout:", error);
-        // Handle errors if any occur during logout
-      }
-    },
   },
 ];

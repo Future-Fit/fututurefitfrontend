@@ -5,9 +5,11 @@ const clearSession = () => {
       localStorage.removeItem('userType');    // Clear user data
       localStorage.removeItem('loggedInUserId');
 
-      // Additional session clearing logic if needed
 
       console.log("Session cleared successfully.");
+
+      window.location.href = '/';
+
   } catch (error) {
       console.error("Error clearing session:", error);
   }

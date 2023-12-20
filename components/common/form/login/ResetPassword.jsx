@@ -25,26 +25,29 @@ const ResetPassword = ({ token }) => {
     };
 
 
+
     const resetPassword = async (e) => {
         e.preventDefault()
+        setPasswordError("");
         if (password !== confirmPassword) {
             setError('Passwords do not match');
             return;
         }
-        if (!validatePassword(password)) {
+        if (validatePassword(password)) {
             try {
-                // Send a request to your backend API to reset the password
                 const response = await axios.post(`https://api.futurefitinternational.com/auth/reset-password/${token}`, {
                     newPassword: password,
                 });
                 setResetInfo(response.data); // Store response data in resetInfo state
                 // Handle success (optional)
                 console.log('Password reset successfully:', response.data);
-                // Redirect the user to a success page or login page
-                router.push('/'); // Redirect to the login page after successful password reset
+                setPassword('');
+                setConfirmPassword('');
+                router.push('/login'); // Redirect to the login page after successful password reset
             } catch (error) {
-                // Handle errors
-                setError('Password reset failed. Please try again.');
+                setError('Password reset failed due to token expiration, Please try again.');
+                setPassword('');
+                setConfirmPassword('');
             }
         } else {
             setPasswordError("Password should contain at least 8 characters, including uppercase, lowercase, number, and special character.");
@@ -122,7 +125,6 @@ const ResetPassword = ({ token }) => {
                 </form>
                 {/* End form */}
 
-                {error && <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>{error}</div>}
 
                 {redirectTo && (
                     <Link href={redirectTo}>

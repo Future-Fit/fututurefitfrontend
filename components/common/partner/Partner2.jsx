@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
  
@@ -66,7 +67,7 @@ const Partner2 = () => {
     marginRight: "5px",
     marginLeft: "5px" // Adjust spacing between image and text
   };
-  
+
   const companyNameStyle = {
     whiteSpace: 'normal', // allows text to wrap instead of forcing it in one line
     overflow: 'visible', // ensures that overflowing text is not hidden
@@ -75,26 +76,61 @@ const Partner2 = () => {
     marginLeft: '10px' // optional, for additional spacing between the image and text
   };
 
+
+  const [marqueeEffect, setMarqueeEffect] = useState({});
+
+  const updateMarquee = (id) => {
+    const animationDuration = 10; // Adjust the speed of the marquee
+    setMarqueeEffect({
+      ...marqueeEffect,
+      [id]: {
+        animation: `marquee ${animationDuration}s linear infinite`,
+      }
+    });
+  };
+
+  const measureText = (id) => {
+    const textElement = document.getElementById(`company-name-${id}`);
+    if (textElement) {
+      const textWidth = textElement.offsetWidth;
+      const parentWidth = textElement.parentElement.offsetWidth;
+      if (textWidth > parentWidth) {
+        updateMarquee(id);
+      }
+    }
+  };
+
+  useEffect(() => {
+    sliderPartners.forEach(partner => {
+      measureText(partner.id);
+    });
+  }, []);
+
   return (
     <>
-
       <Slider {...settings} arrows={false}>
         {sliderPartners.map((item) => (
-          <div className="slide-item" key={item.id}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <figure className="image-box" style={imageStyle}>
-                <a href={item.link}>
-                  <Image
+          <div className="slide-item" key={item.id} style={{ display: "flex", alignItems: "center" }}>
+            <figure className="image-box" style={{ marginRight: "5px", flexShrink: 0 }}>
+              <a href={item.link}>
+                <Image
                     width={100}
                     height={40}
                     src={`/images/index-11/clients/${item.imgNumber}.svg`}
                     alt="brand"
-                  />
-                </a>
-              </figure>
-              <div className="company-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', display: 'inline-block' }}>
-                <a href={item.link} style={{ color: item.textColor }}>{item.companyName}</a>
-              </div>
+                />
+              </a>
+            </figure>
+            <div 
+              style={{
+                overflowX: 'auto', // Allows horizontal scrolling
+                whiteSpace: 'nowrap', // Keeps text in a single line
+                flexGrow: 1, // Allows the text container to grow
+              }}
+            >
+              <a href={item.link} style={{ color: item.textColor }}>
+                {item.companyName}
+              </a>
             </div>
           </div>
         ))}

@@ -202,6 +202,7 @@ const FormContent2 = ({ onReset }) => {
                   className="call-modal signup"
                   data-bs-toggle="modal"
                   data-bs-target="#forgetPassPopupModal"
+                  style={{color: 'blue'}}
                 >
                   Forgot Username/Password?
                 </Link>
@@ -239,6 +240,7 @@ const FormContent2 = ({ onReset }) => {
             className="call-modal"
             data-bs-toggle="modal"
             data-bs-target="#registerModal"
+            style={{color:'blue'}}
           >
             Sign Up
           </Link>

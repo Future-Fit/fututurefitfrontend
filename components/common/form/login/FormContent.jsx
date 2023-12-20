@@ -10,7 +10,7 @@ const FormContent = ({ onReset }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [redirectTo, setRedirectTo] = useState(null); 
+  const [redirectTo, setRedirectTo] = useState(null);
   const [rememberMe, setRememberMe] = useState(false);
   const [formData, setFormData] = useState();
 
@@ -209,6 +209,7 @@ const FormContent = ({ onReset }) => {
                   className="call-modal signup"
                   data-bs-toggle="modal"
                   data-bs-target="#forgetPassPopupModal"
+                  style={{ color: 'blue' }}
                 >
                   Forgot Username/Password?
                 </Link>
@@ -246,6 +247,7 @@ const FormContent = ({ onReset }) => {
             className="call-modal"
             data-bs-toggle="modal"
             data-bs-target="#registerModal"
+            style={{ color: 'blue' }}
           >
             Sign Up
           </Link>
