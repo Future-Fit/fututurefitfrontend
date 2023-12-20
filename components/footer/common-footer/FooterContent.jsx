@@ -23,7 +23,7 @@ const FooterContent = () => {
 
 
   return (
-    <>
+    <div className="row">
       {footerContent.map((item) => (
         <div
           className="footer-column col-lg-5 col-md-2 col-sm-12" // Adjusted column width
@@ -64,7 +64,7 @@ const FooterContent = () => {
           </div>
         </div>
       ))} */}
-    </>
+    </div>
   );
 };
 

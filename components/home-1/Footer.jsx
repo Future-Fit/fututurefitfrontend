@@ -13,7 +13,6 @@ const Footer =  () => {
   return (
     <footer className="main-footer style-two" style={footerStyle}>
       <div className="auto-container">
-        {/* <!--Widgets Section--> */}
         <div className="widgets-section" data-aos="fade-up">
           <div className="row">
             <div className="big-column col-xl-3 col-lg-3 col-md-12">
@@ -51,6 +50,10 @@ const Footer =  () => {
                 <FooterContent2 />
               </div>
             </div>
+            <div className="footer-column">
+            <Social />
+              
+            </div>
             {/* End col-xl-8 */}
           </div>
         </div>
@@ -59,10 +62,10 @@ const Footer =  () => {
       <div className="social-links" style={{ justifyContent: "center" }}>
         <Social />
       </div>
-      {/* End auto-container */}
+ 
 
       <CopyrightFooter />
-      {/* <!--Bottom--> */}
+ 
     </footer>
   );
 };

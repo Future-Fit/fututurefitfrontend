@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
-
+ 
 const Partner2 = () => {
   const settings = {
     dots: false,

@@ -13,19 +13,19 @@ const Index = () => {
         {/* Widgets Section */}
         <div className="widgets-section" data-aos="fade-up">
           <div className="row">
-            
-            <div 
-            // className="footer-column col-lg-5 col-md-4 col-sm-12"
-            className="big-column col-xl-4 col-lg-5 col-md-12"
+
+            <div
+
+              className=""
             >
-              <div className="footer-column about-widget">
+              <div className="footer-column ">
                 <div className="contact-details">
                   <div className="contact-column" style={{ width: '100%' }}>
                     <p className="phone-num">
                       <span>Contact Us</span>
                     </p>
-                    <div style={{ width: '100%', display: 'flex' }}>
-                      <div style={{ width: '50%', paddingRight: '25px' }}>
+                    <div className="d-flex flex-wrap" style={{ width: '100%', gap:'20px' }}>
+                      <div   style={{flexGrow:1,   }}>
                         <p className="phone-num">
                           <span>Canada Office</span>
                           <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
@@ -41,7 +41,7 @@ const Index = () => {
                           </iframe>
                         </div>
                       </div>
-                      <div style={{ width: '50%', paddingLeft: '0px' }}>
+                      <div  className="flex-fill"  >
                         <p className="phone-num">
                           <span>Ethiopia Office</span>
                           <a href="tel: +251933859295">+251933859295</a>
@@ -59,6 +59,11 @@ const Index = () => {
                           ></iframe>
                         </div>
                       </div>
+                      <div className="flex-fill">
+
+<FooterContent />
+
+</div>
                     </div>
                   </div>
                 </div>
@@ -66,14 +71,11 @@ const Index = () => {
                   info@futurefitinternational.com
                 </a>
               </div>
+            
             </div>
             {/* End footer left widget */}
 
-            <div className="big-column col-xl-8 col-lg-9 col-md-12">
-              <div className="row">
-                <FooterContent />
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
