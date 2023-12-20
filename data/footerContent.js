@@ -6,8 +6,8 @@ module.exports = [
       { name: "About Us", route: "/about" },
       { name: "Browse Jobs", route: "/job-list-v6", modalTarget: "#loginPopupModal"},
       { name: "Post Jobs", route: "/job-list-v6" },
-      { name: "Student Services", route: "/", modalTarget: "#loginPopupModal" },
-      { name: "Travel, Visa & Others", route: "/" },
+      { name: "Student Services", route: "/service/students", modalTarget: "#loginPopupModal" },
+      { name: "Travel, Visa & Others", route: "/service/travel-visa" },
     ],
   },
   {
@@ -15,10 +15,10 @@ module.exports = [
     title: "Company",
     menuList: [
       { name: "About Us", route: "/about" },
-      { name: "Careers", route: "/" },
+      { name: "Careers", route: "/career" },
       { name: "FAQ", route: "/faq" },
       { name: "Terms & Conditions", route: "/terms" },
-      { name: "Security & Privacy", route: "/" },
+      { name: "Security & Privacy", route: "/terms" },
     ],
   },
 ];

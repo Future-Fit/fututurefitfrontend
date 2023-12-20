@@ -44,7 +44,7 @@ const index = () => {
                 <div className="cotnent-box">
                   <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '0px' }}>
 
-                    <h3 style={{ fontWeight: '600', paddingTop: '35px'/* Other mobile styles */ }}>Welcome to FFI</h3>
+                    <h3 style={{ fontWeight: '600', paddingTop: '0px'/* Other mobile styles */ }}>Welcome to FFI</h3>
                     <h2 style={{ color: "#b2dfdb", fontSize: '18px' }}> Where Ambition Meets Opportunity!</h2>
                     {/* <hr style={{ border: '2px solid red', margin: '10px 0', display: 'block', clear: 'both' }} /> */}
 
@@ -66,7 +66,7 @@ const index = () => {
         </div >
       </section >
     ) : (
-      <section className="app-section" style={{ background: '#3B578E', paddingTop: '30px', marginTop: '85px', paddingBottom: '0px', height: '80vh' }}>
+      <section className="app-section" style={{ background: '#3B578E', paddingTop: '40px', marginTop: '85px', paddingBottom: '0px', height: '80vh' }}>
         <div className="auto-container" style={{ height: '85vh !important' }}>
           <div
             style={{

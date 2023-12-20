@@ -29,21 +29,21 @@ const Block6 = () => {
       icon: "icon-case",
       title: "Learn About Us",
       // text: `Search our database to explore opportunities or review profiles.`,
-      bgClass: "-blue"
+      // bgClass: "-blue"
     },
     {
       id: 2,
       icon: "icon-contact",
       title: "Create A Profile",
       // text: `Sign up to customize your experience.`,
-      bgClass: "-red"
+      // bgClass: "-red"
     },
     {
       id: 3,
       icon: "icon-institution",
-      title: "Realize Your Vision",
+      title: "Let Us Help You with Your Vision",
       // text: `Sign in to build your profile or post jobs.`,
-      bgClass: "-yellow"
+      // bgClass: "-yellow"
     },
   ];
 

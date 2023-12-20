@@ -72,10 +72,11 @@ const index = () => {
       </section>
       {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
 
+
       <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
         <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
           <div className="sec-title text-center" style={{ color: '#fff' }}>
-            <h2 style={{ color: '#fff' }}>Our Specialized Services</h2>
+            <h2 style={{ color: '#fff' }}>Our Services</h2>
             {/* <div style={{ color: '#fff' }} className="text">
               AT FFI, our goal is to connect those seeking opportunities with the a global network of resources. 
             </div> */}

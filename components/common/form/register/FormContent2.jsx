@@ -40,7 +40,8 @@ const FormContent2 = () => {
       lname: "",
       phone: "",
       email: "",
-      password: ""
+      password: "",
+      confirmPassword : ""
     });
     setPasswordError("");
     setLogoImg("");
@@ -205,16 +206,18 @@ const FormContent2 = () => {
           // Handle closing the toast here if needed
         }}
         show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
-        delay={3000}
+        delay={300000}
         autohide
         style={{
           position: 'fixed',
-          top: '20px',
-          right: '20px',
+          top: '50%', // Adjust the top position
+          left: '50%', // Adjust the left position
+          transform: 'translate(-50%, -50%)', // Center the toast using transform
           minWidth: '200px',
+          zIndex: 10000, // Ensure the Toast is above the backdrop
         }}
       >
-        <Toast.Header closeButton={false}>
+        <Toast.Header closeButton={true}>
           {/* Set the toast title/header based on the type of message */}
           <strong className="me-auto">{passwordError ? 'Error' : 'Message'}</strong>
         </Toast.Header>

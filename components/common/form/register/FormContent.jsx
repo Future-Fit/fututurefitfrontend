@@ -15,7 +15,7 @@ const FormContent = ({ onReset }) => {
   });
   const [passwordError, setPasswordError] = useState("");
   const [registrationMessage, setRegistrationMessage] = useState(null);
-  const [userData, setUserData] = useState(null); 
+  const [userData, setUserData] = useState(null);
 
   const resetForm = () => {
     setFormData({
@@ -24,7 +24,8 @@ const FormContent = ({ onReset }) => {
       lname: "",
       phone: "",
       email: "",
-      password: ""
+      password: "",
+      confirmPassword: ""
     });
     setPasswordError("");
     setLogoImg("");
@@ -69,22 +70,22 @@ const FormContent = ({ onReset }) => {
 
           resetForm();
           // Additional API call to send verification email
-        try {
-          
-          await fetch("https://api.futurefitinternational.com/auth/verify-email", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: formData.email,
-            }),
-          });
-          console.log("Verification email sent successfully!");
-          setRegistrationMessage("Verification email sent successfully!, Please Check Your Email")
-        } catch (error) {
-          console.error("Failed to send verification email:", error);
-        }
+          try {
+
+            await fetch("https://api.futurefitinternational.com/auth/verify-email", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: formData.email,
+              }),
+            });
+            console.log("Verification email sent successfully!");
+            setRegistrationMessage("Verification email sent successfully!, Please Check Your Email")
+          } catch (error) {
+            console.error("Failed to send verification email:", error);
+          }
 
         } else {
           setRegistrationMessage(responseData.message || "Registration failed");
@@ -204,19 +205,21 @@ const FormContent = ({ onReset }) => {
 
         }}
         show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
-        delay={3000}
+        delay={300000}
         autohide
         style={{
           position: 'fixed',
-          top: '20px',
-          right: '20px',
+          top: '50%', // Adjust the top position
+          left: '50%', // Adjust the left position
+          transform: 'translate(-50%, -50%)', // Center the toast using transform
           minWidth: '200px',
+          zIndex: 10000, // Ensure the Toast is above the backdrop
         }}
       >
-        <Toast.Header closeButton={false}>
+        <Toast.Header closeButton={true}>
           {/* Set the toast title/header based on the type of message */}
           <strong className="me-auto">{passwordError ? 'Error' : 'Message'}</strong>
-        </Toast.Header>
+        </Toast.Header >
         <Toast.Body>
           {/* Display the appropriate message */}
           {passwordError ? passwordError : registrationMessage}

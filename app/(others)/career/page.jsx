@@ -1,22 +1,18 @@
 import dynamic from "next/dynamic";
 
-import RegisterForm from "@/components/pages-menu/register";
-import Register from "@/components/common/form/register/Register";
+import Career from "@/components/pages-menu/career";
 
 export const metadata = {
-  title: 'Register || Future Fit International Job Portal',
+  title: 'Career | Future Fit International Job Portal',
   description:
     'Future Fit International Job Portal',
   
 }
 
-
-
 const index = () => {
   return (
     <>
-      
-      <Register />
+      <Career />
     </>
   );
 };
