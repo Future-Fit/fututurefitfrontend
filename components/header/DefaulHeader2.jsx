@@ -1,5 +1,4 @@
 'use client'
-
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import HeaderNavContent from "./HeaderNavContent";
@@ -42,7 +41,7 @@ const DefaulHeader2 = () => {
 
       // Update header style based on scroll
       const updatedHeaderStyle = {
-        backgroundColor: scrolled ? '#3B578E' : '#3B578E',
+        backgroundColor: scrolled ? ColorConfig.PrimaryColor : ColorConfig.PrimaryColor,
         boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
       };
       setHeaderStyle(updatedHeaderStyle);
@@ -152,8 +151,8 @@ const DefaulHeader2 = () => {
                   aria-expanded="false"
                   style={{
                     position: 'relative',
-                    backgroundColor: '#3B578E',
-                    borderColor: '#3B578E',
+                    backgroundColor: ColorConfig.PrimaryColor,
+                    borderColor: ColorConfig.PrimaryColor,
                     backgroundImage: 'none',
                     boxShadow: 'none',
                     borderRadius: '5px'

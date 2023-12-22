@@ -11,6 +11,7 @@ import axios from "axios";
 
 
 import { usePathname } from "next/navigation";
+import ColorConfig from "@/Color.config";
 
 const DashboardCandidatesHeader = () => {
     const [navbar, setNavbar] = useState(false);
@@ -50,7 +51,7 @@ const DashboardCandidatesHeader = () => {
     };
 
     const [headerStyle, setHeaderStyle] = useState({
-        backgroundColor: '#3B578E',
+        backgroundColor: ColorConfig.PrimaryColor,
         boxShadow: 'none',
     });
 
@@ -61,7 +62,7 @@ const DashboardCandidatesHeader = () => {
 
             // Update header style based on scroll
             const updatedHeaderStyle = {
-                backgroundColor: scrolled ? '#3B578E' : '#3B578E',
+                backgroundColor: scrolled ? ColorConfig.PrimaryColor : ColorConfig.PrimaryColor,
                 boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
             };
             setHeaderStyle(updatedHeaderStyle);
@@ -183,8 +184,8 @@ const DashboardCandidatesHeader = () => {
                             aria-expanded="false"
                             style={{
                                 position: 'relative',
-                                backgroundColor: '#3B578E',
-                                borderColor: '#3B578E',
+                                backgroundColor: ColorConfig.PrimaryColor,
+                                borderColor: ColorConfig.PrimaryColor,
                                 backgroundImage: 'none',
                                 boxShadow: 'none',
                                 borderRadius: '5px',

@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import CallToActionSearch from "../call-to-action/CallToActionSearch";
 import WordCloudSection from "../block/WordCloudSection";
 
-
+import ColorConfig from "@/Color.config";
 
 const index = () => {
 
@@ -66,7 +66,7 @@ const index = () => {
       {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
 
 
-      <section className="layout-pt-10 layout-pb-30" style={{ background: '#3B578E' }}>
+      <section className="layout-pt-10 layout-pb-30" style={{ background: ColorConfig.PrimaryColor }}>
         <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
           <div className="sec-title text-center" style={{ color: '#fff' }}>
             <h2 style={{ color: '#fff' }}>Our Services</h2>
@@ -114,7 +114,7 @@ const index = () => {
 
       {/* <AppSectionAbout /> */}
 
-      <section className="clients-section-two alternate" style={{ paddingTop: '20px', paddingBottom: '20px', backgroundColor: '#3B578E' }}>
+      <section className="clients-section-two alternate" style={{ paddingTop: '20px', paddingBottom: '20px', backgroundColor: ColorConfig.PrimaryColor }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
           <h2 style={{ color: '#FFF', paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bolder' }}>Partners We Work With</h2>
 

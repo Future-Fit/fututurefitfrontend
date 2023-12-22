@@ -5,6 +5,7 @@ import MobileSidebar from "./mobile-sidebar";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import ColorConfig from "@/Color.config";
 const MobileMenu = () => {
   const [navbar, setNavbar] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -35,7 +36,7 @@ const MobileMenu = () => {
   };
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: '#3B578E',
+    backgroundColor: ColorConfig.PrimaryColor,
     boxShadow: 'none',
     position: 'fixed',
     zIndex: 999,
@@ -76,7 +77,7 @@ const MobileMenu = () => {
       // This will check if the user has scrolled more than 10px
       const scrolled = window.scrollY > 10;
       setHeaderStyle({
-        backgroundColor: '#3B578E',
+        backgroundColor: ColorConfig.PrimaryColor,
         boxShadow: scrolled ? '0 2px 6px rgba(0, 0, 0, 0.5)' : 'none',
         position: 'fixed',
         zIndex: 999,
@@ -219,8 +220,8 @@ const MobileMenu = () => {
                 aria-expanded="false"
                 style={{
                   position: 'relative',
-                  backgroundColor: '#3B578E',
-                  borderColor: '#3B578E',
+                  backgroundColor: ColorConfig.PrimaryColor,
+                  borderColor: ColorConfig.PrimaryColor,
                   backgroundImage: 'none',
                   boxShadow: 'none',
                   borderRadius: '5px',

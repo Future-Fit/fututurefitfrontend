@@ -9,6 +9,7 @@ import { isActiveLink } from "../../utils/linkActiveChecker";
 import { usePathname } from "next/navigation";
 import { clearSession } from "../common/form/login/sessionHandler";
 import axios from "axios";
+import ColorConfig from "@/Color.config";
 
 
 const DashboardHeader = () => {
@@ -45,7 +46,7 @@ const DashboardHeader = () => {
         setHoveredItemStyle({});
     };
     const [headerStyle, setHeaderStyle] = useState({
-        backgroundColor: '#3B578E',
+        backgroundColor: ColorConfig.PrimaryColor,
         boxShadow: 'none',
     });
 
@@ -56,7 +57,7 @@ const DashboardHeader = () => {
 
             // Update header style based on scroll
             const updatedHeaderStyle = {
-                backgroundColor: scrolled ? '#3B578E' : '#3B578E',
+                backgroundColor: scrolled ? ColorConfig.PrimaryColor : ColorConfig.PrimaryColor,
                 boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
             };
             setHeaderStyle(updatedHeaderStyle);
@@ -179,8 +180,8 @@ const DashboardHeader = () => {
                             aria-expanded="false"
                             style={{
                                 position: 'relative',
-                                backgroundColor: '#3B578E',
-                                borderColor: '#3B578E',
+                                backgroundColor: ColorConfig.PrimaryColor,
+                                borderColor: ColorConfig.PrimaryColor,
                                 backgroundImage: 'none',
                                 boxShadow: 'none',
                                 borderRadius: '5px',

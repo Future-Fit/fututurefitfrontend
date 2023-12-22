@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import HeaderNavContent from "./HeaderNavContent";
 import Image from "next/image";
-
+import ColorConfig from "@/Color.config";
 const DefaulHeader = () => {
   const [navbar, setNavbar] = useState(false);
 
@@ -19,7 +19,7 @@ const DefaulHeader = () => {
 
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: '#3B578E',
+    backgroundColor: ColorConfig.PrimaryColor,
     boxShadow: 'none',
   });
 
@@ -30,7 +30,7 @@ const DefaulHeader = () => {
 
       // Update header style based on scroll
       const updatedHeaderStyle = {
-        backgroundColor: scrolled ? '#3B578E' : '#3B578E',
+        backgroundColor: scrolled ? ColorConfig.PrimaryColor : ColorConfig.PrimaryColor,
         boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
       };
       setHeaderStyle(updatedHeaderStyle);

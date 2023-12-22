@@ -4,6 +4,7 @@ import SearchForm3 from "../common/job-search/SearchForm3";
 import JobCategorie4 from "../job-categories/JobCategorie4";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import ColorConfig from "@/Color.config";
 
 const CallToActionSearch = () => {
 
@@ -30,7 +31,7 @@ const CallToActionSearch = () => {
     <section
       className="call-to-action-two"
       // style={{ backgroundImage: "url(/images/background/1.jpg)" }}
-      style={{ backgroundColor: "#3B578E" }}
+      style={{ backgroundColor: ColorConfig.PrimaryColor }}
     >
       <div className="auto-container" data-aos="fade-up">
         <h4 style={{ color: "#fff", paddingBottom: '10px'}}> What Are You Interested In? </h4>
