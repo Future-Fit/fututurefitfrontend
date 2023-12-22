@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import HeaderNavContent from "./HeaderNavContent";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+import ColorConfig from "@/Color.config";
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
   const [showModal, setShowModal] = useState(false); 
@@ -31,7 +31,7 @@ const DefaulHeader2 = () => {
   }, []);
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: '#3B578E',
+    backgroundColor: ColorConfig.PrimaryColor,
     boxShadow: 'none',
   });
 
