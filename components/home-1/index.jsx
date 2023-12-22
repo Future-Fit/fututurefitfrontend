@@ -47,7 +47,7 @@ const index = () => {
 
       <CallToActionSearch />
 
-      <section className="" style={{ background: '#f5f7fc', paddingTop: '20px', paddingBottom: '20px' }}>
+      <section className="" style={{ background: '#f5f7fc'}}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
@@ -89,7 +89,7 @@ const index = () => {
       </section>
 
       <section className="job-section-two">
-        <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
+        <div className="auto-container">
           <div className="sec-title text-center">
             <h2 >Trending Job Opportunities</h2>
             {/* <div className="text">
@@ -114,7 +114,7 @@ const index = () => {
 
       {/* <AppSectionAbout /> */}
 
-      <section className="clients-section-two alternate" style={{ paddingTop: '20px', paddingBottom: '20px', backgroundColor: ColorConfig.PrimaryColor }}>
+      <section className="clients-section-two alternate" style={{backgroundColor: ColorConfig.PrimaryColor }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
           <h2 style={{ color: '#FFF', paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bolder' }}>Partners We Work With</h2>
 

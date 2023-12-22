@@ -145,10 +145,8 @@ const DashboardCandidatesHeader = () => {
                                     alt="avatar"
                                     className="thumb"
                                     src="/images/user-flat.svg"
-                                    // src="/images/logo-no-background.png"
                                     width={70}
                                     height={100}
-                                    color="#fff"
                                 />
                                 <span style={{ color: '#fff' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>
