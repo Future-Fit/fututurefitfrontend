@@ -82,13 +82,13 @@ const FormContent = ({ onReset }) => {
               }),
             });
             console.log("Verification email sent successfully!");
-            setRegistrationMessage("Verification email sent successfully!, Please Check Your Email")
+            setRegistrationMessage("Verification email sent successfully! Please check your email.")
           } catch (error) {
             console.error("Failed to send verification email:", error);
           }
 
         } else {
-          setRegistrationMessage(responseData.message || "Registration failed");
+          setRegistrationMessage(responseData.message || "Registration failed.");
           resetForm();
         }
       } catch (error) {
@@ -196,8 +196,37 @@ const FormContent = ({ onReset }) => {
           Submit
         </button>
       </div>
-
       <Toast
+        onClose={() => {
+          setFormData('');
+          setPasswordError('');
+          setRegistrationMessage('');
+        }}
+        show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
+        delay={900000}
+        autohide
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          minWidth: '200px',
+          zIndex: 10000,
+        }}
+      >
+        <Toast.Header closeButton={true} style={{ fontSize: '15px' }}>
+          <strong className="me-auto" style={{ fontSize: '20px' }}>
+            {passwordError ? 'Error' : 'Message'}
+          </strong>
+          {/* Increased font size for the title */}
+        </Toast.Header>
+        <Toast.Body style={{ fontSize: '18px' }}>
+          {passwordError ? passwordError : registrationMessage}
+          {/* Increased font size for the body */}
+        </Toast.Body>
+      </Toast>
+
+      {/* <Toast
         onClose={() => {
           setFormData('')
           setPasswordError('')
@@ -205,7 +234,7 @@ const FormContent = ({ onReset }) => {
 
         }}
         show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
-        delay={300000}
+        delay={900000}
         autohide
         style={{
           position: 'fixed',
@@ -216,15 +245,13 @@ const FormContent = ({ onReset }) => {
           zIndex: 10000, // Ensure the Toast is above the backdrop
         }}
       >
-        <Toast.Header closeButton={true}>
-          {/* Set the toast title/header based on the type of message */}
+        <Toast.Header closeButton={true} style={{fontSize: '15'}}>
           <strong className="me-auto">{passwordError ? 'Error' : 'Message'}</strong>
         </Toast.Header >
         <Toast.Body>
-          {/* Display the appropriate message */}
           {passwordError ? passwordError : registrationMessage}
         </Toast.Body>
-      </Toast>
+      </Toast> */}
     </form>
   );
 };

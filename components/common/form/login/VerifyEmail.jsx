@@ -10,43 +10,53 @@ import FooterDefault from "../../../footer/common-footer";
 const VerifyEmail = ({ token }) => {
     const router = useRouter();
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true); // New loading state
     const [verifyInfo, setVerifyInfo] = useState(null);
 
-    console.log("Token:", token); // Add this line to debug
-
-    const verifyEmail = async (e) => {
+    const verifyEmail = async () => {
         try {
             const response = await axios.post(`https://api.futurefitinternational.com/auth/verifyEmail/${token}`);
             setVerifyInfo(response.data);
             console.log('Email Verified:', response.data);
-            router.push('/login');
         } catch (error) {
-            // Handle errors
-            setError('Token Expired.');
+            setError('The verification link we sent you has expired; please sign up again.');
+        } finally {
+            setLoading(false); // Set loading to false once verification completes (either success or error)
         }
     }
 
     useEffect(() => {
-        verifyEmail(); // Trigger verification on component mount
+        verifyEmail();
     }, [token]);
+
     return (
-        <div className="page-wrapper dashboard">
-            <span className="header-span"></span>
-
-            {/* <!-- Header Span for hight --> */}
-
+        <div className="" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <LoginPopup />
-            {/* End Login Popup Modal */}
-
             <DefaulHeader2 />
-            {/* End Header */}
-
             <MobileMenu />
 
-            <div className="page-wrapper dashboard">
-            {/* ... Other components and content */}
-            <p style={{ color: 'green', marginTop: '30px' }}>{error ? error : 'Thank You, Email Verified'}</p>
-        </div>
+            <div style={{ marginTop: '120px', textAlign: 'center' }}>
+                {loading ? (
+                    <p>Loading...</p>
+                ) : error ? (
+                    <p style={{ color: 'red' }}>{error}</p>
+                ) : (
+                    <>
+                        <p style={{ color: 'green' }}>Thank you! Your email is verified. Please sign in using the link below.</p>
+                        <div className="form-group" style={{ paddingTop: '40px' }}>
+                            <button
+                                className="theme-btn btn-style-one"
+                                type="submit"
+                                name="log-in"
+                                onClick={() => router.push('/login')}
+                            >
+                                Sign In
+                            </button>
+                        </div>
+                    </>
+                )}
+            </div>
+
             {/* <FooterDefault /> */}
         </div>
     );

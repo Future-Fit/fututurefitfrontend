@@ -38,7 +38,7 @@ const index = () => {
             }}
           >
             <section className="banner-section-ten">
-              <HeroSliderGallery />
+              {/* <HeroSliderGallery /> */}
 
               <div className="auto-container" style={{ height: '60vh' }}>
                 <div className="cotnent-box">
@@ -78,7 +78,7 @@ const index = () => {
             }}
           >
             <section className="banner-section-ten">
-              <HeroSliderGallery />
+              {/* <HeroSliderGallery /> */}
 
               <div className="auto-container" style={{ height: '60vh' }}>
                 <div className="cotnent-box">

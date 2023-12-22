@@ -21,7 +21,7 @@ const ContactForm = () => {
     try {
       const response = await axios.post(`${DefaultConfig.url}/message`, data, { headers: { "Content-Type": "application/json" } });
       if (response.status == 201) {
-        if (confirm("Thank you for reaching us, we will reply to you in the meantime")) {
+        if (confirm("Thank you for reaching us; we will reply to you promptly.")) {
           router.push("/");
         }
       }

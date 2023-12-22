@@ -254,6 +254,30 @@ const FormContent2 = ({ onReset }) => {
           setError('');
         }}
         show={Boolean(error)}
+        delay={900000}
+        autohide
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          minWidth: '200px',
+          zIndex: 10000,
+        }}
+      >
+        <Toast.Header closeButton={true}>
+          <strong className="me-auto" style={{ color: 'red', fontSize: '20px' }}>Error</strong>
+          {/* Increased font size for the title */}
+        </Toast.Header>
+        <Toast.Body style={{ backgroundColor: 'rgba(255, 0, 0, 0.1)', color: 'red', fontSize: '18px' }}>{error}</Toast.Body>
+        {/* Increased font size for the body */}
+      </Toast>
+
+      {/* <Toast
+        onClose={() => {
+          setError('');
+        }}
+        show={Boolean(error)}
         delay={180000}
         autohide
         style={{
@@ -269,7 +293,7 @@ const FormContent2 = ({ onReset }) => {
           <strong className="me-auto">Error</strong>
         </Toast.Header>
         <Toast.Body>{error}</Toast.Body>
-      </Toast>
+      </Toast> */}
 
       {/* End bottom-box LoginWithSocial */}
     </div>

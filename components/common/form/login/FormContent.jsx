@@ -120,21 +120,21 @@ const FormContent = ({ onReset }) => {
             });
 
             if (verificationResponse.ok) {
-              setError("Since your email is not verfified, we have sent you verification link. Please check your email. Thank you");
+              setError("Your email is not verified. Please check your email and click on the verification link. Thank you.");
             } else {
-              setError("Failed to send verification link");
+              setError("Failed to send verification link.");
             }
           } catch (error) {
-            setError("Failed to send verification link");
+            setError("Failed to send verification link.");
             console.error("Error sending verification link:", error);
           }
         } else {
-          setError(data.message || "Login failed");
+          setError(data.message || "Login failed.");
         }
       }
     } catch (error) {
       console.error("What is the error here", error); // Log the specific error for debugging
-      setError("An error occurred while logging in");
+      setError("An error occurred while logging in.");
     }
   };
 
@@ -189,7 +189,7 @@ const FormContent = ({ onReset }) => {
 
         <div className="form-group">
           <div className="field-outer">
-            <div className="input-group checkboxes square">
+            <div className="input-group checkboxes square" style={{ width: '20px' }}>
               <input
                 type="checkbox"
                 name="remember-me"
@@ -261,21 +261,23 @@ const FormContent = ({ onReset }) => {
           setError('');
         }}
         show={Boolean(error)}
-        delay={180000}
+        delay={900000}
         autohide
         style={{
           position: 'fixed',
-          top: '50%', // Adjust the top position
-          left: '50%', // Adjust the left position
-          transform: 'translate(-50%, -50%)', // Center the toast using transform
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
           minWidth: '200px',
-          zIndex: 10000, // Ensure the Toast is above the backdrop
+          zIndex: 10000,
         }}
       >
         <Toast.Header closeButton={true}>
-          <strong className="me-auto">Error</strong>
+          <strong className="me-auto" style={{ color: 'red', fontSize: '20px' }}>Error</strong>
+          {/* Increased font size for the title */}
         </Toast.Header>
-        <Toast.Body>{error}</Toast.Body>
+        <Toast.Body style={{ backgroundColor: 'rgba(255, 0, 0, 0.1)', color: 'red', fontSize: '18px' }}>{error}</Toast.Body>
+        {/* Increased font size for the body */}
       </Toast>
     </div>
   );

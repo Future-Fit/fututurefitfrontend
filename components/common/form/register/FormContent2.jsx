@@ -41,7 +41,7 @@ const FormContent2 = () => {
       phone: "",
       email: "",
       password: "",
-      confirmPassword : ""
+      confirmPassword: ""
     });
     setPasswordError("");
     setLogoImg("");
@@ -84,7 +84,7 @@ const FormContent2 = () => {
           resetForm()
 
           try {
-          
+
             await fetch("https://api.futurefitinternational.com/auth/verify-email", {
               method: "POST",
               headers: {
@@ -199,46 +199,33 @@ const FormContent2 = () => {
 
       <Toast
         onClose={() => {
-          setFormData('')
-          setPasswordError('')
-          setRegistrationMessage('')
-          
-          // Handle closing the toast here if needed
+          setFormData('');
+          setPasswordError('');
+          setRegistrationMessage('');
         }}
         show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
-        delay={300000}
+        delay={900000}
         autohide
         style={{
           position: 'fixed',
-          top: '50%', // Adjust the top position
-          left: '50%', // Adjust the left position
-          transform: 'translate(-50%, -50%)', // Center the toast using transform
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
           minWidth: '200px',
-          zIndex: 10000, // Ensure the Toast is above the backdrop
+          zIndex: 10000,
         }}
       >
-        <Toast.Header closeButton={true}>
-          {/* Set the toast title/header based on the type of message */}
-          <strong className="me-auto">{passwordError ? 'Error' : 'Message'}</strong>
+        <Toast.Header closeButton={true} style={{ fontSize: '15px' }}>
+          <strong className="me-auto" style={{ fontSize: '20px' }}>
+            {passwordError ? 'Error' : 'Message'}
+          </strong>
+          {/* Increased font size for the title */}
         </Toast.Header>
-        <Toast.Body>
-          {/* Display the appropriate message */}
+        <Toast.Body style={{ fontSize: '18px' }}>
           {passwordError ? passwordError : registrationMessage}
+          {/* Increased font size for the body */}
         </Toast.Body>
       </Toast>
-
-
-      {/* {registrationMessage && (
-        <div className={registrationMessage === "Registration successful!" ? "success-message" : "error-message"}>
-          {registrationMessage}
-          {userData && registrationMessage === "Registration successful!" && (
-            <div>
-              <p>User ID: {userData.id}</p>
-              <p>Email: {userData.email}</p>
-            </div>
-          )}
-        </div>
-      )} */}
     </form>
   );
 };
