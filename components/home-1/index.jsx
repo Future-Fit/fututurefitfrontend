@@ -17,6 +17,7 @@ import CallToActionSearch from "../call-to-action/CallToActionSearch";
 import WordCloudSection from "../block/WordCloudSection";
 
 import ColorConfig from "@/Color.config";
+import CookiesPopup from "./CookiesPopup";
 
 const index = () => {
 
@@ -136,6 +137,7 @@ const index = () => {
 
 
       {/* <!-- End Job Section --> */}
+      <CookiesPopup/>
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}
