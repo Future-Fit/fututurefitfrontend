@@ -1,125 +1,177 @@
-
-'use client'
-
-import Select from "react-select";
-
+// Import necessary libraries and modules
+"use client"
+import { useEffect, useState } from 'react';
+import Select from 'react-select';
+import apiConfig from "@/app.config";
+import axios from 'axios';
 const FormInfoBox = () => {
-    const catOptions = [
-        { value: "Banking", label: "Banking" },
-        { value: "Digital & Creative", label: "Digital & Creative" },
-        { value: "Retail", label: "Retail" },
-        { value: "Human Resources", label: "Human Resources" },
-        { value: "Managemnet", label: "Managemnet" },
-        { value: "Accounting & Finance", label: "Accounting & Finance" },
-        { value: "Digital", label: "Digital" },
-        { value: "Creative Art", label: "Creative Art" },
-    ];
+  // State to manage form data
+  const [businessStream,setBusinessStream]  = useState([]);
+  const fetchBusinessStream  = async ()=>{
+  try{
+    const response = await axios.get(`${apiConfig.url}/business-streams`);
+    console.log(response.status,response.data.result,"check it ");
+    if(response.status == 200){
+        var obj  = [];
+        console.log("here");
+        for(let i=0; i < response.data.result.length; i++){
 
-    return (
-        <form className="default-form">
-            <div className="row">
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Company name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Invisionn"
-                        required
-                    />
-                </div>
+            obj.push({value:response.data.result[i].id,label:response.data.result[i].name});
+        }
+        console.log(obj,"check obj");
+        setBusinessStream(obj);
+        console.log(businessStream);
+    }
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Email address</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="ib-themes"
-                        required
-                    />
-                </div>
+  }catch(ex){
+    console.error(ex);
+  }
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Phone</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="0 123 456 7890"
-                        required
-                    />
-                </div>
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Website</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="www.invision.com"
-                        required
-                    />
-                </div>
+  }
+  useEffect(()=>{
+    fetchBusinessStream();
+  },[])
+  const [formData, setFormData] = useState({
+    company_name: '',
+    profile_description: '',
+    business_stream_id: null,
+    establishment_date: '',
+    company_website_url: '',
+  });
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Est. Since</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="06.04.2020"
-                        required
-                    />
-                </div>
+  // Options for the business stream select
+  
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Team Size</label>
-                    <select className="chosen-single form-select" required>
-                        <option>50 - 100</option>
-                        <option>100 - 150</option>
-                        <option>200 - 250</option>
-                        <option>300 - 350</option>
-                        <option>500 - 1000</option>
-                    </select>
-                </div>
+  // Handler for form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-                {/* <!-- Search Select --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Multiple Select boxes </label>
-                    <Select
-                        defaultValue={[catOptions[2]]}
-                        isMulti
-                        name="colors"
-                        options={catOptions}
-                        className="basic-multi-select"
-                        classNamePrefix="select"
-                    />
-                </div>
+  // Handler for business stream select changes
+  const handleBusinessStreamChange = (selectedOption) => {
+    setFormData({
+      ...formData,
+      business_stream_id: selectedOption ? selectedOption.value : null,
+    });
+  };
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Allow In Search & Listing</label>
-                    <select className="chosen-single form-select">
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
-                </div>
+  // Handler for form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-                {/* <!-- About Company --> */}
-                <div className="form-group col-lg-12 col-md-12">
-                    <label>About Company</label>
-                    <textarea placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
-                </div>
+    try {
+    const accessToken = localStorage.getItem("accessToken");
+      console.log(accessToken,"token")
+      // Make a POST request to the API endpoint
+      const response = await fetch(`${apiConfig.url}/company`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization:`Bearer ${accessToken}`
+        },
+        body: JSON.stringify(formData),
+      });
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <button className="theme-btn btn-style-one">Save</button>
-                </div>
-            </div>
-        </form>
-    );
+      // Check if the request was successful
+      if (response.ok) {
+        console.log('Form submitted successfully');
+        alert("company added successfully")
+        // You may perform additional actions after successful submission
+      } else {
+        console.error('Failed to submit form');
+        alert(response.data);
+        // Handle error cases
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle network or other errors
+    }
+  };
+
+  return (
+    <form className="default-form" onSubmit={handleSubmit}>
+      <div className="row">
+        {/* Input - Company Name */}
+        <div className="form-group col-lg-6 col-md-12">
+          <label>Company Name</label>
+          <input
+            type="text"
+            name="company_name"
+            placeholder="Invisionn"
+            value={formData.company_name}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        {/* Input - Profile Description */}
+       
+
+        {/* Select - Business Stream */}
+        <div className="form-group col-lg-6 col-md-12">
+          <label>Business Stream</label>
+          <Select
+            isClearable
+            name="business_stream"
+            options={businessStream}
+            value={businessStream.find(
+              (option) => option.value === formData.business_stream_id
+            )}
+            onChange={handleBusinessStreamChange}
+          />
+        </div>
+
+        {/* Input - Establishment Date */}
+        <div className="form-group col-lg-6 col-md-12">
+          <label>Establishment Date</label>
+          <input
+            type="date"
+            name="establishment_date"
+            value={formData.establishment_date}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        {/* Input - Company Website URL */}
+        <div className="form-group col-lg-6 col-md-12">
+          <label>Company Website URL</label>
+          <input
+            type="text"
+            name="company_website_url"
+            placeholder="www.invision.com"
+            value={formData.company_website_url}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        {/* Submit Button */}
+       
+   
+      </div>
+      <div className="form-group col-lg-12 col-md-12">
+          <label>Profile Description</label>
+          <textarea
+            placeholder="Spent several years working on..."
+            name="profile_description"
+            value={formData.profile_description}
+            onChange={handleInputChange}
+            required
+          ></textarea>
+        </div>
+        <div className="form-group col-lg-6 col-md-12">
+          <button className="theme-btn btn-style-one" type="submit">
+            Save
+          </button>
+        </div>
+    </form>
+  );
 };
 
 export default FormInfoBox;
