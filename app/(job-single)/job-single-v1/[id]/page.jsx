@@ -15,9 +15,9 @@ import JobDetailsDescriptions from "@/components/job-single-pages/shared-compone
 import ApplyJobModalContent from "@/components/job-single-pages/shared-components/ApplyJobModalContent";
 import Image from "next/image";
 import Footer from "@/components/home-1/Footer";
-import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
 import DashboardCandidatesHeader from "../../../../components/header/DashboardCandidatesHeader"
-import DashboardHeader from "../../../../components/header/DashboardHeader";
+import DashboardHeader from "../../../../components/header/DashboardEmployerHeader";
 import { useState } from "react";
 
 

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import LoginPopup from './LoginPopup';
 import MobileMenu from '@/components/header/MobileMenu';
-import DefaulHeader2 from '@/components/header/DefaulHeader2';
+import DefaulHeader2 from '@/components/header/DefaultHeader';
 import FooterDefault from "../../../footer/common-footer";
 
 const VerifyEmail = ({ token }) => {

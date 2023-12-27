@@ -2,12 +2,12 @@
 import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import Testimonial2 from "../../testimonial/Testimonial2";
-import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
 import AppSectionAbout from "@/components/app-section/AppSectionAbout";
 import CallToAction from "@/components/call-to-action/CallToAction";
 import FooterDefault from "../../../components/footer/common-footer";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
-import DashboardHeader from "../../header/DashboardHeader";
+import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 import AppSection from "@/components/app-section/AppSection";
 import Block7 from "@/components/block/Block7";

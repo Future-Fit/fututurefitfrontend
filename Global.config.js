@@ -19,7 +19,7 @@ const GlobalConfig = {
     BtnClr: "#DB2323", //"#b45150", //Rose Vale
 
     // Define font colors, size and family used
-    Fnt1Fam: "",
+    Fnt1Fam: "Courier New, Courier, monospace",
     Fnt1Clr: "",
     Fnt1Siz: "",
     Fnt2Fam: "",

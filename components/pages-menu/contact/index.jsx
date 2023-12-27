@@ -1,15 +1,13 @@
 "use client"
-import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import FooterDefault from "../../footer/common-footer";
-import DefaulHeader from "../../header/DefaulHeader";
 import MobileMenu from "../../header/MobileMenu";
 import Address from "./Address";
 import ContactForm from "./ContactForm";
 import MapBox from "./MapBox";
-import Footer from "@/components/home-1/Footer";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
-import DashboardHeader from "../../header/DashboardHeader";
+import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 const index = () => {
 

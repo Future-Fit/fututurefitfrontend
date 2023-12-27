@@ -5,9 +5,9 @@ import FooterDefault from "../../footer/common-footer";
 import MobileMenu from "../../header/MobileMenu";
 import BlogPagination from "../blog-sidebar/BlogPagination";
 import BlogSidebar from "../blog-sidebar";
-import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
-import DashboardHeader from "../../header/DashboardHeader";
+import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 
 

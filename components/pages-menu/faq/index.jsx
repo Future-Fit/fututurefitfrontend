@@ -1,14 +1,12 @@
 "use client"
-import DefaulHeader2 from "@/components/header/DefaulHeader2";
-import Breadcrumb from "../../common/Breadcrumb";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import FooterDefault from "../../footer/common-footer";
-import DefaulHeader from "../../header/DefaulHeader";
 import MobileMenu from "../../header/MobileMenu";
 import FaqChild from "./FaqChild";
 import { useEffect, useState } from "react";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
-import DashboardHeader from "@/components/header/DashboardHeader";
+import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 
 const index = () => {
 

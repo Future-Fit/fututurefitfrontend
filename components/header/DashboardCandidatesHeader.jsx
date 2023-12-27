@@ -117,7 +117,7 @@ const DashboardCandidatesHeader = () => {
                                         alt="brand"
                                         src= {GlobalConfig.DskLog}
                                         width={70}
-                                        height={50}
+                                        height={70}
                                         priority
                                     />
                                 </Link>
@@ -144,8 +144,8 @@ const DashboardCandidatesHeader = () => {
                                     alt="avatar"
                                     className="thumb"
                                     src="/images/user-flat.svg"
-                                    width={70}
-                                    height={100}
+                                    width={30}
+                                    height={30}
                                 />
                                 <span style={{ color: '#fff' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>

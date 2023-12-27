@@ -1,6 +1,9 @@
 import CopyrightFooter from "./CopyrightFooter";
 import FooterContent from "./FooterContent";
 import Social from "../../footer/common-footer/Social";
+import GlobalConfig from "@/Global.config";
+import Link from "next/link";
+import Image from "next/image";
 
 const Index = () => {
   const footerStyle = {
@@ -9,6 +12,19 @@ const Index = () => {
 
   return (
     <footer className="main-footer" style={footerStyle}>
+      {/* <div className="logo-box" style={{ alignItems: "center" }}>
+        <div className="logo">
+          <Link href="/" className="noSticky">
+            <Image
+              width={30}
+              height={30}
+              src={GlobalConfig.DskLog}
+              alt="Footer Logo"
+              title="brand"
+            />
+          </Link>
+        </div>
+      </div> */}
       <div className="auto-container">
         {/* Widgets Section */}
         <div className="widgets-section" data-aos="fade-up">
@@ -27,7 +43,7 @@ const Index = () => {
                     <div className="d-flex flex-wrap" style={{ width: '100%', gap: '20px' }}>
                       <div style={{ flexGrow: 1, }}>
                         <p className="phone-num">
-                          <span> <img src="/images/canada.png" width={40} height={20} alt="Canada"/></span>
+                          <span> <img src="/images/canada.png" width={40} height={20} alt="Canada" /></span>
                           <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
@@ -44,7 +60,7 @@ const Index = () => {
                       </div>
                       <div className="flex-fill"  >
                         <p className="phone-num">
-                        <span> <img src="/images/ethiopia.png" width={50} height={20} alt="Ethiopia"/></span>
+                          <span> <img src="/images/ethiopia.png" width={50} height={20} alt="Ethiopia" /></span>
 
                           {/* <span>Ethiopia Office</span> */}
                           <a href="tel: +251933859295">+251933859295</a>

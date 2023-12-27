@@ -1,7 +1,7 @@
 "use client"
 
 import Hero10 from "../hero/hero-10"
-import DefaulHeader2 from "../header/DefaulHeader2";
+import DefaulHeader2 from "../header/DefaultHeader";
 import JobFeatured4 from "../job-featured/JobFeatured4";
 import LoginPopup from "../common/form/login/LoginPopup";
 import MobileMenu from "../header/MobileMenu";
@@ -11,7 +11,7 @@ import Block8 from "../block/Block8";
 import Block6 from "../block/Block6";
 import Partner2 from "../common/partner/Partner2";
 import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
-import DashboardHeader from "../header/DashboardHeader";
+import DashboardHeader from "../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 import CallToActionSearch from "../call-to-action/CallToActionSearch";
 import WordCloudSection from "../block/WordCloudSection";

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import GlobalConfig from "@/Global.config";
+
 const MobileMenu = () => {
   const [navbar, setNavbar] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);

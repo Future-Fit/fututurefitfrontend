@@ -1,13 +1,13 @@
 "use client"
 import FooterDefault from "../../../components/footer/common-footer";
 import LoginPopup from "../../common/form/login/LoginPopup";
-import DefaulHeader2 from "../../header/DefaulHeader2";
+import DefaulHeader2 from "../../header/DefaultHeader";
 import MobileMenu from "../../header/MobileMenu";
 import FilterJobBox from "./FilterJobBox";
 import JobSearchForm from "./JobSearchForm";
 // import DashboardCandidatesHeader from "../../.. header/DashboardCandidatesHeader";
 import DashboardCandidatesHeader from "../../../components/header/DashboardCandidatesHeader"
-import DashboardHeader from "../../../components/header/DashboardHeader";
+import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 
 const index = () => {

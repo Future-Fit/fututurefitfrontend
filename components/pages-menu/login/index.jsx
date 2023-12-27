@@ -2,10 +2,10 @@
 import FormContent from "@/components/common/form/login/FormContent";
 import MobileMenu from "../../header/MobileMenu";
 import Header from "./Header";
-import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
 import LoginPopup from "@/components/common/form/login/LoginPopup";
 import { useEffect, useState } from "react";
-import DashboardHeader from "@/components/header/DashboardHeader";
+import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
 import FormContent2 from "@/components/common/form/login/FormContent2";
 

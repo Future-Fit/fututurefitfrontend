@@ -37,8 +37,8 @@ const Header = () => {
             <div className="logo">
               <Link href="/">
                 <Image
-                  width={50}
-                  height={50}
+                  width={70}
+                  height={70}
                   src= {GlobalConfig.DskLog}
                   alt="brand"
                 />

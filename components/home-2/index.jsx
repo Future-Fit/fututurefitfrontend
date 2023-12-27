@@ -7,7 +7,7 @@ import LoginPopup from "../common/form/login/LoginPopup";
 import Partner from "../common/partner/Partner";
 import FooterDefault from "../footer/common-footer";
 import Funfact from "../.fun-fact-counter/Funfact";
-import DefaulHeader2 from "../header/DefaulHeader2";
+import DefaulHeader2 from "../header/DefaultHeader";
 import MobileMenu from "../header/MobileMenu";
 import Hero1 from "../hero/hero-2";
 import JobCategorie1 from "../job-categories/JobCategorie1";
@@ -15,7 +15,7 @@ import JobFeatured1 from "../job-featured/JobFeatured1";
 import Testimonial from "../testimonial/Testimonial";
 import Header from "./Header";
 import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
-import DashboardHeader from "../header/DashboardHeader";
+import DashboardHeader from "../header/DashboardEmployerHeader";
 
 const index = () => {
   return (

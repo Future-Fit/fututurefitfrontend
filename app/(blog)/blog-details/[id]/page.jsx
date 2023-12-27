@@ -6,9 +6,9 @@ import MobileMenu from "@/components/header/MobileMenu";
 import DetailsContent from "@/components/blog-meu-pages/blog-details/details-content";
 import blogs from "@/data/blogs";
 import Image from "next/image";
-import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
 import DashboardCandidatesHeader from "../../../../components/header/DashboardCandidatesHeader";
-import DashboardHeader from "../../../../components/header/DashboardHeader";
+import DashboardHeader from "../../../../components/header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 
 

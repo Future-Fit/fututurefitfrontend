@@ -1,13 +1,12 @@
 "use client"
 
-import DefaulHeader2 from "@/components/header/DefaulHeader2";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import FooterDefault from "../../footer/common-footer";
-import DefaulHeader from "../../header/DefaulHeader";
 import MobileMenu from "../../header/MobileMenu";
 import TermsText from "./TermsText";
 import { useEffect, useState } from "react";
-import DashboardHeader from "@/components/header/DashboardHeader";
+import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import DashboardEmployerSidebar from "@/components/header/DashboardEmployerSidebar";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
 

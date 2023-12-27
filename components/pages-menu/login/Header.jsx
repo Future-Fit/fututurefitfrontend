@@ -33,8 +33,8 @@ const Header = () => {
               <div className="logo">
                 <Link href="/" className="noSticky">
                   <Image
-                    width={50}
-                    height={50}
+                    width={70}
+                    height={70}
                     src= {GlobalConfig.DskLog}
                     alt="logo"
                     title="brand"
@@ -42,8 +42,8 @@ const Header = () => {
                 </Link>
                 <Link href="/" className="isSticky">
                   <Image
-                    width={50}
-                    height={50}
+                    width={70}
+                    height={70}
                     src= {GlobalConfig.DskLog}
                     alt="logo"
                     title="brand"
