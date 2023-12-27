@@ -46,7 +46,7 @@ const index = () => {
 
       <Hero10 />
 
-      <CallToActionSearch />
+      {/* <CallToActionSearch /> */}
 
       <section className="" style={{ background: '#f5f7fc' }}>
         <div className="auto-container">

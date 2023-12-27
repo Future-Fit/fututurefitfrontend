@@ -99,6 +99,12 @@ const DefaulHeader2 = () => {
     }
   };
 
+  const [searchExpanded, setSearchExpanded] = useState(false);
+
+  const toggleSearch = () => {
+    setSearchExpanded(!searchExpanded);
+  };
+
   return (
     <header
     // dear sami add/remove the following next to fixed-header to add/remove the animation  "animated slideInDown" with out double quote
@@ -142,8 +148,34 @@ const DefaulHeader2 = () => {
                   Sign In / Sign Up
                 </a>
               {/* )} */}
-              <div className="dropdown">
 
+              {/* Search button */}
+              <div className="search-container d-flex align-items-center">
+              <button
+                className="theme-btn btn-style-six search-button"
+                onClick={toggleSearch}
+              >
+                <i className="fas fa-search"></i>
+              </button>
+
+              {/* Expandable input box */}
+              {searchExpanded && (
+                <div className="search-input">
+                  {/* Implement your expandable input box here */}
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    style={{
+                      borderRadius: '10px', // Border radius
+                      border: '1px solid #ccc', // Example border style
+                      padding: '5px', // Example padding
+                      outline: 'none'
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+              <div className="dropdown">
                 <button
                   className="btn btn-secondary dropdown-toggle"
                   type="button"
