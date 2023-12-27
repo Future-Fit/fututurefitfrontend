@@ -86,7 +86,6 @@ const ForgetPassword = () => {
               type="submit"
               name="log-in"
               disabled={isSubmitting}
-
             >
               Reset Password
             </button>
@@ -95,7 +94,7 @@ const ForgetPassword = () => {
         </form>
         {/* End form */}
 
-        {error && <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>{error}</div>}
+        {/* {error && <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>{error}</div>} */}
 
         {redirectTo && (
           <Link href={redirectTo}>

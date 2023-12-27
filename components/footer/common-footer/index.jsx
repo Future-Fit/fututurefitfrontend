@@ -30,13 +30,14 @@ const Index = () => {
                           <span> <img src="/images/canada.png" width={40} height={20} alt="Canada"/></span>
                           <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
                         </p>
-                        <div style={{ width: '100%', height: '100px', border: '1px solid #ccc', borderRadius: '5px', overflow: 'hidden' }}>
+                        <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.8564029194836!2d-75.67874502344903!3d45.432395935559754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0510f2885901%3A0x69f3a70b97e7173b!2s168%20Charlotte%20St%20%23404%2C%20Ottawa%2C%20ON%20K1N%208K6%2C%20Canada!5e0!3m2!1sen!2set!4v1701349204301!5m2!1sen!2set"
-                            width="100%"
+                            width="50%"
                             height="100%"
                             style={{ border: 0 }}
                             allowFullScreen=""
                             loading="lazy"
+                            borderRadius='5px'
                             referrerPolicy="no-referrer-when-downgrade">
                           </iframe>
                         </div>
@@ -48,15 +49,16 @@ const Index = () => {
                           {/* <span>Ethiopia Office</span> */}
                           <a href="tel: +251933859295">+251933859295</a>
                         </p>
-                        <div style={{ width: '100%', height: '100px', border: '1px solid #ccc', borderRadius: '5px', overflow: 'hidden' }}>
+                        <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
                           <iframe
                             title="Google Maps"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.868187001287!2d38.76538085767212!3d8.984274925153924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85901897bf21%3A0xe867617888de7526!2s242%20Building!5e0!3m2!1sen!2set!4v1701347211640!5m2!1sen!2set"
-                            width="100%"
+                            width="50%"
                             height="100%"
                             style={{ border: 0 }}
                             allowFullScreen=""
                             loading="lazy"
+                            borderRadius='5px'
                             referrerPolicy="no-referrer-when-downgrade"
                           ></iframe>
                         </div>

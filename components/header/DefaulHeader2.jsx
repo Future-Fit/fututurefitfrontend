@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import HeaderNavContent from "./HeaderNavContent";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import ColorConfig from "@/Color.config";
+import GlobalConfig from "@/Global.config";
+
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
   const [showModal, setShowModal] = useState(false); 
@@ -30,7 +31,7 @@ const DefaulHeader2 = () => {
   }, []);
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: ColorConfig.PrimaryColor,
+    backgroundColor: GlobalConfig.BgrClr,
     boxShadow: 'none',
   });
 
@@ -41,7 +42,7 @@ const DefaulHeader2 = () => {
 
       // Update header style based on scroll
       const updatedHeaderStyle = {
-        backgroundColor: scrolled ? ColorConfig.PrimaryColor : ColorConfig.PrimaryColor,
+        backgroundColor: scrolled ? GlobalConfig.BgrClr : GlobalConfig.BgrClr,
         boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
       };
       setHeaderStyle(updatedHeaderStyle);
@@ -116,7 +117,7 @@ const DefaulHeader2 = () => {
                   <Image
                     width={70}
                     height={70}
-                    src="/images/logo-no-background.png"
+                    src= {GlobalConfig.DskLog}
                     alt="Future Fit Logo"
                   />
                 </Link>
@@ -151,8 +152,8 @@ const DefaulHeader2 = () => {
                   aria-expanded="false"
                   style={{
                     position: 'relative',
-                    backgroundColor: ColorConfig.PrimaryColor,
-                    borderColor: ColorConfig.PrimaryColor,
+                    backgroundColor: GlobalConfig.BgrClr,
+                    borderColor: GlobalConfig.BgrClr,
                     backgroundImage: 'none',
                     boxShadow: 'none',
                     borderRadius: '5px'

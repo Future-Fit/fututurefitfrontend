@@ -5,7 +5,7 @@ import MobileSidebar from "./mobile-sidebar";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import ColorConfig from "@/Color.config";
+import GlobalConfig from "@/Global.config";
 const MobileMenu = () => {
   const [navbar, setNavbar] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -36,7 +36,7 @@ const MobileMenu = () => {
   };
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: ColorConfig.PrimaryColor,
+    backgroundColor: GlobalConfig.BgrClr,
     boxShadow: 'none',
     position: 'fixed',
     zIndex: 999,
@@ -77,7 +77,7 @@ const MobileMenu = () => {
       // This will check if the user has scrolled more than 10px
       const scrolled = window.scrollY > 10;
       setHeaderStyle({
-        backgroundColor: ColorConfig.PrimaryColor,
+        backgroundColor: GlobalConfig.BgrClr,
         boxShadow: scrolled ? '0 2px 6px rgba(0, 0, 0, 0.5)' : 'none',
         position: 'fixed',
         zIndex: 999,
@@ -166,8 +166,8 @@ const MobileMenu = () => {
                   <Image
                     width={50}
                     height={50}
-                    src="/images/logo-no-background.png"
-                    alt="FFI"
+                    src= {GlobalConfig.MobLog}
+                    alt="FFI Logo"
                   />
                 </Link>
               </div>
@@ -220,8 +220,8 @@ const MobileMenu = () => {
                 aria-expanded="false"
                 style={{
                   position: 'relative',
-                  backgroundColor: ColorConfig.PrimaryColor,
-                  borderColor: ColorConfig.PrimaryColor,
+                  backgroundColor: GlobalConfig.BgrClr,
+                  borderColor: GlobalConfig.BgrClr,
                   backgroundImage: 'none',
                   boxShadow: 'none',
                   borderRadius: '5px',

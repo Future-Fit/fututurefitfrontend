@@ -22,10 +22,10 @@ const SearchForm3 = () => {
         </div>
 
         {/* <!-- Form Group --> */}
-        <div className="form-group col-lg-3 col-md-12 col-sm-12 location">
+        {/* <div className="form-group col-lg-3 col-md-12 col-sm-12 location">
           <span className="icon flaticon-map-locator"></span>
           <input type="text" name="field_name" placeholder="Filter by City/Country" />
-        </div>
+        </div> */}
 
         {/* <!-- Form Group --> */}
         <div className="form-group col-lg-3 col-md-12 col-sm-12 category">

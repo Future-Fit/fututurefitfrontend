@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import CallToActionSearch from "../call-to-action/CallToActionSearch";
 import WordCloudSection from "../block/WordCloudSection";
 
-import ColorConfig from "@/Color.config";
+import GlobalConfig from "@/Global.config";
 import CookiesPopup from "./CookiesPopup";
 
 const index = () => {
@@ -48,7 +48,7 @@ const index = () => {
 
       <CallToActionSearch />
 
-      <section className="" style={{ background: '#f5f7fc'}}>
+      <section className="" style={{ background: '#f5f7fc' }}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
@@ -67,7 +67,7 @@ const index = () => {
       {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
 
 
-      <section className="layout-pt-10 layout-pb-30" style={{ background: ColorConfig.PrimaryColor }}>
+      <section className="layout-pt-10 layout-pb-30" style={{ background: GlobalConfig.BgrClr }}>
         <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
           <div className="sec-title text-center" style={{ color: '#fff' }}>
             <h2 style={{ color: '#fff' }}>Our Services</h2>
@@ -113,9 +113,18 @@ const index = () => {
         </div>
       </section>
 
+      <section className="">
+        <div className="auto-container">
+          <div className="sec-title text-center">
+            <h2 >Trending Job Opportunities</h2>
+          </div>
+          <WordCloudSection />
+        </div>
+      </section>
+
       {/* <AppSectionAbout /> */}
 
-      <section className="clients-section-two alternate" style={{backgroundColor: ColorConfig.PrimaryColor }}>
+      <section className="clients-section-two alternate" style={{ backgroundColor: GlobalConfig.BgrClr }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
           <h2 style={{ color: '#FFF', paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bolder' }}>Partners We Work With</h2>
 
@@ -126,18 +135,8 @@ const index = () => {
           </div>
         </div>
       </section>
-
-      <section className="">
-      <div className="auto-container">
-          <WordCloudSection/>
-        </div>
-      </section>
-
-
-
-
       {/* <!-- End Job Section --> */}
-      <CookiesPopup/>
+      <CookiesPopup />
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}

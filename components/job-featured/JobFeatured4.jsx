@@ -33,7 +33,7 @@ const JobFeatured4 = () => {
                 <Link
                   href="/job-list-v6"
                   // className="theme-btn btn-style-one bg-blue"
-                  style={{fontWeight:'bold', color:ColorConfig.PrimaryColor}}
+                  style={{fontWeight:'bold', color:GlobalConfig.BgrClr}}
                 >
                   <span className="btn-title">Apply</span>
                 </Link>

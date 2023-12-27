@@ -1,10 +1,10 @@
-import ColorConfig from "@/Color.config";
+import GlobalConfig from "@/Global.config";
 import Image from "next/image";
 import Link from "next/link";
 
 const AppSectionAbout = () => {
   return (
-    <div className="row" style={{backgroundColor:ColorConfig.PrimaryColor, borderRadius: '5px'}}>
+    <div className="row" style={{backgroundColor:GlobalConfig.BgrClr, borderRadius: '5px'}}>
       <div className="image-column col-lg-6 col-md-12 col-sm-12">
         <div className="bg-shape"></div>
         <figure className="image" data-aos="fade-right">

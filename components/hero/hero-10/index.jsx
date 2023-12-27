@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import HeroSliderGallery from "./HeroSliderGallery";
 import VideoPlayer from "@/components/app-section/VideoPlayer";
-import ColorConfig from "@/Color.config";
+import GlobalConfig from "@/Global.config";
 const index = () => {
   const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
@@ -26,7 +26,7 @@ const index = () => {
   return (
     isMobile ? (
 
-      <section className="app-section" style={{ background: ColorConfig.PrimaryColor, paddingTop: '30px', marginTop: '40px', paddingBottom: '0px', height: '80vh' }} >
+      <section className="app-section" style={{ background: GlobalConfig.BgrClr, paddingTop: '30px', marginTop: '40px', paddingBottom: '0px', height: '80vh' }} >
         <div className="auto-container" style={{ height: '85vh !important' }}>
           <div
             style={{
@@ -66,7 +66,7 @@ const index = () => {
         </div >
       </section >
     ) : (
-      <section className="app-section" style={{ background: ColorConfig.PrimaryColor, paddingTop: '40px', marginTop: '85px', paddingBottom: '0px', height: '80vh' }}>
+      <section className="app-section" style={{ background: GlobalConfig.BgrClr, paddingTop: '40px', marginTop: '85px', paddingBottom: '0px', height: '80vh' }}>
         <div className="auto-container" style={{ height: '85vh !important' }}>
           <div
             style={{

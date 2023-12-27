@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import GlobalConfig from "@/Global.config";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -34,7 +35,7 @@ const Header = () => {
                   <Image
                     width={50}
                     height={50}
-                    src="/images/logo-no-background.png"
+                    src= {GlobalConfig.DskLog}
                     alt="logo"
                     title="brand"
                   />
@@ -43,7 +44,7 @@ const Header = () => {
                   <Image
                     width={50}
                     height={50}
-                    src="/images/logo-no-background.png"
+                    src= {GlobalConfig.DskLog}
                     alt="logo"
                     title="brand"
                   />

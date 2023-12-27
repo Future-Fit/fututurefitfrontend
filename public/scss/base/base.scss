@@ -4,6 +4,9 @@
   --primary-2nd-color: #f9ab00;
   --primary-2nd-hover-bg-color: #e9a000;
   --buttons-main: #DB2323;
+  
+  //These global variables need to be defined here to be accessed in all .scss files
+  --BtnClr: #DB2323;
 }
 
 a {

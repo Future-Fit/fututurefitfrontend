@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import GlobalConfig from "@/Global.config";
 
 const SidebarHeader = () => {
   return (
     <div className="pro-header">
       <Link href="/">
         <Image width={50} height={50}
-          src="/images/logo-no-background.png"
+          src= {GlobalConfig.DskLog}
           alt="brand" />
       </Link>
       {/* End logo */}

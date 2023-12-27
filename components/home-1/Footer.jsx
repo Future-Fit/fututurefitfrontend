@@ -2,7 +2,7 @@ import Image from "next/image";
 import CopyrightFooter from "../footer/common-footer/CopyrightFooter";
 import FooterContent2 from "../footer/FooterContent2";
 import Social from "../footer/common-footer/Social";
-
+import GlobalConfig from "@/Global.config";
 
 
 const Footer =  () => {
@@ -22,7 +22,7 @@ const Footer =  () => {
                     <Image
                       width={50}
                       height={50}
-                      src="/images/logo-no-background.png"
+                      src= {GlobalConfig.DskLog}
                       alt="brand"
                     />
                   </a>

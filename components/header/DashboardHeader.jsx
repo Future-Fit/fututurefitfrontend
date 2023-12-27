@@ -9,7 +9,7 @@ import { isActiveLink } from "../../utils/linkActiveChecker";
 import { usePathname } from "next/navigation";
 import { clearSession } from "../common/form/login/sessionHandler";
 import axios from "axios";
-import ColorConfig from "@/Color.config";
+import GlobalConfig from "@/Global.config";
 
 
 const DashboardHeader = () => {
@@ -46,7 +46,7 @@ const DashboardHeader = () => {
         setHoveredItemStyle({});
     };
     const [headerStyle, setHeaderStyle] = useState({
-        backgroundColor: ColorConfig.PrimaryColor,
+        backgroundColor: GlobalConfig.BgrClr,
         boxShadow: 'none',
     });
 
@@ -57,7 +57,7 @@ const DashboardHeader = () => {
 
             // Update header style based on scroll
             const updatedHeaderStyle = {
-                backgroundColor: scrolled ? ColorConfig.PrimaryColor : ColorConfig.PrimaryColor,
+                backgroundColor: scrolled ? GlobalConfig.BgrClr : GlobalConfig.BgrClr,
                 boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
             };
             setHeaderStyle(updatedHeaderStyle);
@@ -115,7 +115,7 @@ const DashboardHeader = () => {
                                 <Link href="/">
                                     <Image
                                         alt="brand"
-                                        src="/images/logo-no-background.png"
+                                        src= {GlobalConfig.DskLog}
                                         width={70}
                                         height={50}
                                         priority
@@ -180,8 +180,8 @@ const DashboardHeader = () => {
                             aria-expanded="false"
                             style={{
                                 position: 'relative',
-                                backgroundColor: ColorConfig.PrimaryColor,
-                                borderColor: ColorConfig.PrimaryColor,
+                                backgroundColor: GlobalConfig.BgrClr,
+                                borderColor: GlobalConfig.BgrClr,
                                 backgroundImage: 'none',
                                 boxShadow: 'none',
                                 borderRadius: '5px',
