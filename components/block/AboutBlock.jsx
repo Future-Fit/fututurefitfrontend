@@ -5,16 +5,16 @@ const AboutBlock = () => {
     {
       id: 1,
       icon: "/images/index-14/icons/1.svg",
-      title: "Search Miloins of Jobs",
+      title: "Our Vision",
       bgColor: "-purple",
-      text: `There is no one universal solution in online marketing, that's.`,
+      text: `Turn ambitions into reality!`,
     },
     {
       id: 2,
       icon: "/images/index-14/icons/2.svg",
-      title: "Location Base Search",
+      title: "Our Mission",
       bgColor: "-orange",
-      text: `There is no one universal solution in online marketing, that's.`,
+      text: `Connect those with skills and dreams to job and education opportunities.`,
     },
     {
       id: 3,

@@ -186,7 +186,7 @@ const MobileMenu = () => {
               <div className="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
                 <div className="login-box" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                   <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
-                    <span className="icon icon-user"></span> {/* User Icon */}
+                    <span className="icon icon-user"></span>
                   </a>
                   <div className="dropdown-menu" style={{ position: 'absolute', top: '100%', left: 0 }}>
                     <a className="dropdown-item" href="#" onClick={handleProfileRedirect}>My Profile</a>

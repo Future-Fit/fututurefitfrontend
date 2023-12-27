@@ -10,22 +10,28 @@ const Index = () => {
     boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', // Add boxShadow property for the footer
   };
 
+  const logoStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
   return (
     <footer className="main-footer" style={footerStyle}>
-      {/* <div className="logo-box" style={{ alignItems: "center" }}>
+      <div className="auto-container">
+        <div className="logo-box"  style={logoStyle}>
         <div className="logo">
           <Link href="/" className="noSticky">
             <Image
-              width={30}
-              height={30}
+              width={50}
+              height={50}
               src={GlobalConfig.DskLog}
               alt="Footer Logo"
               title="brand"
             />
           </Link>
         </div>
-      </div> */}
-      <div className="auto-container">
+      </div>
         {/* Widgets Section */}
         <div className="widgets-section" data-aos="fade-up">
           <div className="row">
