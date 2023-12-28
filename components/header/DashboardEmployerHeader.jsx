@@ -97,6 +97,13 @@ const DashboardHeader = () => {
         window.location.href = '/'; // Redirect to the login page
     };
 
+    const [searchExpanded, setSearchExpanded] = useState(false);
+
+    const toggleSearch = () => {
+        setSearchExpanded(!searchExpanded);
+    };
+
+
     return (
         // <!-- Main Header-->
         <header
@@ -115,7 +122,7 @@ const DashboardHeader = () => {
                                 <Link href="/">
                                     <Image
                                         alt="brand"
-                                        src= {GlobalConfig.DskLog}
+                                        src={GlobalConfig.DskLog}
                                         width={70}
                                         height={70}
                                         priority
@@ -124,14 +131,35 @@ const DashboardHeader = () => {
                             </div>
                         </div>
                         {/* End .logo-box */}
-
                         <HeaderNavContent />
                         {/* <!-- Main Menu End--> */}
                     </div>
                     {/* End .nav-outer */}
+                    <div className="search-container d-flex align-items-center">
+                        <button
+                            className="theme-btn search-button"
+                            onClick={toggleSearch}
+                        >
+                            <i className="fas fa-search" style={{ color: 'white' }}></i>
+                        </button>
 
+                        {searchExpanded && (
+                            <div className="search-input">
+                                <input
+                                    type="text"
+                                    placeholder="Search..."
+                                    style={{
+                                        borderRadius: '10px',
+                                        border: '1px solid #ccc',
+                                        padding: '5px',
+                                        height: '15px',
+                                        outline: 'none'
+                                    }}
+                                />
+                            </div>
+                        )}
+                    </div>
                     <div className="outer-box">
-
                         {/* <!-- Dashboard Option --> */}
                         <div className="dropdown dashboard-option">
                             <a
@@ -140,13 +168,14 @@ const DashboardHeader = () => {
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                <Image
+                                <span className="icon icon-user"></span>
+                                {/* <Image
                                     alt="avatar"
                                     className="thumb"
                                     src="/images/user-flat.svg"
                                     width={70}
                                     height={70}
-                                />
+                                /> */}
                                 <span style={{ color: '#fff' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>
 

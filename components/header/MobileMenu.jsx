@@ -153,6 +153,16 @@ const MobileMenu = () => {
     }
   };
 
+  const [searchExpanded, setSearchExpanded] = useState(false);
+  const [iconsShifted, setIconsShifted] = useState(false);
+
+
+  const toggleSearch = () => {
+    setSearchExpanded(!searchExpanded);
+    setIconsShifted(!iconsShifted);
+
+  };
+
   return (
     // <!-- Main Header-->
     <header className={`main-header main-header-mobile  ${navbar ? "fixed-header" : ""}`}
@@ -167,7 +177,7 @@ const MobileMenu = () => {
                   <Image
                     width={50}
                     height={50}
-                    src= {GlobalConfig.MobLog}
+                    src={GlobalConfig.MobLog}
                     alt="FFI Logo"
                   />
                 </Link>
@@ -201,6 +211,35 @@ const MobileMenu = () => {
                 </a>
               </div>
             )}
+
+            <div className="search-container d-flex align-items-center">
+              <button
+                className="theme-btn search-button"
+                onClick={toggleSearch}
+                style={{paddingLeft: '10px'}}
+              >
+                <i className="fas fa-search" style={{color: 'white'}}></i>
+              </button>
+
+              {/* Expandable input box */}
+              {searchExpanded && (
+                <div className="search-input">
+                  {/* Implement your expandable input box here */}
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    style={{
+                      borderRadius: '10px', // Border radius
+                      border: '1px solid #ccc', // Example border style
+                      padding: '10px', // Example padding
+                      outline: 'none',
+                      height: '5px',
+                      width: '150px'
+                    }}
+                  />
+                </div>
+              )}
+            </div>
             <a
               href="#"
               className="mobile-nav-toggler"
