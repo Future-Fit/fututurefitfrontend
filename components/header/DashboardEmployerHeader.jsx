@@ -139,6 +139,7 @@ const DashboardHeader = () => {
                         <button
                             className="theme-btn search-button"
                             onClick={toggleSearch}
+                            style={{ paddingRight: '5px' }}
                         >
                             <i className="fas fa-search" style={{ color: 'white' }}></i>
                         </button>
@@ -152,8 +153,10 @@ const DashboardHeader = () => {
                                         borderRadius: '10px',
                                         border: '1px solid #ccc',
                                         padding: '5px',
-                                        height: '15px',
-                                        outline: 'none'
+                                        height: '35px',
+                                        width: '250px',
+                                        outline: 'none',
+                                        paddingLeft: '5px'
                                     }}
                                 />
                             </div>
@@ -167,16 +170,16 @@ const DashboardHeader = () => {
                                 role="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
+                                style={{ display: 'flex', alignItems: 'center' }}
                             >
-                                <span className="icon icon-user"></span>
-                                {/* <Image
+                                {/* <span className="icon icon-user"></span> */}
+                                <Image
                                     alt="avatar"
-                                    className="thumb"
                                     src="/images/user-flat.svg"
-                                    width={70}
-                                    height={70}
-                                /> */}
-                                <span style={{ color: '#fff' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
+                                    width={30}
+                                    height={30}
+                                />
+                                <span style={{ color: '#fff', width: 'fit-content' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>
 
                             <ul className="dropdown-menu">

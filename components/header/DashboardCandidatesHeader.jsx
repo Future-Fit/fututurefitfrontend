@@ -141,11 +141,11 @@ const DashboardCandidatesHeader = () => {
                         <button
                             className="theme-btn search-button"
                             onClick={toggleSearch}
+                            style={{ paddingRight: '5px' }}
                         >
-                            <i className="fas fa-search" style={{color: 'white'}}></i>
+                            <i className="fas fa-search" style={{ color: 'white' }}></i>
                         </button>
 
-                        {/* Expandable input box */}
                         {searchExpanded && (
                             <div className="search-input">
                                 {/* Implement your expandable input box here */}
@@ -153,10 +153,13 @@ const DashboardCandidatesHeader = () => {
                                     type="text"
                                     placeholder="Search..."
                                     style={{
-                                        borderRadius: '10px', 
+                                        borderRadius: '10px',
                                         border: '1px solid #ccc',
-                                        padding: '5px', 
-                                        outline: 'none'
+                                        padding: '5px',
+                                        height: '35px',
+                                        width: '250px',
+                                        outline: 'none',
+                                        paddingLeft: '5px'
                                     }}
                                 />
                             </div>
@@ -164,30 +167,24 @@ const DashboardCandidatesHeader = () => {
                     </div>
 
                     <div className="outer-box">
-
-                        {/* <!-- Dashboard Option --> */}
                         <div className="dropdown dashboard-option">
-                            
                             <a
                                 className="dropdown-toggle"
                                 role="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
+                                style={{ display: 'flex', alignItems: 'center' }}
+
                             >
-                                {/* <Image
+                                <Image
                                     alt="avatar"
-                                    className="thumb"
                                     src="/images/user-flat.svg"
                                     width={30}
                                     height={30}
-                                /> */}
-
+                                />
                                 {/* <span className="icon icon-user"></span> */}
-                                <span style={{ color: '#fff' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
+                                <span style={{ color: '#fff', width: 'fit-content' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
                             </a>
-
-
-
                             <ul className="dropdown-menu">
 
                                 {/* Change Password Option */}
@@ -208,9 +205,6 @@ const DashboardCandidatesHeader = () => {
                         {/* End dropdown */}
                     </div>
                     {/* End outer-box */}
-
-
-
                     <div className="dropdown">
 
                         <button
