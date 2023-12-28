@@ -28,9 +28,6 @@ const MobileMenu = () => {
     }
   }, []);
 
-  // const loggedIn = localStorage.getItem("accessToken") && localStorage.getItem("userType");
-
-  // Added state for modal
   const router = useRouter();
   const handleToggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -154,12 +151,12 @@ const MobileMenu = () => {
   };
 
   const [searchExpanded, setSearchExpanded] = useState(false);
-  const [iconsShifted, setIconsShifted] = useState(false);
+  // const [iconsShifted, setIconsShifted] = useState(false);
 
 
   const toggleSearch = () => {
     setSearchExpanded(!searchExpanded);
-    setIconsShifted(!iconsShifted);
+    // setIconsShifted(!iconsShifted);
 
   };
 
@@ -189,8 +186,44 @@ const MobileMenu = () => {
             {/* <!-- Main Menu End--> */}
           </div>
           {/* End .nav-outer */}
+          <div className="d-flex align-items-center"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end', // Aligns items to the right
+                flex: 1, // Allows the container to grow if needed
+                marginRight: '10px' // Adjusts space to the right
+              }}>
 
-          <div className="outer-box">
+              <button
+                className="theme-btn search-button"
+                onClick={toggleSearch}
+              >
+                <i className="fas fa-search" style={{ color: 'white' }}></i>
+              </button>
+
+              {/* Expandable input box */}
+              {searchExpanded && (
+                <div className="search-input">
+                  {/* Implement your expandable input box here */}
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    style={{
+                      borderRadius: '10px', // Border radius
+                      border: '1px solid #ccc', // Example border style
+                      padding: '10px', // Example padding
+                      outline: 'none',
+                      height: '15px',
+                      width: '150px'
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+
+          <div className="outer-box" style={{ display: 'flex', alignItems: 'center' }}>
+            
 
             {loggedIn ? (
               <div className="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
@@ -211,35 +244,6 @@ const MobileMenu = () => {
                 </a>
               </div>
             )}
-
-            <div className="search-container d-flex align-items-center">
-              <button
-                className="theme-btn search-button"
-                onClick={toggleSearch}
-                style={{paddingLeft: '10px'}}
-              >
-                <i className="fas fa-search" style={{color: 'white'}}></i>
-              </button>
-
-              {/* Expandable input box */}
-              {searchExpanded && (
-                <div className="search-input">
-                  {/* Implement your expandable input box here */}
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    style={{
-                      borderRadius: '10px', // Border radius
-                      border: '1px solid #ccc', // Example border style
-                      padding: '10px', // Example padding
-                      outline: 'none',
-                      height: '5px',
-                      width: '150px'
-                    }}
-                  />
-                </div>
-              )}
-            </div>
             <a
               href="#"
               className="mobile-nav-toggler"
@@ -265,7 +269,7 @@ const MobileMenu = () => {
                   backgroundImage: 'none',
                   boxShadow: 'none',
                   borderRadius: '5px',
-                  marginRight: '-100px'
+                  marginRight: '-90px'
                 }}
               >
                 <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
