@@ -62,7 +62,7 @@ const WordCloudSection = () => {
       <style jsx>{`
         .wordcloud-container {
           width: 100%;
-          height: 300px; // Adjust height as needed
+          height: 300px;
         }
       `}</style>
     </div>

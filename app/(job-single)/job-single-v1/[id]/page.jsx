@@ -16,18 +16,20 @@ import Image from "next/image";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import DashboardCandidatesHeader from "../../../../components/header/DashboardCandidatesHeader"
 import DashboardHeader from "../../../../components/header/DashboardEmployerHeader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-
-// export const metadata = {
-//   title: "Job Detail | Future Fit International Job Portal",
-//   description: "Future Fit International Job Portal",
-// };
 
 const JobSingleDynamicV1 = ({ params }) => {
   const id = params.id;
   const company = jobs.find((item) => item.id == id) || jobs[0];
   const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
   return (
     <>
       {/* <!-- Header Span --> */}

@@ -2,15 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import candidatesMenuData from "../../data/candidatesMenuData";
 import HeaderNavContent from "./HeaderNavContent";
 import { isActiveLink } from "../../utils/linkActiveChecker";
 import { clearSession } from "../common/form/login/sessionHandler";
 import axios from "axios";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import GlobalConfig from "@/Global.config";
+import { debounce } from "lodash";
+import Autosuggest from "react-autosuggest";
 
 const DashboardCandidatesHeader = () => {
     const [navbar, setNavbar] = useState(false);
@@ -20,6 +22,15 @@ const DashboardCandidatesHeader = () => {
     const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
     const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
     const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
+
+    const [searchValue, setSearchValue] = useState('');
+    const [jobPostings, setJobPostings] = useState([]);
+    const [suggestions, setSuggestions] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
+    const [filteredPostings, setFilteredPostings] = useState([]);
+    const router = useRouter(); // Initialize the router
+    const searchContainerRef = useRef(null);
+
 
     const handleLanguageChange = (language) => {
         setSelectedLanguage(language);
@@ -105,6 +116,113 @@ const DashboardCandidatesHeader = () => {
         setSearchExpanded(!searchExpanded);
     };
 
+    const onChange = (event, { newValue }) => {
+        setSearchValue(newValue);
+    };
+
+    const handleOutsideClick = (event) => {
+        if (
+            searchContainerRef.current &&
+            !searchContainerRef.current.contains(event.target)
+        ) {
+            setSearchExpanded(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, []);
+
+    const getSuggestions = async (value) => {
+        if (!value) {
+            setSuggestions([]);
+            return;
+        }
+
+        try {
+            // Modify this API call to match your backend's filtering capabilities
+            const response = await axios.get(
+                `https://api.futurefitinternational.com/jobpost?job_title=${value}`
+            );
+            // Assuming the API returns an array of job postings
+            const filteredSuggestions = response.data
+                .filter(post => post.job_title.toLowerCase().includes(value.toLowerCase()))
+                .map(post => post.job_title);
+
+            setSuggestions(filteredSuggestions);
+        } catch (error) {
+            console.error('Error fetching suggestions:', error);
+            setSuggestions([]);
+        }
+    };
+
+
+    const onSuggestionsClearRequested = () => {
+        setSuggestions([]);
+    };
+
+    const onSuggestionSelected = async (event, { suggestionValue }) => {
+        try {
+            const response = await axios.get(
+                `https://api.futurefitinternational.com/jobpost?job_title=${suggestionValue}`
+            );
+            if (response.data && response.data.length > 0) {
+                // Assuming the first result is the desired one
+                const jobId = response.data[0].id;
+
+                router.push(`/job-single-v1/${jobId}`);
+            } else {
+                console.error('No job postings found for the selected suggestion.');
+            }
+
+        } catch (error) {
+            console.error('Error fetching job postings:', error);
+        }
+    };
+    const debouncedGetSuggestions = debounce(getSuggestions, 300);
+
+    const onSuggestionsFetchRequested = ({ value }) => {
+        debouncedGetSuggestions(value);
+    };
+
+    const inputProps = {
+        placeholder: 'Search...',
+        value: searchValue,
+        onChange: onChange
+    };
+
+    const handleInputChange = (e) => {
+        const inputValue = e.target.value;
+        setSearchValue(inputValue);
+
+        // Filter job postings based on search input value
+        const filtered = jobPostings.filter((post) =>
+            post.job_title.toLowerCase().includes(inputValue.toLowerCase())
+        );
+        setFilteredPostings(filtered);
+    };
+
+    const jobList = searchValue ? filteredPostings : [];
+
+
+    useEffect(() => {
+        // Fetch job postings from the API
+        const fetchJobPostings = async () => {
+            try {
+                const response = await axios.get('https://api.futurefitinternational.com/jobpost');
+                setJobPostings(response.data);
+            } catch (error) {
+                console.error('Error fetching job postings:', error);
+            }
+        };
+
+        fetchJobPostings();
+    }, []);
+
 
     return (
         // <!-- Main Header-->
@@ -137,34 +255,7 @@ const DashboardCandidatesHeader = () => {
                     </div>
                     {/* End .nav-outer */}
 
-                    <div className="search-container d-flex align-items-center">
-                        <button
-                            className="theme-btn search-button"
-                            onClick={toggleSearch}
-                            style={{ paddingRight: '5px' }}
-                        >
-                            <i className="fas fa-search" style={{ color: 'white' }}></i>
-                        </button>
 
-                        {searchExpanded && (
-                            <div className="search-input">
-                                {/* Implement your expandable input box here */}
-                                <input
-                                    type="text"
-                                    placeholder="Search..."
-                                    style={{
-                                        borderRadius: '10px',
-                                        border: '1px solid #ccc',
-                                        padding: '5px',
-                                        height: '35px',
-                                        width: '250px',
-                                        outline: 'none',
-                                        paddingLeft: '5px'
-                                    }}
-                                />
-                            </div>
-                        )}
-                    </div>
 
                     <div className="outer-box">
                         <div className="dropdown dashboard-option">
@@ -183,7 +274,7 @@ const DashboardCandidatesHeader = () => {
                                     height={30}
                                 />
                                 {/* <span className="icon icon-user"></span> */}
-                                <span style={{ color: '#fff', width: 'fit-content' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span>
+                                {/* <span style={{ color: '#fff', width: 'fit-content' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span> */}
                             </a>
                             <ul className="dropdown-menu">
 
@@ -205,6 +296,94 @@ const DashboardCandidatesHeader = () => {
                         {/* End dropdown */}
                     </div>
                     {/* End outer-box */}
+
+                    <div className="search-container d-flex align-items-center"
+                ref={searchContainerRef}
+                style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                <button
+                  className="theme-btn search-button"
+                  onClick={toggleSearch}
+                  style={{ paddingRight: '5px', paddingLeft: '5px' }}
+                >
+                  <i className="fas fa-search" style={{ color: 'white' }}></i>
+                </button>
+
+                {searchExpanded && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '0%',
+                    zIndex: 1100,
+                    background: 'rgba(0, 0, 0, 0.6)',
+                    color: 'white',
+                    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
+                    overflowY: 'auto',
+                    borderRadius: '8px'
+                  }}>
+                    <Autosuggest
+                      suggestions={suggestions}
+                      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                      onSuggestionsClearRequested={onSuggestionsClearRequested}
+                      onSuggestionSelected={onSuggestionSelected}
+                      getSuggestionValue={(suggestion) => suggestion}
+                      renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                      // inputProps={inputProps}
+                      inputProps={{
+                        placeholder: 'Search anything...',
+                        value: searchValue,
+                        onChange: (_, { newValue }) => setSearchValue(newValue),
+                        style: {
+                          paddingRight: '30px', // To accommodate the button
+                          height: '36px',
+                        },
+                      }}
+                    />
+                    {jobList.length > 0 && (
+                      <div>
+                        {searchResults.map((result) => (
+                          <div key={result.id}>
+                            <h3>{result.job_title}</h3>
+                            <p>{result.job_description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+                    {/* <div className="search-container d-flex align-items-center">
+                        <button
+                            className="theme-btn search-button"
+                            onClick={toggleSearch}
+                            style={{ paddingRight: '5px', paddingLeft: '5px' }}
+                        >
+                            <i className="fas fa-search" style={{ color: 'white' }}></i>
+                        </button>
+
+                        {searchExpanded && (
+                            <div>
+                                <Autosuggest
+                                    suggestions={suggestions}
+                                    onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                                    onSuggestionsClearRequested={onSuggestionsClearRequested}
+                                    onSuggestionSelected={onSuggestionSelected}
+                                    getSuggestionValue={(suggestion) => suggestion}
+                                    renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                                    inputProps={inputProps}
+                                />
+                                {jobList.length > 0 && (
+                                    <div>
+                                        {searchResults.map((result) => (
+                                            <div key={result.id}>
+                                                <h3>{result.job_title}</h3>
+                                                <p>{result.job_description}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div> */}
+
                     <div className="dropdown">
 
                         <button

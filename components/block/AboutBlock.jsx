@@ -37,6 +37,16 @@ const AboutBlock = () => {
         <div className="col-lg-6" key={item.id}>
           <div className="icon-side -type-1">
             <div className={`icon-wrap ${item.bgColor}`}>
+            <div style={{
+              position: 'absolute',
+              top: '-10px', /* Adjust as needed */
+              right: '-10px', /* Adjust as needed */
+              width: '20px', /* Size of the pin */
+              height: '20px', /* Size of the pin */
+              backgroundColor: '#ff0000', /* Color of the pin */
+              borderRadius: '50%'
+            }}></div> {/* Add this line for the pin */}
+
               <Image width={30} height={31} src={item.icon} alt="image" />
             </div>
 

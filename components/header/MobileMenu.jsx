@@ -6,6 +6,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import GlobalConfig from "@/Global.config";
+import { debounce } from "lodash";
+import { axios } from "axios";
+import Autosuggest from "react-autosuggest";
 
 const MobileMenu = () => {
   const [navbar, setNavbar] = useState(true);
@@ -16,10 +19,17 @@ const MobileMenu = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   // const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
 
+  const [searchValue, setSearchValue] = useState('');
+  const [jobPostings, setJobPostings] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [filteredPostings, setFilteredPostings] = useState([]);
+
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     const userType = localStorage.getItem("userType");
     const storedLoggedInUserId = localStorage.getItem("loggedInUserId");
+    
 
     if (accessToken && userType && storedLoggedInUserId) {
       setLoggedIn(true);
@@ -132,6 +142,8 @@ const MobileMenu = () => {
     const modalBackDrop = document.getElementsByClassName('modal-backdrop');
     const body = document.getElementsByTagName("body");
 
+    
+
     if (accessToken && userType) {
       e.preventDefault();
       if (userType === "4") {
@@ -160,6 +172,87 @@ const MobileMenu = () => {
 
   };
 
+  const onChange = (event, { newValue }) => {
+    setSearchValue(newValue);
+  };
+
+  const getSuggestions = async (value) => {
+    if (!value) {
+      setSuggestions([]);
+      return;
+    }
+
+    try {
+      // Modify this API call to match your backend's filtering capabilities
+      const response = await axios.get(
+        `https://api.futurefitinternational.com/jobpost?job_title=${value}`
+      );
+      // Assuming the API returns an array of job postings
+      const filteredSuggestions = response.data
+        .filter(post => post.job_title.toLowerCase().includes(value.toLowerCase()))
+        .map(post => post.job_title);
+
+      setSuggestions(filteredSuggestions);
+    } catch (error) {
+      console.error('Error fetching suggestions:', error);
+      setSuggestions([]);
+    }
+  };
+
+
+  const onSuggestionsClearRequested = () => {
+    setSuggestions([]);
+  };
+
+  const onSuggestionSelected = async (event, { suggestionValue }) => {
+    try {
+      const response = await axios.get(
+        `https://api.futurefitinternational.com/jobpost?job_title=${suggestionValue}`
+      );
+      if (response.data && response.data.length > 0) {
+        // Assuming the first result is the desired one
+        const jobId = response.data[0].id;
+
+        router.push(`/job-single-v1/${jobId}`);
+      } else {
+        console.error('No job postings found for the selected suggestion.');
+      }
+      // setSearchResults(response.data);
+      // router.push(`/search-results?query=${suggestionValue}`);
+
+    } catch (error) {
+      console.error('Error fetching job postings:', error);
+    }
+  };
+  const debouncedGetSuggestions = debounce(getSuggestions, 300);
+
+  const onSuggestionsFetchRequested = ({ value }) => {
+    debouncedGetSuggestions(value);
+  };
+
+  const inputProps = {
+    placeholder: 'Search...',
+    value: searchValue,
+    onChange: onChange
+  };
+
+  const jobList = searchValue ? filteredPostings : [];
+
+
+  useEffect(() => {
+    // Fetch job postings from the API
+    const fetchJobPostings = async () => {
+      try {
+        const response = await axios.get('https://api.futurefitinternational.com/jobpost');
+        setJobPostings(response.data);
+      } catch (error) {
+        console.error('Error fetching job postings:', error);
+      }
+    };
+
+    fetchJobPostings();
+  }, []);
+
   return (
     // <!-- Main Header-->
     <header className={`main-header main-header-mobile  ${navbar ? "fixed-header" : ""}`}
@@ -185,45 +278,9 @@ const MobileMenu = () => {
             <MobileSidebar />
             {/* <!-- Main Menu End--> */}
           </div>
-          {/* End .nav-outer */}
-          <div className="d-flex align-items-center"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'flex-end', // Aligns items to the right
-                flex: 1, // Allows the container to grow if needed
-                marginRight: '10px' // Adjusts space to the right
-              }}>
-
-              <button
-                className="theme-btn search-button"
-                onClick={toggleSearch}
-              >
-                <i className="fas fa-search" style={{ color: 'white' }}></i>
-              </button>
-
-              {/* Expandable input box */}
-              {searchExpanded && (
-                <div className="search-input">
-                  {/* Implement your expandable input box here */}
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    style={{
-                      borderRadius: '10px', // Border radius
-                      border: '1px solid #ccc', // Example border style
-                      padding: '10px', // Example padding
-                      outline: 'none',
-                      height: '15px',
-                      width: '150px'
-                    }}
-                  />
-                </div>
-              )}
-            </div>
 
           <div className="outer-box" style={{ display: 'flex', alignItems: 'center' }}>
-            
+
 
             {loggedIn ? (
               <div className="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
@@ -254,6 +311,50 @@ const MobileMenu = () => {
               <span className="flaticon-menu-1"></span>
             </a>
             {/* right humberger menu */}
+
+            <div className="search-container d-flex align-items-center" style={{position: 'relative'}}>
+                <button
+                  className="theme-btn search-button"
+                  onClick={toggleSearch}
+                  style={{ paddingRight: '5px', paddingLeft: '5px' }}
+                >
+                  <i className="fas fa-search" style={{ color: 'white' }}></i>
+                </button>
+
+                {searchExpanded && (
+                  <div>
+                    <Autosuggest
+                      suggestions={suggestions}
+                      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                      onSuggestionsClearRequested={onSuggestionsClearRequested}
+                      onSuggestionSelected={onSuggestionSelected}
+                      getSuggestionValue={(suggestion) => suggestion}
+                      renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                      inputProps={inputProps}
+                    />
+                    {jobList.length > 0 && (
+                      <div style={{
+                        position: 'absolute',
+                        top: '100%',  // Position it right below the input field
+                        left: 0,
+                        width: '100%', // Match the width with the input field
+                        zIndex: 1000,  // Ensure it's on top of other elements
+                        background: 'white', // Optional: for better visibility
+                        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)' // Optional: for a drop-down effect
+                      }}>
+                        {searchResults.map((result) => (
+                          <div key={result.id}>
+                            <h3>{result.job_title}</h3>
+                            <p>{result.job_description}</p>
+                            {/* Other job details */}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
 
             <div className="dropdown" style={{ marginRight: '50px' }}>
               <button
