@@ -282,7 +282,6 @@ const DefaulHeader2 = () => {
                     overflowY: 'auto',
                     borderRadius: '8px',
                     maxHeight: '300px',
-                    overflowY: 'auto',
                     cursor: 'pointer',
                   }}>
                     <Autosuggest

@@ -3,7 +3,6 @@
 import Hero10 from "../hero/hero-10"
 import DefaulHeader2 from "../header/DefaultHeader";
 import JobFeatured4 from "../job-featured/JobFeatured4";
-import LoginPopup from "../common/form/login/LoginPopup";
 import MobileMenu from "../header/MobileMenu";
 import Link from "next/link";
 import FooterDefault from "../footer/common-footer";
@@ -13,11 +12,11 @@ import Partner2 from "../common/partner/Partner2";
 import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
 import DashboardHeader from "../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import CallToActionSearch from "../call-to-action/CallToActionSearch";
 import WordCloudSection from "../block/WordCloudSection";
 
 import GlobalConfig from "@/Global.config";
 import CookiesPopup from "./CookiesPopup";
+import LoginPopup from "../common/form/login/LoginPopup";
 
 const index = () => {
 
@@ -118,16 +117,16 @@ const index = () => {
           <div className="sec-title text-center">
             <h2 >Trending Job Opportunities</h2>
           </div>
-          <WordCloudSection />
+          {/* <WordCloudSection /> */}
         </div>
         <div className="btn-box">
-            <Link
-              href="/job-list-v6"
-              className="theme-btn btn-style-one bg-blue"
-            >
-              <span className="btn-title">Load More</span>
-            </Link>
-          </div>
+          <Link
+            href="/job-list-v6"
+            className="theme-btn btn-style-one bg-blue"
+          >
+            <span className="btn-title">Load More</span>
+          </Link>
+        </div>
       </section>
 
       {/* <AppSectionAbout /> */}

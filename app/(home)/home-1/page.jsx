@@ -8,9 +8,7 @@ export const metadata = {
 
 const index = () => {
   return (
-    <>
       <Home />
-    </>
   );
 };
 

@@ -1,13 +1,9 @@
 import Header from "./Header";
-import Footer from "./Footer";
 import Hero10 from "../hero/hero-10";
-import JobFeatured7 from "../job-featured/JobFeatured7";
 import RecentJobs from "../job-featured/RecentJobs";
-import BrowseUsaJobs from "../job-categories/BrowseUsaJobs";
 import Blog3 from "../blog/Blog3";
 import Candidates from "../candidates/Candidates";
 import TopsJobs from "../job-featured/TopsJobs";
-import FunFact from "../.fun-fact-counter/Funfact";
 import Testimonial5 from "../testimonial/Testimonial5";
 import RegBanner2 from "../block/RegBanner2";
 import LoginPopup from "../common/form/login/LoginPopup";
@@ -50,7 +46,7 @@ const index = () => {
               </div>
               {/* En .sect-title */}
               <div className="outer-box">
-                <JobFeatured7 />
+                {/* <JobFeatured7 /> */}
               </div>
               {/* En outer box */}
             </div>
@@ -98,7 +94,7 @@ const index = () => {
       <div className="fun-fact-section">
         <div className="auto-container">
           <div className="row" data-aos="fade-up">
-            <FunFact />
+            {/* <FunFact /> */}
           </div>
         </div>
       </div>
@@ -187,14 +183,14 @@ const index = () => {
           {/* End sec-title */}
 
           <div className="row" data-aos="fade-up">
-            <BrowseUsaJobs />
+            {/* <BrowseUsaJobs /> */}
           </div>
         </div>
         {/* End auto-container */}
       </section>
       {/* <!-- End Browse Jobs --> */}
 
-      <Footer />
+      {/* <Footer /> */}
       {/* <!-- End Main Footer --> */}
     </>
   );

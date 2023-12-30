@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import GlobalConfig from "@/Global.config";
 import { debounce } from "lodash";
-import { axios } from "axios";
+import axios from 'axios';
 import Autosuggest from "react-autosuggest";
 
 const MobileMenu = () => {
