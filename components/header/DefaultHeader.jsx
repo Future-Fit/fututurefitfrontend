@@ -24,6 +24,8 @@ const DefaulHeader2 = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [filteredPostings, setFilteredPostings] = useState([]);
   const searchContainerRef = useRef(null);
+  const [suggestionValue, setSuggestionValue] = useState('');
+
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -167,26 +169,32 @@ const DefaulHeader2 = () => {
     setSuggestions([]);
   };
 
-  const onSuggestionSelected = async (event, { suggestionValue }) => {
+  const onSuggestionSelected = async (event, { suggestion }) => {
+    setSuggestionValue(suggestion.name); // Assuming 'name' is the property you need from the suggestion
+
     try {
       const response = await axios.get(
         `https://api.futurefitinternational.com/jobpost?job_title=${suggestionValue}`
       );
       if (response.data && response.data.length > 0) {
-        // Assuming the first result is the desired one
         const jobId = response.data[0].id;
-
         router.push(`/job-single-v1/${jobId}`);
       } else {
-        console.error('No job postings found for the selected suggestion.');
+        console.log("Nothing found")
       }
-      // setSearchResults(response.data);
-      // router.push(`/search-results?query=${suggestionValue}`);
-
     } catch (error) {
       console.error('Error fetching job postings:', error);
     }
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!suggestionValue && searchValue.trim() !== '') {
+      console.log(`Navigating to: /search-results?query=${searchValue}`);
+      router.push(`/search-results?query=${searchValue}`);
+    }
+  };
+
   const debouncedGetSuggestions = debounce(getSuggestions, 300);
 
   const onSuggestionsFetchRequested = ({ value }) => {
@@ -284,24 +292,26 @@ const DefaulHeader2 = () => {
                     maxHeight: '300px',
                     cursor: 'pointer',
                   }}>
-                    <Autosuggest
-                      suggestions={suggestions}
-                      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-                      onSuggestionsClearRequested={onSuggestionsClearRequested}
-                      onSuggestionSelected={onSuggestionSelected}
-                      getSuggestionValue={(suggestion) => suggestion}
-                      renderSuggestion={(suggestion) => <div>{suggestion}</div>}
-                      // inputProps={inputProps}
-                      inputProps={{
-                        placeholder: 'Search anything...',
-                        value: searchValue,
-                        onChange: (_, { newValue }) => setSearchValue(newValue),
-                        style: {
-                          paddingRight: '30px', // To accommodate the button
-                          height: '36px',
-                        },
-                      }}
-                    />
+                    <form onSubmit={handleSubmit}>
+                      <Autosuggest
+                        suggestions={suggestions}
+                        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                        onSuggestionsClearRequested={onSuggestionsClearRequested}
+                        onSuggestionSelected={onSuggestionSelected}
+                        getSuggestionValue={(suggestion) => suggestion}
+                        renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                        // inputProps={inputProps}
+                        inputProps={{
+                          placeholder: 'Search anything...',
+                          value: searchValue,
+                          onChange: (_, { newValue }) => setSearchValue(newValue),
+                          style: {
+                            paddingRight: '30px', // To accommodate the button
+                            height: '36px',
+                          },
+                        }}
+                      />
+                    </form>
                     <div style={{ borderTop: '1px solid #555', margin: '8px 0' }}>
 
                       {jobList.length > 0 && (
@@ -318,6 +328,7 @@ const DefaulHeader2 = () => {
                   </div>
                 )}
               </div>
+
               <div className="dropdown">
                 <button
                   className="btn btn-secondary dropdown-toggle"
