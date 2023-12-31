@@ -117,7 +117,7 @@ const index = () => {
           <div className="sec-title text-center">
             <h2 >Trending Job Opportunities</h2>
           </div>
-          {/* <WordCloudSection /> */}
+          <WordCloudSection />
         </div>
         <div className="btn-box">
           <Link
