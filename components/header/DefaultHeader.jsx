@@ -25,13 +25,12 @@ const DefaulHeader2 = () => {
   const [filteredPostings, setFilteredPostings] = useState([]);
   const searchContainerRef = useRef(null);
   const [suggestionValue, setSuggestionValue] = useState('');
-
+  const [noResultsFound, setNoResultsFound] = useState(false);
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
     localStorage.setItem('selectedLanguage', language);
   };
-
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -164,13 +163,12 @@ const DefaulHeader2 = () => {
     }
   };
 
-
   const onSuggestionsClearRequested = () => {
     setSuggestions([]);
   };
 
   const onSuggestionSelected = async (event, { suggestion }) => {
-    setSuggestionValue(suggestion.name); // Assuming 'name' is the property you need from the suggestion
+    setSuggestionValue(suggestion.name);
 
     try {
       const response = await axios.get(
@@ -180,7 +178,8 @@ const DefaulHeader2 = () => {
         const jobId = response.data[0].id;
         router.push(`/job-single-v1/${jobId}`);
       } else {
-        console.log("Nothing found")
+        console.log("Nothing found from our list of DB, please click enter to search the entire website")
+        setNoResultsFound(true); // Ensure this line is correctly setting noResultsFound
       }
     } catch (error) {
       console.error('Error fetching job postings:', error);
@@ -312,16 +311,29 @@ const DefaulHeader2 = () => {
                         }}
                       />
                     </form>
-                    <div style={{ borderTop: '1px solid #555', margin: '8px 0' }}>
-
-                      {jobList.length > 0 && (
-                        <div>
-                          {searchResults.map((result) => (
+                    <div>
+                      {jobList.length > 0 ? (
+                        <div style={{
+                          position: 'absolute',
+                          top: '100%',  // Position it right below the input field
+                          left: 0,
+                          width: '100%', // Match the width with the input field
+                          zIndex: 1000,  // Ensure it's on top of other elements
+                          background: 'white', // Optional: for better visibility
+                          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // Optional: for a drop-down effect
+                          maxHeight: '300px'
+                        }}>
+                          {jobList.map((result) => (
                             <div key={result.id}>
                               <h3>{result.job_title}</h3>
-                              <p>{result.job_description}</p>
                             </div>
                           ))}
+                        </div>
+                      ) : (
+                        <div>
+                          {noResultsFound && (
+                            <h3>No results found. Please hit enter to search the entire website.</h3>
+                          )}
                         </div>
                       )}
                     </div>

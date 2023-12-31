@@ -3,7 +3,7 @@
 import Link from "next/link";
 import MobileSidebar from "./mobile-sidebar";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import GlobalConfig from "@/Global.config";
 import { debounce } from "lodash";
@@ -17,19 +17,21 @@ const MobileMenu = () => {
   const [hoveredItemStyle, setHoveredItemStyle] = useState({});
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
-  // const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
+  const searchContainerRef = useRef(null);
 
   const [searchValue, setSearchValue] = useState('');
   const [jobPostings, setJobPostings] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [filteredPostings, setFilteredPostings] = useState([]);
+  const [suggestionValue, setSuggestionValue] = useState('');
+
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     const userType = localStorage.getItem("userType");
     const storedLoggedInUserId = localStorage.getItem("loggedInUserId");
-    
+
 
     if (accessToken && userType && storedLoggedInUserId) {
       setLoggedIn(true);
@@ -142,7 +144,7 @@ const MobileMenu = () => {
     const modalBackDrop = document.getElementsByClassName('modal-backdrop');
     const body = document.getElementsByTagName("body");
 
-    
+
 
     if (accessToken && userType) {
       e.preventDefault();
@@ -199,12 +201,13 @@ const MobileMenu = () => {
     }
   };
 
-
   const onSuggestionsClearRequested = () => {
     setSuggestions([]);
   };
 
-  const onSuggestionSelected = async (event, { suggestionValue }) => {
+  const onSuggestionSelected = async (event, { suggestion }) => {
+    setSuggestionValue(suggestion.name); // Assuming 'name' is the property you need from the suggestion
+
     try {
       const response = await axios.get(
         `https://api.futurefitinternational.com/jobpost?job_title=${suggestionValue}`
@@ -212,14 +215,10 @@ const MobileMenu = () => {
       if (response.data && response.data.length > 0) {
         // Assuming the first result is the desired one
         const jobId = response.data[0].id;
-
         router.push(`/job-single-v1/${jobId}`);
       } else {
         console.error('No job postings found for the selected suggestion.');
       }
-      // setSearchResults(response.data);
-      // router.push(`/search-results?query=${suggestionValue}`);
-
     } catch (error) {
       console.error('Error fetching job postings:', error);
     }
@@ -238,7 +237,6 @@ const MobileMenu = () => {
 
   const jobList = searchValue ? filteredPostings : [];
 
-
   useEffect(() => {
     // Fetch job postings from the API
     const fetchJobPostings = async () => {
@@ -252,6 +250,30 @@ const MobileMenu = () => {
 
     fetchJobPostings();
   }, []);
+
+  const handleOutsideClick = (event) => {
+    if (
+      searchContainerRef.current &&
+      !searchContainerRef.current.contains(event.target)
+    ) {
+      setSearchExpanded(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!suggestionValue && searchValue.trim() !== '') {
+      router.push(`/search-results?query=${searchValue}`);
+    }
+  };
 
   return (
     // <!-- Main Header-->
@@ -312,17 +334,33 @@ const MobileMenu = () => {
             </a>
             {/* right humberger menu */}
 
-            <div className="search-container d-flex align-items-center" style={{position: 'relative'}}>
-                <button
-                  className="theme-btn search-button"
-                  onClick={toggleSearch}
-                  style={{ paddingRight: '5px', paddingLeft: '5px' }}
-                >
-                  <i className="fas fa-search" style={{ color: 'white' }}></i>
-                </button>
+            <div className="search-container d-flex align-items-center"
+              ref={searchContainerRef}
+              style={{ position: 'relative' }}>
+              <button
+                className="theme-btn search-button"
+                onClick={toggleSearch}
+                style={{ paddingRight: '5px', paddingLeft: '5px' }}
+              >
+                <i className="fas fa-search" style={{ color: 'white' }}></i>
+              </button>
 
-                {searchExpanded && (
-                  <div>
+              {searchExpanded && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    right: 0,
+                    zIndex: 1000,
+                    background: 'rgba(0, 0, 0, 0.6)',
+                    color: 'white',
+                    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
+                    overflowY: 'auto',
+                    borderRadius: '8px',
+                    maxHeight: '300px',
+                    cursor: 'pointer',
+                  }}>
+                  <form onSubmit={handleSubmit}>
                     <Autosuggest
                       suggestions={suggestions}
                       onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -332,28 +370,19 @@ const MobileMenu = () => {
                       renderSuggestion={(suggestion) => <div>{suggestion}</div>}
                       inputProps={inputProps}
                     />
-                    {jobList.length > 0 && (
-                      <div style={{
-                        position: 'absolute',
-                        top: '100%',  // Position it right below the input field
-                        left: 0,
-                        width: '100%', // Match the width with the input field
-                        zIndex: 1000,  // Ensure it's on top of other elements
-                        background: 'white', // Optional: for better visibility
-                        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)' // Optional: for a drop-down effect
-                      }}>
-                        {searchResults.map((result) => (
-                          <div key={result.id}>
-                            <h3>{result.job_title}</h3>
-                            <p>{result.job_description}</p>
-                            {/* Other job details */}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
+                  </form>
+                  {jobList.length > 0 && (
+                    <div>
+                      {searchResults.map((result) => (
+                        <div key={result.id}>
+                          <h3>{result.job_title}</h3>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
 
 
             <div className="dropdown" style={{ marginRight: '50px' }}>
