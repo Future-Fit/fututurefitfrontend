@@ -30,6 +30,8 @@ const DashboardCandidatesHeader = () => {
     const [filteredPostings, setFilteredPostings] = useState([]);
     const router = useRouter(); // Initialize the router
     const searchContainerRef = useRef(null);
+    const [suggestionValue, setSuggestionValue] = useState('');
+
 
 
     const handleLanguageChange = (language) => {
@@ -165,7 +167,9 @@ const DashboardCandidatesHeader = () => {
         setSuggestions([]);
     };
 
-    const onSuggestionSelected = async (event, { suggestionValue }) => {
+    const onSuggestionSelected = async (event, { suggestion }) => {
+        setSuggestionValue(suggestion.name); // Assuming 'name' is the property you need from the suggestion
+
         try {
             const response = await axios.get(
                 `https://api.futurefitinternational.com/jobpost?job_title=${suggestionValue}`
@@ -222,6 +226,14 @@ const DashboardCandidatesHeader = () => {
 
         fetchJobPostings();
     }, []);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (!suggestionValue && searchValue.trim() !== '') {
+            console.log(`Navigating to: /search-results?query=${searchValue}`);
+            router.push(`/search-results?query=${searchValue}`);
+        }
+    };
 
 
     return (
@@ -298,58 +310,62 @@ const DashboardCandidatesHeader = () => {
                     {/* End outer-box */}
 
                     <div className="search-container d-flex align-items-center"
-                ref={searchContainerRef}
-                style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-                <button
-                  className="theme-btn search-button"
-                  onClick={toggleSearch}
-                  style={{ paddingRight: '5px', paddingLeft: '5px' }}
-                >
-                  <i className="fas fa-search" style={{ color: 'white' }}></i>
-                </button>
+                        ref={searchContainerRef}
+                        style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                        <button
+                            className="theme-btn search-button"
+                            onClick={toggleSearch}
+                            style={{ paddingRight: '5px', paddingLeft: '5px' }}
+                        >
+                            <i className="fas fa-search" style={{ color: 'white' }}></i>
+                        </button>
 
-                {searchExpanded && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '0%',
-                    zIndex: 1100,
-                    background: 'rgba(0, 0, 0, 0.6)',
-                    color: 'white',
-                    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
-                    overflowY: 'auto',
-                    borderRadius: '8px'
-                  }}>
-                    <Autosuggest
-                      suggestions={suggestions}
-                      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-                      onSuggestionsClearRequested={onSuggestionsClearRequested}
-                      onSuggestionSelected={onSuggestionSelected}
-                      getSuggestionValue={(suggestion) => suggestion}
-                      renderSuggestion={(suggestion) => <div>{suggestion}</div>}
-                      // inputProps={inputProps}
-                      inputProps={{
-                        placeholder: 'Search anything...',
-                        value: searchValue,
-                        onChange: (_, { newValue }) => setSearchValue(newValue),
-                        style: {
-                          paddingRight: '30px', // To accommodate the button
-                          height: '36px',
-                        },
-                      }}
-                    />
-                    {jobList.length > 0 && (
-                      <div>
-                        {searchResults.map((result) => (
-                          <div key={result.id}>
-                            <h3>{result.job_title}</h3>
-                            <p>{result.job_description}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
+                        {searchExpanded && (
+                            <div style={{
+                                position: 'absolute',
+                                top: '0%',
+                                zIndex: 1100,
+                                background: 'rgba(0, 0, 0, 0.6)',
+                                color: 'white',
+                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
+                                overflowY: 'auto',
+                                borderRadius: '8px',
+                                maxHeight: '300px'
+
+                            }}>
+                                <form onSubmit={handleSubmit}>
+                                    <Autosuggest
+                                        suggestions={suggestions}
+                                        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                                        onSuggestionsClearRequested={onSuggestionsClearRequested}
+                                        onSuggestionSelected={onSuggestionSelected}
+                                        getSuggestionValue={(suggestion) => suggestion}
+                                        renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                                        // inputProps={inputProps}
+                                        inputProps={{
+                                            placeholder: 'Search anything...',
+                                            value: searchValue,
+                                            onChange: (_, { newValue }) => setSearchValue(newValue),
+                                            style: {
+                                                paddingRight: '30px', // To accommodate the button
+                                                height: '36px',
+                                            },
+                                        }}
+                                    />
+                                </form>
+                                {jobList.length > 0 && (
+                                    <div>
+                                        {searchResults.map((result) => (
+                                            <div key={result.id}>
+                                                <h3>{result.job_title}</h3>
+                                                <p>{result.job_description}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
                     {/* <div className="search-container d-flex align-items-center">
                         <button
                             className="theme-btn search-button"

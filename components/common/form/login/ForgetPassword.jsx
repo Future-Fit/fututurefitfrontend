@@ -19,7 +19,6 @@ const ForgetPassword = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log('Reset Info:', resetInfo);
     if (resetInfo?.success) {
       console.log('Showing Reset Dialog');
       setShowResetDialog(true);
@@ -63,7 +62,6 @@ const ForgetPassword = () => {
 
   return (
     
-
       <div className="form-inner">
         <h3>Reset Your Password</h3>
         <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>Reset Password</h3>

@@ -7,13 +7,23 @@ import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
 
 const index = () => {
   const router = useRouter();
   const [searchResults, setSearchResults] = useState([]);
-
   const [userType, setUserType] = useState();
+  const [queryParam, setQueryParam] = useState('');
+
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      const query = searchParams.get('query');
+      if (query) {
+        setQueryParam(query);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const storedUserType = localStorage.getItem('userType');
@@ -21,27 +31,6 @@ const index = () => {
       setUserType(JSON.parse(storedUserType));
     }
   }, []);
-
-  // Fetch search results based on the query
-  useEffect(() => {
-    // Check if the query parameter is available
-    if (router.isReady) {
-      const searchQuery = router.query.query; // Change 'query' to the actual name of your query parameter
-
-      if (searchQuery) {
-        const fetchSearchResults = async () => {
-          try {
-            const response = await axios.get(`https://api.futurefitinternational.com/search?query=${searchQuery}`);
-            setSearchResults(response.data);
-          } catch (error) {
-            console.error('Error fetching search results:', error);
-          }
-        };
-
-        fetchSearchResults();
-      }
-    }
-  }, [router.isReady, router.query]);
 
   return (
     <>
@@ -55,7 +44,6 @@ const index = () => {
       {userType === 4 && <DashboardCandidatesHeader />}
       {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <DefaulHeader /> */}
-      {/* <!--End Main Header --> */}
 
       <MobileMenu />
 
@@ -78,14 +66,13 @@ const index = () => {
                         {item.location}
                       </div>
                     )}
-                    {/* Additional job details can go here */}
                   </div>
                 </div>
               ))
             ) : (
               <div className="col-12">
-                <p>No results found</p>
-              </div>
+              <p>No results found for <span style={{fontWeight: 'bold', color: 'blueviolet'}}>{queryParam}</span></p>
+            </div>
             )}
           </div>
         </div>
