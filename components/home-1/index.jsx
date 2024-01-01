@@ -12,7 +12,7 @@ import Partner2 from "../common/partner/Partner2";
 import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
 import DashboardHeader from "../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import WordCloudSection from "../block/WordCloudSection";
+import  WordCloudSection from "../block/WordCloudSection";
 
 import GlobalConfig from "@/Global.config";
 import CookiesPopup from "./CookiesPopup";
@@ -117,7 +117,7 @@ const index = () => {
           <div className="sec-title text-center">
             <h2 >Trending Job Opportunities</h2>
           </div>
-          {/* <WordCloudSection /> */}
+          <WordCloudSection />
         </div>
         <div className="btn-box">
           <Link

@@ -1,46 +1,27 @@
 // Import necessary libraries and modules
 "use client"
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import Select from 'react-select';
 import apiConfig from "@/app.config";
 import axios from 'axios';
-const FormInfoBox = () => {
+const FormInfoBox = ({company,businessStream}) => {
   // State to manage form data
-  const [businessStream,setBusinessStream]  = useState([]);
-  const fetchBusinessStream  = async ()=>{
-  try{
-    const response = await axios.get(`${apiConfig.url}/business-streams`);
-    console.log(response.status,response.data.result,"check it ");
-    if(response.status == 200){
-        var obj  = [];
-        console.log("here");
-        for(let i=0; i < response.data.result.length; i++){
+  const [formData, setFormData] = useState();
+  const setData = (company)=>{
 
-            obj.push({value:response.data.result[i].id,label:response.data.result[i].name});
-        }
-        console.log(obj,"check obj");
-        setBusinessStream(obj);
-        console.log(businessStream);
-    }
-
-  }catch(ex){
-    console.error(ex);
+    var obj = {    company_name: company ? company.company_name : '',
+    profile_description: company ? company.profile_description : '',
+    business_stream_id: company ? company.business_stream_id : '',
+    establishment_date: company ? company.establishment_date : '',
+    company_website_url: company ? company.company_website_url :'',}
+    setFormData(obj);
   }
 
-
-  }
-  useEffect(()=>{
-    fetchBusinessStream();
-  },[])
-  const [formData, setFormData] = useState({
-    company_name: '',
-    profile_description: '',
-    business_stream_id: null,
-    establishment_date: '',
-    company_website_url: '',
-  });
-
-  // Options for the business stream select
+useEffect(()=>{
+  
+  setData(company);
+},[company]);
+ 
   
 
   // Handler for form input changes
@@ -103,7 +84,7 @@ const FormInfoBox = () => {
             type="text"
             name="company_name"
             placeholder="Invisionn"
-            value={formData.company_name}
+            value={formData?.company_name}
             onChange={handleInputChange}
             required
           />
@@ -120,7 +101,7 @@ const FormInfoBox = () => {
             name="business_stream"
             options={businessStream}
             value={businessStream.find(
-              (option) => option.value === formData.business_stream_id
+              (option) => option.value === formData?.business_stream_id
             )}
             onChange={handleBusinessStreamChange}
           />
@@ -132,7 +113,7 @@ const FormInfoBox = () => {
           <input
             type="date"
             name="establishment_date"
-            value={formData.establishment_date}
+            value={formData?.establishment_date}
             onChange={handleInputChange}
             required
           />
@@ -145,7 +126,7 @@ const FormInfoBox = () => {
             type="text"
             name="company_website_url"
             placeholder="www.invision.com"
-            value={formData.company_website_url}
+            value={formData?.company_website_url}
             onChange={handleInputChange}
             required
           />
@@ -160,7 +141,7 @@ const FormInfoBox = () => {
           <textarea
             placeholder="Spent several years working on..."
             name="profile_description"
-            value={formData.profile_description}
+            value={formData?.profile_description}
             onChange={handleInputChange}
             required
           ></textarea>

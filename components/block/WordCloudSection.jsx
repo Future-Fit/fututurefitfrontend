@@ -28,7 +28,7 @@ const WordCloudSection = () => {
 
   const sizeMapper = (word) => {
     const minSize = 20; // Minimum font size
-    const maxSize = 180; // Maximum font size
+    const maxSize = 80; // Maximum font size
 
     // Get the highest and lowest values
     const minValue = Math.min(...wordCloudData.map(w => w.value));
@@ -48,8 +48,13 @@ const WordCloudSection = () => {
     rotations: 2,
     rotationAngles: [0, 90],
     scale: "sqrt",
-    spiral: "archimedean",
+    spiral: 'archimedean',
     transitionDuration: 1000,
+    colors:["blue","green","red"],
+    deterministic:true,
+    enableOptimizations:true,
+    fontSizes: [20,80],
+
   };
 
   return (
@@ -57,7 +62,7 @@ const WordCloudSection = () => {
       <ReactWordcloud
         words={wordCloudData}
         options={options}
-        sizeMapper={sizeMapper}
+        sizemapper={sizeMapper}
       />
       <style jsx>{`
         .wordcloud-container {
