@@ -1,102 +1,160 @@
+"use client"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Map from "../../../Map";
+import {
+  CitySelect,
+  CountrySelect,
+  StateSelect,
+} from "react-country-state-city";
+import "react-country-state-city/dist/react-country-state-city.css";
+import apiConfig from "@/app.config";
+const ContactInfoBox = ({company}) => {
+  const [countryid, setCountryid] = useState();
+  const [stateid, setstateid] = useState();
+  const [cityid,setCityId] = useState();
+  const [locationInfo, setLocationInfo] = useState();
+  const [latitude,setLatitude] = useState('');
+  const [longitude,setLongtiude] = useState('');
+  const token =  localStorage.getItem("accessToken");
 
-const ContactInfoBox = () => {
-    return (
-        <form className="default-form">
-            <div className="row">
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Country</label>
-                    <select className="chosen-single form-select" required>
-                        <option>Australia</option>
-                        <option>Pakistan</option>
-                        <option>Chaina</option>
-                        <option>Japan</option>
-                        <option>India</option>
-                    </select>
-                </div>
+ 
+  useEffect(()=>{
+    
+    setstateid(company?.state);
+    setCityId(company?.city);
+    setCountryid(company?.country)
+    setLocationInfo(company?.completeAddress)
+  },[company]);
+  // Fetch information from the server (example: fetching initial data)
+ // Empty dependency array means this effect runs once when the component mounts
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>City</label>
-                    <select className="chosen-single form-select" required>
-                        <option>Melbourne</option>
-                        <option>Pakistan</option>
-                        <option>Chaina</option>
-                        <option>Japan</option>
-                        <option>India</option>
-                    </select>
-                </div>
+ 
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-12 col-md-12">
-                    <label>Complete Address</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="329 Queensberry Street, North Melbourne VIC 3051, Australia."
-                        required
-                    />
-                </div>
+  const handleSave = async () => {
+    try {
+      
+      console.log("check this" , cityid,countryid,stateid,locationInfo);
+      await axios.post(`${apiConfig.url}/company/address`, {
+        city:cityid,
+        country:countryid,
+        state:stateid,
+        completeAddress:locationInfo
+      },{headers:{Authorization:`Bearer ${token}`}});
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-6 col-md-12">
-                    <label>Find On Map</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="329 Queensberry Street, North Melbourne VIC 3051, Australia."
-                        required
-                    />
-                </div>
+     alert("Data saved successfully!");
+    } catch (error) {
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-3 col-md-12">
-                    <label>Latitude</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Melbourne"
-                        required
-                    />
-                </div>
+      alert("Error saving data:", error);
+      console.error("Error saving data:", error);
+    }
+  };
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-3 col-md-12">
-                    <label>Longitude</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Melbourne"
-                        required
-                    />
-                </div>
+  return (
+    <form className="default-form">
+      <div className="row">
+        <div className="form-group col-lg-6 col-md-12">
+          <label>Country</label>
+          <CountrySelect
+            onChange={(e) => {
+              setCountryid(e.id);
+            }}
+            placeHolder="Select Country"
+          />
+        </div>
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-12 col-md-12">
-                    <button className="theme-btn btn-style-three">
-                        Search Location
-                    </button>
-                </div>
+        <div className="form-group col-lg-6 col-md-12">
+          <label>State</label>
+          <StateSelect
+            countryid={countryid}
+            onChange={(e) => {
+              setstateid(e.id);
+            }}
+            placeHolder="Select State"
+          />
+        </div>
 
-                <div className="form-group col-lg-12 col-md-12">
-                    <div className="map-outer">
-                        <div style={{ height: "420px", width: "100%" }}>
-                            <Map />
-                        </div>
-                    </div>
-                </div>
-                {/* End MapBox */}
+        <div className="form-group col-lg-6 col-md-12">
+          <label>City</label>
+          <CitySelect
+            countryid={countryid}
+            stateid={stateid}
+            onChange={(e) => {
+              setCityId(e.id)
+            }}
+            placeHolder="Select City"
+          />
+        </div>
 
-                {/* <!-- Input --> */}
-                <div className="form-group col-lg-12 col-md-12">
-                    <button type="submit" className="theme-btn btn-style-one">
-                        Save
-                    </button>
-                </div>
+        <div className="form-group col-lg-12 col-md-12">
+          <label>Complete Address</label>
+          <input
+            type="text"
+            name="completeAddress"
+            placeholder="329 Queensberry Street, North Melbourne VIC 3051, Australia."
+            required
+            value={locationInfo}
+            onChange={(e) =>
+              setLocationInfo(e.target.value)
+            }
+          />
+        </div>
+ 
+
+        <div className="form-group col-lg-3 col-md-12">
+          <label>Latitude</label>
+          <input
+            type="text"
+            name="latitude"
+            placeholder="Melbourne"
+            required
+            value={latitude}
+            onChange={(e) => setLatitude(e.target.value )}
+          />
+        </div>
+
+        <div className="form-group col-lg-3 col-md-12">
+          <label>Longitude</label>
+          <input
+            type="text"
+            name="longitude"
+            placeholder="Melbourne"
+            required
+            value={longitude}
+            onChange={(e) => setLongtiude( e.target.value )}
+          />
+        </div>
+
+        <div className="form-group col-lg-12 col-md-12">
+          <button
+            type="button"
+            className="theme-btn btn-style-three"
+            // onClick={handleLocationSearch}
+          >
+            Search Location
+          </button>
+        </div>
+
+        <div className="form-group col-lg-12 col-md-12">
+          <div className="map-outer">
+            <div style={{ height: "420px", width: "100%" }}>
+              <Map />
             </div>
-        </form>
-    );
+          </div>
+        </div>
+
+        <div className="form-group col-lg-12 col-md-12">
+          <button
+            type="button"
+            className="theme-btn btn-style-one"
+            onClick={handleSave}
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  );
 };
 
 export default ContactInfoBox;

@@ -1,5 +1,4 @@
 "use client"
-
 import Hero10 from "../hero/hero-10"
 import DefaulHeader2 from "../header/DefaultHeader";
 import JobFeatured4 from "../job-featured/JobFeatured4";

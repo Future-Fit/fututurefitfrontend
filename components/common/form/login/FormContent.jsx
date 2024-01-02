@@ -84,7 +84,7 @@ const FormContent = ({ onReset }) => {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userType", user.user_type_id);
         localStorage.setItem("loggedInUserId", user.id);
-        if (user.user_type_id === 3) {
+        if (user.user_type_id === 2) {
           const modalElement = document.getElementById("loginPopupModal");
           console.log(modalElement);
           modalElement.style.display = "none";

@@ -1,3 +1,5 @@
+"use client"
+import { useEffect, useState } from "react";
 import MobileMenu from "../../../header/MobileMenu";
 import DashboardHeader from "../../../header/DashboardEmployerHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
@@ -9,8 +11,26 @@ import ContactInfoBox from "./components/ContactInfoBox";
 import CopyrightFooter from "../../CopyrightFooter";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
-
+import apiConfig from "@/app.config";
+import axios from "axios";
 const index = () => {
+    const [company,setCompany] =  useState(null);
+    const token = localStorage.getItem("accessToken");
+    const getComany  = async ()=>{
+        try{
+            const company  = await axios.get(`${apiConfig.url}/company/my-company`,{headers:{Authorization:`Bearer ${token}`}})    
+            
+           console.log("compnay data",company);
+            setCompany(company.data);
+    
+        }catch(err){
+            console.error("can not fetch company",err);
+        }
+    }
+    useEffect(()=>{
+        getComany();
+      
+    },[])
     return (
         <div className="page-wrapper dashboard">
             <span className="header-span"></span>
@@ -56,7 +76,7 @@ const index = () => {
                                     </div>
                                     {/* End .widget-title */}
                                     <div className="widget-content">
-                                        <SocialNetworkBox />
+                                        <SocialNetworkBox company={company} />
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +90,7 @@ const index = () => {
                                     {/* End .widget-title */}
 
                                     <div className="widget-content">
-                                        <ContactInfoBox />
+                                        <ContactInfoBox company={company} />
                                     </div>
                                 </div>
                             </div>

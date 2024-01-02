@@ -1649,6 +1649,11 @@ react-circular-progressbar@^2.1.0:
   resolved "https://registry.npmjs.org/react-circular-progressbar/-/react-circular-progressbar-2.1.0.tgz"
   integrity sha512-xp4THTrod4aLpGy68FX/k1Q3nzrfHUjUe5v6FsdwXBl3YVMwgeXYQKDrku7n/D6qsJA9CuunarAboC2xCiKs1g==
 
+react-country-state-city@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-country-state-city/-/react-country-state-city-1.1.0.tgz#fb71b7290d69d1bbbb8faa71d9418459eaff48bd"
+  integrity sha512-HT2VkqB9bwmzu1TE1EmrBet0lSIiH5WEh/FTuiW4jZxVNjs4Qv2MrzY8htcQ8V7d4kvuQ6j/swhnuXIH1CevpA==
+
 react-countup@^6.4.2:
   version "6.5.0"
   resolved "https://registry.npmjs.org/react-countup/-/react-countup-6.5.0.tgz"
