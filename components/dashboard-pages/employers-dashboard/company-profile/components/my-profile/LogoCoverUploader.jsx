@@ -9,7 +9,7 @@ const LogoCoverUploader = ({company}) => {
     const [logoImg, setLogoImg] = useState("");
     const [converImg, setCoverImg] = useState("");
 
-
+   const token = localStorage.getItem("accessToken");
  
     // logo image
     const logoHandler = (file) => {

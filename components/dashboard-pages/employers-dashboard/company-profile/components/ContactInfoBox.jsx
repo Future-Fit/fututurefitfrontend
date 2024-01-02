@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Map from "../../../Map";
 import {
+  GetCountries,
+  GetState,
+  GetCity,
   CitySelect,
   CountrySelect,
   StateSelect,
@@ -10,21 +13,38 @@ import {
 import "react-country-state-city/dist/react-country-state-city.css";
 import apiConfig from "@/app.config";
 const ContactInfoBox = ({company}) => {
-  const [countryid, setCountryid] = useState();
+  const [countryid, setCountryid] = useState(70);
   const [stateid, setstateid] = useState();
   const [cityid,setCityId] = useState();
   const [locationInfo, setLocationInfo] = useState();
   const [latitude,setLatitude] = useState('');
   const [longitude,setLongtiude] = useState('');
   const token =  localStorage.getItem("accessToken");
+  const [currCountry,setCurrCoutry] =  useState('');
+  const [currCity,setCurrCity] =  useState('');
+  const [currState,setCurrState] =  useState('');
 
  
   useEffect(()=>{
-    
+     
     setstateid(company?.state);
     setCityId(company?.city);
-    setCountryid(company?.country)
+    // setCountryid(company?.country)
     setLocationInfo(company?.completeAddress)
+    GetCountries(company?.country).then((result) => {
+ 
+      setCurrCoutry(result[company?.country]?.name);
+    });
+    GetState(company?.country).then((result) => {
+
+       var currStateArr  = result.filter((e)=>e.id == company?.state
+       );
+         setCurrState(currStateArr[0]?.name);
+    });
+    GetCity(company?.country, company?.state).then((result) => {
+       const cityArr =  result.filter((e)=>e.id == company?.city)
+      setCurrCity(cityArr[0]?.name);
+    });
   },[company]);
   // Fetch information from the server (example: fetching initial data)
  // Empty dependency array means this effect runs once when the component mounts
@@ -54,9 +74,10 @@ const ContactInfoBox = ({company}) => {
     <form className="default-form">
       <div className="row">
         <div className="form-group col-lg-6 col-md-12">
-          <label>Country</label>
+          <label>Country {currCountry} </label>
           <CountrySelect
             onChange={(e) => {
+            
               setCountryid(e.id);
             }}
             placeHolder="Select Country"
@@ -64,7 +85,7 @@ const ContactInfoBox = ({company}) => {
         </div>
 
         <div className="form-group col-lg-6 col-md-12">
-          <label>State</label>
+          <label>State {currState} </label>
           <StateSelect
             countryid={countryid}
             onChange={(e) => {
@@ -75,7 +96,7 @@ const ContactInfoBox = ({company}) => {
         </div>
 
         <div className="form-group col-lg-6 col-md-12">
-          <label>City</label>
+          <label>City {currCity}</label>
           <CitySelect
             countryid={countryid}
             stateid={stateid}
