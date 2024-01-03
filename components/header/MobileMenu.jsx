@@ -305,10 +305,10 @@ const MobileMenu = () => {
 
 
             {loggedIn ? (
-              <div className="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
+              <div className="dropdown" style={{ display: 'flex', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px'}}>
                 <div className="login-box" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                   <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
-                    <span className="icon icon-user"></span>
+                    <span className="fas fa-user"></span>
                   </a>
                   <div className="dropdown-menu" style={{ position: 'absolute', top: '100%', left: 0 }}>
                     <a className="dropdown-item" href="#" onClick={handleProfileRedirect}>My Profile</a>
@@ -319,7 +319,7 @@ const MobileMenu = () => {
             ) : (
               <div className="login-box" style={{ display: 'flex', alignItems: 'center' }}>
                 <a href="#" className="call-modal" data-bs-toggle="modal" data-bs-target="#loginPopupModal" onClick={handleLoginRedirect}>
-                  <span className="icon icon-user"></span>
+                  <span className="fas fa-user"></span>
                 </a>
               </div>
             )}
@@ -330,7 +330,7 @@ const MobileMenu = () => {
               data-bs-target="#offcanvasMenu"
               onClick={handleToggleSidebar}
             >
-              <span className="flaticon-menu-1"></span>
+              <span className="fas fa-bars" style={{paddingLeft: '10px'}}></span>
             </a>
             {/* right humberger menu */}
 
@@ -340,7 +340,7 @@ const MobileMenu = () => {
               <button
                 className="theme-btn search-button"
                 onClick={toggleSearch}
-                style={{ paddingRight: '5px', paddingLeft: '5px' }}
+                style={{ paddingLeft: '15px' }}
               >
                 <i className="fas fa-search" style={{ color: 'white' }}></i>
               </button>
@@ -383,7 +383,6 @@ const MobileMenu = () => {
                 </div>
               )}
             </div>
-
 
             <div className="dropdown" style={{ marginRight: '50px' }}>
               <button

@@ -51,9 +51,9 @@ const Block8 = () => {
               <div className="icon-wrap">
                 <span className={`icon ${item.icon}`}></span>
               </div>
-              <h5 className="title" style={{color:'#fff'}}>{item.title}</h5>
+              <h5 className="title" >{item.title}</h5>
             </a>
-            <p className="text" style={{color:'#fff'}}>{item.text}</p>
+            <p className="text" >{item.text}</p>
           </div>
         </div>
       ))}

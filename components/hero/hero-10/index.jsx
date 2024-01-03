@@ -39,7 +39,6 @@ const index = () => {
           >
             <section className="banner-section-ten">
               <HeroSliderGallery />
-
               <div className="auto-container" style={{ height: '60vh' }}>
                 <div className="cotnent-box">
                   <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '0px' }}>
@@ -47,7 +46,6 @@ const index = () => {
                     <h3 style={{ fontWeight: '600', paddingTop: '0px'/* Other mobile styles */ }}>Welcome to FFI</h3>
                     <h2 style={{ color: "#b2dfdb", fontSize: '18px' }}> Where Ambition Meets Opportunity!</h2>
                     {/* <hr style={{ border: '2px solid red', margin: '10px 0', display: 'block', clear: 'both' }} /> */}
-
                     <div style={{
                       backgroundColor: 'rgba(0, 0, 0, 0.1)',
                       backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -77,7 +75,7 @@ const index = () => {
             }}
           >
             <section className="banner-section-ten">
-              {/* <HeroSliderGallery /> */}
+              <HeroSliderGallery />
 
               <div className="auto-container" style={{ height: '60vh' }}>
                 <div className="cotnent-box">

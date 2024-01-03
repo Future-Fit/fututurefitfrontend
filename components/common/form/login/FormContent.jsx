@@ -157,7 +157,7 @@ const FormContent = ({ onReset }) => {
 
 
       <h3>Sign In</h3>
-      <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>If you have already signed up with us, please sign in below.</h3>
+      {/* <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>If you have already signed up with us, please sign in below.</h3> */}
 
       {/* <!--Login Form--> */}
       <form method="post" onSubmit={handleSubmit} >
@@ -187,36 +187,36 @@ const FormContent = ({ onReset }) => {
         </div>
         {/* password */}
 
-        <div className="form-group">
-          <div className="field-outer">
-            <div className="input-group checkboxes square" style={{ width: '20px' }}>
-              <input
-                type="checkbox"
-                name="remember-me"
-                id="remember"
-              // checked={rememberMe}
-              // onChange={handleRememberMe}
-              />
-              <label htmlFor="remember" className="remember">
-                <span className="custom-checkbox" ></span> Remember me
-              </label>
-            </div>
+        <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+  <div className="field-outer" style={{ display: 'flex', alignItems: 'center' }}>
+    <div className="input-group checkboxes square">
+      <input
+        type="checkbox"
+        name="remember-me"
+        id="remember"
+        // checked={rememberMe}
+        // onChange={handleRememberMe}
+      />
+      <label htmlFor="remember" className="remember" style={{ marginLeft: '5px' }}>
+        <span className="custom-checkbox"></span> 
+        <span style={{ verticalAlign: 'middle' }}>Remember me</span>
+      </label>
+    </div>
+  </div>
 
-            <div className="bottom-box">
-              <div className="text d-flex">
-                <Link
-                  href="#"
-                  className="call-modal signup"
-                  data-bs-toggle="modal"
-                  data-bs-target="#forgetPassPopupModal"
-                  style={{ color: 'blue' }}
-                >
-                  Forgot Username/Password?
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div className="text">
+    <Link
+      href="#"
+      className="call-modal signup"
+      data-bs-toggle="modal"
+      data-bs-target="#forgetPassPopupModal"
+      style={{ color: 'blue' }}
+    >
+      Forgot Username/Password?
+    </Link>
+  </div>
+</div>
+
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
           <button

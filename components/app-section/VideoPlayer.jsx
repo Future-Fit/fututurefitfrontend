@@ -48,8 +48,6 @@ const VideoPlayer = () => {
               <video
                 ref={videoRef}
                 src={`/images/VIDEO.mp4?${new Date().getTime()}`}
-                controls
-                autoPlay
                 muted
                 style={videoStyle}
               >
@@ -91,8 +89,6 @@ const VideoPlayer = () => {
               <video
                 ref={videoRef}
                 src={`/images/VIDEO.mp4?${new Date().getTime()}`}
-                controls
-                autoPlay
                 muted
                 style={videoStyle}
               >
