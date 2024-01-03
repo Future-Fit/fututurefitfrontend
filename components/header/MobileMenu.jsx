@@ -46,7 +46,7 @@ const MobileMenu = () => {
   };
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: GlobalConfig.BgrClr,
+    backgroundColor: GlobalConfig.BgHeader,
     boxShadow: 'none',
     position: 'fixed',
     zIndex: 999,
@@ -87,7 +87,7 @@ const MobileMenu = () => {
       // This will check if the user has scrolled more than 10px
       const scrolled = window.scrollY > 10;
       setHeaderStyle({
-        backgroundColor: GlobalConfig.BgrClr,
+        backgroundColor: GlobalConfig.BgHeader,
         boxShadow: scrolled ? '0 2px 6px rgba(0, 0, 0, 0.5)' : 'none',
         position: 'fixed',
         zIndex: 999,
@@ -394,8 +394,8 @@ const MobileMenu = () => {
                 aria-expanded="false"
                 style={{
                   position: 'relative',
-                  backgroundColor: GlobalConfig.BgrClr,
-                  borderColor: GlobalConfig.BgrClr,
+                  backgroundColor: GlobalConfig.BgHeader,
+                  borderColor: GlobalConfig.BgHeader,
                   backgroundImage: 'none',
                   boxShadow: 'none',
                   borderRadius: '5px',

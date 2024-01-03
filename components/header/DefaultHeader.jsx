@@ -42,7 +42,7 @@ const DefaulHeader2 = () => {
   }, []);
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: GlobalConfig.BgrClr,
+    backgroundColor: GlobalConfig.BgHeader,
     boxShadow: 'none',
   });
 
@@ -53,7 +53,7 @@ const DefaulHeader2 = () => {
 
       // Update header style based on scroll
       const updatedHeaderStyle = {
-        backgroundColor: scrolled ? GlobalConfig.BgrClr : GlobalConfig.BgrClr,
+        backgroundColor: scrolled ? GlobalConfig.BgHeader : GlobalConfig.BgHeader,
         boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
       };
       setHeaderStyle(updatedHeaderStyle);
@@ -350,8 +350,8 @@ const DefaulHeader2 = () => {
                   aria-expanded="false"
                   style={{
                     position: 'relative',
-                    backgroundColor: GlobalConfig.BgrClr,
-                    borderColor: GlobalConfig.BgrClr,
+                    backgroundColor: GlobalConfig.BgHeader,
+                    borderColor: GlobalConfig.BgHeader,
                     backgroundImage: 'none',
                     boxShadow: 'none',
                     borderRadius: '5px'

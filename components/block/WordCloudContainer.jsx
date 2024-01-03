@@ -3,7 +3,7 @@ import WordCloud from './WordCloud';
 
 const WordCloudContainer = () => {
   const [jobTitles, setJobTitles] = useState([]);
-  const keywords = ['Nurse', 'Engineer', 'Social', 'Manager', 'Developer', 'IT', 'Support', 'Research', 'Biomedical', 'Project'];
+  const keywords = ['Nurse', 'Engineer', 'Social', 'Manager', 'Developer', 'IT', 'Support', 'Research', 'Biomedical', 'Project', 'Director', 'Technical', 'Clinical', 'Specialist', 'Scientist'];
 
   const countKeywords = (titles, keywords) => {
     const counts = {};
