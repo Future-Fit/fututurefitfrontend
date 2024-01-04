@@ -234,7 +234,7 @@ const DashboardHeader = () => {
                 }`}
             style={headerStyle}
         >
-            <div className="auto-container">
+            <div className="auto-container" style={{backgroundColor: GlobalConfig.BgHeader}}>
                 {/* <!-- Main box --> */}
                 <div className="main-box">
                     {/* <!--Nav Outer --> */}

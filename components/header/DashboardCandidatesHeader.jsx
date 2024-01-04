@@ -63,7 +63,7 @@ const DashboardCandidatesHeader = () => {
     };
 
     const [headerStyle, setHeaderStyle] = useState({
-        backgroundColor: GlobalConfig.BgHeader,
+        backgroundColor: `${GlobalConfig.BgHeader} !imporatnt`,
         boxShadow: 'none',
     });
 
@@ -74,7 +74,7 @@ const DashboardCandidatesHeader = () => {
 
             // Update header style based on scroll
             const updatedHeaderStyle = {
-                backgroundColor: scrolled ? GlobalConfig.BgHeader : GlobalConfig.BgHeader,
+                backgroundColor: scrolled ? `${GlobalConfig.BgHeader} !imporatnt` : `${GlobalConfig.BgHeader} '!important'`,
                 boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
             };
             setHeaderStyle(updatedHeaderStyle);
@@ -140,7 +140,7 @@ const DashboardCandidatesHeader = () => {
     }, []);
 
     const getSuggestions = async (value) => {
-    
+
         if (!value) {
             console.log("we have found no value");
             setSuggestions([]);
@@ -368,39 +368,6 @@ const DashboardCandidatesHeader = () => {
                             </div>
                         )}
                     </div>
-                    {/* <div className="search-container d-flex align-items-center">
-                        <button
-                            className="theme-btn search-button"
-                            onClick={toggleSearch}
-                            style={{ paddingRight: '5px', paddingLeft: '5px' }}
-                        >
-                            <i className="fas fa-search" style={{ color: 'white' }}></i>
-                        </button>
-
-                        {searchExpanded && (
-                            <div>
-                                <Autosuggest
-                                    suggestions={suggestions}
-                                    onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-                                    onSuggestionsClearRequested={onSuggestionsClearRequested}
-                                    onSuggestionSelected={onSuggestionSelected}
-                                    getSuggestionValue={(suggestion) => suggestion}
-                                    renderSuggestion={(suggestion) => <div>{suggestion}</div>}
-                                    inputProps={inputProps}
-                                />
-                                {jobList.length > 0 && (
-                                    <div>
-                                        {searchResults.map((result) => (
-                                            <div key={result.id}>
-                                                <h3>{result.job_title}</h3>
-                                                <p>{result.job_description}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        )}
-                    </div> */}
 
                     <div className="dropdown">
 
