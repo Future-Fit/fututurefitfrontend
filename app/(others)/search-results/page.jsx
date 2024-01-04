@@ -1,8 +1,7 @@
 // "use client"
 import dynamic from "next/dynamic";
 import SearchResult from "@/components/pages-menu/search-result";
-import axios from "axios";
-import cheerio  from "cheerio";
+ 
 // import { useEffect } from "react";
 
 
