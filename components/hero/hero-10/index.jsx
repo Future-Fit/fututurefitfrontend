@@ -25,21 +25,21 @@ const index = () => {
 
   return (
     isMobile ? (
-
-      <section className="app-section" style={{ background: GlobalConfig.BgrClr, paddingTop: '30px', marginTop: '40px', paddingBottom: '0px', height: '80vh' }} >
-        <div className="auto-container" style={{ height: '85vh !important' }}>
+ 
+ 
+      <section className="app-section" style={{ background: GlobalConfig.BgrClr, paddingTop: '30px', marginTop: '40px', paddingBottom: '0px', minHeight: '80vh',height:'fit-content'}} >
+        <div className="auto-container" style={{ height: '110vh !important' }}>
           <div
             style={{
               position: 'relative',
               borderRadius: '0%',
-              height: '70vh',
-              overflow: 'hidden',
+              height: 'fit-content',
               margin: '0 auto'
             }}
           >
-            <section className="banner-section-ten">
+            <section className="banner-section-ten " style={{ height: 'fit-content' }}>
               <HeroSliderGallery />
-              <div className="auto-container" style={{ height: '60vh' }}>
+              <div className="auto-container" style={{ height: '100%' }}>
                 <div className="cotnent-box">
                   <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '0px' }}>
 
