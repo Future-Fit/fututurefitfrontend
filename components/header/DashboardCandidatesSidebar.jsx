@@ -11,6 +11,7 @@ import { menuToggle } from "../../features/toggle/toggleSlice";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { clearSession } from "../common/form/login/sessionHandler";
+import GlobalConfig from "@/Global.config";
 
 
 const DashboardCandidatesSidebar = () => {
@@ -43,8 +44,8 @@ const DashboardCandidatesSidebar = () => {
   return (
     <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
       {/* Start sidebar close icon */}
-      <div className="pro-header text-end pb-0 mb-0 show-1023">
-        <div className="pro-header" style={{paddingTop: '50px'}}>
+      <div className="pro-header text-end pb-0 mb-0 show-1023" style={{backgroundColor: GlobalConfig.BgHeader}}>
+        <div className="pro-header" style={{paddingTop: '50px', backgroundColor: GlobalConfig.BgHeader}}>
 
           <div className="fix-icon" onClick={menuToggleHandler} data-bs-dismiss="offcanvas" aria-label="Close">
             <span className="flaticon-close" style={{ color: '#fff' }}></span>

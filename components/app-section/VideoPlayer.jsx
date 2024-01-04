@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+
 
 const VideoPlayer = () => {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -43,16 +45,34 @@ const VideoPlayer = () => {
         <>
           <div className="image-column col-lg-6 col-md-12 col-sm-12">
             {/* <div className="bg-shape"></div> */}
-            <div className="slide-item" style={frameStyle}>
+            <div className="slide-item">
 
-              <video
+            <div className="text" style={{ textAlign: "center", color: 'white', marginBottom: '20px' }}>
+                Description about the vedio for job seeker <br></br>
+                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                    <span className="btn-title">Watch Video</span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="text" style={{ textAlign: "center", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
+                Description about the vedio for Student <br></br>
+                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                    <span className="btn-title">Watch Video</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* <video
                 ref={videoRef}
                 src={`/images/VIDEO.mp4?${new Date().getTime()}`}
                 muted
                 style={videoStyle}
               >
                 Your browser does not support the video tag.
-              </video>
+              </video> */}
             </div>
           </div>
           {/* <!-- Image Column --> */}
@@ -85,15 +105,38 @@ const VideoPlayer = () => {
         <>
           <div className="col-lg-6 col-md-12 col-sm-12">
             {/* <div className="bg-shape"></div> */}
-            <div className="slide-item" style={frameStyle}>
-              <video
+            <div className="slide-item">
+            <div className="text" style={{ textAlign: "center", color: 'white', marginBottom: '20px' }}>
+                Description about the vedio for job seeker <br></br>
+                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                    <span className="btn-title">Watch Video</span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="text" style={{ textAlign: "center", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
+                Description about the vedio for Student <br></br>
+                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                    <span className="btn-title">Watch Video</span>
+                  </Link>
+                </div>
+              </div>
+            {/* Description about the vedio <br></br>
+                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                    <span className="btn-title">Watch Video</span>
+                  </Link>
+                </div> */}
+              {/* <video
                 ref={videoRef}
                 src={`/images/VIDEO.mp4?${new Date().getTime()}`}
                 muted
                 style={videoStyle}
               >
                 Your browser does not support the video tag.
-              </video>
+              </video> */}
             </div>
           </div>
           {/* <!-- Image Column --> */}

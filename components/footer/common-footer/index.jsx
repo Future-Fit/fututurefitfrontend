@@ -17,7 +17,7 @@ const Index = () => {
   };
 
   return (
-    <footer className="main-footer" style={footerStyle}>
+    <footer className="main-footer" style={{boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', backgroundColor: GlobalConfig.BgHeader}}>
       <div className="auto-container">
         <div className="logo-box"  style={logoStyle}>
         <div className="logo">

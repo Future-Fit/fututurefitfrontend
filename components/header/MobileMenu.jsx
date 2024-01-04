@@ -170,7 +170,6 @@ const MobileMenu = () => {
 
   const toggleSearch = () => {
     setSearchExpanded(!searchExpanded);
-    // setIconsShifted(!iconsShifted);
 
   };
 
@@ -330,7 +329,7 @@ const MobileMenu = () => {
               data-bs-target="#offcanvasMenu"
               onClick={handleToggleSidebar}
             >
-              <span className="fas fa-bars" style={{paddingLeft: '10px'}}></span>
+              <span className="fas fa-bars" style={{paddingLeft: '15px'}}></span>
             </a>
             {/* right humberger menu */}
 
@@ -340,7 +339,7 @@ const MobileMenu = () => {
               <button
                 className="theme-btn search-button"
                 onClick={toggleSearch}
-                style={{ paddingLeft: '15px' }}
+                style={{ paddingLeft: '20px' }}
               >
                 <i className="fas fa-search" style={{ color: 'white' }}></i>
               </button>
@@ -401,7 +400,7 @@ const MobileMenu = () => {
                   marginRight: '-90px'
                 }}
               >
-                <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
+                <i className="fas fa-globe" style={{ marginLeft: '5px' }}></i>
                 {selectedLanguage}
               </button>
               <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">

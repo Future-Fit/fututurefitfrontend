@@ -9,7 +9,6 @@ import {
 } from "react-pro-sidebar";
 
 import mobileMenuData from "../../../data/mobileMenuData";
-import SidebarFooter from "./SidebarFooter";
 import SidebarHeader from "./SidebarHeader";
 import {
   isActiveLink,
@@ -18,12 +17,10 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
-
 const Index = () => {
   const router = useRouter()
   const sidebarRef = useRef(null);
   const [sidebarHeight, setSidebarHeight] = useState('100vh'); // Initial height
-  const [selectedLanguage, setSelectedLanguage] = useState('English'); // State to manage selected language
 
 
   useEffect(() => {
