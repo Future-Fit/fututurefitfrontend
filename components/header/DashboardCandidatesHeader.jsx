@@ -243,8 +243,9 @@ const DashboardCandidatesHeader = () => {
         <header
             className={`main-header header-style-two  ${navbar ? "fixed-header" : ""
                 }`}
+                style={{backgroundColor: GlobalConfig.BgHeader}}
         >
-            <div className="auto-container">
+            <div className="auto-container" style={{backgroundColor: GlobalConfig.BgHeader}}>
                 {/* <!-- Main box --> */}
                 <div className="main-box">
                     {/* <!--Nav Outer --> */}
