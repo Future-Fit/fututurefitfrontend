@@ -20,17 +20,7 @@ const Index = () => {
     <footer className="main-footer" style={{boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', backgroundColor: GlobalConfig.BgHeader}}>
       <div className="auto-container">
         <div className="logo-box"  style={logoStyle}>
-        <div className="logo">
-          <Link href="/" className="noSticky">
-            <Image
-              width={50}
-              height={50}
-              src={GlobalConfig.DskLog}
-              alt="Footer Logo"
-              title="brand"
-            />
-          </Link>
-        </div>
+        
       </div>
         {/* Widgets Section */}
         <div className="widgets-section" data-aos="fade-up">
@@ -43,6 +33,17 @@ const Index = () => {
               <div className="footer-column ">
                 <div className="contact-details">
                   <div className="contact-column" style={{ width: '100%' }}>
+                  <div className="logo">
+          <Link href="/" className="noSticky">
+            <Image
+              width={50}
+              height={50}
+              src={GlobalConfig.DskLog}
+              alt="Footer Logo"
+              title="brand"
+            />
+          </Link>
+        </div>
                     <p className="phone-num">
                       <span>Contact Us</span>
                     </p>

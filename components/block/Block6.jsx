@@ -58,48 +58,44 @@ const Block6 = () => {
 
   return (
     <>
-    <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      {blockContent.map((item, index) => (
-        <React.Fragment key={item.id}>
-          <div className="col-lg-4 col-md-4 col-sm-12" style={{ flex: '1', margin: '0 10px' }}>
-          <div className="work-block -type-2 mb-0">
-            <div className="inner-box">
-              {/* Move the anchor tag to wrap the entire content including the icon */}
-              {/* <a href={item.linkPath} className="block-content"> */}
-                <div className="icon-wrap">
-                  <span className={`icon ${item.icon}`}></span>
-                </div>
-                <h5>{item.title}</h5>
-                {/* Uncomment the line below if you want to display item.text */}
-                {/* <p>{item.text}</p> */}
-              {/* </a> */}
-            </div>
-          </div>
-        </div>
-          {/* Add an arrow after each item except the last one */}
-          {isMobile ? (
-            <>
-            {index < blockContent.length - 1 && (
-              <div className="col-lg-1 col-md-1 col-sm-1">
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                  <Image src={arrowDown} width={50} height={50} alt="arrow icon" />
+      <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        {blockContent.map((item, index) => (
+          <React.Fragment key={item.id}>
+            <div className="col-lg-4 col-md-4 col-sm-12" style={{ flex: '1', margin: '0 10px' }}>
+              <div className="work-block -type-2 mb-0">
+                <div className="inner-box">
+                  <div className="icon-wrap">
+                    <span className={`icon ${item.icon}`}></span>
+                  </div>
+                  <a href={item.linkPath}>
+                    <h5>{item.title}</h5>
+                  </a>
                 </div>
               </div>
-            )}
-            </>
-            ):(
+            </div>
+            {isMobile ? (
               <>
-              {index < blockContent.length - 1 && (
-                <div className="col-lg-1 col-md-1 col-sm-1">
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                    <Image src={arrowRight} width={50} height={50} alt="arrow icon" />
+                {index < blockContent.length - 1 && (
+                  <div className="col-lg-1 col-md-1 col-sm-1">
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                      <Image src={arrowDown} width={50} height={50} alt="arrow icon" />
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </>
+            ) : (
+              <>
+                {index < blockContent.length - 1 && (
+                  <div className="col-lg-1 col-md-1 col-sm-1">
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                      <Image src={arrowRight} width={50} height={50} alt="arrow icon" />
+                    </div>
+                  </div>
+                )}
               </>
             )}
           </React.Fragment>
-      ))}
+        ))}
       </div>
     </>
   );

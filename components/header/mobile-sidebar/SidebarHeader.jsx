@@ -10,8 +10,6 @@ const SidebarHeader = () => {
           src= {GlobalConfig.DskLog}
           alt="brand" />
       </Link>
-      {/* End logo */}
-
       <div className="fix-icon" data-bs-dismiss="offcanvas" aria-label="Close">
         <span className="flaticon-close" style={{color:'#fff'}}></span>
       </div>

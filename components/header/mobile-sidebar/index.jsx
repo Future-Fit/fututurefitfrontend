@@ -40,26 +40,16 @@ const Index = () => {
     };
   }, [router.asPath]);
 
-  const sidebarContainerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    height: sidebarHeight, // Set sidebar height dynamically
-    width: '200px',
-    background: GlobalConfig.BgHeader,
-    color:'white'
-  };
-
   return (
     <div
       className="offcanvas offcanvas-start mobile_menu-contnet"
       tabIndex="-1"
       id="offcanvasMenu"
       data-bs-scroll="true"
-  
     >
       <SidebarHeader />
       {/* End pro-header */}
-      <Sidebar ref={sidebarRef}>
+      <Sidebar ref={sidebarRef} style={{ backgroundColor: GlobalConfig.BgHeader }}>
         <Menu>
           {mobileMenuData.map((item) => (
             // Check if the item has sub-items
@@ -72,12 +62,13 @@ const Index = () => {
                 }
                 label={item.label}
                 key={item.id}
-                style={{background:GlobalConfig.BgHeader,color:'white' }}
+                style={{ background: GlobalConfig.BgHeader, color: 'white', fontWeight: 'bold' }}
+              // Line between menu item , borderBottom: '0.5px solid rgba(255, 255, 255, 0.5)', marginBottom: '0.5px' 
               >
                 {item.items.map((menuItem, i) => (
                   <MenuItem
-                  // style={{background:`${GlobalConfig.BgHeader} !important`  }}
-                style={{background:GlobalConfig.BgHeader,color:'white' }}
+                    // style={{background:`${GlobalConfig.BgHeader} !important`  }}
+                    style={{ background: GlobalConfig.BgHeader, color: 'white', fontWeight: 'bold' }}
 
                     onClick={() => router.push(menuItem.routePath)}
                     className={
@@ -101,7 +92,7 @@ const Index = () => {
                     : ""
                 }
                 key={item.id}
-                style={{background:GlobalConfig.BgHeader,color:'white' }}
+                style={{ background: GlobalConfig.BgHeader, color: 'white', fontWeight: 'bold' }}
 
               >
                 {item.label}

@@ -25,9 +25,8 @@ const index = () => {
 
   return (
     isMobile ? (
-
-      <section className="app-section" style={{    paddingBottom: '0px', minHeight: '80vh',height:'fit-content'}} >
-        <div   style={{ height: '110vh !important' }}>
+      <section className="app-section" style={{ paddingBottom: '0px', minHeight: '100vh', height: 'fit-content', backgroundColor: GlobalConfig.BgHeader }} >
+        {/* <div style={{ height: '100vh !important' }}> */}
           <div
             style={{
               position: 'relative',
@@ -38,7 +37,7 @@ const index = () => {
           >
             <section className="banner-section-ten " style={{ height: 'fit-content' }}>
               <HeroSliderGallery />
-              <div className="auto-container" style={{ height: '100%' }}>
+              <div className="auto-container">
                 <div className="cotnent-box">
                   <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '0px' }}>
 
@@ -59,18 +58,18 @@ const index = () => {
               </div>
             </section>
           </div >
-        </div >
-</section >
+        {/* </div > */}
+      </section >
     ) : (
-      <section className="app-section" style={{ marginTop:'50px',  paddingBottom: '0px', height: '80vh' }}>
+      <section className="app-section" style={{ marginTop: '50px', paddingBottom: '0px', height: '80vh' }}>
         <div >
           <div
             style={{
               position: 'relative',
               borderRadius: '0%',
               height: '65vh',
-               
-           // margin: '0 auto'
+
+              // margin: '0 auto'
             }}
           >
             <section className="banner-section-ten">
@@ -102,7 +101,7 @@ const index = () => {
             </section>
           </div>
         </div>
-     </section>
+      </section>
     )
   )
 };
