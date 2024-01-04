@@ -46,29 +46,14 @@ const index = () => {
 
       {/* <CallToActionSearch /> */}
 
-      <section className="" style={{ background: '#f5f7fc' }}>
-        <div className="auto-container">
-          <div className="row justify-content-center">
-            <div className="col-lg-5">
-              <div className="sec-title text-center">
-                <h2 >Become A Member in 3 Simple Steps</h2>
-              </div>
-            </div>
-          </div>
-          {/* End .row */}
-
-          <div className="row grid-base" data-aos="fade-up">
-            <Block6 />
-          </div>
-        </div>
-      </section>
+     
       {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
 
 
-      <section className="layout-pt-10 layout-pb-30" style={{ background: GlobalConfig.BgrClr }}>
+      <section className="layout-pt-10 layout-pb-30" style={{background: '#f5f7fc' }}>
         <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
-          <div className="sec-title text-center" style={{ color: '#fff' }}>
-            <h2 style={{ color: '#fff' }}>Our Services</h2>
+          <div className="sec-title text-center" >
+            <h2>Our Services</h2>
             {/* <div style={{ color: '#fff' }} className="text">
               AT FFI, our goal is to connect those seeking opportunities with the a global network of resources. 
             </div> */}
@@ -79,10 +64,26 @@ const index = () => {
             <Block8 />
             {/* <!-- Work Block --> */}
           </div>
-          <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+          {/* <div className="btn-box text-center" style={{ marginTop: '20px' }}>
             <Link href="/service" className="theme-btn btn-style-one bg-blue">
               <span className="btn-title">Learn More</span>
             </Link>
+          </div> */}
+        </div>
+      </section>
+
+      <section className="" style={{  background: GlobalConfig.BgrClr}}>
+        <div className="auto-container">
+          <div className="row justify-content-center">
+            <div className="col-lg-5">
+              <div className="sec-title text-center">
+                <h2 style={{color:'#fff'}}>Become A Member in 3 Simple Steps</h2>
+              </div>
+            </div>
+          </div>
+          {/* End .row */}
+          <div className="row grid-base" data-aos="fade-up">
+            <Block6 />
           </div>
         </div>
       </section>
@@ -111,7 +112,7 @@ const index = () => {
         </div>
       </section>
 
-      <section className="job-section-two">
+      {/* <section className="job-section-two">
         <div className="auto-container">
           <div className="sec-title text-center">
             <h2 >Trending Job Opportunities</h2>
@@ -126,7 +127,7 @@ const index = () => {
             <span className="btn-title">Load More</span>
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* <AppSectionAbout /> */}
 

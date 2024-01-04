@@ -4,7 +4,7 @@ import GlobalConfig from "@/Global.config";
 
 const SidebarHeader = () => {
   return (
-    <div className="pro-header">
+    <div className="pro-header" style={{backgroundColor: GlobalConfig.BgHeader}}>
       <Link href="/">
         <Image width={50} height={50}
           src= {GlobalConfig.DskLog}

@@ -46,7 +46,7 @@ const MobileMenu = () => {
   };
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: GlobalConfig.BgrClr,
+    backgroundColor: GlobalConfig.BgHeader,
     boxShadow: 'none',
     position: 'fixed',
     zIndex: 999,
@@ -87,7 +87,7 @@ const MobileMenu = () => {
       // This will check if the user has scrolled more than 10px
       const scrolled = window.scrollY > 10;
       setHeaderStyle({
-        backgroundColor: GlobalConfig.BgrClr,
+        backgroundColor: GlobalConfig.BgHeader,
         boxShadow: scrolled ? '0 2px 6px rgba(0, 0, 0, 0.5)' : 'none',
         position: 'fixed',
         zIndex: 999,
@@ -170,7 +170,6 @@ const MobileMenu = () => {
 
   const toggleSearch = () => {
     setSearchExpanded(!searchExpanded);
-    // setIconsShifted(!iconsShifted);
 
   };
 
@@ -305,10 +304,10 @@ const MobileMenu = () => {
 
 
             {loggedIn ? (
-              <div className="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
+              <div className="dropdown" style={{ display: 'flex', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px'}}>
                 <div className="login-box" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                   <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
-                    <span className="icon icon-user"></span>
+                    <span className="fas fa-user"></span>
                   </a>
                   <div className="dropdown-menu" style={{ position: 'absolute', top: '100%', left: 0 }}>
                     <a className="dropdown-item" href="#" onClick={handleProfileRedirect}>My Profile</a>
@@ -319,7 +318,7 @@ const MobileMenu = () => {
             ) : (
               <div className="login-box" style={{ display: 'flex', alignItems: 'center' }}>
                 <a href="#" className="call-modal" data-bs-toggle="modal" data-bs-target="#loginPopupModal" onClick={handleLoginRedirect}>
-                  <span className="icon icon-user"></span>
+                  <span className="fas fa-user"></span>
                 </a>
               </div>
             )}
@@ -330,7 +329,7 @@ const MobileMenu = () => {
               data-bs-target="#offcanvasMenu"
               onClick={handleToggleSidebar}
             >
-              <span className="flaticon-menu-1"></span>
+              <span className="fas fa-bars" style={{paddingLeft: '15px'}}></span>
             </a>
             {/* right humberger menu */}
 
@@ -340,7 +339,7 @@ const MobileMenu = () => {
               <button
                 className="theme-btn search-button"
                 onClick={toggleSearch}
-                style={{ paddingRight: '5px', paddingLeft: '5px' }}
+                style={{ paddingLeft: '20px' }}
               >
                 <i className="fas fa-search" style={{ color: 'white' }}></i>
               </button>
@@ -384,7 +383,6 @@ const MobileMenu = () => {
               )}
             </div>
 
-
             <div className="dropdown" style={{ marginRight: '50px' }}>
               <button
                 className="btn btn-secondary dropdown-toggle"
@@ -394,15 +392,15 @@ const MobileMenu = () => {
                 aria-expanded="false"
                 style={{
                   position: 'relative',
-                  backgroundColor: GlobalConfig.BgrClr,
-                  borderColor: GlobalConfig.BgrClr,
+                  backgroundColor: GlobalConfig.BgHeader,
+                  borderColor: GlobalConfig.BgHeader,
                   backgroundImage: 'none',
                   boxShadow: 'none',
                   borderRadius: '5px',
                   marginRight: '-90px'
                 }}
               >
-                <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
+                <i className="fas fa-globe" style={{ marginLeft: '5px' }}></i>
                 {selectedLanguage}
               </button>
               <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">

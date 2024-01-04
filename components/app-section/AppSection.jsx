@@ -25,7 +25,14 @@ const AppSection = () => {
               About Us
             </h2>
             <div className="text" style={{ textAlign: "justify" }}>
-              <span> Future Fit International is a trusted partner, working across borders to match ambitions and skills
+              <span> Future Fit International (FFI) is established with the idea that we can serve our customers
+                expeditiously by working closely with all stakeholders involved across borders. We do this 
+                by partnering with employers, local and national government agencies, jobseekers, students
+                and anyone else connected to international skilled recruitment and education. We specialize on 
+                bringing qualty candidates to Canadian job and education opportunties available to international
+                applicants. 
+                
+                                to a trusted partner, working across borders to match ambitions and skills
                 with education and job opportunities. Our passion is to empower individuals and organizations.
                 Because we understand the challenges that individuals face in their pursuit of success and what
                 businesses and educational institutions strive for, we have built a thriving ecosystem where these driving

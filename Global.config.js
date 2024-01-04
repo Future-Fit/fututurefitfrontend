@@ -2,6 +2,10 @@
 const GlobalConfig = {
     // Define the background color
     BgrClr: "#3B578E", //Indigo (Rainbow)
+    // BgrClr: "#A8A9AD", //Indigo (Rainbow)
+    BgHeader:  "#2F3140",
+
+
 
     // Define the header and footer color
     DskHdrClr: "",
