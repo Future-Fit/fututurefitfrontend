@@ -17,7 +17,6 @@ const SearchSection = () => {
         </figure>
       </div>
       {/* <!-- Image Column --> */}
-
       <div className="content-column col-lg-6 col-md-12 col-sm-12">
         <div className="inner-column" data-aos="fade-left">
           <div className="sec-title">

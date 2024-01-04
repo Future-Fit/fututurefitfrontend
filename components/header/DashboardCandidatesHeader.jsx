@@ -140,7 +140,9 @@ const DashboardCandidatesHeader = () => {
     }, []);
 
     const getSuggestions = async (value) => {
+    
         if (!value) {
+            console.log("we have found no value");
             setSuggestions([]);
             return;
         }

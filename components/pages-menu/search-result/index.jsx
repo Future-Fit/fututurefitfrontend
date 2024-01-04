@@ -7,7 +7,7 @@ import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
+import Script from 'next/script';
 const index = () => {
   const router = useRouter();
   const [searchResults, setSearchResults] = useState([]);
@@ -35,7 +35,7 @@ const index = () => {
   return (
     <>
       {/* <!-- Header Span --> */}
-      <span className="header-span"></span>
+     
 
       <LoginPopup />
       {/* End Login Popup Modal */}

@@ -10,15 +10,16 @@ const PostBoxForm = () => {
   const  [category,setCategory] = useState([]);
   const [jobType,setJobType] =  useState([]);
   const [skills,setSkills] =  useState([]);
+  const token =  localStorage.getItem('accessToken');
   const fetchCompanies  = async ()=>{
     try{
-      const response = await axios.get(`${apiConfig.url}/company`);
+      const response = await axios.get(`${apiConfig.url}/company/my-company`,{headers:{Authorization:`Bearer ${token}`}});
       
       if(response.status == 200){
           var obj  = [];
-          for(let i=0; i < response.data.result.length; i++){
-              obj.push({value:response.data.result[i].id,label:response.data.result[i].company_name});
-          }
+        
+              obj.push({value:response.data.id,label:response.data.company_name});
+       
          
           setCompany(obj);
       }

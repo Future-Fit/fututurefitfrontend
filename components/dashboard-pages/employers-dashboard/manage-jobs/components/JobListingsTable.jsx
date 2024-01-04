@@ -1,8 +1,18 @@
+"use client"
 import Link from "next/link";
-import jobs from "../../../../../data/job-featured.js";
 import Image from "next/image.js";
+import apiConfig from "@/app.config";
+import { useSearchParams } from "next/navigation";
+import { useState,useEffect } from "react";
+const JobListingsTable = ({jobs , company , setMonths}) => {
+  const [logo,setLogo]= useState('');
 
-const JobListingsTable = () => {
+  useEffect(()=>{
+
+  setLogo(`${apiConfig.url}/uploads/${company?.logo_picture_path}`);
+
+},[company]);
+
   return (
     <div className="tabs-box">
       <div className="widget-title">
@@ -10,18 +20,22 @@ const JobListingsTable = () => {
 
         <div className="chosen-outer">
           {/* <!--Tabs Box--> */}
-          <select className="chosen-single form-select">
-            <option>Last 6 Months</option>
-            <option>Last 12 Months</option>
-            <option>Last 16 Months</option>
-            <option>Last 24 Months</option>
-            <option>Last 5 year</option>
+          <select className="chosen-single form-select"
+          onChange={(e)=>setMonths(e.value)}
+          >
+            <option value="6">Last 6 Months</option>
+            <option value="12">Last 12 Months</option>
+            <option value="16">Last 16 Months</option>
+            <option value="24">Last 24 Months</option>
+            <option value="60">Last 5 year</option>
           </select>
         </div>
       </div>
       {/* End filter top bar */}
 
+
       {/* Start table widget content */}
+   
       <div className="widget-content">
         <div className="table-outer">
           <table className="default-table manage-job-table">
@@ -29,14 +43,15 @@ const JobListingsTable = () => {
               <tr>
                 <th>Title</th>
                 <th>Applications</th>
-                <th>Created & Expired</th>
+                <th>Created </th>
+                <th>Expired</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
 
             <tbody>
-              {jobs.slice(0, 4).map((item) => (
+              {jobs?.map((item) => (
                 <tr key={item.id}>
                   <td>
                     {/* <!-- Job Block --> */}
@@ -45,15 +60,16 @@ const JobListingsTable = () => {
                         <div className="content">
                           <span className="company-logo">
                             <Image
+                            loader={() => logo} 
                               width={50}
                               height={49}
-                              src={item.logo}
+                              src={logo}
                               alt="logo"
                             />
                           </span>
                           <h4>
                             <Link href={`/job-single-v3/${item.id}`}>
-                              {item.jobTitle}
+                              {item.job_title}
                             </Link>
                           </h4>
                           <ul className="job-info">
@@ -72,6 +88,10 @@ const JobListingsTable = () => {
                   </td>
                   <td className="applied">
                     <a href="#">3+ Applied</a>
+                  </td>
+                  <td>
+                    October 27, 2017 <br />
+                    April 25, 2011
                   </td>
                   <td>
                     October 27, 2017 <br />
