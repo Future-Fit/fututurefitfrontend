@@ -50,7 +50,7 @@ const VideoPlayer = () => {
             <div className="text" style={{ textAlign: "center", color: 'white', marginBottom: '20px' }}>
                 Description about the vedio for job seeker <br></br>
                 <div className="btn-box text-center" style={{ marginTop: '20px' }}>
-                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                  <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
                 </div>
@@ -59,7 +59,7 @@ const VideoPlayer = () => {
               <div className="text" style={{ textAlign: "center", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
                 Description about the vedio for Student <br></br>
                 <div className="btn-box text-center" style={{ marginTop: '20px' }}>
-                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                  <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
                 </div>
@@ -109,7 +109,7 @@ const VideoPlayer = () => {
             <div className="text" style={{ textAlign: "center", color: 'white', marginBottom: '20px' }}>
                 Description about the vedio for job seeker <br></br>
                 <div className="btn-box text-center" style={{ marginTop: '20px' }}>
-                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                  <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
                 </div>
@@ -118,7 +118,7 @@ const VideoPlayer = () => {
               <div className="text" style={{ textAlign: "center", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
                 Description about the vedio for Student <br></br>
                 <div className="btn-box text-center" style={{ marginTop: '20px' }}>
-                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
+                  <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
                 </div>
