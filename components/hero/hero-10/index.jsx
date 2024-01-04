@@ -27,8 +27,8 @@ const index = () => {
     isMobile ? (
  
  
-      <section className="app-section" style={{ background: GlobalConfig.BgrClr, paddingTop: '30px', marginTop: '40px', paddingBottom: '0px', minHeight: '80vh',height:'fit-content'}} >
-        <div className="auto-container" style={{ height: '110vh !important' }}>
+      <section className="app-section" style={{  paddingTop: '30px', marginTop: '40px', paddingBottom: '0px', minHeight: '80vh',height:'fit-content'}} >
+        <div className="auto-container" style={{ height: '110vh !important' ,paddingTop:'30px' }}>
           <div
             style={{
               position: 'relative',
@@ -61,16 +61,15 @@ const index = () => {
             </section>
           </div >
         </div >
-      </section >
+</section >
     ) : (
-      <section className="app-section" style={{ background: GlobalConfig.BgrClr, paddingTop: '40px', marginTop: '85px', paddingBottom: '0px', height: '80vh' }}>
-        <div className="auto-container" style={{ height: '85vh !important' }}>
+      <section className="app-section" style={{   paddingTop: '40px', marginTop: '85px', paddingBottom: '0px', height: '80vh' }}>
+        <div className="auto-container"  >
           <div
             style={{
               position: 'relative',
               borderRadius: '0%',
-              height: '70vh',
-              overflow: 'hidden',
+              height: '65vh',
               margin: '0 auto'
             }}
           >
