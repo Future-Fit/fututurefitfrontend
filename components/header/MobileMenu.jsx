@@ -47,6 +47,7 @@ const MobileMenu = () => {
 
   const [headerStyle, setHeaderStyle] = useState({
     backgroundColor: GlobalConfig.BgHeader,
+    color:'white',
     boxShadow: 'none',
     position: 'fixed',
     zIndex: 999,

@@ -16,6 +16,7 @@ import {
 } from "../../../utils/linkActiveChecker";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
+import GlobalConfig from "@/Global.config";
 
 const Index = () => {
   const router = useRouter()
@@ -44,7 +45,8 @@ const Index = () => {
     flexDirection: 'column',
     height: sidebarHeight, // Set sidebar height dynamically
     width: '200px',
-    background: '#f2f2f2',
+    background: GlobalConfig.BgHeader,
+    color:'white'
   };
 
   return (
@@ -53,6 +55,7 @@ const Index = () => {
       tabIndex="-1"
       id="offcanvasMenu"
       data-bs-scroll="true"
+  
     >
       <SidebarHeader />
       {/* End pro-header */}
@@ -69,9 +72,13 @@ const Index = () => {
                 }
                 label={item.label}
                 key={item.id}
+                style={{background:GlobalConfig.BgHeader,color:'white' }}
               >
                 {item.items.map((menuItem, i) => (
                   <MenuItem
+                  // style={{background:`${GlobalConfig.BgHeader} !important`  }}
+                style={{background:GlobalConfig.BgHeader,color:'white' }}
+
                     onClick={() => router.push(menuItem.routePath)}
                     className={
                       isActiveLink(menuItem.routePath, usePathname())
@@ -94,6 +101,8 @@ const Index = () => {
                     : ""
                 }
                 key={item.id}
+                style={{background:GlobalConfig.BgHeader,color:'white' }}
+
               >
                 {item.label}
               </MenuItem>

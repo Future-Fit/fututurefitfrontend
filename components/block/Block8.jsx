@@ -46,41 +46,26 @@ const Block8 = () => {
   return (
     <>
       {blockContent.map((item) => (
-        <div className="col-lg-3 col-md-6 col-sm-12" key={item.id}>
-          <div className="work-block -type-4">
-            <a href={item.linkPath} className="block-content">
+        <div className="col-lg-3 col-md-6 col-sm-12" key={item.id} >
+          <div className="work-block -type-4" style={{minHeight:'200px',textAlign:'left'}}>
+            <a href={item.linkPath} className="block-content"  style={{textAlign:'left'}} >
               <div className="icon-wrap">
                 <span className={`icon ${item.icon}`}></span>
               </div>
-              <h5 className="title">{item.title}</h5>
+              <h5 className="title"  style={{textAlign:'left'}}>{item.title}</h5>
 
-              <p className="text">{item.text}</p>
+              <p className="text"  style={{textAlign:'left'}}>{item.text}</p>
+          
+            <div style={{position:'absolute' , left:'10px',bottom:'10px'}}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="-5 -5 25 25">
+              <path   
+                     stroke={GlobalConfig.BgrClr}   d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+              </svg>
+              
+            </div>
 
-              <span className="circle-arrow">
-                <svg
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M15 27C21.6274 27 27 21.6274 27 15C27 8.37258 21.6274 3 15 3C8.37258 3 3 8.37258 3 15C3 21.6274 8.37258 27 15 27Z"
-                    fill="#fff"
-                    stroke={GlobalConfig.BgrClr}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M15 8L22 15L15 22"
-                    stroke={GlobalConfig.BgrClr}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+              
+        
             </a>
           </div>
         </div>
