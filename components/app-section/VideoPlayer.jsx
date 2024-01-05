@@ -47,39 +47,47 @@ const VideoPlayer = () => {
             {/* <div className="bg-shape"></div> */}
             <div className="slide-item">
 
-            <div className="text" style={{ textAlign: "center", color: 'white', marginBottom: '20px' }}>
-                Description about the video for job seeker <br/>
-                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+              <div className="text" style={{
+                marginTop: '10px',
+                textAlign: "center",
+                color: '#000',
+                marginBottom: '5px',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                borderRadius: '5px',
+                paddingBottom: '10px'
+              }}>
+                Description about the video for job seeker <br />
+                <div className="btn-box text-center" style={{ marginTop: '50px' }}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
                 </div>
               </div>
 
-              <div className="text" style={{ textAlign: "center", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-                Description about the video for Student <br/>
-                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+              <div className="text" style={{
+                textAlign: "center",
+                color: '#000',
+                marginTop: '-1px',
+                marginBottom: '5px',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                borderRadius: '5px'
+              }}>
+                Description about the video for Student <br />
+                <div className="btn-box text-center" style={{ marginTop: '50px' }}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
                 </div>
               </div>
-
-              {/* <video
-                ref={videoRef}
-                src={`/images/VIDEO.mp4?${new Date().getTime()}`}
-                muted
-                style={videoStyle}
-              >
-                Your browser does not support the video tag.
-              </video> */}
             </div>
           </div>
           {/* <!-- Image Column --> */}
           <div className="content-column col-lg-6 col-md-12 col-sm-12">
             <div className="inner-column" data-aos="fade-left">
               <div className="sec-title">
-                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
+                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', marginTop: '30px' }}>
                   We Are ...
                 </h2>
                 <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
@@ -106,37 +114,41 @@ const VideoPlayer = () => {
           <div className="col-lg-6 col-md-12 col-sm-12">
             {/* <div className="bg-shape"></div> */}
             <div className="slide-item">
-            <div className="text" style={{ textAlign: "center", color: 'white', marginBottom: '20px' }}>
-                Description about the video for job seeker <br></br>
-                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+
+              <div className="text" style={{
+                marginTop: '10px',
+                textAlign: "center",
+                color: '#000',
+                marginBottom: '5px',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                borderRadius: '5px',
+                paddingBottom: '10px'
+              }}>
+                Description about the video for job seeker <br />
+                <div className="btn-box text-center" style={{ marginTop: '50px' }}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
                 </div>
               </div>
 
-              <div className="text" style={{ textAlign: "center", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-                Description about the video for Student <br></br>
-                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
+              <div className="text" style={{
+                textAlign: "center",
+                color: '#000',
+                marginTop: '-1px',
+                marginBottom: '5px',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                borderRadius: '5px'
+              }}>
+                Description about the video for Student <br />
+                <div className="btn-box text-center" style={{ marginTop: '50px' }}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
                 </div>
               </div>
-            {/* Description about the vedio <br></br>
-                <div className="btn-box text-center" style={{ marginTop: '20px' }}>
-                  <Link href="/service" className="theme-btn btn-style-one bg-blue">
-                    <span className="btn-title">Watch Video</span>
-                  </Link>
-                </div> */}
-              {/* <video
-                ref={videoRef}
-                src={`/images/VIDEO.mp4?${new Date().getTime()}`}
-                muted
-                style={videoStyle}
-              >
-                Your browser does not support the video tag.
-              </video> */}
             </div>
           </div>
           {/* <!-- Image Column --> */}
@@ -147,19 +159,19 @@ const VideoPlayer = () => {
                   We Are ...
                 </h2>
                 <div className="text" style={{ textAlign: "justify", color: 'white', marginBottom: '20px' }}>
-                  * Passionate about enabling great connections <br></br>
-                  * Experienced in talent placement/management <br></br>
-                  * Trusted & results-oriented global partner <br></br>
+                  * Passionate about enabling great connections <br/>
+                  * Experienced in talent placement/management <br/>
+                  * Trusted & results-oriented global partner <br/>
                 </div>
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
                   We Do ...
                 </h2>
                 <div className="text" style={{ textAlign: "justify", color: 'white' }}>
-                  * Identify skilled talent for Canadian businesses <br></br>
-                  * Find job opportunities for trained workers <br></br>
-                  * Promote Canadian universities/colleges <br></br>
-                  * Help students with college applications  <br></br>
-                  * Provide travel, visa & resettlement services <br></br>
+                  * Identify skilled talent for Canadian businesses <br/>
+                  * Find job opportunities for trained workers <br/>
+                  * Promote Canadian universities/colleges <br/>
+                  * Help students with college applications  <br/>
+                  * Provide travel, visa & resettlement services <br/>
                 </div>
               </div>
             </div>

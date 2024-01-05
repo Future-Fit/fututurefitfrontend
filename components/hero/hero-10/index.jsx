@@ -27,37 +27,39 @@ const index = () => {
     isMobile ? (
       <section className="app-section" style={{ paddingBottom: '0px', minHeight: '100vh', height: 'fit-content', backgroundColor: GlobalConfig.BgHeader }} >
         {/* <div style={{ height: '100vh !important' }}> */}
-          <div
-            style={{
-              position: 'relative',
-              borderRadius: '0%',
-              height: 'fit-content',
-              margin: '0 auto'
-            }}
-          >
-            <section className="banner-section-ten " style={{ height: 'fit-content' }}>
-              <HeroSliderGallery />
-              <div className="auto-container">
-                <div className="cotnent-box">
-                  <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '0px' }}>
+        <div
+          style={{
+            position: 'relative',
+            borderRadius: '0%',
+            height: 'fit-content',
+            margin: '0 auto'
+          }}
+        >
+          <section className="banner-section-ten " style={{ height: 'fit-content' }}>
+            <HeroSliderGallery />
+            <div className="auto-container">
+              <div className="cotnent-box">
+                <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '0px' }}>
 
-                    <h3 style={{ fontWeight: '600', paddingTop: '0px'/* Other mobile styles */ }}>Welcome to FFI</h3>
-                    <h2 style={{ color: "#b2dfdb", fontSize: '18px' }}> Where Ambition Meets Opportunity!</h2>
-                    {/* <hr style={{ border: '2px solid red', margin: '10px 0', display: 'block', clear: 'both' }} /> */}
-                    <div style={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                      backgroundColor: 'rgba(0, 0, 0, 0)',
-                      borderRadius: '10px',
-                      display: 'inline-block',
-                      alignContent: 'start'
-                    }}>
-                      <VideoPlayer />
-                    </div>
+                  <h3 style={{ fontWeight: '600', paddingTop: '0px'/* Other mobile styles */ }}>Welcome to FFI</h3>
+                  <h2 style={{ color: "#ffffff", fontSize: '18px' }}> Where Ambition Meets Opportunity!</h2>
+                  <div style={{ borderTop: "2px solid #ffffff", marginTop: 4, marginLeft: 80, marginRight: 80 }}></div>
+
+                  {/* <hr style={{ border: '2px solid white', margin: '10px 0', display: 'block', clear: 'both' }} /> */}
+                  <div style={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderRadius: '10px',
+                    display: 'inline-block',
+                    alignContent: 'start'
+                  }}>
+                    <VideoPlayer />
                   </div>
                 </div>
               </div>
-            </section>
-          </div >
+            </div>
+          </section>
+        </div >
         {/* </div > */}
       </section >
     ) : (
@@ -80,9 +82,9 @@ const index = () => {
                   <div className="title-box" data-aso-delay="500" data-aos="fade-up" style={{ marginTop: '-10px', marginBottom: '0px' }}>
 
                     <h3 style={{ fontWeight: '600', marginTop: '-10px' /* Other desktop styles */ }}>Welcome to Future Fit International</h3>
-                    <h2 style={{ color: "#b2dfdb" }}> Where Ambition Meets Opportunity!</h2>
+                    <h2 style={{ color: "#ffffff" }}> Where Ambition Meets Opportunity!</h2>
 
-                    <div style={{ borderTop: "2px solid #b2dfdb", marginTop: 4, marginLeft: 500, marginRight: 500 }}></div>
+                    <div style={{ borderTop: "2px solid #ffffff", marginTop: 4, marginLeft: 500, marginRight: 500 }}></div>
 
                     <div style={{
                       padding: '20px 20px 20px 20px',
