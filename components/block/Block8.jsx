@@ -6,42 +6,34 @@ const Block8 = () => {
     {
       id: 1,
       icon: "icon-drawing",
-      title: "For Job Seekers",
-      text: `Help You Find A Great Job in Canada`,
+      title: "Job Seekers",
+      text: `Find A Great Job in Canada and Beyond`,
       linkPath: '/service/job-seekers'
 
     },
     {
       id: 2,
       icon: "icon-task",
-      title: "For Businesses",
-      text: `Introduce Your Organization to Global`,
+      title: "Students",
+      text: `Attend the Best Universities in Canada`,
       linkPath: '/service/businesses'
     },
     {
       id: 3,
       icon: "icon-process",
-      title: "For Students",
-      text: `Facilitate Your College Applications`,
+      title: "Businesses & Universities",
+      text: `Recruit Talent from Global Audiences`,
       linkPath: '/service/students'
 
     },
     {
       id: 4,
       icon: "icon-task",
-      title: "For Universities/Colleges",
-      text: `Promote Canadian Institutions Globally`,
+      title: "Other Services",
+      text: `Provide Travel, Visa, and Resettlement`,
       linkPath: '/service/universities-colleges'
 
-    },
-    {
-      id: 5,
-      icon: "icon-one-finger-click",
-      title: "For Everyone",
-      text: `Provide Travel, Visa, and Resettlement`,
-      linkPath: '/service/travel-visa'
-
-    },
+    }
   ];
   return (
     <>
