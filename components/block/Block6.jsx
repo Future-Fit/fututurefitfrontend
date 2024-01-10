@@ -36,7 +36,7 @@ const Block6 = () => {
     {
       id: 2,
       icon: "icon-contact",
-      title: "Create A Profile",
+      title: "Sign Up & Create A Profile",
       linkPath: '/login'
 
       // text: `Sign up to customize your experience.`,
@@ -45,7 +45,7 @@ const Block6 = () => {
     {
       id: 3,
       icon: "icon-institution",
-      title: "Let Us Help You with Your Vision",
+      title: "Explore All the Opportunities",
       linkPath: '/login'
 
       // text: `Sign in to build your profile or post jobs.`,

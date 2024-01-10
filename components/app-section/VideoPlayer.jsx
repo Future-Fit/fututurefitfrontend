@@ -49,7 +49,6 @@ const VideoPlayer = () => {
             <div className="slide-item">
 
               <div className="text" style={{
-                marginTop: '10px',
                 textAlign: "center",
                 color: '#000',
                 marginBottom: '5px',
@@ -58,10 +57,10 @@ const VideoPlayer = () => {
                 borderRadius: '5px',
                 paddingBottom: '10px'
               }}>
-                  <h2 style={{fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px'}}>Job Seekers</h2>
-                
+                <h2 style={{ fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px' }}>Job Seekers</h2>
+
                 Learn how we connect you with employers <br />
-                <div className="btn-box text-center" style={{ marginTop: '10px' }}>
+                <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px'}}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
@@ -77,9 +76,9 @@ const VideoPlayer = () => {
                 backgroundColor: 'rgba(255, 255, 255, 0.8)',
                 borderRadius: '5px'
               }}>
-                  <h2 style={{fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px'}}>Students</h2>
+                <h2 style={{ fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px' }}>Students</h2>
                 Learn how to attend Canadian universities <br />
-                <div className="btn-box text-center" style={{ marginTop: '10px' }}>
+                <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px' }}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
@@ -92,15 +91,15 @@ const VideoPlayer = () => {
             <div className="inner-column" data-aos="fade-left">
               <div className="sec-title">
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', marginTop: '30px' }}>
-                At FFI, We Are ...
+                  At FFI, We Are ...
                 </h2>
                 <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-                  * Passionate about enabling great connections <br/>
+                  * Passionate about enabling great connections <br />
                   * Experienced in talent placement/management <br></br>
                   * Trusted & results-oriented global partner <br></br>
                 </div>
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
-                And, We Do ...
+                  And, We Do ...
                 </h2>
                 <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px' }}>
                   * Find opportunities for job seekers <br></br>
@@ -119,7 +118,6 @@ const VideoPlayer = () => {
             {/* <div className="bg-shape"></div> */}
             <div className="slide-item">
               <div className="text" style={{
-                marginTop: '10px',
                 textAlign: "center",
                 color: '#000',
                 marginBottom: '10px',
@@ -129,10 +127,10 @@ const VideoPlayer = () => {
                 paddingBottom: '10px'
               }}>
                 {/* <div className="sec-title text-center"> */}
-                  <h2 style={{fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px'}}>Job Seekers</h2>
+                <h2 style={{ fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px' }}>Job Seekers</h2>
                 {/* </div> */}
                 Learn how we connect you with employers <br />
-                <div className="btn-box text-center" style={{ marginTop: '10px' }}>
+                <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px' }}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
@@ -149,9 +147,9 @@ const VideoPlayer = () => {
                 borderRadius: '5px',
                 paddingBottom: '10px'
               }}>
-                  <h2 style={{fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px'}}>Students</h2>
+                <h2 style={{ fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px' }}>Students</h2>
                 Learn how to attend Canadian universities<br />
-                <div className="btn-box text-center" style={{ marginTop: '10px' }}>
+                <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px' }}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
@@ -162,24 +160,24 @@ const VideoPlayer = () => {
           {/* <!-- Image Column --> */}
           <div className="content-column col-lg-6 col-md-12 col-sm-12">
             <div className="inner-column" data-aos="fade-left" style={{ alignItems: 'flex-start' }}>
-            <div className="sec-title">
-                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', marginTop: '10px' }}>
-                At FFI, We Are ...
+              <div className="sec-title">
+                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', marginTop: '10px', paddingBottom: '10px' }}>
+                  At FFI, We Are ...
                 </h2>
-                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-                  * Passionate about enabling great connections <br/>
-                  * Experienced in talent placement/management <br/>
-                  * Trusted & results-oriented global partner <br/>
+                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px', lineHeight: '20px' }}>
+                  * Passionate about enabling great connections <br />
+                  * Experienced in talent placement/management <br />
+                  * Trusted & results-oriented global partner <br />
                 </div>
-                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
-                And, We Do ...
+                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', paddingBottom: '10px' }}>
+                  And, We Do ...
                 </h2>
-                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px' }}>
-                  * Find opportunities for job seekers <br/>
-                  * Help students access post secondary education <br/>
-                  * Identify skilled workers for Canadian businesses <br/>
-                  * Promote Canadian universities/colleges  <br/>
-                  * Provide travel, visa & resettlement services <br/>
+                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', lineHeight: '20px' }}>
+                  * Find opportunities for job seekers <br />
+                  * Help students access post secondary education <br />
+                  * Identify skilled workers for Canadian businesses <br />
+                  * Promote Canadian universities/colleges  <br />
+                  * Provide travel, visa & resettlement services <br />
                 </div>
               </div>
             </div>

@@ -77,7 +77,7 @@ const index = () => {
           <div className="row justify-content-center">
             <div className="col-lg-5">
               <div className="sec-title text-center">
-                <h2 style={{color:'#fff'}}>Become A Member in 3 Simple Steps</h2>
+                <h2 style={{color:'#fff'}}>Join FFI to Become A Member</h2>
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ const Block8 = () => {
     },
     {
       id: 4,
-      icon: "icon-task",
+      icon: "icon-one-finger-click",
       title: "Other Services",
       text: `Provide Travel, Visa, and Resettlement`,
       linkPath: '/service/universities-colleges'
