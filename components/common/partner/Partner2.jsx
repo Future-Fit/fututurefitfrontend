@@ -2,7 +2,14 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
- 
+import Client1 from '../../../public/images/index-11/clients/1.svg'
+import Client2 from '../../../public/images/index-11/clients/2.svg'
+import Client3 from "../../../public/images/index-11/clients/3.svg"
+import Client4 from "../../../public/images/index-11/clients/4.svg"
+import Client5 from "../../../public/images/index-11/clients/5.svg"
+import Client6 from "../../../public/images/index-11/clients/6.svg"
+import Client7 from "../../../public/images/index-11/clients/7.svg"
+
 const Partner2 = () => {
   const settings = {
     dots: false,
@@ -52,14 +59,14 @@ const Partner2 = () => {
   };
 
   const sliderPartners = [
-    { id: 1, link: "/partners", imgNumber: "1", companyName: "Quebec Provincial Government", textColor: 'green' },
-    { id: 2, link: "/partners", imgNumber: "2", companyName: "Ontario Provincial Government", textColor: 'yellow' },
-    { id: 3, link: "/partners", imgNumber: "3", companyName: "Alberta Provincial Government", textColor: 'red' },
-    { id: 4, link: "/partners", imgNumber: "4", companyName: "City of Ottawa" },
-    { id: 5, link: "/partners", imgNumber: "5", companyName: "City of Toronto" },
-    { id: 6, link: "/partners", imgNumber: "6", companyName: "City of Calgary" },
-    { id: 7, link: "/partners", imgNumber: "7", companyName: "UBM" },
-    { id: 8, link: "/partners", imgNumber: "5", companyName: "ONTA" },
+    { id: 1, link: "/partners", imgNumber: Client1, companyName: "Quebec Provincial Government", textColor: 'green' },
+    { id: 2, link: "/partners", imgNumber: Client2, companyName: "Ontario Provincial Government", textColor: 'yellow' },
+    { id: 3, link: "/partners", imgNumber: Client3, companyName: "Alberta Provincial Government", textColor: 'red' },
+    { id: 4, link: "/partners", imgNumber: Client4, companyName: "City of Ottawa" },
+    { id: 5, link: "/partners", imgNumber: Client5, companyName: "City of Toronto" },
+    { id: 6, link: "/partners", imgNumber: Client6, companyName: "City of Calgary" },
+    { id: 7, link: "/partners", imgNumber: Client7, companyName: "UBM" },
+    { id: 8, link: "/partners", imgNumber: Client5, companyName: "ONTA" },
   ];
 
   const imageStyle = {
@@ -114,14 +121,14 @@ const Partner2 = () => {
             <figure className="image-box" style={{ marginRight: "5px", flexShrink: 0 }}>
               <a href={item.link}>
                 <Image
-                    width={100}
-                    height={40}
-                    src={`/images/index-11/clients/${item.imgNumber}.svg`}
-                    alt="brand"
+                  width={100}
+                  height={40}
+                  src={item.imgNumber}
+                  alt="brand"
                 />
               </a>
             </figure>
-            <div 
+            <div
               style={{
                 overflowX: 'auto', // Allows horizontal scrolling
                 whiteSpace: 'nowrap', // Keeps text in a single line

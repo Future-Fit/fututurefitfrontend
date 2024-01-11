@@ -1,4 +1,4 @@
-
+import MainLogo from './public/images/logo-new-no-bg.png'
 const GlobalConfig = {
     // Define the background color
     BgrClr: "#3B578E", //Indigo (Rainbow)
@@ -31,8 +31,8 @@ const GlobalConfig = {
     Fnt2Siz: "",
 
     // Define logo source/image location for desktop and mobile
-    DskLog: '/images/logo-new-no-bg.png',
-    MobLog: '/images/logo-new-no-bg.png',
+    DskLog: MainLogo,
+    MobLog: MainLogo,
 
     PrimaryColor: "#3B578E",
     PrimaryHoverBgColor: "#b3cee5",

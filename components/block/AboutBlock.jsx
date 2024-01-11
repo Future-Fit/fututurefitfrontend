@@ -1,31 +1,35 @@
 import Image from "next/image";
+import Vision from '../../public/images/index-14/icons/1.svg'
+import Mission from '../../public/images/index-14/icons/2.svg'
+import Objectives from '../../public/images/index-14/icons/3.svg'
+import Values from '../../public/images/index-14/icons/4.svg'
 
 const AboutBlock = () => {
   const blockContent = [
     {
       id: 1,
-      icon: "/images/index-14/icons/1.svg",
+      icon: Vision,
       title: "Our Vision",
       bgColor: "-purple",
       text: `A future in which all our customers' ambitions become reality!`,
     },
     {
       id: 2,
-      icon: "/images/index-14/icons/2.svg",
+      icon: Mission,
       title: "Our Mission",
       bgColor: "-orange",
       text: `A trusted partner that connects jobseekers and students to opportunties across borders.`,
     },
     {
       id: 3,
-      icon: "/images/index-14/icons/3.svg",
+      icon: Objectives,
       title: "Our Objectives",
       bgColor: "-red",
       text: `....`,
     },
     {
       id: 4,
-      icon: "/images/index-14/icons/4.svg",
+      icon: Values,
       title: "Our Values",
       bgColor: "-green",
       text: `....`,

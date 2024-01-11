@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Collaboration from '../../public/images/collaboration.jpeg'
 
 const AppSection = () => {
   return (
@@ -10,7 +11,7 @@ const AppSection = () => {
           <Image
             width={900}
             height={900}
-            src="/images/collaboration.jpeg"
+            src={Collaboration}
             alt="About"
             style={{borderRadius:'15px', marginTop: '20px', marginRight: '20px'}}
           />

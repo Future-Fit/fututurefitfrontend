@@ -13,6 +13,8 @@ import { usePathname, useRouter } from "next/navigation";
 import GlobalConfig from "@/Global.config";
 import { debounce } from "lodash";
 import Autosuggest from "react-autosuggest";
+import AvatorIcon from '../../public/images/user-flat.svg'
+
 
 const DashboardCandidatesHeader = () => {
     const [navbar, setNavbar] = useState(false);
@@ -284,7 +286,7 @@ const DashboardCandidatesHeader = () => {
                             >
                                 <Image
                                     alt="avatar"
-                                    src="/images/user-flat.svg"
+                                    src={AvatorIcon}
                                     width={30}
                                     height={30}
                                 />

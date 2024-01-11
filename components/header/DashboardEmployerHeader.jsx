@@ -12,6 +12,7 @@ import axios from "axios";
 import GlobalConfig from "@/Global.config";
 import Autosuggest from "react-autosuggest";
 import { debounce } from "lodash";
+import AvatorIcon from '../../public/images/user-flat.svg'
 
 
 const DashboardHeader = () => {
@@ -269,7 +270,7 @@ const DashboardHeader = () => {
                                 {/* <span className="icon icon-user"></span> */}
                                 <Image
                                     alt="avatar"
-                                    src="/images/user-flat.svg"
+                                    src={AvatorIcon}
                                     width={30}
                                     height={30}
                                 />

@@ -1,23 +1,24 @@
 import Image from "next/image";
+import Objective from '../../public/images/objective.jpeg'
 
 
 const Block7 = () => {
   const blockContent = [
     {
       id: 1,
-      icon: "/images/objective.jpeg",
+      icon: Objective,
       title: "Objective",
       text: `Achieve virtually any design and layout from within the one template.`,
     },
     {
       id: 2,
-      icon: "/images/objective.jpeg",
+      icon: Objective,
       title: "Mission",
       text: `Achieve virtually any design and layout from within the one template.`,
     },
     {
       id: 3,
-      icon: "/images/objective.jpeg",
+      icon: Objective,
       title: "Vision",
       text: `Achieve virtually any design and layout from within the one template.`,
     },
@@ -33,8 +34,7 @@ const Block7 = () => {
                 <Image
                   alt="avatar"
                   className="thumb"
-                  src="/images/objective.jpeg"
-                  // src="/images/logo-no-background.png"
+                  src={Objective}
                   width={100}
                   height={60}
                   color="#fff"

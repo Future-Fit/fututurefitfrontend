@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'; // Import React
 import Link from "next/link";
 import Image from "next/image";
+import ArrowRightImage from '../../public/images/arrow-right.svg'; // Import the arrow-right.svg as a React component
+import ArrowDownImage from '../../public/images/arrow-down.svg'; // Import the arrow-down.svg as a React component
+
 
 const Block6 = () => {
 
@@ -48,13 +51,8 @@ const Block6 = () => {
       title: "Explore All the Opportunities",
       linkPath: '/login'
 
-      // text: `Sign in to build your profile or post jobs.`,
-      // bgClass: "-yellow"
     },
   ];
-
-  const arrowRight = "/images/arrow-right.svg"; // URL of the arrow icon
-  const arrowDown = "/images/arrow-down.svg"
 
   return (
     <>
@@ -78,7 +76,7 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src={arrowDown} width={50} height={50} alt="arrow icon" />
+                      <Image src={ArrowDownImage} width={50} height={50} alt="arrow icon" />
                     </div>
                   </div>
                 )}
@@ -88,7 +86,7 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src={arrowRight} width={50} height={50} alt="arrow icon" />
+                      <Image src={ArrowRightImage} width={50} height={50} alt="arrow icon" />
                     </div>
                   </div>
                 )}
