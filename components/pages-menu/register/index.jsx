@@ -1,11 +1,32 @@
-import Register2 from "../../common/form/register/Register2";
+"use client"
 import MobileMenu from "../../header/MobileMenu";
-import Header from "./Header";
+import DefaulHeader2 from "@/components/header/DefaultHeader";
+import LoginPopup from "@/components/common/form/login/LoginPopup";
+import { useEffect, useState } from "react";
+import DashboardHeader from "@/components/header/DashboardEmployerHeader";
+import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
+import Register2 from "../../common/form/register/Register2";
+import Register from "@/components/common/form/register/Register";
+import FormContent from "@/components/common/form/register/FormContent";
+import FormContent2 from "@/components/common/form/register/FormContent2";
 
 const index = () => {
+  const [userType, setUserType] = useState();
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem('userType');
+    if (storedUserType) {
+      setUserType(JSON.parse(storedUserType));
+    }
+  }, []);
+
   return (
     <>
-      <Header />
+
+      <LoginPopup />
+      {userType === 3 && <DashboardHeader />}
+      {userType === 4 && <DashboardCandidatesHeader />}
+      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <!--End Main Header -->  */}
 
       <MobileMenu />
@@ -19,7 +40,7 @@ const index = () => {
         <div className="outer-box">
           {/* <!-- Login Form --> */}
           <div className="login-form default-form">
-            <Register2 />
+            <Register />
           </div>
           {/* <!--End Login Form --> */}
         </div>
