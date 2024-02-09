@@ -10,6 +10,7 @@ import DefaulHeader2 from "@/components/header/DefaultHeader";
 import DashboardCandidatesHeader from "../../../../components/header/DashboardCandidatesHeader";
 import DashboardHeader from "../../../../components/header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
+import thumb_1 from '../../../../public/images/resource/thumb-1.png'
 
 
 // export const metadata = {
@@ -59,7 +60,7 @@ const BlogDetailsDynamic = ({ params }) => {
                   <Image
                     width={30}
                     height={30}
-                    src={"/images/resource/thumb-1.png"}
+                    src={thumb_1}
                     alt="resource"
                   />
                 </span>

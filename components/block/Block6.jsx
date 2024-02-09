@@ -4,6 +4,37 @@ import Image from "next/image";
 import ArrowRightImage from '../../public/images/arrow-right.svg'; // Import the arrow-right.svg as a React component
 import ArrowDownImage from '../../public/images/arrow-down.svg'; // Import the arrow-down.svg as a React component
 
+const ColoredArrowDown = ({ fill }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="50"
+    height="50"
+    viewBox="0 0 24 24"
+    fill={fill}
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+);
+
+const ColoredArrowRight = ({ fill }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="50"
+    height="50"
+    viewBox="0 0 24 24"
+    fill={fill}
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M9 18l6-6-6-6" />
+  </svg>
+);
 
 const Block6 = () => {
 
@@ -76,7 +107,8 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src={ArrowDownImage} width={50} height={50} alt="arrow icon" />
+                      <ColoredArrowDown fill={'red'}/>
+                      {/* <Image src={ArrowDownImage} width={50} height={50} alt="arrow icon" style={{ fill: 'red' }} /> */}
                     </div>
                   </div>
                 )}
@@ -86,7 +118,8 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src={ArrowRightImage} width={50} height={50} alt="arrow icon" />
+                      <ColoredArrowRight fill={'red'}/>
+                      {/* <Image src={ArrowRightImage} width={50} height={50} alt="arrow icon" style={{ fill: 'red' }} /> */}
                     </div>
                   </div>
                 )}

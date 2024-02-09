@@ -39,25 +39,21 @@ const Block8 = () => {
     <>
       {blockContent.map((item) => (
         <div className="col-lg-3 col-md-6 col-sm-12" key={item.id} >
-          <div className="work-block -type-4" style={{minHeight:'200px',textAlign:'left'}}>
-            <a href={item.linkPath} className="block-content"  style={{textAlign:'left'}} >
+          <div className="work-block -type-4" style={{ minHeight: '200px', textAlign: 'left' }}>
+            <a href={item.linkPath} className="block-content" style={{ textAlign: 'left' }} >
               <div className="icon-wrap">
-                <span className={`icon ${item.icon}`}></span>
+                <span className={`icon ${item.icon}`} style={{ fill: 'red' }}></span>
               </div>
-              <h5 className="title"  style={{textAlign:'left'}}>{item.title}</h5>
+              <h5 className="title" style={{ textAlign: 'left' }}>{item.title}</h5>
 
-              <p className="text"  style={{textAlign:'left'}}>{item.text}</p>
-          
-            <div style={{position:'absolute' , left:'10px',bottom:'10px'}}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="-5 -5 25 25">
-              <path   
-                     stroke={GlobalConfig.BgrClr}   d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-              </svg>
-              
-            </div>
+              <p className="text" style={{ textAlign: 'left' }}>{item.text}</p>
 
-              
-        
+              <div style={{ position: 'absolute', left: '10px', bottom: '10px' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="-5 -5 25 25">
+                  <path
+                    stroke={GlobalConfig.BgrClr} d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+              </div>
             </a>
           </div>
         </div>
@@ -83,7 +79,9 @@ const Block8 = () => {
         .icon-wrap {
           margin-bottom: 10px; /* Adjust as needed */
         }
-
+        .icon-wrap span {
+          fill: red; /* Set the fill color directly on the span */
+        }
         .title {
           margin: 0;
           color: "#fff"

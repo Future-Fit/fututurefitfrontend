@@ -1,4 +1,7 @@
 import Image from "next/image";
+import placeholder from '../../../public/images/icons/placeholder.svg'
+import smartphone from '../../../public/images/icons/smartphone.svg'
+import letter from '../../../public/images/icons/letter.svg'
 
 const Address = () => {
   const addressContent = [
@@ -50,6 +53,19 @@ const Address = () => {
       ),
     },
   ];
+
+  const getIconSource = (iconName) => {
+    switch (iconName) {
+      case 'placeholder':
+        return placeholder;
+      case 'smartphone':
+        return smartphone;
+      case 'letter':
+        return letter;
+      default:
+        return null;
+    }
+  };
   return (
     <>
       {addressContent.map((item) => (
@@ -62,7 +78,7 @@ const Address = () => {
               <Image
                 width={51}
                 height={51}
-                src={`/images/icons/${item.iconName}.svg`}
+                src={getIconSource(item.iconName)}
                 alt="icon"
               />
             </span>

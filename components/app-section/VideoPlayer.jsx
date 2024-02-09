@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import GlobalConfig from "@/Global.config";
-
+import './transition.scss'
+const slideInFromRightStyle = {
+  animation: 'slideInFromRight 3s ease-out'
+};
 
 const VideoPlayer = () => {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -60,7 +63,7 @@ const VideoPlayer = () => {
                 <h2 style={{ fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px' }}>Job Seekers</h2>
 
                 Learn how we connect you with employers <br />
-                <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px'}}>
+                <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px' }}>
                   <Link href="/" className="theme-btn btn-style-one bg-blue">
                     <span className="btn-title">Watch Video</span>
                   </Link>
@@ -74,7 +77,9 @@ const VideoPlayer = () => {
                 marginBottom: '5px',
                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
                 backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                borderRadius: '5px'
+                borderRadius: '5px',
+                paddingBottom: '10px'
+
               }}>
                 <h2 style={{ fontWeight: 800, color: GlobalConfig.BgrClr, paddingTop: '10px', paddingBottom: '10px' }}>Students</h2>
                 Learn how to attend Canadian universities <br />
@@ -90,23 +95,39 @@ const VideoPlayer = () => {
           <div className="content-column col-lg-6 col-md-12 col-sm-12">
             <div className="inner-column" data-aos="fade-left">
               <div className="sec-title">
-                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', marginTop: '30px' }}>
+                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', marginTop: '30px', }}>
                   At FFI, We Are ...
                 </h2>
-                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-                  * Passionate about enabling great connections <br />
-                  * Experienced in talent placement/management <br></br>
-                  * Trusted & results-oriented global partner <br></br>
+                <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.3s' }}>
+                    * Passionate about enabling great connections
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.6s' }}>
+                    * Experienced in talent placement/management
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.9s' }}>
+                    * Trusted & results-oriented global partner
+                  </div>
                 </div>
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px' }}>
                   And, We Do ...
                 </h2>
-                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px' }}>
-                  * Find opportunities for job seekers <br></br>
-                  * Help students access post secondary education <br></br>
-                  * Identify skilled workers for Canadian businesses <br></br>
-                  * Promote Canadian universities/colleges  <br></br>
-                  * Provide travel, visa & resettlement services <br></br>
+                <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.3s' }}>
+                    * Find opportunities for job seekers
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.6s' }}>
+                    * Help students access post secondary education
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.9s' }}>
+                    * Identify skilled workers for Canadian businesses
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 1.2s' }}>
+                    * Promote Canadian universities/colleges
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 1.5s' }}>
+                    * Provide travel, visa & resettlement services
+                  </div>
                 </div>
               </div>
             </div>
@@ -164,20 +185,38 @@ const VideoPlayer = () => {
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', marginTop: '10px', paddingBottom: '10px' }}>
                   At FFI, We Are ...
                 </h2>
-                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px', lineHeight: '20px' }}>
-                  * Passionate about enabling great connections <br />
-                  * Experienced in talent placement/management <br />
-                  * Trusted & results-oriented global partner <br />
+
+                <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.3s' }}>
+                    * Passionate about enabling great connections
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.6s' }}>
+                    * Experienced in talent placement/management
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.9s' }}>
+                    * Trusted & results-oriented global partner
+                  </div>
                 </div>
                 <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', paddingBottom: '10px' }}>
                   And, We Do ...
                 </h2>
-                <div className="text" style={{ textAlign: "left", color: 'white', marginTop: '-2px', lineHeight: '20px' }}>
-                  * Find opportunities for job seekers <br />
-                  * Help students access post secondary education <br />
-                  * Identify skilled workers for Canadian businesses <br />
-                  * Promote Canadian universities/colleges  <br />
-                  * Provide travel, visa & resettlement services <br />
+
+                <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.3s' }}>
+                    * Find opportunities for job seekers
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.6s' }}>
+                    * Help students access post secondary education
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 0.9s' }}>
+                    * Identify skilled workers for Canadian businesses
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 1.2s' }}>
+                    * Promote Canadian universities/colleges
+                  </div>
+                  <div style={{ animation: 'slideInFromRight 3s ease-out 1.5s' }}>
+                    * Provide travel, visa & resettlement services
+                  </div>
                 </div>
               </div>
             </div>
