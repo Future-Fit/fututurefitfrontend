@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Image_1 from '../../public/images/resource/image-1.png'
+
 const CallToAction = () => {
   return (
     <section className="call-to-action">
@@ -25,13 +25,13 @@ const CallToAction = () => {
 
           <div
             className="image-column"
-            style={{ backgroundImage: Image_1 }}
+            style={{ backgroundImage: " url(images/resource/image-1.png)" }}
           >
             <figure className="image">
               <Image
                 width={417}
                 height={328}
-                src={Image_1}
+                src="/images/resource/image-1.png"
                 alt="resource"
               />
             </figure>

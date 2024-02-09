@@ -31,7 +31,7 @@ const CallToActionSearch = () => {
     <section
       className="call-to-action-two"
       // style={{ backgroundImage: "url(/images/background/1.jpg)" }}
-      style={{ backgroundColor: GlobalConfig.BgrClr }}
+      style={{ backgroundColor: GlobalConfig.BgrClr1 }}
     >
       <div className="auto-container" data-aos="fade-up">
         <h4 style={{ color: "#fff", paddingBottom: '10px'}}> What Are You Interested In? </h4>

@@ -1,40 +1,7 @@
 import React, { useEffect, useState } from 'react'; // Import React
 import Link from "next/link";
 import Image from "next/image";
-import ArrowRightImage from '../../public/images/arrow-right.svg'; // Import the arrow-right.svg as a React component
-import ArrowDownImage from '../../public/images/arrow-down.svg'; // Import the arrow-down.svg as a React component
-
-const ColoredArrowDown = ({ fill }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="50"
-    height="50"
-    viewBox="0 0 24 24"
-    fill={fill}
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M6 9l6 6 6-6" />
-  </svg>
-);
-
-const ColoredArrowRight = ({ fill }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="50"
-    height="50"
-    viewBox="0 0 24 24"
-    fill={fill}
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M9 18l6-6-6-6" />
-  </svg>
-);
+import GlobalConfig from "@/Global.config";
 
 const Block6 = () => {
 
@@ -56,34 +23,50 @@ const Block6 = () => {
   }, []);
   const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
 
+  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
+const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
+
+
+  // const isLoggedIn = localStorage.getItem('accessToken') !== null;
+  // const userType = parseInt(localStorage.getItem('userType'));
 
   const blockContent = [
     {
       id: 1,
       icon: "icon-case",
       title: "Learn About Us",
-      linkPath: '/about'
+      linkPath: '/about',
 
       // text: `Search our database to explore opportunities or review profiles.`,
-      // bgClass: "-blue"
+      bgClass: "-blue",
+      bgcolor: 'green'
     },
     {
       id: 2,
       icon: "icon-contact",
-      title: "Sign Up & Create A Profile",
-      linkPath: '/login'
+      title: "Sign Up",
+      linkPath: '/login',
 
       // text: `Sign up to customize your experience.`,
-      // bgClass: "-red"
+      bgClass: "-red",
+      bgcolor: "red"
     },
     {
       id: 3,
       icon: "icon-institution",
-      title: "Explore All the Opportunities",
-      linkPath: '/login'
+      title: "Login & Create Your Profile",
+      // linkPath: '/candidates-dashboard/my-profile',
+      linkPath: (isLoggedIn && userType === 4) ? '/candidates-dashboard/my-profile' : '/login',
 
+
+      // text: `Sign in to build your profile or post jobs.`,
+      bgClass: "-yellow",
+      bgcolor: "blue"
     },
   ];
+
+  const arrowRight = "/images/arrow-right.svg"; // URL of the arrow icon
+  const arrowDown = "/images/arrow-down.svg"
 
   return (
     <>
@@ -96,9 +79,7 @@ const Block6 = () => {
                   <div className="icon-wrap">
                     <span className={`icon ${item.icon}`}></span>
                   </div>
-                  <a href={item.linkPath}>
-                    <h5>{item.title}</h5>
-                  </a>
+                  <a href={item.linkPath}> <h5  style={{color:item.bgcolor}}> {item.title}</h5> </a>
                 </div>
               </div>
             </div>
@@ -107,8 +88,7 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <ColoredArrowDown fill={'red'}/>
-                      {/* <Image src={ArrowDownImage} width={50} height={50} alt="arrow icon" style={{ fill: 'red' }} /> */}
+                      <Image src={arrowDown} width={50} height={50} alt="arrow icon" />
                     </div>
                   </div>
                 )}
@@ -118,8 +98,7 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <ColoredArrowRight fill={'red'}/>
-                      {/* <Image src={ArrowRightImage} width={50} height={50} alt="arrow icon" style={{ fill: 'red' }} /> */}
+                      <Image src={arrowRight} width={50} height={50} alt="arrow icon" />
                     </div>
                   </div>
                 )}

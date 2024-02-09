@@ -4,8 +4,6 @@ import Social from "../../footer/common-footer/Social";
 import GlobalConfig from "@/Global.config";
 import Link from "next/link";
 import Image from "next/image";
-import CanadaFlag  from "../../../public/images/canada.png"
-import EthiopiaFlag  from '../../../public/images/ethiopia.png'
 
 const Index = () => {
   const footerStyle = {
@@ -19,38 +17,40 @@ const Index = () => {
   };
 
   return (
-    <footer className="main-footer" style={{ boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', backgroundColor: GlobalConfig.BgHeader }}>
+    <footer className="main-footer" style={{boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', backgroundColor: GlobalConfig.BgHeader}}>
       <div className="auto-container">
-        <div className="logo-box" style={logoStyle}>
-
-        </div>
+        <div className="logo-box"  style={logoStyle}>
+        
+      </div>
         {/* Widgets Section */}
         <div className="widgets-section" data-aos="fade-up">
           <div className="row">
+
             <div
+
               className=""
             >
               <div className="footer-column ">
                 <div className="contact-details">
                   <div className="contact-column" style={{ width: '100%' }}>
-                    <div className="logo">
-                      <Link href="/" className="noSticky">
-                        <Image
-                          width={50}
-                          height={50}
-                          src={GlobalConfig.DskLog}
-                          alt="Footer Logo"
-                          title="brand"
-                        />
-                      </Link>
-                    </div>
+                  <div className="logo">
+          <Link href="/" className="noSticky">
+            <Image
+              width={50}
+              height={50}
+              src={GlobalConfig.DskLog}
+              alt="Footer Logo"
+              title="brand"
+            />
+          </Link>
+        </div>
                     <p className="phone-num">
                       <span>Contact Us</span>
                     </p>
                     <div className="d-flex flex-wrap" style={{ width: '100%', gap: '20px' }}>
                       <div style={{ flexGrow: 1, }}>
                         <p className="phone-num">
-                          <span> <Image src={CanadaFlag} width={40} height={20} alt="Canada" /></span>
+                          <span> <img src="/images/canada.png" width={40} height={20} alt="Canada" /></span>
                           <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
@@ -67,7 +67,7 @@ const Index = () => {
                       </div>
                       <div className="flex-fill"  >
                         <p className="phone-num">
-                          <span> <Image src={EthiopiaFlag} width={50} height={20} alt="Ethiopia" /></span>
+                          <span> <img src="/images/ethiopia.png" width={50} height={20} alt="Ethiopia" /></span>
 
                           {/* <span>Ethiopia Office</span> */}
                           <a href="tel: +251933859295">+251933859295</a>

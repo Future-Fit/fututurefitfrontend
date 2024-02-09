@@ -1,11 +1,15 @@
-import MainLogo from './public/images/logo-new-no-bg.png'
+
 const GlobalConfig = {
     // Define the background color
-    BgrClr: "#3B578E", //Indigo (Rainbow)
-    // BgrClr: "#A8A9AD", //Indigo (Rainbow)
+    BgrClr1: "#3B578E", //Blue
+    BgrClr2: "#F5F7FC", //Off-white
     BgHeader:  "#2F3140",
 
-
+    // Logo colors
+    LogoBlu: "#007DB6", // this is the blue color on the logo
+    LogoOrg: "#F68B28", // this is the orange color on the logo
+    LogoGry1: "#D2D3D5", // this is the swirl on the logo
+    LogoGry2: "#939598", // this is for text on logo
 
     // Define the header and footer color
     DskHdrClr: "",
@@ -20,19 +24,19 @@ const GlobalConfig = {
     Fgr4Clr: "",
 
     // Define main button color
-    BtnClr: "#DB2323", //"#b45150", //Rose Vale
+    BtnClr: "#DB2323", //Default
 
     // Define font colors, size and family used
     Fnt1Fam: "Courier New, Courier, monospace",
-    Fnt1Clr: "",
+    Fnt1Clr: "#5a5a5a",
     Fnt1Siz: "",
     Fnt2Fam: "",
     Fnt2Clr: "",
     Fnt2Siz: "",
 
     // Define logo source/image location for desktop and mobile
-    DskLog: MainLogo,
-    MobLog: MainLogo,
+    DskLog: '/images/logo-new-no-bg.png',
+    MobLog: '/images/logo-new-no-bg.png',
 
     PrimaryColor: "#3B578E",
     PrimaryHoverBgColor: "#b3cee5",

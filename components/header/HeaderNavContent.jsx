@@ -40,13 +40,13 @@ const HeaderNavContent = () => {
               aria-expanded="false">
               Services
             </a>
-            <ul className="dropdown-menu" aria-labelledby="serviceDropdown">
+            <ul className="dropdown-menu" aria-labelledby="serviceDropdoIwn">
               <li><Link href="/service/job-seekers">Job Seekers</Link></li>
-              <li><Link href="/service/businesses">Businesses</Link></li>
               <li><Link href="/service/students">Students</Link></li>
+              <li><Link href="/service/businesses">Businesses</Link></li>
               <li><Link href="/service/universities-colleges">Universities & Colleges</Link></li>
               <li><Link href="/service/training">Training</Link></li>
-              <li><Link href="/service/travel-visa">Travel & Visa</Link></li>
+              <li><Link href="/service/travel-visa">Other</Link></li>
               {/* Add more dropdown items as needed */}
             </ul>
           </li>

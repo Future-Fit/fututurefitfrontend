@@ -19,12 +19,12 @@ module.exports = [
         routePath: "/service/job-seekers",
       },
       {
-        name: "Businesses",
-        routePath: "/service/businesses",
-      },
-      {
         name: "Students",
         routePath: "/service/students",
+      },
+      {
+        name: "Businesses",
+        routePath: "/service/businesses",
       },
       {
         name: "Universities & Colleges",
@@ -35,7 +35,7 @@ module.exports = [
         routePath: "/service/training",
       },
       {
-        name: "Travle & Visa",
+        name: "Other",
         routePath: "/service/travel-visa",
       },
     ],

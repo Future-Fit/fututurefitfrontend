@@ -2,7 +2,7 @@ import GlobalConfig from "@/Global.config";
 
 const CopyrightFooter = () => {
   return (
-    <div className="copyright-text" style={{backgroundColor:GlobalConfig.BgrClr}}>
+    <div className="copyright-text" style={{backgroundColor:GlobalConfig.BgrClr1}}>
       <p style={{color:'#fff'}}>
         © {new Date().getFullYear()} Future Fit International{" "}
         <a

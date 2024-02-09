@@ -11,11 +11,16 @@ import Partner2 from "../common/partner/Partner2";
 import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
 import DashboardHeader from "../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import  WordCloudSection from "../block/WordCloudSection";
+import WordCloudSection from "../block/WordCloudSection";
 
 import GlobalConfig from "@/Global.config";
 import CookiesPopup from "./CookiesPopup";
 import LoginPopup from "../common/form/login/LoginPopup";
+import Testimonial2 from "../testimonial/Testimonial2";
+import Testimonial from "../testimonial/Testimonial";
+import Testimonial3 from "../testimonial/Testimonial3";
+import Testimonial4 from "../testimonial/Testimonial4";
+import Testimonial5 from "../testimonial/Testimonial5";
 
 const index = () => {
 
@@ -44,18 +49,12 @@ const index = () => {
 
       <Hero10 />
 
-      {/* <CallToActionSearch /> */}
-
-     
-      {/* <hr style={{ border: 'none', backgroundColor: '#000', height: '4px' }} /> */}
-
-
-      <section className="layout-pt-10 layout-pb-30" style={{background: '#f5f7fc' }}>
-        <div className="auto-container" style={{ paddingBottom: '20px', paddingTop: '20px' }}>
+      <section className="layout-pt-10 layout-pb-30" style={{ background: GlobalConfig.BgrClr2 }}>
+        <div className="auto-container" style={{ paddingBottom: '0px', paddingTop: '0px' }}>
           <div className="sec-title text-center" >
-            <h2>Our Services</h2>
-            {/* <div style={{ color: '#fff' }} className="text">
-              AT FFI, our goal is to connect those seeking opportunities with the a global network of resources. 
+            <h2>Services</h2>
+            {/* <div style={{ color: '#5a5a5a', fontSize: '16px' }} className="text">
+              We provide unparalleled end-to-end services!
             </div> */}
           </div>
           {/* End sec-title */}
@@ -72,12 +71,12 @@ const index = () => {
         </div>
       </section>
 
-      <section className="" style={{  background: GlobalConfig.BgrClr}}>
+      <section className="" style={{ background: GlobalConfig.BgrClr1 }}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
               <div className="sec-title text-center">
-                <h2 style={{color:'#fff'}}>Join FFI to Become A Member</h2>
+                <h2 style={{ color: '#fff' }}>Become A Member</h2>
               </div>
             </div>
           </div>
@@ -104,7 +103,7 @@ const index = () => {
           <div className="btn-box">
             <Link
               href="/job-list-v6"
-              className="theme-btn btn-style-one bg-blue"
+              className="theme-btn btn-style-one bg-blue" style={{ backgroundColor: GlobalConfig.LogoOrg }}
             >
               <span className="btn-title">Load More Listing</span>
             </Link>
@@ -131,7 +130,7 @@ const index = () => {
 
       {/* <AppSectionAbout /> */}
 
-      <section className="clients-section-two alternate" style={{ backgroundColor: GlobalConfig.BgrClr }}>
+      <section className="clients-section-two alternate" style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
           <h2 style={{ color: '#FFF', paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bolder' }}>Partners We Work With</h2>
 
@@ -139,6 +138,45 @@ const index = () => {
             <div className="sponsors-carousel">
               <Partner2 />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="testimonial-section-two">
+        <div className="container-fluid">
+          <div className="testimonial-left">
+            {/* <Image
+              width={504}
+              height={451}
+              src="/images/resource/testimonial-left.png"
+              alt="testimonial"
+            /> */}
+          </div>
+          {/* End left img group */}
+
+          <div className="testimonial-right">
+            {/* <Image
+              width={504}
+              height={451}
+              src="/images/resource/testimonial-right.png"
+              alt="testimonial"
+            /> */}
+          </div>
+          {/* End right img group */}
+
+          <div className="sec-title text-center">
+            <h2>Testimonials From Our Customers</h2>
+            <div className="text">
+              Future Fit International
+            </div>
+          </div>
+          {/* <!-- Sec Title --> */}
+
+          <div className="carousel-outer" data-aos="fade-up">
+            <div className="testimonial-carousel">
+              <Testimonial2 />
+            </div>
+            {/* <!-- Testimonial Carousel --> */}
           </div>
         </div>
       </section>

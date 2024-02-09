@@ -19,7 +19,7 @@ const DefaulHeader = () => {
 
 
   const [headerStyle, setHeaderStyle] = useState({
-    backgroundColor: GlobalConfig.BgrClr,
+    backgroundColor: GlobalConfig.BgrClr1,
     boxShadow: 'none',
   });
 
@@ -30,7 +30,7 @@ const DefaulHeader = () => {
 
       // Update header style based on scroll
       const updatedHeaderStyle = {
-        backgroundColor: scrolled ? GlobalConfig.BgrClr : GlobalConfig.BgrClr,
+        backgroundColor: scrolled ? GlobalConfig.BgrClr1 : GlobalConfig.BgrClr1,
         boxShadow: scrolled ? '0 1px 3px rgba(0, 0, 0, 0.5)' : 'none',
       };
       setHeaderStyle(updatedHeaderStyle);

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const AppSectionAbout = () => {
   return (
-    <div className="row" style={{backgroundColor:GlobalConfig.BgrClr, borderRadius: '5px'}}>
+    <div className="row" style={{backgroundColor:GlobalConfig.BgrClr1, borderRadius: '5px'}}>
       <div className="image-column col-lg-6 col-md-12 col-sm-12">
         <div className="bg-shape"></div>
         <figure className="image" data-aos="fade-right">
