@@ -45,7 +45,7 @@ const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem(
       id: 2,
       icon: "icon-contact",
       title: "Sign Up",
-      linkPath: '/login',
+      linkPath: '/register',
 
       // text: `Sign up to customize your experience.`,
       bgClass: "-red",
