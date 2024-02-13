@@ -23,9 +23,6 @@ const index = () => {
     };
   }, []);
 
-  const isMobile = windowWidth <= 767;
-  const isTablet = windowWidth <= 767;
-
   const [userType, setUserType] = useState();
 
   useEffect(() => {
@@ -52,12 +49,12 @@ const index = () => {
 
   return (
     <>
-      <section className="banner-section-ten" style={{height: '100vh'}}>
+      <section className="banner-section-ten" style={{ height: '100vh' }}>
         <HeroSliderGallery />
         <div className="auto-container">
           <div className="cotnent-box">
             <div className="title-box" data-aso-delay="500" data-aos="fade-up">
-              <h3 style={{ fontWeight: '600'}}>
+              <h3 style={{ fontWeight: '600' }}>
                 <span style={{ color: GlobalConfig.LogoGry1 }}> Future </span>
                 <span style={{ color: GlobalConfig.LogoGry1 }}> Fit </span>
                 <span style={{ color: GlobalConfig.LogoGry1 }}> International </span>
