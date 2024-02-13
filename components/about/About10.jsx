@@ -29,7 +29,7 @@ const About10 = () => {
                 </h2>
               </div> */}
 
-              <figure className="image" data-aos="fade-right" style={{ paddingTop: '10px' }}>
+              {/* <figure className="image" data-aos="fade-right" style={{ paddingTop: '10px' }}>
                 <Image
                   width={900}
                   height={900}
@@ -37,7 +37,7 @@ const About10 = () => {
                   alt="About"
                   style={{ borderRadius: '15px', marginTop: '20px', marginRight: '20px' }}
                 />
-              </figure>
+              </figure> */}
             </div>
 
             {/* <div className="content-column mb-0 col-xl-4 col-lg-4 col-md-12 col-sm-12">

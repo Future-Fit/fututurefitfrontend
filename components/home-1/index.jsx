@@ -17,6 +17,7 @@ import GlobalConfig from "@/Global.config";
 import CookiesPopup from "./CookiesPopup";
 import LoginPopup from "../common/form/login/LoginPopup";
 import Testimonial2 from "../testimonial/Testimonial2";
+import AboutBlock from "../block/AboutBlock";
 
 const index = () => {
 
@@ -31,6 +32,7 @@ const index = () => {
 
   return (
     <>
+      <MobileMenu />
 
       <LoginPopup />
       {/* End Login Popup Modal */}
@@ -39,22 +41,62 @@ const index = () => {
           user 3 business(employer univeruity gov)
           user 4 jobseeker
           user 5 student  */}
-        {userType === 1 && <DashboardHeader />}
-        {userType === 3 && <DashboardHeader />}
-        {userType === 4 && <DashboardCandidatesHeader />}
-        {userType === 5 && <DashboardCandidatesHeader />}
-        {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
 
-        <Hero10/>
-      {/* <Header /> */}
-      {/* <!--End Main Header --> */}
+      {userType === 1 && <DashboardHeader />}
+      {userType === 3 && <DashboardHeader />}
+      {userType === 4 && <DashboardCandidatesHeader />}
+      {userType === 5 && <DashboardCandidatesHeader />}
+      {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
 
-      <MobileMenu />
+      <section className="about-section-two style-two -light-blue">
+        <div className="auto-container">
+          <div className="sec-title" style={{ alignContent: "center" }}>
+            <h2 style={{ color: GlobalConfig.Fgr1Clr }}>
+              About Us
+            </h2>
+          </div>
+          <div className="row grid-base align-items-center">
+            <div className="col-60 col-md-12 col-sm-12">
+              <div className="row icon-side-row wow fadeInRight">
+                <AboutBlock />
+              </div>
+            </div>
+            {/* End .col */}
+
+            <div className="image-column col-40 col-md-12 col-sm-12" >
+              {/* <div className="sec-title">
+                <h2 style={{ color: GlobalConfig.Fgr1Clr }}>
+                  About Us
+                </h2>
+              </div> */}
+
+              {/* <figure className="image" data-aos="fade-right" style={{ paddingTop: '10px' }}>
+                <Image
+                  width={900}
+                  height={900}
+                  src="/images/collaboration.jpeg"
+                  alt="About"
+                  style={{ borderRadius: '15px', marginTop: '20px', marginRight: '20px' }}
+                />
+              </figure> */}
+            </div>
+
+            {/* <div className="content-column mb-0 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+              <div className="wow fadeInLeft">
+                <a href="/service" className="theme-btn -blue-outline mt-56 md:mt-16">
+                  All Services
+                </a>
+              </div>
+            </div> */}
+            {/* <!-- Content Column --> */}
+          </div>
+        </div>
+      </section>
 
 
-      {/* <section className="layout-pt-10 layout-pb-30" style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
+      <section className="about-section-two style-two" style={{ backgroundColor: GlobalConfig.BgrClr1, height: '100vh' }}>
         <Hero10 />
-      </section> */}
+      </section>
 
       <section className="layout-pt-10 layout-pb-30" style={{ background: GlobalConfig.BgrClr2 }}>
         <div className="auto-container" style={{ paddingBottom: '0px', paddingTop: '0px' }}>
@@ -173,6 +215,8 @@ const index = () => {
       <CookiesPopup />
 
       <FooterDefault />
+
+
       {/* <!-- End Main Footer --> */}
     </>
   );
