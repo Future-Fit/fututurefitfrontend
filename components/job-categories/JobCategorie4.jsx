@@ -89,7 +89,8 @@ import React, { useState } from "react";
 import jobCatContent from "../../data/job-catergories";
 import Image from "next/image";
 
-const JobCategorie4 = ({ isMobile }) => {
+// const JobCategorie4 = ({ isMobile }) => {
+  const JobCategorie4 = ({ }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
   const handleMouseEnter = (itemId) => {
@@ -133,7 +134,8 @@ const JobCategorie4 = ({ isMobile }) => {
     <>
       {jobCatContent.slice(0, 3).map((item) => (
         <div
-          className={`feature-block-two col-lg-4 col-md-4 col-sm-12 ${isMobile ? 'col-xs-6' : ''}`}
+          // className={`feature-block-two col-lg-4 col-md-4 col-sm-12 ${isMobile ? 'col-xs-6' : ''}`}
+          className={'feature-block-two col-lg-4 col-md-4 col-sm-12 col-xs-6'}
           key={item.id}
         >
           <div className="inner-box">

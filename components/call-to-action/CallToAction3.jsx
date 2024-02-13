@@ -6,9 +6,9 @@ const CallToAction3 = () => {
       <div className="auto-container">
         <div className="outer-box">
           <div className="sec-title">
-            <h2>Travel & Visa</h2>
+            <h2>Travel & Other</h2>
             <div className="text">
-              Travel and Visa Detail Here
+              Travel and Other Detail Here
             </div>
           </div>
           {/* End sec title */}

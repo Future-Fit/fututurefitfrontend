@@ -6,7 +6,6 @@ const Filter = () => {
       <option value="106">Companies</option>
       <option value="46">Education/Colleges/Universities</option>
       <option value="48">Training</option>
-      <option value="47">Visa and Related</option>
       <option value="45">Other</option>
       {/* <option value="105">Marketing</option> */}
       {/* <option value="107">Project Management</option> */}

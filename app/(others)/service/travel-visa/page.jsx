@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import Travelvisa from "@/components/pages-menu/travel-visa";
 
 export const metadata = {
-  title: 'Travel and Visa | Future Fit International Job Portal',
+  title: 'Travel and Other | Future Fit International Job Portal',
   description:
     'Future Fit International Job Portal',
   

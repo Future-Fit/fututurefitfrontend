@@ -17,10 +17,6 @@ import GlobalConfig from "@/Global.config";
 import CookiesPopup from "./CookiesPopup";
 import LoginPopup from "../common/form/login/LoginPopup";
 import Testimonial2 from "../testimonial/Testimonial2";
-import Testimonial from "../testimonial/Testimonial";
-import Testimonial3 from "../testimonial/Testimonial3";
-import Testimonial4 from "../testimonial/Testimonial4";
-import Testimonial5 from "../testimonial/Testimonial5";
 
 const index = () => {
 
@@ -35,19 +31,30 @@ const index = () => {
 
   return (
     <>
+
       <LoginPopup />
       {/* End Login Popup Modal */}
+      {/* user 1 admin
+          user 2 reserved
+          user 3 business(employer univeruity gov)
+          user 4 jobseeker
+          user 5 student  */}
+        {userType === 1 && <DashboardHeader />}
+        {userType === 3 && <DashboardHeader />}
+        {userType === 4 && <DashboardCandidatesHeader />}
+        {userType === 5 && <DashboardCandidatesHeader />}
+        {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
 
-      {userType === 3 && <DashboardHeader />}
-      {userType === 4 && <DashboardCandidatesHeader />}
-      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
+        <Hero10/>
       {/* <Header /> */}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
-      {/* End MobileMenu */}
 
-      <Hero10 />
+
+      {/* <section className="layout-pt-10 layout-pb-30" style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
+        <Hero10 />
+      </section> */}
 
       <section className="layout-pt-10 layout-pb-30" style={{ background: GlobalConfig.BgrClr2 }}>
         <div className="auto-container" style={{ paddingBottom: '0px', paddingTop: '0px' }}>
@@ -111,25 +118,6 @@ const index = () => {
         </div>
       </section>
 
-      {/* <section className="job-section-two">
-        <div className="auto-container">
-          <div className="sec-title text-center">
-            <h2 >Trending Job Opportunities</h2>
-          </div>
-          <WordCloudSection />
-        </div>
-        <div className="btn-box">
-          <Link
-            href="/job-list-v6"
-            className="theme-btn btn-style-one bg-blue"
-          >
-            <span className="btn-title">Load More</span>
-          </Link>
-        </div>
-      </section> */}
-
-      {/* <AppSectionAbout /> */}
-
       <section className="clients-section-two alternate" style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
           <h2 style={{ color: '#FFF', paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bolder' }}>Partners We Work With</h2>
@@ -180,6 +168,7 @@ const index = () => {
           </div>
         </div>
       </section>
+
       {/* <!-- End Job Section --> */}
       <CookiesPopup />
 

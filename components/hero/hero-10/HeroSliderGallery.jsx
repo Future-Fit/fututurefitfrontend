@@ -9,7 +9,7 @@ const HeroSliderGallery = () => {
 
   const settings = {
     dots: true,
-    speed: 500,
+    speed: 0,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -22,7 +22,7 @@ const HeroSliderGallery = () => {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(59, 78, 120, 0.7)',
+    backgroundColor: 'rgba(59, 87, 142, 0.85)',
     pointerEvents: 'none',
     zIndex: 1,
   };

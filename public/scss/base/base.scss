@@ -22,6 +22,27 @@ $breakpoints: (
   lg: 1200px,
 );
 
+.col-25 {
+  width: 25%;
+  padding: 0px
+}
+.col-33 {
+  width: 33%;
+  padding: 0px
+}
+.col-40 {
+  width: 40%;
+  padding: 0px
+};
+.col-60 {
+width: 60%;
+padding: 0px
+}
+.col-75 {
+  width: 75%;
+  padding: 0px
+}
+
 @mixin media-below($breakpoint) {
   $breakpoint-value: map-get($breakpoints, $breakpoint);
 
@@ -74,10 +95,14 @@ h6 {
   background: none;
   line-height: 1.2em;
 }
+// headersection{
+//   height: 90px;
+// }
 
 section {
   position: relative;
-  padding: 50px 0 50px;
+  min-height: 40px;
+  // padding: 50px 0 50px;
 
 }
 
@@ -138,7 +163,7 @@ p,
 }
 
 .section {
-  padding: 50px 0 50px;
+  padding: 20px 0 20px;
 }
 
 .bg_alice {

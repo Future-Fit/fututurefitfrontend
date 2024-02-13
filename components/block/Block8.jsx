@@ -1,13 +1,24 @@
 import GlobalConfig from "@/Global.config";
 import Link from "next/link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBriefcase, faNetworkWired, faO, faSchool, faTasks, faUniversity } from "@fortawesome/free-solid-svg-icons";
+
 
 const Block8 = () => {
+
+  const iconMap = {
+    "icon-drawing": faBriefcase,
+    "icon-task": faSchool,
+    "icon-institution": faUniversity,
+    "icon-one-finger-click": faO,
+  };
+
   const blockContent = [
     {
       id: 1,
       icon: "icon-drawing",
       title: "Job Seekers",
-      text: `Find A Great Job in Canada and Beyond`,
+      text: `Find A Great Job in Canada`,
       linkPath: '/service/job-seekers'
 
     },
@@ -30,7 +41,7 @@ const Block8 = () => {
       id: 4,
       icon: "icon-one-finger-click",
       title: "Other Services",
-      text: `Provide Travel, Visa, and Resettlement`,
+      text: `Training, Travel & Resettlement Services`,
       linkPath: '/service/travel-visa'
 
     }
@@ -42,7 +53,8 @@ const Block8 = () => {
           <div className="work-block -type-4" style={{ minHeight: '200px', textAlign: 'left' }}>
             <a href={item.linkPath} className="block-content" style={{ textAlign: 'left' }} >
               <div className="icon-wrap">
-                <span className={`icon ${item.icon}`}></span>
+                {/* <span className={`icon ${item.icon}`}></span> */}
+                <FontAwesomeIcon icon={iconMap[item.icon]} style={{color: GlobalConfig.LogoBlu}}/>
               </div>
               <h5 className="title" style={{ color: GlobalConfig.BgrClr1, textAlign: 'left' }}>{item.title} </h5>
               <p className="text" style={{ color: GlobalConfig.Fnt1Clr, textAlign: 'left' }}>{item.text}</p>

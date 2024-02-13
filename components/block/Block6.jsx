@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'; // Import React
 import Link from "next/link";
 import Image from "next/image";
 import GlobalConfig from "@/Global.config";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSign, faSignIn, faUser, faUserEdit } from '@fortawesome/free-solid-svg-icons';
 
 const Block6 = () => {
 
@@ -30,38 +32,42 @@ const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem(
   // const isLoggedIn = localStorage.getItem('accessToken') !== null;
   // const userType = parseInt(localStorage.getItem('userType'));
 
+  const iconMap = {
+    "icon-about": faUser,
+    "icon-sign": faSignIn,
+    "icon-profile": faUserEdit,
+  };
+
   const blockContent = [
     {
       id: 1,
-      icon: "icon-case",
+      icon: "icon-about",
       title: "Learn About Us",
       linkPath: '/about',
 
       // text: `Search our database to explore opportunities or review profiles.`,
       bgClass: "-blue",
-      bgcolor: 'green'
+      bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 2,
-      icon: "icon-contact",
+      icon: "icon-sign",
       title: "Sign Up",
       linkPath: '/register',
 
       // text: `Sign up to customize your experience.`,
       bgClass: "-red",
-      bgcolor: "red"
+      bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 3,
-      icon: "icon-institution",
+      icon: "icon-profile",
       title: "Login & Create Your Profile",
       // linkPath: '/candidates-dashboard/my-profile',
       linkPath: (isLoggedIn && userType === 4) ? '/candidates-dashboard/my-profile' : '/login',
-
-
       // text: `Sign in to build your profile or post jobs.`,
       bgClass: "-yellow",
-      bgcolor: "blue"
+      bgcolor: GlobalConfig.LogoOrg
     },
   ];
 
@@ -77,13 +83,14 @@ const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem(
               <div className="work-block -type-2 mb-0">
                 <div className="inner-box">
                   <div className="icon-wrap">
-                    <span className={`icon ${item.icon}`}></span>
+                    {/* <span className={`icon ${item.icon}`}></span> */}
+                    <FontAwesomeIcon icon={iconMap[item.icon]} style={{color: GlobalConfig.LogoBlu}}/>
                   </div>
                   <a href={item.linkPath}> <h5  style={{color:item.bgcolor}}> {item.title}</h5> </a>
                 </div>
               </div>
             </div>
-            {isMobile ? (
+            {/* {isMobile ? (
               <>
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
@@ -93,7 +100,7 @@ const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem(
                   </div>
                 )}
               </>
-            ) : (
+            ) : ( */}
               <>
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
@@ -103,7 +110,7 @@ const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem(
                   </div>
                 )}
               </>
-            )}
+            {/* )} */}
           </React.Fragment>
         ))}
       </div>

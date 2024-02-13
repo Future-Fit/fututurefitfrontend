@@ -244,7 +244,7 @@
 }
 
 .icon-side-row {
-  padding-right: 48px;
+  padding-right: 0px;
   margin: -15px;
 
   > * {
@@ -276,8 +276,8 @@
   background: #ffffff;
   box-shadow: 0px 25px 70px rgba(1, 33, 58, 0.07);
   border-radius: 8px;
-  padding: 50px 42px;
-  padding-right: 28px;
+  padding: 20px 30px;
+  text-align: justify;
 
   .icon-wrap {
     width: 80px;

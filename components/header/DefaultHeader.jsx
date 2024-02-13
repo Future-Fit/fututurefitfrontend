@@ -114,8 +114,6 @@ const DefaulHeader2 = () => {
     setSearchExpanded(!searchExpanded);
   };
 
-  // searching function 
-
   const handleOutsideClick = (event) => {
     if (
       searchContainerRef.current &&
@@ -225,15 +223,12 @@ const DefaulHeader2 = () => {
 
   return (
     <header
-      // dear sami add/remove the following next to fixed-header to add/remove the animation  "animated slideInDown" with out double quote
       className={`main-header header-style-two ${navbar ? "fixed-header" : ""
         }`}
       style={headerStyle} // Apply the inline style here
     >
       <div className="auto-container">
-        {/* Rest of your header content */}
         <div className="main-box">
-          {/* <!--Nav Outer --> */}
           <div className="nav-outer">
             <div className="logo-box">
               <div className="logo">
@@ -247,12 +242,8 @@ const DefaulHeader2 = () => {
                 </Link>
               </div>
             </div>
-            {/* End .logo-box */}
-
             <HeaderNavContent />
-            {/* <!-- Main Menu End--> */}
           </div>
-          {/* End .nav-outer */}
 
           <div className="outer-box">
             <div className="d-flex align-items-center btn-box2">
@@ -395,7 +386,6 @@ const DefaulHeader2 = () => {
                       AM
                     </a>
                   </li>
-                  {/* Add more languages as needed */}
                 </ul>
               </div>
             </div>
@@ -405,5 +395,4 @@ const DefaulHeader2 = () => {
     </header>
   );
 };
-
 export default DefaulHeader2;

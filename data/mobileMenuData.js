@@ -6,13 +6,13 @@ module.exports = [
   },
   {
     id: 2,
-    label: "About",
+    label: "About Us",
     routePath: "/about",
 
   },
   {
     id: 3,
-    label: "Service",
+    label: "Services",
     items: [
       {
         name: "Job Seekers",
@@ -31,13 +31,13 @@ module.exports = [
         routePath: "/service/universities-colleges",
       },
       {
-        name: "Training",
+        name: "Training & Other",
         routePath: "/service/training",
       },
-      {
-        name: "Other",
-        routePath: "/service/travel-visa",
-      },
+      // {
+      //   name: "Other",
+      //   routePath: "/service/travel-visa",
+      // },
     ],
   },
   {
