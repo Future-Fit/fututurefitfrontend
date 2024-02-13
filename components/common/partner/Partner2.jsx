@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
- 
+import GlobalConfig from "@/Global.config";
+
 const Partner2 = () => {
   const settings = {
     dots: false,
@@ -117,34 +118,47 @@ const Partner2 = () => {
 
   return (
     <>
-      <Slider {...settings} arrows={false}>
-        {sliderPartners.map((item) => (
-          <div className="slide-item" key={item.id} style={{ display: "flex", alignItems: "center" }}>
-            <figure className="image-box" style={{ marginRight: "5px", flexShrink: 0 }}>
-              <a href={item.link} target="_blank" rel="noreferrer noopener">
-                <Image
-                    width={100}
-                    height={40}
-                    src={`/images/index-11/clients/${item.imgNumber}`}
-                    style={{paddingLeft: "10px", paddingRight: "10px"}}
-                    alt="brand"
-                />
-              </a>
-            </figure>
-            <div 
-              style={{
-                overflowX: 'auto', // Allows horizontal scrolling
-                whiteSpace: 'nowrap', // Keeps text in a single line
-                flexGrow: 1, // Allows the text container to grow
-              }}
-            >
-              {/* <a href={item.link} style={{ color: item.textColor }}>
+
+      <section className="clients-section-two alternate" style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
+        <div className="auto-container" style={{ textAlign: 'center' }}>
+          <h2 style={{ color: '#FFF', paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bolder' }}>Partners We Work With</h2>
+
+          <div className="sponsors-outer wow fadeInUp">
+            <div className="sponsors-carousel">
+
+              <Slider {...settings} arrows={false}>
+                {sliderPartners.map((item) => (
+                  <div className="slide-item" key={item.id} style={{ display: "flex", alignItems: "center" }}>
+                    <figure className="image-box" style={{ marginRight: "5px", flexShrink: 0 }}>
+                      <a href={item.link} target="_blank" rel="noreferrer noopener">
+                        <Image
+                          width={100}
+                          height={40}
+                          src={`/images/index-11/clients/${item.imgNumber}`}
+                          style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                          alt="brand"
+                        />
+                      </a>
+                    </figure>
+                    <div
+                      style={{
+                        overflowX: 'auto', // Allows horizontal scrolling
+                        whiteSpace: 'nowrap', // Keeps text in a single line
+                        flexGrow: 1, // Allows the text container to grow
+                      }}
+                    >
+                      {/* <a href={item.link} style={{ color: item.textColor }}>
                 {item.companyName}
               </a> */}
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+
             </div>
           </div>
-        ))}
-      </Slider>
+        </div>
+      </section>
     </>
   );
 };

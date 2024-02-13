@@ -51,7 +51,10 @@ const Index = () => {
                       <div style={{ flexGrow: 1, }}>
                         <p className="phone-num">
                           <span> <img src="/images/canada.png" width={40} height={20} alt="Canada" /></span>
-                          <a href="tel: +1-800-422-8061">+1-800-422-8061</a>
+                          <a href="tel: +1-800-422-8061">+1-800-422-8061</a><br/>
+                          <a color="#fff !important" href="mailto:info@futurefitinternational.com " className="email">
+                  info@futurefitinternational.com
+                </a>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.8564029194836!2d-75.67874502344903!3d45.432395935559754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0510f2885901%3A0x69f3a70b97e7173b!2s168%20Charlotte%20St%20%23404%2C%20Ottawa%2C%20ON%20K1N%208K6%2C%20Canada!5e0!3m2!1sen!2set!4v1701349204301!5m2!1sen!2set"
@@ -70,7 +73,7 @@ const Index = () => {
                           <span> <img src="/images/ethiopia.png" width={50} height={20} alt="Ethiopia" /></span>
 
                           {/* <span>Ethiopia Office</span> */}
-                          <a href="tel: +251933859295">+251933859295</a>
+                          <a href="tel: +251933859295">+251933859295</a><br/><br/>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
                           <iframe
@@ -94,9 +97,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                <a color="#fff !important" href="mailto:info@futurefitinternational.com " className="email">
-                  info@futurefitinternational.com
-                </a>
+                
               </div>
 
             </div>

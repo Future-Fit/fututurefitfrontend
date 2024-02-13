@@ -26,7 +26,7 @@ const Block6 = () => {
   const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
 
   const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
-const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
+  const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
 
 
   // const isLoggedIn = localStorage.getItem('accessToken') !== null;
@@ -76,32 +76,30 @@ const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem(
 
   return (
     <>
-      <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {blockContent.map((item, index) => (
-          <React.Fragment key={item.id}>
-            <div className="col-lg-4 col-md-4 col-sm-12" style={{ flex: '1', margin: '0 10px' }}>
-              <div className="work-block -type-2 mb-0">
-                <div className="inner-box">
-                  <div className="icon-wrap">
-                    {/* <span className={`icon ${item.icon}`}></span> */}
-                    <FontAwesomeIcon icon={iconMap[item.icon]} style={{color: GlobalConfig.LogoBlu}}/>
-                  </div>
-                  <a href={item.linkPath}> <h5  style={{color:item.bgcolor}}> {item.title}</h5> </a>
-                </div>
+      <section>
+        <div className="auto-container">
+          <div className="row justify-content-center">
+            <div className="col-lg-5">
+              <div className="sec-title text-center">
+                <h2 style={{ color: '#fff', paddingBottom: '30px' }}>Become A Member</h2>
               </div>
             </div>
-            {/* {isMobile ? (
-              <>
-                {index < blockContent.length - 1 && (
-                  <div className="col-lg-1 col-md-1 col-sm-1">
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src={arrowDown} width={50} height={50} alt="arrow icon" />
+          </div>
+          {/* End .row */}
+          <div className="row grid-base" data-aos="fade-up"></div>
+          <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            {blockContent.map((item, index) => (
+              <React.Fragment key={item.id}>
+                <div className="col-lg-4 col-md-4 col-sm-12" style={{ flex: '1', margin: '0 10px' }}>
+                  <div className="work-block -type-2 mb-0">
+                    <div className="inner-box">
+                      <div className="icon-wrap">
+                        <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
+                      </div>
+                      <a href={item.linkPath}> <h5 style={{ color: item.bgcolor }}> {item.title}</h5> </a>
                     </div>
                   </div>
-                )}
-              </>
-            ) : ( */}
-              <>
+                </div>
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
@@ -109,11 +107,12 @@ const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem(
                     </div>
                   </div>
                 )}
-              </>
-            {/* )} */}
-          </React.Fragment>
-        ))}
-      </div>
+                {/* )} */}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </section >
     </>
   );
 };
