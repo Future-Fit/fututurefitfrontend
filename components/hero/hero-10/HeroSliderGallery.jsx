@@ -30,24 +30,25 @@ const HeroSliderGallery = () => {
   function CustomArrow(props) {
     const { className, onClick, type } = props;
     const iconClass = type === 'next' ? 'fa fa-arrow-right' : 'fa fa-arrow-left';
-
+  
     return (
-      <button 
-      className={`slick-arrow ${className}`} 
-      onClick={onClick} 
-      style={{top: '30%'}}>
+      <button
+        className={`slick-arrow ${className}`}
+        onClick={onClick}
+        style={{ top: '50%', display: 'none' }} // This line hides the arrow buttons
+      >
         <span className={iconClass}></span>
       </button>
     );
   }
 
   return (
-    <div className="banner-carousel arrow-center-between arrow-rounded hide-arrow-1024" style={{height: '80%'}}>
+    <div className="banner-carousel arrow-center-between arrow-rounded hide-arrow-1024" style={{height: '80vh'}}>
       <Slider {...settings}
-        // nextArrow={<CustomArrow className="slick-next" type="next" />}
-        // prevArrow={<CustomArrow className="slick-prev" type="prev" />}
+        nextArrow={<CustomArrow className="slick-next" type="next" />}
+        prevArrow={<CustomArrow className="slick-prev" type="prev" />}
         >
-        <div className="slide-item bg-image image-1">
+        <div className="slide-item bg-image image-1" style={{height: '80vh !important'}}>
           <div style={overlayStyle}></div>
         </div>
         <div className="slide-item bg-image image-2">
