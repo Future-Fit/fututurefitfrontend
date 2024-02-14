@@ -40,11 +40,10 @@ const index = () => {
 
   return (
     <>
-      <section className="banner-section-ten" style={{ height: '100vh' }}>
+      <section className="banner-section-ten" style={{ height: 'fit-content' }}>
         <HeroSliderGallery />
-        <div className="auto-container">
+        <div className="auto-container" >
           <div className="content-box">
-
             <div className="title-box" data-aso-delay="500" data-aos="fade-up">
               <h3 style={{ fontWeight: '600' }}>
                 <span style={{ color: GlobalConfig.LogoGry1 }}> Future </span>
@@ -68,7 +67,6 @@ const index = () => {
             }}>
               <VideoPlayer />
             </div>
-
           </div>
         </div>
       </section>

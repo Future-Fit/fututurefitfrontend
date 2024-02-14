@@ -68,7 +68,7 @@ const VideoPlayer = () => {
             </div>
           </div>
         </div>
-        {/* <!-- Image Column --> */}
+        
         <div className="content-column col-lg-6 col-md-12 col-sm-12">
           <div className="inner-column" data-aos="fade-left" style={{ alignItems: 'flex-start' }}>
             <div className="sec-title">
@@ -89,13 +89,11 @@ const VideoPlayer = () => {
                   <div> <strong> * Recruit for Canadian businesses globally </strong> </div>
                   <div> <strong> * Promote Canadian education institutions </strong> </div>
                   <div> <strong> * Services in training, travel, relocation </strong> </div>
-
                   <div className="btn-box text-center" style={{ marginTop: '10px', marginBottom: '10px' }}>
                     <Link href="/" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.Fgr1Clr, backgroundColor: GlobalConfig.LogoGry1 }}>
                       <span className="btn-title"><strong>More About FFI</strong></span>
                     </Link>
                   </div>
-
                 </div>
             </div>
           </div>
