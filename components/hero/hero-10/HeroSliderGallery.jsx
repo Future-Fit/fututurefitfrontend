@@ -42,7 +42,7 @@ const HeroSliderGallery = () => {
   }
 
   return (
-    <div className="banner-carousel arrow-center-between arrow-rounded hide-arrow-1024">
+    <div className="banner-carousel arrow-center-between arrow-rounded hide-arrow-1024" style={{height: '80%'}}>
       <Slider {...settings}
         nextArrow={<CustomArrow className="slick-next" type="next" />}
         prevArrow={<CustomArrow className="slick-prev" type="prev" />}>
