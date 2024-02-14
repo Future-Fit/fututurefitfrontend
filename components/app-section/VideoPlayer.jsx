@@ -162,39 +162,23 @@ const VideoPlayer = () => {
           <div className="content-column col-lg-6 col-md-12 col-sm-12">
             <div className="inner-column" data-aos="fade-left" style={{ alignItems: 'flex-start' }}>
               <div className="sec-title">
-                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', marginTop: '10px', paddingBottom: '10px' }}>
-                  We Are ...
+                <h2 style={{ textAlign: "left", color: GlobalConfig.LogoOrg, fontSize: '20px', marginTop: '10px', paddingBottom: '10px' }}>
+                  Who We Are ...
                 </h2>
                 <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-                  <div>
-                    * Passionate about enabling great connections
-                  </div>
-                  <div>
-                    * Experienced in global talent placement
-                  </div>
-                  <div>
-                    * Committed to achieving results for our clients
-                  </div>
+                  <div> <strong> * Passionate about human connections </strong> </div>
+                  <div> <strong> * Experienced in global talent management </strong> </div>
+                  <div> <strong> * Committed to achieving results </strong> </div>
                 </div>
-                <h2 style={{ textAlign: "left", color: 'white', fontSize: '20px', paddingBottom: '10px' }}>
-                  We Do ...
+                <h2 style={{ textAlign: "left", color: GlobalConfig.LogoOrg, fontSize: '20px', paddingBottom: '10px' }}>
+                  What We Do ...
                 </h2>
                 <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-                  <div>
-                    * Match workers with great job opportunties
-                  </div>
-                  <div>
-                    * Support Canadian businesses recruit globally
-                  </div>
-                  <div>
-                    * Help students get into Canadian universities
-                  </div>
-                  <div>
-                    * Promote Canadian universities/colleges
-                  </div>
-                  <div>
-                    * Provide training, travel & settlement services
-                  </div>
+                  <div> <strong> * Match workers with job opportunties </strong> </div>
+                  <div> <strong> * Help students with college applications </strong> </div>
+                  <div> <strong> * Recruit for Canadian businesses globally </strong> </div>
+                  <div> <strong> * Promote Canadian education institutions </strong> </div>
+                  <div> <strong> * Services in training, travel, relocation </strong> </div>
 
                   <div className="btn-box text-center" style={{ marginTop: '10px', marginBottom: '10px' }}>
                     <Link href="/" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.Fgr1Clr, backgroundColor: GlobalConfig.LogoGry1 }}>

@@ -41,7 +41,7 @@ const AppSection = () => {
                 employers and employees. Likewise, FFI works to promote Canadian colleges and universities
                 as one of the best choices available to international students, assisting them throughout the
                 application process. Lastly, FFI provides crucial support in the areas of handling
-                expatriates’ travel needs and resettlement after arriving in Canada.    <br/>  <br/></span>
+                expatriates’ travel needs and resettlement after arriving in Canada.    <br/>  <br/> </span>
               <br />
               <h3> We work with the following:</h3>
               <ul className="list-style-two" >

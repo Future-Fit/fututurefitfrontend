@@ -52,8 +52,8 @@ const Index = () => {
                         <p className="phone-num">
                           <span> <img src="/images/canada.png" width={40} height={20} alt="Canada" /></span>
                           <a href="tel: +1-800-422-8061">+1-800-422-8061</a><br/>
-                          <a color="#fff !important" href="mailto:info@futurefitinternational.com " className="email">
-                  info@futurefitinternational.com
+                          <a color="#fff !important" href="mailto:info@futurefitint.com " className="email">
+                  info@futurefitint.com
                 </a>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
@@ -73,7 +73,10 @@ const Index = () => {
                           <span> <img src="/images/ethiopia.png" width={50} height={20} alt="Ethiopia" /></span>
 
                           {/* <span>Ethiopia Office</span> */}
-                          <a href="tel: +251933859295">+251933859295</a><br/><br/>
+                          <a href="tel: +251933859295">+251933859295</a><br/>
+                          <a color="#fff !important" href="mailto:info-et@futurefitint.com " className="email">
+                  info-et@futurefitint.com
+                </a>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
                           <iframe

@@ -3,7 +3,7 @@ const GlobalConfig = {
     // Define the background color
     BgrClr1: "#3B578E", //Blue
     BgrClr2: "#F5F7FC", //Off-white
-    BgHeader:  "#2F3140",
+    BgHeader:  "#2F3140", //Header background color
 
     // Logo colors
     LogoBlu: "#007DB6", // this is the blue color on the logo

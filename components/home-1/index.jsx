@@ -35,11 +35,13 @@ const index = () => {
       <span className="header-span"></span>
       <LoginPopup />
       {/* End Login Popup Modal */}
-      {/* user 1 admin
-          user 2 reserved
-          user 3 business(employer univeruity gov)
-          user 4 jobseeker
-          user 5 student  */}
+
+      {/* user types:
+          user 1= admin
+          user 2= reserved
+          user 3= business(employer univeruity gov)
+          user 4= jobseeker
+          user 5= student  */}
 
       {userType === 1 && <DashboardHeader />}
       {userType === 3 && <DashboardHeader />}
@@ -54,23 +56,23 @@ const index = () => {
       </section>
 
       <section style={{ background: GlobalConfig.BgrClr2 }}>
-        <Block8 />
+        {/* <Block8 /> */}
       </section>
 
       <section style={{ background: GlobalConfig.BgrClr1 }}>
-        <Block6 />
+        {/* <Block6 /> */}
       </section>
 
       <section >
-        <JobFeatured4 />
+        {/* <JobFeatured4 /> */}
       </section>
 
       <section style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
-        <Partner2 />
+        {/* <Partner2 /> */}
       </section>
 
       <section>
-        <Testimonial2 />
+        {/* <Testimonial2 /> */}
       </section>
 
       {/* <!-- End Job Section --> */}
