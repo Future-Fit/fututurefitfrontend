@@ -8,8 +8,8 @@ const HeroSliderGallery = () => {
   const sliderRef = useRef(null);
 
   const settings = {
-    dots: true,
-    speed: 0,
+    // dots: true,
+    speed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -21,7 +21,7 @@ const HeroSliderGallery = () => {
     top: 0,
     left: 0,
     width: '100%',
-    height: '80vh',
+    height: '100%',
     backgroundColor: 'rgba(59, 87, 142, 0.85)',
     pointerEvents: 'none',
     zIndex: 1,
@@ -44,12 +44,13 @@ const HeroSliderGallery = () => {
   return (
     <div className="banner-carousel arrow-center-between arrow-rounded hide-arrow-1024" style={{height: '80%'}}>
       <Slider {...settings}
-        nextArrow={<CustomArrow className="slick-next" type="next" />}
-        prevArrow={<CustomArrow className="slick-prev" type="prev" />}>
-        <div className="slide-item bg-image image-1" style={{height: '80% !important'}}>
+        // nextArrow={<CustomArrow className="slick-next" type="next" />}
+        // prevArrow={<CustomArrow className="slick-prev" type="prev" />}
+        >
+        <div className="slide-item bg-image image-1">
           <div style={overlayStyle}></div>
         </div>
-        {/* <div className="slide-item bg-image image-2">
+        <div className="slide-item bg-image image-2">
           <div style={overlayStyle}></div>
         </div>
         <div className="slide-item bg-image image-3">
@@ -60,7 +61,7 @@ const HeroSliderGallery = () => {
         </div>
         <div className="slide-item bg-image image-5">
           <div style={overlayStyle}></div>
-        </div> */}
+        </div>
       </Slider>
     </div>
   );

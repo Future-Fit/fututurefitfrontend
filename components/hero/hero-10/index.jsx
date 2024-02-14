@@ -59,7 +59,7 @@ const index = () => {
             </div>
 
             <h2 style={{ marginTop: '2%', marginBottom: '2%', textAlign: 'justify', textAlign: 'center', textShadow: '1px 2px #007DB6', color: "#fff", fontSize: '20px' }} >
-              <strong>We work across borders to match skills and ambitions with job and education opportunities in Canada.</strong>
+              <strong>We work across borders to match great job and education opportunities with skilled job seekers and ambitious students in Canada.</strong>
             </h2>
 
             <div style={{

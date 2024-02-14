@@ -84,8 +84,8 @@ const VideoPlayer = () => {
                   What We Do ...
                 </h2>
                 <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-                  <div> <strong> * Match workers with job opportunties </strong> </div>
-                  <div> <strong> * Help students with college applications </strong> </div>
+                  <div> <strong> * Find opportunities for job seekers </strong> </div>
+                  <div> <strong> * Help students choose and apply to colleges </strong> </div>
                   <div> <strong> * Recruit for Canadian businesses globally </strong> </div>
                   <div> <strong> * Promote Canadian education institutions </strong> </div>
                   <div> <strong> * Services in training, travel, relocation </strong> </div>
