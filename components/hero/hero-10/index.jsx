@@ -23,15 +23,6 @@ const index = () => {
     };
   }, []);
 
-  const [userType, setUserType] = useState();
-
-  useEffect(() => {
-    const storedUserType = localStorage.getItem('userType');
-    if (storedUserType) {
-      setUserType(JSON.parse(storedUserType));
-    }
-  }, []);
-
   const fadeInAnimation = 'fadeIn 2s ease-in-out';
 
   const fadeInAtCenter = () => {
