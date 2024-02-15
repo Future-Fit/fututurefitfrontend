@@ -4,18 +4,49 @@
 import Select from "react-select";
 import { useEffect, useState } from "react";
 import axios from "axios";
+ 
 const FormInfoBox = () => {
   const [userDetail, setUserDetail] = useState(null);
+  const [formData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    job_title: '',
+    phone: '',
+    email: '',
+    website: '',
+    current_salary: '',
+    expected_salary: '',
+    experience: '',
+    age: '',
+    education_levels: '',
+    languages: '',
+    categories: [],
+    allowSearch: '',
+    description: '',
+  });
+  const updateUser =  async(data)=>{
 
+    try {
+     const token = localStorage.getItem("accessToken");
+     const userId = localStorage.getItem("loggedInUserId");
+     const response = await axios.put(`https://api.futurefitinternational.com/users/profile`,{headers:{
+        Authorization:`Bearer ${token}`
+      }, data});
+      fetchUserDetails();
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+    }
+  }
 useEffect(() => {
   const userId = localStorage.getItem("loggedInUserId");
   console.log('user id', userId);
   if (userId) {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
+        const response = await axios.get(`https://api.futurefitinternational.com/users/me`);
         console.log('Response from server:', response.data);
         setUserDetail(response.data);
+        setFormData(response.data);
       } catch (error) {
         console.error("Error fetching user details:", error);
       }
@@ -33,21 +64,41 @@ useEffect(() => {
     { value: "Digital", label: "Digital" },
     { value: "Creative Art", label: "Creative Art" },
   ];
+  const handleSubmit = (event) => {
+  
+    event.preventDefault();
+    // Create DTO object from form data
+    const userDto = { ...formData };
+    updateUser(userDto);
+    // Perform any further processing or submit the DTO object
+     
+  
+  };
 
+  // Function to handle form input changes
+  const handleInputChange = (event ) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
   return (
     <form action="#" className="default-form">
       <div className="row">
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Full Name</label>
-          <input type="text" name="name" value={userDetail?.fname + ' ' + userDetail?.lname}
- placeholder="Jerome" required />
+          <input type="text"  name="fname" value={formData.fname} onChange={handleInputChange}
+ placeholder="First Name" required />
+   <input type="text"  name="lname" value={formData.lname} onChange={handleInputChange}
+ placeholder="Last Name" required />
         </div>
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Job Title</label>
-          <input value={userDetail?.job_title} type="text" name="name" placeholder="UI Designer" required />
+          <input name="job_title" value={formData.job_title} onChange={handleInputChange} type="text" placeholder="UI Designer" required />
         </div>
 
         {/* <!-- Input --> */}
@@ -55,8 +106,7 @@ useEffect(() => {
           <label>Phone</label>
           <input
             type="text"
-            name="name"
-            value={userDetail?.phone}
+            name="phone" value={formData.phone} onChange={handleInputChange}  
             placeholder="0 123 456 7890"
             required
           />
@@ -66,9 +116,7 @@ useEffect(() => {
         <div className="form-group col-lg-6 col-md-12">
           <label>Email address</label>
           <input
-            type="text"
-            name="name"
-            value={userDetail?.email}
+            type="email" name="email" value={formData.email} onChange={handleInputChange}  
             placeholder="creativelayers"
             required
           />
@@ -78,8 +126,7 @@ useEffect(() => {
         <div className="form-group col-lg-6 col-md-12">
           <label>Website</label>
           <input
-            type="text"
-            name="name"
+            name="website" value={formData.website} onChange={handleInputChange}  
             placeholder="www.jerome.com"
             required
           />
@@ -88,7 +135,7 @@ useEffect(() => {
         {/* <!-- Input --> */}
         <div className="form-group col-lg-3 col-md-12">
           <label>Current Salary($)</label>
-          <select className="chosen-single form-select" required>
+          <select name="current_salary" value={formData.current_salary} onChange={handleInputChange} required>
             <option>40-70 K</option>
             <option>50-80 K</option>
             <option>60-90 K</option>
@@ -100,7 +147,7 @@ useEffect(() => {
         {/* <!-- Input --> */}
         <div className="form-group col-lg-3 col-md-12">
           <label>Expected Salary($)</label>
-          <select className="chosen-single form-select" required>
+          <select  name="expected_salary" value={formData.expected_salary} onChange={handleInputChange} className="chosen-single form-select" required>
             <option>120-350 K</option>
             <option>40-70 K</option>
             <option>50-80 K</option>
@@ -113,13 +160,13 @@ useEffect(() => {
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Experience</label>
-          <input type="text" name="name" placeholder="5-10 Years" required />
+          <input type="text"name="experience" value={formData.experience} onChange={handleInputChange} placeholder="5-10 Years" required />
         </div>
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Age</label>
-          <select className="chosen-single form-select" required>
+          <select  name="age" value={formData.age} onChange={handleInputChange} className="chosen-single form-select" required>
             <option>23 - 27 Years</option>
             <option>24 - 28 Years</option>
             <option>25 - 29 Years</option>
@@ -130,15 +177,14 @@ useEffect(() => {
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Education Levels</label>
-          <input type="text" name="name" placeholder="Certificate" required />
+          <input type="text" name="education_levels" value={formData.education_levels} onChange={handleInputChange} placeholder="Certificate" required />
         </div>
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Languages</label>
           <input
-  value={userDetail?.jobCategories && userDetail.jobCategories.length > 0 ? userDetail.jobCategories[0].name : ''}
-  name="name"
+             name="languages" value={formData.languages} onChange={handleInputChange}
             placeholder="English, Turkish"
             required
           />
@@ -150,7 +196,7 @@ useEffect(() => {
           <Select
             defaultValue={[catOptions[0]]}
             isMulti
-            name="colors"
+            name="categories" value={formData.categories} onChange={handleInputChange} 
             options={catOptions}
             className="basic-multi-select"
             classNamePrefix="select"
@@ -161,7 +207,7 @@ useEffect(() => {
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
           <label>Allow In Search & Listing</label>
-          <select className="chosen-single form-select" required value={userDetail?.allowSearch}>
+          <select   name="allowSearch" value={formData.allowSearch} onChange={handleInputChange} className="chosen-single form-select" required >
             <option>Yes</option>
             <option>No</option>
           </select>
@@ -170,12 +216,12 @@ useEffect(() => {
         {/* <!-- About Company --> */}
         <div className="form-group col-lg-12 col-md-12">
           <label>Description</label>
-          <textarea value={userDetail?.description} placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
+          <textarea name="description" value={formData.description} onChange={handleInputChange} placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
         </div>
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
-          <button type="submit" className="theme-btn btn-style-one">
+          <button type="submit" onClick={handleSubmit} className="theme-btn btn-style-one">
             Save
           </button>
         </div>
