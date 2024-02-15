@@ -24,14 +24,25 @@ const FormInfoBox = () => {
     allowSearch: '',
     description: '',
   });
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  // Handler function for handling changes in the multi-selector input field
+  const handleChange = (event) => {
+    // Get the selected options from the event
+    const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
+    
+    // Update the state with the selected options
+    setSelectedOptions(selectedValues);
+  };
   const updateUser =  async(data)=>{
 
     try {
      const token = localStorage.getItem("accessToken");
+     console.log(token,"this is the  token");
      const userId = localStorage.getItem("loggedInUserId");
-     const response = await axios.put(`https://api.futurefitinternational.com/users/profile`,{headers:{
+     const response = await axios.put(`https://api.futurefitinternational.com/users/profile`,data,{headers:{
         Authorization:`Bearer ${token}`
-      }, data});
+      }});
       fetchUserDetails();
     } catch (error) {
       console.error("Error fetching user details:", error);
@@ -39,11 +50,14 @@ const FormInfoBox = () => {
   }
 useEffect(() => {
   const userId = localStorage.getItem("loggedInUserId");
+  const token =  localStorage.getItem("accessToken");
   console.log('user id', userId);
   if (userId) {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`https://api.futurefitinternational.com/users/me`);
+        const response = await axios.get(`https://api.futurefitinternational.com/users/me`,{headers:{
+          "Authorization":`Bearer ${token}`
+        }});
         console.log('Response from server:', response.data);
         setUserDetail(response.data);
         setFormData(response.data);
@@ -76,7 +90,7 @@ useEffect(() => {
   };
 
   // Function to handle form input changes
-  const handleInputChange = (event ) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
