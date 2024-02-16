@@ -81,20 +81,20 @@ const VideoPlayer = () => {
               Who We Are ...
             </h2>
             <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px' }}>
-              <div> <strong> * Passionate about human connections </strong> </div>
-              <div> <strong> * Experienced in global talent management </strong> </div>
-              <div> <strong> * Committed to achieving results </strong> </div>
+              <div> <strong> <span>&nbsp;</span>• Passionate about human connections </strong> </div>
+              <div> <strong> <span>&nbsp;</span>• Experienced in global talent management </strong> </div>
+              <div> <strong> <span>&nbsp;</span>• Committed to achieving results </strong> </div>
             </div>
             <h2 style={{ textAlign: "left", color: GlobalConfig.LogoOrg, fontSize: '20px', paddingBottom: '10px' }}>
               What We Do ...
             </h2>
             <div style={{ textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px', width: 'fit-content' }}>
-              <div> <strong> * Match workers with job opportunties </strong> </div>
-              <div> <strong> * Help students with college applications </strong> </div>
-              <div> <strong> * Recruit for Canadian businesses globally </strong> </div>
-              <div> <strong> * Promote Canadian education institutions </strong> </div>
-              <div> <strong> * Services in training, travel, relocation </strong> </div>
-              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center' }}>
+              <div> <strong> <span>&nbsp;</span>• Find new opportunities for job seekers </strong> </div>
+              <div> <strong> <span>&nbsp;</span>• Help students with college applications </strong> </div>
+              <div> <strong> <span>&nbsp;</span>• Recruit for Canadian businesses globally </strong> </div>
+              <div> <strong> <span>&nbsp;</span>• Promote Canadian higher education  </strong> </div>
+              <div> <strong> <span>&nbsp;</span>• Services in training, travel, relocation </strong> </div>
+              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <Link href="/" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.Fgr1Clr, backgroundColor: GlobalConfig.LogoGry1 }}>
                   <span className="btn-title"><strong>More About FFI</strong></span>
                 </Link>
