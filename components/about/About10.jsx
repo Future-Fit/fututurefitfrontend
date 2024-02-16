@@ -41,14 +41,6 @@ const About10 = () => {
               </figure>
             </div>
 
-            {/* <div className="content-column mb-0 col-xl-4 col-lg-4 col-md-12 col-sm-12">
-              <div className="wow fadeInLeft">
-                <a href="/service" className="theme-btn -blue-outline mt-56 md:mt-16">
-                  All Services
-                </a>
-              </div>
-            </div> */}
-            {/* <!-- Content Column --> */}
           </div>
         </div>
       </section>

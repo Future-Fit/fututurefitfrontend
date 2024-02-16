@@ -24,11 +24,12 @@ const VideoPlayer = () => {
       }
     };
   }, []);
+  
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap", flexDirection: windowWidth < 768 ? "column" : "row" }}>
       {/* first column */}
-      <div style={{ flex: "1", maxWidth: windowWidth < 768 ? "100%" : "50%", marginBottom: windowWidth < 768 ? "20px" : "0" }}>
+      <div style={{ flex: "1", maxWidth: windowWidth < 768 ? "90%" : "50%", margin: windowWidth < 768 ? "40px" : "0" }}>
         <div className="slide-item">
           <div className="text" style={{
             textAlign: "center",
@@ -38,6 +39,7 @@ const VideoPlayer = () => {
             backgroundColor: 'rgba(255, 255, 255, 0.8)',
             borderRadius: '5px',
             paddingBottom: '10px'
+
           }}>
             <div className="sec-title text-center">
               <h2 style={{ fontWeight: 600, color: GlobalConfig.BgrClr1, paddingTop: '10px', paddingBottom: '10px' }}>Job Seekers</h2>
@@ -92,7 +94,7 @@ const VideoPlayer = () => {
               <div> <strong> * Recruit for Canadian businesses globally </strong> </div>
               <div> <strong> * Promote Canadian education institutions </strong> </div>
               <div> <strong> * Services in training, travel, relocation </strong> </div>
-              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center' }}>
                 <Link href="/" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.Fgr1Clr, backgroundColor: GlobalConfig.LogoGry1 }}>
                   <span className="btn-title"><strong>More About FFI</strong></span>
                 </Link>

@@ -41,7 +41,7 @@ const index = () => {
   return (
     <>
       <section className="banner-section-ten" style={{ height: 'fit-content' }}>
-        {/* <HeroSliderGallery /> */}
+        <HeroSliderGallery />
         <div className="auto-container" >
           <div className="content-box">
             <div className="title-box" data-aso-delay="500" data-aos="fade-up">
@@ -61,12 +61,7 @@ const index = () => {
             <h2 style={{ marginTop: '2%', marginBottom: '2%', textAlign: 'justify', textAlign: 'center', textShadow: '1px 2px #007DB6', color: "#fff", fontSize: '20px' }} >
               <strong>We work across borders to match great job and education opportunities with skilled job seekers and ambitious students in Canada.</strong>
             </h2>
-{/* 
-            <div style={{
-              padding: '20px 20px 20px 20px', backgroundColor: 'rgba(0, 0, 0, 0)', borderRadius: '10px', display: 'inline-block', marginTop: '10px', width: '1000px', alignContent: 'start'
-            }}> */}
-              <VideoPlayer />
-            {/* </div> */}
+            <VideoPlayer />
           </div>
         </div>
       </section>
