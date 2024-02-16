@@ -94,7 +94,7 @@ const VideoPlayer = () => {
               <div> <strong> <span>&nbsp;</span>• Recruit for Canadian businesses globally </strong> </div>
               <div> <strong> <span>&nbsp;</span>• Promote Canadian higher education  </strong> </div>
               <div> <strong> <span>&nbsp;</span>• Services in training, travel, relocation </strong> </div>
-              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center' }}>
                 <Link href="/" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.Fgr1Clr, backgroundColor: GlobalConfig.LogoGry1 }}>
                   <span className="btn-title"><strong>More About FFI</strong></span>
                 </Link>
