@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import GlobalConfig from "@/Global.config";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSign, faSignIn, faUser, faUserEdit } from '@fortawesome/free-solid-svg-icons';
+import { faSign, faSignIn, faUser, faUserEdit, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 const Block6 = () => {
 
@@ -23,7 +23,8 @@ const Block6 = () => {
       }
     };
   }, []);
-  const isMobile = windowWidth <= 767; // Set your mobile breakpoint here
+
+  const arrowIconUrl = windowWidth < 576 ? "../images/arrow-down.svg" : "../images/arrow-right.svg";
 
   const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
   const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
@@ -76,7 +77,7 @@ const Block6 = () => {
 
   return (
     <>
-      <section>
+      <section style={{padding: "40px 20px"}}>
         <div className="auto-container">
           <div className="row justify-content-center">
             <div className="col-lg-5">
@@ -103,7 +104,7 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src={arrowRight} width={50} height={50} alt="arrow icon" />
+                      <Image src={arrowIconUrl} width={50} height={50} alt="arrow icon" />
                     </div>
                   </div>
                 )}

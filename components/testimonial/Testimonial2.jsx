@@ -18,7 +18,7 @@ const Testimonial2 = () => {
 
   return (
     <>
-      <section className="testimonial-section-two">
+      <section className="testimonial-section-two" style={{padding: "40px 20px"}}>
         <div className="container-fluid">
           <div className="sec-title text-center">
             <h2>Testimonials From Our Customers</h2>

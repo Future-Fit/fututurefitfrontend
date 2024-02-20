@@ -4,8 +4,27 @@ import Social from "../../footer/common-footer/Social";
 import GlobalConfig from "@/Global.config";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 const Index = () => {
+
+  const [windowWidth, setWindowWidth] = useState(0);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth);
+      window.addEventListener('resize', handleWindowResize);
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleWindowResize);
+      }
+    };
+  }, []);
+
   const footerStyle = {
     boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', // Add boxShadow property for the footer
   };
@@ -17,11 +36,11 @@ const Index = () => {
   };
 
   return (
-    <footer className="main-footer" style={{boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', backgroundColor: GlobalConfig.BgHeader}}>
+    <footer className="main-footer" style={{ padding: windowWidth < 1330 ? "0 20px" : "0", boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', backgroundColor: GlobalConfig.BgHeader }}>
       <div className="auto-container">
-        <div className="logo-box"  style={logoStyle}>
-        
-      </div>
+        <div className="logo-box" style={logoStyle}>
+
+        </div>
         {/* Widgets Section */}
         <div className="widgets-section" data-aos="fade-up">
           <div className="row">
@@ -33,17 +52,17 @@ const Index = () => {
               <div className="footer-column ">
                 <div className="contact-details">
                   <div className="contact-column" style={{ width: '100%' }}>
-                  <div className="logo">
-          <Link href="/" className="noSticky">
-            <Image
-              width={50}
-              height={50}
-              src={GlobalConfig.DskLog}
-              alt="Footer Logo"
-              title="brand"
-            />
-          </Link>
-        </div>
+                    <div className="logo">
+                      <Link href="/" className="noSticky">
+                        <Image
+                          width={50}
+                          height={50}
+                          src={GlobalConfig.DskLog}
+                          alt="Footer Logo"
+                          title="brand"
+                        />
+                      </Link>
+                    </div>
                     <p className="phone-num">
                       <span>Contact Us</span>
                     </p>
@@ -51,10 +70,10 @@ const Index = () => {
                       <div style={{ flexGrow: 1, }}>
                         <p className="phone-num">
                           <span> <img src="/images/canada.png" width={40} height={20} alt="Canada" /></span>
-                          <a href="tel: +1-800-422-8061">+1-800-422-8061</a><br/>
+                          <a href="tel: +1-800-422-8061">+1-800-422-8061</a><br />
                           <a color="#fff !important" href="mailto:info@futurefitint.com " className="email">
-                  info@futurefitint.com
-                </a>
+                            info@futurefitint.com
+                          </a>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.8564029194836!2d-75.67874502344903!3d45.432395935559754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0510f2885901%3A0x69f3a70b97e7173b!2s168%20Charlotte%20St%20%23404%2C%20Ottawa%2C%20ON%20K1N%208K6%2C%20Canada!5e0!3m2!1sen!2set!4v1701349204301!5m2!1sen!2set"
@@ -73,10 +92,10 @@ const Index = () => {
                           <span> <img src="/images/ethiopia.png" width={50} height={20} alt="Ethiopia" /></span>
 
                           {/* <span>Ethiopia Office</span> */}
-                          <a href="tel: +251933859295">+251933859295</a><br/>
+                          <a href="tel: +251933859295">+251933859295</a><br />
                           <a color="#fff !important" href="mailto:info-et@futurefitint.com " className="email">
-                  info-et@futurefitint.com
-                </a>
+                            info-et@futurefitint.com
+                          </a>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>
                           <iframe
@@ -100,7 +119,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                
+
               </div>
 
             </div>

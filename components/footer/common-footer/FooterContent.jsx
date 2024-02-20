@@ -3,7 +3,6 @@ import footerContent from "../../../data/footerContent";
 
 const FooterContent = () => {
 
-
   const handleLoginRedirect = (e) => {
     // Check for logged-in user on button click
     const accessToken = localStorage.getItem("accessToken");

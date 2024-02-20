@@ -6,8 +6,8 @@ module.exports = [
       { name: "Job Seeker Services", route: "/service/job-seekers", modalTarget: "#loginPopupModal" },
       { name: "Student Services", route: "/service/students", modalTarget: "#loginPopupModal" },
       { name: "Browse Jobs", route: "/job-list-v6", modalTarget: "#loginPopupModal"},
-      { name: "Post Jobs", route: "/job-list-v6" },
-      { name: "Travel, Training & Other", route: "/service/travel-visa" },
+      { name: "Training", route: "/service/training" },
+      { name: "Travel & Other Services", route: "/service/travel-other" },
     ],
   },
   {

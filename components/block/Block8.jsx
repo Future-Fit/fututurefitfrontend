@@ -42,7 +42,7 @@ const Block8 = () => {
       icon: "icon-one-finger-click",
       title: "Other Services",
       text: `Training, Travel & Resettlement Services`,
-      linkPath: '/service/travel-visa'
+      linkPath: '/service/travel-other'
 
     }
   ];
@@ -50,15 +50,11 @@ const Block8 = () => {
     <>
 
 
-      <section className="layout-pt-10 layout-pb-30" style={{ background: GlobalConfig.BgrClr2 }}>
+      <section className="layout-pt-10 layout-pb-30" style={{ padding: "40px 20px", background: GlobalConfig.BgrClr2 }}>
         <div className="auto-container" style={{ paddingBottom: '0px', paddingTop: '0px' }}>
           <div className="sec-title text-center" >
             <h2>Services</h2>
-            {/* <div style={{ color: '#5a5a5a', fontSize: '16px' }} className="text">
-              We provide unparalleled end-to-end services!
-            </div> */}
           </div>
-          {/* End sec-title */}
 
           <div className="row grid-base " data-aos="fade-up">
 

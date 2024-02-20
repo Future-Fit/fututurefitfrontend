@@ -7,7 +7,7 @@ const JobFeatured4 = () => {
   return (
     <>
       
-        <section className="job-section-two">
+        <section className="job-section-two" style={{padding: "40px 20px"}}>
           <div className="auto-container">
             <div className="sec-title text-center">
               <h2 >Trending Job Opportunities</h2>

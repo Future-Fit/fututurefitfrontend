@@ -1,9 +1,19 @@
 
 const GlobalConfig = {
+
+    // Define breakpoints
+    xxs: "420px",  // <420px, older 420px
+    xs: "576px",   // <576px to >420px, older=576px
+    sm: "576px",   // >=576px, older=768px (major)
+    md: "768px",   // >=768px, older=992px (major)
+    lg: "992px",   // >=992px, older=1200px
+    xl: "1200px",  // >=1200px, new (major)
+    xxl: "1400px", // >=1400px, new
+
     // Define the background color
     BgrClr1: "#3B578E", //Blue
     BgrClr2: "#F5F7FC", //Off-white
-    BgHeader:  "#2F3140", //Header background color
+    BgHeader: "#2F3140", //Header background color
 
     // Logo colors
     LogoBlu: "#007DB6", // this is the blue color on the logo

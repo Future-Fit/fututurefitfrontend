@@ -9,12 +9,12 @@ const CallToAction = () => {
             <div className="sec-title">
               <h3>Why Choose Us?</h3>
               <div className="text" >
-              <ul className="list-style-one" >
-                    <li>We are experienced in talent management</li>
-                    <li>We have built an extensive global network</li>
-                    <li>We promote diversity & inclusivity</li>
-                    <li>We support community-focused collaboration</li>
-                    </ul>
+                <ul className="list-style-one" >
+                  <li>We are experienced in talent management</li>
+                  <li>We have built an extensive global network</li>
+                  <li>We promote diversity & inclusivity</li>
+                  <li>We support community-focused collaboration</li>
+                </ul>
               </div>
               <a href="/about" className="theme-btn btn-style-one bg-blue">
                 <span className="btn-title" >Learn More</span>

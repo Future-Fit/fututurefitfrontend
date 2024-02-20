@@ -1623,6 +1623,29 @@ Job Detail Section
   content: "";
 }
 
+.list-style-five {
+  position: relative;
+}
+
+.list-style-five li {
+  position: relative;
+  font-size: 15px;
+  line-height: 20px;
+  color: #344f70;
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+.list-style-five li:before {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  height: 4px;
+  width: 4px;
+  background: #202124;
+  content: "";
+}
+
 .job-detail-section .other-options {
   position: relative;
   margin-bottom: 50px;

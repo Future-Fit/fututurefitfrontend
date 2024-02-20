@@ -1,17 +1,18 @@
 "use client"
 import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
-import Testimonial2 from "../../testimonial/Testimonial2";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
-import AppSectionAbout from "@/components/app-section/AppSectionAbout";
-import CallToAction from "@/components/call-to-action/CallToAction";
 import FooterDefault from "../../../components/footer/common-footer";
+import VisionMission from "@/components/about/About";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import AppSection from "@/components/app-section/AppSection";
-import Block7 from "@/components/block/Block7";
-import About10 from "@/components/about/About10";
+import AppSectionAbout from "@/components/app-section/AppSectionAbout";
+import CallToAction2 from "@/components/call-to-action/CallToAction2";
+import CallToAction from "@/components/call-to-action/CallToAction";
+import Block1 from "@/components/block/Block1";
+import CallToAction11 from "@/components/call-to-action/CallToAction11";
+import CallToAction3 from "@/components/call-to-action/CallToAction3";
 
 const index = () => {
 
@@ -23,6 +24,7 @@ const index = () => {
       setUserType(JSON.parse(storedUserType));
     }
   }, []);
+
   return (
     <>
       {/* <!-- Header Span --> */}
@@ -34,77 +36,24 @@ const index = () => {
       {userType === 3 && <DashboardHeader />}
       {userType === 4 && <DashboardCandidatesHeader />}
       {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
-
       {/* <DefaulHeader /> */}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />
       {/* End MobileMenu */}
 
-      {/* <Breadcrumb title="Who We are" meta="About Us" /> */}
-      {/* <!--End Page Title--> */}
-
-      <About10/>
-
-      <section className="app-section">
-        <div className="auto-container">
-          {/* <AppSectionAbout /> */}
-          <AppSection />
-        </div>
-      </section>
-      
-      {/* <section className="app-section">
-        <div className="auto-container">
-          <div className="row grid-base" data-aos="fade-up">
-            <Block7 />
+      <section className="about-section-two">
+        <div className="container-fluid">
+          <div className="sec-title text-center"> <h2>About Us</h2> </div>
+          <div className="carousel-outer" data-aos="fade-up">
+            <div className="about-carousel">
+              <VisionMission />
+            </div>
+            {/* <!-- About Carousel --> */}
           </div>
         </div>
-      </section> */}
-
-
-      <CallToAction />
-
-      {/* <!-- End CallToAction2 --> */}
-
-
-      {/* <section className="testimonial-section-two">
-        <div className="container-fluid">
-          <div className="testimonial-left"> */}
-            {/* <Image
-              width={504}
-              height={451}
-              src="/images/resource/testimonial-left.png"
-              alt="testimonial"
-            /> */}
-          {/* </div> */}
-          {/* End left img group */}
-
-          {/* <div className="testimonial-right"> */}
-            {/* <Image
-              width={504}
-              height={451}
-              src="/images/resource/testimonial-right.png"
-              alt="testimonial"
-            /> */}
-          {/* </div> */}
-          {/* End right img group */}
-
-          {/* <div className="sec-title text-center">
-            <h2>Testimonials From Our Customers</h2>
-            <div className="text">
-              Future Fit International
-            </div>
-          </div> */}
-          {/* <!-- Sec Title --> */}
-
-          {/* <div className="carousel-outer" data-aos="fade-up">
-            <div className="testimonial-carousel">
-              <Testimonial2 />
-            </div>
-          </div> */}
-        {/* </div>
-      </section> */}
-      {/* <!-- End Testimonial Section --> */}
+      </section>
+      {/* <!-- End About Section --> */}
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}
