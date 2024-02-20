@@ -1,19 +1,30 @@
 @keyframes slideInFromRight {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
 
-  .animated-text {
-    opacity: 0; /* Initially hide the text */
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animated-text {
+  opacity: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
   }
 
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.modal-backdrop {
+  opacity: 0 !important;
+  display: none;
 }
