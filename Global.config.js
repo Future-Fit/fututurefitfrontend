@@ -47,6 +47,8 @@ const GlobalConfig = {
     // Define logo source/image location for desktop and mobile
     DskLog: '/images/logo-new-no-bg.png', 
     MobLog: '/images/logo-new-no-bg.png',
+    arrowdown : '/images/icons/arrow-down.svg',
+    arrowright : '/images/icons/arrow-right.svg',
 
     PrimaryColor: "#3B578E",
     PrimaryHoverBgColor: "#b3cee5",

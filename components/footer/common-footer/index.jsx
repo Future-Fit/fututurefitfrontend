@@ -6,6 +6,8 @@ import GlobalConfig from "@/Global.config";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import canada from '../../../public/images/canada.png'
+import ethiopia from '../../../public/images/ethiopia.png'
 
 const Index = () => {
 
@@ -70,7 +72,7 @@ const Index = () => {
                     <div className="d-flex flex-wrap" style={{ width: '100%', gap: '20px' }}>
                       <div style={{ flexGrow: 1, }}>
                         <p className="phone-num">
-                          <span> <img src="/images/canada.png" width={40} height={20} alt="Canada" /></span>
+                          <span> <Image src={canada} width={40} height={20} alt="Canada" /></span>
                           <a href="tel: +1-800-422-8061">+1-800-422-8061</a><br />
                           <a color="#fff !important" href="mailto:info@futurefitint.com " className="email">
                             info@futurefitint.com
@@ -90,7 +92,7 @@ const Index = () => {
                       </div>
                       <div className="flex-fill"  >
                         <p className="phone-num">
-                          <span> <img src="/images/ethiopia.png" width={50} height={20} alt="Ethiopia" /></span>
+                          <span> <Image src={ethiopia} width={50} height={20} alt="Ethiopia" /></span>
 
                           {/* <span>Ethiopia Office</span> */}
                           <a href="tel: +251933859295">+251933859295</a><br />

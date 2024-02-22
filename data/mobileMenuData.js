@@ -40,15 +40,15 @@ module.exports = [
       // },
     ],
   },
+  // {
+  //   id: 4,
+  //   label: "Blog",
+  //   routePath: "/blog-list-v1",
+
+  // },
+
   {
     id: 4,
-    label: "Blog",
-    routePath: "/blog-list-v1",
-
-  },
-
-  {
-    id: 5,
     label: "Contact",
     routePath: "/contact",
 

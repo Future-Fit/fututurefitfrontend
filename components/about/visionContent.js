@@ -1,12 +1,17 @@
 import GlobalConfig from "@/Global.config";
 
+import visionimg from '../../public/images/about/vision.svg'
+import goalsimg from '../../public/images/about/vision.svg'
+import misionimg from '../../public/images/about/vision.svg'
+import valueimg from '../../public/images/about/vision.svg'
+
 module.exports = [
   {
     id: 1,
     title: "Our Vision",
     text: `Make peoples' dreams & ambitions a reality!`,
     color: GlobalConfig.LogoBlu,
-    icon: "../images/about/vision.svg",
+    icon: visionimg,
     alt: "Vision",
   },
   {
@@ -14,7 +19,7 @@ module.exports = [
     title: "Our Mission",
     text: `Find the best fitting Canadian job and university education opportunities for our clients across the globe.`,
     color: GlobalConfig.LogoOrg,
-    icon: "../images/about/mission.svg",
+    icon: misionimg,
     alt: "Mission",
   },
   {
@@ -26,7 +31,7 @@ module.exports = [
     list2: "Support students' pursuit of education in Canadian universities",
     list3: "Assist expats experience a smooth transition to life in Canada",
     list4: "Foster partnerships with Canadian institutions",
-    icon: "../images/about/objective.svg",
+    icon: goalsimg,
     alt: "Goals",
   },
   {
@@ -39,7 +44,7 @@ module.exports = [
     list3: "Inclusivity",
     list4: "Transparency",
     list5: "Continuous Improvement",
-    icon: "../images/about/list-of-items.svg",
+    icon: valueimg,
     alt: "Values",
   },
   

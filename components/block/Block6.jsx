@@ -3,6 +3,8 @@ import Image from "next/image";
 import GlobalConfig from "@/Global.config";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSign, faSignIn, faUser, faUserEdit, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import arrowdown from '../../public/images/icons/arrow-down.svg'
+import arrowright from '../../public/images/icons/arrow-right.svg'
 
 const Block6 = () => {
 
@@ -23,7 +25,7 @@ const Block6 = () => {
     };
   }, []);
 
-  const arrowIconUrl = windowWidth < 768 ? "../images/icons/arrow-down.svg" : "../images/icons/arrow-right.svg";
+  const arrowIconUrl = windowWidth < 768 ? arrowdown : arrowright;
 
   const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
   const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
@@ -102,6 +104,7 @@ const Block6 = () => {
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                       {/* <Image src="/images/icons/arrow-down.svg" width={50} height={50} alt="arrow icon" /> */}
                       <Image src={arrowIconUrl} width={40} height={40} alt="arrow icon" />
+                      
                     </div>
                   </div>
                 )}

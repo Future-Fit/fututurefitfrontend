@@ -13,8 +13,6 @@ const VideoPlayer = () => {
     setVideoUrl(url);
     setShowModal(true);
   };
-
-
   const closeModal = () => {
     setShowModal(false);
     setVideoUrl('');
@@ -39,8 +37,6 @@ const VideoPlayer = () => {
 
 
   return (
-    /* first column */
-    /* large screens and tablets (>=768 uses two columns; <768 uses only one column*/
     < div style={{ display: "flex", flexWrap: "wrap", flexDirection: windowWidth < 768 ? "column" : "row" }}>
       <div style={{ flex: '1', maxWidth: windowWidth < 768 ? '100%' : '50%' }}>
         <div style={{ display: "flex", justifyContent: windowWidth < 768 ? "center" : "flex-end" }}>
@@ -55,7 +51,8 @@ const VideoPlayer = () => {
             <h2 style={{ color: '#5a5a5a', fontSize: '18px' }}>Learn how FFI can help you</h2>
             <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px' }}>
               <button className="theme-btn btn-style-one bg-blue" style={{ backgroundColor: GlobalConfig.LogoBlu }}
-                onClick={() => openModal('../videos/JobSeekerVideo.mp4')}>
+                // public/videos/JobSeekerVideo.mp4
+                onClick={() => openModal('/videos/JobSeekerVideo.mp4')}>
                 <span className="btn-title">Watch Video</span>
               </button>
             </div>
@@ -80,7 +77,7 @@ const VideoPlayer = () => {
               <button
                 className="theme-btn btn-style-one bg-blue"
                 style={{ backgroundColor: GlobalConfig.LogoOrg }}
-                onClick={() => openModal('../videos/StudentVideo.mp4')}>
+                onClick={() => openModal('/videos/StudentVideo.mp4')}>
                 <span className="btn-title">Watch Video</span>
               </button>
             </div>
