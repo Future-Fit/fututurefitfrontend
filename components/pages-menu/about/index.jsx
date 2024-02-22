@@ -7,12 +7,6 @@ import VisionMission from "@/components/about/VisionMission";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import AppSectionAbout from "@/components/app-section/AppSectionAbout";
-import CallToAction2 from "@/components/call-to-action/CallToAction2";
-import CallToAction from "@/components/call-to-action/CallToAction";
-import Block1 from "@/components/block/Block1";
-import CallToAction11 from "@/components/call-to-action/CallToAction11";
-import CallToAction3 from "@/components/call-to-action/CallToAction3";
 import AppSection from "@/components/app-section/AppSection";
 
 const index = () => {

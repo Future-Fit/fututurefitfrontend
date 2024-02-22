@@ -7,7 +7,6 @@ import MobileMenu from "../../header/MobileMenu";
 import TermsText from "./TermsText";
 import { useEffect, useState } from "react";
 import DashboardHeader from "@/components/header/DashboardEmployerHeader";
-import DashboardEmployerSidebar from "@/components/header/DashboardEmployerSidebar";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
 
 
@@ -45,7 +44,7 @@ const index = () => {
             {/* <div className="text">Home / Terms and Conditions</div> */}
           </div>
           {/* End sec-title */}
-          {/* <TermsText /> */}
+          <TermsText />
         </div>
       </section>
       {/* <!-- End TNC Section --> */}

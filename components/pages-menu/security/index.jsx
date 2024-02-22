@@ -7,7 +7,6 @@ import MobileMenu from "../../header/MobileMenu";
 import SecurityText from "./SecurityText";
 import { useEffect, useState } from "react";
 import DashboardHeader from "@/components/header/DashboardEmployerHeader";
-import DashboardEmployerSidebar from "@/components/header/DashboardEmployerSidebar";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
 
 

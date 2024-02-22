@@ -34,7 +34,7 @@ const About10 = () => {
                 <Image
                   width={900}
                   height={900}
-                  src="/images/collaboration.jpeg"
+                  src="../images/collaboration.jpeg"
                   alt="About"
                   style={{ borderRadius: '15px', marginTop: '20px', marginRight: '20px' }}
                 />

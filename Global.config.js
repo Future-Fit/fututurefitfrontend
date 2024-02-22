@@ -45,7 +45,7 @@ const GlobalConfig = {
     Fnt2Siz: "",
 
     // Define logo source/image location for desktop and mobile
-    DskLog: '/images/logo-new-no-bg.png',
+    DskLog: '/images/logo-new-no-bg.png', 
     MobLog: '/images/logo-new-no-bg.png',
 
     PrimaryColor: "#3B578E",

@@ -7,7 +7,7 @@ const AboutBlock = () => {
       <div className="col-lg-6">
         <div className="icon-side -type-1">
           <div>
-            <Image className="icon" width={50} height={50} src="/images/index-14/icons/vision.svg" alt="image" />
+            <Image className="icon" width={50} height={50} src="../images/index-14/icons/vision.svg" alt="image" />
           </div>
           <div className="content">
             <h4 className="title" style={{ color: GlobalConfig.LogoOrg }}>Our Vision</h4>
@@ -20,7 +20,7 @@ const AboutBlock = () => {
       <div className="col-lg-6">
         <div className="icon-side -type-1">
           <div>
-            <Image className="icon" width={50} height={50} src="/images/index-14/icons/mission.svg" alt="image" />
+            <Image className="icon" width={50} height={50} src="../images/index-14/icons/mission.svg" alt="image" />
           </div>
           <div className="content">
             <h4 className="title" style={{ color: GlobalConfig.LogoBlu }}>Our Mission</h4>
@@ -33,7 +33,7 @@ const AboutBlock = () => {
       <div className="col-lg-6">
         <div className="icon-side -type-1">
           <div>
-            <Image className="icon" width={50} height={50} src="/images/index-14/icons/objective.svg" alt="image" />
+            <Image className="icon" width={50} height={50} src="../images/index-14/icons/objective.svg" alt="image" />
           </div>
           <div className="content">
             <h4 className="title" style={{ color: GlobalConfig.LogoBlu }}>Our Goals & Objectives</h4>
@@ -50,7 +50,7 @@ const AboutBlock = () => {
       <div className="col-lg-6">
         <div className="icon-side -type-1">
           <div>
-            <Image className="icon" width={50} height={50} src="/images/index-14/icons/list-of-items.svg" alt="image" />
+            <Image className="icon" width={50} height={50} src="../images/index-14/icons/list-of-items.svg" alt="image" />
           </div>
           <div className="content">
             <h4 className="title" style={{ color: GlobalConfig.LogoOrg }}>Our Values</h4>

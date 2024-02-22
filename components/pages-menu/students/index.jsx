@@ -1,14 +1,15 @@
 "use client"
+import Image from "next/image";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import FooterDefault from "../../../components/footer/common-footer";
-import Testimonial from "@/components/testimonial/Testimonial";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
+import StudentTop from "./StudentTop";
+import StudentBody from "./StudentBody";
 import GlobalConfig from "@/Global.config";
-
 
 const index = () => {
 
@@ -38,34 +39,35 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <section className="testimonial-section-two">
-        <div className="container-fluid">
-          <div className="testimonial-left">
-            {/* <Image
-              width={504}
-              height={451}
-              src="/images/resource/testimonial-left.png"
-              alt="testimonial"
-            /> */}
-          </div>
-
-          <div className="sec-title text-center">
-            <h2 style={{color: GlobalConfig.LogoOrg}}>Students</h2>
-            {/* <div className="text">
-              Future Fit International
+      <section className="about-section-two">
+        <div className="auto-container" style={{ alignItems: "center" }}>
+          {/* <div className="container-fluid"> */}
+            <div className="sec-title text-center"> <h2 style={{ color: GlobalConfig.LogoOrg }}>Students</h2> </div>
+            {/* <div className="carousel-outer" data-aos="fade-up">
+              <div className="about-carousel">
+                < StudentTop/>
+              </div>
             </div> */}
           </div>
-          {/* <!-- Sec Title --> */}
 
-          <div className="carousel-outer" data-aos="fade-up">
-            <div className="testimonial-carousel">
-              {/* <Testimonial /> */}
-            </div>
-            {/* <!-- Testimonial Carousel --> */}
-          </div>
+          <figure className="image" data-aos="fade-right" style={{ display: "grid", justifyItems: "center", 
+          paddingTop: '10px' }}>
+            <Image
+              width={300}
+              height={300}
+              src="/images/CollegeStudents.jpg"
+              alt="Students"
+              style={{ borderRadius: '15px', marginTop: '20px'}}
+            />
+          </figure>
+        {/* </div> */}
+      </section>
+
+      <section className="app-section">
+        <div className="auto-container">
+          <StudentBody />
         </div>
       </section>
-      {/* <!-- End Testimonial Section --> */}
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}

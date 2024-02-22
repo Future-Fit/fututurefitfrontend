@@ -1,18 +1,15 @@
 "use client"
+import Image from "next/image";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import FooterDefault from "../../../components/footer/common-footer";
-import Testimonial from "@/components/testimonial/Testimonial";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import AppSectionAbout from "@/components/app-section/AppSectionAbout";
-import CallToAction2 from "@/components/call-to-action/CallToAction2";
-import CallToAction from "@/components/call-to-action/CallToAction";
-import Block1 from "@/components/block/Block1";
-import CallToAction11 from "@/components/call-to-action/CallToAction11";
-import CallToAction3 from "@/components/call-to-action/CallToAction3";
+import BusinessTop from "./BusinessTop";
+import BusinessBody from "./BusinessBody";
+import GlobalConfig from "@/Global.config";
 
 const index = () => {
 
@@ -42,12 +39,35 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <section className="app-section">
-        <div className="auto-container">
-        <CallToAction2 />
-        </div>
+      <section className="about-section-two">
+        <div className="auto-container" style={{ alignItems: "center" }}>
+          {/* <div className="container-fluid"> */}
+            <div className="sec-title text-center"> <h2 style={{ color: GlobalConfig.LogoBlu }}>Businesses/Employers</h2> </div>
+            {/* <div className="carousel-outer" data-aos="fade-up">
+              <div className="about-carousel">
+                < CollegeTop/>
+              </div>
+            </div> */}
+          </div>
+
+          <figure className="image" data-aos="fade-right" style={{ display: "grid", justifyItems: "center", 
+          paddingTop: '10px' }}>
+            <Image
+              width={400}
+              height={400}
+              src="/images/Businesses.jpg"
+              alt="Businesses"
+              style={{ borderRadius: '15px', marginTop: '20px'}}
+            />
+          </figure>
+        {/* </div> */}
       </section>
 
+      <section className="app-section">
+        <div className="auto-container">
+          <BusinessBody />
+        </div>
+      </section>
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}

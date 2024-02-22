@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'; // Import React
-import Link from "next/link";
 import Image from "next/image";
 import GlobalConfig from "@/Global.config";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,7 +23,7 @@ const Block6 = () => {
     };
   }, []);
 
-  const arrowIconUrl = windowWidth < 768 ? "../images/arrow-down.svg" : "../images/arrow-right.svg";
+  const arrowIconUrl = windowWidth < 768 ? "../images/icons/arrow-down.svg" : "../images/icons/arrow-right.svg";
 
   const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
   const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
@@ -69,8 +68,6 @@ const Block6 = () => {
     },
   ];
 
-  const arrowRight = "/images/arrow-right.svg"; // URL of the arrow icon
-  const arrowDown = "/images/arrow-down.svg"
 
   return (
     <section style={{ padding: "40px 20px" }}>
@@ -103,7 +100,8 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1" style={{width: '100%'}}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src="/images/arrow-down.svg" width={50} height={50} alt="arrow icon" />
+                      {/* <Image src="/images/icons/arrow-down.svg" width={50} height={50} alt="arrow icon" /> */}
+                      <Image src={arrowIconUrl} width={40} height={40} alt="arrow icon" />
                     </div>
                   </div>
                 )}
@@ -129,7 +127,7 @@ const Block6 = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      {/* <Image src="/images/arrow-right.svg" width={50} height={50} alt="arrow icon" /> */}
+                      {/* <Image src="/images/icons/arrow-right.svg" width={50} height={50} alt="arrow icon" /> */}
                       <Image src={arrowIconUrl} width={40} height={40} alt="arrow icon" />
 
                     </div>

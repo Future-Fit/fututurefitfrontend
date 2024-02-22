@@ -55,7 +55,7 @@ const VideoPlayer = () => {
             <h2 style={{ color: '#5a5a5a', fontSize: '18px' }}>Learn how FFI can help you</h2>
             <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px' }}>
               <button className="theme-btn btn-style-one bg-blue" style={{ backgroundColor: GlobalConfig.LogoBlu }}
-                onClick={() => openModal('/videos/JobSeekerVideo.mp4')}>
+                onClick={() => openModal('../videos/JobSeekerVideo.mp4')}>
                 <span className="btn-title">Watch Video</span>
               </button>
             </div>
@@ -80,7 +80,7 @@ const VideoPlayer = () => {
               <button
                 className="theme-btn btn-style-one bg-blue"
                 style={{ backgroundColor: GlobalConfig.LogoOrg }}
-                onClick={() => openModal('/videos/StudentVideo.mp4')}>
+                onClick={() => openModal('../videos/StudentVideo.mp4')}>
                 <span className="btn-title">Watch Video</span>
               </button>
             </div>

@@ -59,7 +59,7 @@ const BlogDetailsDynamic = ({ params }) => {
                   <Image
                     width={30}
                     height={30}
-                    src={"/images/resource/thumb-1.png"}
+                    src={"../images/resource/thumb-1.png"}
                     alt="resource"
                   />
                 </span>

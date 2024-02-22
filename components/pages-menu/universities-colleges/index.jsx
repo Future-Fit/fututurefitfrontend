@@ -1,18 +1,14 @@
 "use client"
+import Image from "next/image";
 import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import FooterDefault from "../../../components/footer/common-footer";
-import Testimonial from "@/components/testimonial/Testimonial";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import AppSectionAbout from "@/components/app-section/AppSectionAbout";
-import CallToAction2 from "@/components/call-to-action/CallToAction2";
-import CallToAction from "@/components/call-to-action/CallToAction";
-import Block1 from "@/components/block/Block1";
-import CallToAction11 from "@/components/call-to-action/CallToAction11";
-import CallToAction3 from "@/components/call-to-action/CallToAction3";
+import CollegeTop from "./CollegeTop";
+import CollegeBody from "./CollegeBody";
 import GlobalConfig from "@/Global.config";
 
 const index = () => {
@@ -43,38 +39,35 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      {/* <!-- End CallToAction2 --> */}
-
-      <section className="testimonial-section-two">
-        <div className="container-fluid">
-          <div className="testimonial-left">
-            {/* <Image
-              width={504}
-              height={451}
-              src="/images/resource/testimonial-left.png"
-              alt="testimonial"
-            /> */}
-          </div>
-
-          <div className="sec-title text-center">
-            <h2 style={{color: GlobalConfig.LogoOrg}}>Universities and Colleges</h2>
-            {/* <div className="text">
-              Future Fit International
+      <section className="about-section-two">
+        <div className="auto-container" style={{ alignItems: "center" }}>
+          {/* <div className="container-fluid"> */}
+            <div className="sec-title text-center"> <h2 style={{ color: GlobalConfig.LogoOrg }}>Universities & Colleges</h2> </div>
+            {/* <div className="carousel-outer" data-aos="fade-up">
+              <div className="about-carousel">
+                < CollegeTop/>
+              </div>
             </div> */}
           </div>
-          {/* <!-- Sec Title --> */}
 
-          <div className="carousel-outer" data-aos="fade-up">
-            <div className="testimonial-carousel">
-              {/* <Testimonial /> */}
-            </div>
-            {/* <!-- Testimonial Carousel --> */}
-          </div>
+          <figure className="image" data-aos="fade-right" style={{ display: "grid", justifyItems: "center", 
+          paddingTop: '10px' }}>
+            <Image
+              width={400}
+              height={400}
+              src="/images/Colleges.jpg"
+              alt="Colleges"
+              style={{ borderRadius: '15px', marginTop: '20px'}}
+            />
+          </figure>
+        {/* </div> */}
+      </section>
+
+      <section className="app-section">
+        <div className="auto-container">
+          <CollegeBody />
         </div>
       </section>
-      {/* <!-- End Testimonial Section --> */}
-      
-      {/* <!-- End Clients Section--> */}
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}
