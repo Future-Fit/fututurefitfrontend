@@ -85,18 +85,18 @@ Clients Section Two
   position: relative;
   display: inline-block;
   max-width: 100%;
-  width: auto;
-  height: 40px;
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
+  // width: auto;
+  // height: 40px;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
   -webkit-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
 }
 
 .clients-section-two .image-box img:hover{
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .clients-section-two.alternate{

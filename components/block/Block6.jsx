@@ -24,7 +24,7 @@ const Block6 = () => {
     };
   }, []);
 
-  const arrowIconUrl = windowWidth < 576 ? "../images/arrow-down.svg" : "../images/arrow-right.svg";
+  const arrowIconUrl = windowWidth < 768 ? "../images/arrow-down.svg" : "../images/arrow-right.svg";
 
   const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
   const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
@@ -34,7 +34,7 @@ const Block6 = () => {
   // const userType = parseInt(localStorage.getItem('userType'));
 
   const iconMap = {
-    "icon-about": faUser,
+    "icon-user": faUser,
     "icon-sign": faSignIn,
     "icon-profile": faUserEdit,
   };
@@ -42,31 +42,28 @@ const Block6 = () => {
   const blockContent = [
     {
       id: 1,
-      icon: "icon-about",
-      title: "Learn About Us",
-      linkPath: '/about',
-
-      // text: `Search our database to explore opportunities or review profiles.`,
+      icon: "icon-user",
+      title: "Register",
+      text: "(Job Seekers/Students)",
+      linkPath: '/register',
       bgClass: "-blue",
       bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 2,
       icon: "icon-sign",
-      title: "Sign Up",
-      linkPath: '/register',
-
-      // text: `Sign up to customize your experience.`,
+      title: "Sign-In",
+      text: "(Build Your Profile)",
+      linkPath: (isLoggedIn && (userType === 4 || userType === 5)) ? '/candidates-dashboard/my-profile' : '/login',
       bgClass: "-red",
       bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 3,
       icon: "icon-profile",
-      title: "Login & Create Your Profile",
-      // linkPath: '/candidates-dashboard/my-profile',
-      linkPath: (isLoggedIn && userType === 4) ? '/candidates-dashboard/my-profile' : '/login',
-      // text: `Sign in to build your profile or post jobs.`,
+      title: "Search & Apply ",
+      text: "(FFI Is Here To Help!)",
+      linkPath: (isLoggedIn && (userType === 4 || userType === 5)) ? '/candidates-dashboard/my-profile' : '/login',
       bgClass: "-yellow",
       bgcolor: GlobalConfig.LogoOrg
     },
@@ -76,19 +73,45 @@ const Block6 = () => {
   const arrowDown = "/images/arrow-down.svg"
 
   return (
-    <>
-      <section style={{padding: "40px 20px"}}>
-        <div className="auto-container">
-          <div className="row justify-content-center">
-            <div className="col-lg-5">
-              <div className="sec-title text-center">
-                <h2 style={{ color: '#fff', paddingBottom: '30px' }}>Become A Member</h2>
-              </div>
+    <section style={{ padding: "40px 20px" }}>
+      <div className="auto-container">
+        <div className="row justify-content-center">
+          <div className="col-lg-5">
+            <div className="sec-title text-center">
+              <h2 style={{ color: '#fff', paddingBottom: '30px' }}>Become A Member</h2>
             </div>
           </div>
-          {/* End .row */}
-          <div className="row grid-base" data-aos="fade-up"></div>
-          <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        </div>
+
+        {/* Start - Conditional rendering based on windowWidth */}
+        {windowWidth < 768 ? (
+          <div className="row">
+            {blockContent.map((item, index) => (
+              <React.Fragment key={item.id}>
+                <div className="col-md-4 col-sm-12 mb-3" >
+                  <div className="work-block -type-2 mb-0">
+                    <div className="inner-box">
+                      <div className="icon-wrap">
+                        <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
+                      </div>
+                      <a href={item.linkPath}><h5 style={{ color: item.bgcolor }}>{item.title}</h5></a>
+                      <a href={item.linkPath} style={{ color: GlobalConfig.Fgr1Clr }}> {item.text} </a>
+
+                    </div>
+                  </div>
+                </div>
+                {index < blockContent.length - 1 && (
+                  <div className="col-lg-1 col-md-1 col-sm-1" style={{width: '100%'}}>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                      <Image src="/images/arrow-down.svg" width={50} height={50} alt="arrow icon" />
+                    </div>
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        ) : (
+          <div className="row" style={{ alignItems: 'center', justifyContent: 'space-between' }}>
             {blockContent.map((item, index) => (
               <React.Fragment key={item.id}>
                 <div className="col-lg-4 col-md-4 col-sm-12" style={{ flex: '1', margin: '0 10px' }}>
@@ -97,24 +120,28 @@ const Block6 = () => {
                       <div className="icon-wrap">
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
                       </div>
-                      <a href={item.linkPath}> <h5 style={{ color: item.bgcolor }}> {item.title}</h5> </a>
+                      <a href={item.linkPath}><h5 style={{ color: item.bgcolor }}>{item.title}</h5></a>
+                      <a href={item.linkPath} style={{ color: GlobalConfig.Fgr1Clr }}> {item.text} </a>
+
                     </div>
                   </div>
                 </div>
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src={arrowIconUrl} width={50} height={50} alt="arrow icon" />
+                      {/* <Image src="/images/arrow-right.svg" width={50} height={50} alt="arrow icon" /> */}
+                      <Image src={arrowIconUrl} width={40} height={40} alt="arrow icon" />
+
                     </div>
                   </div>
                 )}
-                {/* )} */}
               </React.Fragment>
             ))}
           </div>
-        </div>
-      </section >
-    </>
+        )}
+        {/* End - Conditional rendering based on windowWidth */}
+      </div>
+    </section>
   );
 };
 

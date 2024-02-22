@@ -1,11 +1,1 @@
-<svg 
-    class="svg-icon" 
-    style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" 
-    viewBox="0 0 1024 1024" 
-    version="1.1" 
-    xmlns="http://www.w3.org/2000/svg">
-        <path 
-            d="M693.333333 512c0 14.933333-4.266667 29.866667-14.933333 40.533333l-234.666667 277.333334c-23.466667 27.733333-64 29.866667-89.6 8.533333-27.733333-23.466667-29.866667-64-8.533333-89.6L546.133333 512l-200.533333-236.8c-23.466667-27.733333-19.2-68.266667 8.533333-89.6 27.733333-23.466667 68.266667-19.2 89.6 8.533333l234.666667 277.333334c10.666667 10.666667 14.933333 25.6 14.933333 40.533333z" 
-            fill="#fff" 
-            />
-        </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#939598" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>

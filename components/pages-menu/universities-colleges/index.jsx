@@ -13,6 +13,7 @@ import CallToAction from "@/components/call-to-action/CallToAction";
 import Block1 from "@/components/block/Block1";
 import CallToAction11 from "@/components/call-to-action/CallToAction11";
 import CallToAction3 from "@/components/call-to-action/CallToAction3";
+import GlobalConfig from "@/Global.config";
 
 const index = () => {
 
@@ -56,7 +57,7 @@ const index = () => {
           </div>
 
           <div className="sec-title text-center">
-            <h2>Collegies & Universities</h2>
+            <h2 style={{color: GlobalConfig.LogoOrg}}>Universities and Colleges</h2>
             {/* <div className="text">
               Future Fit International
             </div> */}
@@ -65,7 +66,7 @@ const index = () => {
 
           <div className="carousel-outer" data-aos="fade-up">
             <div className="testimonial-carousel">
-              <Testimonial />
+              {/* <Testimonial /> */}
             </div>
             {/* <!-- Testimonial Carousel --> */}
           </div>

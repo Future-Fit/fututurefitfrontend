@@ -97,7 +97,7 @@ const index = () => {
           {/* End right img group */}
 
           <div className="sec-title text-center">
-            <h2>Collegies & Universities</h2>
+            <h2>Universities & Colleges</h2>
             {/* <div className="text">
               Future Fit International
             </div> */}

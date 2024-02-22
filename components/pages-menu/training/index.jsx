@@ -13,6 +13,7 @@ import CallToAction from "@/components/call-to-action/CallToAction";
 import Block1 from "@/components/block/Block1";
 import CallToAction11 from "@/components/call-to-action/CallToAction11";
 import CallToAction3 from "@/components/call-to-action/CallToAction3";
+import GlobalConfig from "@/Global.config";
 
 const index = () => {
 
@@ -47,11 +48,11 @@ const index = () => {
       <section className="work-section style-two">
         <div className="auto-container">
           <div className="sec-title text-center">
-            <h2>Training</h2>
-            <div className="text">Job for anyone, anywhere</div>
+            <h2 style={{color: GlobalConfig.LogoBlu}}>Training and Other</h2>
+            {/* <div className="text">Job for anyone, anywhere</div> */}
           </div>
           <div className="row" data-aos="fade-up">
-            <Block1 />
+            {/* <Block1 /> */}
           </div>
         </div>
       </section> 

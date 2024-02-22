@@ -45,7 +45,7 @@ const index = () => {
             {/* <div className="text">Home / Terms and Conditions</div> */}
           </div>
           {/* End sec-title */}
-          <TermsText />
+          {/* <TermsText /> */}
         </div>
       </section>
       {/* <!-- End TNC Section --> */}

@@ -50,12 +50,12 @@ const HeaderNavContent = () => {
             </ul>
           </li>
 
-          <li
+          {/* <li
             className={`${isActiveParent("/blog-list-v1", usePathname()) ? "current" : ""
               }`}
           >
             <Link style={{ color: '#fff' }} href="/blog-list-v1">Blog</Link>
-          </li>
+          </li> */}
           <li
             className={`${isActiveParent("/contact", usePathname()) ? "current" : ""
               }`}

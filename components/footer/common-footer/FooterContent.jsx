@@ -26,9 +26,7 @@ const FooterContent = () => {
       {footerContent.map((item) => (
         <div
           className="footer-column col-lg-5 col-md-2 col-sm-12" // Adjusted column width
-          key={item.id}
-          style={{ marginLeft: '20px' }} // Reduced margin
-        >
+          key={item.id}>
           <div className="footer-widget links-widget">
             <h4 className="widget-title">{item.title}</h4>
             <div className="widget-content">

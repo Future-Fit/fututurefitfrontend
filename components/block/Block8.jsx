@@ -18,7 +18,7 @@ const Block8 = () => {
       id: 1,
       icon: "icon-drawing",
       title: "Job Seekers",
-      text: `Find A Great Job in Canada`,
+      text: `Find Great Jobs in Canada`,
       linkPath: '/service/job-seekers'
 
     },
@@ -26,14 +26,14 @@ const Block8 = () => {
       id: 2,
       icon: "icon-task",
       title: "Students",
-      text: `Attend the Best Universities in Canada`,
+      text: `Attend Canadian Universities`,
       linkPath: '/service/students'
     },
     {
       id: 3,
       icon: "icon-institution",
-      title: "Businesses & Universities",
-      text: `Recruit Talent from Global Audiences`,
+      title: "Businesses/Universities",
+      text: `Optimize Global Recruitment`,
       linkPath: '/service/businesses'
 
     },
@@ -41,7 +41,7 @@ const Block8 = () => {
       id: 4,
       icon: "icon-one-finger-click",
       title: "Other Services",
-      text: `Training, Travel & Resettlement Services`,
+      text: `Training, Travel & Resettlement`,
       linkPath: '/service/travel-other'
 
     }
@@ -59,8 +59,8 @@ const Block8 = () => {
           <div className="row grid-base " data-aos="fade-up">
 
             {blockContent.map((item) => (
-              <div className="col-lg-3 col-md-6 col-sm-12" key={item.id} >
-                <div className="work-block -type-4" style={{ minHeight: '200px', textAlign: 'left' }}>
+              <div className="col-lg-3 col-md-6 col-sm-12" key={item.id}>
+                <div className="work-block -type-4" style={{ padding: "10px 10px", minHeight: '180px', textAlign: 'left' }}>
                   <a href={item.linkPath} className="block-content" style={{ textAlign: 'left' }} >
                     <div className="icon-wrap">
                       {/* <span className={`icon ${item.icon}`}></span> */}

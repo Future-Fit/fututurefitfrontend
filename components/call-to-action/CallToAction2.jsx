@@ -1,17 +1,18 @@
+import GlobalConfig from "@/Global.config";
 import Link from "next/link";
 
 const CallToAction2 = () => {
   return (
     <section
       className="call-to-action-two"
-      style={{ backgroundImage: "url(/images/background/1.jpg)", borderRadius: '5px' }}
+      // style={{ backgroundImage: "url(/images/background/1.jpg)", borderRadius: '5px' }}
     >
       <div className="auto-container" data-aos="fade-up">
         <div className="sec-title light text-center">
-          <h2>Business</h2>
+          <h2 style={{color: GlobalConfig.LogoBlu}}>Business</h2>
           {/* <h3>Where Bridging Talent and Opportunities Across Canada is Our Specialty</h3> */}
           <div className="text">
-          Detail About Business
+          {/* Detail About Business */}
           </div>
         </div>
         {/* <div className="btn-box">

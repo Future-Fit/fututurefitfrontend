@@ -46,7 +46,7 @@ const index = () => {
         <div className="auto-container" >
           {/* <div className="content-box"> */}
           <div className="title-box" data-aso-delay="500" data-aos="fade-up">
-            <h3 style={{ fontWeight: '600' }}>
+            <h3 style={{ fontSize: windowWidth < 576 ? "24px": "38px", fontWeight: '600' }}>
               <span style={{ color: GlobalConfig.LogoBlu }}> FUTURE </span>
               <span style={{ color: GlobalConfig.LogoOrg }}> FIT </span>
               <span style={{ fontWeight: "400", color: GlobalConfig.LogoGry1 }}> INTERNATIONAL </span>
@@ -71,7 +71,8 @@ const index = () => {
             marginTop: '30px', marginBottom: '30px', textAlign: 'justify', textAlign: 'center',
             textShadow: '1px 2px #007DB6', color: "#fff", fontSize: '20px'
           }} >
-            <strong>We work across borders to find Canadian job and higher education opportunities for skilled workers and ambitious students everywhere.</strong>
+            <strong>We work closely with Canadian businesses and academic institutions to facilitate the hiring of skilled 
+              job seekers and to support students in their pursuit of higher education.</strong>
           </h2>
           <VideoPlayer />
           {/* </div> */}

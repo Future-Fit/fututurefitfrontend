@@ -3,7 +3,7 @@ import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import FooterDefault from "../../../components/footer/common-footer";
-import VisionMission from "@/components/about/About";
+import VisionMission from "@/components/about/VisionMission";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
@@ -13,6 +13,7 @@ import CallToAction from "@/components/call-to-action/CallToAction";
 import Block1 from "@/components/block/Block1";
 import CallToAction11 from "@/components/call-to-action/CallToAction11";
 import CallToAction3 from "@/components/call-to-action/CallToAction3";
+import AppSection from "@/components/app-section/AppSection";
 
 const index = () => {
 
@@ -43,17 +44,23 @@ const index = () => {
       {/* End MobileMenu */}
 
       <section className="about-section-two">
-        <div className="container-fluid">
-          <div className="sec-title text-center"> <h2>About Us</h2> </div>
-          <div className="carousel-outer" data-aos="fade-up">
-            <div className="about-carousel">
-              <VisionMission />
+        <div className="auto-container" style={{alignItems: "center"}}>
+          <div className="container-fluid">
+            <div className="sec-title text-center"> <h2>About Us</h2> </div>
+            <div className="carousel-outer" data-aos="fade-up">
+              <div className="about-carousel">
+                <VisionMission />
+              </div>
             </div>
-            {/* <!-- About Carousel --> */}
           </div>
         </div>
       </section>
-      {/* <!-- End About Section --> */}
+
+      <section className="app-section">
+        <div className="auto-container">
+          <AppSection />
+        </div>
+      </section>
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}

@@ -8,7 +8,7 @@ const GlobalConfig = {
     md: "768px",   // >=768px, older=992px (major)
     lg: "992px",   // >=992px, older=1200px
     xl: "1200px",  // >=1200px, new (major)
-    xxl: "1400px", // >=1400px, new
+    xxl: "1310px", // >=1400px, new (1310px is the max working area)
 
     // Define the background color
     BgrClr1: "#3B578E", //Blue

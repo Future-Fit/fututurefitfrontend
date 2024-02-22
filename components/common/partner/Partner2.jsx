@@ -8,7 +8,7 @@ const Partner2 = () => {
   const settings = {
     dots: false,
     // slidesToShow: 7, //this number shoud number should be matched with the total number of the sliderPartners
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     speed: 1200,
@@ -61,15 +61,10 @@ const Partner2 = () => {
     // { id: 5, link: "/partners", imgNumber: "5.svg", companyName: "City of Toronto" },
     // { id: 6, link: "/partners", imgNumber: "6.svg", companyName: "City of Calgary" },
     // { id: 7, link: "/partners", imgNumber: "7.svg", companyName: "UBM" },
-    { id: 1, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" },
-    { id: 2, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" },
-    // { id: 3, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" },
-    // { id: 4, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" },
-    // { id: 5, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" },
-    // { id: 6, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" },
-    // { id: 7, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" },
-    // { id: 8, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" },
-    // { id: 9, link: "https://www.immigration.ca/", imgNumber: "8.png", companyName: "immigration.ca" }
+    { id: 1, link: "https://www.ontatravel.com/", imgNumber: "11-3.png", companyName: "ONTA" },
+    { id: 2, link: "https://www.tradecommissioner.gc.ca/ethiopia-ethiopie/index.aspx?lang=eng", imgNumber: "10-3.png", companyName: "Canada Trade Commissioner Service" },
+    { id: 3, link: "https://urbanbuildingmaintenance.com/", imgNumber: "9.png", companyName: "UBM" },
+    { id: 4, link: "https://ontainternational.com/", imgNumber: "12.png", companyName: "ONTA International" }
   ];
 
   const imageStyle = {
@@ -118,7 +113,6 @@ const Partner2 = () => {
 
   return (
     <>
-
       <section className="clients-section-two alternate" style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
         <div className="auto-container" style={{ textAlign: 'center' }}>
           <h2 style={{ color: '#FFF', paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bolder' }}>Partners We Work With</h2>
@@ -132,8 +126,9 @@ const Partner2 = () => {
                     <figure className="image-box" style={{ marginRight: "5px", flexShrink: 0 }}>
                       <a href={item.link} target="_blank" rel="noreferrer noopener">
                         <Image
-                          width={100}
-                          height={40}
+                          width={150}
+                          height={70}
+                          // objectFit="cover"
                           src={`/images/index-11/clients/${item.imgNumber}`}
                           style={{ paddingLeft: "10px", paddingRight: "10px" }}
                           alt="brand"

@@ -1,3 +1,4 @@
+'use client'
 import CopyrightFooter from "./CopyrightFooter";
 import FooterContent from "./FooterContent";
 import Social from "../../footer/common-footer/Social";
@@ -36,7 +37,7 @@ const Index = () => {
   };
 
   return (
-    <footer className="main-footer" style={{ padding: windowWidth < 1330 ? "0 20px" : "0", boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', backgroundColor: GlobalConfig.BgHeader }}>
+    <footer className="main-footer" style={{ boxShadow: '0 -1px 3px rgba(0, 0, 0, 0.5)', backgroundColor: GlobalConfig.BgHeader }}>
       <div className="auto-container">
         <div className="logo-box" style={logoStyle}>
 

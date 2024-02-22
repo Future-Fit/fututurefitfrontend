@@ -3,16 +3,12 @@ import LoginPopup from "../../common/form/login/LoginPopup";
 import MobileMenu from "../../header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import FooterDefault from "../../../components/footer/common-footer";
-import Testimonial from "@/components/testimonial/Testimonial";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import AppSectionAbout from "@/components/app-section/AppSectionAbout";
-import CallToAction2 from "@/components/call-to-action/CallToAction2";
-import CallToAction from "@/components/call-to-action/CallToAction";
-import Block1 from "@/components/block/Block1";
-import CallToAction11 from "@/components/call-to-action/CallToAction11";
-import CallToAction3 from "@/components/call-to-action/CallToAction3";
+import JobSeekerTop from "./JobSeekerTop";
+import JobSeekerBody from "./JobSeekerBody";
+import GlobalConfig from "@/Global.config";
 
 const index = () => {
 
@@ -42,33 +38,24 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      {/* <Breadcrumb title="Who We are" meta="About Us" /> */}
-      {/* <!--End Page Title--> */}
-
-      {/* <section className="app-section" >
-        <div className="auto-container" >
-          <AppSectionAbout />
-        </div>
-      </section> */}
-
-      <section className="testimonial-section -light-yellow">
-        <div className="container-fluid">
-          {/* <!-- Sec Title --> */}
-          <div className="sec-title text-center">
-            <h2>Job Seekers</h2>
-            <div className="text">
-              Here is our service for you 
+      <section className="about-section-two">
+        <div className="auto-container" style={{alignItems: "center"}}>
+          <div className="container-fluid">
+            <div className="sec-title text-center"> <h2 style={{color: GlobalConfig.LogoBlu}}>Job Seeker</h2> </div>
+            <div className="carousel-outer" data-aos="fade-up">
+              <div className="about-carousel">
+                {/* < JobSeekerTop/> */}
+              </div>
             </div>
           </div>
         </div>
-        <div className="carousel-outer" data-aos="fade-up">
-          {/* <!-- Testimonial Carousel --> */}
-          <div className="testimonial-carousel gap-x25 center-item-active slick-list-visible">
-            <Testimonial />
-          </div>
+      </section>
+
+      <section className="app-section">
+        <div className="auto-container">
+          {/* <JobSeekerBody /> */}
         </div>
       </section>
-      {/* <!-- End Clients Section--> */}
 
       <FooterDefault />
       {/* <!-- End Main Footer --> */}

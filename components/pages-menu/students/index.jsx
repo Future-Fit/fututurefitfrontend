@@ -7,12 +7,8 @@ import Testimonial from "@/components/testimonial/Testimonial";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import AppSectionAbout from "@/components/app-section/AppSectionAbout";
-import CallToAction2 from "@/components/call-to-action/CallToAction2";
-import CallToAction from "@/components/call-to-action/CallToAction";
-import Block1 from "@/components/block/Block1";
-import CallToAction11 from "@/components/call-to-action/CallToAction11";
-import CallToAction3 from "@/components/call-to-action/CallToAction3";
+import GlobalConfig from "@/Global.config";
+
 
 const index = () => {
 
@@ -54,7 +50,7 @@ const index = () => {
           </div>
 
           <div className="sec-title text-center">
-            <h2>Students</h2>
+            <h2 style={{color: GlobalConfig.LogoOrg}}>Students</h2>
             {/* <div className="text">
               Future Fit International
             </div> */}
@@ -63,7 +59,7 @@ const index = () => {
 
           <div className="carousel-outer" data-aos="fade-up">
             <div className="testimonial-carousel">
-              <Testimonial />
+              {/* <Testimonial /> */}
             </div>
             {/* <!-- Testimonial Carousel --> */}
           </div>
