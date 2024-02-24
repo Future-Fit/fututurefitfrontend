@@ -59,10 +59,10 @@ const index = () => {
               color: GlobalConfig.LogoOrg, fontSize: '16px', whiteSpace: 'nowrap', overflow: 'hidden',
               textOverflow: 'ellipsis'
             }}>
-              <Image new width={20} height={20} src="/images/Canada Flag Only.png" alt="image" />&nbsp;&nbsp;&nbsp;&nbsp;
-              <strong> <span style={{ color: "black" }}> Work & Learn in </span> </strong>
+              {/* <Image new width={20} height={20} src="/images/Canada Flag Only.png" alt="image" />&nbsp;&nbsp;&nbsp;&nbsp; */}
+              <strong> <span style={{ color: "white" }}> Work & Learn in </span> </strong>
               <strong> <span style={{ color: "black" }}> Canada </span> </strong>
-              &nbsp;&nbsp;&nbsp;&nbsp;<Image new width={20} height={20} src="/images/Canada Flag Only.png" alt="image" />
+              {/* &nbsp;&nbsp;&nbsp;&nbsp;<Image new width={20} height={20} src="/images/Canada Flag Only.png" alt="image" /> */}
             </p>
             {/* <div style={{ flex: 0, backgroundColor: GlobalConfig.LogoBlu, height: "3px" }} />
           </div> */}

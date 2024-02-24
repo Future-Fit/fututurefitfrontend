@@ -77,9 +77,9 @@ const index = () => {
         <JobFeatured4 />
       </section>
 
-      <section style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
+      {/* <section style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
         <Partner2 />
-      </section>
+      </section> */}
 
       {/* <section>
         <Testimonial2 />
