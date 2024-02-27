@@ -7,10 +7,10 @@ import Testimonial from "@/components/testimonial/Testimonial";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import AppSectionAbout from "@/components/app-section/AppSectionAbout";
+// import AppSectionAbout from "@/components/app-section/AppSectionAbout";
 import CallToAction2 from "@/components/call-to-action/CallToAction2";
 import CallToAction from "@/components/call-to-action/CallToAction";
-import Block1 from "@/components/block/Block1";
+// import Block1 from "@/components/block/Block1";
 import CallToAction11 from "@/components/call-to-action/CallToAction11";
 import CallToAction3 from "@/components/call-to-action/CallToAction3";
 
@@ -47,7 +47,7 @@ const index = () => {
 
       <section className="app-section">
         <div className="auto-container">
-          <AppSectionAbout />
+          {/* <AppSectionAbout /> */}
         </div>
       </section>
 
@@ -121,7 +121,7 @@ const index = () => {
             <div className="text">Job for anyone, anywhere</div>
           </div>
           <div className="row" data-aos="fade-up">
-            <Block1 />
+            {/* <Block1 /> */}
           </div>
         </div>
       </section>
