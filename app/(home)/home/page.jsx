@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "@/components/home-1";
+import Home from "@/components/home";
 
 export const metadata = {
   title: "Home | Future Fit International - Job Portal Platform",

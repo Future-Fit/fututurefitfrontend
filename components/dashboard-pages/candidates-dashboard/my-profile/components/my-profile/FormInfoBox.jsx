@@ -4,6 +4,7 @@
 import Select from "react-select";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import apiConfig from "@/app.config";
  
 const FormInfoBox = () => {
   const [userDetail, setUserDetail] = useState(null);
@@ -40,7 +41,7 @@ const FormInfoBox = () => {
      const token = localStorage.getItem("accessToken");
      console.log(token,"this is the  token");
      const userId = localStorage.getItem("loggedInUserId");
-     const response = await axios.put(`https://api.futurefitinternational.com/users/profile`,data,{headers:{
+     const response = await axios.put(`${apiConfig.url}/users/profile`,data,{headers:{
         Authorization:`Bearer ${token}`
       }});
       fetchUserDetails();
@@ -55,7 +56,7 @@ useEffect(() => {
   if (userId) {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`https://api.futurefitinternational.com/users/me`,{headers:{
+        const response = await axios.get(`${apiConfig.url}/users/me`,{headers:{
           "Authorization":`Bearer ${token}`
         }});
         console.log('Response from server:', response.data);

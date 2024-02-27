@@ -8,6 +8,7 @@ import GlobalConfig from "@/Global.config";
 import axios from "axios";
 import { debounce } from "lodash";
 import Autosuggest from "react-autosuggest";
+import apiConfig from "@/app.config";
 
 
 const DefaulHeader2 = () => {
@@ -147,7 +148,7 @@ const DefaulHeader2 = () => {
     try {
       // Modify this API call to match your backend's filtering capabilities
       const response = await axios.get(
-        `https://api.futurefitinternational.com/jobpost?job_title=${value}`
+        `${apiConfig.url}/jobpost?job_title=${value}`
       );
       // Assuming the API returns an array of job postings
       const filteredSuggestions = response.data
@@ -170,7 +171,7 @@ const DefaulHeader2 = () => {
 
     try {
       const response = await axios.get(
-        `https://api.futurefitinternational.com/jobpost?job_title=${suggestionValue}`
+        `${apiConfig.url}/jobpost?job_title=${suggestionValue}`
       );
       if (response.data && response.data.length > 0) {
         const jobId = response.data[0].id;
@@ -211,7 +212,7 @@ const DefaulHeader2 = () => {
     // Fetch job postings from the API
     const fetchJobPostings = async () => {
       try {
-        const response = await axios.get('https://api.futurefitinternational.com/jobpost');
+        const response = await axios.get(`${apiConfig.url}/jobpost`);
         setJobPostings(response.data);
       } catch (error) {
         console.error('Error fetching job postings:', error);

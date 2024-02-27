@@ -1,5 +1,5 @@
 import Wrapper from "@/layout/Wrapper";
-import Home from "@/components/home-1";
+import Home from "@/components/home";
 
 export const metadata = {
   title: "Future Fit International | Job Portal ",

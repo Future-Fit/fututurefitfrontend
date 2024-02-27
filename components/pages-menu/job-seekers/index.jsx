@@ -1,15 +1,16 @@
 "use client"
 import Image from "next/image";
-import LoginPopup from "../../common/form/login/LoginPopup";
-import MobileMenu from "../../header/MobileMenu";
+import LoginPopup from "@/components/common/form/login/LoginPopup";
+import MobileMenu from "@/components/header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
-import FooterDefault from "../../../components/footer/common-footer";
-import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
-import DashboardHeader from "../../header/DashboardEmployerHeader";
+import FooterDefault from "@/components/footer/common-footer";
+import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
+import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import JobSeekerTop from "./JobSeekerTop";
-import JobSeekerBody from "./JobSeekerBody";
 import GlobalConfig from "@/Global.config";
+
+import JobSeekerBody from "@/components/job-seeker/JobSeekerBody";
+
 
 const index = () => {
 

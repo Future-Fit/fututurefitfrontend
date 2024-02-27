@@ -1,13 +1,14 @@
 "use client"
-import LoginPopup from "../../common/form/login/LoginPopup";
-import MobileMenu from "../../header/MobileMenu";
+import LoginPopup from "@/components/common/form/login/LoginPopup";
+import MobileMenu from "@/components/header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
-import FooterDefault from "../../../components/footer/common-footer";
-import VisionMission from "@/components/about/VisionMission";
-import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
-import DashboardHeader from "../../header/DashboardEmployerHeader";
+import FooterDefault from "@/components/footer/common-footer";
+import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
+import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
-import AppSection from "@/components/app-section/AppSection";
+
+import VisionMission from "@/components/about/VisionMission";
+import AboutBody from "@/components/about/AboutBody";
 
 const index = () => {
 
@@ -52,7 +53,7 @@ const index = () => {
 
       <section className="app-section">
         <div className="auto-container">
-          <AppSection />
+          <AboutBody />
         </div>
       </section>
 

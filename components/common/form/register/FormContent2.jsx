@@ -1,3 +1,4 @@
+import apiConfig from "@/app.config";
 import { useState } from "react";
 import { Toast } from 'react-bootstrap';
 
@@ -71,7 +72,7 @@ const FormContent2 = () => {
           formDataToSend.append(key, dataToSend[key]);
         });
 
-        const response = await fetch("https://api.futurefitinternational.com/users/create", {
+        const response = await fetch(`${apiConfig.url}/users/create`, {
           method: "POST",
           body: formDataToSend,
         });
@@ -85,7 +86,7 @@ const FormContent2 = () => {
 
           try {
 
-            await fetch("https://api.futurefitinternational.com/auth/verify-email", {
+            await fetch(`${apiConfig.url}/auth/verify-email`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

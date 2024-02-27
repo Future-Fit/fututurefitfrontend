@@ -1,27 +1,26 @@
 "use client"
-import Hero10 from "../hero/hero-10"
+import { useEffect, useState } from "react";
+
 import DefaulHeader2 from "../header/DefaultHeader";
-import JobFeatured4 from "../job-featured/JobFeatured4";
-import MobileMenu from "../header/MobileMenu";
-import Link from "next/link";
-import FooterDefault from "../footer/common-footer";
-import Block8 from "../block/Block8";
-import Block6 from "../block/Block6";
-import Partner2 from "../common/partner/Partner2";
 import DashboardCandidatesHeader from "../header/DashboardCandidatesHeader";
 import DashboardHeader from "../header/DashboardEmployerHeader";
-import { useEffect, useState } from "react";
-import WordCloudSection from "../block/WordCloudSection";
-
-import GlobalConfig from "@/Global.config";
-import CookiesPopup from "./CookiesPopup";
+import MobileMenu from "../header/MobileMenu";
 import LoginPopup from "../common/form/login/LoginPopup";
-import Testimonial2 from "../testimonial/Testimonial2";
-import AboutBlock from "../block/AboutBlock";
+import GlobalConfig from "@/Global.config";
+
+import CookiesPopup from "./CookiesPopup";
+import Hero from "./hero/Hero"
+import ServicesProvided from "./ServicesProvided";
+import Membership from "./Membership";
+import FeaturedJobs from "./FeaturedJobs";
+import Partnership from "./Partnership";
+import dynamic from "next/dynamic";
 
 const index = () => {
 
   const [userType, setUserType] = useState();
+  const FooterDefault = dynamic(() => import('../footer/common-footer'), { loading: () => <div>Loading...</div>, ssr: false });
+
 
   useEffect(() => {
     const storedUserType = localStorage.getItem('userType');
@@ -59,30 +58,29 @@ const index = () => {
       {/* Start of the different sections on the homepage; each section can be edited/deleted separately
           Each section is responsively optimized; any required change must be made within each section */}
 
-      {/* This is the top section on the home page */}
+      {/* This is the first section of the home page (carousel/gallery section)*/}
       <section style={{ background: GlobalConfig.BgrClr1 }}>
-        <Hero10 />
+        <Hero />
       </section>
 
-      {/*  */}
+      {/* This is the second section of the home page (services section) */}
       <section style={{ background: GlobalConfig.BgrClr2 }}>
-        <Block8 />
+        <ServicesProvided />
       </section>
 
+      {/* This is the third section of the home page (become member section) */}
       <section style={{ background: GlobalConfig.BgrClr1 }}>
-        <Block6 />
+        <Membership />
       </section>
 
-      <section >
-        <JobFeatured4 />
+      {/* This is the fourth section of the home page (trending jobs section) */}
+      <section style={{ background: GlobalConfig.BgrClr2 }}>
+        <FeaturedJobs />
       </section>
 
+      {/* This is the fifth section of the home page (partners section) */}
       {/* <section style={{ backgroundColor: GlobalConfig.BgrClr1 }}>
-        <Partner2 />
-      </section> */}
-
-      {/* <section>
-        <Testimonial2 />
+        <Partnership />
       </section> */}
 
       {/* <!-- End Job Section --> */}

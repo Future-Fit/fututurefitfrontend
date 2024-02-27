@@ -6,7 +6,7 @@ import { faSign, faSignIn, faUser, faUserEdit, faArrowDown } from '@fortawesome/
 import arrowdown from '../../public/images/icons/arrow-down.svg'
 import arrowright from '../../public/images/icons/arrow-right.svg'
 
-const Block6 = () => {
+const Membership = () => {
 
   const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
@@ -88,9 +88,9 @@ const Block6 = () => {
             {blockContent.map((item, index) => (
               <React.Fragment key={item.id}>
                 <div className="col-md-4 col-sm-12 mb-3" >
-                  <div className="work-block -type-2 mb-0">
-                    <div className="inner-box">
-                      <div className="icon-wrap">
+                  <div className="work-block -type-2 mb-0" >
+                    <div className="inner-box" >
+                      <div className="icon-wrap" >
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
                       </div>
                       <a href={item.linkPath}><h5 style={{ color: item.bgcolor }}>{item.title}</h5></a>
@@ -146,5 +146,5 @@ const Block6 = () => {
   );
 };
 
-export default Block6;
+export default Membership;
 

@@ -6,6 +6,7 @@ import LoginPopup from './LoginPopup';
 import MobileMenu from '@/components/header/MobileMenu';
 import DefaulHeader2 from '@/components/header/DefaultHeader';
 import FooterDefault from "../../../footer/common-footer";
+import apiConfig from '@/app.config';
 
 const VerifyEmail = ({ token }) => {
     const router = useRouter();
@@ -15,7 +16,7 @@ const VerifyEmail = ({ token }) => {
 
     const verifyEmail = async () => {
         try {
-            const response = await axios.post(`https://api.futurefitinternational.com/auth/verifyEmail/${token}`);
+            const response = await axios.post(`${apiConfig.url}/auth/verifyEmail/${token}`);
             setVerifyInfo(response.data);
             console.log('Email Verified:', response.data);
         } catch (error) {

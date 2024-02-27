@@ -21,7 +21,7 @@ const GlobalConfig = {
     LogoGry1: "#D2D3D5", // this is the swirl on the logo
     LogoGry2: "#939598", // this is for text on logo
 
-    // Define the header and footer color
+    // Define the header and footer colors
     DskHdrClr: "",
     DskFtrClr: "",
     MobHdrClr: "",
@@ -29,7 +29,7 @@ const GlobalConfig = {
 
     // Define all colors used as section/foreground color schemes
     Fgr1Clr: "#344f70", //
-    Fgr2Clr: "",
+    Fgr2Clr: "#3c5293", // section header color
     Fgr3Clr: "",
     Fgr4Clr: "",
 

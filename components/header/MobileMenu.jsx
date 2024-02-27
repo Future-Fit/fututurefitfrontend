@@ -9,6 +9,7 @@ import GlobalConfig from "@/Global.config";
 import { debounce } from "lodash";
 import axios from 'axios';
 import Autosuggest from "react-autosuggest";
+import apiConfig from "@/app.config";
 
 const MobileMenu = () => {
   const [navbar, setNavbar] = useState(true);
@@ -187,7 +188,7 @@ const MobileMenu = () => {
     try {
       // Modify this API call to match your backend's filtering capabilities
       const response = await axios.get(
-        `https://api.futurefitinternational.com/jobpost?job_title=${value}`
+        `${apiConfig.url}/jobpost?job_title=${value}`
       );
       // Assuming the API returns an array of job postings
       const filteredSuggestions = response.data
@@ -210,7 +211,7 @@ const MobileMenu = () => {
 
     try {
       const response = await axios.get(
-        `https://api.futurefitinternational.com/jobpost?job_title=${suggestionValue}`
+        `${apiConfig.url}/jobpost?job_title=${suggestionValue}`
       );
       if (response.data && response.data.length > 0) {
         // Assuming the first result is the desired one
@@ -241,7 +242,7 @@ const MobileMenu = () => {
     // Fetch job postings from the API
     const fetchJobPostings = async () => {
       try {
-        const response = await axios.get('https://api.futurefitinternational.com/jobpost');
+        const response = await axios.get(`${apiConfig.url}/jobpost'`);
         setJobPostings(response.data);
       } catch (error) {
         console.error('Error fetching job postings:', error);

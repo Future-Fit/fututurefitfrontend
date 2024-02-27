@@ -6,6 +6,7 @@ import LoginPopup from './LoginPopup';
 import MobileMenu from '@/components/header/MobileMenu';
 import DefaulHeader2 from '@/components/header/DefaultHeader';
 import FooterDefault from "../../../footer/common-footer";
+import apiConfig from '@/app.config';
 
 const ResetPassword = ({ token }) => {
     const router = useRouter();
@@ -35,8 +36,10 @@ const ResetPassword = ({ token }) => {
         }
         if (validatePassword(password)) {
             try {
-                const response = await axios.post(`https://api.futurefitinternational.com/auth/reset-password/${token}`, {
+
+                const response = await axios.post(`${apiConfig.url}/auth/reset-password/${token}`, {
                     newPassword: password,
+                    confirmPassword: confirmPassword
                 });
                 setResetInfo(response.data); // Store response data in resetInfo state
                 // Handle success (optional)
@@ -72,6 +75,7 @@ const ResetPassword = ({ token }) => {
                 {/* <!--Login Form--> */}
                 <form onSubmit={resetPassword}>
                     <div className="form-group col-lg-7 col-md-12">
+                        <label style={{ justifyContent: 'center' }}>Reset Your Password</label>
                         <label>New Password</label>
                         <input
                             type="password"

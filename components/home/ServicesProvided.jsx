@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faNetworkWired, faO, faSchool, faTasks, faUniversity } from "@fortawesome/free-solid-svg-icons";
 
 
-const Block8 = () => {
+const ServicesProvided = () => {
 
   const iconMap = {
     "icon-drawing": faBriefcase,
@@ -48,19 +48,20 @@ const Block8 = () => {
   ];
   return (
     <>
-
-
       <section className="layout-pt-10 layout-pb-30" style={{ padding: "40px 20px", background: GlobalConfig.BgrClr2 }}>
         <div className="auto-container" style={{ paddingBottom: '0px', paddingTop: '0px' }}>
           <div className="sec-title text-center" >
             <h2>Services</h2>
           </div>
 
-          <div className="row grid-base " data-aos="fade-up">
+          <div className="row grid-base">
 
             {blockContent.map((item) => (
               <div className="col-lg-3 col-md-6 col-sm-12" key={item.id}>
-                <div className="work-block -type-4" style={{ padding: "10px 10px", minHeight: '180px', textAlign: 'left' }}>
+                <div className="work-block -type-4" style={{
+                  backgroundColor: GlobalConfig.BgrClr2,
+                  padding: "10px 10px", minHeight: '180px', textAlign: 'left'
+                }}>
                   <a href={item.linkPath} className="block-content" style={{ textAlign: 'left' }} >
                     <div className="icon-wrap">
                       {/* <span className={`icon ${item.icon}`}></span> */}
@@ -137,4 +138,4 @@ const Block8 = () => {
   );
 };
 
-export default Block8;
+export default ServicesProvided;

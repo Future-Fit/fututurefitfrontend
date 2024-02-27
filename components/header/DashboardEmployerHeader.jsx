@@ -12,6 +12,7 @@ import axios from "axios";
 import GlobalConfig from "@/Global.config";
 import Autosuggest from "react-autosuggest";
 import { debounce } from "lodash";
+import apiConfig from "@/app.config";
 
 
 const DashboardHeader = () => {
@@ -91,7 +92,7 @@ const DashboardHeader = () => {
         if (userId) {
             const fetchUserDetails = async () => {
                 try {
-                    const response = await axios.get(`https://api.futurefitinternational.com/users/${userId}`);
+                    const response = await axios.get(`${apiConfig.url}/users/${userId}`);
                     console.log('Response from server:', response.data);
                     setUserDetail(response.data);
                 } catch (error) {
@@ -137,7 +138,7 @@ const DashboardHeader = () => {
         try {
             // Modify this API call to match your backend's filtering capabilities
             const response = await axios.get(
-                `https://api.futurefitinternational.com/jobpost?job_title=${value}`
+                `${apiConfig.url}/jobpost?job_title=${value}`
             );
             // Assuming the API returns an array of job postings
             const filteredSuggestions = response.data
@@ -160,7 +161,7 @@ const DashboardHeader = () => {
         setSuggestionValue(suggestion.name); // Assuming 'name' is the property you need from the suggestion
         try {
             const response = await axios.get(
-                `https://api.futurefitinternational.com/jobpost?job_title=${suggestionValue}`
+                `${apiConfig.url}/jobpost?job_title=${suggestionValue}`
             );
             if (response.data && response.data.length > 0) {
                 // Assuming the first result is the desired one
@@ -217,7 +218,7 @@ const DashboardHeader = () => {
         // Fetch job postings from the API
         const fetchJobPostings = async () => {
             try {
-                const response = await axios.get('https://api.futurefitinternational.com/jobpost');
+                const response = await axios.get(`${apiConfig.url}/jobpost`);
                 setJobPostings(response.data);
             } catch (error) {
                 console.error('Error fetching job postings:', error);
