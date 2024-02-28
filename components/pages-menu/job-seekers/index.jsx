@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import GlobalConfig from "@/Global.config";
 
 import JobSeekerBody from "@/components/job-seeker/JobSeekerBody";
+import JobSeekerTop from "@/components/job-seeker/JobSeekerTop";
 
 
 const index = () => {
@@ -40,29 +41,21 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <section className="about-section-two">
+      <section className="about-section-two" style={{
+        blockSize: "200px", alignItems: "center",
+        backgroundImage: "url(../../images/background/21.png)",
+        backgroundRepeat: "no-repeat", backgroundPosition: "center center",
+        backgroundSize: "cover"
+      }}>
         <div className="auto-container" style={{ alignItems: "center" }}>
-          {/* <div className="container-fluid"> */}
-            <div className="sec-title text-center"> <h2 style={{ color: GlobalConfig.LogoBlu }}>Job Seekers</h2> </div>
-            {/* <div className="carousel-outer" data-aos="fade-up">
-              <div className="about-carousel">
-                < JobSeekerTop/>
-              </div>
-            </div> */}
+          <div className="container-fluid">
+            <div className="sec-title text-center" style={{
+              paddingTop: "20px"
+            }}>
+              <h2 style={{ color: GlobalConfig.LogoBlu }}>Job Seekers</h2> </div>
           </div>
-
-          <figure className="image" data-aos="fade-right" style={{ display: "grid", justifyItems: "center", 
-          paddingTop: '10px' }}>
-            <Image
-              width={300}
-              height={300}
-              src="/images/JobSeekers.jpg"
-              alt="Job Seeker"
-              style={{ borderRadius: '15px', marginTop: '20px'}}
-            />
-          </figure>
-        {/* </div> */}
-      </section>
+        </div>
+      </section >
 
       <section className="app-section">
         <div className="auto-container">

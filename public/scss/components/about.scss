@@ -176,11 +176,11 @@ About Section Two
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: url(../../images/icons/shape-2.png);
+  background-image: "";
+  background: rgba(255, 255, 255, 0.8);
   content: "";
   background-repeat: no-repeat;
-  background-position: center;
-}
+  }
 
 .about-section-two .carousel-outer {
   position: relative;

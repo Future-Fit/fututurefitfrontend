@@ -2,9 +2,9 @@
 import GlobalConfig from "@/Global.config";
 import Image from "next/image";
 import Slider from "react-slick";
-import aboutContent from "./VisionContent";
+import AboutTopContent from "@/components/about/AboutTopContent";
 
-const VisionMission = () => {
+const AboutTop = () => {
   const settings = {
     dots: true,
     speed: 1000,
@@ -21,7 +21,7 @@ const VisionMission = () => {
           .slick-dots {
             margin-top: 0;
           }
-          .inner-box {
+          .slick-slider  .inner-box {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -38,7 +38,7 @@ const VisionMission = () => {
           `}</style>
 
       <Slider {...settings} autoplaySpeed={10000} fade={true} arrows={false}>
-        {aboutContent.slice(0, 4).map((item) => (
+        {AboutTopContent.slice(0, 4).map((item) => (
           <div className="vision-mission-block" key={item.id}>
             <div className="inner-box" style={{ padding: "0% 3%" }}>
               <Image
@@ -67,4 +67,4 @@ const VisionMission = () => {
   );
 };
 
-export default VisionMission;
+export default AboutTop;

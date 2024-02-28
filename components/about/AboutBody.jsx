@@ -8,11 +8,11 @@ const AboutBody = () => {
 
         <div className="row">
           <div className="image-column col-md-4 col-sm-12" style={{ display: "grid", justifyItems: "center",
-            backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px"
+            backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px", order: 0
           }} >
             <figure className="image" data-aos="fade-right">
               <Image
-                width={300}
+                width={220}
                 height={300}
                 src="/images/collaboration.jpeg"
                 alt="About"

@@ -5,9 +5,10 @@ import { Toast } from 'react-bootstrap';
 const FormContent = ({ onReset }) => {
 
   const [logoImg, setLogoImg] = useState("");
-
+  const [userType, setUserType] = useState("job seeker"); // Added state for user type
+  const initialUserTypeId = userType === "student" ? 5 : 4;
   const [formData, setFormData] = useState({
-    user_type_id: 4,
+    user_type_id: initialUserTypeId,
     fname: "",
     lname: "",
     phone: "",
@@ -116,6 +117,15 @@ const FormContent = ({ onReset }) => {
     return passwordRegex.test(password);
   };
 
+  const handleUserTypeChange = (e) => {
+    const selectedUserType = e.target.value;
+    setUserType(selectedUserType);
+    setFormData({
+      ...formData,
+      user_type_id: selectedUserType === "student" ? 5 : 4 // Set user_type_id based on selected user type
+    });
+  };
+
   return (
     <form method="post" onSubmit={handleSubmit}>
 
@@ -192,6 +202,14 @@ const FormContent = ({ onReset }) => {
         {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
       </div>
 
+      <div className="form-group">
+        <label style={{ display: 'inline-block', marginLeft: '5px' }}>User Type</label>
+        <select value={userType} onChange={handleUserTypeChange} required>
+          <option value="job seeker">Job Seeker</option>
+          <option value="student">Student</option>
+        </select>
+      </div>
+      
       <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
         <button className="theme-btn btn-style-one" type="submit">
           Submit
