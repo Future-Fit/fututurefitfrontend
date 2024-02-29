@@ -95,8 +95,8 @@ const Index = () => {
 
                           {/* <span>Ethiopia Office</span> */}
                           <a href="tel: +251933859295">+251933859295</a><br />
-                          <a color="#fff !important" href="mailto:info-et@futurefitint.com " className="email">
-                            info-et@futurefitint.com
+                          <a color="#fff !important" href="mailto:info@futurefitint.com " className="email">
+                            info@futurefitint.com
                           </a>
                         </p>
                         <div style={{ width: '100%', height: '100px', overflow: 'hidden' }}>

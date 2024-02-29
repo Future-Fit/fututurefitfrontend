@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import GlobalConfig from "@/Global.config";
 
 import JobSeekerBody from "@/components/job-seeker/JobSeekerBody";
-import JobSeekerTop from "@/components/job-seeker/JobSeekerTop";
 
 
 const index = () => {
@@ -42,16 +41,14 @@ const index = () => {
       {/* End MobileMenu */}
 
       <section className="about-section-two" style={{
-        blockSize: "200px", alignItems: "center",
-        backgroundImage: "url(../../images/background/21.png)",
+        alignItems: "center",
+        backgroundImage: "url(../../images/background/22.jpg)",
         backgroundRepeat: "no-repeat", backgroundPosition: "center center",
         backgroundSize: "cover"
       }}>
         <div className="auto-container" style={{ alignItems: "center" }}>
           <div className="container-fluid">
-            <div className="sec-title text-center" style={{
-              paddingTop: "20px"
-            }}>
+            <div className="sec-title text-center" style={{ padding: "100px 0" }}>
               <h2 style={{ color: GlobalConfig.LogoBlu }}>Job Seekers</h2> </div>
           </div>
         </div>

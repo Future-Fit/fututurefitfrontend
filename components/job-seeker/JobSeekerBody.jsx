@@ -8,28 +8,28 @@ const JobSeekerBody = () => {
   return (
     <div className="auto-container">
       <div className="text" style={{ fontSize: "20px", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
-        <span> <strong> Services for Job Seekers </strong></span><br /><br />
+        <span> <strong> FFI Gets You the Edge ...  </strong></span><br /><br />
       </div>
       <div className="text" style={{ fontSize: "14px", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
         <span>
           FFI facilitates employment and career development opportunities in Canada. Through its 
-          employer-employee matching and verification services, skilled job seekers can connect with 
-          employers that have opportunities to hire foreign workers. Our end-to-end services include 
-          one-stop capability to conduct job searching, application submission, employee vetting and 
+          employer-employee matching and verification services, skilled job seekers who want to 
+          make a career move can connect with employers that have opportunities to hire foreign workers. 
+          FFI offers a one-stop capability to conduct job searching, application submission, employee vetting and 
           hiring, as well as offering relevant training programs to enhance skills and competencies.
-          We also offer localized and international consulting services that provide valuable guidance 
+          Furthermore, FFI offers localized and international consulting services that provide valuable guidance 
           and support to both newcomers and established residents to settle and integrate within their 
           communities.
           <br /><br />
           Central to FFI's service offerings is its partnership with a large network of Canadian businesses.
-          Using our online platform, FFI will curate and post current job openings, making it easy for 
+          Using its online platform, FFI will curate and post current job openings, making it easy for 
           job seekers to perform targeted searches and, subsequently, completing and submitting their 
           entire application within the portal.
           <br /><br />
-          <strong> Summery of services: </strong><br />
+          <strong> Summary of Services: </strong><br />
         </span>
         <ul className="list-style-five" >
-          <li>Access to sourcing of job opportunities that can lead to great job offers for qualified
+          <li>Access to sourcing of opportunities that can lead to great job offers for qualified
             applicants </li>
           <li>Personalized support throughout the job application process tailored to individual's 
             specific needs</li>

@@ -13,8 +13,10 @@ const StudentTop = () => {
 
   return (
     <>
-      <Slider {...settings} autoplaySpeed={10000} fade={true} arrows={false}>
-      </Slider >
+          <div className="vision-mission-block">
+            <div className="inner-box" style={{ padding: "0% 3%" }}>
+            </div>
+          </div>
     </>
   );
 };

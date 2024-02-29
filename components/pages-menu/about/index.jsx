@@ -46,7 +46,7 @@ const index = () => {
       }}>
         <div className="auto-container" style={{alignItems: "center"}}>
           <div className="container-fluid">
-            <div className="sec-title text-center"> <h2>About Us</h2> </div>
+            <div className="sec-title text-center" style={{paddingBottom: "20px"}}> <h2>About Us</h2> </div>
             <div className="carousel-outer" data-aos="fade-up">
               <div className="about-carousel">
                 <AboutTop />

@@ -39,23 +39,19 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <section className="about-section-two">
+      <section className="about-section-two" style={{
+        alignItems: "center",
+        backgroundImage: "url(../../images/background/23.jpg)",
+        backgroundRepeat: "no-repeat", backgroundPosition: "center center",
+        backgroundSize: "cover"
+      }}>
         <div className="auto-container" style={{ alignItems: "center" }}>
-            <div className="sec-title text-center"> <h2 style={{ color: GlobalConfig.LogoOrg }}>Students</h2> </div>
-                < StudentTop/>
-
-          {/* <figure className="image" data-aos="fade-right" style={{ display: "grid", justifyItems: "center", 
-          paddingTop: '10px' }}>
-            <Image
-              width={300}
-              height={300}
-              src="/images/CollegeStudents.jpg"
-              alt="Students"
-              style={{ borderRadius: '15px', marginTop: '20px'}}
-            />
-          </figure> */}
+          <div className="container-fluid">
+            <div className="sec-title text-center" style={{ padding: "100px 0" }}>
+              <h2 style={{ color: GlobalConfig.LogoOrg }}>Students</h2> </div>
+          </div>
         </div>
-      </section>
+      </section >
 
       <section className="app-section">
         <div className="auto-container">
