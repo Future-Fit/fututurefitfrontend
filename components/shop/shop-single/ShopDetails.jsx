@@ -20,7 +20,6 @@ import DashboardEmployeeHeader from "../../../components/header/DashboardEmploye
 import DashboardCandidatesHeader from "../../../components/header/DashboardCandidatesHeader"
 import DashboardStudentHeader from "../../../components/header/DashboardStudentsHeader"
 import DefaulHeader2 from "@/components/header/DefaultHeader";
-import { useEffect, useState } from "react";
 
 const ShopSingleDyanmic = ({ id }) => {
   const [product, setProducts] = useState({});

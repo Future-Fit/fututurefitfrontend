@@ -8,9 +8,9 @@ import BlogSidebar from "../blog-sidebar";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
-import DashboardAdminHeader from '../../../../components/header/DashboardAdminHeader'
-import DashboardEmployeeHeader from '../../../../components/header/DashboardEmployerHeader'
-import DashboardStudentHeader from '../../../../components/header/DashboardStudentsHeader'
+import DashboardAdminHeader from '../../header/DashboardAdminHeader'
+import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import { useEffect, useState } from "react";
 
 

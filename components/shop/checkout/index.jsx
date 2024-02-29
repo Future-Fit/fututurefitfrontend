@@ -4,10 +4,6 @@ import FooterDefault from "../../footer/common-footer";
 import MobileMenu from "../../header/MobileMenu";
 import Breadcrumb from "../../../components/shop/Breadcrumb";
 import BillingAll from "./components";
-import LoginPopup from "../../common/form/login/LoginPopup";
-import FooterDefault from "../../footer/common-footer";
-import MobileMenu from "../../header/MobileMenu";
-import Breadcrumb from "../../../components/shop/Breadcrumb";
 import DashboardAdminHeader from "../../../components/header/DashboardAdminHeader"
 import DashboardEmployeeHeader from "../../../components/header/DashboardEmployerHeader"
 import DashboardCandidatesHeader from "../../../components/header/DashboardCandidatesHeader"

@@ -3,18 +3,12 @@ import Image from "next/image";
 import LoginPopup from "@/components/common/form/login/LoginPopup";
 import MobileMenu from "@/components/header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
-<<<<<<< Updated upstream
-import FooterDefault from "@/components/footer/common-footer";
-import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
-import DashboardHeader from "@/components/header/DashboardEmployerHeader";
-=======
 import FooterDefault from "../../../components/footer/common-footer";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardAdminHeader from '../../../components/header/DashboardAdminHeader'
 import DashboardEmployeeHeader from '../../../components/header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../../components/header/DashboardStudentsHeader'
 import DashboardHeader from "../../header/DashboardEmployerHeader";
->>>>>>> Stashed changes
 import { useEffect, useState } from "react";
 import GlobalConfig from "@/Global.config";
 

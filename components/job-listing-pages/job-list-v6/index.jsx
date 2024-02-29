@@ -6,11 +6,10 @@ import MobileMenu from "../../header/MobileMenu";
 import FilterJobBox from "./FilterJobBox";
 import JobSearchForm from "./JobSearchForm";
 // import DashboardCandidatesHeader from "../../.. header/DashboardCandidatesHeader";
-import DashboardCandidatesHeader from "../../../components/header/DashboardCandidatesHeader"
-import DashboardAdminHeader from '../../../../components/header/DashboardAdminHeader'
-import DashboardEmployeeHeader from '../../../../components/header/DashboardEmployerHeader'
-import DashboardStudentHeader from '../../../../components/header/DashboardStudentsHeader'
-import DashboardHeader from "../../header/DashboardEmployerHeader";
+import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader"
+import DashboardAdminHeader from '../../header/DashboardAdminHeader'
+import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import { useEffect, useState } from "react";
 
 const index = () => {
