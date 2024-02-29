@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import Packages from "@/components/dashboard-pages/candidates-dashboard/packages";
+import Packages from "@/components/dashboard-pages/student-dashboard/packages";
 
 export const metadata = {
   title: "Packages || Future Fit International - Job Portal Platform",

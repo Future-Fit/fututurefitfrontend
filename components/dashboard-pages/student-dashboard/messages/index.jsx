@@ -5,11 +5,11 @@
 
 import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
-import DashboardCandidatesSidebar from "../../../header/DashboardCandidatesSidebar";
+import DashboardStudentsSidebar from "../../../header/DashboardStudentSidebar";
 import BreadCrumb from "../../BreadCrumb";
 import CopyrightFooter from "../../CopyrightFooter";
 import ChatBox from "./components";
-import DashboardCandidatesHeader from "../../../header/DashboardCandidatesHeader";
+import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
 import { useSelector } from "react-redux";
 import FooterDefault from "../../../footer/common-footer";
@@ -24,13 +24,13 @@ const Index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardCandidatesHeader />
+      <DashboardStudentsHeader />
       {/* End Header */}
 
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <DashboardCandidatesSidebar />
+      <DashboardStudentsSidebar />
       {/* <!-- End Candidates Sidebar Menu --> */}
 
       {/* <!-- Dashboard --> */}

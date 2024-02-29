@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import DashboadHome from "@/components/dashboard-pages/candidates-dashboard/dashboard";
+import DashboadHome from "@/components/dashboard-pages/student-dashboard/dashboard";
 
 export const metadata = {
   title: "Job Seeker Dashboard | Future Fit International",

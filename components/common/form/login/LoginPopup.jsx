@@ -6,13 +6,13 @@ import FormContent from "./FormContent";
 
 const LoginPopup = () => {
 
-  const [resetForm, setResetForm] = useState(() => () => {});
+  const [resetForm, setResetForm] = useState(() => () => { });
   const onModalClose = () => {
     if (typeof resetForm === 'function') {
       resetForm();
     }
   };
-  
+
   return (
     <>
       <div className="modal fade" id="loginPopupModal">

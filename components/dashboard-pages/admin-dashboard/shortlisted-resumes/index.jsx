@@ -1,7 +1,7 @@
 import MobileMenu from "../../../header/MobileMenu";
-import DashboardHeader from "../../../header/DashboardEmployerHeader";
+import DashboardHeader from "../../../header/DashboardAdminHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
-import DashboardEmployerSidebar from "../../../header/DashboardEmployerSidebar";
+import DashboardAdminSidebar from "../../../header/DashboardAdminSidebar";
 import BreadCrumb from "../../BreadCrumb";
 import CopyrightFooter from "../../CopyrightFooter";
 import WidgetToFilterBox from "./components/WidgetToFilterBox";
@@ -23,7 +23,7 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <DashboardEmployerSidebar />
+      <DashboardAdminSidebar />
       {/* <!-- End User Sidebar Menu --> */}
 
       {/* <!-- Dashboard --> */}

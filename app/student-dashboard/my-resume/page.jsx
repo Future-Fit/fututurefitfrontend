@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import MyResume from "@/components/dashboard-pages/candidates-dashboard/my-resume";
+import MyResume from "@/components/dashboard-pages/student-dashboard/my-resume";
 
 export const metadata = {
   title: "My Resume || Future Fit International - Job Portal Platform",

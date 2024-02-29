@@ -4,6 +4,9 @@ import MobileMenu from "@/components/header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import FooterDefault from "@/components/footer/common-footer";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
+import DashboardAdminHeader from "../../../components/header/DashboardAdminHeader"
+import DashboardStudentHeader from "../../../components/header/DashboardStudentsHeader"
+import DashboardEmployeeHeader from "../../../components/header/DashboardEmployerHeader"
 import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 
@@ -29,9 +32,11 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      {userType === 3 && <DashboardHeader />}
+      {userType === 1 && <DashboardAdminHeader />}
+      {userType === 3 && <DashboardEmployeeHeader />}
       {userType === 4 && <DashboardCandidatesHeader />}
-      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
+      {userType === 5 && <DashboardStudentHeader />}
+      {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
       {/* <DefaulHeader /> */}
       {/* <!--End Main Header --> */}
 

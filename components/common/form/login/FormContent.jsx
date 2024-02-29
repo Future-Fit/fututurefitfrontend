@@ -84,7 +84,7 @@ const FormContent = ({ onReset }) => {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userType", user.user_type_id);
         localStorage.setItem("loggedInUserId", user.id);
-        if (user.user_type_id === 3) {
+        if (user.user_type_id === 1) {
           const modalElement = document.getElementById("loginPopupModal");
           console.log(modalElement);
           modalElement.style.display = "none";
@@ -93,7 +93,16 @@ const FormContent = ({ onReset }) => {
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
-          router.push('/employers-dashboard/dashboard');
+          router.push('/admin-dashboard/dashboard');
+        } else if (user.user_type_id === 3) {
+          const modalElement = document.getElementById("loginPopupModal");
+          const modalBackDrop = document.getElementsByClassName('modal-backdrop');
+          modalBackDrop[0].style.display = "none";
+          modalElement.style.display = "none";
+          const body = document.getElementsByTagName("body");
+          body[0].classList.remove("modal-open");
+          body[0].style.overflow = "auto";
+          router.push('/employer-dashboard/my-profile');
         } else if (user.user_type_id === 4) {
           const modalElement = document.getElementById("loginPopupModal");
           const modalBackDrop = document.getElementsByClassName('modal-backdrop');
@@ -103,6 +112,15 @@ const FormContent = ({ onReset }) => {
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
           router.push('/candidates-dashboard/my-profile');
+        }else if (user.user_type_id === 5) {
+          const modalElement = document.getElementById("loginPopupModal");
+          const modalBackDrop = document.getElementsByClassName('modal-backdrop');
+          modalBackDrop[0].style.display = "none";
+          modalElement.style.display = "none";
+          const body = document.getElementsByTagName("body");
+          body[0].classList.remove("modal-open");
+          body[0].style.overflow = "auto";
+          router.push('/student-dashboard/my-profile');
         }
       } else {
         // If login fails
@@ -188,34 +206,34 @@ const FormContent = ({ onReset }) => {
         {/* password */}
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-  <div className="field-outer" style={{ display: 'flex', alignItems: 'center' }}>
-    <div className="input-group checkboxes square">
-      <input
-        type="checkbox"
-        name="remember-me"
-        id="remember"
-        // checked={rememberMe}
-        // onChange={handleRememberMe}
-      />
-      <label htmlFor="remember" className="remember" style={{ marginLeft: '5px' }}>
-        <span className="custom-checkbox"></span> 
-        <span style={{ verticalAlign: 'middle' }}>Remember me</span>
-      </label>
-    </div>
-  </div>
+          <div className="field-outer" style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="input-group checkboxes square">
+              <input
+                type="checkbox"
+                name="remember-me"
+                id="remember"
+              // checked={rememberMe}
+              // onChange={handleRememberMe}
+              />
+              <label htmlFor="remember" className="remember" style={{ marginLeft: '5px' }}>
+                <span className="custom-checkbox"></span>
+                <span style={{ verticalAlign: 'middle' }}>Remember me</span>
+              </label>
+            </div>
+          </div>
 
-  <div className="text">
-    <Link
-      href="#"
-      className="call-modal signup"
-      data-bs-toggle="modal"
-      data-bs-target="#forgetPassPopupModal"
-      style={{ color: 'blue' }}
-    >
-      Forgot Username/Password?
-    </Link>
-  </div>
-</div>
+          <div className="text">
+            <Link
+              href="#"
+              className="call-modal signup"
+              data-bs-toggle="modal"
+              data-bs-target="#forgetPassPopupModal"
+              style={{ color: 'blue' }}
+            >
+              Forgot Username/Password?
+            </Link>
+          </div>
+        </div>
 
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>

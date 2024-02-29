@@ -1,12 +1,12 @@
 import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
-import DashboardCandidatesSidebar from "../../../header/DashboardCandidatesSidebar";
 import BreadCrumb from "../../BreadCrumb";
 import CopyrightFooter from "../../CopyrightFooter";
 import Form from "./components/Form";
-import DashboardCandidatesHeader from "../../../header/DashboardCandidatesHeader";
+import DashboardStudenstsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
+import DashboardStudentsSidebar from "@/components/header/DashboardStudentSidebar";
 
 const index = () => {
   return (
@@ -17,13 +17,13 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardCandidatesHeader />
+      <DashboardStudenstsHeader />
       {/* End Header */}
 
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <DashboardCandidatesSidebar />
+      <DashboardStudentsSidebar />
       {/* <!-- End Candidates Sidebar Menu --> */}
 
       {/* <!-- Dashboard --> */}

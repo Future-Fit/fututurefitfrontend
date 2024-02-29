@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import ShortListedJobs from "@/components/dashboard-pages/candidates-dashboard/short-listed-jobs";
+import ShortListedJobs from "@/components/dashboard-pages/student-dashboard/short-listed-jobs";
 
 export const metadata = {
   title: "Short ListedJobs || Future Fit International - Job Portal Platform",

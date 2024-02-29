@@ -1,9 +1,9 @@
 "use client"
 import { useEffect, useState } from "react";
 import MobileMenu from "../../../header/MobileMenu";
-import DashboardHeader from "../../../header/DashboardEmployerHeader";
+import DashboardHeader from "../../../header/DashboardAdminHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
-import DashboardEmployerSidebar from "../../../header/DashboardEmployerSidebar";
+import DashboardAdminSidebar from "../../../header/DashboardAdminSidebar";
 import BreadCrumb from "../../BreadCrumb";
 import MyProfile from "./components/my-profile";
 import SocialNetworkBox from "./components/SocialNetworkBox";
@@ -45,7 +45,7 @@ const index = () => {
             <MobileMenu />
             {/* End MobileMenu */}
 
-            <DashboardEmployerSidebar />
+            <DashboardAdminSidebar />
             {/* <!-- End User Sidebar Menu --> */}
 
             {/* <!-- Dashboard --> */}

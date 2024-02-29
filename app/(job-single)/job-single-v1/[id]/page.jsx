@@ -12,6 +12,9 @@ import MapJobFinder from "@/components/job-listing-pages/components/MapJobFinder
 import SocialTwo from "@/components/job-single-pages/social/SocialTwo";
 import JobDetailsDescriptions from "@/components/job-single-pages/shared-components/JobDetailsDescriptions";
 import ApplyJobModalContent from "@/components/job-single-pages/shared-components/ApplyJobModalContent";
+import DashboardAdminHeader from '../../../../components/header/DashboardAdminHeader'
+import DashboardEmployeeHeader from '../../../../components/header/DashboardEmployerHeader'
+import DashboardStudentHeader from '../../../../components/header/DashboardStudentsHeader'
 import Image from "next/image";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import DashboardCandidatesHeader from "../../../../components/header/DashboardCandidatesHeader"
@@ -38,9 +41,11 @@ const JobSingleDynamicV1 = ({ params }) => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      {userType === 3 && <DashboardHeader />}
+      {userType === 1 && <DashboardAdminHeader />}
+      {userType === 3 && <DashboardEmployeeHeader />}
       {userType === 4 && <DashboardCandidatesHeader />}
-      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
+      {userType === 5 && <DashboardStudentHeader />}
+      {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />

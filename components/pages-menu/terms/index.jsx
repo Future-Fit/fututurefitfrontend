@@ -8,6 +8,9 @@ import TermsText from "./TermsText";
 import { useEffect, useState } from "react";
 import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
+import DashboardAdminHeader from '../../header/DashboardAdminHeader'
+import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 
 
 const index = () => {
@@ -29,9 +32,11 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      {userType === 3 && <DashboardHeader />}
+      {userType === 1 && <DashboardAdminHeader />}
+      {userType === 3 && <DashboardEmployeeHeader />}
       {userType === 4 && <DashboardCandidatesHeader />}
-      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
+      {userType === 5 && <DashboardStudentHeader />}
+      {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
       {/* <!--End Main Header --> */}
 
       <MobileMenu />

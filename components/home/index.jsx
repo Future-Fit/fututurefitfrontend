@@ -7,6 +7,9 @@ import DashboardHeader from "../header/DashboardEmployerHeader";
 import MobileMenu from "../header/MobileMenu";
 import LoginPopup from "../common/form/login/LoginPopup";
 import GlobalConfig from "@/Global.config";
+import DashboardAdminHeader from "../header/DashboardAdminHeader"
+import DashboardEmployeeHeader from "../header/DashboardEmployerHeader"
+import DashboardStudentHeader from "../header/DashboardStudentsHeader"
 
 import CookiesPopup from "./CookiesPopup";
 import Hero from "./hero/Hero"
@@ -45,10 +48,10 @@ const index = () => {
       {/* End login popup modal */}
 
       {/* Dashboards depend on user types */}
-      {userType === 1 && <DashboardHeader />}
-      {userType === 3 && <DashboardHeader />}
+      {userType === 1 && <DashboardAdminHeader />}
+      {userType === 3 && <DashboardEmployeeHeader />}
       {userType === 4 && <DashboardCandidatesHeader />}
-      {userType === 5 && <DashboardCandidatesHeader />}
+      {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
 
       {/* Show the mobile menu on the homepage */}

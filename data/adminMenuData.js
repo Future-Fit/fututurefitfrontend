@@ -1,0 +1,81 @@
+const { clearSession } = require("@/components/common/form/login/sessionHandler");
+
+module.exports = [
+  {
+    id: 1,
+    name: "Dashboard",
+    icon: "la-home",
+    routePath: "/admin-dashboard/dashboard",
+    active: "active",
+  },
+  {
+    id: 2,
+    name: "Company Profile",
+    icon: "la-user-tie",
+    routePath: "/admin-dashboard/company-profile",
+    active: "",
+  },
+  {
+    id: 3,
+    name: "Post a New Job",
+    icon: "la-paper-plane",
+    routePath: "/admin-dashboard/post-jobs",
+    active: "",
+  },
+  {
+    id: 4,
+    name: "Manage Jobs",
+    icon: "la-briefcase",
+    routePath: "/admin-dashboard/manage-jobs",
+    active: "",
+  },
+  {
+    id: 5,
+    name: "All Applicants",
+    icon: "la-file-invoice",
+    routePath: "/admin-dashboard/all-applicants",
+    active: "",
+  },
+  {
+    id: 6,
+    name: "Shortlisted Resumes",
+    icon: "la-bookmark-o",
+    routePath: "/admin-dashboard/shortlisted-resumes",
+    active: "",
+  },
+  {
+    id: 7,
+    name: "Packages",
+    icon: "la-box",
+    routePath: "/admin-dashboard/packages",
+    active: "",
+  },
+  {
+    id: 8,
+    name: "Messages",
+    icon: "la-comment-o",
+    routePath: "/admin-dashboard/messages",
+    active: "",
+  },
+  {
+    id: 9,
+    name: "Resume Alerts",
+    icon: "la-bell",
+    routePath: "/admin-dashboard/resume-alerts",
+    active: "",
+  },
+  {
+    id: 10,
+    name: "Change Password",
+    icon: "la-lock",
+    routePath: "/admin-dashboard/change-password",
+    active: "",
+  },
+  {
+    id: 11,
+    name: "Logout",
+    icon: "la-sign-out",
+    routePath: "/",
+    active: "",
+  },
+];

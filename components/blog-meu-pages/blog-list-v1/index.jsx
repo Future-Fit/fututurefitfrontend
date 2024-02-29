@@ -8,6 +8,9 @@ import BlogSidebar from "../blog-sidebar";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardHeader from "../../header/DashboardEmployerHeader";
+import DashboardAdminHeader from '../../../../components/header/DashboardAdminHeader'
+import DashboardEmployeeHeader from '../../../../components/header/DashboardEmployerHeader'
+import DashboardStudentHeader from '../../../../components/header/DashboardStudentsHeader'
 import { useEffect, useState } from "react";
 
 
@@ -30,9 +33,11 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      {userType === 3 && <DashboardHeader />}
+      {userType === 1 && <DashboardAdminHeader />}
+      {userType === 3 && <DashboardEmployeeHeader />}
       {userType === 4 && <DashboardCandidatesHeader />}
-      {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
+      {userType === 5 && <DashboardStudentHeader />}
+      {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
 
 
       <MobileMenu />
