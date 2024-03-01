@@ -20,14 +20,27 @@ import DashboardEmployeeHeader from "../../../components/header/DashboardEmploye
 import DashboardCandidatesHeader from "../../../components/header/DashboardCandidatesHeader"
 import DashboardStudentHeader from "../../../components/header/DashboardStudentsHeader"
 import DefaulHeader2 from "@/components/header/DefaultHeader";
+import Link from "next/link";
+
 
 const ShopSingleDyanmic = ({ id }) => {
   const [product, setProducts] = useState({});
   const [getQty, setQty] = useState(1);
   const [userType, setUserType] = useState();
   const dispatch = useDispatch();
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
+  useEffect(() => {
+    // Fetch product details based on id
+    if (!id) <h1>Loading...</h1>;
+    else setProducts(shopItems.find((item) => item.id == id) || shopItems[0]);
 
+    // Filter related products based on category
+    const related = shopItems.filter(item => item.category === product.category && item.id !== id);
+    setRelatedProducts(related.slice(0, 5)); // Limiting to 5 related products
+
+    return () => { };
+  }, [id, product.category]);
   useEffect(() => {
     const storedUserType = localStorage.getItem('userType');
     if (storedUserType) {
@@ -40,7 +53,7 @@ const ShopSingleDyanmic = ({ id }) => {
     if (!id) <h1>Loading...</h1>;
     else setProducts(shopItems.find((item) => item.id == id) || shopItems[0]);
 
-    return () => {};
+    return () => { };
   }, [id]);
 
   // add to cart
@@ -192,6 +205,35 @@ const ShopSingleDyanmic = ({ id }) => {
         </div>
       </section>
       {/* <!-- End Shop Single --> */}
+
+       {/* Related Product Tab */}
+       <section className="related-products">
+        <div className="auto-container">
+        <h3>Related Products</h3>
+          <div className="related-products-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
+            {relatedProducts.map((item) => (
+              <Link key={item.id} href={`/shop/shop-single/${item.id}`} passHref>
+                <div className="related-product-item" style={{ marginBottom: '20px', cursor: 'pointer' }}>
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={150}
+                    height={150}
+                  />
+                  <p>{item.title}</p>
+                  <button
+                    onClick={() => addToCart(item.id)}
+                    className="theme-btn btn-style-one"
+                  >
+                    <span className="flaticon-shopping-bag"></span> Add to Cart
+                  </button>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* End Related Product Tab */}
 
       <FooterDefault footerStyle="alternate5" />
       {/* <!-- End Main Footer --> */}
