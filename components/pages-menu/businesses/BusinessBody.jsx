@@ -4,7 +4,7 @@ import GlobalConfig from "@/Global.config";
 
 const BusinessBody = () => {
   return (
-    <div className="auto-container">
+    <div className="auto-container" >
       <div className="row">
         <div className="row">
           <div className="content-column col-md-8 col-sm-12" style={{ order: 0 }}>
@@ -12,24 +12,23 @@ const BusinessBody = () => {
               <div className="sec-title">
                 <h4 className="title" style={{ textAlign: "center", fontWeight: "600", color: GlobalConfig.Fgr1Clr }}>
                   Services We Offer...</h4>
-                <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontFamily: "Jost", textAlign: "justify" }}>
+                <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "16px", textAlign: "justify" }}>
                   <span>
-                    In today's competitive world, skilled labor is highly in demand. As a result, 
-                    Canadian businesses must look for skilled labor in global markets where they 
-                    may not have domain expertise. Here is where FFI's experience and global network
-                    comes in handy. For our Canadian business clients, we offer a comprehensive suite 
-                    of services that are tailored to solve the challenges they face.
-                    <br /><br />
-                    Our services encompass the following: <br /><br />
+                    In today's competitive world, skilled labor is highly in demand and businesses
+                    in need of filling positions that couldn't be filled locally have to look for 
+                    talent in global markets where they may not have domain expertise. Here is 
+                    where FFI's on the ground experience and global network comes in handy. For 
+                    our Canadian business clients, we offer a comprehensive suite of services that 
+                    are tailored to solve the challenges you face.
 
-                    <ul className="list-style-five" >
-                      <li>Meticulous talent sourcing from international markets </li>
-                      <li>Rigorous assessment procedures to ensure optimal fit </li>
-                      <li>Streamlined immigration processes to facilitate seamless relocation </li>
-                      <li>Ongoing support for successful integration into Canadian work culture</li>
-                    </ul>
+                    We have built a dedicated business portal where you can connect with skilled 
+                    workforce from our international pool of resources. But, we don't stop there. 
+                    FFI will actually do all the hard work for you so that we can identify 
+                    potential applicants who best match all of your criteria.
+                    <br /><br />                      
+                    For more information, please contact us. 
                     <br /><br />
-                  </span>
+                           </span>
                 </div>
               </div>
             </div>
@@ -39,23 +38,23 @@ const BusinessBody = () => {
             backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px",
           }} >
             {/* <figure className="image" data-aos="fade-right"> */}
-            <Image
+            {/* <Image
               width={400}
               height={400}
               src="/images/collaboration.jpeg"
               alt="About"
               style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
-            />
+            /> */}
             {/* </figure> */}
 
             <h4 style={{ textAlign: "center", paddingTop: "10px", fontWeight: "600", color: GlobalConfig.LogoOrg }}>
-              Why Choose Us?</h4>
+              Services for Employers:</h4>
             <div className="sec-title" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify" }}>
               <ul className="list-style-five" >
-                <li>Our experience in talent management</li>
-                <li>Our extensive global network</li>
-                <li>Our diversity & inclusivity</li>
-                <li>Our focus on community collaboration</li>
+                <li>Access to talent from international markets</li>
+                <li>Matching service to ensure optimal fit</li>
+                <li>Training to upgrade and/or add additional skills</li>
+                <li>Translation, document handling, related services</li>
               </ul>
             </div>
           </div>
@@ -65,15 +64,10 @@ const BusinessBody = () => {
           <div className="inner-column">
             <div className="sec-title">
               <div className="text" style={{ color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
-                <span> <strong> Company Structure: </strong></span> <br />
+                {/* <span> <strong> Company Structure: </strong></span> <br /> */}
                 <span>
-                  The company, headquartered in Canada - with satellite offices in Ethiopia (current) and upcoming
-                  expansions in Tanzania and Ghana - is designed to facilitate the strategic sourcing of skilled
-                  labor and recruitment of international students to Canada. At the helm is the executive leadership
-                  team overseeing operations, strategy and decision-making. Each satellite office operates under the
-                  guidance of the country director who oversees the day-to-day activities. Collaborative efforts
-                  between these offices ensure a unified and seamless process for identifying, vetting and assisting
-                  potential candidates in their pursuit of realizing their dreams to work and study in Canada.
+                  FFI's employer portal is the best place to start your global talent acquisition journey.
+                  Come work with us and we will make sure that we will exceed your expectations.
                 </span>
               </div>
             </div>

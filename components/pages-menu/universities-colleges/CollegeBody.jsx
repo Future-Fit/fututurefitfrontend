@@ -7,17 +7,17 @@ import Link from "next/link";
 const CollegeBody = () => {
   return (
     <div className="auto-container">
-      <div className="text" style={{ fontSize: "20px", color: GlobalConfig.Fgr1Clr, fontFamily: GlobalConfig.Fnt1Fam, textAlign: "justify" }}>
-        <span> <strong> Services for We Provide </strong></span><br /><br />
+      <div className="text" style={{ fontSize: "20px", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
+        <span> <strong> Services We Provide </strong></span><br /><br />
       </div>
-      <div className="text" style={{ fontSize: "14px", color: GlobalConfig.Fgr1Clr, fontFamily: GlobalConfig.Fnt1Fam, textAlign: "justify" }}>
+      <div className="text" style={{ fontSize: "14px", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
         <span>
         FFI is dedicated to partnering with Canadian colleges and universities to enhance 
         their global outreach and attract a diverse array of international students. Through 
         our comprehensive suite of services, we aim to promote Canadian educational institutions 
         as world-class destinations for higher learning.  <br /><br />
 
-        Our tailored approach includes representing Canadian colleges and universities in the 
+        Our list of services includes representing Canadian colleges and universities in the 
         following ways: <br /><br />
 
           <ul className="list-style-five" >
