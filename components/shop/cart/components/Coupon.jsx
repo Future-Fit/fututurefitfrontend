@@ -17,8 +17,8 @@ const Coupon = () => {
             </div>
 
             <div className="form-group pull-right">
-                <button type="button" className="theme-btn btn-style-three">
-                    update cart
+                <button onClick={`/shop/shop-list`} type="button" className="theme-btn btn-style-three">
+                    Add More Item
                 </button>
             </div>
         </div>
