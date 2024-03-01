@@ -1,8 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import GlobalConfig from "@/Global.config";
+import { useEffect } from "react";
 
 const StudentBody = () => {
+
+  const studentService = [
+    { id: 1, text: "Text Titlengjhgjb hgh fjjgfkblhjk jgkhgkjb jsdgfjhgsh fghfgsh ", textDetail: "Text Detail", link: "/"},
+    { id: 2, text: "Text Title", textDetail: "Text Detail", link: "/" },
+    { id: 3, text: "Text Title", textDetail: "Text Detail", link: "/"  },
+    { id: 4, text: "Text Title", textDetail: "Text Detail", link: "/"  }
+  ];
+
+  useEffect(() => {
+    studentService.forEach(partner => {
+      // measureText(partner.id);
+    });
+  }, []);
+
   return (
     <div className="auto-container" >
       <div className="row">
@@ -57,13 +72,16 @@ const StudentBody = () => {
 
             <h4 style={{ textAlign: "center", paddingTop: "10px", fontWeight: "600", color: GlobalConfig.LogoOrg }}>
               List of Services for Students:</h4>
-            <div className="sec-title" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify" }}>
-              <ul className="list-style-five" >
-                <li>1... </li>
-                <li>2...</li>
-                <li>3...</li>
-                <li>4...</li>
-              </ul>
+            <div className="sec-title" style={{ color: GlobalConfig.BgrClr1, textAlign: "left" }}>
+              {studentService.map((item) => (
+                <ul className="list-style-five" >
+                  <a href={item.link} rel="noreferrer noopener">
+                  <li>{item.text} </li>
+                  </a>
+                  <li>{item.textDetail} </li>
+
+                </ul>
+              ))}
             </div>
           </div>
         </div>
