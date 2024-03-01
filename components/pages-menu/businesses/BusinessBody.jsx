@@ -8,54 +8,58 @@ const BusinessBody = () => {
       <div className="row">
         <div className="row">
           <div className="content-column col-md-8 col-sm-12" style={{ order: 0 }}>
-            <div className="inner-column" data-aos="fade-left">
-              <div className="sec-title">
-                <h4 className="title" style={{ textAlign: "center", fontWeight: "600", color: GlobalConfig.Fgr1Clr }}>
-                  Services We Offer...</h4>
-                <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "16px", textAlign: "justify" }}>
-                  <span>
-                    In today's competitive world, skilled labor is highly in demand and businesses
-                    in need of filling positions that couldn't be filled locally have to look for 
-                    talent in global markets where they may not have domain expertise. Here is 
-                    where FFI's on the ground experience and global network comes in handy. For 
-                    our Canadian business clients, we offer a comprehensive suite of services that 
-                    are tailored to solve the challenges you face.
-
-                    We have built a dedicated business portal where you can connect with skilled 
-                    workforce from our international pool of resources. But, we don't stop there. 
-                    FFI will actually do all the hard work for you so that we can identify 
-                    potential applicants who best match all of your criteria.
-                    <br /><br />                      
-                    For more information, please contact us. 
-                    <br /><br />
-                           </span>
-                </div>
+            <div className="sec-title">
+              <h4 className="title" style={{ textAlign: "center", fontWeight: "600", color: GlobalConfig.Fgr1Clr }}>
+                Services We Offer</h4>
+              <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1em", textAlign: "justify" }}>
+                <span>
+                  In today's competitive world, Canadian businesses need to fill positions quickly.
+                  When they can't do so locally, businesses have to look for talent globally.
+                  Here is where FFI's on the ground presence and global network comes in handy. For
+                  our Canadian business clients, we offer a comprehensive suite of services tailored
+                  to your needs.
+                  <br /><br />
+                  We have built a dedicated business portal where you can connect with skilled
+                  workforce from our international pool of resources. But, we don't stop there.
+                  We will actually do all the hard work for you to narrow down the list of
+                  applicants by identifying best matches based on your recruiting criteria.
+                  <br /><br />
+                  <span>We serve our business clients in the following industries:</span>
+                  <ul className="list-style-five" style={{
+                    color: GlobalConfig.BgrClr1,
+                    textAlign: "justify"
+                  }}>
+                    <li>Healthcare</li>
+                    <li>Engineering/High-Tech/IT</li>
+                    <li>Manufacturing</li>
+                    <li>Construction</li>
+                    <li>Transportation</li>
+                    <li>Other Skilled Services</li>
+                  </ul>
+                  <br />
+                  For more information, please contact us today.
+                  <br /><br />
+                </span>
               </div>
             </div>
           </div>
           <div className="image-column col-md-4 col-sm-12" style={{
-            display: "grid", justifyItems: "center",
-            backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px",
+            height: "fit-content", marginTop: "30px", display: "grid", justifyItems: "center",
+            backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px", paddingBottom: "20px"
           }} >
-            {/* <figure className="image" data-aos="fade-right"> */}
-            {/* <Image
-              width={400}
-              height={400}
-              src="/images/collaboration.jpeg"
-              alt="About"
-              style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
-            /> */}
-            {/* </figure> */}
-
-            <h4 style={{ textAlign: "center", paddingTop: "10px", fontWeight: "600", color: GlobalConfig.LogoOrg }}>
-              Services for Employers:</h4>
-            <div className="sec-title" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify" }}>
-              <ul className="list-style-five" >
-                <li>Access to talent from international markets</li>
-                <li>Matching service to ensure optimal fit</li>
-                <li>Training to upgrade and/or add additional skills</li>
-                <li>Translation, document handling, related services</li>
-              </ul>
+            <h4 style={{
+              textAlign: "center", paddingTop: "20px", fontWeight: "600",
+              color: GlobalConfig.LogoOrg
+            }}>
+              Are These Familiar to You?</h4>
+            <ul className="list-style-five">
+              <li>Not knowing where to start to recruit globally</li>
+              <li>Not knowing local recruiting regulations </li>
+              <li>Too many applicants without the required skills</li>
+              <li>Documentations need translation</li>
+            </ul>
+            <div> <br />
+              <span style={{color: GlobalConfig.Fgr1Clr}}> We can solve these and other problems for you!</span>
             </div>
           </div>
         </div>
