@@ -13,18 +13,17 @@ const BusinessBody = () => {
                 Services We Offer</h4>
               <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1em", textAlign: "justify" }}>
                 <span>
-                  In today's competitive world, Canadian businesses need to fill positions quickly.
-                  When they can't do so locally, businesses have to look for talent globally.
+                  In today's competitive world, businesses need to fill positions quickly.
+                  When they can't do so locally, they look for talent globally.
                   Here is where FFI's on the ground presence and global network comes in handy. For
-                  our Canadian business clients, we offer a comprehensive suite of services tailored
-                  to your needs.
+                  our Canadian business clients, we offer a comprehensive suite of services.
                   <br /><br />
-                  We have built a dedicated business portal where you can connect with skilled
+                  Using our dedicated business portal Canadian employers can connect with skilled
                   workforce from our international pool of resources. But, we don't stop there.
                   We will actually do all the hard work for you to narrow down the list of
                   applicants by identifying best matches based on your recruiting criteria.
                   <br /><br />
-                  <span>We serve our business clients in the following industries:</span>
+                  <span>We serve our clients in the following industries:</span>
                   <ul className="list-style-five" style={{
                     color: GlobalConfig.BgrClr1,
                     textAlign: "justify"
@@ -36,42 +35,50 @@ const BusinessBody = () => {
                     <li>Transportation</li>
                     <li>Other Skilled Services</li>
                   </ul>
-                  <br />
-                  For more information, please contact us today.
-                  <br /><br />
                 </span>
               </div>
             </div>
           </div>
-          <div className="image-column col-md-4 col-sm-12" style={{
+          <div className="col-md-4 col-sm-12" style={{ width: "fit-content",
             height: "fit-content", marginTop: "30px", display: "grid", justifyItems: "center",
             backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px", paddingBottom: "20px"
           }} >
+            <Image
+              width={60}
+              height={60}
+              src="/images/icons/Question.png"
+              alt="Business"
+              style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
+            />
             <h4 style={{
               textAlign: "center", paddingTop: "20px", fontWeight: "600",
-              color: GlobalConfig.LogoOrg
+              color: GlobalConfig.Fgr1Clr
             }}>
-              Are These Familiar to You?</h4>
-            <ul className="list-style-five">
+              Familiar with These Issues?</h4>
+            <ul className="list-style-five" style={{ textAlign: "left" }}>
               <li>Not knowing where to start to recruit globally</li>
               <li>Not knowing local recruiting regulations </li>
               <li>Too many applicants without the required skills</li>
-              <li>Documentations need translation</li>
+              <li>Need to provide training/skills development</li>
+              <li>Documents need translation</li>
             </ul>
             <div> <br />
-              <span style={{color: GlobalConfig.Fgr1Clr}}> We can solve these and other problems for you!</span>
+              <span style={{ color: GlobalConfig.Fgr1Clr }}>
+                We can solve these and other problems for you. <br />
+                <strong> Contact us today!</strong></span>
             </div>
           </div>
         </div>
         <div className="content-column col-100 col-md-12 col-sm-12">
-          {/* <div className="inner-column" data-aos="fade-left"> */}
           <div className="inner-column">
             <div className="sec-title">
-              <div className="text" style={{ color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
-                {/* <span> <strong> Company Structure: </strong></span> <br /> */}
+              <div className="text" style={{
+                color: GlobalConfig.Fgr1Clr, textAlign: "justify",
+                fontSize: "1em",
+              }}>
                 <span>
-                  FFI's employer portal is the best place to start your global talent acquisition journey.
-                  Come work with us and we will make sure that we will exceed your expectations.
+                  FFI's employer portal is the best place to start your search for global talent.
+                  Come work with us. We will exceed your expectations.
                 </span>
               </div>
             </div>
@@ -84,7 +91,7 @@ const BusinessBody = () => {
             color: "white",
             backgroundColor: GlobalConfig.LogoBlu
           }}>
-            <span className="btn-title"><strong>Business Portal</strong></span>
+            <span className="btn-title"><strong>Employer Portal</strong></span>
           </Link>
         </div>
       </div >

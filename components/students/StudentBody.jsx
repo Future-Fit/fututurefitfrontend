@@ -2,14 +2,36 @@ import Image from "next/image";
 import Link from "next/link";
 import GlobalConfig from "@/Global.config";
 import { useEffect } from "react";
+import { Tab } from "bootstrap";
 
 const StudentBody = () => {
 
   const studentService = [
-    { id: 1, text: "Text Titlengjhgjb hgh fjjgfkblhjk jgkhgkjb jsdgfjhgsh fghfgsh ", textDetail: "Text Detail", link: "/"},
-    { id: 2, text: "Text Title", textDetail: "Text Detail", link: "/" },
-    { id: 3, text: "Text Title", textDetail: "Text Detail", link: "/"  },
-    { id: 4, text: "Text Title", textDetail: "Text Detail", link: "/"  }
+    {
+      id: 1, text: "Search Institutions",
+      textDetail: "Search Institutions",
+      link: "/"
+    },
+    {
+      id: 2, text: "Search Scholarships/Financial Aid",
+      textDetail: "Search Scholarships/Financial Aid",
+      link: "/"
+    },
+    {
+      id: 3, text: "Gather & Package Application Material",
+      textDetail: "Gather/Package Application Material",
+      link: "/"
+    },
+    {
+      id: 4, text: "Obtain Permits",
+      textDetail: "Obtain Permits",
+      link: "/"
+    },
+    {
+      id: 5, text: "Pre-Arrival/After-Arrival Support",
+      textDetail: "Pre-Arrival/After-Arrival Support",
+      link: "/"
+    }
   ];
 
   useEffect(() => {
@@ -27,61 +49,68 @@ const StudentBody = () => {
               <div className="sec-title">
                 <h4 className="title" style={{ textAlign: "center", fontWeight: "600", color: GlobalConfig.Fgr1Clr }}>
                   Services We Offer...</h4>
-                <div className="text" style={{ fontSize: "14px", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
+                <div className="text" style={{ fontSize: "1em", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
                   <span>
                     FFI provides key services to international students seeking to study in Canada.
                     Starting from providing extensive information about Canadian colleges and universities
-                    and their diverse range of programs, FFI helps students navigate through the entire
-                    application process, supported by advisors who will provide guidance along the way.
+                    and their diverse range of programs, to guiding students through the entire
+                    application process, to searching for scholarships based on your choice of study,
+                    to helping with travel and relocation services, FFI will support you achieve your
+                    dream of studying in Canada. <br /><br />
                     Service areas we offer to students include: <br />
 
                     <ul className="list-style-five" >
-                      <li>Search the right universities/colleges and matching of programs to students' interests </li>
-                      <li>Searching for any available scholarships for students based on their programs of choice</li>
-                      <li>Putting together students application package</li>
-                      <li>Obtaining provincial attestation letter (as needed)</li>
-                      <li>Getting study permit</li>
-                      <li>Providing visa application and travel related services </li>
-                      <li>Providing resources and guidance to settle students and their families in Canada</li>
+                      <li><strong>Search Institutions:</strong><br />Conduct extensive research on your behalf
+                        for suitable university/college choices based on your program of choice,
+                        location, and other criteria. We will advise you on which intake date is
+                        appropriate for you.</li>
+                      <li><strong>Search Scholarships/Financial Aid:</strong><br />Perform research
+                        for you on scholarships and other financial aid packages available for international
+                        students based on your achievements, program of choice, etc.</li>
+                      <li><strong>Gather & Package Application Material:</strong><br />We will find out all
+                        requirements that must be fulfilled for an application and gather and package the
+                        necessary documents for you. We also check to make sure that you have completed all
+                        requirements and, finally, remind you to submit the application on time.</li>
+                      <li><strong>Obtain Permits:</strong><br />International students will require
+                        appropriate permits to study in Canada, including provincial attestation letter (PAL)
+                        and study permit. You may also need a vtudent visa. We can help you figure this out.</li>
+                      <li><strong>Pre-Arrival/After-Arrival Support:</strong><br />We provide extended
+                        services to students regarding travel, relocation and family support for
+                        international students and their families.</li>
                     </ul>
                     <br />
-                    From providing research on colleges and universtities to submitting applications to
-                    supporting students as they settle into their new environment, FFI is committed to
-                    enabling international students with everything they need as they embark on their
-                    education journey and pursuit of fulfilling their dreams in Canada.
-                    <br /><br />
-                    Please select the services you would like to learn more about and their prices from the list.
+                    Please select services to learn about prices and our package deals.
                   </span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="image-column col-md-4 col-sm-12" style={{
-            display: "grid", justifyItems: "center",
-            backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px",
+          <div className="image-column col-md-4 col-sm-12" style={{ 
+            width: "fit-content", height: "fit-content", marginTop: "30px"
           }} >
-            {/* <figure className="image" data-aos="fade-right"> */}
-            {/* <Image
-              width={400}
-              height={400}
-              src="/images/collaboration.jpeg"
-              alt="About"
-              style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
-            /> */}
-            {/* </figure> */}
-
-            <h4 style={{ textAlign: "center", paddingTop: "10px", fontWeight: "600", color: GlobalConfig.LogoOrg }}>
-              List of Services for Students:</h4>
-            <div className="sec-title" style={{ color: GlobalConfig.BgrClr1, textAlign: "left" }}>
-              {studentService.map((item) => (
-                <ul className="list-style-five" >
-                  <a href={item.link} rel="noreferrer noopener">
-                  <li>{item.text} </li>
-                  </a>
-                  <li>{item.textDetail} </li>
-
-                </ul>
-              ))}
+            <div className="item-one-list" style={{ 
+            backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px",
+          }}>
+              <h4 style={{ textAlign: "center", paddingTop: "10px", fontWeight: "600", color: GlobalConfig.LogoOrg }}>
+                Select Services to Order:</h4>
+              <div className="sec-title" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify" }}>
+                {studentService.map((item) => (
+                  <ul className="list-style-five" >
+                    <a href={item.link} rel="noreferrer noopener">
+                      <li>{item.text} </li>
+                    </a>
+                    {/* <li>{item.textDetail} </li> */}
+                  </ul>
+                ))}
+              </div>
+            </div>
+            <div className="item-two-table">
+              <table style={{color:GlobalConfig.Fgr1Clr}}>
+                <tr style={{backgroundColor: GlobalConfig.LogoOrg}}> <th>Intake </th> <th>Deadline</th> </tr>
+                <tr> <td>January</td> <td>August - September</td> </tr>
+                <tr> <td>May</td> <td>January - February</td> </tr>
+                <tr> <td>September</td> <td>February - April</td> </tr>
+              </table>
             </div>
           </div>
         </div>
@@ -89,13 +118,16 @@ const StudentBody = () => {
           {/* <div className="inner-column" data-aos="fade-left"> */}
           <div className="inner-column">
             <div className="sec-title">
-              <div className="text" style={{ color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
+              <div className="text" style={{
+                color: GlobalConfig.Fgr1Clr, fontSize: "1em",
+                textAlign: "justify"
+              }}>
                 {/* <span> <strong> Company Structure: </strong></span> <br /> */}
                 <span>
                   From providing research on colleges and universtities to submitting applications to
                   supporting students as they settle into their new environment, FFI is committed to
                   enabling international students with everything they need as they embark on their
-                  education journey and pursuit of fulfilling their dreams in Canada.
+                  education pursuit in Canada. For more detail, please sign up today.
                 </span>
               </div>
             </div>

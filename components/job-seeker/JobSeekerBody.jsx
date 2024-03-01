@@ -8,9 +8,9 @@ const JobSeekerBody = () => {
   return (
     <div className="auto-container">
       <div className="text" style={{ fontSize: "20px", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
-        <span> <strong> FFI Gets You the Edge ...  </strong></span><br /><br />
+        <span> <strong> Giving You the Edge ...  </strong></span><br /><br />
       </div>
-      <div className="text" style={{ fontSize: "14px", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
+      <div className="text" style={{ fontSize: "1em", color: GlobalConfig.Fgr1Clr, textAlign: "justify" }}>
         <span>
           FFI facilitates employment and career development opportunities in Canada. Through its 
           employer-employee matching and verification services, skilled job seekers who want to 
