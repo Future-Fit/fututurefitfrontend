@@ -8,7 +8,7 @@ import HeaderNavContent from "./HeaderNavContent";
 import { isActiveLink } from "../../utils/linkActiveChecker";
 import { clearSession } from "../common/form/login/sessionHandler";
 import axios from "axios";
-
+import { useDispatch, useSelector } from "react-redux";
 import { usePathname, useRouter } from "next/navigation";
 import GlobalConfig from "@/Global.config";
 import { debounce } from "lodash";
@@ -23,7 +23,7 @@ const DashboardCandidatesHeader = () => {
     const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
     const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
     const [hoveredItemStyle, setHoveredItemStyle] = useState({}); // State to manage inline style for hovered item
-
+    const { cart } = useSelector((state) => state.shop) || {};
     const [searchValue, setSearchValue] = useState('');
     const [jobPostings, setJobPostings] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
@@ -244,9 +244,9 @@ const DashboardCandidatesHeader = () => {
         <header
             className={`main-header header-style-two  ${navbar ? "fixed-header" : ""
                 }`}
-                style={{backgroundColor: GlobalConfig.BgHeader}}
+            style={{ backgroundColor: GlobalConfig.BgHeader }}
         >
-            <div className="auto-container" style={{backgroundColor: GlobalConfig.BgHeader}}>
+            <div className="auto-container" style={{ backgroundColor: GlobalConfig.BgHeader }}>
                 {/* <!-- Main box --> */}
                 <div className="main-box">
                     {/* <!--Nav Outer --> */}
@@ -274,6 +274,14 @@ const DashboardCandidatesHeader = () => {
 
 
                     <div className="outer-box">
+                        {cart && cart.length > 0 && ( // Check if cart exists and is not empty
+                            <Link href="/shop/cart">
+                                <button className="menu-btn me-3">
+                                    <span className="count">{cart.length}</span>
+                                    <span className="icon flaticon-shopping-cart" />
+                                </button>
+                            </Link>
+                        )}
                         <div className="dropdown dashboard-option">
                             <a
                                 className="dropdown-toggle"

@@ -12,6 +12,7 @@ import axios from "axios";
 import GlobalConfig from "@/Global.config";
 import Autosuggest from "react-autosuggest";
 import { debounce } from "lodash";
+import { useDispatch, useSelector } from "react-redux";
 import apiConfig from "@/app.config";
 
 
@@ -29,6 +30,7 @@ const DashboardHeader = () => {
     const [filteredPostings, setFilteredPostings] = useState([]);
     const router = useRouter(); // Initialize the router
     const searchContainerRef = useRef(null);
+    const { cart } = useSelector((state) => state.shop) || {};
     const [suggestionValue, setSuggestionValue] = useState('');
 
 
@@ -235,7 +237,7 @@ const DashboardHeader = () => {
                 }`}
             style={headerStyle}
         >
-            <div className="auto-container" style={{backgroundColor: GlobalConfig.BgHeader}}>
+            <div className="auto-container" style={{ backgroundColor: GlobalConfig.BgHeader }}>
                 {/* <!-- Main box --> */}
                 <div className="main-box">
                     {/* <!--Nav Outer --> */}
@@ -258,6 +260,14 @@ const DashboardHeader = () => {
                     </div>
 
                     <div className="outer-box">
+                        {cart && cart.length > 0 && ( // Check if cart exists and is not empty
+                            <Link href="/shop/cart">
+                                <button className="menu-btn me-3">
+                                    <span className="count">{cart.length}</span>
+                                    <span className="icon flaticon-shopping-cart" />
+                                </button>
+                            </Link>
+                        )}
                         {/* <!-- Dashboard Option --> */}
                         <div className="dropdown dashboard-option">
                             <a

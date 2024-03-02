@@ -18,7 +18,8 @@ const Coupon = () => {
     };
     // Function to handle button click
     const handleAddMoreItemClick = () => {
-        router.push('/shop/shop-list'); // Navigate to '/shop/shop-list'
+        // router.push('/shop/shop-list'); // Navigate to '/shop/shop-list'
+        router.back();
     };
     return (
         <div className="apply-coupon">

@@ -9,7 +9,7 @@ import axios from "axios";
 import { debounce } from "lodash";
 import Autosuggest from "react-autosuggest";
 import apiConfig from "@/app.config";
-
+import { useDispatch, useSelector } from "react-redux";
 
 const DefaulHeader2 = () => {
   const [navbar, setNavbar] = useState(true);
@@ -18,7 +18,7 @@ const DefaulHeader2 = () => {
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const loggedInUserId = typeof window !== 'undefined' ? localStorage.getItem("loggedInUserId") : null;
-
+  const { cart } = useSelector((state) => state.shop) || {};
   const [searchValue, setSearchValue] = useState('');
   const [jobPostings, setJobPostings] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
@@ -247,6 +247,20 @@ const DefaulHeader2 = () => {
           </div>
 
           <div className="outer-box">
+            {cart && cart.length > 0 && ( // Check if cart exists and is not empty
+              <Link href="/shop/cart">
+                <button className="menu-btn me-3">
+                  <span className="count">{cart.length}</span>
+                  <span className="icon flaticon-shopping-cart" />
+                </button>
+              </Link>
+            )}
+            {/* <Link href="/shop/cart">
+              <button className="menu-btn me-3">
+                <span className="count">{cart?.length}</span>
+                <span className="icon flaticon-shopping-cart" />
+              </button>
+            </Link> */}
             <div className="d-flex align-items-center btn-box2">
               <a
                 href="#"

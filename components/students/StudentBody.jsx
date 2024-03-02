@@ -44,11 +44,11 @@ const StudentBody = () => {
   //   }
   // ];
 
-  useEffect(() => {
-    studentService.forEach(partner => {
-      // measureText(partner.id);
-    });
-  }, []);
+  // useEffect(() => {
+  //   studentService.forEach(partner => {
+  //     // measureText(partner.id);
+  //   });
+  // }, []);
 
   return (
     <div className="auto-container" >

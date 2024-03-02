@@ -38,7 +38,7 @@ const DashboardCandidatesHeader = () => {
 
     useEffect(() => {
         dispatch(reloadCart());
-      }, [dispatch, reloadCart]);
+    }, [dispatch, reloadCart]);
 
     const handleLanguageChange = (language) => {
         setSelectedLanguage(language);
@@ -315,12 +315,14 @@ const DashboardCandidatesHeader = () => {
                             </ul>
                         </div>
 
-                        <Link href="/shop/cart">
-                            <button className="menu-btn me-3">
-                                <span className="count">{cart?.length}</span>
-                                <span className="icon flaticon-shopping-cart" />
-                            </button>
-                        </Link>
+                        {cart && cart.length > 0 && ( // Check if cart exists and is not empty
+                            <Link href="/shop/cart">
+                                <button className="menu-btn me-3">
+                                    <span className="count">{cart.length}</span>
+                                    <span className="icon flaticon-shopping-cart" />
+                                </button>
+                            </Link>
+                        )}
                         {/* End dropdown */}
                     </div>
                     {/* End outer-box */}
