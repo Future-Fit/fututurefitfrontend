@@ -142,7 +142,7 @@ module.exports = [
     category: "Student Service",
     inStock: "333",
   },{
-    id: 16,
+    id: 17,
     title: "Pre-Arrival/After-Arrival Support",
     img: "/images/resource/products/5.jpg",
     price: "77.99",

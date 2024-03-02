@@ -244,33 +244,6 @@ const FormContent = ({ onReset }) => {
           {/* Increased font size for the body */}
         </Toast.Body>
       </Toast>
-
-      {/* <Toast
-        onClose={() => {
-          setFormData('')
-          setPasswordError('')
-          setRegistrationMessage('')
-
-        }}
-        show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
-        delay={900000}
-        autohide
-        style={{
-          position: 'fixed',
-          top: '50%', // Adjust the top position
-          left: '50%', // Adjust the left position
-          transform: 'translate(-50%, -50%)', // Center the toast using transform
-          minWidth: '200px',
-          zIndex: 10000, // Ensure the Toast is above the backdrop
-        }}
-      >
-        <Toast.Header closeButton={true} style={{fontSize: '15'}}>
-          <strong className="me-auto">{passwordError ? 'Error' : 'Message'}</strong>
-        </Toast.Header >
-        <Toast.Body>
-          {passwordError ? passwordError : registrationMessage}
-        </Toast.Body>
-      </Toast> */}
     </form>
   );
 };
