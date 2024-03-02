@@ -2,37 +2,47 @@ import Image from "next/image";
 import Link from "next/link";
 import GlobalConfig from "@/Global.config";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Tab } from "bootstrap";
+import shopItems from "@/data/shopItems";
+import { addCart } from "@/features/shop/shopSlice";
 
 const StudentBody = () => {
+  const dispatch = useDispatch();
 
-  const studentService = [
-    {
-      id: 1, text: "Search Institutions",
-      textDetail: "Search Institutions",
-      link: "/"
-    },
-    {
-      id: 2, text: "Search Scholarships/Financial Aid",
-      textDetail: "Search Scholarships/Financial Aid",
-      link: "/"
-    },
-    {
-      id: 3, text: "Gather & Package Application Material",
-      textDetail: "Gather/Package Application Material",
-      link: "/"
-    },
-    {
-      id: 4, text: "Obtain Permits",
-      textDetail: "Obtain Permits",
-      link: "/"
-    },
-    {
-      id: 5, text: "Pre-Arrival/After-Arrival Support",
-      textDetail: "Pre-Arrival/After-Arrival Support",
-      link: "/"
-    }
-  ];
+  // add to cart
+  const addToCart = (id) => {
+    const item = shopItems?.find((item) => item.id === id);
+    dispatch(addCart({ product: item }));
+  };
+
+  // const studentService = [
+  //   {
+  //     id: 1, text: "Search Institutions",
+  //     textDetail: "Search Institutions",
+  //     link: "/"
+  //   },
+  //   {
+  //     id: 2, text: "Search Scholarships/Financial Aid",
+  //     textDetail: "Search Scholarships/Financial Aid",
+  //     link: "/"
+  //   },
+  //   {
+  //     id: 3, text: "Gather & Package Application Material",
+  //     textDetail: "Gather/Package Application Material",
+  //     link: "/"
+  //   },
+  //   {
+  //     id: 4, text: "Obtain Permits",
+  //     textDetail: "Obtain Permits",
+  //     link: "/"
+  //   },
+  //   {
+  //     id: 5, text: "Pre-Arrival/After-Arrival Support",
+  //     textDetail: "Pre-Arrival/After-Arrival Support",
+  //     link: "/"
+  //   }
+  // ];
 
   useEffect(() => {
     studentService.forEach(partner => {
@@ -85,19 +95,19 @@ const StudentBody = () => {
               </div>
             </div>
           </div>
-          <div className="image-column col-md-4 col-sm-12" style={{ 
+          <div className="image-column col-md-4 col-sm-12" style={{
             width: "fit-content", height: "fit-content", marginTop: "30px"
           }} >
-            <div className="item-one-list" style={{ 
-            backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px",
-          }}>
+            <div className="item-one-list" style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: "5px",
+            }}>
               <h4 style={{ textAlign: "center", paddingTop: "10px", fontWeight: "600", color: GlobalConfig.LogoOrg }}>
                 Select Services to Order:</h4>
               <div className="sec-title" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify" }}>
-                {studentService.map((item) => (
+                {shopItems.filter(item => item.category === "Student Service").map((item) => (
                   <ul className="list-style-five" >
-                    <a href={item.link} rel="noreferrer noopener">
-                      <li>{item.text} </li>
+                    <a href={`/shop/shop-single/${item.id}`} rel="noreferrer noopener">
+                      <li>{item.title} </li>
                     </a>
                     {/* <li>{item.textDetail} </li> */}
                   </ul>
@@ -105,8 +115,8 @@ const StudentBody = () => {
               </div>
             </div>
             <div className="item-two-table">
-              <table style={{color:GlobalConfig.Fgr1Clr}}>
-                <tr style={{backgroundColor: GlobalConfig.LogoOrg}}> <th>Intake </th> <th>Deadline</th> </tr>
+              <table style={{ color: GlobalConfig.Fgr1Clr }}>
+                <tr style={{ backgroundColor: GlobalConfig.LogoOrg }}> <th>Intake </th> <th>Deadline</th> </tr>
                 <tr> <td>January</td> <td>August - September</td> </tr>
                 <tr> <td>May</td> <td>January - February</td> </tr>
                 <tr> <td>September</td> <td>February - April</td> </tr>

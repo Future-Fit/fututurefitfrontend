@@ -109,7 +109,7 @@ module.exports = [
   },
   {
     id: 13,
-    title: "Student Service 1",
+    title: "Search Institutions",
     img: "/images/resource/products/5.jpg",
     price: "77.99",
     oldPrice: "99",
@@ -118,7 +118,7 @@ module.exports = [
   },
   {
     id: 14,
-    title: "Student Service 2",
+    title: "Search Scholarships/Financial Aid",
     img: "/images/resource/products/5.jpg",
     price: "77.99",
     oldPrice: "99",
@@ -127,7 +127,7 @@ module.exports = [
   },
   {
     id: 15,
-    title: "Student Service 3",
+    title: "Gather & Package Application Material",
     img: "/images/resource/products/5.jpg",
     price: "77.99",
     oldPrice: "99",
@@ -135,7 +135,15 @@ module.exports = [
     inStock: "333",
   }, {
     id: 16,
-    title: "Student Service 4",
+    title: "Obtain Permits",
+    img: "/images/resource/products/5.jpg",
+    price: "77.99",
+    oldPrice: "99",
+    category: "Student Service",
+    inStock: "333",
+  },{
+    id: 16,
+    title: "Pre-Arrival/After-Arrival Support",
     img: "/images/resource/products/5.jpg",
     price: "77.99",
     oldPrice: "99",
