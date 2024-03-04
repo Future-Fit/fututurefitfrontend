@@ -1,8 +1,8 @@
 import GlobalConfig from "@/Global.config";
 
 import visionimg from '@/public/images/about/vision.svg'
-import goalsimg from '@/public/images/about/mission.svg'
-import misionimg from '@/public/images/about/objective.svg'
+import misionimg from '@/public/images/about/mission.svg'
+import goalsimg from '@/public/images/about/objective.svg'
 import valueimg from '@/public/images/about/list-of-items.svg'
 
 module.exports = [

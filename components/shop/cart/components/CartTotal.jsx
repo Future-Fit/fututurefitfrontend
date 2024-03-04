@@ -42,7 +42,10 @@ const CartTotal = () => {
                     <span className="col">tax (15%)</span>
                     <span className="col price">${tax.toFixed(2)}</span>
                 </li>
-
+                <li>
+                    <span className="col">discount</span>
+                    <span className="col price">${tax.toFixed(2)}</span>
+                </li>
                 <li>
                     <span className="col">Total</span>
                     <span className="col price">

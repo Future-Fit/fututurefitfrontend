@@ -29,6 +29,7 @@ const ShopSingleDyanmic = ({ id }) => {
   const [userType, setUserType] = useState();
   const dispatch = useDispatch();
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null; // Check if user is logged in
 
   useEffect(() => {
     // Fetch product details based on id
@@ -84,7 +85,7 @@ const ShopSingleDyanmic = ({ id }) => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <Breadcrumb title="Shop Single" meta={product?.title} />
+      <Breadcrumb title="Service Ordering Details" meta={product?.title} />
       {/* <!--End Page Title--> */}
 
       {/* <!-- Start Shop Single --> */}
@@ -95,14 +96,14 @@ const ShopSingleDyanmic = ({ id }) => {
             {/*  <!--Start Basic Details--> */}
             <div className="basic-details">
               <div className="row clearfix">
-                <div className="image-column col-md-6 col-sm-12">
+                <div className="image-column col-md-4">
                   <Gallery>
                     <figure className="image">
                       <Item
                         original={product?.img}
                         thumbnail={product?.img}
-                        width={410}
-                        height={410}
+                        width={100}
+                        height={100}
                       >
                         {({ ref, open }) => (
                           <div
@@ -111,8 +112,8 @@ const ShopSingleDyanmic = ({ id }) => {
                             onClick={open}
                           >
                             <Image
-                              width={410}
-                              height={410}
+                              width={100}
+                              height={100}
                               src={product?.img}
                               alt="shop single product for job board"
                             />
@@ -128,17 +129,17 @@ const ShopSingleDyanmic = ({ id }) => {
                 <div className="info-column col-md-6 col-sm-12">
                   <div className="inner-column">
                     <h4 className="product-name">
-                      {product?.title} - KeySmart - Premium Key Holders
+                      {product?.title} - {product?.description}
                     </h4>
                     <div className="text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Tempus nulla faucibus viverra nisl non senectus tortor.
-                      Suspendisse pellentesque elementum proin diam.
+                    {product?.details}
                     </div>
-                    <div className="item-price">
-                      ${product?.price}
-                      <del>${product?.oldPrice}</del>
-                    </div>
+                    {isLoggedIn ? (
+                      <div className="item-price">
+                        ${product?.price}
+                        {/* <del>${product?.oldPrice}</del> */}
+                      </div>
+                    ) : "Please Login"}
 
                     <div className="other-options">
                       <div className="item-quantity">
@@ -150,9 +151,9 @@ const ShopSingleDyanmic = ({ id }) => {
                           min={1}
                           onChange={(e) => qtyHandler(e.target.value)}
                         />
-                        <span className="in-stock">
-                          {product?.inStock} in stock
-                        </span>
+                        {/* <span className="in-stock">
+                          {product?.inStock} Available now
+                        </span> */}
                       </div>
                       {/* End item-quantity */}
 
@@ -177,15 +178,15 @@ const ShopSingleDyanmic = ({ id }) => {
                     {/* End others-options */}
 
                     <ul className="product-meta">
-                      <li>
+                      {/* <li>
                         <span>Sku:</span> RTA-0058
-                      </li>
+                      </li> */}
                       <li>
                         <span>Category:</span> {product?.category}
                       </li>
-                      <li>
+                      {/* <li>
                         <span>Tags:</span> Business / Seo
-                      </li>
+                      </li> */}
                     </ul>
                     {/* End product-meta */}
                   </div>
@@ -209,7 +210,7 @@ const ShopSingleDyanmic = ({ id }) => {
        {/* Related Product Tab */}
        <section className="related-products">
         <div className="auto-container">
-        <h3>Related Products</h3>
+        <h3>Related Services</h3>
           <div className="related-products-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
             {relatedProducts.map((item) => (
               <Link key={item.id} href={`/shop/shop-single/${item.id}`} passHref>
@@ -217,8 +218,8 @@ const ShopSingleDyanmic = ({ id }) => {
                   <Image
                     src={item.img}
                     alt={item.title}
-                    width={150}
-                    height={150}
+                    width={50}
+                    height={50}
                   />
                   <p>{item.title}</p>
                   <button

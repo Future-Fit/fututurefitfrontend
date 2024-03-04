@@ -8,7 +8,7 @@ const Breadcrumb = ({ title = "", meta = "" }) => {
           <h1>{title}</h1>
           <ul className="page-breadcrumb">
             <li>
-              <Link href="/shop/shop-list">Shop</Link>
+              <Link href="/shop/shop-list">Services</Link>
             </li>
             <li>{meta}</li>
           </ul>

@@ -36,14 +36,15 @@ const ResetPassword = ({ token }) => {
         }
         if (validatePassword(password)) {
             try {
-
-                const response = await axios.post(`${apiConfig.url}/auth/reset-password/${token}`, {
+                // const response = await axios.post(`${apiConfig.url}/auth/reset-password/${token}`, {
+                const response = await axios.post(`https://api.futurefitinternational.com/auth/reset-password/${token}`, {
                     newPassword: password,
                     confirmPassword: confirmPassword
                 });
                 setResetInfo(response.data); // Store response data in resetInfo state
                 // Handle success (optional)
-                console.log('Password reset successfully:', response.data);
+                // console.log('Password reset successfully:', response.data);
+                alert('Password reset successfully!');
                 setPassword('');
                 setConfirmPassword('');
                 router.push('/login'); // Redirect to the login page after successful password reset

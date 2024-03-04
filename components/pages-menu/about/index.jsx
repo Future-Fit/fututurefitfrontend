@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 import AboutBody from "@/components/about/AboutBody";
 import AboutTop from "@/components/about/AboutTop";
+import GlobalConfig from "@/Global.config";
 
 const index = () => {
 
@@ -43,15 +44,18 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <section className="about-section-two" style={{alignItems: "center",
-      backgroundImage: "url(../../images/background/20.jpg)",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center center",
-      backgroundSize: "cover"
+      <section className="about-section-two" style={{
+        alignItems: "center",
+        backgroundImage: "url(../../images/background/20.jpg)",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover"
       }}>
-        <div className="auto-container" style={{alignItems: "center"}}>
+        <div className="auto-container" style={{ alignItems: "center" }}>
           <div className="container-fluid">
-            <div className="sec-title text-center" style={{paddingBottom: "20px"}}> <h2>About Us</h2> </div>
+            <div className="sec-title text-center"
+              style={{ paddingBottom: "20px" }}>
+              <h2>About Us</h2> </div>
             <div className="carousel-outer" data-aos="fade-up">
               <div className="about-carousel">
                 <AboutTop />

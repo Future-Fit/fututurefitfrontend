@@ -204,6 +204,7 @@ const FormContent = ({ onReset }) => {
 
       <div className="form-group">
         <label style={{ display: 'inline-block', marginLeft: '5px' }}>User Type</label>
+        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
         <select value={userType} onChange={handleUserTypeChange} required>
           <option value="job seeker">Job Seeker</option>
           <option value="student">Student</option>
