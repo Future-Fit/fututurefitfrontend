@@ -53,7 +53,7 @@ const index = () => {
         <div className="auto-container" style={{ alignItems: "center" }}>
           <div className="container-fluid">
             <div className="sec-title text-center" style={{ padding: "50px 0" }}>
-              <h2 style={{ color: GlobalConfig.LogoOrg }}>Universities & Colleges</h2> </div>
+              <h2 style={{ color: GlobalConfig.Fgr1Clr }}>Universities & Colleges</h2> </div>
           </div>
         </div>
       </section >

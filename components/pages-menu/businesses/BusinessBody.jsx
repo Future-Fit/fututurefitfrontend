@@ -2,36 +2,40 @@ import Image from "next/image";
 import Link from "next/link";
 import GlobalConfig from "@/Global.config";
 
+import React, { useEffect, useRef, useState } from 'react';
+import BusinessSlider from "@/components/pages-menu/businesses/BusinessSlider";
+
 const BusinessBody = () => {
 
   return (
     <div className="auto-container" >
       <div className="row">
         <div className="row">
-          <div className="outer-column col-md-4 col-sm-12" style={{ order: 0, display: "grid", justifyContent: "center", marginTop: "2%" }}>
+          <div className="outer-column col-md-4 col-sm-12" style={{ order: 0, display: "grid", justifyContent: "center", alignContent: "center" }}>
             <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
               <div className="list" style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
                 width: "fit-content", height: "fit-content", padding: "0 20px 20px 20px"
               }}>
-                <div style={{ display: "grid", justifyContent: "center" }}>            <Image
-                  width={60}
-                  height={60}
-                  src="/images/icons/Question.png"
-                  alt="Business"
-                  style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
-                />
+                <div style={{ display: "grid", justifyContent: "center" }}>
+                  <Image
+                    width={60}
+                    height={60}
+                    src="/images/icons/Question.png"
+                    alt="Business"
+                    style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
+                  />
                 </div>
-                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoBlu, paddingTop: "10px" }}>
-                  Familiar with These Issues?</h4>
+                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoBlu, textAlign: "center", paddingTop: "10px" }}>
+                  Recruiting Globally?</h4>
                 <ul className="list-style-five" style={{ textAlign: "left" }}>
-                  <li>Where to start recruiting globally</li>
-                  <li>What are the local recruiting regulations </li>
-                  <li>How to match applicants with requirements</li>
-                  <li>Need to provide skills/language training</li>
-                  <li>Credentials/documents need translation</li>
+                  <li>Where to start looking for talent?</li>
+                  <li>What local regulations to consider? </li>
+                  <li>How to match skills with requirements?</li>
+                  <li>How to verify/translate credentials?</li>
+                  <li>How to provide skills/language training?</li>
                 </ul>
-                <div style={{textAlign: "center"}}> <br />
+                <div style={{ textAlign: "center", paddingTop: "10px" }}>
                   <span style={{ color: GlobalConfig.Fgr1Clr }}>
                     We solve these and other problems. <br />
                     <strong> Contact us today!</strong></span>
@@ -47,28 +51,28 @@ const BusinessBody = () => {
                   color: GlobalConfig.Fgr1Clr, paddingTop: "3%"
                 }}>
                   Services for Employers</h4>
-                <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1em", textAlign: "justify" }}>
+                <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1.1em", textAlign: "justify", lineHeight: "1.4em" }}>
                   <span>
                     In today's competitive world, businesses need to fill positions quickly.
-                    When they can't do so locally, they look for talent globally.
-                    Here is where FFI's on the ground presence and network comes in handy. For
-                    Canadian businesses, we offer a comprehensive suite of services.
+                    When they can't do so locally, FFI's global network and on the ground presence
+                    comes in handy.
                     <br /><br />
                     Using our dedicated business portal, employers can connect with skilled
                     workforce from our international pool of resources. But, we don't stop there;
-                    we will do all the hard work for you to match applicants with your recruiting criteria.
+                    we do all the hard work for you ranging from matching skills with
+                    job requirements to offering different training programs.
                     <br /><br />
-                    <span>We serve our clients in the following industries:</span>
+                    <span>Although not an exclusive list, we typically serve our clients in the
+                      following industries:</span>
                     <ul className="list-style-five" style={{
-                      color: GlobalConfig.BgrClr1,
-                      textAlign: "justify"
+                      color: GlobalConfig.BgrClr1, textAlign: "justify", left: "5px", paddingLeft: "17px"
                     }}>
                       <li>Healthcare</li>
                       <li>Engineering/High-Tech/IT</li>
                       <li>Manufacturing</li>
                       <li>Construction</li>
-                      <li>Transportation</li>
-                      <li>Other skilled services</li>
+                      <li>Transportation/Logistics</li>
+                      <li>Skilled Trades</li>
                     </ul>
                   </span>
                 </div>
@@ -76,16 +80,49 @@ const BusinessBody = () => {
             </div>
           </div>
         </div>
+
+        <BusinessSlider/>
+
+        {/* <div className="content-column col-100 col-md-12 col-sm-12">
+          <section className="banner-section-ten" style={{ height: 'fit-content' }}>
+            {/* <BusinessSlider /> */}
+            {/* <Image
+              width={60}
+              height={60}
+              src="/images/icons/Question.png"
+              alt="Business"
+              style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
+            /> */}
+
+            {/* <div>
+              <Slider>
+                <Image
+                  width={60}
+                  height={60}
+                  src="/images/icons/Question.png"
+                  alt="Business"
+                  style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
+                />
+              </Slider>
+            </div>
+          </section>
+        </div> */}
+
         <div className="content-column col-100 col-md-12 col-sm-12">
           <div className="inner-column">
             <div className="sec-title">
-              <div className="text" style={{
-                color: GlobalConfig.Fgr1Clr, textAlign: "justify",
-                fontSize: "1em",
-              }}>
+              <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1.1em", textAlign: "justify", lineHeight: "1.4em" }}>
                 <span>
                   FFI's employer portal is the best place to start your search for global talent.
-                  Come work with us; we will exceed your expectations.
+                  You can also contact us via&nbsp;
+                  <a href="/contact"
+                    className style={{ textDecoration: "underline", color: GlobalConfig.Fgr1Clr, fontSize: "1.0em", textAlign: "justify", lineHeight: "1.4em" }}>
+                    email</a>
+                  &nbsp;or on our dedicated&nbsp;
+                  <a href="tel: +1-833-688-5577"
+                    className style={{ textDecoration: "underline", color: GlobalConfig.Fgr1Clr, fontSize: "1.0em", textAlign: "justify", lineHeight: "1.4em" }}>
+                    phone line</a>
+                  &nbsp;at any time.
                 </span>
               </div>
             </div>

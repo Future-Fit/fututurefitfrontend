@@ -72,7 +72,7 @@ const Index = () => {
                       <div style={{ flexGrow: 1, }}>
                         <p className="phone-num">
                           <span> <Image src='/images/canada.png' width={40} height={20} alt="Canada" /></span>
-                          <a href="tel: +1-800-422-8061">+1-800-422-8061</a><br />
+                          <a href="tel: +1-833-688-5577">+1-833-688-5577</a><br />
                           <a color="#fff !important" href="mailto:info@futurefitint.com " className="email">
                             info@futurefitint.com
                           </a>

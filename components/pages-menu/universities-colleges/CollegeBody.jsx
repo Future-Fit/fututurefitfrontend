@@ -60,7 +60,7 @@ const CollegeBody = () => {
                   <li>Screening</li>
                   <li>Translations</li>
                 </ul>
-                <div> <br />
+                <div style={{textAlign: "center"}}> <br />
                   <span style={{ color: GlobalConfig.Fgr1Clr }}>
                     <strong> Contact us today!</strong></span>
                 </div>

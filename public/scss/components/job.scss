@@ -1629,20 +1629,20 @@ Job Detail Section
 
 .list-style-five li {
   position: relative;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 18px;
   color: #344f70;
-  padding-left: 15px;
+  padding-left: 12px;
   margin-top: 10px;
 }
 
 .list-style-five li:before {
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 8px;
   height: 4px;
   width: 4px;
-  background: #202124;
+  background: #344f70;
   content: "";
 }
 

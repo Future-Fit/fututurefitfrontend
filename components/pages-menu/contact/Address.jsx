@@ -25,8 +25,8 @@ const Address = () => {
       title: "Call Us",
       text: (
         <>
-          <a href="tel:+1-800-422-8061" className="phone">
-            +1-800-422-8061
+          <a href="tel:+1-833-688-5577" className="phone">
+            +1-833-688-5577
           </a>
         </>
       ),
@@ -45,7 +45,7 @@ const Address = () => {
       text: (
         <>
           {" "}
-          <a href="mailto:info@futurefitinternational.com ">info@futurefitinternational.com </a>
+          <a href="mailto:info@futurefitint.com ">info@futurefitint.com </a>
         </>
       ),
     },

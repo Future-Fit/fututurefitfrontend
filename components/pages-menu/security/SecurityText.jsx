@@ -288,7 +288,7 @@ const SecurityText = () => {
               <li>By email: info@futurefitint.com</li>
               <li>By visiting this page on our website: <a href="/contact" style={{ color: GlobalConfig.Fgr1Clr }}>https://futurefitinternational.com/contact</a>
               </li>
-              <li>By phone number: +1-800-422-8061 </li>
+              <li>By phone number: +1-833-688-5577 </li>
             </ul>
           </div>
         </p>
