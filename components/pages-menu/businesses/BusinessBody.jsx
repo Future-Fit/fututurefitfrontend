@@ -13,10 +13,7 @@ const BusinessBody = () => {
         <div className="row">
           <div className="outer-column col-md-4 col-sm-12" style={{ order: 0, display: "grid", justifyContent: "center", alignContent: "center" }}>
             <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
-              <div className="list" style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
-                width: "fit-content", height: "fit-content", padding: "0 20px 20px 20px"
-              }}>
+              <div className="list" style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px', width: "fit-content", height: "fit-content", padding: "0 20px 20px 20px" }}>
                 <div style={{ display: "grid", justifyContent: "center" }}>
                   <Image
                     width={60}
@@ -46,10 +43,7 @@ const BusinessBody = () => {
           <div className="content-column col-md-8 col-sm-12">
             <div className="inner-column" data-aos="fade-left">
               <div className="sec-title">
-                <h4 className="title" style={{
-                  textAlign: "center", fontWeight: "600",
-                  color: GlobalConfig.Fgr1Clr, paddingTop: "3%"
-                }}>
+                <h4 className="title" style={{ textAlign: "center", fontWeight: "600", color: GlobalConfig.Fgr1Clr, paddingTop: "3%" }}>
                   Services for Employers</h4>
                 <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1.1em", textAlign: "justify", lineHeight: "1.4em" }}>
                   <span>
@@ -64,9 +58,7 @@ const BusinessBody = () => {
                     <br /><br />
                     <span>Although not an exclusive list, we typically serve our clients in the
                       following industries:</span>
-                    <ul className="list-style-five" style={{
-                      color: GlobalConfig.BgrClr1, textAlign: "justify", left: "5px", paddingLeft: "17px"
-                    }}>
+                    <ul className="list-style-five" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify", left: "5px", paddingLeft: "17px" }}>
                       <li>Healthcare</li>
                       <li>Engineering/High-Tech/IT</li>
                       <li>Manufacturing</li>
@@ -81,32 +73,11 @@ const BusinessBody = () => {
           </div>
         </div>
 
-        <BusinessSlider/>
-
-        {/* <div className="content-column col-100 col-md-12 col-sm-12">
-          <section className="banner-section-ten" style={{ height: 'fit-content' }}>
-            {/* <BusinessSlider /> */}
-            {/* <Image
-              width={60}
-              height={60}
-              src="/images/icons/Question.png"
-              alt="Business"
-              style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
-            /> */}
-
-            {/* <div>
-              <Slider>
-                <Image
-                  width={60}
-                  height={60}
-                  src="/images/icons/Question.png"
-                  alt="Business"
-                  style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
-                />
-              </Slider>
-            </div>
-          </section>
-        </div> */}
+        <div className="content-column col-100 col-md-12 col-sm-12">
+          <div className="inner-column">
+            <BusinessSlider />
+          </div>
+        </div>
 
         <div className="content-column col-100 col-md-12 col-sm-12">
           <div className="inner-column">
@@ -131,10 +102,7 @@ const BusinessBody = () => {
           </div>
         </div>
         <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-          <Link href="/register" className="theme-btn btn-style-one bg-blue" style={{
-            color: "white",
-            backgroundColor: GlobalConfig.LogoBlu
-          }}>
+          <Link href="/register" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.LogoBlu }}>
             <span className="btn-title"><strong>Employer Portal</strong></span>
           </Link>
         </div>
