@@ -1,39 +1,97 @@
-/* Container holding the image and the text */
+/* Add this to your CSS file */
 .flip-container {
-    perspective: 1000px;
-  }
+  perspective: 1000px;
+}
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  // position: relative;
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container, .flipper {
+  height: 300px; /* Adjust based on your actual content size */
+}
+
+.slick-prev, .slick-next {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  border-radius: 50%; /* Circular background */
+}
+
+.slick-prev:before, .slick-next:before {
+  color: white; /* Ensure the arrow icon color contrasts with the background */
+}
+
+.slick-prev:before, .slick-next:before {
+  color: rgb(135, 97, 218); /* Or any color that contrasts well with your background */
+}
+
+/* Custom arrow styles */
+.slick-prev, .slick-next {
+  background: #6a53c7; /* Black background for visibility */
+  border-radius: 50%; /* Creates the circle shape */
+  width: 40px; /* Size of the circle */
+  height: 40px; /* Size of the circle */
+  display: flex !important; /* Use flexbox to center the arrow */
+  align-items: center; /* Center the arrow vertically */
+  justify-content: center; /* Center the arrow horizontally */
+  z-index: 1; /* Ensure the arrows are above the slider content */
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 20px; /* Adjust the size of the arrow */
+  color: #fff; /* White arrow for contrast */
+  opacity: 1 !important; /* Ensure the arrow is fully visible */
+}
+
+/* Additional styling to position the arrows more effectively */
+.slick-prev {
+  left: 10px; /* Distance from the left edge */
+}
+
+.slick-next {
+  right: 10px; /* Distance from the right edge */
+}
+
+.slick-arrow {
+  background-color: #FFF; // Choose a suitable background color
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
   
-  /* Flip the container when hovered */
-  .flip-container:hover .flipper, .flip-container.hover .flipper {
-    transform: rotateY(180deg);
+  &:hover {
+    background-color: #DDD; // Darken the background on hover for visual feedback
   }
-  
-  .flipper {
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    position: relative;
-  }
-  
-  /* Front and back styling */
-  .front, .back {
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Front styling */
-  .front {
-    /* Adjust as needed */
-    z-index: 2;
-    transform: rotateY(0deg);
-  }
-  
-  /* Back styling, where the detailed text will go */
-  .back {
-    transform: rotateY(180deg);
-    z-index: 3; /* Ensure this is above the .front layer */
-  }
-  
+}
+

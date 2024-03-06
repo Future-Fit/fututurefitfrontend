@@ -6,16 +6,42 @@ import "slick-carousel/slick/slick-theme.css";
 import { faArrows } from '@fortawesome/free-solid-svg-icons';
 
 const BusinessSlider = () => {
+
+
+  function CustomArrow(props) {
+    const { className, style, onClick, type } = props;
+    const icon = type === 'next' ? faArrowRight : faArrowLeft;
+
+    return (
+      <button
+        className={`slick-arrow ${className}`}
+        onClick={onClick}
+        style={{
+          ...style,
+          display: 'block',
+          top: '50%',
+          transform: 'translateY(-50%)', // Centers the button vertically
+          zIndex: 25 // Ensure the button is above other content
+        }}
+      >
+        <FontAwesomeIcon icon={icon} />
+      </button>
+    );
+  }
   const settings = {
-    dots: false,
-    faArrows: true,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 4,
     autoplay: false,
     autoplaySpeed: 2000,
+    nextArrow: <CustomArrow type="next" />,
+    prevArrow: <CustomArrow type="prev" />,
   };
+
+
+
 
   // Define an array of objects, each representing a slide with an image and text
   const slidesData = [
@@ -43,15 +69,14 @@ const BusinessSlider = () => {
       imgSrc: "/images/icons/Question.png",
       detailText: "Sixth image detail text goes here. Customize as needed."
     },
-    // Add more slides as needed
   ];
 
   return (
-    <div style={{ maxWidth: '300px', margin: 'auto' }}>
+    <div style={{ maxWidth: '100%', margin: 'auto' }}>
       <Slider {...settings}>
         {slidesData.map((slide, index) => (
           <div key={index} className="flip-container">
-            <div className="flipper">
+            <div className="flipper" style={{ margin: '0 15px' }}>
               <div className="front">
                 {/* Image side */}
                 <Image src={slide.imgSrc} alt={`Slide ${index}`}

@@ -18,6 +18,7 @@ const FormContent = ({ onReset }) => {
   const [passwordError, setPasswordError] = useState("");
   const [registrationMessage, setRegistrationMessage] = useState(null);
   const [userData, setUserData] = useState(null);
+  const [showForm, setShowForm] = useState(true);
 
   const resetForm = () => {
     setFormData({
@@ -69,6 +70,7 @@ const FormContent = ({ onReset }) => {
         if (response.ok) {
           setUserData(responseData.result); // Save user data to state
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
+          // setShowForm(false); 
 
           resetForm();
           // Additional API call to send verification email
@@ -127,125 +129,129 @@ const FormContent = ({ onReset }) => {
   };
 
   return (
-    <form method="post" onSubmit={handleSubmit}>
+    // <>
+    //   {showForm && (
+        <form method="post" onSubmit={handleSubmit}>
 
-      <div className="form-group">
-        <label style={{ display: 'inline-block', marginLeft: '5px' }}>First Name</label>
-        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
-        <input
-          type="text"
-          name="fname"
-          placeholder="First Name"
-          required value={formData.fname}
-          onChange={handleChange} />
-      </div>
-      <div className="form-group">
-        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Last Name</label>
-        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+          <div className="form-group">
+            <label style={{ display: 'inline-block', marginLeft: '5px' }}>First Name</label>
+            <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+            <input
+              type="text"
+              name="fname"
+              placeholder="First Name"
+              required value={formData.fname}
+              onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label style={{ display: 'inline-block', marginLeft: '5px' }}>Last Name</label>
+            <label style={{ color: 'red', display: 'inline-block' }}>*</label>
 
-        <input
-          type="text"
-          name="lname"
-          placeholder="Last Name"
-          required value={formData.lname}
-          onChange={handleChange} />
-      </div>
-      <div className="form-group">
-        <label>Phone Number</label>
-        <input
-          type="text"
-          name="phone"
-          placeholder="Phone Number"
-          value={formData.phone}
-          onChange={handleChange} />
-      </div>
+            <input
+              type="text"
+              name="lname"
+              placeholder="Last Name"
+              required value={formData.lname}
+              onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Phone Number</label>
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange} />
+          </div>
 
-      <div className="form-group">
-        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Email Address</label>
-        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+          <div className="form-group">
+            <label style={{ display: 'inline-block', marginLeft: '5px' }}>Email Address</label>
+            <label style={{ color: 'red', display: 'inline-block' }}>*</label>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Username" required
-          value={formData.email}
-          onChange={handleChange} />
-      </div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Username" required
+              value={formData.email}
+              onChange={handleChange} />
+          </div>
 
-      <div className="form-group">
-        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Password</label>
-        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
-        <input
-          id="password-field"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
-      </div>
+          <div className="form-group">
+            <label style={{ display: 'inline-block', marginLeft: '5px' }}>Password</label>
+            <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+            <input
+              id="password-field"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
+          </div>
 
-      <div className="form-group">
-        <label style={{ display: 'inline-block', marginLeft: '5px' }}>Confirm Password</label>
-        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
-        <input
-          id="confirm-password-field"
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          required
-        />
-        {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
-      </div>
+          <div className="form-group">
+            <label style={{ display: 'inline-block', marginLeft: '5px' }}>Confirm Password</label>
+            <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+            <input
+              id="confirm-password-field"
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+            {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
+          </div>
 
-      <div className="form-group">
-        <label style={{ display: 'inline-block', marginLeft: '5px' }}>User Type</label>
-        <label style={{ color: 'red', display: 'inline-block' }}>*</label>
-        <select value={userType} onChange={handleUserTypeChange} required>
-          <option value="job seeker">Job Seeker</option>
-          <option value="student">Student</option>
-        </select>
-      </div>
-      
-      <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
-        <button className="theme-btn btn-style-one" type="submit">
-          Submit
-        </button>
-      </div>
-      <Toast
-        onClose={() => {
-          setFormData('');
-          setPasswordError('');
-          setRegistrationMessage('');
-        }}
-        show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
-        delay={900000}
-        autohide
-        style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          minWidth: '200px',
-          zIndex: 10000,
-        }}
-      >
-        <Toast.Header closeButton={true} style={{ fontSize: '15px' }}>
-          <strong className="me-auto" style={{ fontSize: '20px' }}>
-            {passwordError ? 'Error' : 'Message'}
-          </strong>
-          {/* Increased font size for the title */}
-        </Toast.Header>
-        <Toast.Body style={{ fontSize: '18px' }}>
-          {passwordError ? passwordError : registrationMessage}
-          {/* Increased font size for the body */}
-        </Toast.Body>
-      </Toast>
-    </form>
+          <div className="form-group">
+            <label style={{ display: 'inline-block', marginLeft: '5px' }}>User Type</label>
+            <label style={{ color: 'red', display: 'inline-block' }}>*</label>
+            <select value={userType} onChange={handleUserTypeChange} required>
+              <option value="job seeker">Job Seeker</option>
+              <option value="student">Student</option>
+            </select>
+          </div>
+
+          <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
+            <button className="theme-btn btn-style-one" type="submit">
+              Submit
+            </button>
+          </div>
+          <Toast
+            onClose={() => {
+              setFormData('');
+              setPasswordError('');
+              setRegistrationMessage('');
+            }}
+            show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
+            delay={900000}
+            autohide
+            style={{
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              minWidth: '200px',
+              zIndex: 10000,
+            }}
+          >
+            <Toast.Header closeButton={true} style={{ fontSize: '15px' }}>
+              <strong className="me-auto" style={{ fontSize: '20px' }}>
+                {passwordError ? 'Error' : 'Message'}
+              </strong>
+              {/* Increased font size for the title */}
+            </Toast.Header>
+            <Toast.Body style={{ fontSize: '18px' }}>
+              {passwordError ? passwordError : registrationMessage}
+              {/* Increased font size for the body */}
+            </Toast.Body>
+          </Toast>
+        </form>
+    //   )}
+    // </>
   );
 };
 

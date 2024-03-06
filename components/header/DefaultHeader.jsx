@@ -27,6 +27,7 @@ const DefaulHeader2 = () => {
   const searchContainerRef = useRef(null);
   const [suggestionValue, setSuggestionValue] = useState('');
   const [noResultsFound, setNoResultsFound] = useState(false);
+  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null; // Check if user is logged in
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -247,14 +248,35 @@ const DefaulHeader2 = () => {
           </div>
 
           <div className="outer-box">
-            {cart && cart.length > 0 && ( // Check if cart exists and is not empty
+          {cart && cart.length > 0 && (
+              // Check if cart exists and is not empty
+              isLoggedIn ? (
+                // If the user is logged in, render a Link component to the cart page with a button showing the cart length
+                <Link href="/shop/cart">
+                  <button className="menu-btn me-3">
+                    <span className="count">{cart.length}</span>
+                    <span className="icon flaticon-shopping-cart" />
+                  </button>
+                </Link>
+              ) : (
+                // If the user is not logged in, render a text prompting the user to login
+                <Link href="/login">
+                <button className="menu-btn me-3">
+                    <span className="count">{cart.length}</span>
+                    <span className="icon flaticon-shopping-cart" />
+                  </button>
+                </Link>
+              )
+            )}
+
+            {/* {cart && cart.length > 0 && ( // Check if cart exists and is not empty
               <Link href="/shop/cart">
                 <button className="menu-btn me-3">
                   <span className="count">{cart.length}</span>
                   <span className="icon flaticon-shopping-cart" />
                 </button>
               </Link>
-            )}
+            )} */}
             {/* <Link href="/shop/cart">
               <button className="menu-btn me-3">
                 <span className="count">{cart?.length}</span>

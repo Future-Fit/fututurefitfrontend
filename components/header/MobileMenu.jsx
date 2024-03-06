@@ -10,6 +10,8 @@ import { debounce } from "lodash";
 import axios from 'axios';
 import Autosuggest from "react-autosuggest";
 import apiConfig from "@/app.config";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const MobileMenu = () => {
   const [navbar, setNavbar] = useState(true);
@@ -19,14 +21,14 @@ const MobileMenu = () => {
   const defaultLanguage = 'EN';
   const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
   const searchContainerRef = useRef(null);
-
+  const { cart } = useSelector((state) => state.shop) || {};
   const [searchValue, setSearchValue] = useState('');
   const [jobPostings, setJobPostings] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [filteredPostings, setFilteredPostings] = useState([]);
   const [suggestionValue, setSuggestionValue] = useState('');
-
+  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null; // Check if user is logged in
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
@@ -48,7 +50,7 @@ const MobileMenu = () => {
 
   const [headerStyle, setHeaderStyle] = useState({
     backgroundColor: GlobalConfig.BgHeader,
-    color:'white',
+    color: 'white',
     boxShadow: 'none',
     position: 'fixed',
     zIndex: 999,
@@ -304,9 +306,32 @@ const MobileMenu = () => {
 
           <div className="outer-box" style={{ display: 'flex', alignItems: 'center' }}>
 
+            {cart && cart.length > 0 && (
+              // Check if cart exists and is not empty
+              isLoggedIn ? (
+                // If the user is logged in, render a Link component to the cart page with a button showing the cart length
+                <Link href="/shop/cart">
+                  <button className="menu-btn me-3">
+                    <span className="count">{cart.length}</span>
+                    <span className="icon flaticon-shopping-cart" />
+                  </button>
+                </Link>
+              ) : (
+                // If the user is not logged in, render a text prompting the user to login
+                <Link href="/login">
+                <button className="menu-btn me-3">
+                    <span className="count">{cart.length}</span>
+                    <span className="icon flaticon-shopping-cart" />
+                  </button>
+                </Link>
+              )
+            )}
+
+
+
 
             {loggedIn ? (
-              <div className="dropdown" style={{ display: 'flex', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px'}}>
+              <div className="dropdown" style={{ display: 'flex', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px' }}>
                 <div className="login-box" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
                   <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
                     <span className="fas fa-user"></span>
@@ -331,7 +356,7 @@ const MobileMenu = () => {
               data-bs-target="#offcanvasMenu"
               onClick={handleToggleSidebar}
             >
-              <span className="fas fa-bars" style={{paddingLeft: '15px'}}></span>
+              <span className="fas fa-bars" style={{ paddingLeft: '15px' }}></span>
             </a>
             {/* right humberger menu */}
 
@@ -447,7 +472,7 @@ const MobileMenu = () => {
           </div>
         </div>
       </div>
-    </header>
+    </header >
   );
 };
 
