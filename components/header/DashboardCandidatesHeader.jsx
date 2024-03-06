@@ -394,7 +394,6 @@ const DashboardCandidatesHeader = () => {
                                 backgroundImage: 'none',
                                 boxShadow: 'none',
                                 borderRadius: '5px',
-                                marginRight: '-100px'
                             }}
                         >
                             <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>

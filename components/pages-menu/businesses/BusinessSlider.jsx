@@ -4,8 +4,6 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './slider.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const BusinessSlider = () => {
 
@@ -51,8 +49,9 @@ const BusinessSlider = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    nextArrow: <CustomArrow type="next" />,
     prevArrow: <CustomArrow type="prev" />,
+    nextArrow: <CustomArrow type="next" />,
+
   };
 
   // Define an array of objects, each representing a slide with an image and text

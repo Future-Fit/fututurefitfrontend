@@ -363,65 +363,65 @@ const DashboardHeader = () => {
                                 )}
                             </div>
                         )}
-                    </div>
-                    <div className="dropdown">
-                        <button
-                            className="btn btn-secondary dropdown-toggle"
-                            type="button"
-                            id="languageDropdown"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                            style={{
-                                position: 'relative',
-                                backgroundColor: GlobalConfig.BgHeader,
-                                borderColor: GlobalConfig.BgHeader,
-                                backgroundImage: 'none',
-                                boxShadow: 'none',
-                                borderRadius: '5px',
-                                marginRight: '-100px'
-                            }}
-                        >
-                            <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
-                            {selectedLanguage}
-                        </button>
-                        <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                            <li>
-                                <a
-                                    className="dropdown-item"
-                                    href="#"
-                                    onMouseEnter={handleItemHover}
-                                    onMouseLeave={handleItemLeave}
-                                    onClick={() => handleLanguageChange('EN')}
-                                >
-                                    EN
-                                </a>
-                            </li>
+                        <div className="dropdown">
+                            <button
+                                className="btn btn-secondary dropdown-toggle"
+                                type="button"
+                                id="languageDropdown"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                style={{
+                                    position: 'relative',
+                                    backgroundColor: GlobalConfig.BgHeader,
+                                    borderColor: GlobalConfig.BgHeader,
+                                    backgroundImage: 'none',
+                                    boxShadow: 'none',
+                                    borderRadius: '5px',
+                                }}
+                            >
+                                <i className="fas fa-globe" style={{ marginRight: '5px' }}></i>
+                                {selectedLanguage}
+                            </button>
+                            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        href="#"
+                                        onMouseEnter={handleItemHover}
+                                        onMouseLeave={handleItemLeave}
+                                        onClick={() => handleLanguageChange('EN')}
+                                    >
+                                        EN
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a
-                                    className="dropdown-item"
-                                    href="#"
-                                    onMouseEnter={handleItemHover}
-                                    onMouseLeave={handleItemLeave}
-                                    onClick={() => handleLanguageChange('FR')}
-                                >
-                                    FR
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="dropdown-item"
-                                    href="#"
-                                    onMouseEnter={handleItemHover}
-                                    onMouseLeave={handleItemLeave}
-                                    onClick={() => handleLanguageChange('AM')}
-                                >
-                                    AM
-                                </a>
-                            </li>
-                            {/* Add more languages as needed */}
-                        </ul>
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        href="#"
+                                        onMouseEnter={handleItemHover}
+                                        onMouseLeave={handleItemLeave}
+                                        onClick={() => handleLanguageChange('FR')}
+                                    >
+                                        FR
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        href="#"
+                                        onMouseEnter={handleItemHover}
+                                        onMouseLeave={handleItemLeave}
+                                        onClick={() => handleLanguageChange('AM')}
+                                    >
+                                        AM
+                                    </a>
+                                </li>
+                                {/* Add more languages as needed */}
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </header >
