@@ -6,7 +6,6 @@
 .flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
-  // position: relative;
 }
 
 .front, .back {
@@ -35,63 +34,25 @@
   height: 300px; /* Adjust based on your actual content size */
 }
 
-.slick-prev, .slick-next {
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  border-radius: 50%; /* Circular background */
-}
+// .slick-prev, .slick-next {
+//   background: rgba(0, 0, 0, 1); /* Semi-transparent black background */
+//   border-radius: 50%; /* Circular background */
+// }
 
-.slick-prev:before, .slick-next:before {
-  color: white; /* Ensure the arrow icon color contrasts with the background */
-}
-
-.slick-prev:before, .slick-next:before {
-  color: rgb(135, 97, 218); /* Or any color that contrasts well with your background */
-}
-
-/* Custom arrow styles */
-.slick-prev, .slick-next {
-  background: #6a53c7; /* Black background for visibility */
-  border-radius: 50%; /* Creates the circle shape */
-  width: 40px; /* Size of the circle */
-  height: 40px; /* Size of the circle */
-  display: flex !important; /* Use flexbox to center the arrow */
-  align-items: center; /* Center the arrow vertically */
-  justify-content: center; /* Center the arrow horizontally */
-  z-index: 1; /* Ensure the arrows are above the slider content */
-}
-
-.slick-prev:before, .slick-next:before {
-  font-size: 20px; /* Adjust the size of the arrow */
-  color: #fff; /* White arrow for contrast */
-  opacity: 1 !important; /* Ensure the arrow is fully visible */
-}
-
-/* Additional styling to position the arrows more effectively */
-.slick-prev {
-  left: 10px; /* Distance from the left edge */
-}
-
-.slick-next {
-  right: 10px; /* Distance from the right edge */
-}
-
-.slick-arrow {
-  background-color: #FFF; // Choose a suitable background color
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  outline: none;
+.ribbon {
   position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  cursor: pointer;
-  
-  &:hover {
-    background-color: #DDD; // Darken the background on hover for visual feedback
-  }
+  top: 50px; // Adjust as needed
+  left: 0;
+  z-index: 10;
+  background-color: #FFD700; // Gold color for Premium, adjust as needed
+  padding: 5px 10px;
+  color: #000; // Text color
+  font-weight: bold;
+  transform: rotate(-45deg);
+  transform-origin: left top;
+}
+.slide {
+  position: relative;
+  // Other styles for your slide
 }
 
