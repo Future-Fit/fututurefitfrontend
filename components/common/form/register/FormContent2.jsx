@@ -95,7 +95,7 @@ const FormContent2 = () => {
                 email: formData.email,
               }),
             });
-            console.log("Verification email sent successfully!");
+             
             setRegistrationMessage("Verification email sent successfully!, Please Check Your Email")
           } catch (error) {
             console.error("Failed to send verification email:", error);

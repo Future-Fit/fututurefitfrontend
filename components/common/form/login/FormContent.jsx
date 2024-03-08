@@ -6,7 +6,7 @@ import DefaultConfig from "app.config.js";
 import { Toast } from 'react-bootstrap';
 import GlobalConfig from "@/Global.config";
 
-const FormContent = ({ onReset }) => {
+const FormContent = ({ onReset ,closeModal}) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

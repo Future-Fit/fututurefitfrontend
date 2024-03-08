@@ -9,13 +9,12 @@ import FormContent2 from "./FormContent2";
 import GlobalConfig from "@/Global.config";
 import { useState } from "react";
 
-const Register = () => {
+const Register = ({closeMe}) => {
 
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  return (
-    <div className="form-inner">
+  const closeModal = () => {setIsModalOpen(false); closeMe();}
+   
+  return (isModalOpen && <div className="form-inner" >
       <div style={{ display: "grid", justifyContent: "center", fontWeight: "600", fontSize: "24px", color: GlobalConfig.Fgr1Clr }}>
         Sign Up <br />
       </div>

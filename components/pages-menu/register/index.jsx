@@ -15,7 +15,7 @@ import FormContent2 from "@/components/common/form/register/FormContent2";
 
 const index = () => {
   const [userType, setUserType] = useState();
-
+  const [isModalOpen,setIsModalOpen] = useState(true)
   useEffect(() => {
     const storedUserType = localStorage.getItem('userType');
     if (storedUserType) {
@@ -26,7 +26,7 @@ const index = () => {
   return (
     <>
 
-      <LoginPopup />
+      {/* { <LoginPopup />} */}
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
       {userType === 4 && <DashboardCandidatesHeader />}
@@ -37,19 +37,19 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <div className="login-section">
+      { <div className="login-section">
         <div
           className="image-layer"
           style={{ backgroundImage: "url(/images/background/17.jpeg)" }}
         ></div>
         <div className="outer-box">
           {/* <!-- Login Form --> */}
-          <div className="login-form default-form">
-            <Register />
-          </div>
+          {isModalOpen && <div className="login-form default-form">
+            <Register  closeMe={()=>setIsModalOpen(false)}  />
+          </div>}
           {/* <!--End Login Form --> */}
         </div>
-      </div>
+      </div>}
       {/* <!-- End Info Section --> */}
     </>
   );

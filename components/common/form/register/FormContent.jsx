@@ -71,7 +71,7 @@ const FormContent = ({ onReset, closeModal }) => {
           setUserData(responseData.result); // Save user data to state
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
           setShowForm(false);
-
+          closeModal();
           resetForm();
           // Additional API call to send verification email
           try {
@@ -85,7 +85,7 @@ const FormContent = ({ onReset, closeModal }) => {
                 email: formData.email,
               }),
             });
-            console.log("Verification email sent successfully!");
+           
             setRegistrationMessage("Verification email sent successfully! Please check your email.")
             closeModal();
           } catch (error) {

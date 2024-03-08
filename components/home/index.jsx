@@ -22,6 +22,7 @@ import dynamic from "next/dynamic";
 const index = () => {
 
   const [userType, setUserType] = useState();
+  const [isModalOpen , setIsModalOpen] = useState(true);
   const FooterDefault = dynamic(() => import('../footer/common-footer'), { loading: () => <div>Loading...</div>, ssr: false });
 
 
@@ -44,7 +45,12 @@ const index = () => {
     <>
       <span className="header-span"></span>
       {/* Start login popup modal */}
-      <LoginPopup />
+        {  isModalOpen && <LoginPopup  closeMe={  ()=>{
+        const element  =  document.getElementById("btn-del");
+        
+        element.click();
+        
+          }}/>}
       {/* End login popup modal */}
 
       {/* Dashboards depend on user types */}

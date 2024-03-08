@@ -4,7 +4,7 @@ import Register from "../register/Register";
 import ForgetPassword from "./ForgetPassword";
 import FormContent from "./FormContent";
 
-const LoginPopup = () => {
+const LoginPopup = ({closeMe}) => {
 
   const [resetForm, setResetForm] = useState(() => () => { });
   const onModalClose = () => {
@@ -23,6 +23,7 @@ const LoginPopup = () => {
               className="closed-modal"
               data-bs-dismiss="modal"
               onClick={onModalClose}
+           
             ></button>
             {/* End close modal btn */}
 
@@ -80,6 +81,7 @@ const LoginPopup = () => {
               className="closed-modal"
               data-bs-dismiss="modal"
               onClick={onModalClose}
+              id="btn-del"
             ></button>
             {/* End close modal btn */}
 
@@ -88,7 +90,7 @@ const LoginPopup = () => {
               <div id="login-modal">
                 {/* <!-- Login Form --> */}
                 <div className="login-form default-form">
-                  <Register onReset={setResetForm} />
+                  <Register onReset={setResetForm} closeMe = {closeMe } />
                 </div>
                 {/* <!--End Login Form --> */}
               </div>
