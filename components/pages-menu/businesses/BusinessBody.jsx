@@ -102,7 +102,7 @@ const BusinessBody = () => {
           </div>
         </div>
         <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-          <Link href="/register" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.LogoBlu }}>
+          <Link href="/BusPortal" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.LogoBlu }}>
             <span className="btn-title"><strong>Employer Portal</strong></span>
           </Link>
         </div>

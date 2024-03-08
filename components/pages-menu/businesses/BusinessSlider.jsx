@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import Image from "next/image";
+import Link from "next/link";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './slider.scss';
@@ -48,7 +49,7 @@ const BusinessSlider = () => {
     // dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: windowWidth < 576 ? 1: windowWidth < 768 ? 2 : windowWidth < 992 ? 3 : 4, // Adjust based on window width
+    slidesToShow: windowWidth < 576 ? 1 : windowWidth < 768 ? 2 : windowWidth < 992 ? 3 : 4, // Adjust based on window width
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 2000,
@@ -61,11 +62,15 @@ const BusinessSlider = () => {
   const slidesData = [
     {
       imgSrc: "/images/icons/Research-White-icon.svg",
-      title: "Research, Strategy and Marketing",
-      detail: "FFI will conduct country/region specific research on labor market feasibility, develop recruitment strategy, and design marketing plan to create awareness and attract top talent.",
+      title: "Research & Strategy",
+      detail1: "- Region/country labor market research",
+      detail2: "- Recruitment strategy",
+      detail3: "- Marketing strategy",
+      detail4: "- Create awareness to attract top talent",
+      detail5: "",
       price: "Premium service",
       type: "Premium Service",
-      action: "Contact us for details.",
+      action: "Contact us for details",
       bgr: GlobalConfig.LogoBlu,
       txt: "white",
       ribbon: "yellow"
@@ -73,10 +78,14 @@ const BusinessSlider = () => {
     {
       imgSrc: "/images/icons/Streamline-icon.svg",
       title: "Streamline Hiring Process",
-      detail: "With its one-stop capabilities, FFI will streamline the lengthy hiring procedures, pre-qualify candidates, verify and translate documents and ensure positive experience overall.",
+      detail1: "- Streamline hiring process",
+      detail2: "- Screen/pre-qualify candidates",
+      detail3: "- Verify/translate documents",
+      detail4: "- Online portal for easy access",
+      detail5: "",
       price: "Premium Service",
       type: "Premium Service",
-      action: "Contact us for details.",
+      action: "Contact us for details",
       bgr: GlobalConfig.LogoOrg,
       txt: "black",
       ribbon: "yellow"
@@ -84,10 +93,14 @@ const BusinessSlider = () => {
     {
       imgSrc: "/images/icons/Permit-White-icon.svg",
       title: "Apply for LMIA, Other Permits",
-      detail: "FFI will apply for Labor Market Impact Assessment (LMIA) and other necessary permits on your behalf as required by Canadian and target countrys' laws and regulations .",
+      detail1: "- Obtain Labor Market Impact Assessment (LMIA)",
+      detail2: "- Other permits as required",
+      detail3: "- Monitor Canadian/target country regulations",
+      detail4: "",
+      detail5: "",
       price: "Premium Service",
       type: "Premium Service",
-      action: "Contact us for details.",
+      action: "Contact us for details",
       bgr: GlobalConfig.LogoBlu,
       txt: "white",
       ribbon: "yellow"
@@ -95,54 +108,74 @@ const BusinessSlider = () => {
     {
       imgSrc: "/images/icons/Integration-icon.svg",
       title: "Resettlement and Integration",
-      detail: "FFI will make the transition and integration process easier for your newly hired employees. We will also provide travel and housing arrangements for employees and their families.",
+      detail1: "- Settle/integrate employees",
+      detail2: "- Arrange travel/housing for employees & families",
+      detail3: "- Provide social & professional support",
+      detail4: "",
+      detail5: "",
       price: "Premium Service",
       type: "Premium Service",
-      action: "Contact us for details.",
+      action: "Contact us for details",
       bgr: GlobalConfig.LogoOrg,
       txt: "black",
       ribbon: "yellow"
     },
     {
       imgSrc: "/images/icons/Skills-White-icon.svg",
-      title: "Training and Skills Development",
-      detail: "FFI will offer specific training and skills development programs on your behalf, including language proficiency and orientation courses that will help your newly hired employees.",
+      title: "Training & Skills Development",
+      detail1: "- Skills development program",
+      detail2: "- Language proficiency courses",
+      detail3: "- Company specific training",
+      detail4: "- New employee orientation",
+      detail5: "",
       price: "Premium service",
       type: "Premium Service",
-      action: "Contact us for details.",
+      action: "Contact us for details",
       bgr: GlobalConfig.LogoBlu,
       txt: "white",
       ribbon: "yellow"
     },
     {
       imgSrc: "/images/icons/Customer-Service-icon.svg",
-      title: "Custom Tailored Services Packages",
-      detail: "FFI offers customized, tailored services packages to meet your specific needs. You can choose two or more services and we will offer you multi-service package deals to save you more.",
+      title: "Customized Packages",
+      detail1: "- Customized service packages",
+      detail2: "- Combine multiple services for better deal",
+      detail3: "- New services as needed",
+      detail4: "",
+      detail5: "",
       price: "Premium service",
       type: "Premium Service",
-      action: "Contact us for detail.",
+      action: "Contact us for detail",
       bgr: GlobalConfig.LogoOrg,
       txt: "black",
       ribbon: "yellow"
     },
     {
       imgSrc: "/images/icons/Event-White-icon.svg",
-      title: "Local Recruitment and Promotional Fairs",
-      detail: "Complimentary for paying clients - FFI can hold recruitment fairs and events in global locations we have presence in to engage applicants directly and provide services on the ground.",
+      title: "Recruitment & Promotional Fairs",
+      detail1: "- Complimentary for paying clients",
+      detail2: "- Recruitment fairs and company events",
+      detail3: "- Engage applicants directly",
+      detail4: "- Hold Q&A sessions",
+      detail5: "- And more...",
       price: "Complimentary Service",
       type: "Complimentary",
-      action: "Contact us for details.",
+      action: "Contact us for details",
       bgr: GlobalConfig.LogoBlu,
       txt: "white",
       ribbon: GlobalConfig.LogoGry1
     },
     {
       imgSrc: "/images/icons/Process-icon.svg",
-      title: "Continuous Process & Strategy Adjustment",
-      detail: "Complimentary for paying client - FFI will support you to continuously improve/adjust your recruitment strategy based on factors such as new immigration laws, global hiring trends, etc.",
+      title: "Continuous Improvement",
+      detail1: "- Complimentary",
+      detail2: "- Continuously improve/adjust strategy",
+      detail3: "- Update as new laws/immigration rules enacted",
+      detail4: "- Update on hiring trends",
+      detail5: "",
       price: "Complimentary Service",
       type: "Complimentary",
-      action: "Contact us for details.",
+      action: "Contact us for details",
       bgr: GlobalConfig.LogoOrg,
       txt: "black",
       ribbon: GlobalConfig.LogoGry1
@@ -154,7 +187,7 @@ const BusinessSlider = () => {
       <Slider {...settings}>
         {slidesData.map((slide, index) => (
           <div key={index} className="flip-container">
-            <div className="flipper" style={{ background: slide.bgr, margin: '0 15px' }}>
+            <div className="flipper" style={{ boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)", background: slide.bgr, margin: '0 15px' }}>
               <div className="front">
                 {/* Image side */}
                 <div className="slide">
@@ -165,7 +198,6 @@ const BusinessSlider = () => {
                       alt={`Slide ${index}`}
                       width={100}
                       height={100}
-                    // layout="responsive"
                     />
                   </div>
                   <div style={{ fontWeight: "600", color: slide.txt, fontSize: "20px", textAlign: "center", padding: "10px 20px" }}>
@@ -173,15 +205,28 @@ const BusinessSlider = () => {
                   </div>
                 </div>
               </div>
-              <div className="back" style={{ maxWidth: "fit-content", maxHeight: "fit-content", color: slide.txt, background: slide.bgr }}>
+              <div className="back">
                 {/* Details side */}
-                <div style={{ padding: '20px', textAlign: 'center' }}>
-                  <strong>Details<br/></strong>{slide.detail}
+                <div style={{ color: slide.txt, padding: "10px", textDecoration: "underline", textAlign: "center" }}>
+                  <strong>Details</strong>
                 </div>
-                <div style={{ display: "flex", flex: "0.1", backgroundColor: slide.txt, height: "2px"}} />
-                <div style={{ fontWeight: "600", color: slide.txt, textAlign: "center", paddingTop: "10px" }}>
-                  {slide.action}
+                <div style={{ color: slide.txt, fontSize: "14px", paddingLeft: "15px", paddingRight: "15px", textAlign: "left" }}>
+                  <text>{slide.detail1}<br /></text>
+                  <text>{slide.detail2}<br /></text>
+                  <text>{slide.detail3}<br /></text>
+                  <text>{slide.detail4}<br /></text>
+                  <text>{slide.detail5}<br /></text>
                 </div>
+
+                {/* <div style={{ position: "absolute", height: "400px" }}> */}
+                  <div style={{ alignContent: 'baseline', display: "block", width: "50%", backgroundColor: slide.txt, height: "2px", margin: "auto" }} />
+                  <div style={{ flex: 0.2, color: slide.txt, textAlign: "center", paddingLeft: "15px", paddingTop: "0px" }}>
+                    <strong>Price: </strong>
+                    <Link href="/contact" style={{ color: slide.txt, fontSize: "14px", textDecoration: "underline" }}>
+                      {slide.action}
+                    </Link>
+                  </div>
+                {/* </div> */}
               </div>
             </div>
           </div>

@@ -85,7 +85,7 @@ const ShopSingleDyanmic = ({ id }) => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <Breadcrumb title="Service Ordering Details" meta={product?.title} />
+      <Breadcrumb title="FFI - Service Ordering Details" meta={product?.title} />
       {/* <!--End Page Title--> */}
 
       {/* <!-- Start Shop Single --> */}
@@ -134,12 +134,12 @@ const ShopSingleDyanmic = ({ id }) => {
                     <div className="text">
                     {product?.details}
                     </div>
-                    {isLoggedIn ? (
+                    {/* {isLoggedIn ? (
                       <div className="item-price">
                         ${product?.price}
-                        {/* <del>${product?.oldPrice}</del> */}
+                        <del>${product?.oldPrice}</del>
                       </div>
-                    ) : "Please Login"}
+                    ) : "To see price details, please sign in."} */}
 
                     <div className="other-options">
                       <div className="item-quantity">
@@ -163,8 +163,7 @@ const ShopSingleDyanmic = ({ id }) => {
                           type="button"
                           className="theme-btn btn-style-one"
                         >
-                          <span className="flaticon-shopping-bag"></span> Add to
-                          Cart
+                          <span className="flaticon-shopping-bag"></span> Add to Cart
                         </button>
                         <button
                           type="button"
@@ -199,7 +198,7 @@ const ShopSingleDyanmic = ({ id }) => {
             {/*  <!--End Basic Details--> */}
 
             {/*  <!--Start Product Info Tabs--> */}
-            <ProductInfoTabs />
+            {/* <ProductInfoTabs /> */}
             {/*  <!--End Product Info Tabs--> */}
           </div>
           {/* <!-- End Product Detail --> */}

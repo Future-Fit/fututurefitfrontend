@@ -33,7 +33,9 @@ const ForgetPassword = () => {
 
     try {
       // Make an HTTP POST request to the password reset API
-      const response = await axios.post(`${apiConfig.url}/auth/forget-password`, {
+      // const response = await axios.post(`${apiConfig.url}/auth/forget-password`, {
+        const response = await axios.post("https://api.futurefitinternational.com/auth/forget-password", {
+
         email: username // Pass the email entered in the form
       });
       setResetInfo(response.data); // Store response data in resetInfo state

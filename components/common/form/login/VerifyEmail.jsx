@@ -16,7 +16,8 @@ const VerifyEmail = ({ token }) => {
 
     const verifyEmail = async () => {
         try {
-            const response = await axios.post(`${apiConfig.url}/auth/verifyEmail/${token}`);
+            // const response = await axios.post(`${apiConfig.url}/auth/verifyEmail/${token}`);
+            const response = await axios.post(`https://api.futurefitinternational.com/auth/verifyEmail/${token}`);
             setVerifyInfo(response.data);
             console.log('Email Verified:', response.data);
         } catch (error) {

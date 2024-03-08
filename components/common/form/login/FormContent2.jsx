@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import DefaultConfig from "app.config.js";
 import { Toast } from 'react-bootstrap';
 
+import GlobalConfig from "@/Global.config";
+
 const FormContent2 = ({ onReset }) => {
 
   const [username, setUsername] = useState("");
@@ -150,7 +152,12 @@ const FormContent2 = ({ onReset }) => {
   };
   return (
     <div className="form-inner">
-      <h3>Login to Your Account</h3>
+      <div style={{ display: "grid", justifyContent: "center", fontWeight: "600", fontSize: "24px", color: GlobalConfig.Fgr1Clr }}>
+        Sign In
+      </div> <br />
+      <div className="col-lg-6 col-md-12" style={{ color: GlobalConfig.Fgr1Clr }}>
+        <strong> <i className="la la-user"></i> Job Seeker/Student </strong>
+      </div>
 
       {/* <!--Login Form--> */}
       <form method="post" onSubmit={handleSubmit} >
@@ -180,8 +187,8 @@ const FormContent2 = ({ onReset }) => {
         </div>
         {/* password */}
 
-        <div className="form-group">
-          <div className="field-outer">
+        <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className="field-outer" style={{ display: 'flex', alignItems: 'center' }}>
             <div className="input-group checkboxes square">
               <input
                 type="checkbox"
@@ -190,24 +197,23 @@ const FormContent2 = ({ onReset }) => {
               // checked={rememberMe}
               // onChange={handleRememberMe}
               />
-              <label htmlFor="remember" className="remember">
-                <span className="custom-checkbox" ></span> Remember me
+              <label htmlFor="remember" className="remember" style={{ marginLeft: '5px' }}>
+                <span className="custom-checkbox"></span>
+                <span style={{ verticalAlign: 'middle' }}>Remember me</span>
               </label>
             </div>
+          </div>
 
-            <div className="bottom-box">
-              <div className="text d-flex">
-                <Link
-                  href="#"
-                  className="call-modal signup"
-                  data-bs-toggle="modal"
-                  data-bs-target="#forgetPassPopupModal"
-                  style={{color: 'blue'}}
-                >
-                  Forgot Username/Password?
-                </Link>
-              </div>
-            </div>
+          <div className="text">
+            <Link
+              href="#"
+              className="call-modal signup"
+              data-bs-toggle="modal"
+              data-bs-target="#forgetPassPopupModal"
+              style={{ color: GlobalConfig.LnkClr, textDecoration: "underline" }}
+            >
+              Forgot Username/Password?
+            </Link>
           </div>
         </div>
 
@@ -240,7 +246,7 @@ const FormContent2 = ({ onReset }) => {
             className="call-modal"
             data-bs-toggle="modal"
             data-bs-target="#registerModal"
-            style={{color:'blue'}}
+            style={{ color: GlobalConfig.LnkClr, textDecoration: "underline" }}
           >
             Sign Up
           </Link>

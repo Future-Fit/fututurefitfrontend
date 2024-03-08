@@ -5,7 +5,7 @@ import { Toast } from 'react-bootstrap';
 const FormContent = ({ onReset, closeModal,myToast,myError }) => {
 
   const [logoImg, setLogoImg] = useState("");
-  const [userType, setUserType] = useState("job seeker"); // Added state for user type
+  const [userType, setUserType] = useState(""); // Added state for user type
   const initialUserTypeId = userType === "student" ? 5 : 4;
   const [formData, setFormData] = useState({
     user_type_id: initialUserTypeId,
@@ -65,7 +65,9 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
           formDataToSend.append(key, dataToSend[key]);
         });
 
-        const response = await fetch(`${apiConfig.url}/users/create`, {
+        // const response = await fetch(`${apiConfig.url}/users/create`, {
+          const response = await fetch("https://api.futurefitinternational.com/users/create", {
+
           method: "POST",
           body: formDataToSend,
         });
@@ -82,7 +84,9 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
           // Additional API call to send verification email
           try {
 
-            await fetch(`${apiConfig.url}/auth/verify-email`, {
+            // await fetch(`${apiConfig.url}/auth/verify-email`, {
+              await fetch("https://api.futurefitinternational.com/auth/verify-email", {
+
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -127,6 +131,7 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
       setPasswordError("");
     }
   };
+
   const validatePassword = (password) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
     return passwordRegex.test(password);
@@ -134,12 +139,25 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
 
   const handleUserTypeChange = (e) => {
     const selectedUserType = e.target.value;
-    setUserType(selectedUserType);
-    setFormData({
-      ...formData,
-      user_type_id: selectedUserType === "student" ? 5 : 4 // Set user_type_id based on selected user type
-    });
-  };
+    if (!selectedUserType) {
+        alert("Please select user Type")
+    } else {
+        setUserType(selectedUserType);
+        setFormData({
+            ...formData,
+            user_type_id: selectedUserType === "student" ? 5 : 4 // Adjust user_type_id based on selection
+        });
+    }
+};
+
+  // const handleUserTypeChange = (e) => {
+  //   const selectedUserType = e.target.value;
+  //   setUserType(selectedUserType);
+  //   setFormData({
+  //     ...formData,
+  //     user_type_id: selectedUserType === "student" ? 5 : 4 // Set user_type_id based on selected user type
+  //   });
+  // };
 
   return (
     <>
@@ -223,6 +241,7 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
             <label style={{ display: 'inline-block', marginLeft: '5px' }}>User Type</label>
             <label style={{ color: 'red', display: 'inline-block' }}>*</label>
             <select value={userType} onChange={handleUserTypeChange} required>
+              <option value="" disabled>Select user type...</option> {/* Add this line */}
               <option value="job seeker">Job Seeker</option>
               <option value="student">Student</option>
             </select>

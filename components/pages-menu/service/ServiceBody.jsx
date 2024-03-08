@@ -18,96 +18,98 @@ const ServiceBody = () => {
               and international students who want to pursue their education in Canadian institutions.  <br /> <br />
             </span>
           </div>
-          <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
-            <div className="list" style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
-              width: "fit-content", height: "fit-content", padding: "20px 20px"
-            }}>
-              <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
-                Services for Employers</h4>
-              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-                <Link href="/service/businesses" className="theme-btn btn-style-one bg-blue" style={{
-                  color: "white",
-                  backgroundColor: GlobalConfig.LogoBlu
-                }}>
-                  <span className="btn-title"><strong>Learn More!</strong></span>
-                </Link>
-              </div>
-            </div>
-          </div>
-         
-          <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
-            <div className="list" style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
-              width: "fit-content", height: "fit-content", padding: "20px 20px"
-            }}>
-              <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
-                Services for Colleges/Universities</h4>
-              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-                <Link href="/service/universities-colleges" className="theme-btn btn-style-one bg-blue" style={{
-                  color: "white",
-                  backgroundColor: GlobalConfig.LogoBlu
-                }}>
-                  <span className="btn-title"><strong>Learn More!</strong></span>
-                </Link>
-              </div>
-            </div>
-          </div>
+          <div className="parent-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '20px' }}>
 
-          <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
-            <div className="list" style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
-              width: "fit-content", height: "fit-content", padding: "20px 20px"
-            }}>
-              <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
-                Services for Job Seekers</h4>
-              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-                <Link href="/service/job-seekers" className="theme-btn btn-style-one bg-blue" style={{
-                  color: "white",
-                  backgroundColor: GlobalConfig.LogoBlu
-                }}>
-                  <span className="btn-title"><strong>Learn More!</strong></span>
-                </Link>
+            <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
+              <div className="list" style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
+                width: "fit-content", height: "fit-content", padding: "20px 20px"
+              }}>
+                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
+                  Services for Employers</h4>
+                <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
+                  <Link href="/service/businesses" className="theme-btn btn-style-one bg-blue" style={{
+                    color: "white",
+                    backgroundColor: GlobalConfig.LogoBlu
+                  }}>
+                    <span className="btn-title"><strong>Learn More!</strong></span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
+              <div className="list" style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
+                width: "fit-content", height: "fit-content", padding: "20px 20px"
+              }}>
+                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
+                  Services for Colleges/Universities</h4>
+                <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
+                  <Link href="/service/universities-colleges" className="theme-btn btn-style-one bg-blue" style={{
+                    color: "white",
+                    backgroundColor: GlobalConfig.LogoBlu
+                  }}>
+                    <span className="btn-title"><strong>Learn More!</strong></span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
+              <div className="list" style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
+                width: "fit-content", height: "fit-content", padding: "20px 20px"
+              }}>
+                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
+                  Services for Job Seekers</h4>
+                <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
+                  <Link href="/service/job-seekers" className="theme-btn btn-style-one bg-blue" style={{
+                    color: "white",
+                    backgroundColor: GlobalConfig.LogoBlu
+                  }}>
+                    <span className="btn-title"><strong>Learn More!</strong></span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
+              <div className="list" style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
+                width: "fit-content", height: "fit-content", padding: "20px 20px"
+              }}>
+                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
+                  Services for Students</h4>
+                <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
+                  <Link href="/service/students" className="theme-btn btn-style-one bg-blue" style={{
+                    color: "white",
+                    backgroundColor: GlobalConfig.LogoBlu
+                  }}>
+                    <span className="btn-title"><strong>Learn More!</strong></span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
+              <div className="list" style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
+                width: "fit-content", height: "fit-content", padding: "20px 20px"
+              }}>
+                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
+                  Training & Other Services</h4>
+                <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
+                  <Link href="/service/training" className="theme-btn btn-style-one bg-blue" style={{
+                    color: "white",
+                    backgroundColor: GlobalConfig.LogoBlu
+                  }}>
+                    <span className="btn-title"><strong>Learn More!</strong></span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-
-          <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
-            <div className="list" style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
-              width: "fit-content", height: "fit-content", padding: "20px 20px"
-            }}>
-              <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
-                Services for Students</h4>
-              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-                <Link href="/service/students" className="theme-btn btn-style-one bg-blue" style={{
-                  color: "white",
-                  backgroundColor: GlobalConfig.LogoBlu
-                }}>
-                  <span className="btn-title"><strong>Learn More!</strong></span>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
-            <div className="list" style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
-              width: "fit-content", height: "fit-content", padding: "20px 20px"
-            }}>
-              <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoOrg }}>
-                Training & Other Services</h4>
-              <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-                <Link href="/service/training" className="theme-btn btn-style-one bg-blue" style={{
-                  color: "white",
-                  backgroundColor: GlobalConfig.LogoBlu
-                }}>
-                  <span className="btn-title"><strong>Learn More!</strong></span>
-                </Link>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div >

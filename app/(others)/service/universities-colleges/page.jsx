@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-import University from "@/components/pages-menu/universities-colleges";
+import College from "@/components/pages-menu/universities-colleges";
 
 export const metadata = {
   title: 'University and Colleges | Future Fit International Job Portal',
@@ -12,7 +12,7 @@ export const metadata = {
 const index = () => {
   return (
     <>
-      <University />
+      <College />
     </>
   );
 };

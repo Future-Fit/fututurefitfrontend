@@ -16,7 +16,7 @@ import { debounce } from "lodash";
 import Autosuggest from "react-autosuggest";
 import apiConfig from "@/app.config";
 
-const DashboardCandidatesHeader = () => {
+const DashboardStudentHeader = () => {
     const [navbar, setNavbar] = useState(false);
     const [user, setUser] = useState(null);
     const [userDetail, setUserDetail] = useState(null);
@@ -449,4 +449,4 @@ const DashboardCandidatesHeader = () => {
     );
 };
 
-export default DashboardCandidatesHeader;
+export default DashboardStudentHeader;
