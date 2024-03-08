@@ -6,44 +6,59 @@ import LoginWithSocial from "./LoginWithSocial";
 import Form from "./FormContent";
 import Link from "next/link";
 import FormContent2 from "./FormContent2";
+import GlobalConfig from "@/Global.config";
+import { useState } from "react";
 
 const Register = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className="form-inner">
-      <h3>Create Account</h3>
+      <div style={{ display: "grid", justifyContent: "center", fontWeight: "600", fontSize: "24px", color: GlobalConfig.Fgr1Clr }}>
+        Sign Up <br />
+      </div>
+      <div style={{ textAlign: "center", fontSize: "12px", color: GlobalConfig.Fgr1Clr }}>
+        <text style={{ fontSize: "12px", color: "red" }}>* </text>
+        <text> Mandatory Fields! </text>
+      </div>
 
       <Tabs>
         <div className="form-group register-dual">
           <TabList className="btn-box row">
-            <Tab className="col-lg-6 col-md-12">
-              <button className="theme-btn btn-style-four" style={{paddingLeft: '10px'}}>
-                <i className="la la-user"></i> Job Seeker/Student
-              </button>
+            <Tab className="col-lg-6 col-md-12" style={{color: GlobalConfig.Fgr1Clr}}>
+              {/* <button className="theme-btn btn-style-four" style={{ paddingLeft: '10px' }}> */}
+                <strong> <i className="la la-user"></i> Job Seeker/Student </strong>
+              {/* </button> */}
             </Tab>
 
-            <Tab className="col-lg-6 col-md-12">
+            {/* <Tab className="col-lg-6 col-md-12">
               <button className="theme-btn btn-style-four" style={{paddingLeft: '10px'}}>
                 <i className="la la-briefcase"></i> Business/Institution 
               </button>
-            </Tab>
+            </Tab> */}
           </TabList>
         </div>
         {/* End .form-group */}
 
         <TabPanel>
-          <Form />
+          {/* <Form /> */}
+          <Form closeModal={closeModal} />
+
         </TabPanel>
         {/* End cadidates Form */}
 
-        <TabPanel>
+        {/* <TabPanel>
           <FormContent2 />
-        </TabPanel>
+        </TabPanel> */}
         {/* End Employer Form */}
       </Tabs>
       {/* End form-group */}
 
       <div className="bottom-box" style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="text">
+          
           Already have an account?{" "}
           <Link
             href="#"
@@ -51,7 +66,7 @@ const Register = () => {
             data-bs-toggle="modal"
             data-bs-dismiss="modal"
             data-bs-target="#loginPopupModal"
-            style={{color:'blue'}}
+            style={{ color: GlobalConfig.LnkClr, textDecoration: "underline" }}
           >
             Sign In
           </Link>
@@ -62,7 +77,7 @@ const Register = () => {
         <LoginWithSocial /> */}
       </div>
       {/* End bottom-box LoginWithSocial */}
-    </div>
+    </div >
   );
 };
 

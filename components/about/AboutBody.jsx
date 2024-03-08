@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+
 import GlobalConfig from "@/Global.config";
 
 const AboutBody = () => {
@@ -15,24 +17,23 @@ const AboutBody = () => {
                   <span>
                     As Canada’s economy evolved, some trends became obvious:
                     demand for skilled workers grew; businesses started recruiting globally;
-                    and academic institutions' role in spurring economic growth and
+                    and the role academic institutions play to spur economic growth and
                     long-term competitiveness became apparent. At the same time, Canada's
-                    reputation as a safe, tolerant country that has top-notch universities
-                    keep attracting skilled professionals and increasing number of international
-                    students.
+                    reputation as safe, developed with affordable and top-notch education
+                    kept attracting professionals and international students alike.
                     <br /><br />
                     Recognizing these trends, FFI saw the opportunity to streamline the process
-                    of recruiting talent for Canadian businesses and researching and applying to
-                    universities and collegse in Canada. Using both technology, on the ground
-                    work, and partnerships with stakeholders, FFI makes these tasks as easy as
-                    possible by providing services that include: assess "right fit" for
-                    employers and employees; search and apply to universities in one place; support
-                    students throughout the application process; and promote Canadian institutions as
-                    top destinations for international students. Additionally, FFI
-                    interviews candidates on behalf of employers; performs document preparation,
-                    verification, and translation; holds immigration workshops and seminars
-                    to inform and update clients; conducts orientation and training activities; and
-                    supports clients in travel, transitioning and other related services.
+                    of recruiting talent for Canadian businesses and facilitating the end-to-end
+                    process of applying to colleges and universities in Canada. Using technology,
+                    on the ground work, and partnerships with stakeholders, FFI makes these tasks
+                    as seamless as possible by providing all-inclusive services including: assessment
+                    of "right fit" for employers and employees; searching for institutions and supporting
+                    students throughout the application process; and promoting both Canadian businesses
+                    and academic institutions globally. As part of our integrated service model, we
+                    interviews candidates on behalf of employers; perform document preparation,
+                    verification, and translation services; hold immigration workshops and seminars
+                    to inform and update clients; conduct orientation and training activities for our;
+                    and support clients in travel, transitioning and other related services.
                   </span>
                 </div>
               </div>
@@ -50,7 +51,7 @@ const AboutBody = () => {
                     style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
                   />
                 </div>
-                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoBlu, textAlign: "center", paddingTop: "10px" }}>
+                <h4 style={{ fontWeight: "600", color: GlobalConfig.Fgr1Clr, textAlign: "center", paddingTop: "10px" }}>
                   Why Choose Us?</h4>
                 <ul className="list-style-five" style={{ textAlign: "left" }}>
                   <li>Our experience in talent management</li>
@@ -74,7 +75,19 @@ const AboutBody = () => {
                   operates under the guidance of the country director to oversee day-to-day activities.
                   Collaborative efforts ensure a unified process for identifying, vetting and assisting
                   potential candidates in their pursuit of realizing their dreams to work and study
-                  in Canada.
+                  in Canada.<br /> <br/>
+
+                  Thank you for visiting our website! We are certain that you will be satisfied with the
+                  quality and range of services we provide to our valued clients. <br /> <br />
+
+                  <strong>Management</strong>
+                  <br /> <br />
+
+                  <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}>
+                    <Link href="/service" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.LogoBlu, backgroundColor: GlobalConfig.LogoOrg }}>
+                      <span className="btn-title"><strong>Our Services</strong></span>
+                    </Link>
+                  </div>
                 </span>
               </div>
             </div>

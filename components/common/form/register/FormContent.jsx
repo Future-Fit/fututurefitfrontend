@@ -2,7 +2,7 @@ import apiConfig from "@/app.config";
 import { useEffect, useState } from "react";
 import { Toast } from 'react-bootstrap';
 
-const FormContent = ({ onReset }) => {
+const FormContent = ({ onReset, closeModal }) => {
 
   const [logoImg, setLogoImg] = useState("");
   const [userType, setUserType] = useState("job seeker"); // Added state for user type
@@ -70,7 +70,7 @@ const FormContent = ({ onReset }) => {
         if (response.ok) {
           setUserData(responseData.result); // Save user data to state
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
-          // setShowForm(false); 
+          setShowForm(false);
 
           resetForm();
           // Additional API call to send verification email
@@ -87,6 +87,7 @@ const FormContent = ({ onReset }) => {
             });
             console.log("Verification email sent successfully!");
             setRegistrationMessage("Verification email sent successfully! Please check your email.")
+            closeModal();
           } catch (error) {
             console.error("Failed to send verification email:", error);
           }
@@ -129,8 +130,8 @@ const FormContent = ({ onReset }) => {
   };
 
   return (
-    // <>
-    //   {showForm && (
+    <>
+      {showForm && (
         <form method="post" onSubmit={handleSubmit}>
 
           <div className="form-group">
@@ -220,38 +221,40 @@ const FormContent = ({ onReset }) => {
               Submit
             </button>
           </div>
-          <Toast
-            onClose={() => {
-              setFormData('');
-              setPasswordError('');
-              setRegistrationMessage('');
-            }}
-            show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
-            delay={900000}
-            autohide
-            style={{
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              minWidth: '200px',
-              zIndex: 10000,
-            }}
-          >
-            <Toast.Header closeButton={true} style={{ fontSize: '15px' }}>
-              <strong className="me-auto" style={{ fontSize: '20px' }}>
-                {passwordError ? 'Error' : 'Message'}
-              </strong>
-              {/* Increased font size for the title */}
-            </Toast.Header>
-            <Toast.Body style={{ fontSize: '18px' }}>
-              {passwordError ? passwordError : registrationMessage}
-              {/* Increased font size for the body */}
-            </Toast.Body>
-          </Toast>
+
         </form>
-    //   )}
-    // </>
+      )}
+
+      <Toast
+        onClose={() => {
+          setFormData('');
+          setPasswordError('');
+          setRegistrationMessage('');
+        }}
+        show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
+        delay={900000}
+        autohide
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          minWidth: '200px',
+          zIndex: 10000,
+        }}
+      >
+        <Toast.Header closeButton={true} style={{ fontSize: '15px' }}>
+          <strong className="me-auto" style={{ fontSize: '20px' }}>
+            {passwordError ? 'Error' : 'Message'}
+          </strong>
+          {/* Increased font size for the title */}
+        </Toast.Header>
+        <Toast.Body style={{ fontSize: '18px' }}>
+          {passwordError ? passwordError : registrationMessage}
+          {/* Increased font size for the body */}
+        </Toast.Body>
+      </Toast>
+    </>
   );
 };
 

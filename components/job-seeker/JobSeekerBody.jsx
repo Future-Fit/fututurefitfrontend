@@ -26,11 +26,11 @@ const JobSeekerBody = () => {
                 <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoBlu, textAlign: "center", paddingTop: "10px" }}>
                   Barriers to Getting Hired</h4>
                 <ul className="list-style-five" style={{ textAlign: "left" }}>
-                  <li>Not knowing about opportunities</li>
-                  <li>Credentials not being recognized</li>
-                  <li>Lack of language proficiency </li>
-                  <li>Lack of professional support system </li>
+                  <li>Not finding the right opportunities</li>
                   <li>Lack of understanding the job market</li>
+                  <li>Lack of language/skills proficiency </li>
+                  <li>Credentials not being recognized</li>
+                  <li>Lack of access to professional support </li>
                   <li>Not having the proper permits</li>
                 </ul>
                 <div style={{ textAlign: "center", paddingTop: "10px" }}>

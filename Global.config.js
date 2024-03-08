@@ -14,6 +14,7 @@ const GlobalConfig = {
     BgrClr1: "#3B578E", //Blue
     BgrClr2: "#F5F7FC", //Off-white
     BgHeader: "#2F3140", //Header background color
+    LnkClr: "#0645AD", //Blue color for links
 
     // Logo colors
     LogoBlu: "#007DB6", // this is the blue color on the logo

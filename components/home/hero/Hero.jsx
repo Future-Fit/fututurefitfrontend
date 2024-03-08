@@ -72,7 +72,7 @@ const Hero = () => {
             color: "#fff", fontSize: '20px'
           }} >
             <strong>We partner with Canadian businesses and academic institutions to facilitate 
-              recruiting skilled workers and students internationally.</strong>
+              recruiting international skilled workers and students.</strong>
           </h2>
           <VideoPlayer />
           {/* </div> */}

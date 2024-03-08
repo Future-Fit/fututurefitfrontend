@@ -36,15 +36,15 @@
 
 .ribbon {
   position: absolute;
-  top: 50px; // Adjust as needed
+  // top: 100px; // Adjust as needed
   left: 0;
   z-index: 10;
-  background-color: #FFD700; // Gold color for Premium, adjust as needed
+  // background-color: #FFD700; // Gold color for Premium, adjust as needed
   padding: 5px 10px;
   color: #000; // Text color
   font-weight: bold;
-  transform: rotate(-45deg);
-  transform-origin: left top;
+  // transform: rotate(-45deg);
+  transform-origin: left bottom;
 }
 .slide {
   position: relative;

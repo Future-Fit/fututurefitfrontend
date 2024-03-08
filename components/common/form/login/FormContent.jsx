@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import DefaultConfig from "app.config.js";
 import { Toast } from 'react-bootstrap';
+import GlobalConfig from "@/Global.config";
 
 const FormContent = ({ onReset }) => {
 
@@ -112,7 +113,7 @@ const FormContent = ({ onReset }) => {
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
           router.push('/candidates-dashboard/my-profile');
-        }else if (user.user_type_id === 5) {
+        } else if (user.user_type_id === 5) {
           const modalElement = document.getElementById("loginPopupModal");
           const modalBackDrop = document.getElementsByClassName('modal-backdrop');
           modalBackDrop[0].style.display = "none";
@@ -173,8 +174,14 @@ const FormContent = ({ onReset }) => {
   return (
     <div className="form-inner">
 
+      <div style={{ display: "grid", justifyContent: "center", fontWeight: "600", fontSize: "24px", color: GlobalConfig.Fgr1Clr }}>
+        Sign In <br />
+      </div>
 
-      <h3>Sign In</h3>
+      <div style={{ color: GlobalConfig.Fgr1Clr }}>
+        <strong> <i className="la la-user"></i> Job Seeker/Student </strong>
+      </div>
+      {/* <h3>Sign In</h3> */}
       {/* <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>If you have already signed up with us, please sign in below.</h3> */}
 
       {/* <!--Login Form--> */}
@@ -228,7 +235,7 @@ const FormContent = ({ onReset }) => {
               className="call-modal signup"
               data-bs-toggle="modal"
               data-bs-target="#forgetPassPopupModal"
-              style={{ color: 'blue' }}
+              style={{ color: GlobalConfig.LnkClr, textDecoration: "underline" }}
             >
               Forgot Username/Password?
             </Link>
@@ -265,7 +272,7 @@ const FormContent = ({ onReset }) => {
             className="call-modal"
             data-bs-toggle="modal"
             data-bs-target="#registerModal"
-            style={{ color: 'blue' }}
+            style={{ color: GlobalConfig.LnkClr, textDecoration: "underline" }}
           >
             Sign Up
           </Link>
