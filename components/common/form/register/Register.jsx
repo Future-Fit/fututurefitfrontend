@@ -9,7 +9,7 @@ import FormContent2 from "./FormContent2";
 import GlobalConfig from "@/Global.config";
 import { useState } from "react";
 
-const Register = ({closeMe}) => {
+const Register = ({closeMe,myToast,myError}) => {
 
   const [isModalOpen, setIsModalOpen] = useState(true);
   const closeModal = () => {setIsModalOpen(false); closeMe();}
@@ -43,7 +43,7 @@ const Register = ({closeMe}) => {
 
         <TabPanel>
           {/* <Form /> */}
-          <Form closeModal={closeModal} />
+          <Form closeModal={closeModal}  myError={myError} myToast={myToast}/>
 
         </TabPanel>
         {/* End cadidates Form */}

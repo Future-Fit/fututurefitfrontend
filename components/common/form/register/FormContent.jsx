@@ -2,7 +2,7 @@ import apiConfig from "@/app.config";
 import { useEffect, useState } from "react";
 import { Toast } from 'react-bootstrap';
 
-const FormContent = ({ onReset, closeModal }) => {
+const FormContent = ({ onReset, closeModal,myToast,myError }) => {
 
   const [logoImg, setLogoImg] = useState("");
   const [userType, setUserType] = useState("job seeker"); // Added state for user type
@@ -31,8 +31,10 @@ const FormContent = ({ onReset, closeModal }) => {
       confirmPassword: ""
     });
     setPasswordError("");
+    myError("")
     setLogoImg("");
     setRegistrationMessage(null);
+    myToast(null);
     setUserData(null);
   };
 
@@ -45,8 +47,10 @@ const FormContent = ({ onReset, closeModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setRegistrationMessage(null);
+    myToast(null);
 
     if (formData.password !== formData.confirmPassword) {
+      myError("passwords do not match");
       setPasswordError("Passwords do not match");
       return; // Prevent form submission if passwords don't match
     }
@@ -69,6 +73,8 @@ const FormContent = ({ onReset, closeModal }) => {
 
         if (response.ok) {
           setUserData(responseData.result); // Save user data to state
+      myToast(responseData.message || "Registration successful!");
+
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
           setShowForm(false);
           closeModal();
@@ -85,6 +91,7 @@ const FormContent = ({ onReset, closeModal }) => {
                 email: formData.email,
               }),
             });
+      myToast("Verification email sent successfully! Please check your email.");
            
             setRegistrationMessage("Verification email sent successfully! Please check your email.")
             closeModal();
@@ -93,14 +100,18 @@ const FormContent = ({ onReset, closeModal }) => {
           }
 
         } else {
+      myToast(responseData.message || "Registration failed.");
+
           setRegistrationMessage(responseData.message || "Registration failed.");
           resetForm();
         }
       } catch (error) {
         // Handle network errors or other exceptions
+        myToast("An error occured: " + error);
         setRegistrationMessage("An error occurred: " + error);
       }
     } else {
+      myError("Password should contain at least 8 characters, including uppercase, lowercase, number, and special character.");
       setPasswordError("Password should contain at least 8 characters, including uppercase, lowercase, number, and special character.");
     }
   };
@@ -112,6 +123,7 @@ const FormContent = ({ onReset, closeModal }) => {
       [e.target.name]: e.target.value,
     });
     if (e.target.name === "password") {
+      myError("")
       setPasswordError("");
     }
   };
@@ -225,35 +237,6 @@ const FormContent = ({ onReset, closeModal }) => {
         </form>
       )}
 
-      <Toast
-        onClose={() => {
-          setFormData('');
-          setPasswordError('');
-          setRegistrationMessage('');
-        }}
-        show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
-        delay={900000}
-        autohide
-        style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          minWidth: '200px',
-          zIndex: 10000,
-        }}
-      >
-        <Toast.Header closeButton={true} style={{ fontSize: '15px' }}>
-          <strong className="me-auto" style={{ fontSize: '20px' }}>
-            {passwordError ? 'Error' : 'Message'}
-          </strong>
-          {/* Increased font size for the title */}
-        </Toast.Header>
-        <Toast.Body style={{ fontSize: '18px' }}>
-          {passwordError ? passwordError : registrationMessage}
-          {/* Increased font size for the body */}
-        </Toast.Body>
-      </Toast>
     </>
   );
 };
