@@ -77,7 +77,9 @@ const Membership = () => {
         <div className="row justify-content-center">
           <div className="col-lg-5">
             <div className="sec-title text-center">
-              <h2 style={{ color: '#fff', paddingBottom: '30px' }}>Become A Member</h2>
+              <h2 style={{ color: '#fff' }}>Become A Member</h2>
+              <h2 style={{ color: '#fff', fontSize: "20px"}}>
+                (Job Seekers & Students)</h2> <br />
             </div>
           </div>
         </div>

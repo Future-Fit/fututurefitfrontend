@@ -16,15 +16,16 @@ import Hero from "./hero/Hero"
 import ServicesProvided from "./ServicesProvided";
 import Membership from "./Membership";
 import FeaturedJobs from "./FeaturedJobs";
+import FeaturedIndustries from "./FeaturedIndustries";
 import Partnership from "./Partnership";
 import dynamic from "next/dynamic";
 
 const index = () => {
 
   const [userType, setUserType] = useState();
-  const [isModalOpen , setIsModalOpen] = useState(true);
-  const [registrationMessage,setRegistrationMessage] = useState(null);
-  const [passwordError,setPasswordError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [registrationMessage, setRegistrationMessage] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
   const FooterDefault = dynamic(() => import('../footer/common-footer'), { loading: () => <div>Loading...</div>, ssr: false });
 
 
@@ -46,14 +47,14 @@ const index = () => {
   return (
     <>
       <span className="header-span"></span>
-      
+
       <Toast
         onClose={() => {
-         
+
           setPasswordError('');
           setRegistrationMessage(null);
         }}
-        show={Boolean(registrationMessage || passwordError )} // Show toast if there's a message
+        show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
         delay={900000}
         autohide
         style={{
@@ -72,17 +73,17 @@ const index = () => {
           {/* Increased font size for the title */}
         </Toast.Header>
         <Toast.Body style={{ fontSize: '18px' }}>
-        {passwordError? passwordError:registrationMessage}
-          
+          {passwordError ? passwordError : registrationMessage}
+
         </Toast.Body>
       </Toast>
       {/* Start login popup modal */}
-        {  isModalOpen && <LoginPopup   myError={(value)=>setPasswordError(value)} myToast={(value)=>setRegistrationMessage(value)}  closeMe={  ()=>{
-        const element  =  document.getElementById("btn-del");
-        
+      {isModalOpen && <LoginPopup myError={(value) => setPasswordError(value)} myToast={(value) => setRegistrationMessage(value)} closeMe={() => {
+        const element = document.getElementById("btn-del");
+
         element.click();
-        
-          }}/>}
+
+      }} />}
       {/* End login popup modal */}
 
       {/* Dashboards depend on user types */}
@@ -105,7 +106,10 @@ const index = () => {
       </section>
 
       {/* This is the second section of the home page (services section) */}
-      <section style={{ background: GlobalConfig.BgrClr2 }}>
+      <section style={{ padding: "40px 20px", background: GlobalConfig.BgrClr2 }}>
+        <div className="sec-title text-center" >
+          <h2>Services</h2>
+        </div>
         <ServicesProvided />
       </section>
 
@@ -116,8 +120,18 @@ const index = () => {
 
       {/* This is the fourth section of the home page (trending jobs section) */}
       <section style={{ background: GlobalConfig.BgrClr2 }}>
-        <FeaturedJobs />
+        <FeaturedIndustries />
       </section>
+
+      {/* This is the third section of the home page (become member section) */}
+      {/* <section style={{ background: GlobalConfig.BgrClr1 }}>
+        <Membership />
+      </section> */}
+
+      {/* This is the fourth section of the home page (trending jobs section) */}
+      {/* <section style={{ background: GlobalConfig.BgrClr2 }}>
+        <FeaturedJobs />
+      </section> */}
 
       {/* This is the fifth section of the home page (partners section) */}
       {/* <section style={{ backgroundColor: GlobalConfig.BgrClr1 }}>

@@ -72,7 +72,7 @@ const VideoPlayer = () => {
               paddingBottom: '10px'
             }}>
             <h2 style={{ fontWeight: 600, color: GlobalConfig.BgrClr1, paddingTop: '10px', paddingBottom: '10px' }}>Students</h2>
-            <h2 style={{ color: GlobalConfig.Fgr1Clr, fontSize: '18px' }}>Pursue your in education in Canada</h2>
+            <h2 style={{ color: GlobalConfig.Fgr1Clr, fontSize: '18px' }}>Let us help you study in Canada</h2>
             <div className="btn-box text-center" style={{ marginTop: '20px', marginBottom: '10px' }}>
               <button
                 className="theme-btn btn-style-one bg-blue"

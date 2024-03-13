@@ -60,11 +60,11 @@ const BusinessBody = () => {
                       following industries:</span>
                     <ul className="list-style-five" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify", left: "5px", paddingLeft: "17px" }}>
                       <li>Healthcare</li>
-                      <li>Engineering/High-Tech/IT</li>
+                      <li>Engineering/IT</li>
                       <li>Manufacturing</li>
-                      <li>Construction</li>
+                      <li>Construction/Skilled Trade</li>
                       <li>Transportation/Logistics</li>
-                      <li>Skilled Trades</li>
+                      <li>Hospitality/Services</li>
                     </ul>
                   </span>
                 </div>

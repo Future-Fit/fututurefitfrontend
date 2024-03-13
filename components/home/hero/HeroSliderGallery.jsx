@@ -5,6 +5,23 @@ import Slider from 'react-slick';
 
 const HeroSliderGallery = () => {
 
+  const [windowWidth, setWindowWidth] = useState(0);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth);
+      window.addEventListener('resize', handleWindowResize);
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleWindowResize);
+      }
+    };
+  }, []);
+
   const sliderRef = useRef(null);
 
   const settings = {
@@ -30,7 +47,7 @@ const HeroSliderGallery = () => {
   function CustomArrow(props) {
     const { className, onClick, type } = props;
     const iconClass = type === 'next' ? 'fa fa-arrow-right' : 'fa fa-arrow-left';
-  
+
     return (
       <button
         className={`slick-arrow ${className}`}
@@ -47,7 +64,9 @@ const HeroSliderGallery = () => {
       <Slider {...settings}
         nextArrow={<CustomArrow className="slick-next" type="next" />}
         prevArrow={<CustomArrow className="slick-prev" type="prev" />}
-        >
+        style={{display: "grid", height: windowWidth < 420 ? "75vh" : windowWidth < 576 ? "62vh" : 
+        windowWidth < 630 ? "70vh" : windowWidth < 768 ? "65vh": "100vh"}}
+      >
         <div className="slide-item bg-image image-1">
           <div style={overlayStyle}></div>
         </div>

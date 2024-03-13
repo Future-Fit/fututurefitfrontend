@@ -1,22 +1,22 @@
 import GlobalConfig from "@/Global.config";
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase, faNetworkWired, faO, faSchool, faTasks, faUniversity } from "@fortawesome/free-solid-svg-icons";
+import { faBriefcase, faGraduationCap, faNetworkWired, faO, faSchool, faTasks, faUniversity, faUserGraduate, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 
 const ServicesProvided = () => {
 
   const iconMap = {
-    "icon-drawing": faBriefcase,
-    "icon-task": faSchool,
+    "icon-user": faUsers, //faBriefcase,
+    "icon-student": faUserGraduate,
     "icon-institution": faUniversity,
-    "icon-one-finger-click": faO,
+    "icon-business": faBriefcase,
   };
 
   const blockContent = [
     {
       id: 1,
-      icon: "icon-drawing",
+      icon: "icon-user",
       title: "Job Seekers",
       text: `Find Great Jobs in Canada`,
       linkPath: '/service/job-seekers'
@@ -24,38 +24,37 @@ const ServicesProvided = () => {
     },
     {
       id: 2,
-      icon: "icon-task",
+      icon: "icon-student",
       title: "Students",
-      text: `Attend Canadian Universities`,
+      text: `Get Educated in Canada`,
       linkPath: '/service/students'
     },
     {
       id: 3,
-      icon: "icon-institution",
-      title: "Businesses/Universities",
-      text: `Optimize Global Recruitment`,
+      icon: "icon-business",
+      title: "Businesses",
+      text: `Recruit Top Talent Globally`,
       linkPath: '/service/businesses'
 
     },
     {
       id: 4,
-      icon: "icon-one-finger-click",
-      title: "Other Services",
-      text: `Training, Travel & Resettlement`,
-      linkPath: '/service/travel-other'
+      icon: "icon-institution",
+      title: "Academic Institutions",
+      text: `Expand & Recruit Globally`,
+      linkPath: '/service/universities-colleges'
 
     }
   ];
   return (
     <>
-      <section className="layout-pt-10 layout-pb-30" style={{ padding: "40px 20px", background: GlobalConfig.BgrClr2 }}>
+      <section className="layout-pt-10 layout-pb-30">
         <div className="auto-container" style={{ paddingBottom: '0px', paddingTop: '0px' }}>
-          <div className="sec-title text-center" >
+          {/* <div className="sec-title text-center" >
             <h2>Services</h2>
-          </div>
+          </div> */}
 
           <div className="row grid-base">
-
             {blockContent.map((item) => (
               <div className="col-lg-3 col-md-6 col-sm-12" key={item.id}>
                 <div className="work-block -type-4" style={{
@@ -64,7 +63,6 @@ const ServicesProvided = () => {
                 }}>
                   <a href={item.linkPath} className="block-content" style={{ textAlign: 'left' }} >
                     <div className="icon-wrap">
-                      {/* <span className={`icon ${item.icon}`}></span> */}
                       <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
                     </div>
                     <h5 className="title" style={{ color: GlobalConfig.BgrClr1, textAlign: 'left' }}>{item.title} </h5>

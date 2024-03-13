@@ -59,21 +59,37 @@ const Hero = () => {
             <div style={{ flex: 0.2, backgroundColor: GlobalConfig.LogoBlu, height: "3px" }} />
             <p style={{ fontSize: '16px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {/* <Image new width={20} height={20} src="/images/Canada Flag Only.png" alt="image" />&nbsp;&nbsp;&nbsp;&nbsp; */}
-              &nbsp; <strong> <span style={{ color: GlobalConfig.LogoGry1 }}> Work & Learn in </span> </strong>
-              <strong> <span style={{ color: GlobalConfig.LogoGry1 }}> Canada </span> </strong> &nbsp;
+              &nbsp; <strong> <span style={{ color: GlobalConfig.LogoOrg }}> Work & Learn in </span> </strong>
+              <strong> <span style={{ color: GlobalConfig.LogoOrg }}> Canada </span> </strong> &nbsp;
               {/* &nbsp;&nbsp;&nbsp;&nbsp;<Image new width={20} height={20} src="/images/Canada Flag Only.png" alt="image" /> */}
             </p>
             <div style={{ flex: 0.2, backgroundColor: GlobalConfig.LogoBlu, height: "3px" }} />
           </div>
 
-          <h2 style={{ margin: '30px 0px',
-            textAlign: 'justify', textAlign: 'center',
-            // textShadow: '1px 2px #007DB6', 
-            color: "#fff", fontSize: '20px'
-          }} >
-            <strong>We partner with Canadian businesses and academic institutions to facilitate 
-              recruiting international skilled workers and students.</strong>
+          {windowWidth > 768 ? (
+            <h2 style={{ margin: '30px 0px', textAlign: 'justify', textAlign: 'center', color: "#fff", fontWeight: "600", fontSize: '20px' }}>
+              We partner with Canadian businesses and academic institutions <br />
+              to facilitate the recruitment of international skilled workers and students.
+            </h2>
+          ) : windowWidth > 576 ? (
+            <h2 style={{ margin: '30px 0px', textAlign: 'justify', textAlign: 'center', color: "#fff", fontWeight: "600", fontSize: '18px' }}>
+              We partner with Canadian businesses and academic <br />
+              institutions to facilitate the recruitment of <br />
+              international skilled workers and students.
+            </h2>
+          ) : windowWidth > 420 ? (
+            <h2 style={{ margin: '30px 0px', textAlign: 'justify', textAlign: 'center', color: "#fff", fontWeight: "600", fontSize: '18px' }}>
+              We partner with Canadian businesses <br />
+              and academic institutions to facilitate < br />
+              the recruitment of international <br />
+              skilled workers and students.
+            </h2>
+          ) : (
+          <h2 style={{ margin: '30px 0px', textAlign: 'justify', textAlign: 'center', color: "#fff", fontWeight: "600", fontSize: '18px' }}>
+            We partner with Canadian businesses and academic institutions to facilitate the recruitment of international skilled workers and students.
           </h2>
+          )}
+
           <VideoPlayer />
           {/* </div> */}
         </div >

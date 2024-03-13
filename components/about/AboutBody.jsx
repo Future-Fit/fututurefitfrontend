@@ -77,8 +77,8 @@ const AboutBody = () => {
                   potential candidates in their pursuit of realizing their dreams to work and study
                   in Canada.<br /> <br/>
 
-                  Thank you for visiting our website! We are certain that you will be satisfied with the
-                  quality and range of services we provide to our valued clients. <br /> <br />
+                  Thank you for visiting our website! We hope that you will be happy with the quality 
+                  and range of services we provide. For any inquiries, please contact us. <br /> <br />
 
                   <strong>Management</strong>
                   <br /> <br />
