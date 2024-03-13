@@ -75,7 +75,7 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
 
         if (response.ok) {
           setUserData(responseData.result); // Save user data to state
-      myToast(responseData.message || "Registration successful!");
+          myToast(responseData.message || "Registration successful!");
 
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
           setShowForm(false);
@@ -127,7 +127,7 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
       [e.target.name]: e.target.value,
     });
     if (e.target.name === "password") {
-      myError("")
+      myError("");
       setPasswordError("");
     }
   };

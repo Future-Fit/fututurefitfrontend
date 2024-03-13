@@ -11,12 +11,21 @@ import DashboardAdminHeader from '../../header/DashboardAdminHeader'
 import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import FormContent2 from "@/components/common/form/login/FormContent2";
+import { Toast } from 'react-bootstrap';
 
 
 const index = () => {
   const [userType, setUserType] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [registrationMessage, setRegistrationMessage] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
+const myToast = ()=>{
 
-  useEffect(() => {
+}
+const myError = ()=>{
+
+}
+useEffect(() => {
     const storedUserType = localStorage.getItem('userType');
     if (storedUserType) {
       setUserType(JSON.parse(storedUserType));
@@ -26,8 +35,39 @@ const index = () => {
 
   return (
     <>
-    
-      <LoginPopup />
+      <Toast
+        onClose={() => {
+
+          setPasswordError('');
+          setRegistrationMessage(null);
+        }}
+        show={Boolean(registrationMessage || passwordError)} // Show toast if there's a message
+        delay={900000}
+        autohide
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          minWidth: '200px',
+          zIndex: 10000,
+        }}
+      >
+        <Toast.Header closeButton={true} style={{ fontSize: '15px' }}>
+          <strong className="me-auto" style={{ fontSize: '20px' }}>
+            {passwordError ? 'Error' : 'Message'}
+          </strong>
+          {/* Increased font size for the title */}
+        </Toast.Header>
+        <Toast.Body style={{ fontSize: '18px' }}>
+          {passwordError ? passwordError : registrationMessage}
+
+        </Toast.Body>
+      </Toast>
+      {  <LoginPopup myError={(value) => setPasswordError(value)} myToast={(value) => setRegistrationMessage(value)} closeMe={() => {
+        const element = document.getElementById("btn-del");
+        element.click();
+      }} />}
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
       {userType === 4 && <DashboardCandidatesHeader />}

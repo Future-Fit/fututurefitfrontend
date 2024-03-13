@@ -101,6 +101,7 @@ const index = () => {
           Each section is responsively optimized; any required change must be made within each section */}
 
       {/* This is the first section of the home page (carousel/gallery section)*/}
+
       <section style={{ background: GlobalConfig.BgrClr1 }}>
         <Hero />
       </section>

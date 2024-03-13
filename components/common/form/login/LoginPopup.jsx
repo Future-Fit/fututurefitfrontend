@@ -90,7 +90,7 @@ const LoginPopup = ({closeMe,myToast,myError}) => {
               <div id="login-modal">
                 {/* <!-- Login Form --> */}
                 <div className="login-form default-form">
-                  <Register onReset={setResetForm} myError={myError} closeMe = {closeMe } myToast={myToast} />
+                  <Register onReset={setResetForm} myError={myError} closeMe ={closeMe } myToast={myToast} />
                 </div>
                 {/* <!--End Login Form --> */}
               </div>

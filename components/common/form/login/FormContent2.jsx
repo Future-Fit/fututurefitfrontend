@@ -65,7 +65,7 @@ const FormContent2 = ({ onReset }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     // Perform login API request here using username and password
-    console.log("datas are", username, password);
+     
     try {
       const response = await fetch(`${DefaultConfig.url}/auth/login`, {
         method: "POST",

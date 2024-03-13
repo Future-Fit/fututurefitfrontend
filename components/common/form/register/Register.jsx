@@ -12,7 +12,7 @@ import { useState } from "react";
 const Register = ({closeMe,myToast,myError}) => {
 
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const closeModal = () => {setIsModalOpen(false); closeMe();}
+  const closeModal = () => { closeMe();   }
    
   return (isModalOpen && <div className="form-inner" >
       <div style={{ display: "grid", justifyContent: "center", fontWeight: "600", fontSize: "24px", color: GlobalConfig.Fgr1Clr }}>
