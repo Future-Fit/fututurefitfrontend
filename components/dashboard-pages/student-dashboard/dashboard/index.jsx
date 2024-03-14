@@ -5,7 +5,7 @@ import TopCardBlock from "./components/TopCardBlock";
 import ProfileChart from "./components/ProfileChart";
 import Notification from "./components/Notification";
 import CopyrightFooter from "../../CopyrightFooter";
-import JobApplied from "./components/JobApplied";
+import SchoolsApplied from "./components/SchoolsApplied";
 import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
@@ -32,7 +32,7 @@ const Index = () => {
       {/* <!-- Dashboard --> */}
       <section className="user-dashboard">
         <div className="dashboard-outer">
-          <BreadCrumb title="Howdy, Jerome!!" />
+          <BreadCrumb title="Your Dashboard" />
           {/* breadCrumb */}
 
           <MenuToggler />
@@ -70,13 +70,13 @@ const Index = () => {
               {/* <!-- applicants Widget --> */}
               <div className="applicants-widget ls-widget">
                 <div className="widget-title">
-                  <h4>Jobs Applied Recently</h4>
+                  <h4>Schools Applied To</h4>
                 </div>
                 <div className="widget-content">
                   <div className="row">
                     {/* <!-- Candidate block three --> */}
 
-                    <JobApplied />
+                    <SchoolsApplied />
                   </div>
                 </div>
               </div>

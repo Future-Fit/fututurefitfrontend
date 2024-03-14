@@ -47,25 +47,30 @@ const BusinessBody = () => {
                   Services for Employers</h4>
                 <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1.1em", textAlign: "justify", lineHeight: "1.4em" }}>
                   <span>
-                    In today's competitive world, businesses need to fill positions quickly.
-                    When they can't do so locally, FFI's global network and on the ground presence
-                    comes in handy.
-                    <br /><br />
-                    Using our dedicated business portal, employers can connect with skilled
-                    workforce from our international pool of resources. But, we don't stop there;
-                    we do all the hard work for you ranging from matching skills with
-                    job requirements to offering different training programs.
-                    <br /><br />
-                    <span>Although not an exclusive list, we typically serve our clients in the
-                      following industries:</span>
+                    <span> Canada has a vibrant, highly developed and one of the largest economies
+                      in the world which is highly dependent on international trade. In today's
+                      world, Canadian businesses need to fill job positions quickly to stay competitive.
+                      And, when businesses can't fill these positions locally, they need to look
+                      globally. This is where FFI's global network and on the ground presence comes
+                      in handy. Many industries in Canada already benefit from the significant
+                      contributions of international skilled workers. It is our job to support
+                      Canadian businesses by making the global sourcing and hiring process efficient
+                      and beneficial to Canadian businesses as well as job seekers.
+                      <br /><br />
+                      Although not an exclusive list, we typically serve our clients in the following industries:</span>
                     <ul className="list-style-five" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify", left: "5px", paddingLeft: "17px" }}>
                       <li>Healthcare</li>
                       <li>Engineering/IT</li>
                       <li>Manufacturing</li>
-                      <li>Construction/Skilled Trade</li>
                       <li>Transportation/Logistics</li>
+                      <li>Aviation</li>
+                      <li>Construction</li>
                       <li>Hospitality/Services</li>
-                    </ul>
+                      <li>Skilled Trade</li>
+                    </ul> <br/>
+                    The list below shows the types of services we offer. Please review the
+                    services and contact us to set up a customized global sourcing approach for you.
+                    <br /><br />
                   </span>
                 </div>
               </div>

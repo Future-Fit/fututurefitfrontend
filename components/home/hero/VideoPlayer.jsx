@@ -100,10 +100,10 @@ const VideoPlayer = () => {
               What We Do ...
             </h2>
             <div style={{ fontWeight: "500", textAlign: "left", color: 'white', marginTop: '-2px', marginBottom: '20px', width: 'fit-content' }}>
-              <div> <span>&nbsp;</span>• Find great opportunities for job seekers </div>
-              <div> <span>&nbsp;</span>• Assist in college search & applications </div>
+              <div> <span>&nbsp;</span>• Assist workers find great jobs in Canada </div>
+              <div> <span>&nbsp;</span>• Assist students to study in Canada </div>
               <div> <span>&nbsp;</span>• Recruit for Canadian businesses globally </div>
-              <div> <span>&nbsp;</span>• Promote Canadian higher education  </div>
+              <div> <span>&nbsp;</span>• Promote Canadian academic institutions  </div>
               <div> <span>&nbsp;</span>• Services in training, travel, relocation  </div>
               <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}>
                 <Link href="/about" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.Fgr1Clr, backgroundColor: GlobalConfig.LogoGry1 }}>

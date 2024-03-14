@@ -96,7 +96,7 @@ const Membership = () => {
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
                       </div>
                       <a href={item.linkPath}><h5 style={{ color: item.bgcolor }}>{item.title}</h5></a>
-                      <a href={item.linkPath} style={{ color: GlobalConfig.Fgr1Clr }}> {item.text} </a>
+                      <a href={item.linkPath} style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1.1em" }}> {item.text} </a>
 
                     </div>
                   </div>

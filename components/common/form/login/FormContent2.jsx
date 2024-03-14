@@ -84,25 +84,16 @@ const FormContent2 = ({ onReset }) => {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userType", user.user_type_id);
         localStorage.setItem("loggedInUserId", user.id);
-        if (user.user_type_id === 3) {
-          // const modalElement = document.getElementById("loginPopupModal");
-          // console.log(modalElement);
-          // modalElement.style.display = "none";
-          // const modalBackDrop = document.getElementsByClassName('modal-backdrop');
-          // modalBackDrop[0].style.display = "none";
-          // const body = document.getElementsByTagName("body");
-          // body[0].classList.remove("modal-open");
-          // body[0].style.overflow = "auto";
+        if (user.user_type_id === 1) {
+          router.push('/admin-dashboard/dashboard');
+        }else if(user.user_type_id === 3){
           router.push('/employers-dashboard/dashboard');
+        
         } else if (user.user_type_id === 4) {
-          // const modalElement = document.getElementById("loginPopupModal");
-          // const modalBackDrop = document.getElementsByClassName('modal-backdrop');
-          // modalBackDrop[0].style.display = "none";
-          // modalElement.style.display = "none";
-          // const body = document.getElementsByTagName("body");
-          // body[0].classList.remove("modal-open");
-          // body[0].style.overflow = "auto";
           router.push('/candidates-dashboard/my-profile');
+        }
+        else if(user.user_type_id === 5){
+          router.push('/student-dashboard/my-profile');        
         }
       } else {
         // If login fails

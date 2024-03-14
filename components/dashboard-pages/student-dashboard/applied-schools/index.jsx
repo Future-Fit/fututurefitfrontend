@@ -3,7 +3,7 @@ import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import BreadCrumb from "../../BreadCrumb";
 import CopyrightFooter from "../../CopyrightFooter";
-import JobListingsTable from "./components/JobListingsTable";
+import SchoolListingsTable from "./components/SchoolListingsTable";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import DashboardStudentsSidebar from "@/components/header/DashboardStudentSidebar";
@@ -29,7 +29,7 @@ const index = () => {
       {/* <!-- Dashboard --> */}
       <section className="user-dashboard">
         <div className="dashboard-outer">
-          <BreadCrumb title="Applied jobs!" />
+          <BreadCrumb title="Applied schools!" />
           {/* breadCrumb */}
 
           <MenuToggler />
@@ -39,7 +39,7 @@ const index = () => {
             <div className="col-lg-12">
               {/* <!-- Ls widget --> */}
               <div className="ls-widget">
-                <JobListingsTable />
+                <SchoolListingsTable />
               </div>
             </div>
           </div>

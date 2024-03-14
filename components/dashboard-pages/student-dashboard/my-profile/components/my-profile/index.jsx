@@ -1,14 +1,14 @@
 import FormInfoBox from "./FormInfoBox";
-import LogoUpload from "./LogoUpload";
+import PictureUpload from "./PictureUpload";
 
 const index = () => {
   return (
     <div className="widget-content">
-      <LogoUpload />
-      {/* End logo and cover photo components */}
+      <PictureUpload />
+      {/* End picture and cover photo components */}
 
       <FormInfoBox />
-      {/* compnay info box */}
+      {/* company info box */}
     </div>
   );
 };

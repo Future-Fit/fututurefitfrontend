@@ -66,7 +66,7 @@ const ServicesProvided = () => {
                       <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
                     </div>
                     <h5 className="title" style={{ color: GlobalConfig.BgrClr1, textAlign: 'left' }}>{item.title} </h5>
-                    <p className="text" style={{ color: GlobalConfig.Fnt1Clr, textAlign: 'left' }}>{item.text}</p>
+                    <p className="text" style={{ color: GlobalConfig.Fgr1Clr, textAlign: 'left', fontSize: "1.1em"}}>{item.text}</p>
                     <div style={{ position: 'absolute', left: '10px', bottom: '10px' }}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="-5 -5 25 25">
                         <path

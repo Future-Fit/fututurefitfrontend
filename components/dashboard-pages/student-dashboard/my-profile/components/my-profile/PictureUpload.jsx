@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-const LogoUpload = () => {
+const PictureUpload = () => {
     const [logImg, setLogoImg] = useState("");
     const logImgHander = (e) => {
         setLogoImg(e.target.files[0]);
@@ -25,17 +25,17 @@ const LogoUpload = () => {
                         className="uploadButton-button ripple-effect"
                         htmlFor="upload"
                     >
-                        {logImg !== "" ? logImg.name : "Browse Profile Picture"}
+                        {logImg !== "" ? logImg.name : "Profile Picture"}
                     </label>
                     <span className="uploadButton-file-name"></span>
                 </div>
                 <div className="text">
-                    Max file size is 1MB, Minimum dimension: 330x300 And
-                    Suitable files are .jpg & .png
+                    Max File Size: 1MB, Min Dimension: 330x300, 
+                    File Types: jpg, png
                 </div>
             </div>
         </>
     );
 };
 
-export default LogoUpload;
+export default PictureUpload;

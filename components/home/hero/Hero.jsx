@@ -59,7 +59,7 @@ const Hero = () => {
             <div style={{ flex: 0.2, backgroundColor: GlobalConfig.LogoBlu, height: "3px" }} />
             <p style={{ fontSize: '16px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {/* <Image new width={20} height={20} src="/images/Canada Flag Only.png" alt="image" />&nbsp;&nbsp;&nbsp;&nbsp; */}
-              &nbsp; <strong> <span style={{ color: GlobalConfig.LogoOrg }}> Work & Learn in </span> </strong>
+              &nbsp; <strong> <span style={{ color: GlobalConfig.LogoOrg }}> Work & Study in </span> </strong>
               <strong> <span style={{ color: GlobalConfig.LogoOrg }}> Canada </span> </strong> &nbsp;
               {/* &nbsp;&nbsp;&nbsp;&nbsp;<Image new width={20} height={20} src="/images/Canada Flag Only.png" alt="image" /> */}
             </p>

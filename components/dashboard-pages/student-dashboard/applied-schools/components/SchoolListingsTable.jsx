@@ -1,12 +1,12 @@
 import Link from "next/link.js";
-import jobs from "../../../../../data/job-featured.js";
+import schools from "../../../../../data/school-featured.js";
 import Image from "next/image.js";
 
-const JobListingsTable = () => {
+const SchoolListingsTable = () => {
   return (
     <div className="tabs-box">
       <div className="widget-title">
-        <h4>My Applied Jobs</h4>
+        <h4>Schools Applied To</h4>
 
         <div className="chosen-outer">
           {/* <!--Tabs Box--> */}
@@ -36,7 +36,7 @@ const JobListingsTable = () => {
               </thead>
 
               <tbody>
-                {jobs.slice(0, 4).map((item) => (
+                {schools.slice(0, 4).map((item) => (
                   <tr key={item.id}>
                     <td>
                       {/* <!-- Job Block --> */}
@@ -100,4 +100,4 @@ const JobListingsTable = () => {
   );
 };
 
-export default JobListingsTable;
+export default SchoolListingsTable;

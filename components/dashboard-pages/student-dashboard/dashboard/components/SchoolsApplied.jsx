@@ -1,11 +1,11 @@
 import Link from "next/link";
-import recentJobApplied from "../../../../../data/job-featured";
+import recentSchoolApplied from "../../../../../data/job-featured";
 import Image from "next/image";
 
-const JobApplied = () => {
+const SchoolsApplied = () => {
   return (
     <>
-      {recentJobApplied.slice(0, 6).map((item) => (
+      {recentSchoolApplied.slice(0, 6).map((item) => (
         <div className="job-block col-lg-6 col-md-12 col-sm-12" key={item.id}>
           <div className="inner-box">
             <div className="content">
@@ -26,7 +26,7 @@ const JobApplied = () => {
                   <span className="icon flaticon-briefcase"></span>
                   {item.company}
                 </li>
-                {/* compnay info */}
+                {/* company info */}
                 <li>
                   <span className="icon flaticon-map-locator"></span>
                   {item.location}
@@ -64,4 +64,4 @@ const JobApplied = () => {
   );
 };
 
-export default JobApplied;
+export default SchoolsApplied;

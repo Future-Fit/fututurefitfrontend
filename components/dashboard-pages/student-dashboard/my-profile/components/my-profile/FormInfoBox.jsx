@@ -5,23 +5,23 @@ import Select from "react-select";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
- 
+
 const FormInfoBox = () => {
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
-    job_title: '',
+    mname: '',
+    dob: '',
+    gender: '',
+    place_of_birth: '',
+    citizenship: '',
     phone: '',
     email: '',
-    website: '',
-    current_salary: '',
-    expected_salary: '',
-    experience: '',
-    age: '',
-    education_levels: '',
-    languages: '',
-    categories: [],
+    education_level: '',
+    english_prof: '',
+    other_lang: '',
+    program: [],
     allowSearch: '',
     description: '',
   });
@@ -31,63 +31,66 @@ const FormInfoBox = () => {
   const handleChange = (event) => {
     // Get the selected options from the event
     const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
-    
+
     // Update the state with the selected options
     setSelectedOptions(selectedValues);
   };
-  const updateUser =  async(data)=>{
+  const updateUser = async (data) => {
 
     try {
-     const token = localStorage.getItem("accessToken");
-     console.log(token,"this is the  token");
-     const userId = localStorage.getItem("loggedInUserId");
-     const response = await axios.put(`${apiConfig.url}/users/profile`,data,{headers:{
-        Authorization:`Bearer ${token}`
-      }});
+      const token = localStorage.getItem("accessToken");
+      console.log(token, "this is the  token");
+      const userId = localStorage.getItem("loggedInUserId");
+      const response = await axios.put(`${apiConfig.url}/users/profile`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       fetchUserDetails();
     } catch (error) {
       console.error("Error fetching user details:", error);
     }
   }
-useEffect(() => {
-  const userId = localStorage.getItem("loggedInUserId");
-  const token =  localStorage.getItem("accessToken");
-  console.log('user id', userId);
-  if (userId) {
-    const fetchUserDetails = async () => {
-      try {
-        const response = await axios.get(`${apiConfig.url}/users/me`,{headers:{
-          "Authorization":`Bearer ${token}`
-        }});
-        console.log('Response from server:', response.data);
-        setUserDetail(response.data);
-        setFormData(response.data);
-      } catch (error) {
-        console.error("Error fetching user details:", error);
-      }
-    };
-    fetchUserDetails();
-  }
-}, []);
-  const catOptions = [
-    { value: "Banking", label: "Banking" },
-    { value: "Digital & Creative", label: "Digital & Creative" },
-    { value: "Retail", label: "Retail" },
-    { value: "Human Resources", label: "Human Resources" },
-    { value: "Managemnet", label: "Managemnet" },
-    { value: "Accounting & Finance", label: "Accounting & Finance" },
-    { value: "Digital", label: "Digital" },
-    { value: "Creative Art", label: "Creative Art" },
+  useEffect(() => {
+    const userId = localStorage.getItem("loggedInUserId");
+    const token = localStorage.getItem("accessToken");
+    console.log('user id', userId);
+    if (userId) {
+      const fetchUserDetails = async () => {
+        try {
+          const response = await axios.get(`${apiConfig.url}/users/me`, {
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          });
+          console.log('Response from server:', response.data);
+          setUserDetail(response.data);
+          setFormData(response.data);
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      };
+      fetchUserDetails();
+    }
+  }, []);
+  const progOptions = [
+    { value: "", label: "" },
+    { value: "Grade Level", label: "Grade Level" },
+    { value: "High School", label: "High School" },
+    { value: "Undergraduate", label: "Undergraduate" },
+    { value: "Postgraduate", label: "Postgraduate" },
+    { value: "Certificate/Vocational", label: "Certificate/Vocational" },
+    { value: "Other", label: "Other" },
   ];
   const handleSubmit = (event) => {
-  
+
     event.preventDefault();
     // Create DTO object from form data
     const userDto = { ...formData };
     updateUser(userDto);
     // Perform any further processing or submit the DTO object
-     
-  
+
+
   };
 
   // Function to handle form input changes
@@ -101,147 +104,131 @@ useEffect(() => {
   return (
     <form action="#" className="default-form">
       <div className="row">
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Full Name</label>
-          <input type="text"  name="fname" value={formData.fname} onChange={handleInputChange}
- placeholder="First Name" required />
-   <input type="text"  name="lname" value={formData.lname} onChange={handleInputChange}
- placeholder="Last Name" required />
+        <div className="row">
+          {/* <!-- Input --> */}
+          <div className="form-group col-lg-4 col-md-4 col-sm-12">
+            <label>Last (Family) Name</label>
+            <input type="text" name="lname" value={formData.lname} onChange={handleInputChange}
+              placeholder="Last Name" required />
+          </div>
+          <div className="form-group col-lg-4 col-md-4 col-sm-12">
+            <label>Middle Name</label>
+            <input type="text" name="mname" value={formData.mname} onChange={handleInputChange}
+              placeholder="If No Middle Name, Put 'NMN'" required />
+          </div>
+          <div className="form-group col-lg-4 col-md-4 col-sm-12">
+            <label>First (Given) Name</label>
+            <input type="text" name="fname" value={formData.fname} onChange={handleInputChange}
+              placeholder="First Name" required />
+          </div>
         </div>
 
         {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Job Title</label>
-          <input name="job_title" value={formData.job_title} onChange={handleInputChange} type="text" placeholder="UI Designer" required />
+        <div className="row">
+          <div className="form-group col-lg-2 col-md-6 col-sm-12">
+            <label>Date of Birth</label>
+            <input type="text" name="dob" value={formData.dob} onChange={handleInputChange}
+              placeholder="MM/DD/YYYY" required />
+          </div>
+          <div className="form-group col-lg-2 col-md-6 col-sm-12">
+            <label>Gender</label>
+            <input type="text" name="gender" value={formData.gender} onChange={handleInputChange}
+              placeholder="" required />
+          </div>
         </div>
 
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Phone</label>
-          <input
-            type="text"
-            name="phone" value={formData.phone} onChange={handleInputChange}  
-            placeholder="0 123 456 7890"
-            required
-          />
+        <div className="row">
+          <div className="form-group col-lg-4 col-md-12 col-sm-12">
+            <label>Place of Birth</label>
+            <input type="text" name="place_of_birth" value={formData.place_of_birth} onChange={handleInputChange}
+              placeholder="City, Country" required />
+          </div>
+          <div className="form-group col-lg-4 col-md-12 col-sm-12">
+            <label>Citizenship</label>
+            <input type="text" name="citizenship" value={formData.citizenship} onChange={handleInputChange}
+              placeholder="Country" required />
+          </div>
         </div>
 
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Email address</label>
-          <input
-            type="email" name="email" value={formData.email} onChange={handleInputChange}  
-            placeholder="creativelayers"
-            required
-          />
+        <div className="row">
+          <div className="form-group col-lg-3 col-md-12">
+            <label>Phone Number</label>
+            <input type="text" name="phone" value={formData.phone} onChange={handleInputChange}
+              placeholder="Include Country Code" required />
+          </div>
+          <div className="form-group col-lg-6 col-md-12">
+            <label>Email Address</label>
+            <input type="email" name="email" value={formData.email} onChange={handleInputChange}
+              placeholder="creativelayers" required />
+          </div>
         </div>
 
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Website</label>
-          <input
-            name="website" value={formData.website} onChange={handleInputChange}  
-            placeholder="www.jerome.com"
-            required
-          />
+        <div className="row">
+          <div className="form-group col-lg-5 col-md-12">
+            <label>Current Education Level</label>
+            <input type="text" name="education_level" value={formData.education_levels} onChange={handleInputChange}
+              placeholder="Post Graduate/Graduate/High School/Gade Level" required />
+          </div>
         </div>
 
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-3 col-md-12">
-          <label>Current Salary($)</label>
-          <select name="current_salary" value={formData.current_salary} onChange={handleInputChange} required>
-            <option>40-70 K</option>
-            <option>50-80 K</option>
-            <option>60-90 K</option>
-            <option>70-100 K</option>
-            <option>100-150 K</option>
-          </select>
+        <div className="row">
+          <div className="form-group col-lg-6 col-md-6">
+            <label>English Proficiency</label>
+            <input type="text" name="english_prof" value={formData.english_prof} onChange={handleInputChange}
+              placeholder="Native Speaker/Fluent/Conversational/Beginner/None"
+              required
+            />
+          </div>
+          <div className="form-group col-lg-6 col-md-6">
+            <label>Other Language(s)/Proficiency</label>
+            <input type="text" name="other_lang" value={formData.other_lang} onChange={handleInputChange}
+              placeholder="List language/proficiency level, separated by comma"
+              required
+            />
+          </div>
         </div>
 
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-3 col-md-12">
-          <label>Expected Salary($)</label>
-          <select  name="expected_salary" value={formData.expected_salary} onChange={handleInputChange} className="chosen-single form-select" required>
-            <option>120-350 K</option>
-            <option>40-70 K</option>
-            <option>50-80 K</option>
-            <option>60-90 K</option>
-            <option>70-100 K</option>
-            <option>100-150 K</option>
-          </select>
+        <div className="row">
+          <div className="form-group col-lg-6 col-md-12">
+            <label>Program Applying For </label>
+            <Select
+              defaultValue={[progOptions[0]]}
+              isMulti
+              name="program" value={formData.program} onChange={handleInputChange}
+              options={progOptions}
+              className="basic-multi-select"
+              classNamePrefix="select"
+              required
+            />
+          </div>
+          <div className="form-group col-lg-6 col-md-12">
+            <label>Allow In Search & Listing</label>
+            <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange}
+              className="chosen-single form-select" required >
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
         </div>
 
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Experience</label>
-          <input type="text"name="experience" value={formData.experience} onChange={handleInputChange} placeholder="5-10 Years" required />
+        <div className="row">
+          <div className="form-group col-lg-12 col-md-12">
+            <label>Details </label>
+            <textarea name="description" value={formData.description} onChange={handleInputChange}
+              placeholder="Please describe your goals and interests in pursuing your education in Canada, including your interests in any extracurricular activities, sports, and other hobbies."></textarea>
+          </div>
         </div>
 
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Age</label>
-          <select  name="age" value={formData.age} onChange={handleInputChange} className="chosen-single form-select" required>
-            <option>23 - 27 Years</option>
-            <option>24 - 28 Years</option>
-            <option>25 - 29 Years</option>
-            <option>26 - 30 Years</option>
-          </select>
+        <div className="row">
+          <div style={{justifyContent: "center"}}>
+            <button type="submit" onClick={handleSubmit} className="theme-btn btn-style-one">
+              Save
+            </button>
+          </div>
         </div>
 
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Education Levels</label>
-          <input type="text" name="education_levels" value={formData.education_levels} onChange={handleInputChange} placeholder="Certificate" required />
-        </div>
-
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Languages</label>
-          <input
-             name="languages" value={formData.languages} onChange={handleInputChange}
-            placeholder="English, Turkish"
-            required
-          />
-        </div>
-
-        {/* <!-- Search Select --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Categories </label>
-          <Select
-            defaultValue={[catOptions[0]]}
-            isMulti
-            name="categories" value={formData.categories} onChange={handleInputChange} 
-            options={catOptions}
-            className="basic-multi-select"
-            classNamePrefix="select"
-            required
-          />
-        </div>
-
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <label>Allow In Search & Listing</label>
-          <select   name="allowSearch" value={formData.allowSearch} onChange={handleInputChange} className="chosen-single form-select" required >
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-        </div>
-
-        {/* <!-- About Company --> */}
-        <div className="form-group col-lg-12 col-md-12">
-          <label>Description</label>
-          <textarea name="description" value={formData.description} onChange={handleInputChange} placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
-        </div>
-
-        {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
-          <button type="submit" onClick={handleSubmit} className="theme-btn btn-style-one">
-            Save
-          </button>
-        </div>
       </div>
-    </form>
+    </form >
   );
 };
 
