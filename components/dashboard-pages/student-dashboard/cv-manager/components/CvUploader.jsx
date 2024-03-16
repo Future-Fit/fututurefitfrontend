@@ -2,6 +2,8 @@
 'use client'
 
 import { useState } from "react";
+import axios from 'axios';
+import apiConfig from "@/app.config";
 
 // validation chaching
 function checkFileTypes(files) {
@@ -21,6 +23,29 @@ function checkFileTypes(files) {
 const CvUploader = () => {
     const [getManager, setManager] = useState([]);
     const [getError, setError] = useState("");
+    const token = localStorage.getItem("accessToken");
+    const uploadFiles = async () => {
+        // Loop through the files in getManager and upload them
+        getManager.forEach(async (file) => {
+            const formData = new FormData();
+            formData.append('file', file); // Assuming the API expects the file under the key 'cv'
+
+            try {
+                const response = await axios.post(`${apiConfig.url}/job-seeker/cv`, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        "Authorization": `Bearer ${token}`
+
+                    },
+                });
+                console.log('Upload successful', response.data);
+                // Handle success (e.g., showing a success message, removing the file from getManager, etc.)
+            } catch (error) {
+                console.error('Upload failed', error);
+                // Handle error (e.g., showing an error message)
+            }
+        });
+    };
 
     const cvManagerHandler = (e) => {
         const data = Array.from(e.target.files);
@@ -56,26 +81,32 @@ const CvUploader = () => {
                         type="file"
                         name="attachments[]"
                         accept=".doc,.docx,.xml,application/msword,application/pdf, image/*"
-                        id="upload"
+                        id="cv_file_path"
                         multiple
                         onChange={cvManagerHandler}
                     />
-                    <label className="cv-uploadButton" htmlFor="upload">
+                    <label className="cv-uploadButton" htmlFor="cv_file_path">
                         <span className="title">Drop files here to upload</span>
                         <span className="text">
                             To upload file size is (Max 5Mb) and allowed file
                             types are (.doc, .docx, .pdf)
                         </span>
                         <span className="theme-btn btn-style-one">
-                            Upload Resume
+                            Select Files
                         </span>
+
+
                         {getError !== "" ? (
                             <p className="ui-danger mb-0">{getError}</p>
                         ) : undefined}
                     </label>
                     <span className="uploadButton-file-name"></span>
                 </div>
+
             </div>
+
+            <button className="theme-btn btn-style-one" onClick={uploadFiles}>Upload Files</button>
+
             {/* End upload-resume */}
 
             {/* Start resume Preview  */}
@@ -85,7 +116,7 @@ const CvUploader = () => {
                         <span className="title">{file.name}</span>
                         <div className="edit-btns">
                             <button>
-                                <span className="la la-pencil"></span>
+                                <span className="la la-eye"></span>
                             </button>
                             <button onClick={() => deleteHandler(file.name)}>
                                 <span className="la la-trash"></span>
@@ -93,30 +124,6 @@ const CvUploader = () => {
                         </div>
                     </div>
                 ))}
-
-                {/* <div className="file-edit-box">
-                    <span className="title">Sample CV</span>
-                    <div className="edit-btns">
-                        <button>
-                            <span className="la la-pencil"></span>
-                        </button>
-                        <button>
-                            <span className="la la-trash"></span>
-                        </button>
-                    </div>
-                </div>
-
-                <div className="file-edit-box">
-                    <span className="title">Sample CV</span>
-                    <div className="edit-btns">
-                        <button>
-                            <span className="la la-pencil"></span>
-                        </button>
-                        <button>
-                            <span className="la la-trash"></span>
-                        </button>
-                    </div>
-                </div>*/}
             </div>
             {/* End resume Preview  */}
         </>

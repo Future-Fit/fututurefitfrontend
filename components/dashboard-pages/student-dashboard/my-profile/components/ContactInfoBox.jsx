@@ -1,69 +1,56 @@
+import { useEffect, useState } from "react";
 import Map from "../../../Map";
+import axios from "axios";
 
 const ContactInfoBox = () => {
+
+  const [countries, setCountries] = useState([]);
+  const [formData, setFormData] = useState({
+    country: ''
+  });
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get('https://restcountries.com/v3.1/all');
+        const countryNames = response.data.map((country) => ({
+          label: country.name.common, // or country.name.official based on your preference
+          value: country.cca2, // 2-letter country code, you might want to use country name instead
+        }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+        setCountries(countryNames);
+      } catch (error) {
+        console.error('Failed to fetch countries:', error);
+      }
+    };
+
+    fetchCountries();
+  }, []);
+
   return (
     <form className="default-form">
       <div className="row">
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
+            <label>Country </label>
+            <select
+              name="country"
+              value={formData.country}
+              onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+              required
+            >
+              <option value="">Select Country</option>
+              {countries.map((country) => (
+                <option key={country.value} value={country.value}>
+                  {country.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        {/* <div className="form-group col-lg-6 col-md-12">
           <label>Country</label>
-          <select className="chosen-single form-select" required>
-            <option disabled>Select Country</option>
-            <option>Algeria</option>
-            <option>Angola</option>
-            <option>Benin</option>
-            <option>Botswana</option>
-            <option>Burkina Faso</option>
-            <option>Burundi</option>
-            <option>Cabo Verde</option>
-            <option>Cameroon</option>
-            <option>Central African Republic</option>
-            <option>Chad</option>
-            <option>Comoros</option>
-            <option>Congo, Democratic Republic of the</option>
-            <option>Cote d'Ivoire</option>
-            <option>Djibouti</option>
-            <option>Egypt</option>
-            <option>Equatorial Guinea</option>
-            <option>Eritrea</option>
-            <option>Eswatini</option>
-            <option>Ethiopia</option>
-            <option>Gabon</option>
-            <option>Gambia</option>
-            <option>Ghana</option>
-            <option>Guinea</option>
-            <option>Guinea-Bissau</option>
-            <option>Kenya</option>
-            <option>Lesotho</option>
-            <option>Liberia</option>
-            <option>Libya</option>
-            <option>Madagascar</option>
-            <option>Malawi</option>
-            <option>Mali</option>
-            <option>Mauritania</option>
-            <option>Mauritius</option>
-            <option>Morocco</option>
-            <option>Mozambique</option>
-            <option>Namibia</option>
-            <option>Niger</option>
-            <option>Nigeria</option>
-            <option>Rwanda</option>
-            <option>Sao Tome and Principe</option>
-            <option>Senegal</option>
-            <option>Seychelles</option>
-            <option>Sierra Leone</option>
-            <option>Somalia</option>
-            <option>South Africa</option>
-            <option>South Sudan</option>
-            <option>Sudan</option>
-            <option>Tanzania</option>
-            <option>Togo</option>
-            <option>Tunisia</option>
-            <option>Uganda</option>
-            <option>Zambia</option>
-            <option>Zimbabwe</option>
-          </select>
-        </div>
+          
+        </div> */}
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">

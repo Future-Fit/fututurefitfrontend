@@ -273,12 +273,12 @@ const DashboardStudentHeader = () => {
 
                         <HeaderNavContent />
                         {/* <!-- Main Menu End--> */}
-                    </div>
+                    {/* </div> */}
                     {/* End .nav-outer */}
 
 
 
-                    <div className="outer-box">
+                    {/* <div className="outer-box"> */}
                         <div className="dropdown dashboard-option">
                             <a
                                 className="dropdown-toggle"
@@ -315,6 +315,8 @@ const DashboardStudentHeader = () => {
                             </ul>
                         </div>
 
+                        </div>
+
                         {cart && cart.length > 0 && ( // Check if cart exists and is not empty
                             <Link href="/shop/cart">
                                 <button className="menu-btn me-3">
@@ -324,7 +326,7 @@ const DashboardStudentHeader = () => {
                             </Link>
                         )}
                         {/* End dropdown */}
-                    </div>
+                    {/* </div> */}
                     {/* End outer-box */}
 
                     <div className="search-container d-flex align-items-center"
@@ -409,7 +411,7 @@ const DashboardStudentHeader = () => {
                             <li>
                                 <a
                                     className="dropdown-item"
-                                    href="#"
+                                    // href="#"
                                     onMouseEnter={handleItemHover}
                                     onMouseLeave={handleItemLeave}
                                     onClick={() => handleLanguageChange('EN')}
@@ -421,7 +423,7 @@ const DashboardStudentHeader = () => {
                             <li>
                                 <a
                                     className="dropdown-item"
-                                    href="#"
+                                    // href="#"
                                     onMouseEnter={handleItemHover}
                                     onMouseLeave={handleItemLeave}
                                     onClick={() => handleLanguageChange('FR')}
@@ -432,7 +434,7 @@ const DashboardStudentHeader = () => {
                             <li>
                                 <a
                                     className="dropdown-item"
-                                    href="#"
+                                    // href="#"
                                     onMouseEnter={handleItemHover}
                                     onMouseLeave={handleItemLeave}
                                     onClick={() => handleLanguageChange('AM')}

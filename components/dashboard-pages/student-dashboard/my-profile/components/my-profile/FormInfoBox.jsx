@@ -12,9 +12,9 @@ const FormInfoBox = () => {
     fname: '',
     lname: '',
     mname: '',
-    dob: '',
+    date_of_birth: '',
     gender: '',
-    place_of_birth: '',
+    city: '',
     citizenship: '',
     phone: '',
     email: '',
@@ -35,22 +35,67 @@ const FormInfoBox = () => {
     // Update the state with the selected options
     setSelectedOptions(selectedValues);
   };
-  const updateUser = async (data) => {
 
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get('https://restcountries.com/v3.1/all');
+        const countryNames = response.data.map((country) => ({
+          label: country.name.common, // or country.name.official based on your preference
+          value: country.cca2, // 2-letter country code, you might want to use country name instead
+        }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+        setCountries(countryNames);
+      } catch (error) {
+        console.error('Failed to fetch countries:', error);
+      }
+    };
+
+    fetchCountries();
+  }, []);
+
+  // const updateUser = async (data) => {
+
+  //   try {
+  //     const token = localStorage.getItem("accessToken");
+  //     console.log(token, "this is the  token");
+  //     const userId = localStorage.getItem("loggedInUserId");
+  //     const response = await axios.put(`${apiConfig.url}/users/profile`, data, {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     });
+  //     fetchUserDetails();
+  //   } catch (error) {
+  //     console.error("Error fetching user details:", error);
+  //   }
+  // }
+
+  const updateUser = async (data) => {
     try {
       const token = localStorage.getItem("accessToken");
-      console.log(token, "this is the  token");
-      const userId = localStorage.getItem("loggedInUserId");
+      if (!token) {
+        console.error("No access token found");
+        return;
+      }
+
       const response = await axios.put(`${apiConfig.url}/users/profile`, data, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
-      fetchUserDetails();
+
+      // Assuming the API returns the updated user details as response
+      console.log('User updated successfully:', response.data);
+      // Perform any success actions, like updating UI or state
     } catch (error) {
-      console.error("Error fetching user details:", error);
+      console.error("Error updating user details:", error.response ? error.response.data : error);
+      // Handle errors (e.g., show error message to the user)
     }
-  }
+  };
+
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
@@ -90,7 +135,6 @@ const FormInfoBox = () => {
     updateUser(userDto);
     // Perform any further processing or submit the DTO object
 
-
   };
 
   // Function to handle form input changes
@@ -101,6 +145,17 @@ const FormInfoBox = () => {
       [name]: value,
     });
   };
+
+  // const handleInputChange = (selectedOptions) => {
+  //   // If selectedOptions is not an array, make it an array
+  //   const normalizedOptions = Array.isArray(selectedOptions) ? selectedOptions : [selectedOptions].filter(Boolean);
+
+  //   // Now we can safely use .map() as normalizedOptions is guaranteed to be an array
+  //   const values = normalizedOptions.map(option => option.value);
+
+  //   setFormData({ ...formData, program: values });
+  // };
+
   return (
     <form action="#" className="default-form">
       <div className="row">
@@ -127,7 +182,7 @@ const FormInfoBox = () => {
         <div className="row">
           <div className="form-group col-lg-2 col-md-6 col-sm-12">
             <label>Date of Birth</label>
-            <input type="text" name="dob" value={formData.dob} onChange={handleInputChange}
+            <input type="Date" name="date_of_birth" value={formData.date_of_birth} onChange={handleInputChange}
               placeholder="MM/DD/YYYY" required />
           </div>
           <div className="form-group col-lg-2 col-md-6 col-sm-12">
@@ -140,13 +195,30 @@ const FormInfoBox = () => {
         <div className="row">
           <div className="form-group col-lg-4 col-md-12 col-sm-12">
             <label>Place of Birth</label>
-            <input type="text" name="place_of_birth" value={formData.place_of_birth} onChange={handleInputChange}
+            <input type="text" name="city" value={formData.city} onChange={handleInputChange}
               placeholder="City, Country" required />
           </div>
-          <div className="form-group col-lg-4 col-md-12 col-sm-12">
+          {/* <div className="form-group col-lg-4 col-md-12 col-sm-12">
             <label>Citizenship</label>
             <input type="text" name="citizenship" value={formData.citizenship} onChange={handleInputChange}
               placeholder="Country" required />
+          </div> */}
+          <div className="form-group col-lg-6 col-md-12">
+            <label>Citizenship </label>
+
+            <select
+              name="citizenship"
+              value={formData.citizenship}
+              onChange={(e) => setFormData({ ...formData, citizenship: e.target.value })}
+              required
+            >
+              <option value="">Select Citizenship</option>
+              {countries.map((country) => (
+                <option key={country.value} value={country.value}>
+                  {country.label}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 
@@ -203,12 +275,23 @@ const FormInfoBox = () => {
           </div>
           <div className="form-group col-lg-6 col-md-12">
             <label>Allow In Search & Listing</label>
-            <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange}
-              className="chosen-single form-select" required >
-              <option>Yes</option>
-              <option>No</option>
+            <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange} className="chosen-single form-select" required>
+              <option value="" disabled>Select...</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
             </select>
           </div>
+
+          {/* <div className="form-group col-lg-6 col-md-12">
+            <label>Allow In Search & Listing</label>
+            <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange}
+              className="chosen-single form-select" required >
+              <option value="" disabled>Selet...</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+
+            </select>
+          </div> */}
         </div>
 
         <div className="row">
@@ -220,7 +303,7 @@ const FormInfoBox = () => {
         </div>
 
         <div className="row">
-          <div style={{justifyContent: "center"}}>
+          <div style={{ justifyContent: "center" }}>
             <button type="submit" onClick={handleSubmit} className="theme-btn btn-style-one">
               Save
             </button>

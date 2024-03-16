@@ -14,6 +14,7 @@ import FooterDefault from "../../../footer/common-footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
+import CvUploader from "../../candidates-dashboard/cv-manager/components/CvUploader";
 
 // import DefaultConfig from "app.config.js";
 
@@ -87,6 +88,18 @@ const index = () => {
                 </div>
               </div>
               {/* <!-- Ls widget --> */}
+
+              {/* <div className="ls-widget">
+                <div className="tabs-box">
+                  <div className="widget-title">
+                    <h4>File Manager</h4>
+                  </div>
+
+                  <div className="widget-content">
+                    <CvUploader />
+                  </div>
+                </div>
+              </div> */}
 
               <div className="ls-widget">
                 <div className="tabs-box">
