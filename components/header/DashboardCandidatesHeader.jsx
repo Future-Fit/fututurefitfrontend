@@ -41,6 +41,29 @@ const DashboardCandidatesHeader = () => {
         // console.log(`Selected Language: ${language}`);
     };
 
+    //pulling profile picture from database
+    useEffect(() => {
+        const userId = localStorage.getItem("loggedInUserId");
+        const token = localStorage.getItem("accessToken");
+        console.log('user id', userId);
+        if (userId) {
+            const fetchUserDetails = async () => {
+                try {
+                    const response = await axios.get(`${apiConfig.url}/users/me`, {
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        }
+                    });
+                    console.log('Response from server:', response.data);
+                    setUserDetail(response.data);
+                    setFormData(response.data);
+                } catch (error) {
+                    console.error("Error fetching user details:", error);
+                }
+            };
+            fetchUserDetails();
+        }
+    }, []);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -291,12 +314,16 @@ const DashboardCandidatesHeader = () => {
                                 style={{ display: 'flex', alignItems: 'center' }}
 
                             >
-                                <Image
-                                    alt="avatar"
-                                    src="/images/user-flat.svg"
-                                    width={30}
-                                    height={30}
-                                />
+                                {userDetail && userDetail.user_image ? (
+                                    <img width={30} height={30} src={`${apiConfig.url}/${userDetail.user_image}`} alt="Profile" />
+                                ) : (
+                                    <Image
+                                        alt="avatar"
+                                        src="/images/user-flat.svg"
+                                        width={30}
+                                        height={30}
+                                    />
+                                )}
                                 {/* <span className="icon icon-user"></span> */}
                                 {/* <span style={{ color: '#fff', width: 'fit-content' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span> */}
                             </a>

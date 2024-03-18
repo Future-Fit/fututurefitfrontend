@@ -13,6 +13,7 @@ import CartTotal from "./components/CartTotal";
 import ShopHeader from "../../header/ShopHeader";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import { useEffect, useState } from "react";
+import DashboardStudentSidebar from "@/components/header/DashboardStudentSidebar";
 
 const index = () => {
 
@@ -27,8 +28,9 @@ const index = () => {
 
   return (
     <>
-      {/* <!-- Header Span --> */}
+    <div className="page-wrapper dashboard">
       <span className="header-span"></span>
+      {/* <!-- Header Span --> */}
 
       <LoginPopup />
       {/* End Login Popup Modal */}
@@ -42,6 +44,9 @@ const index = () => {
 
       <MobileMenu />
       {/* End MobileMenu */}
+
+      <DashboardStudentSidebar />
+
 
       <Breadcrumb title="Cart" meta="Cart" />
       {/* <!--End Page Title--> */}
@@ -78,6 +83,7 @@ const index = () => {
 
       <FooterDefault footerStyle="alternate5" />
       {/* <!-- End Main Footer --> */}
+      </div>
     </>
   );
 };

@@ -46,7 +46,7 @@ const FormInfoBox = () => {
           label: country.name.common, // or country.name.official based on your preference
           value: country.cca2, // 2-letter country code, you might want to use country name instead
         }))
-        .sort((a, b) => a.label.localeCompare(b.label));
+          .sort((a, b) => a.label.localeCompare(b.label));
         setCountries(countryNames);
       } catch (error) {
         console.error('Failed to fetch countries:', error);
@@ -56,22 +56,7 @@ const FormInfoBox = () => {
     fetchCountries();
   }, []);
 
-  // const updateUser = async (data) => {
 
-  //   try {
-  //     const token = localStorage.getItem("accessToken");
-  //     console.log(token, "this is the  token");
-  //     const userId = localStorage.getItem("loggedInUserId");
-  //     const response = await axios.put(`${apiConfig.url}/users/profile`, data, {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     });
-  //     fetchUserDetails();
-  //   } catch (error) {
-  //     console.error("Error fetching user details:", error);
-  //   }
-  // }
 
   const updateUser = async (data) => {
     try {
@@ -118,15 +103,6 @@ const FormInfoBox = () => {
       fetchUserDetails();
     }
   }, []);
-  const progOptions = [
-    { value: "", label: "" },
-    { value: "Grade Level", label: "Grade Level" },
-    { value: "High School", label: "High School" },
-    { value: "Undergraduate", label: "Undergraduate" },
-    { value: "Postgraduate", label: "Postgraduate" },
-    { value: "Certificate/Vocational", label: "Certificate/Vocational" },
-    { value: "Other", label: "Other" },
-  ];
   const handleSubmit = (event) => {
 
     event.preventDefault();
@@ -146,15 +122,6 @@ const FormInfoBox = () => {
     });
   };
 
-  // const handleInputChange = (selectedOptions) => {
-  //   // If selectedOptions is not an array, make it an array
-  //   const normalizedOptions = Array.isArray(selectedOptions) ? selectedOptions : [selectedOptions].filter(Boolean);
-
-  //   // Now we can safely use .map() as normalizedOptions is guaranteed to be an array
-  //   const values = normalizedOptions.map(option => option.value);
-
-  //   setFormData({ ...formData, program: values });
-  // };
 
   return (
     <form action="#" className="default-form">
@@ -263,15 +230,15 @@ const FormInfoBox = () => {
         <div className="row">
           <div className="form-group col-lg-6 col-md-12">
             <label>Program Applying For </label>
-            <Select
-              defaultValue={[progOptions[0]]}
-              isMulti
-              name="program" value={formData.program} onChange={handleInputChange}
-              options={progOptions}
-              className="basic-multi-select"
-              classNamePrefix="select"
-              required
-            />
+            <select name="program" value={formData.program} onChange={handleInputChange} className="chosen-single form-select" required>
+              <option value="" disabled>Select...</option>
+              <option value="Grade Level">Grade Level</option>
+              <option value="High School">High School</option>
+              <option value="Undergraduate">Undergraduate</option>
+              <option value="Postgraduate">Postgraduate</option>
+              <option value="Certificate/Vocational">Certificate/Vocational</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
           <div className="form-group col-lg-6 col-md-12">
             <label>Allow In Search & Listing</label>

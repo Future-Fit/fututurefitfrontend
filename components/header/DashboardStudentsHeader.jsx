@@ -55,6 +55,29 @@ const DashboardStudentHeader = () => {
             }
         }
     }, []);
+    //pulling profile picture from database
+    useEffect(() => {
+        const userId = localStorage.getItem("loggedInUserId");
+        const token = localStorage.getItem("accessToken");
+        console.log('user id', userId);
+        if (userId) {
+            const fetchUserDetails = async () => {
+                try {
+                    const response = await axios.get(`${apiConfig.url}/users/me`, {
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        }
+                    });
+                    console.log('Response from server:', response.data);
+                    setUserDetail(response.data);
+                    setFormData(response.data);
+                } catch (error) {
+                    console.error("Error fetching user details:", error);
+                }
+            };
+            fetchUserDetails();
+        }
+    }, []);
 
     const handleItemHover = () => {
         // Set inline style for hovered item
@@ -273,12 +296,12 @@ const DashboardStudentHeader = () => {
 
                         <HeaderNavContent />
                         {/* <!-- Main Menu End--> */}
-                    {/* </div> */}
-                    {/* End .nav-outer */}
+                        {/* </div> */}
+                        {/* End .nav-outer */}
 
 
 
-                    {/* <div className="outer-box"> */}
+                        {/* <div className="outer-box"> */}
                         <div className="dropdown dashboard-option">
                             <a
                                 className="dropdown-toggle"
@@ -288,12 +311,23 @@ const DashboardStudentHeader = () => {
                                 style={{ display: 'flex', alignItems: 'center' }}
 
                             >
-                                <Image
+
+                                {userDetail && userDetail.user_image ? (
+                                    <img width={30} height={30} src={`${apiConfig.url}/${userDetail.user_image}`} alt="Profile" />
+                                ) : (
+                                    <Image
+                                        alt="avatar"
+                                        src="/images/user-flat.svg"
+                                        width={30}
+                                        height={30}
+                                    />
+                                )}
+                                {/* <Image
                                     alt="avatar"
                                     src="/images/user-flat.svg"
                                     width={30}
                                     height={30}
-                                />
+                                /> */}
                                 {/* <span className="icon icon-user"></span> */}
                                 {/* <span style={{ color: '#fff', width: 'fit-content' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span> */}
                             </a>
@@ -315,17 +349,17 @@ const DashboardStudentHeader = () => {
                             </ul>
                         </div>
 
-                        </div>
+                    </div>
 
-                        {cart && cart.length > 0 && ( // Check if cart exists and is not empty
-                            <Link href="/shop/cart">
-                                <button className="menu-btn me-3">
-                                    <span className="count">{cart.length}</span>
-                                    <span className="icon flaticon-shopping-cart" />
-                                </button>
-                            </Link>
-                        )}
-                        {/* End dropdown */}
+                    {cart && cart.length > 0 && ( // Check if cart exists and is not empty
+                        <Link href="/shop/cart">
+                            <button className="menu-btn me-3">
+                                <span className="count">{cart.length}</span>
+                                <span className="icon flaticon-shopping-cart" />
+                            </button>
+                        </Link>
+                    )}
+                    {/* End dropdown */}
                     {/* </div> */}
                     {/* End outer-box */}
 

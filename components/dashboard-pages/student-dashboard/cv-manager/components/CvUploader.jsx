@@ -100,12 +100,12 @@ const CvUploader = () => {
                             <p className="ui-danger mb-0">{getError}</p>
                         ) : undefined}
                     </label>
-                    <span className="uploadButton-file-name"></span>
+                    {/* <span className="uploadButton-file-name"></span> */}
                 </div>
 
             </div>
 
-            <button className="theme-btn btn-style-one" onClick={uploadFiles}>Upload Files</button>
+            <button style={{marginTop: "10px"}} className="theme-btn btn-style-one" onClick={uploadFiles}>Upload Files</button>
 
             {/* End upload-resume */}
 
