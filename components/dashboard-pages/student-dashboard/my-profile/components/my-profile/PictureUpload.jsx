@@ -85,11 +85,12 @@ const PictureUpload = () => {
                     <label htmlFor="upload" className="uploadButton-button ripple-effect">
                         {file ? file.name : "Profile Picture"}
                     </label>
-                    <button className="theme-btn btn-style-one" onClick={handleSubmit}>Upload Image</button>
                 </div>
                 <div className="text">
                     Max File Size: 1MB, Min Dimension: 330x300, File Types: jpg, png
                 </div>
+                <div><br/><br/><br/><nl><button className="theme-btn btn-style-one" onClick={handleSubmit}>Upload Image</button></nl>
+  </div>
             </div>
         </>
     );

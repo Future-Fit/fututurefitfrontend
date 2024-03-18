@@ -198,7 +198,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-6 col-md-12">
             <label>Email Address</label>
             <input type="email" name="email" value={formData.email} onChange={handleInputChange}
-              placeholder="creativelayers" required />
+              placeholder="email address" required />
           </div>
         </div>
 
