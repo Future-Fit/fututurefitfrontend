@@ -34,8 +34,11 @@ const DashboardCandidatesSidebar = () => {
   const handleMenuItemClick = async (item, event) => {
     if (item.id === 10) { // Check if the clicked item is the logout option
       event.preventDefault(); // Prevent default Link navigation
-      await clearSession(); // Clear session (assuming this can be made async)
-      router.push('/'); // Redirect to home or login page
+      const confirmLogout = window.confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        await clearSession(); // Clear session (assuming this can be made async)
+        router.push('/'); // Redirect to home or login page
+      } // Redirect to home or login page
     } else {
       menuToggleHandler(); // Perform the usual menu toggle action
     }

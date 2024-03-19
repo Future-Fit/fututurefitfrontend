@@ -318,7 +318,7 @@ const DashboardHeader = () => {
                                 {/* Change Password Option */}
                                 <li className={`${isActiveLink('/admin-dashboard/dashboard', usePathname()) ? "active" : ""} mb-1`}>
                                     <Link href="/admin-dashboard/dashboard">
-                                        <i className="la la-lock"></i> My Company Profile
+                                        <i className="la la-lock"></i> My Profile
                                     </Link>
                                 </li>
 

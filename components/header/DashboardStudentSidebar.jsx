@@ -1,16 +1,13 @@
 'use client'
 
 import Link from "next/link";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import candidatesuData from "../../data/candidatesMenuData";
 import studentsmenuData from "../../data/studentsMenuData";
 import { isActiveLink } from "../../utils/linkActiveChecker";
 
 import { useDispatch, useSelector } from "react-redux";
 import { menuToggle } from "../../features/toggle/toggleSlice";
 import { usePathname, useRouter } from "next/navigation";
-import Image from "next/image";
 import { clearSession } from "../common/form/login/sessionHandler";
 import GlobalConfig from "@/Global.config";
 
@@ -26,21 +23,25 @@ const DashboardStudentSidebar = () => {
     dispatch(menuToggle());
   };
 
-  const filteredData = candidatesuData.filter(
+  const filteredData = studentsmenuData.filter(
     (item) => item.name !== "Change Password" && item.name !== "Logout"
   );
 
   const router = useRouter();
 
   const handleMenuItemClick = async (item, event) => {
-    if (item.id === 10) { // Check if the clicked item is the logout option
+    if (item.id === 6) { // Check if the clicked item is the logout option
       event.preventDefault(); // Prevent default Link navigation
-      await clearSession(); // Clear session (assuming this can be made async)
-      router.push('/'); // Redirect to home or login page
+      const confirmLogout = window.confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        await clearSession(); // Clear session (assuming this can be made async)
+        router.push('/'); // Redirect to home or login page
+      } // If not confirmed, do nothing
     } else {
       menuToggleHandler(); // Perform the usual menu toggle action
     }
   };
+  
 
   return (
     <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
