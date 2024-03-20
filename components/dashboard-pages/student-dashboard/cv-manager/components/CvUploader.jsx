@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 import apiConfig from "@/app.config";
 
@@ -11,6 +11,8 @@ function checkFileTypes(files) {
         "application/pdf",
         "application/msword",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "audio/mp3",
+        "video/mp4"
     ];
     for (let i = 0; i < files.length; i++) {
         if (!allowedTypes.includes(files[i].type)) {
@@ -24,6 +26,27 @@ const CvUploader = () => {
     const [getManager, setManager] = useState([]);
     const [getError, setError] = useState("");
     const token = localStorage.getItem("accessToken");
+    const [userDetail, setUserDetail] = useState([]);
+
+
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            try {
+                const response = await axios.get(`${apiConfig.url}/job-seeker/cv`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+                console.log('Response from server:', response.data);
+                setUserDetail(response.data);
+            } catch (error) {
+                console.error("Error fetching user details:", error);
+            }
+        };
+        fetchUserDetails();
+    }, [token]);
+
+
     const uploadFiles = async () => {
         // Loop through the files in getManager and upload them
         getManager.forEach(async (file) => {
@@ -35,7 +58,6 @@ const CvUploader = () => {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         "Authorization": `Bearer ${token}`
-
                     },
                 });
                 console.log('Upload successful', response.data);
@@ -80,7 +102,8 @@ const CvUploader = () => {
                         className="uploadButton-input"
                         type="file"
                         name="attachments[]"
-                        accept=".doc,.docx,.xml,application/msword,application/pdf, image/*"
+                        // accept=".doc,.docx,.xml,application/msword,application/pdf, image/*"
+                        accept=".doc, .docx, .pdf, .mp3, .mp4, .xml, application/msword, application/pdf, image/*, video/mp4, video/mpeg, audio/mp3"
                         id="cv_file_path"
                         multiple
                         onChange={cvManagerHandler}
@@ -88,7 +111,7 @@ const CvUploader = () => {
                     <label className="cv-uploadButton" htmlFor="cv_file_path">
                         <span className="title">Drop files here to upload</span>
                         <span className="text">
-                            To upload file size is (Max 5Mb) and allowed file
+                            To upload file size is (Max 10Mb) and allowed file
                             types are (.doc, .docx, .pdf)
                         </span>
                         <span className="theme-btn btn-style-one">
@@ -105,7 +128,7 @@ const CvUploader = () => {
 
             </div>
 
-            <button style={{marginTop: "10px"}} className="theme-btn btn-style-one" onClick={uploadFiles}>Upload Files</button>
+            <button style={{ marginTop: "10px" }} className="theme-btn btn-style-one" onClick={uploadFiles}>Upload Files</button>
 
             {/* End upload-resume */}
 
@@ -119,6 +142,22 @@ const CvUploader = () => {
                                 <span className="la la-eye"></span>
                             </button>
                             <button onClick={() => deleteHandler(file.name)}>
+                                <span className="la la-trash"></span>
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {/* place the incoming files here down below */}
+            <div className="files-outer">
+                {userDetail.map((file, i) => (
+                    <div key={i} className="file-edit-box">
+                        <span className="title">{file.cv_file_path}</span>
+                        <div className="edit-btns">
+                            <button>
+                                <span className="la la-eye"></span>
+                            </button>
+                            <button onClick={() => deleteHandler(file.cv_file_path)}>
                                 <span className="la la-trash"></span>
                             </button>
                         </div>
