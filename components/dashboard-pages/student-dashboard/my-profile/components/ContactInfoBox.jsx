@@ -32,7 +32,7 @@ const ContactInfoBox = () => {
       <div className="row">
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
-            <label>Country </label>
+            <label>Country*</label>
             <select
               name="country"
               value={formData.country}
@@ -54,7 +54,7 @@ const ContactInfoBox = () => {
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-6 col-md-12">
-          <label>City</label>
+          <label>City*</label>
           <input
             type="text"
             name="name"
@@ -65,7 +65,7 @@ const ContactInfoBox = () => {
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-12 col-md-12">
-          <label>Full Address</label>
+          <label>Full Address*</label>
           <input
             type="text"
             name="name"

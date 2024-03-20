@@ -70,8 +70,8 @@ const index = () => {
       {/* <!-- Dashboard --> */}
       <section className="user-dashboard">
         <div className="dashboard-outer">
-          <BreadCrumb/> 
-          <b style={{fontSize: "2em"}}>Welcome, <u>{formData.fname} {formData.lname}</u>!</b>
+          <BreadCrumb />
+          <b style={{ fontSize: "2em" }}>Welcome, <u>{formData.fname} {formData.lname}</u>!</b>
           {/* breadCrumb */}
 
           <MenuToggler />
@@ -82,8 +82,17 @@ const index = () => {
               <div className="ls-widget">
                 <div className="tabs-box">
                   <div className="widget-title">
-                    <h4 style={{ display: "grid", alignItems: "center" }}>Student Profile Form</h4>
+                    <div>
+                      <h4 style={{ display: "grid", alignItems: "center" }}>
+                        Student Profile Form
+                        <text style={{ fontWeight: "lighter", fontStyle: "italic",
+                          fontSize: "0.8em", textDecoration: "underline"
+                        }}>(All fields with * must be filled)
+                        </text>
+                      </h4>
+                    </div>
                   </div>
+
                   <MyProfile />
                 </div>
               </div>

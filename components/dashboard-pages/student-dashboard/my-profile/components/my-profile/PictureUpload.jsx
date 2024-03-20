@@ -37,9 +37,12 @@ const PictureUpload = () => {
 
             console.log('User updated successfully:', response.data);
             // Handle success actions
+            alert("Profile picture updated successfully.")
         } catch (error) {
-            console.error("Error updating user details:", error.response ? error.response.data : error);
             // Handle errors
+            console.error("Error updating user details:", error.response ? error.response.data : error);
+            alert("Profile picture couldn't be updated; please check max. size or min. dimension.")
+
         }
     };
 
@@ -86,11 +89,17 @@ const PictureUpload = () => {
                         {file ? file.name : "Profile Picture"}
                     </label>
                 </div>
-                <div className="text">
-                    Max File Size: 1MB, Min Dimension: 330x300, File Types: jpg, png
+                <div className="row">
+                    <div className="text">
+                        Max File Size: 1MB, Min Dimension: 330x300, File Types: .jpg, .jpeg, .png <br /><br />
+                    </div>
+                    <div>
+                        <button className="theme-btn btn-style-one" onClick={handleSubmit}>
+                            Upload Image
+                        </button>
+                    </div>
                 </div>
-                <div><br/><br/><br/><nl><button className="theme-btn btn-style-one" onClick={handleSubmit}>Upload Image</button></nl>
-  </div>
+
             </div>
         </>
     );

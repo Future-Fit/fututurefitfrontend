@@ -21,6 +21,8 @@ const FormInfoBox = () => {
     education_level: '',
     english_prof: '',
     other_lang: '',
+    work_experience: '', //new entry to make student and job seeker profile the same
+    availability: '', //new entry to make student and job seeker profile the same 
     program: [],
     allowSearch: '',
     description: '',
@@ -73,10 +75,12 @@ const FormInfoBox = () => {
       });
 
       // Assuming the API returns the updated user details as response
-      console.log('User updated successfully:', response.data);
+      console.log('User profile updated successfully:');
       // Perform any success actions, like updating UI or state
+      alert("User profile updated successfully.")
     } catch (error) {
       console.error("Error updating user details:", error.response ? error.response.data : error);
+      alert("Error updating user details.")
       // Handle errors (e.g., show error message to the user)
     }
   };
@@ -93,7 +97,7 @@ const FormInfoBox = () => {
               "Authorization": `Bearer ${token}`
             }
           });
-          console.log('Response from server:', response.data);
+          console.log('Response from server:');
           setUserDetail(response.data);
           setFormData(response.data);
         } catch (error) {
@@ -129,7 +133,7 @@ const FormInfoBox = () => {
         <div className="row">
           {/* <!-- Input --> */}
           <div className="form-group col-lg-4 col-md-4 col-sm-12">
-            <label>Last (Family) Name</label>
+            <label>Last (Family) Name*</label>
             <input type="text" name="lname" value={formData.lname} onChange={handleInputChange}
               placeholder="Last Name" required />
           </div>
@@ -139,7 +143,7 @@ const FormInfoBox = () => {
               placeholder="If No Middle Name, Put 'NMN'" required />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12">
-            <label>First (Given) Name</label>
+            <label>First (Given) Name*</label>
             <input type="text" name="fname" value={formData.fname} onChange={handleInputChange}
               placeholder="First Name" required />
           </div>
@@ -148,12 +152,12 @@ const FormInfoBox = () => {
         {/* <!-- Input --> */}
         <div className="row">
           <div className="form-group col-lg-2 col-md-6 col-sm-12">
-            <label>Date of Birth</label>
+            <label>Date of Birth*</label>
             <input type="Date" name="date_of_birth" value={formData.date_of_birth} onChange={handleInputChange}
               placeholder="MM/DD/YYYY" required />
           </div>
           <div className="form-group col-lg-2 col-md-6 col-sm-12">
-            <label>Gender</label>
+            <label>Gender*</label>
             <input type="text" name="gender" value={formData.gender} onChange={handleInputChange}
               placeholder="" required />
           </div>
@@ -161,7 +165,7 @@ const FormInfoBox = () => {
 
         <div className="row">
           <div className="form-group col-lg-4 col-md-12 col-sm-12">
-            <label>Place of Birth</label>
+            <label>Place of Birth*</label>
             <input type="text" name="city" value={formData.city} onChange={handleInputChange}
               placeholder="City, Country" required />
           </div>
@@ -171,7 +175,7 @@ const FormInfoBox = () => {
               placeholder="Country" required />
           </div> */}
           <div className="form-group col-lg-6 col-md-12">
-            <label>Citizenship </label>
+            <label>Citizenship*</label>
 
             <select
               name="citizenship"
@@ -191,12 +195,12 @@ const FormInfoBox = () => {
 
         <div className="row">
           <div className="form-group col-lg-3 col-md-12">
-            <label>Phone Number</label>
+            <label>Phone Number*</label>
             <input type="text" name="phone" value={formData.phone} onChange={handleInputChange}
               placeholder="Include Country Code" required />
           </div>
           <div className="form-group col-lg-6 col-md-12">
-            <label>Email Address</label>
+            <label>Email Address*</label>
             <input type="email" name="email" value={formData.email} onChange={handleInputChange}
               placeholder="email address" required />
           </div>
@@ -204,7 +208,7 @@ const FormInfoBox = () => {
 
         <div className="row">
           <div className="form-group col-lg-5 col-md-12">
-            <label>Current Education Level</label>
+            <label>Current Education Level*</label>
             <input type="text" name="education_level" value={formData.education_levels} onChange={handleInputChange}
               placeholder="Post Graduate/Graduate/High School/Gade Level" required />
           </div>
@@ -212,7 +216,7 @@ const FormInfoBox = () => {
 
         <div className="row">
           <div className="form-group col-lg-6 col-md-6">
-            <label>English Proficiency</label>
+            <label>English Proficiency*</label>
             <input type="text" name="english_prof" value={formData.english_prof} onChange={handleInputChange}
               placeholder="Native Speaker/Fluent/Conversational/Beginner/None"
               required
@@ -222,7 +226,6 @@ const FormInfoBox = () => {
             <label>Other Language(s)/Proficiency</label>
             <input type="text" name="other_lang" value={formData.other_lang} onChange={handleInputChange}
               placeholder="List language/proficiency level, separated by comma"
-              required
             />
           </div>
         </div>
@@ -230,7 +233,7 @@ const FormInfoBox = () => {
         <div className="row">
           <div className="form-group col-lg-6 col-md-12">
             <label>Program Applying For </label>
-            <select name="program" value={formData.program} onChange={handleInputChange} className="chosen-single form-select" required>
+            <select name="program" value={formData.program} onChange={handleInputChange} className="chosen-single form-select">
               <option value="" disabled>Select...</option>
               <option value="Grade Level">Grade Level</option>
               <option value="High School">High School</option>
@@ -242,7 +245,7 @@ const FormInfoBox = () => {
           </div>
           <div className="form-group col-lg-6 col-md-12">
             <label>Allow In Search & Listing</label>
-            <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange} className="chosen-single form-select" required>
+            <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange} className="chosen-single form-select">
               <option value="" disabled>Select...</option>
               <option value="true">Yes</option>
               <option value="false">No</option>
