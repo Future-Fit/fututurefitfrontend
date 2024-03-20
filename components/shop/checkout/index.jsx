@@ -11,6 +11,7 @@ import DashboardStudentHeader from "../../../components/header/DashboardStudents
 import ShopHeader from "../../header/ShopHeader";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import { useEffect, useState } from "react";
+import DashboardStudentSidebar from "@/components/header/DashboardStudentSidebar";
 
 
 const index = () => {
@@ -25,6 +26,7 @@ const index = () => {
 
   return (
     <>
+    <div className="page-wrapper dashboard">
       {/* <!-- Header Span --> */}
       <span className="header-span"></span>
 
@@ -40,6 +42,9 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
+      <DashboardStudentSidebar />
+
+
       <Breadcrumb title="Checkout" meta="Checkout" />
       {/* <!--End Page Title--> */}
 
@@ -53,6 +58,8 @@ const index = () => {
 
       <FooterDefault footerStyle="alternate5" />
       {/* <!-- End Main Footer --> */}
+
+      </div>
     </>
   );
 };

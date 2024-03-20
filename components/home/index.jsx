@@ -15,8 +15,8 @@ import CookiesPopup from "./CookiesPopup";
 import Hero from "./hero/Hero"
 import ServicesProvided from "./ServicesProvided";
 import Membership from "./Membership";
-import FeaturedJobs from "./FeaturedJobs";
 import FeaturedIndustries from "./FeaturedIndustries";
+import StudyCanada from "./StudyCanada";
 import Partnership from "./Partnership";
 import dynamic from "next/dynamic";
 
@@ -119,15 +119,15 @@ const index = () => {
         <Membership />
       </section>
 
-      {/* This is the fourth section of the home page (trending jobs section) */}
+      {/* This is the fourth section of the home page (featured jobs section) */}
       <section style={{ background: GlobalConfig.BgrClr2 }}>
         <FeaturedIndustries />
       </section>
 
-      {/* This is the third section of the home page (become member section) */}
-      {/* <section style={{ background: GlobalConfig.BgrClr1 }}>
-        <Membership />
-      </section> */}
+      {/* This is the fifth section of the home page (why study in Canada section) */}
+      <section style={{ background: GlobalConfig.BgrClr1 }}>
+        <StudyCanada />
+      </section>
 
       {/* This is the fourth section of the home page (trending jobs section) */}
       {/* <section style={{ background: GlobalConfig.BgrClr2 }}>
