@@ -243,6 +243,19 @@ const FormInfoBox = () => {
               <option value="Other">Other</option>
             </select>
           </div>
+          {formData.program === "Other" && (
+            <div className="form-group col-lg-6 col-md-6">
+              <label>Other Program to Apply For*</label>
+              <input
+                type="text"
+                name="ifOther"
+                value={formData.ifOther}
+                onChange={handleInputChange}
+                placeholder="Please write other program to apply for here"
+                required
+              />
+            </div>
+          )}
           <div className="form-group col-lg-6 col-md-12">
             <label>Allow In Search & Listing</label>
             <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange} className="chosen-single form-select">

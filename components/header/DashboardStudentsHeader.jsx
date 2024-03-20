@@ -313,24 +313,16 @@ const DashboardStudentHeader = () => {
                             >
 
                                 {userDetail && userDetail.user_image ? (
-                                    <img width={30} height={30} borderRadius="50%" src={`${apiConfig.url}/${userDetail.user_image}`} alt="Profile" />
+                                    <img width={30} height={30} style={{ borderRadius: "50%" }} src={`${apiConfig.url}/${userDetail.user_image}`} alt="Profile" />
                                 ) : (
                                     <Image
                                         alt="avatar"
                                         src="/images/user-flat.svg"
                                         width={30}
                                         height={30}
-                                        borderRadius="50%"
+                                        style={{ borderRadius: "50%" }}
                                     />
                                 )}
-                                {/* <Image
-                                    alt="avatar"
-                                    src="/images/user-flat.svg"
-                                    width={30}
-                                    height={30}
-                                /> */}
-                                {/* <span className="icon icon-user"></span> */}
-                                {/* <span style={{ color: '#fff', width: 'fit-content' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span> */}
                             </a>
                             <ul className="dropdown-menu">
 

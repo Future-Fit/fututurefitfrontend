@@ -5,10 +5,18 @@ import axios from "axios";
 const PictureUpload = () => {
     const [file, setFile] = useState(null);
     const [userDetail, setUserDetail] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);
 
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]); // Store the selected file
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setSelectedImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     const handleSubmit = async (event) => {
@@ -38,10 +46,12 @@ const PictureUpload = () => {
             console.log('User updated successfully:', response.data);
             // Handle success actions
             alert("Profile picture updated successfully.")
+            window.location.reload();
         } catch (error) {
             // Handle errors
             console.error("Error updating user details:", error.response ? error.response.data : error);
             alert("Profile picture couldn't be updated; please check max. size or min. dimension.")
+            window.location.reload();
 
         }
     };
