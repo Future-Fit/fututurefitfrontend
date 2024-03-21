@@ -22,6 +22,9 @@ function checkFileTypes(files) {
     return true;
 }
 
+const MAX_UPLOAD_LIMIT = 5; // Maximum number of uploads allowed per user
+
+
 const CvUploader = () => {
     const [getManager, setManager] = useState([]);
     const [getError, setError] = useState("");
@@ -37,7 +40,6 @@ const CvUploader = () => {
                         "Authorization": `Bearer ${token}`
                     }
                 });
-                console.log('Response from server:', response.data);
                 setUserDetail(response.data);
             } catch (error) {
                 console.error("Error fetching user details:", error);
@@ -45,6 +47,12 @@ const CvUploader = () => {
         };
         fetchUserDetails();
     }, [token]);
+
+    // Count the number of files uploaded by the user
+    const uploadedFilesCount = userDetail.length;
+
+    // Display a message when the user reaches the maximum upload limit
+    const maxUploadReached = uploadedFilesCount >= MAX_UPLOAD_LIMIT;
 
 
     const uploadFiles = async () => {
@@ -60,10 +68,14 @@ const CvUploader = () => {
                         "Authorization": `Bearer ${token}`
                     },
                 });
-                console.log('Upload successful', response.data);
+                // console.log('Upload successful', response.data);
+                alert("Upload successful.");
+                window.location.reload();
                 // Handle success (e.g., showing a success message, removing the file from getManager, etc.)
             } catch (error) {
                 console.error('Upload failed', error);
+                alert("Upload failed. file too large or unsupported file type");
+                window.location.reload();
                 // Handle error (e.g., showing an error message)
             }
         });
@@ -80,7 +92,7 @@ const CvUploader = () => {
                 setManager(getManager.concat(data));
                 setError("");
             } else {
-                setError("Only accept  (.doc, .docx, .pdf) file");
+                setError("Only accept  the spacified file");
             }
         } else {
             setError("File already exists");
@@ -88,15 +100,68 @@ const CvUploader = () => {
     };
 
     // delete image
-    const deleteHandler = (name) => {
+    const removeFile = (name) => {
         const deleted = getManager?.filter((file) => file.name !== name);
         setManager(deleted);
+    };
+
+    const deleteHandler = async (fileId) => {
+        try {
+            // Make API call to delete the file using fileId as a query parameter
+            console.log("Deleting file with id:", fileId);
+            const response = await axios.delete(`${apiConfig.url}/job-seeker/cv`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                },
+                params: {
+                    fileId: fileId
+                }
+            });
+            console.log("File deleted:");
+            alert("File deleted.");
+            window.location.reload();
+            // Update the state to remove the deleted file
+            setUserDetail(userDetail.filter(item => item.file && item.file.id !== fileId));
+        } catch (error) {
+            console.error("Error deleting file:", error);
+        }
+    };
+
+    const onViewFile = (file) => {
+        if (file && file.path) {
+            // If the file is viewable (e.g., PDF), open it in a new tab
+            if (file.type === 'file') {
+                window.open(`${apiConfig.url}/${file.path}`, '_blank');
+            } else {
+                // If it's not viewable, initiate download
+                downloadFile(file);
+            }
+        } else {
+            console.log("File is not viewable or path is missing.");
+        }
+    };
+
+    const downloadFile = async (file) => {
+        try {
+            const response = await axios.get(`${apiConfig.url}/${file.path}`, {
+                responseType: 'blob', // Important: responseType should be 'blob' for downloading files
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', file.fileName);
+            document.body.appendChild(link);
+            link.click();
+        } catch (error) {
+            console.error("Error downloading file:", error);
+        }
     };
 
     return (
         <>
             {/* Start Upload resule */}
             <div className="uploading-resume">
+                {maxUploadReached && <p style={{color: "red"}}>You have reached the maximum file upload limit.</p>}
                 <div className="uploadButton">
                     <input
                         className="uploadButton-input"
@@ -107,12 +172,14 @@ const CvUploader = () => {
                         id="cv_file_path"
                         multiple
                         onChange={cvManagerHandler}
+                        disabled={maxUploadReached} // Disable input if max upload limit is reached
+
                     />
                     <label className="cv-uploadButton" htmlFor="cv_file_path">
                         <span className="title">Drop files here to upload</span>
                         <span className="text">
                             To upload file size is (Max 10Mb) and allowed file
-                            types are (.doc, .docx, .pdf)
+                            types are (.doc, .docx, .pdf, .mp3, .mp4,)
                         </span>
                         <span className="theme-btn btn-style-one">
                             Select Files
@@ -141,7 +208,7 @@ const CvUploader = () => {
                             <button>
                                 <span className="la la-eye"></span>
                             </button>
-                            <button onClick={() => deleteHandler(file.name)}>
+                            <button onClick={() => removeFile(file.name)}>
                                 <span className="la la-trash"></span>
                             </button>
                         </div>
@@ -150,17 +217,23 @@ const CvUploader = () => {
             </div>
             {/* place the incoming files here down below */}
             <div className="files-outer">
-                {userDetail.map((file, i) => (
+                {userDetail.map((item, i) => (
                     <div key={i} className="file-edit-box">
-                        <span className="title">{file.cv_file_path}</span>
-                        <div className="edit-btns">
-                            <button>
-                                <span className="la la-eye"></span>
-                            </button>
-                            <button onClick={() => deleteHandler(file.cv_file_path)}>
-                                <span className="la la-trash"></span>
-                            </button>
-                        </div>
+                        {item.file ? (
+                            <>
+                                <span className="title">{item.file.fileName}</span>
+                                <div className="edit-btns">
+                                    <button onClick={() => onViewFile(item.file)}>
+                                        <span className="la la-eye"></span>
+                                    </button>
+                                    <button onClick={() => deleteHandler(item.file.id)}>
+                                        <span className="la la-trash"></span>
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <span className="title">No file available</span>
+                        )}
                     </div>
                 ))}
             </div>

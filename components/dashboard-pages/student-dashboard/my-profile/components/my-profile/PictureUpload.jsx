@@ -7,7 +7,6 @@ const PictureUpload = () => {
     const [userDetail, setUserDetail] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
 
-
     const handleFileChange = (e) => {
         setFile(e.target.files[0]); // Store the selected file
         if (file) {
@@ -50,9 +49,8 @@ const PictureUpload = () => {
         } catch (error) {
             // Handle errors
             console.error("Error updating user details:", error.response ? error.response.data : error);
-            alert("Profile picture couldn't be updated; please check max. size or min. dimension.")
+            alert("Profile picture couldn't be updated; please check max. file size or min. dimension.")
             window.location.reload();
-
         }
     };
 
@@ -78,13 +76,42 @@ const PictureUpload = () => {
         }
     }, []);
 
+    const handleDelete = async () => {
+        try {
+            const token = localStorage.getItem("accessToken");
+            if (!token) {
+                console.error("No access token found");
+                return;
+            }
+
+            const response = await axios.delete(`${apiConfig.url}/users/userImage`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            console.log('Image deleted successfully:', response.data);
+            // Handle success actions, e.g., update state or display a message
+            alert("Profile picture deleted successfully.");
+            window.location.reload(); // Reload the page or update the UI as needed
+        } catch (error) {
+            // Handle errors
+            console.error("Error deleting image:", error.response ? error.response.data : error);
+            // Display an error message to the user
+            alert("Error deleting profile picture.");
+        }
+    };
+    ;
+
     return (
         <>
-
             <div className="uploading-outer">
                 <div className="uploadButton">
-                    {userDetail && userDetail.user_image && (
-                        <img width={150} height={150} src={`${apiConfig.url}/${userDetail.user_image}`} alt="Profile" />
+                    {userDetail && userDetail.user_image.path && (
+                        <div>
+                            <img width={150} height={150} src={`${apiConfig.url}/${userDetail.user_image.path}`} alt="Profile" />
+                            <button className="deleteButton" onClick={handleDelete}><span className="la la-trash"></span></button>
+                        </div>
                     )}
                     <input
                         className="uploadButton-input"
@@ -109,7 +136,6 @@ const PictureUpload = () => {
                         </button>
                     </div>
                 </div>
-
             </div>
         </>
     );
