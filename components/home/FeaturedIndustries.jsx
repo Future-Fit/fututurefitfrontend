@@ -92,8 +92,8 @@ const FeaturedIndustries = () => {
           </div>
         </div>
         <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-          <Link href="/businesses" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.BgrClr1 }}>
-            <span className="btn-title"><strong>Learn More</strong></span>
+          <Link href="/register" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.BgrClr1 }}>
+            <span className="btn-title"><strong>Search Jobs</strong></span>
           </Link>
         </div>
       </section >

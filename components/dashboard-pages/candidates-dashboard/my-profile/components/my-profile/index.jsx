@@ -1,10 +1,10 @@
 import FormInfoBox from "./FormInfoBox";
-import LogoUpload from "./LogoUpload";
+import PictureUpload from "./PictureUpload";
 
 const index = () => {
   return (
     <div className="widget-content">
-      <LogoUpload />
+      <PictureUpload />
       {/* End logo and cover photo components */}
 
       <FormInfoBox />

@@ -81,14 +81,11 @@ const index = () => {
             <div className="col-lg-12">
               <div className="ls-widget">
                 <div className="tabs-box">
-                  <div className="widget-title">
+                <div className="widget-title"
+                    style={{ display: "grid", justifyContent: "center" }}>
                     <div>
-                      <h4 style={{ display: "grid", alignItems: "center" }}>
+                      <h4 style={{ fontSize: "1.5em", fontWeight: "bolder" }}>
                         Student Profile Form
-                        <text style={{ fontWeight: "lighter", fontStyle: "italic",
-                          fontSize: "0.8em", textDecoration: "underline"
-                        }}>(All fields with * must be filled)
-                        </text>
                       </h4>
                     </div>
                   </div>

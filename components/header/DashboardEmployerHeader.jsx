@@ -302,7 +302,7 @@ const DashboardHeader = () => {
                             >
                                 {/* <span className="icon icon-user"></span> */}
                                 {userDetail && userDetail.user_image ? (
-                                    <img width={30} height={30} src={`${apiConfig.url}/${userDetail.user_image}`} alt="Profile" />
+                                    <img width={30} height={30} src={`${apiConfig.url}/${userDetail.user_image.path}`} alt="Profile" />
                                 ) : (
                                     <Image
                                         alt="avatar"

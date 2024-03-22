@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import apiConfig from '@/app.config';
+import { style } from 'd3';
 
 const PictureUpload = () => {
     const [file, setFile] = useState(null);
@@ -67,11 +68,11 @@ const PictureUpload = () => {
                 }
             });
             console.log('Image deleted successfully:', response.data);
-            alert('Profile picture deleted successfully.');
+            alert('Delete profile image?');
             window.location.reload();
         } catch (error) {
             console.error('Error deleting image:', error.response ? error.response.data : error);
-            alert('Error deleting profile picture.');
+            alert('Error deleting profile image.');
         }
     };
 
@@ -83,7 +84,7 @@ const PictureUpload = () => {
             console.error("Upload input element not found.");
         }
     };
-    
+
 
     return (
         <div className="uploading-outer">
@@ -95,9 +96,13 @@ const PictureUpload = () => {
                             height={150}
                             src={`${apiConfig.url}/${userDetail.user_image.path}`}
                             alt="Profile"
-                        />
+                        /> <br />
                         <button className="deleteButton" onClick={handleDelete}>
                             <span className="la la-trash"></span>
+                            <text style={{ fontSize: "0.8em", fontWeight: "lighter" }}>
+                                Delete/Replace Profile Image
+                            </text>
+
                         </button>
                     </div>
                 ) : (
@@ -111,22 +116,28 @@ const PictureUpload = () => {
                             style={{ display: 'none' }}
                             onChange={handleFileChange}
                         />
-                        <label htmlFor="upload" className="uploadButton-button ripple-effect" style={{ cursor: 'pointer' }}>
-                            {file ? file.name : 'Profile Picture'}
+                        <label htmlFor="upload" className="uploadButton-button ripple-effect"
+                            style={{ cursor: 'pointer', fontSize: "0.8em" }}>
+                            <text style={{ fontSize: "1em", fontWeight: "bolder" }}>
+                                Profile Image
+                            </text>
+                            {file ? file.name : 'Click here to browse & select.'}
+                            <text> Then, upload image.</text>
                         </label>
+                        <div className="text" style={{ fontSize: "0.8em", marginLeft: "20px" }}>
+                            Max Size=1MB <br /> Min Dimension=330x300 <br /> Type=.jpg/.jpeg/.png <br /><br/>
+                        </div>
+                        <div className="text" style={{ fontSize: "0.8em", marginLeft: "20px" }}>
+                            <button className="theme-btn btn-style-one"
+                                onClick={handleSubmit} style={{ paddingTop: "10px" }}>
+                                Upload Image
+                            </button>
+                        </div>
                     </React.Fragment>
+
                 )}
             </div>
-            <div className="row">
-                <div className="text">
-                    Max File Size: 1MB, Min Dimension: 330x300, File Types: .jpg, .jpeg, .png <br /><br />
-                </div>
-                <div>
-                    <button className="theme-btn btn-style-one" onClick={handleSubmit}>
-                        Upload Image
-                    </button>
-                </div>
-            </div>
+
         </div>
     );
 };
