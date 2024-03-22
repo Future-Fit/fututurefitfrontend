@@ -1,143 +1,133 @@
-import apiConfig from "@/app.config";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import apiConfig from '@/app.config';
 
 const PictureUpload = () => {
     const [file, setFile] = useState(null);
     const [userDetail, setUserDetail] = useState(null);
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]); // Store the selected file
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                setSelectedImage(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        if (!file) {
-            console.error("Please select a file before uploading.");
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append('user_image', file); // Append the file
-
-        try {
-            const token = localStorage.getItem("accessToken");
-            if (!token) {
-                console.error("No access token found");
-                return;
-            }
-
-            const response = await axios.put(`${apiConfig.url}/users/profile`, formData, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    // Content-Type header for FormData is automatically set by the browser
-                },
-            });
-
-            console.log('User updated successfully:', response.data);
-            // Handle success actions
-            alert("Profile picture updated successfully.")
-            window.location.reload();
-        } catch (error) {
-            // Handle errors
-            console.error("Error updating user details:", error.response ? error.response.data : error);
-            alert("Profile picture couldn't be updated; please check max. file size or min. dimension.")
-            window.location.reload();
-        }
-    };
 
     useEffect(() => {
-        const userId = localStorage.getItem("loggedInUserId");
-        const token = localStorage.getItem("accessToken");
+        const userId = localStorage.getItem('loggedInUserId');
+        const token = localStorage.getItem('accessToken');
 
         if (userId) {
             const fetchUserDetails = async () => {
                 try {
                     const response = await axios.get(`${apiConfig.url}/users/me`, {
                         headers: {
-                            "Authorization": `Bearer ${token}`
+                            Authorization: `Bearer ${token}`
                         }
                     });
-                    console.log('Response from server:', response.data);
                     setUserDetail(response.data);
                 } catch (error) {
-                    console.error("Error fetching user details:", error);
+                    console.error('Error fetching user details:', error);
                 }
             };
             fetchUserDetails();
         }
     }, []);
 
-    const handleDelete = async () => {
+    const handleFileChange = (event) => {
+        setFile(event.target.files[0]);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if (!file) {
+            console.error('Please select a file before uploading.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('user_image', file);
+
         try {
-            const token = localStorage.getItem("accessToken");
-            if (!token) {
-                console.error("No access token found");
-                return;
-            }
-
-            const response = await axios.delete(`${apiConfig.url}/users/userImage`, {
+            const token = localStorage.getItem('accessToken');
+            const response = await axios.put(`${apiConfig.url}/users/profile`, formData, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
-
-            console.log('Image deleted successfully:', response.data);
-            // Handle success actions, e.g., update state or display a message
-            alert("Profile picture deleted successfully.");
-            window.location.reload(); // Reload the page or update the UI as needed
+            console.log('User updated successfully:', response.data);
+            alert('Profile picture updated successfully.');
+            window.location.reload();
         } catch (error) {
-            // Handle errors
-            console.error("Error deleting image:", error.response ? error.response.data : error);
-            // Display an error message to the user
-            alert("Error deleting profile picture.");
+            console.error('Error updating user details:', error.response ? error.response.data : error);
+            alert('Profile picture couldn\'t be updated; please check max. file size or min. dimension.');
+            window.location.reload();
         }
     };
-    ;
+
+    const handleDelete = async () => {
+        try {
+            const token = localStorage.getItem('accessToken');
+            const response = await axios.delete(`${apiConfig.url}/users/userImage`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            console.log('Image deleted successfully:', response.data);
+            alert('Profile picture deleted successfully.');
+            window.location.reload();
+        } catch (error) {
+            console.error('Error deleting image:', error.response ? error.response.data : error);
+            alert('Error deleting profile picture.');
+        }
+    };
+
+    const handleImageClick = () => {
+        const uploadInput = document.getElementById('upload');
+        if (uploadInput) {
+            uploadInput.click();
+        } else {
+            console.error("Upload input element not found.");
+        }
+    };
+    
 
     return (
-        <>
-            <div className="uploading-outer">
-                <div className="uploadButton">
-                    {userDetail && userDetail.user_image.path && (
-                        <div>
-                            <img width={150} height={150} src={`${apiConfig.url}/${userDetail.user_image.path}`} alt="Profile" />
-                            <button className="deleteButton" onClick={handleDelete}><span className="la la-trash"></span></button>
-                        </div>
-                    )}
-                    <input
-                        className="uploadButton-input"
-                        type="file"
-                        name="user_image"
-                        accept="image/*"
-                        id="upload"
-                        required
-                        onChange={handleFileChange}
-                    />
-                    <label htmlFor="upload" className="uploadButton-button ripple-effect">
-                        {file ? file.name : "Profile Picture"}
-                    </label>
-                </div>
-                <div className="row">
-                    <div className="text">
-                        Max File Size: 1MB, Min Dimension: 330x300, File Types: .jpg, .jpeg, .png <br /><br />
-                    </div>
-                    <div>
-                        <button className="theme-btn btn-style-one" onClick={handleSubmit}>
-                            Upload Image
+        <div className="uploading-outer">
+            <div className="uploadButton">
+                {userDetail && userDetail.user_image ? (
+                    <div onClick={handleImageClick} style={{ cursor: 'pointer' }}>
+                        <img
+                            width={150}
+                            height={150}
+                            src={`${apiConfig.url}/${userDetail.user_image.path}`}
+                            alt="Profile"
+                        />
+                        <button className="deleteButton" onClick={handleDelete}>
+                            <span className="la la-trash"></span>
                         </button>
                     </div>
+                ) : (
+                    <React.Fragment>
+                        <input
+                            className="uploadButton-input"
+                            type="file"
+                            name="user_image"
+                            accept="image/*"
+                            id="upload"
+                            style={{ display: 'none' }}
+                            onChange={handleFileChange}
+                        />
+                        <label htmlFor="upload" className="uploadButton-button ripple-effect" style={{ cursor: 'pointer' }}>
+                            {file ? file.name : 'Profile Picture'}
+                        </label>
+                    </React.Fragment>
+                )}
+            </div>
+            <div className="row">
+                <div className="text">
+                    Max File Size: 1MB, Min Dimension: 330x300, File Types: .jpg, .jpeg, .png <br /><br />
+                </div>
+                <div>
+                    <button className="theme-btn btn-style-one" onClick={handleSubmit}>
+                        Upload Image
+                    </button>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

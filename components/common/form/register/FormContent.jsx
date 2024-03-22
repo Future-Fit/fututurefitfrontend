@@ -2,7 +2,7 @@ import apiConfig from "@/app.config";
 import { useEffect, useState } from "react";
 import { Toast } from 'react-bootstrap';
 
-const FormContent = ({ onReset, closeModal,myToast,myError }) => {
+const FormContent = ({ onReset, closeModal, myToast, myError }) => {
 
   const [logoImg, setLogoImg] = useState("");
   const [userType, setUserType] = useState(""); // Added state for user type
@@ -65,9 +65,7 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
           formDataToSend.append(key, dataToSend[key]);
         });
 
-        // const response = await fetch(`${apiConfig.url}/users/create`, {
-          const response = await fetch("https://api.futurefitinternational.com/users/create", {
-
+        const response = await fetch(`${apiConfig.url}/users/create`, {
           method: "POST",
           body: formDataToSend,
         });
@@ -76,7 +74,6 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
         if (response.ok) {
           setUserData(responseData.result); // Save user data to state
           myToast(responseData.message || "Registration successful!");
-
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
           setShowForm(false);
           closeModal();
@@ -84,8 +81,7 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
           // Additional API call to send verification email
           try {
 
-            // await fetch(`${apiConfig.url}/auth/verify-email`, {
-              await fetch("https://api.futurefitinternational.com/auth/verify-email", {
+            await fetch(`${apiConfig.url}/auth/verify-email`, {
 
               method: "POST",
               headers: {
@@ -95,8 +91,7 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
                 email: formData.email,
               }),
             });
-      myToast("Verification email sent successfully! Please check your email.");
-           
+            myToast("Verification email sent successfully! Please check your email.");
             setRegistrationMessage("Verification email sent successfully! Please check your email.")
             closeModal();
           } catch (error) {
@@ -104,10 +99,11 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
           }
 
         } else {
-      myToast(responseData.message || "Registration failed.");
-
+          myToast(responseData.message || "Registration failed.");
           setRegistrationMessage(responseData.message || "Registration failed.");
           resetForm();
+          myError("Registration failed. Email is already registerd please sign in instead");
+          return
         }
       } catch (error) {
         // Handle network errors or other exceptions
@@ -140,24 +136,15 @@ const FormContent = ({ onReset, closeModal,myToast,myError }) => {
   const handleUserTypeChange = (e) => {
     const selectedUserType = e.target.value;
     if (!selectedUserType) {
-        alert("Please select user Type")
+      alert("Please select user Type")
     } else {
-        setUserType(selectedUserType);
-        setFormData({
-            ...formData,
-            user_type_id: selectedUserType === "student" ? 5 : 4 // Adjust user_type_id based on selection
-        });
+      setUserType(selectedUserType);
+      setFormData({
+        ...formData,
+        user_type_id: selectedUserType === "student" ? 5 : 4 // Adjust user_type_id based on selection
+      });
     }
-};
-
-  // const handleUserTypeChange = (e) => {
-  //   const selectedUserType = e.target.value;
-  //   setUserType(selectedUserType);
-  //   setFormData({
-  //     ...formData,
-  //     user_type_id: selectedUserType === "student" ? 5 : 4 // Set user_type_id based on selected user type
-  //   });
-  // };
+  };
 
   return (
     <>
