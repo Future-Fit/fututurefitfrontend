@@ -137,8 +137,13 @@ const DashboardStudentHeader = () => {
     }, []);
 
     const handleLogout = () => {
-        clearSession(); // Clear the session
-        window.location.href = '/'; // Redirect to the login page
+        const confirmLogout = window.confirm("Are you sure you want to logout?");
+        if (confirmLogout) {
+            clearSession(); // Clear the session
+            window.location.href = '/'; // Redirect to the login page
+        } else {
+            return
+        }
     };
 
     const [searchExpanded, setSearchExpanded] = useState(false);

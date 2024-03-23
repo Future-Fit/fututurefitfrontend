@@ -16,5 +16,4 @@ const clearSession = () => {
 };
 module.exports = {
   clearSession: clearSession,
-  // ... (other menu items)
 };
