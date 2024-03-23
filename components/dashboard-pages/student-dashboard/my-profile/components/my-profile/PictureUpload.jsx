@@ -92,8 +92,8 @@ const PictureUpload = () => {
                 {userDetail && userDetail.user_image ? (
                     <div onClick={handleImageClick} style={{ cursor: 'pointer' }}>
                         <img
-                            width={150}
-                            height={150}
+                            width={100}
+                            height={100}
                             src={`${apiConfig.url}/${userDetail.user_image.path}`}
                             alt="Profile"
                         /> <br />
@@ -122,12 +122,12 @@ const PictureUpload = () => {
                                 Profile Image
                             </text>
                             {file ? file.name : 'Click here to browse & select.'}
-                            <text> Then, upload image.</text>
+                            <text> Then, click on Upload Image.</text>
                         </label>
                         <div className="text" style={{ fontSize: "0.8em", marginLeft: "20px" }}>
-                            Max Size=1MB <br /> Min Dimension=330x300 <br /> Type=.jpg/.jpeg/.png <br /><br/>
-                        </div>
-                        <div className="text" style={{ fontSize: "0.8em", marginLeft: "20px" }}>
+                            Max Size=1MB <br /> Min Dim.=330x300 <br /> Type=.jpg/.jpeg/.png <br /><br/>
+                        {/* </div> */}
+                        {/* <div className="text" style={{ fontSize: "0.8em", marginLeft: "20px" }}> */}
                             <button className="theme-btn btn-style-one"
                                 onClick={handleSubmit} style={{ paddingTop: "10px" }}>
                                 Upload Image

@@ -9,23 +9,36 @@ import apiConfig from "@/app.config";
 const FormInfoBox = () => {
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
-    fname: '',
-    lname: '',
-    mname: '',
-    date_of_birth: '',
-    gender: '',
-    city: '',
-    citizenship: '',
-    phone: '',
-    email: '',
-    education_level: '',
-    english_prof: '',
-    other_lang: '',
-    work_experience: '', //new entry to make student and job seeker profile the same
-    availability: '', //new entry to make student and job seeker profile the same 
-    program: [],
-    allowSearch: '',
-    description: '',
+    fname: '',    // first/given name
+    lname: '',    // last/family name
+    mname: '',    // middle name, if applicable
+    dob: '',      // date of birth (mm/dd/yyyy)
+    gen: '',      // gender
+    resi: '',     // residency
+    citi: '',     // citizenship
+    pho: '',      // phone number
+    email: '',    // email address
+    eduLev: [],   // education level (select from choice)
+    eduYrs: '',   // tot. # of years attended school (prim to univ) 
+    proEng: [],   // English lang. proficiency (select from choices)
+    proFre: [],   // Frech lang. proficiency (select from choices)
+    proOth: '',   // list other language(s) and proficiency level
+    isEmp: '',    // currently employed? yes or no
+    namEmp: '',   // name of employer, if employed
+    yrsEmp: '',   // # of years employed
+    isInt: '',    // interested to study or work in Canada? yes or no
+    datAvl: '',   // date avialable for study or employment
+    intAre: [],   // interest area for study or employment (select from choice)
+    proCan: [],   // indicate provinces in Canada to study or work in (select from choice)
+    allSrch: '',  // enable searching (on or off) 
+    detail: '',   // open for user to write anything (limit 500 chars?)
+    resA: '',     // reserved
+    resB: '',     // reserved
+    resC: '',     // reserved
+    resD: '',     // reserved
+    resE: '',     // reserved
+    resF: '',     // reserved
+    resG: ''     // reserved
   });
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -132,108 +145,119 @@ const FormInfoBox = () => {
       <div className="row">
         <div className="row">
           {/* <!-- Input --> */}
-          <div className="form-group col-lg-4 col-md-4 col-sm-12">
+          <text style={{ marginBottom: "10px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
+            Personal Information
+          </text>
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "15px" }}>
             <label>Last (Family) Name*</label>
-            <input type="text" name="lname" value={formData.lname} onChange={handleInputChange}
-              placeholder="Last Name" required />
+            <input type="text" name="lname" value={formData.lname}
+              onChange={handleInputChange} placeholder="Last Name" required />
           </div>
-          <div className="form-group col-lg-4 col-md-4 col-sm-12">
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "15px" }}>
             <label>Middle Name</label>
-            <input type="text" name="mname" value={formData.mname} onChange={handleInputChange}
+            <input type="text" name="mname" value={formData.mname}
+              onChange={handleInputChange}
               placeholder="If No Middle Name, Put 'NMN'" required />
           </div>
-          <div className="form-group col-lg-4 col-md-4 col-sm-12">
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "15px" }}>
             <label>First (Given) Name*</label>
-            <input type="text" name="fname" value={formData.fname} onChange={handleInputChange}
-              placeholder="First Name" required />
+            <input type="text" name="fname" value={formData.fname}
+              onChange={handleInputChange} placeholder="First Name" required />
           </div>
         </div>
 
         {/* <!-- Input --> */}
         <div className="row">
-          <div className="form-group col-lg-2 col-md-6 col-sm-12">
+          <div className="form-group col-lg-4 col-md-4 col-sm-4"
+            style={{ marginBottom: "15px" }}>
             <label>Date of Birth*</label>
-            <input type="Date" name="date_of_birth" value={formData.date_of_birth} onChange={handleInputChange}
-              placeholder="MM/DD/YYYY" required />
+            <div>
+              <input style={{
+                fontSize: "15px", color: "#696969",
+                backgroundColor: "#f0f5f7", border: "1px solid #f0f5f7",
+                boxSizing: "border-box", borderRadius: "8px"
+              }}
+                type="Date" name="dob" value={formData.dob}
+                onChange={handleInputChange} placeholder="MM/DD/YYYY" required />
+            </div>
           </div>
-          <div className="form-group col-lg-2 col-md-6 col-sm-12">
+          <div className="form-group col-lg-4 col-md-4 col-sm-4"
+            style={{ width: "150px", marginBottom: "15px" }}>
             <label>Gender*</label>
-            <input type="text" name="gender" value={formData.gender} onChange={handleInputChange}
-              placeholder="" required />
+            <input type="text" name="gen" value={formData.gen}
+              onChange={handleInputChange} placeholder="" required />
           </div>
         </div>
 
         <div className="row">
-          <div className="form-group col-lg-4 col-md-12 col-sm-12">
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "15px" }}>
             <label>Place of Birth*</label>
-            <input type="text" name="city" value={formData.city} onChange={handleInputChange}
-              placeholder="City, Country" required />
+            <input type="text" name="city" value={formData.city}
+              onChange={handleInputChange} placeholder="City, Country" required />
           </div>
-          {/* <div className="form-group col-lg-4 col-md-12 col-sm-12">
-            <label>Citizenship</label>
-            <input type="text" name="citizenship" value={formData.citizenship} onChange={handleInputChange}
-              placeholder="Country" required />
-          </div> */}
-          <div className="form-group col-lg-6 col-md-12">
-            <label>Citizenship*</label>
-
-            <select
-              name="citizenship"
-              value={formData.citizenship}
-              onChange={(e) => setFormData({ ...formData, citizenship: e.target.value })}
-              required
-            >
-              <option value="">Select Citizenship</option>
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "15px" }}>
+            <label>Country of Residence*</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="resi"
+              value={formData.resi}
+              onChange={(e) => setFormData({ ...formData, resi: e.target.value })}
+              required >
+              <option value="" disabled>Select...</option>
               {countries.map((country) => (
-                <option key={country.value} value={country.value}>
-                  {country.label}
+                <option key={country.value} value={country.value}> {country.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "15px" }}>
+            <label>Citizenship*</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="citi"
+              value={formData.citi}
+              onChange={(e) => setFormData({ ...formData, citi: e.target.value })}
+              required >
+              <option value="" disabled>Select...</option>
+              {countries.map((country) => (
+                <option key={country.value} value={country.value}> {country.label}
                 </option>
               ))}
             </select>
           </div>
         </div>
 
-        <div className="row">
-          <div className="form-group col-lg-3 col-md-12">
+        <div className="row"
+          style={{ borderBottom: "1px solid #f1f3f7", paddingBottom: "10px" }}>
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "15px" }}>
             <label>Phone Number*</label>
-            <input type="text" name="phone" value={formData.phone} onChange={handleInputChange}
-              placeholder="Include Country Code" required />
+            <input type="text" name="pho" value={formData.pho}
+              onChange={handleInputChange} placeholder="[+][country code][phone number]" required />
           </div>
-          <div className="form-group col-lg-6 col-md-12">
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "15px" }}>
             <label>Email Address*</label>
-            <input type="email" name="email" value={formData.email} onChange={handleInputChange}
-              placeholder="email address" required />
+            <input type="email" name="email" value={formData.email}
+              onChange={handleInputChange} placeholder="email address" required />
           </div>
         </div>
 
-        <div className="row">
-          <div className="form-group col-lg-5 col-md-12">
-            <label>Current Education Level*</label>
-            <input type="text" name="education_level" value={formData.education_levels} onChange={handleInputChange}
-              placeholder="Post Graduate/Graduate/High School/Gade Level" required />
-          </div>
-        </div>
+        <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
+          Background in Education
+        </text>
 
         <div className="row">
-          <div className="form-group col-lg-6 col-md-6">
-            <label>English Proficiency*</label>
-            <input type="text" name="english_prof" value={formData.english_prof} onChange={handleInputChange}
-              placeholder="Native Speaker/Fluent/Conversational/Beginner/None"
-              required
-            />
-          </div>
-          <div className="form-group col-lg-6 col-md-6">
-            <label>Other Language(s)/Proficiency</label>
-            <input type="text" name="other_lang" value={formData.other_lang} onChange={handleInputChange}
-              placeholder="List language/proficiency level, separated by comma"
-            />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="form-group col-lg-6 col-md-12">
-            <label>Program Applying For </label>
-            <select name="program" value={formData.program} onChange={handleInputChange} className="chosen-single form-select">
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }}>
+            <label>Highest Level Attained*</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="eduLev" value={formData.eduLev}
+              onChange={handleInputChange} className="chosen-single form-select" required>
               <option value="" disabled>Select...</option>
               <option value="Grade Level">Grade Level</option>
               <option value="High School">High School</option>
@@ -243,45 +267,180 @@ const FormInfoBox = () => {
               <option value="Other">Other</option>
             </select>
           </div>
-          {formData.program === "Other" && (
-            <div className="form-group col-lg-6 col-md-6">
-              <label>Other Program to Apply For*</label>
+          {formData.eduLev === "Other" && (
+            <div className="form-group col-lg-4 col-md-4 col-sm-6"
+              style={{ marginBottom: "15px" }}>
+              <label>Other Level Attained</label>
               <input
                 type="text"
                 name="ifOther"
                 value={formData.ifOther}
                 onChange={handleInputChange}
-                placeholder="Please write other program to apply for here"
+                placeholder="Write other education level attained."
                 required
               />
             </div>
           )}
-          <div className="form-group col-lg-6 col-md-12">
-            <label>Allow In Search & Listing</label>
-            <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange} className="chosen-single form-select">
+
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }}>
+            <label>Total Years of Study*</label>
+            <input type="text" name="eduYrs" value={formData.eduYrs}
+              onChange={handleInputChange}
+              placeholder="Primary to post-secondary" required />
+          </div>
+        </div>
+
+        <div className="row" style={{ borderBottom: "1px solid #f1f3f7" }}>
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }}>
+            <label>English Proficiency*</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="proEng" value={formData.proEng}
+              onChange={handleInputChange} className="chosen-single form-select" required>
+              <option value="" disabled>Select...</option>
+              <option value="Native Speaker">Native Speaker</option>
+              <option value="Fluent">Fluent</option>
+              <option value="Conversational">Conversational</option>
+              <option value="Beginner">Beginner</option>
+              <option value="None">None</option>
+            </select>
+          </div>
+
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }}>
+            <label>French Proficiency</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="proFre" value={formData.proFre}
+              onChange={handleInputChange} className="chosen-single form-select">
+              <option value="" disabled>Select...</option>
+              <option value="Native Speaker">Native Speaker</option>
+              <option value="Fluent">Fluent</option>
+              <option value="Conversational">Conversational</option>
+              <option value="Beginner">Beginner</option>
+              <option value="None">None</option>
+            </select>
+          </div>
+
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }} >
+            <label>Other Language(s)/Proficiency</label>
+            <input type="text" name="proOth" value={formData.proOth}
+              onChange={handleInputChange}
+              placeholder="Lan./prof. level, comma separated" />
+          </div>
+          <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
+            * Upload transcripts/certificates/diplomas/degrees using File Manager.
+          </text>
+        </div>
+
+        <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
+          Interests
+        </text>
+
+        <div className="row">
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }} >
+            <label>Interested to Study in Canada?*</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="isInt" value={formData.isInt}
+              onChange={handleInputChange} className="chosen-single form-select" required>
               <option value="" disabled>Select...</option>
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
           </div>
 
-          {/* <div className="form-group col-lg-6 col-md-12">
-            <label>Allow In Search & Listing</label>
-            <select name="allowSearch" value={formData.allowSearch} onChange={handleInputChange}
-              className="chosen-single form-select" required >
-              <option value="" disabled>Selet...</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }} >
+            <label>Which Intake?*</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="datAvl" value={formData.datAvl}
+              onChange={handleInputChange} className="chosen-single form-select" required>
+              <option value="" disabled>Select...</option>
+              <option value="September">September</option>
+              <option value="January">January</option>
+              <option value="May">May</option>
             </select>
-          </div> */}
+          </div>
+
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }} >
+            <label>Province Interested In*</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="proCan" value={formData.proCan}
+              onChange={handleInputChange} className="chosen-single form-select" required>
+              <option value="" disabled>Select...</option>
+              <option value="Alberta">Alberta</option>
+              <option value="British Columbia">British Columbia</option>
+              <option value="Manitoba">Manitoba</option>
+              <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+              <option value="New Brunswick">New Brunswick</option>
+              <option value="The Northwest Territories">The Northwest Territories</option>
+              <option value="Nova Scotia">Nova Scotia</option>
+              <option value="Nunavut">Nunavut</option>
+              <option value="Ontario">Ontario</option>
+              <option value="Prince Edward Island">Prince Edward Island</option>
+              <option value="Quebec">Quebec</option>
+              <option value="Saskatchewan">Saskatchewan</option>
+              <option value="The Yukon">The Yukon</option>
+            </select>
+          </div>
         </div>
+
+        <div className="row"
+          style={{ borderBottom: "1px solid #f1f3f7", paddingBottom: "10px" }}>
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }} >
+            <label>Program Applying For* </label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="intAre" value={formData.intAre}
+              onChange={handleInputChange} className="chosen-single form-select" required>
+              <option value="" disabled>Select...</option>
+              <option value="Grade Level">Grade Level</option>
+              <option value="High School">High School</option>
+              <option value="Undergraduate">Undergraduate</option>
+              <option value="Postgraduate">Postgraduate</option>
+              <option value="Certificate/Vocational">Certificate/Vocational</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          {formData.intAre === "Other" && (
+            <div className="form-group col-lg-4 col-md-4 col-sm-6"
+              style={{ marginBottom: "15px" }} >
+              <label>Other Program Applying For*</label>
+              <input
+                type="text"
+                name="ifOther"
+                value={formData.ifOther}
+                onChange={handleInputChange}
+                placeholder="Write other program applyinf for"
+                required
+              />
+            </div>
+          )}
+
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "15px" }} >
+            <label>Allow In Search & Listing</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="allSrch" value={formData.allSrch}
+              onChange={handleInputChange} className="chosen-single form-select" required>
+              <option value="" disabled>Select...</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+        </div>
+
+        <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
+          Details
+        </text>
 
         <div className="row">
           <div className="form-group col-lg-12 col-md-12">
-            <label>Details </label>
             <textarea name="description" value={formData.description} onChange={handleInputChange}
-              placeholder="Please describe your goals and interests in pursuing your education in Canada, including your interests in any extracurricular activities, sports, and other hobbies."></textarea>
+              placeholder="Please describe your goals and interests in pursuing your education in Canada."></textarea>
           </div>
         </div>
 

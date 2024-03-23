@@ -176,7 +176,7 @@ const CvUploader = () => {
 
                     />
                     <label className="cv-uploadButton" htmlFor="cv_file_path">
-                        <span className="title">Drop files here to upload</span>
+                        <span className="title">Drag files here to upload</span>
                         <span className="text">
                             To upload file size is (Max 10Mb) and allowed file
                             types are (.doc, .docx, .pdf, .mp3, .mp4,)

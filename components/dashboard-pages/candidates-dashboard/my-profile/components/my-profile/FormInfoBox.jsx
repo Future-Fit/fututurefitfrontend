@@ -134,11 +134,9 @@ const FormInfoBox = () => {
     <form action="#" className="default-form">
       <div className="row">
         <div className="row">
-          <text style={{
-            marginBottom: "10px", textAlign: "center",
-            fontWeight: "bolder", fontSize: "1em"
-          }}>
-            Personal Information </text>
+          <text style={{ marginBottom: "10px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
+            Personal Information
+          </text>
           {/* <!-- Input --> */}
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "15px" }}>
@@ -193,13 +191,13 @@ const FormInfoBox = () => {
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "15px" }}>
-            <label>Residency*</label>
+            <label>Country of Residence*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="residency"
               value={formData.residency}
               onChange={(e) => setFormData({ ...formData, residency: e.target.value })}
               required >
-              <option value="" disabled>Select Residency</option>
+              <option value="" >Select Residency</option>
               {countries.map((country) => (
                 <option key={country.value} value={country.value}> {country.label}
                 </option>
@@ -214,7 +212,7 @@ const FormInfoBox = () => {
               value={formData.citizenship}
               onChange={(e) => setFormData({ ...formData, citizenship: e.target.value })}
               required >
-              <option value="" disabled>Select Citizenship</option>
+              <option value="">Select Citizenship</option>
               {countries.map((country) => (
                 <option key={country.value} value={country.value}> {country.label}
                 </option>
@@ -262,22 +260,42 @@ const FormInfoBox = () => {
 
         <div className="row" style={{ borderBottom: "1px solid #f1f3f7" }}>
           <div className="form-group col-lg-6 col-md-6 col-sm-12"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "5px" }}>
             <label>English Proficiency*</label>
             <input type="text" name="english_prof" value={formData.english_prof} onChange={handleInputChange}
               placeholder="Native Speaker/Fluent/Conversational/Beginner/None" required />
           </div>
           <div className="form-group col-lg-6 col-md-6"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "5px" }}>
             <label>Other Language(s)/Proficiency</label>
             <input type="text" name="other_lang" value={formData.other_lang} onChange={handleInputChange}
               placeholder="List language/proficiency level, separated by comma"
             />
           </div>
-          <text style={{ fontWeight: "lighter", fontSize: "0.8em" }}>
-            Upload supporting documents such as transcripts, certificates, and diplomas/degrees
-            using the File Manager link.
+          <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px"}}>
+            Upload transcripts/certificates/diplomas/degrees using the File Manager link.
           </text>
+        </div>
+
+        <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
+          Employment History
+        </text>
+
+        <div className="row">
+          <div className="form-group col-lg-6 col-md-6 col-sm-12"
+            style={{ marginBottom: "15px" }}>
+            <label>Highest Education Attained*</label>
+            <input type="text" name="education_level" value={formData.education_levels}
+              onChange={handleInputChange}
+              placeholder="Post Graduate/Graduate/Certificate/Secondary/Primary" required />
+          </div>
+          <div className="form-group col-lg-6 col-md-6 col-sm-12"
+            style={{ marginBottom: "15px" }}>
+            <label>Total Years of Education*</label>
+            <input type="text" name="no_years_education" value={formData.no_years_education}
+              onChange={handleInputChange}
+              placeholder="Including primary, secondary and post-secondary" required />
+          </div>
         </div>
 
         <div className="row" style={{ paddingTop: "20px" }}>

@@ -80,14 +80,14 @@ const index = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="ls-widget">
-                <div className="tabs-box">
-                <div className="widget-title"
-                    style={{ display: "grid", justifyContent: "center" }}>
-                    <div>
-                      <h4 style={{ fontSize: "1.5em", fontWeight: "bolder" }}>
-                        Student Profile Form
-                      </h4>
-                    </div>
+                <div>
+                  <div style={{ display: "grid", justifyItems: "center", padding: "20px 0px 10px 0px" }}>
+                    <h4 style={{ fontSize: "1.5em", fontWeight: "bolder" }}>
+                      Student Profile Form
+                    </h4>
+                    <h4 style={{ fontSize: "0.8em", fontWeight: "lighter" }}>
+                      (All fileds with * MUST be completed)
+                    </h4>
                   </div>
 
                   <MyProfile />
