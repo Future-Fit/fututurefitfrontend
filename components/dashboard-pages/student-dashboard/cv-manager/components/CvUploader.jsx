@@ -35,7 +35,7 @@ const CvUploader = () => {
     useEffect(() => {
         const fetchUserDetails = async () => {
             try {
-                const response = await axios.get(`${apiConfig.url}/job-seeker/cv`, {
+                const response = await axios.get(`${apiConfig.url}/student/cv`, {
                     headers: {
                         "Authorization": `Bearer ${token}`
                     }
@@ -62,7 +62,7 @@ const CvUploader = () => {
             formData.append('file', file); // Assuming the API expects the file under the key 'cv'
 
             try {
-                const response = await axios.post(`${apiConfig.url}/job-seeker/cv`, formData, {
+                const response = await axios.post(`${apiConfig.url}/student/cv`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         "Authorization": `Bearer ${token}`
@@ -73,8 +73,8 @@ const CvUploader = () => {
                 window.location.reload();
                 // Handle success (e.g., showing a success message, removing the file from getManager, etc.)
             } catch (error) {
-                console.error('Upload failed', error);
-                alert("Upload failed. file too large or unsupported file type");
+                console.error('Upload failed.', error);
+                alert("Upload failed; file too large or unsupported file type.");
                 window.location.reload();
                 // Handle error (e.g., showing an error message)
             }
@@ -92,10 +92,10 @@ const CvUploader = () => {
                 setManager(getManager.concat(data));
                 setError("");
             } else {
-                setError("Only accept  the spacified file");
+                setError("File type not allowed; please check.");
             }
         } else {
-            setError("File already exists");
+            setError("File already exists.");
         }
     };
 
@@ -109,7 +109,7 @@ const CvUploader = () => {
         try {
             // Make API call to delete the file using fileId as a query parameter
             console.log("Deleting file with id:", fileId);
-            const response = await axios.delete(`${apiConfig.url}/job-seeker/cv`, {
+            const response = await axios.delete(`${apiConfig.url}/student/cv`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 },
@@ -178,8 +178,7 @@ const CvUploader = () => {
                     <label className="cv-uploadButton" htmlFor="cv_file_path">
                         <span className="title">Drag files here to upload</span>
                         <span className="text">
-                            To upload file size is (Max 10Mb) and allowed file
-                            types are (.doc, .docx, .pdf, .mp3, .mp4,)
+                            Max file size=10Mb, File Types=.doc, .docx, .pdf, .mp3, .mp4
                         </span>
                         <span className="theme-btn btn-style-one">
                             Select Files

@@ -9,36 +9,36 @@ import apiConfig from "@/app.config";
 const FormInfoBox = () => {
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
-    fname: '',    // first/given name
     lname: '',    // last/family name
-    mname: '',    // middle name, if applicable
+    mname: '',    // middle name (NMN if none)
+    fname: '',    // first/given name
     dob: '',      // date of birth (mm/dd/yyyy)
     gen: '',      // gender
-    resi: '',     // residency
-    citi: '',     // citizenship
-    pho: '',      // phone number
+    plcBir: '',   // place of birth
+    ctzn: '',     // citizenship
+    addr: '',      // current address
+    city: '',      // current city
+    resid: '',      // current country (residency)
+    phone: '',      // phone number
     email: '',    // email address
     eduLev: [],   // education level (select from choice)
     eduYrs: '',   // tot. # of years attended school (prim to univ) 
     proEng: [],   // English lang. proficiency (select from choices)
     proFre: [],   // Frech lang. proficiency (select from choices)
     proOth: '',   // list other language(s) and proficiency level
-    isEmp: '',    // currently employed? yes or no
+    isEmp: [],    // currently employed? (select yes or no)
     namEmp: '',   // name of employer, if employed
     yrsEmp: '',   // # of years employed
-    isInt: '',    // interested to study or work in Canada? yes or no
-    datAvl: '',   // date avialable for study or employment
+    isInt: [],    // interested to study or work in Canada? (select yes or no)
+    datAvl: [],   // date avialable for study or employment (select from intake dates)
     intAre: [],   // interest area for study or employment (select from choice)
     proCan: [],   // indicate provinces in Canada to study or work in (select from choice)
-    allSrch: '',  // enable searching (on or off) 
+    allSrch: [],  // enable searching (select yet or no) 
     detail: '',   // open for user to write anything (limit 500 chars?)
     resA: '',     // reserved
     resB: '',     // reserved
     resC: '',     // reserved
-    resD: '',     // reserved
-    resE: '',     // reserved
-    resF: '',     // reserved
-    resG: ''     // reserved
+    resD: ''      // reserved
   });
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -149,20 +149,20 @@ const FormInfoBox = () => {
             Personal Information
           </text>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>Last (Family) Name*</label>
             <input type="text" name="lname" value={formData.lname}
               onChange={handleInputChange} placeholder="Last Name" required />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>Middle Name</label>
             <input type="text" name="mname" value={formData.mname}
               onChange={handleInputChange}
               placeholder="If No Middle Name, Put 'NMN'" required />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>First (Given) Name*</label>
             <input type="text" name="fname" value={formData.fname}
               onChange={handleInputChange} placeholder="First Name" required />
@@ -172,7 +172,7 @@ const FormInfoBox = () => {
         {/* <!-- Input --> */}
         <div className="row">
           <div className="form-group col-lg-4 col-md-4 col-sm-4"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>Date of Birth*</label>
             <div>
               <input style={{
@@ -185,7 +185,7 @@ const FormInfoBox = () => {
             </div>
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-4"
-            style={{ width: "150px", marginBottom: "15px" }}>
+            style={{ width: "150px", marginBottom: "20px" }}>
             <label>Gender*</label>
             <input type="text" name="gen" value={formData.gen}
               onChange={handleInputChange} placeholder="" required />
@@ -194,18 +194,19 @@ const FormInfoBox = () => {
 
         <div className="row">
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>Place of Birth*</label>
-            <input type="text" name="city" value={formData.city}
-              onChange={handleInputChange} placeholder="City, Country" required />
+            <input type="text" name="plcBir" value={formData.plcBir}
+              onChange={handleInputChange} placeholder="City" required />
           </div>
+
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
-            style={{ marginBottom: "15px" }}>
-            <label>Country of Residence*</label>
+            style={{ marginBottom: "20px" }}>
+            <label>Citizenship*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="resi"
-              value={formData.resi}
-              onChange={(e) => setFormData({ ...formData, resi: e.target.value })}
+              name="ctzn"
+              value={formData.ctzn}
+              onChange={(e) => setFormData({ ...formData, ctzn: e.target.value })}
               required >
               <option value="" disabled>Select...</option>
               {countries.map((country) => (
@@ -214,13 +215,28 @@ const FormInfoBox = () => {
               ))}
             </select>
           </div>
+        </div>
+
+        <div className="row">
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
-            style={{ marginBottom: "15px" }}>
-            <label>Citizenship*</label>
+            style={{ marginBottom: "20px" }}>
+            <label>Current Address*</label>
+            <input type="text" name="addr" value={formData.addr}
+              onChange={handleInputChange} placeholder="Include Street Name, Postal Code" required />
+          </div>
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "20px" }}>
+            <label>Current City*</label>
+            <input type="text" name="city" value={formData.city}
+              onChange={handleInputChange} placeholder="Current City" required />
+          </div>
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
+            style={{ marginBottom: "20px" }}>
+            <label>Country of Residence*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="citi"
-              value={formData.citi}
-              onChange={(e) => setFormData({ ...formData, citi: e.target.value })}
+              name="resid"
+              value={formData.resid}
+              onChange={(e) => setFormData({ ...formData, resid: e.target.value })}
               required >
               <option value="" disabled>Select...</option>
               {countries.map((country) => (
@@ -234,13 +250,13 @@ const FormInfoBox = () => {
         <div className="row"
           style={{ borderBottom: "1px solid #f1f3f7", paddingBottom: "10px" }}>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>Phone Number*</label>
-            <input type="text" name="pho" value={formData.pho}
+            <input type="text" name="phone" value={formData.phone}
               onChange={handleInputChange} placeholder="[+][country code][phone number]" required />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>Email Address*</label>
             <input type="email" name="email" value={formData.email}
               onChange={handleInputChange} placeholder="email address" required />
@@ -253,7 +269,7 @@ const FormInfoBox = () => {
 
         <div className="row">
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>Highest Level Attained*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="eduLev" value={formData.eduLev}
@@ -269,7 +285,7 @@ const FormInfoBox = () => {
           </div>
           {formData.eduLev === "Other" && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6"
-              style={{ marginBottom: "15px" }}>
+              style={{ marginBottom: "20px" }}>
               <label>Other Level Attained</label>
               <input
                 type="text"
@@ -283,7 +299,7 @@ const FormInfoBox = () => {
           )}
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "20px" }}>
             <label>Total Years of Study*</label>
             <input type="text" name="eduYrs" value={formData.eduYrs}
               onChange={handleInputChange}
@@ -293,7 +309,7 @@ const FormInfoBox = () => {
 
         <div className="row" style={{ borderBottom: "1px solid #f1f3f7" }}>
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "10px" }}>
             <label>English Proficiency*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="proEng" value={formData.proEng}
@@ -308,7 +324,7 @@ const FormInfoBox = () => {
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }}>
+            style={{ marginBottom: "10px" }}>
             <label>French Proficiency</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="proFre" value={formData.proFre}
@@ -323,7 +339,7 @@ const FormInfoBox = () => {
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }} >
+            style={{ marginBottom: "10px" }} >
             <label>Other Language(s)/Proficiency</label>
             <input type="text" name="proOth" value={formData.proOth}
               onChange={handleInputChange}
@@ -340,7 +356,7 @@ const FormInfoBox = () => {
 
         <div className="row">
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }} >
+            style={{ marginBottom: "20px" }} >
             <label>Interested to Study in Canada?*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="isInt" value={formData.isInt}
@@ -352,7 +368,7 @@ const FormInfoBox = () => {
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }} >
+            style={{ marginBottom: "20px" }} >
             <label>Which Intake?*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="datAvl" value={formData.datAvl}
@@ -365,7 +381,7 @@ const FormInfoBox = () => {
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }} >
+            style={{ marginBottom: "20px" }} >
             <label>Province Interested In*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="proCan" value={formData.proCan}
@@ -391,7 +407,7 @@ const FormInfoBox = () => {
         <div className="row"
           style={{ borderBottom: "1px solid #f1f3f7", paddingBottom: "10px" }}>
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }} >
+            style={{ marginBottom: "20px" }} >
             <label>Program Applying For* </label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="intAre" value={formData.intAre}
@@ -407,7 +423,7 @@ const FormInfoBox = () => {
           </div>
           {formData.intAre === "Other" && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6"
-              style={{ marginBottom: "15px" }} >
+              style={{ marginBottom: "20px" }} >
               <label>Other Program Applying For*</label>
               <input
                 type="text"
@@ -421,7 +437,7 @@ const FormInfoBox = () => {
           )}
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "15px" }} >
+            style={{ marginBottom: "20px" }} >
             <label>Allow In Search & Listing</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="allSrch" value={formData.allSrch}
@@ -438,14 +454,19 @@ const FormInfoBox = () => {
         </text>
 
         <div className="row">
-          <div className="form-group col-lg-12 col-md-12">
+          <div className="form-group col-lg-12 col-md-12"
+            style={{ marginBottom: "5px" }}>
             <textarea name="description" value={formData.description} onChange={handleInputChange}
               placeholder="Please describe your goals and interests in pursuing your education in Canada."></textarea>
           </div>
         </div>
 
+        <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
+          * Upload any supporting document using File Manager.
+        </text>
+
         <div className="row">
-          <div style={{ justifyContent: "center" }}>
+          <div className="form-group col-lg-6 col-md-12" style={{ justifyContent: "center" }}>
             <button type="submit" onClick={handleSubmit} className="theme-btn btn-style-one">
               Save
             </button>

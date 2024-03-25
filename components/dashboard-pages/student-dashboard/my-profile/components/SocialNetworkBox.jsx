@@ -3,7 +3,8 @@ const SocialNetworkBox = () => {
     <form className="default-form">
       <div className="row">
         {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
+        <div className="form-group col-lg-6 col-md-12"
+          style={{ marginBottom: "20px" }}>
           <label>Facebook</label>
           <input
             type="text"
@@ -14,7 +15,8 @@ const SocialNetworkBox = () => {
         </div>
 
         {/* <!-- Input --> */}
-        <div className="form-group col-lg-6 col-md-12">
+        <div className="form-group col-lg-6 col-md-12"
+          style={{ marginBottom: "20px" }}>
           <label>Twitter</label>
           <input type="text" name="name" placeholder="" required />
         </div>

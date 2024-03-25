@@ -93,42 +93,20 @@ const index = () => {
                   <MyProfile />
                 </div>
               </div>
-              {/* <!-- Ls widget --> */}
-
-              {/* <div className="ls-widget">
-                <div className="tabs-box">
-                  <div className="widget-title">
-                    <h4>File Manager</h4>
-                  </div>
-
-                  <div className="widget-content">
-                    <CvUploader />
-                  </div>
-                </div>
-              </div> */}
 
               <div className="ls-widget">
                 <div className="tabs-box">
-                  <div className="widget-title">
-                    <h4>Social Network</h4>
+                  <div className="widget-title"
+                    style={{ display: "grid", justifyContent: "center", paddingBottom: "10px" }}>
+
+                    <text style={{ textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
+                      Social Network
+                    </text>
                   </div>
                   {/* End widget-title */}
 
                   <div className="widget-content">
                     <SocialNetworkBox />
-                  </div>
-                </div>
-              </div>
-              {/* <!-- Ls widget --> */}
-
-              <div className="ls-widget">
-                <div className="tabs-box">
-                  <div className="widget-title">
-                    <h4>Current Address</h4>
-                  </div>
-                  {/* End widget-title */}
-                  <div className="widget-content">
-                    <ContactInfoBox />
                   </div>
                 </div>
               </div>

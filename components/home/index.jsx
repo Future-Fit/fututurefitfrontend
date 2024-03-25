@@ -16,7 +16,7 @@ import Hero from "./hero/Hero"
 import ServicesProvided from "./ServicesProvided";
 import Membership from "./Membership";
 import FeaturedIndustries from "./FeaturedIndustries";
-import StudyCanada from "./StudyCanada";
+import WhyCanada from "./WhyCanada";
 import Partnership from "./Partnership";
 import dynamic from "next/dynamic";
 
@@ -126,7 +126,7 @@ const index = () => {
 
       {/* This is the fifth section of the home page (why study in Canada section) */}
       <section style={{ background: GlobalConfig.BgrClr1 }}>
-        {/* <StudyCanada /> */}
+        <WhyCanada />
       </section>
 
       {/* This is the fourth section of the home page (trending jobs section) */}

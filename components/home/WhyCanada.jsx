@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'; // Import React
 import Image from "next/image";
 import GlobalConfig from "@/Global.config";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSign, faSignIn, faUser, faUserEdit, faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import arrowdown from '../../public/images/icons/arrow-down.svg'
-import arrowright from '../../public/images/icons/arrow-right.svg'
+import { faEarthAfrica, faGraduationCap, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
-const Membership = () => {
+const WhyCanada = () => {
 
   const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
@@ -25,8 +23,6 @@ const Membership = () => {
     };
   }, []);
 
-  const arrowIconUrl = windowWidth < 768 ? arrowdown : arrowright;
-
   const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
   const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
 
@@ -35,36 +31,36 @@ const Membership = () => {
   // const userType = parseInt(localStorage.getItem('userType'));
 
   const iconMap = {
-    "icon-user": faUser,
-    "icon-sign": faSignIn,
-    "icon-profile": faUserEdit,
+    "icon-visit": faEarthAfrica,
+    "icon-study": faGraduationCap,
+    "icon-work": faBriefcase,
   };
 
   const blockContent = [
     {
       id: 1,
-      icon: "icon-user",
-      title: "Register",
-      text: "(Job Seekers/Students)",
-      linkPath: '/register',
+      icon: "icon-visit",
+      title: "Visit",
+      text: "Find out what you need here",
+      linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html',
       bgClass: "-blue",
       bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 2,
-      icon: "icon-sign",
-      title: "Sign-In",
-      text: "(Build Your Profile)",
-      linkPath: (isLoggedIn && (userType === 4 || userType === 5)) ? '/candidates-dashboard/my-profile' : '/login',
+      icon: "icon-study",
+      title: "Study",
+      text: "International students are welcome",
+      linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html',
       bgClass: "-red",
       bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 3,
-      icon: "icon-profile",
-      title: "Search & Apply ",
-      text: "(FFI Is Here To Help!)",
-      linkPath: (isLoggedIn && (userType === 4 || userType === 5)) ? '/candidates-dashboard/my-profile' : '/login',
+      icon: "icon-work",
+      title: "Work",
+      text: "Job seekers can work in Canada",
+      linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html',
       bgClass: "-yellow",
       bgcolor: GlobalConfig.LogoOrg
     },
@@ -75,9 +71,12 @@ const Membership = () => {
     <section style={{ padding: "40px 20px" }}>
       <div className="auto-container">
         <div className="row justify-content-center">
-          <div className="col-lg-5">
+          <div>
             <div className="sec-title text-center">
               <h2 style={{ color: '#fff' }}>Why Canada?</h2>
+              <div className="text" style={{ color: "#fff", fontSize: "1.1em" }}>
+                With it's thriving cities, stunning natural beauty, and welcoming environment, Canada offers something to everyone.
+              </div>
             </div>
           </div>
         </div>
@@ -97,13 +96,6 @@ const Membership = () => {
                     </div>
                   </div>
                 </div>
-                {/* {index < blockContent.length - 1 && (
-                  <div className="col-lg-1 col-md-1 col-sm-1" style={{ width: '100%' }}>
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      <Image src={arrowIconUrl} width={40} height={40} alt="arrow icon" />
-                    </div>
-                  </div>
-                )} */}
               </React.Fragment>
             ))}
           </div>
@@ -125,7 +117,6 @@ const Membership = () => {
                 {index < blockContent.length - 1 && (
                   <div className="col-lg-1 col-md-1 col-sm-1">
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                      {/* <Image src={arrowIconUrl} width={40} height={40} alt="arrow icon" /> */}
                     </div>
                   </div>
                 )}
@@ -139,5 +130,5 @@ const Membership = () => {
   );
 };
 
-export default Membership;
+export default WhyCanada;
 

@@ -15,32 +15,32 @@ const OrderDetails = () => {
         </thead>
         <tbody>
           <tr className="cart-item">
-            <td className="product-name">Hoodie x2</td>
-            <td className="product-total">59.00</td>
+            <td className="product-name"></td>
+            <td className="product-total"></td>
           </tr>
 
           <tr className="cart-item">
-            <td className="product-name">Seo Books x 1</td>
-            <td className="product-total">67.00</td>
+            <td className="product-name"></td>
+            <td className="product-total"></td>
           </tr>
         </tbody>
         <tfoot>
           <tr className="cart-subtotal">
             <td>Subtotal</td>
             <td>
-              <span className="amount">$178.00</span>
+              <span className="amount"></span>
             </td>
           </tr>
           <tr className="cart-subtotal">
             <td>Shipping</td>
             <td>
-              <span className="amount">$178.00</span>
+              <span className="amount"></span>
             </td>
           </tr>
           <tr className="order-total">
             <td>Total</td>
             <td>
-              <span className="amount">$9,218.00</span>
+              <span className="amount"></span>
             </td>
           </tr>
         </tfoot>
