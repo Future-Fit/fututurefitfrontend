@@ -5,6 +5,18 @@ import Select from "react-select";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
+import { MultiSelect } from "react-multi-select-component";
+
+
+const programOptions = [
+  { label: "Grade Level", value: "Grade Level" },
+  { label: "High School", value: "High School" },
+  { label: "Undergraduate", value: "Undergraduate" },
+  { label: "Postgraduate", value: "Postgraduate" },
+  { label: "Certificate/Vocational", value: "Certificate/Vocational" },
+  { label: "Other", value: "Other" }
+];
+
 
 const FormInfoBox = () => {
   const [userDetail, setUserDetail] = useState(null);
@@ -31,7 +43,7 @@ const FormInfoBox = () => {
     yrsEmp: '',   // # of years employed
     isIntr: '',    // interested to study or work in Canada? (select yes or no)
     datAvl: '',   // date avialable for study or employment (select from intake dates)
-    intAre: '',   // interest area for study or employment (select from choice)
+    intAre: [],   // interest area for study or employment (select from choice)
     proCan: [],   // indicate provinces in Canada to study or work in (select from choice)
     allSrch: [],  // enable searching (select yet or no) 
     detail: '',   // open for user to write anything (limit 500 chars?)
@@ -42,18 +54,19 @@ const FormInfoBox = () => {
     resC: '',     // reserved
     resD: ''      // reserved
   });
-  const [selectedOptions, setSelectedOptions] = useState([]);
-
-  // Handler function for handling changes in the multi-selector input field
-  const handleChange = (event) => {
-    // Get the selected options from the event
-    const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
-
-    // Update the state with the selected options
-    setSelectedOptions(selectedValues);
-  };
-
   const [countries, setCountries] = useState([]);
+
+  const [selectedPrograms, setSelectedPrograms] = useState([]);
+
+  const handleSelect = (selected) => {
+  setFormData({
+    ...formData,
+    intAre: selected.map(program => program.value), // Extract program values
+  });
+  setSelectedPrograms(selected); // Update selectedPrograms state for UI
+};
+
+
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -92,7 +105,7 @@ const FormInfoBox = () => {
       // Assuming the API returns the updated user details as response
       console.log('User profile updated successfully:');
       setUserDetail(response.data);
-          setFormData(response.data);
+      setFormData(response.data);
       // Perform any success actions, like updating UI or state
       alert("User profile updated successfully.")
       window.location.reload();
@@ -116,6 +129,11 @@ const FormInfoBox = () => {
             }
           });
           console.log('Response from server:');
+
+        //   const parsedIntAre = JSON.parse(response.data.intAre);
+        // setSelectedPrograms(parsedIntAre.map(program => ({ label: program, value: program })));
+        // setFormData({ ...response.data, intAre: parsedIntAre }); // Update formData with parsed array
+
           setUserDetail(response.data);
           setFormData(response.data);
         } catch (error) {
@@ -125,8 +143,8 @@ const FormInfoBox = () => {
       fetchUserDetails();
     }
   }, []);
-  const handleSubmit = (event) => {
 
+  const handleSubmit = (event) => {
     event.preventDefault();
     // Create DTO object from form data
     const userDto = { ...formData };
@@ -157,20 +175,20 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Last (Family) Name*</label>
             <input type="text" name="lname" value={formData.lname}
-              onChange={handleInputChange} placeholder="Last Name"  />
+              onChange={handleInputChange} placeholder="Last Name" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Middle Name</label>
             <input type="text" name="mname" value={formData.mname}
               onChange={handleInputChange}
-              placeholder="If No Middle Name, Put 'NMN'"  />
+              placeholder="If No Middle Name, Put 'NMN'" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>First (Given) Name*</label>
             <input type="text" name="fname" value={formData.fname}
-              onChange={handleInputChange} placeholder="First Name"  />
+              onChange={handleInputChange} placeholder="First Name" />
           </div>
         </div>
 
@@ -186,14 +204,14 @@ const FormInfoBox = () => {
                 boxSizing: "border-box", borderRadius: "8px"
               }}
                 type="text" name="dob" value={formData.dob}
-                onChange={handleInputChange} placeholder="MM/DD/YYYY"  />
+                onChange={handleInputChange} placeholder="MM/DD/YYYY" />
             </div>
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-4"
             style={{ width: "150px", marginBottom: "20px" }}>
             <label>Gender*</label>
             <input type="text" name="gen" value={formData.gen}
-              onChange={handleInputChange} placeholder=""  />
+              onChange={handleInputChange} placeholder="" />
           </div>
         </div>
 
@@ -202,7 +220,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Place of Birth*</label>
             <input type="text" name="plcBir" value={formData.plcBir}
-              onChange={handleInputChange} placeholder="City"  />
+              onChange={handleInputChange} placeholder="City" />
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
@@ -212,7 +230,7 @@ const FormInfoBox = () => {
               name="ctzn"
               value={formData.ctzn}
               onChange={(e) => setFormData({ ...formData, ctzn: e.target.value })}
-               >
+            >
               <option value="" disabled>Select...</option>
               {countries.map((country) => (
                 <option key={country.value} value={country.value}> {country.label}
@@ -227,13 +245,13 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Current Address*</label>
             <input type="text" name="addr" value={formData.addr}
-              onChange={handleInputChange} placeholder="Include Street Name, Postal Code"  />
+              onChange={handleInputChange} placeholder="Include Street Name, Postal Code" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Current City*</label>
             <input type="text" name="city" value={formData.city}
-              onChange={handleInputChange} placeholder="Current City"  />
+              onChange={handleInputChange} placeholder="Current City" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
@@ -242,7 +260,7 @@ const FormInfoBox = () => {
               name="resid"
               value={formData.resid}
               onChange={(e) => setFormData({ ...formData, resid: e.target.value })}
-               >
+            >
               <option value="" disabled>Select...</option>
               {countries.map((country) => (
                 <option key={country.value} value={country.value}> {country.label}
@@ -258,13 +276,13 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Phone Number*</label>
             <input type="text" name="phone" value={formData.phone}
-              onChange={handleInputChange} placeholder="[+][country code][phone number]"  />
+              onChange={handleInputChange} placeholder="[+][country code][phone number]" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Email Address*</label>
             <input type="email" name="email" value={formData.email}
-              onChange={handleInputChange} placeholder="email address"  />
+              onChange={handleInputChange} placeholder="email address" />
           </div>
         </div>
 
@@ -298,7 +316,7 @@ const FormInfoBox = () => {
                 value={formData.otherLevel}
                 onChange={handleInputChange}
                 placeholder="Write other education level attained."
-                
+
               />
             </div>
           )}
@@ -308,7 +326,7 @@ const FormInfoBox = () => {
             <label>Total Years of Study*</label>
             <input type="text" name="eduYrs" value={formData.eduYrs}
               onChange={handleInputChange}
-              placeholder="Primary to post-secondary"  />
+              placeholder="Primary to post-secondary" />
           </div>
         </div>
 
@@ -411,33 +429,20 @@ const FormInfoBox = () => {
 
         <div className="row"
           style={{ borderBottom: "1px solid #f1f3f7", paddingBottom: "10px" }}>
-          <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "20px" }} >
-            <label>Program Applying For* </label>
-            <select style={{ height: "32px", padding: "0px 0px" }}
-              name="intAre" value={formData.intAre}
-              onChange={handleInputChange} className="chosen-single form-select" >
-              <option value="" disabled>Select...</option>
-              <option value="Grade Level">Grade Level</option>
-              <option value="High School">High School</option>
-              <option value="Undergraduate">Undergraduate</option>
-              <option value="Postgraduate">Postgraduate</option>
-              <option value="Certificate/Vocational">Certificate/Vocational</option>
-              <option value="Other">Other</option>
-            </select>
+          <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
+            <label>Programs Applying For*</label>
+            <MultiSelect
+              options={programOptions}
+              value={selectedPrograms}
+              onChange={handleSelect}
+              labelledBy="Select"
+              name='intAre'
+            />
           </div>
-          {formData.intAre === "Other" && (
-            <div className="form-group col-lg-4 col-md-4 col-sm-6"
-              style={{ marginBottom: "20px" }} >
-              <label>Other Program Applying For*</label>
-              <input
-                type="text"
-                name="otherProgram"
-                value={formData.otherProgram}
-                onChange={handleInputChange}
-                placeholder="Write other program applyinf for"
-                
-              />
+          {selectedPrograms.some(program => program.value === "Other") && (
+            <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
+              <label>Other Program(s) Applying For*</label>
+              <input type="text" name="otherProgram" value={formData.otherProgram} onChange={handleInputChange} placeholder="Write other programs applying for" />
             </div>
           )}
 

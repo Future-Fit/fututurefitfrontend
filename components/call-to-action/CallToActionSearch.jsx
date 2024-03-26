@@ -1,8 +1,6 @@
 "use client"
 import Link from "next/link";
 import SearchForm3 from "../common/job-search/SearchForm3";
-import JobCategorie4 from "../job-categories/JobCategorie4";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import GlobalConfig from "@/Global.config";
 

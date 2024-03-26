@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import jobCatContent from "../../data/job-catergories";
 import Image from "next/image";
 
-// const JobCategorie4 = ({ isMobile }) => {
   const JobCategorie4 = ({ }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
+
+  
 
   const handleMouseEnter = (itemId) => {
     setHoveredItem(itemId);
@@ -82,7 +83,7 @@ import Image from "next/image";
                   <div style={textStyle}>{item.popupText}</div>
                 </div>
               )}
-            <div className="btn-box text-center" style={{ marginTop: '10px' }}>
+            <div className="btn-box text-center" >
               {/* Additional content or buttons */}
             </div>
           </div>

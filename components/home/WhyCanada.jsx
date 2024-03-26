@@ -7,6 +7,10 @@ import { faEarthAfrica, faGraduationCap, faBriefcase } from '@fortawesome/free-s
 const WhyCanada = () => {
 
   const [windowWidth, setWindowWidth] = useState(0);
+
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
@@ -26,7 +30,17 @@ const WhyCanada = () => {
   const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
   const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
 
+const handleMouseEnter = (itemId, event) => {
+    setHoveredItem(itemId);
+    setPopoverPosition({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
 
+  const handleMouseLeave = () => {
+    setHoveredItem(null);
+  };
   // const isLoggedIn = localStorage.getItem('accessToken') !== null;
   // const userType = parseInt(localStorage.getItem('userType'));
 
@@ -42,21 +56,24 @@ const WhyCanada = () => {
       icon: "icon-visit",
       title: "Visit",
       linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html',
-      bgcolor: GlobalConfig.LogoOrg
+      bgcolor: GlobalConfig.LogoOrg,
+      popupDetail: "Visit Visit Visit Visit Visit Visit Visit Visit Visit"
     },
     {
       id: 2,
       icon: "icon-study",
       title: "Study",
       linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html',
-      bgcolor: GlobalConfig.LogoOrg
+      bgcolor: GlobalConfig.LogoOrg,
+      popupDetail: "Study Study Study Study Study Study Study Study Study"
     },
     {
       id: 3,
       icon: "icon-work",
       title: "Work",
       linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html',
-      bgcolor: GlobalConfig.LogoOrg
+      bgcolor: GlobalConfig.LogoOrg,
+      popupDetail: "Work Work Work Work Work Work Work Work Work Work"
     },
   ];
 
@@ -80,7 +97,8 @@ const WhyCanada = () => {
             {blockContent.map((item, index) => (
               <React.Fragment key={item.id}>
                 <div className="col-md-4 col-sm-12 mb-3" >
-                  <div className="work-block -type-2 mb-0" >
+                  <div className="work-block -type-2 mb-0" onMouseEnter={(event) => handleMouseEnter(item.id, event)}
+                  onMouseLeave={handleMouseLeave}>
                     <div className="inner-box" >
                       <div className="icon-wrap" >
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
@@ -97,7 +115,8 @@ const WhyCanada = () => {
             {blockContent.map((item, index) => (
               <React.Fragment key={item.id}>
                 <div className="col-lg-4 col-md-4 col-sm-12" style={{ flex: '1', margin: '0 10px' }}>
-                  <div className="work-block -type-2 mb-0">
+                  <div className="work-block -type-2 mb-0" onMouseEnter={(event) => handleMouseEnter(item.id, event)}
+                  onMouseLeave={handleMouseLeave}>
                     <div className="inner-box">
                       <div className="icon-wrap">
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
@@ -117,6 +136,26 @@ const WhyCanada = () => {
           </div>
         )}
         {/* End - Conditional rendering based on windowWidth */}
+
+        {hoveredItem !== null && (
+          <div
+            className="popover"
+            style={{
+              position: 'fixed',
+              top: Math.max(popoverPosition.y, 0),
+              left: Math.max(popoverPosition.x, 0),
+              transform: 'translate(-50%, -100%)',
+              backgroundColor: 'white',
+              padding: '10px',
+              boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)',
+              zIndex: 9999,
+              visibility: 'visible',
+            }}
+          >
+            {/* Add popover content based on hovered item */}
+            {blockContent.find(item => item.id === hoveredItem)?.popupDetail}
+          </div>
+        )}
       </div>
     </section>
   );
