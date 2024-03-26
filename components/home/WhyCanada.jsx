@@ -41,27 +41,21 @@ const WhyCanada = () => {
       id: 1,
       icon: "icon-visit",
       title: "Visit",
-      text: "Find out what you need here",
       linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html',
-      bgClass: "-blue",
       bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 2,
       icon: "icon-study",
       title: "Study",
-      text: "International students are welcome",
       linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html',
-      bgClass: "-red",
       bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 3,
       icon: "icon-work",
       title: "Work",
-      text: "Job seekers can work in Canada",
       linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html',
-      bgClass: "-yellow",
       bgcolor: GlobalConfig.LogoOrg
     },
   ];
@@ -74,8 +68,8 @@ const WhyCanada = () => {
           <div>
             <div className="sec-title text-center">
               <h2 style={{ color: '#fff' }}>Why Canada?</h2>
-              <div className="text" style={{ color: "#fff", fontSize: "1.1em" }}>
-                With it's thriving cities, stunning natural beauty, and welcoming environment, Canada offers something to everyone.
+              <div className="text" style={{ color: "#fff", fontSize: "1.2em" }}>
+                Thriving cities, stunning natural beauty, welcoming environment...
               </div>
             </div>
           </div>
@@ -91,8 +85,7 @@ const WhyCanada = () => {
                       <div className="icon-wrap" >
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
                       </div>
-                      <a href={item.linkPath}><h5 style={{ color: item.bgcolor }}>{item.title}</h5></a>
-                      <a href={item.linkPath} style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1.1em" }}> {item.text} </a>
+                      <a href={item.linkPath} style={{ color: item.bgcolor, fontSize: "1.4em", fontWeight: "bold" }}> {item.title} </a>
                     </div>
                   </div>
                 </div>
@@ -109,8 +102,7 @@ const WhyCanada = () => {
                       <div className="icon-wrap">
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
                       </div>
-                      <a href={item.linkPath}><h5 style={{ color: item.bgcolor }}>{item.title}</h5></a>
-                      <a href={item.linkPath} style={{ color: GlobalConfig.Fgr1Clr }}> {item.text} </a>
+                      <a href={item.linkPath} style={{ color: item.bgcolor, fontSize: "1.4em", fontWeight: "bold" }}> {item.title} </a>
                     </div>
                   </div>
                 </div>

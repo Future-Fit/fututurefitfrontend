@@ -18,6 +18,7 @@ import Membership from "./Membership";
 import FeaturedIndustries from "./FeaturedIndustries";
 import WhyCanada from "./WhyCanada";
 import Partnership from "./Partnership";
+import FeaturedJobs from "./FeaturedJobs";
 import dynamic from "next/dynamic";
 
 const index = () => {

@@ -9,31 +9,31 @@ const FeaturedIndustries = () => {
       id: 1,
       icon: "/images/icons/Healthcare-icon.svg",
       title: "Healthcare",
-      linkPath: ""
+      linkPath: "/featured-industries/"
     },
     {
       id: 2,
       icon: "/images/icons/Eng-Htech-IT-icon.svg",
       title: "Engineering/IT",
-      linkPath: ""
+      linkPath: "/featured-industries/"
     },
     {
       id: 3,
       icon: "/images/icons/Mfg-icon.svg",
       title: "Manufacturing",
-      linkPath: ""
+      linkPath: "/featured-industries/"
     },
     {
       id: 4,
       icon: "/images/icons/Transportation-icon.svg",
       title: "Transportation/Logistics",
-      linkPath: ""
+      linkPath: "/featured-industries/"
     },
     {
       id: 5,
       icon: "/images/icons/Aviation-icon.svg",
       title: "Aviation",
-      linkPath: ""
+      linkPath: "/featured-industries/"
     },
     {
       id: 6,
@@ -45,14 +45,14 @@ const FeaturedIndustries = () => {
       id: 7,
       icon: "/images/icons/Hospitality-icon.svg",
       title: "Hospitality/Services",
-      linkPath: ""
+      linkPath: "/featured-industries/"
 
     },
     {
       id: 8,
       icon: "/images/icons/Skilled-trade-icon.svg",
       title: "Skilled Trade",
-      linkPath: ""
+      linkPath: "/featured-industries/"
 
     }
   ];
@@ -73,29 +73,28 @@ const FeaturedIndustries = () => {
             {blockContent.slice(0, 8).map((item) => (
               <div className="job-block-four col-lg-3 col-md-3 col-sm-6" key={item.id}>
                 <div className="inner-box">
-                  <Link href="">
+                  <Link href={item.linkPath}>
                     <h4 style={{ color: GlobalConfig.Fgr1Clr }}>
                       {item.title}
                     </h4>
+
+                    <Image
+                      width={60}
+                      height={60}
+                      src={item.icon}
+                      alt=""
+                    />
                   </Link>
-
-                  <Image
-                    width={60}
-                    height={60}
-                    src={item.icon}
-                    alt=""
-                  />
-
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-          <Link href="/register" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.BgrClr1 }}>
-            <span className="btn-title"><strong>Search Jobs</strong></span>
+        {/* <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
+          <Link href="/featured-industries" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.BgrClr1 }}>
+            <span className="btn-title"><strong>Learn More</strong></span>
           </Link>
-        </div>
+        </div> */}
       </section >
     </>
   );
