@@ -73,9 +73,14 @@ const MobileMenu = () => {
   };
 
   const handleLogout = () => {
-    clearSession()
-    window.location.href = '/';
-  };
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+        clearSession(); // Clear the session
+        return
+    } else {
+        return
+    }
+};
 
   const handleProfileRedirect = () => {
     const userType = localStorage.getItem("userType");

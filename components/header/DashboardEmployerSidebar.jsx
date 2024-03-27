@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { menuToggle } from "../../features/toggle/toggleSlice";
 import { usePathname, useRouter } from "next/navigation";
 import { clearSession } from "../common/form/login/sessionHandler";
-import Image from "next/image";
 import GlobalConfig from "@/Global.config";
 
 const DashboardEmployerSidebar = () => {
@@ -22,15 +21,20 @@ const DashboardEmployerSidebar = () => {
 
     const router = useRouter();
 
-    const handleMenuItemClick = async (item, event) => {
-        if (item.id === 11) { // Check if the clicked item is the logout option
-            event.preventDefault(); // Prevent default Link navigation
-            await clearSession(); // Clear session (assuming this can be made async)
-            router.push('/'); // Redirect to home or login page
-        } else {
-            menuToggleHandler(); // Perform the usual menu toggle action
-        }
-    };
+    
+  const handleMenuItemClick = async (item, event) => {
+    if (item.id === 11) { // Check if the clicked item is the logout option
+      event.preventDefault(); // Prevent default Link navigation
+      const confirmLogout = window.confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        await clearSession(); // Clear session (assuming this can be made async)
+        return;
+        // router.push('/'); // Redirect to home or login page
+      } // If not confirmed, do nothing
+    } else {
+      menuToggleHandler(); // Perform the usual menu toggle action
+    }
+  };
 
     return (
         <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
@@ -45,8 +49,6 @@ const DashboardEmployerSidebar = () => {
                     </div>
                 </div>
             </div>
-
-
             {/* <div className="pro-header text-end pb-0 mb-0 show-1023" style={{backgroundColor: GlobalConfig.BgHeader}}>
                 <div className="pro-header" style={{paddingTop: '50px', backgroundColor: GlobalConfig.BgHeader}}>
                    

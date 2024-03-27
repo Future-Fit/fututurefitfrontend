@@ -35,6 +35,13 @@ const DashboardStudentHeader = () => {
     const [suggestionValue, setSuggestionValue] = useState('');
     const { cart } = useSelector((state) => state.shop) || {};
 
+    const DropdownMenu = ({ userDetail, handleLogout }) => {
+        const [isOpen, setIsOpen] = useState(false);
+      
+        const toggleDropdown = () => {
+          setIsOpen(!isOpen);
+        };
+    }      
 
     useEffect(() => {
         dispatch(reloadCart());
@@ -140,7 +147,7 @@ const DashboardStudentHeader = () => {
         const confirmLogout = window.confirm("Are you sure you want to logout?");
         if (confirmLogout) {
             clearSession(); // Clear the session
-            window.location.href = '/'; // Redirect to the login page
+            return
         } else {
             return
         }
@@ -347,7 +354,7 @@ const DashboardStudentHeader = () => {
                             </ul>
                         </div>
 
-                    </div>
+                    {/* </div> */}
 
                     {cart && cart.length > 0 && ( // Check if cart exists and is not empty
                         <Link href="/shop/cart">
@@ -358,7 +365,7 @@ const DashboardStudentHeader = () => {
                         </Link>
                     )}
                     {/* End dropdown */}
-                    {/* </div> */}
+                    </div>
                     {/* End outer-box */}
 
                     <div className="search-container d-flex align-items-center"

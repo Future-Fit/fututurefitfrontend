@@ -37,7 +37,8 @@ const DashboardCandidatesSidebar = () => {
       const confirmLogout = window.confirm("Are you sure you want to logout?");
       if (confirmLogout) {
         await clearSession(); // Clear session (assuming this can be made async)
-        router.push('/'); // Redirect to home or login page
+        // router.push('/'); // Redirect to home or login page
+        return;
       } // Redirect to home or login page
     } else {
       menuToggleHandler(); // Perform the usual menu toggle action

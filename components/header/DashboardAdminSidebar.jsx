@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import employerMenuData from "../../data/employerMenuData";
+import adminMenuData from "../../data/adminMenuData";
 import { isActiveLink } from "../../utils/linkActiveChecker";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -22,15 +22,20 @@ const DashboardEmployerSidebar = () => {
 
     const router = useRouter();
 
-    const handleMenuItemClick = async (item, event) => {
-        if (item.id === 11) { // Check if the clicked item is the logout option
-            event.preventDefault(); // Prevent default Link navigation
-            await clearSession(); // Clear session (assuming this can be made async)
-            router.push('/'); // Redirect to home or login page
-        } else {
-            menuToggleHandler(); // Perform the usual menu toggle action
-        }
-    };
+    
+  const handleMenuItemClick = async (item, event) => {
+    if (item.id === 11) { // Check if the clicked item is the logout option
+      event.preventDefault(); // Prevent default Link navigation
+      const confirmLogout = window.confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        await clearSession(); // Clear session (assuming this can be made async)
+        return;
+        // router.push('/'); // Redirect to home or login page
+      } // If not confirmed, do nothing
+    } else {
+      menuToggleHandler(); // Perform the usual menu toggle action
+    }
+  };
 
     return (
         <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
@@ -60,7 +65,7 @@ const DashboardEmployerSidebar = () => {
 
             <div className="sidebar-inner">
                 <ul className="navigation">
-                    {employerMenuData.map((item) => (
+                    {adminMenuData.map((item) => (
                         <li
                             className={`${isActiveLink(item.routePath, usePathname()) ? "active" : ""
                                 } mb-1`}
