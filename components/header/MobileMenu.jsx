@@ -233,7 +233,7 @@ const MobileMenu = () => {
   };
 
   const inputProps = {
-    placeholder: 'Search...',
+    placeholder: 'Search anything...',
     value: searchValue,
     onChange: onChange
   };
@@ -410,7 +410,7 @@ const MobileMenu = () => {
               )}
             </div>
 
-            <div className="dropdown" style={{ marginRight: '50px' }}>
+            {/* <div className="dropdown" style={{ marginRight: '50px' }}>
               <button
                 className="btn btn-secondary dropdown-toggle"
                 type="button"
@@ -466,9 +466,8 @@ const MobileMenu = () => {
                     AM
                   </a>
                 </li>
-                {/* Add more languages as needed */}
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

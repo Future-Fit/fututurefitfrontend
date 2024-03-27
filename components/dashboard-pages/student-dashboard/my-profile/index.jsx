@@ -71,7 +71,7 @@ const index = () => {
       <section className="user-dashboard">
         <div className="dashboard-outer">
           <BreadCrumb />
-          <b style={{ fontSize: "2em" }}>Welcome, <u>{formData.fname} {formData.lname}</u>!</b>
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - My Profile</b>
           {/* breadCrumb */}
 
           <MenuToggler />
@@ -81,15 +81,6 @@ const index = () => {
             <div className="col-lg-12">
               <div className="ls-widget">
                 <div>
-                  <div style={{ display: "grid", justifyItems: "center", padding: "20px 0px 10px 0px" }}>
-                    <h4 style={{ fontSize: "1.5em", fontWeight: "bolder" }}>
-                      Student Profile Form
-                    </h4>
-                    <h4 style={{ fontSize: "0.8em", fontWeight: "lighter" }}>
-                      (All fileds with * MUST be completed)
-                    </h4>
-                  </div>
-
                   <MyProfile />
                 </div>
               </div>
@@ -98,7 +89,6 @@ const index = () => {
                 <div className="tabs-box">
                   <div className="widget-title"
                     style={{ display: "grid", justifyContent: "center", paddingBottom: "10px" }}>
-
                     <text style={{ textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
                       Social Network
                     </text>

@@ -77,8 +77,8 @@ const BusinessSlider = () => {
     },
     {
       imgSrc: "/images/icons/Streamline-icon.svg",
-      title: "Streamline Hiring Process",
-      detail1: "- Streamline hiring process",
+      title: "Streamline Recruiting",
+      detail1: "- Streamline recruiting process",
       detail2: "- Screen/pre-qualify candidates",
       detail3: "- Verify/translate documents",
       detail4: "- Online portal for easy access",
@@ -92,11 +92,11 @@ const BusinessSlider = () => {
     },
     {
       imgSrc: "/images/icons/Permit-White-icon.svg",
-      title: "Apply for LMIA, Other Permits",
-      detail1: "- Obtain Labor Market Impact Assessment (LMIA)",
-      detail2: "- Other permits as required",
-      detail3: "- Monitor Canadian/target country regulations",
-      detail4: "",
+      title: "Apply/Obtain Permits",
+      detail1: "- Labor Market Impact Assessment",
+      detail2: "- Express Entry program",
+      detail3: "- Federal Skilled Worker Program",
+      detail4: "- Monitor Canadian/other regulations",
       detail5: "",
       price: "Premium Service",
       type: "Premium Service",
@@ -107,11 +107,11 @@ const BusinessSlider = () => {
     },
     {
       imgSrc: "/images/icons/Integration-icon.svg",
-      title: "Resettlement and Integration",
-      detail1: "- Settle/integrate employees",
-      detail2: "- Arrange travel/housing for employees & families",
+      title: "Settlement & Integration",
+      detail1: "- Arrange travel/housing for employees",
+      detail2: "- Settle & integrate workers in Canada",
       detail3: "- Provide social & professional support",
-      detail4: "",
+      detail4: "- Outreach services",
       detail5: "",
       price: "Premium Service",
       type: "Premium Service",
@@ -122,7 +122,7 @@ const BusinessSlider = () => {
     },
     {
       imgSrc: "/images/icons/Skills-White-icon.svg",
-      title: "Training & Skills Development",
+      title: "Training & Development",
       detail1: "- Skills development program",
       detail2: "- Language proficiency courses",
       detail3: "- Company specific training",
@@ -139,9 +139,9 @@ const BusinessSlider = () => {
       imgSrc: "/images/icons/Customer-Service-icon.svg",
       title: "Customized Packages",
       detail1: "- Customized service packages",
-      detail2: "- Combine multiple services for better deal",
-      detail3: "- New services as needed",
-      detail4: "",
+      detail2: "- Special circumstances and needs",
+      detail3: "- Combine services for better deal",
+      detail4: "- Local representation",
       detail5: "",
       price: "Premium service",
       type: "Premium Service",
@@ -152,12 +152,12 @@ const BusinessSlider = () => {
     },
     {
       imgSrc: "/images/icons/Event-White-icon.svg",
-      title: "Recruitment & Promotional Fairs",
+      title: "Promotional Fairs",
       detail1: "- Complimentary for paying clients",
-      detail2: "- Recruitment fairs and company events",
+      detail2: "- Recruitment fairs, company events",
       detail3: "- Engage applicants directly",
       detail4: "- Hold Q&A sessions",
-      detail5: "- And more...",
+      detail5: "",
       price: "Complimentary Service",
       type: "Complimentary",
       action: "Contact us for details",
@@ -168,10 +168,10 @@ const BusinessSlider = () => {
     {
       imgSrc: "/images/icons/Process-icon.svg",
       title: "Continuous Improvement",
-      detail1: "- Complimentary",
+      detail1: "- Complimentary for paying clients",
       detail2: "- Continuously improve/adjust strategy",
-      detail3: "- Update as new laws/immigration rules enacted",
-      detail4: "- Update on hiring trends",
+      detail3: "- Update clients on new regulations",
+      detail4: "- Update clients on hiring trends",
       detail5: "",
       price: "Complimentary Service",
       type: "Complimentary",
@@ -220,7 +220,7 @@ const BusinessSlider = () => {
 
                 {/* <div style={{ position: "absolute", height: "400px" }}> */}
                   <div style={{ alignContent: 'baseline', display: "block", width: "50%", backgroundColor: slide.txt, height: "2px", margin: "auto" }} />
-                  <div style={{ flex: 0.2, color: slide.txt, textAlign: "center", paddingLeft: "15px", paddingTop: "0px" }}>
+                  <div style={{ flex: 0.2, color: slide.txt, textAlign: "left", paddingLeft: "15px", paddingTop: "0px" }}>
                     <strong>Price: </strong>
                     <Link href="/contact" style={{ color: slide.txt, fontSize: "14px", textDecoration: "underline" }}>
                       {slide.action}

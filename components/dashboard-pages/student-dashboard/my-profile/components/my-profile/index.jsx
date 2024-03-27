@@ -4,7 +4,7 @@ import PictureUpload from "./PictureUpload";
 
 const index = () => {
   return (
-    <div className="widget-content">
+    <div className="widget-content" style={{paddingTop: "20px"}}>
       <PictureUpload />
       {/* End picture and cover photo components */}
 

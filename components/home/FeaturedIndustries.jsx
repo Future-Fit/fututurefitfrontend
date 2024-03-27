@@ -39,7 +39,7 @@ const FeaturedIndustries = () => {
       id: 6,
       icon: "/images/icons/Construction-icon.svg",
       title: "Construction",
-      linkPath: ""
+      linkPath: "/featured-industries/"
     },
     {
       id: 7,

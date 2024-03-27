@@ -25,7 +25,7 @@ const FooterContent = () => {
     <div className="row">
       {footerContent.map((item) => (
         <div
-          className="footer-column col-lg-5 col-md-2 col-sm-12" // Adjusted column width
+          className="footer-column" // Adjusted column width
           key={item.id}>
           <div className="footer-widget links-widget">
             <h4 className="widget-title">{item.title}</h4>

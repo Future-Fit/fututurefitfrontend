@@ -133,9 +133,9 @@ const Index = () => {
       </div>
       {/* End auto-container */}
 
-      <div className="social-links" style={{ justifyContent: "center" }}>
+      {/* <div className="social-links" style={{ justifyContent: "center" }}>
         <Social />
-      </div>
+      </div> */}
 
       <CopyrightFooter />
       {/* Bottom */}

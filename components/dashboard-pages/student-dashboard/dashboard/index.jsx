@@ -1,17 +1,56 @@
+
+"use client"
 import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
+import DashboardStudentsSidebar from "../../../header/DashboardStudentSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import TopCardBlock from "./components/TopCardBlock";
-import ProfileChart from "./components/ProfileChart";
-import Notification from "./components/Notification";
-import CopyrightFooter from "../../CopyrightFooter";
-import SchoolsApplied from "./components/SchoolsApplied";
 import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
-import DashboardStudentsSidebar from "@/components/header/DashboardStudentSidebar";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import apiConfig from "@/app.config";
+import CvUploader from "../../candidates-dashboard/cv-manager/components/CvUploader";
+import TopCardBlock from "./components/TopCardBlock";
+import ProfileChart from "./components/ProfileChart";
+import Notification from "./components/Notification";
+import SchoolsApplied from "./components/SchoolsApplied";
 
-const Index = () => {
+
+// import DefaultConfig from "app.config.js";
+
+const index = () => {
+
+  const [userDetail, setUserDetail] = useState(null);
+  const [formData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    mname: '',
+  })
+
+  useEffect(() => {
+    const userId = localStorage.getItem("loggedInUserId");
+    const token = localStorage.getItem("accessToken");
+    console.log('user id', userId);
+    if (userId) {
+      const fetchUserDetails = async () => {
+        try {
+          const response = await axios.get(`${apiConfig.url}/users/me`, {
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          });
+          console.log('Response from server for profile:', response.data);
+          setUserDetail(response.data);
+          setFormData(response.data);
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      };
+      fetchUserDetails();
+    }
+  }, []);
+
   return (
     <div className="page-wrapper dashboard">
       <span className="header-span"></span>
@@ -20,19 +59,20 @@ const Index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardStudentsSidebar />
+      <DashboardStudentsHeader />
       {/* End Header */}
 
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <DashboardStudentsHeader />
+      <DashboardStudentsSidebar />
       {/* <!-- End Candidates Sidebar Menu --> */}
 
       {/* <!-- Dashboard --> */}
       <section className="user-dashboard">
         <div className="dashboard-outer">
-          <BreadCrumb title="Your Dashboard" />
+          <BreadCrumb />
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - Dashboard</b>
           {/* breadCrumb */}
 
           <MenuToggler />
@@ -84,7 +124,8 @@ const Index = () => {
             {/* End .col */}
           </div>
           {/* End .row profile and notificatins */}
-        </div>
+
+         </div>
         {/* End dashboard-outer */}
       </section>
       {/* <!-- End Dashboard --> */}
@@ -96,4 +137,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default index;

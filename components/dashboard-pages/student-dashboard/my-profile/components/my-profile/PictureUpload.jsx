@@ -87,7 +87,7 @@ const PictureUpload = () => {
 
 
     return (
-        <div className="uploading-outer">
+        <div className="uploading-outer" style={{marginBottom: "10px"}}>
             <div className="uploadButton">
                 {userDetail && userDetail.user_image ? (
                     <div onClick={handleImageClick} style={{ cursor: 'pointer' }}>

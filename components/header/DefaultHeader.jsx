@@ -307,7 +307,7 @@ const DefaulHeader2 = () => {
 
                 {searchExpanded && (
                   <div style={{
-                    position: 'absolute',
+                    position: 'relative',
                     top: '0%',
                     left: 0,
                     zIndex: 1100,
@@ -315,7 +315,7 @@ const DefaulHeader2 = () => {
                     color: 'white',
                     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)',
                     overflowY: 'auto',
-                    borderRadius: '8px',
+                    borderRadius: '5px',
                     maxHeight: '300px',
                     cursor: 'pointer',
                   }}>
@@ -369,7 +369,7 @@ const DefaulHeader2 = () => {
                 )}
               </div>
 
-              <div className="dropdown">
+              {/* <div className="dropdown">
                 <button
                   className="btn btn-secondary dropdown-toggle"
                   type="button"
@@ -424,7 +424,7 @@ const DefaulHeader2 = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
