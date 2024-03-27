@@ -15,6 +15,9 @@ import GlobalConfig from "@/Global.config";
 import { debounce } from "lodash";
 import Autosuggest from "react-autosuggest";
 import apiConfig from "@/app.config";
+import { Avatar } from "flowbite-react";
+import "./dropdownremover.scss"
+
 
 const DashboardStudentHeader = () => {
     const [navbar, setNavbar] = useState(false);
@@ -37,11 +40,11 @@ const DashboardStudentHeader = () => {
 
     const DropdownMenu = ({ userDetail, handleLogout }) => {
         const [isOpen, setIsOpen] = useState(false);
-      
+
         const toggleDropdown = () => {
-          setIsOpen(!isOpen);
+            setIsOpen(!isOpen);
         };
-    }      
+    }
 
     useEffect(() => {
         dispatch(reloadCart());
@@ -62,6 +65,12 @@ const DashboardStudentHeader = () => {
             }
         }
     }, []);
+
+    const handleProfileMenuToggle = () => {
+        const profileMenu = document.querySelector('.profile-menu');
+        profileMenu.classList.toggle('visible'); // Add/remove 'visible' class to toggle visibility
+    }
+
     //pulling profile picture from database
     useEffect(() => {
         const userId = localStorage.getItem("loggedInUserId");
@@ -314,16 +323,10 @@ const DashboardStudentHeader = () => {
 
 
                         {/* <div className="outer-box"> */}
-                        <div className="dropdown dashboard-option">
-                            <a
-                                className="dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                style={{ display: 'flex', alignItems: 'center' }}
 
-                            >
 
+                        <div className="dropdown dashboard-option" onMouseEnter={() => { }} onMouseLeave={() => { }}>
+                            <div className="dropdown-toggle" style={{ display: 'flex', alignItems: 'center', paddingLeft: "10px" }}>
                                 {userDetail && userDetail.user_image ? (
                                     <img width={30} height={30} style={{ borderRadius: "50%" }} src={`${apiConfig.url}/${userDetail.user_image.path}`} alt="Profile" />
                                 ) : (
@@ -335,17 +338,13 @@ const DashboardStudentHeader = () => {
                                         style={{ borderRadius: "50%" }}
                                     />
                                 )}
-                            </a>
+                            </div>
                             <ul className="dropdown-menu">
-
-                                {/* Change Password Option */}
                                 <li className={`${isActiveLink('/student-dashboard/my-profile', usePathname()) ? "active" : ""} mb-1`}>
                                     <Link href="/student-dashboard/my-profile">
                                         <i className="la la-lock"></i> My Profile
                                     </Link>
                                 </li>
-
-                                {/* Logout Option */}
                                 <li className="mb-1">
                                     <a href="#" onClick={handleLogout}>
                                         <i className="la la-sign-out"></i> Logout
@@ -354,17 +353,17 @@ const DashboardStudentHeader = () => {
                             </ul>
                         </div>
 
-                    {/* </div> */}
+                        {/* </div> */}
 
-                    {cart && cart.length > 0 && ( // Check if cart exists and is not empty
-                        <Link href="/shop/cart">
-                            <button className="menu-btn me-3">
-                                <span className="count">{cart.length}</span>
-                                <span className="icon flaticon-shopping-cart" />
-                            </button>
-                        </Link>
-                    )}
-                    {/* End dropdown */}
+                        {cart && cart.length > 0 && ( // Check if cart exists and is not empty
+                            <Link href="/shop/cart">
+                                <button className="menu-btn me-3" style={{marginLeft: "10px"}}>
+                                    <span className="count">{cart.length}</span>
+                                    <span className="icon flaticon-shopping-cart" />
+                                </button>
+                            </Link>
+                        )}
+                        {/* End dropdown */}
                     </div>
                     {/* End outer-box */}
 

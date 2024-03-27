@@ -311,15 +311,8 @@ const DashboardCandidatesHeader = () => {
                                 </button>
                             </Link>
                         )}
-                        <div className="dropdown dashboard-option">
-                            <a
-                                className="dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                style={{ display: 'flex', alignItems: 'center' }}
-
-                            >
+                        <div className="dropdown dashboard-option" onMouseEnter={() => { }} onMouseLeave={() => { }}>
+                            <div className="dropdown-toggle" style={{ display: 'flex', alignItems: 'center', paddingLeft: "10px" }}>
                                 {userDetail && userDetail.user_image ? (
                                     <img width={30} height={30} style={{ borderRadius: "50%" }} src={`${apiConfig.url}/${userDetail.user_image.path}`} alt="Profile" />
                                 ) : (
@@ -331,19 +324,13 @@ const DashboardCandidatesHeader = () => {
                                         style={{ borderRadius: "50%" }}
                                     />
                                 )}
-                                {/* <span className="icon icon-user"></span> */}
-                                {/* <span style={{ color: '#fff', width: 'fit-content' }} className="name">{userDetail?.fname + ' ' + userDetail?.lname}</span> */}
-                            </a>
+                            </div>
                             <ul className="dropdown-menu">
-
-                                {/* Change Password Option */}
                                 <li className={`${isActiveLink('/candidates-dashboard/my-profile', usePathname()) ? "active" : ""} mb-1`}>
                                     <Link href="/candidates-dashboard/my-profile">
                                         <i className="la la-lock"></i> My Profile
                                     </Link>
                                 </li>
-
-                                {/* Logout Option */}
                                 <li className="mb-1">
                                     <a href="#" onClick={handleLogout}>
                                         <i className="la la-sign-out"></i> Logout
