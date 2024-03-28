@@ -70,9 +70,10 @@ const FormInfoBox = () => {
       return ''; // Return empty string if date is invalid or empty
     }
     const date = new Date(dateString);
-    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
-    const day = date.getUTCDate().toString().padStart(2, '0');
-    const year = date.getUTCFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const year = date.getFullYear();
+  
     return `${month}/${day}/${year}`;
   };
 
@@ -141,14 +142,14 @@ const FormInfoBox = () => {
           //   const parsedIntAre = JSON.parse(response.data.intAre);
           // setSelectedPrograms(parsedIntAre.map(program => ({ label: program, value: program })));
           // setFormData({ ...response.data, intAre: parsedIntAre }); // Update formData with parsed array
-
+          
           const formattedData = {
             ...response.data,
             dob: formatDate(response.data.dob)
           };
 
           setUserDetail(response.data);
-          setFormData(response.data);
+          setFormData(formattedData);
         } catch (error) {
           console.error("Error fetching user details:", error);
         }
