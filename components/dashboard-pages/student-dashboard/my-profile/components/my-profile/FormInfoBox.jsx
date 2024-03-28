@@ -70,11 +70,11 @@ const FormInfoBox = () => {
       return ''; // Return empty string if date is invalid or empty
     }
     const date = new Date(dateString);
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
+    const month =  (date.getMonth()+1).toString().length < 2 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString(); 
+    const day =  date.getDate().length < 2 ? "0" +  date.getDate() : date.getDate();
     const year = date.getFullYear();
   
-    return `${month}/${day}/${year}`;
+    return `${year}-${month}-${day}`;
   };
 
   useEffect(() => {
@@ -220,7 +220,7 @@ const FormInfoBox = () => {
                 backgroundColor: "#f0f5f7", border: "1px solid #f0f5f7",
                 boxSizing: "border-box", borderRadius: "8px"
               }}
-                type="text" name="dob" value={formData.dob} //
+                type="date" name="dob" value={formData.dob} //
                 onChange={handleInputChange} placeholder="MM/DD/YYYY" />
             </div>
           </div>
