@@ -165,41 +165,63 @@ const FormInfoBox = () => {
     }
   };
 
- useEffect(() => {
-  const userId = localStorage.getItem("loggedInUserId");
-  const token = localStorage.getItem("accessToken");
-  console.log('user id', userId);
-  if (userId) {
-    const fetchUserDetails = async () => {
-      try {
-        const response = await axios.get(`${apiConfig.url}/users/me`, {
-          headers: {
-            "Authorization": `Bearer ${token}`
-          }
-        });
-        console.log('Response from server:', response.data);
+  useEffect(() => {
+    const userId = localStorage.getItem("loggedInUserId");
+    const token = localStorage.getItem("accessToken");
+    if (userId) {
+      const fetchUserDetails = async () => {
+        try {
+          const response = await axios.get(`${apiConfig.url}/users/me`, {
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          });
+          const { datAvl, proCan, intAre } = response.data;
 
-        const formattedData = {
-          ...response.data,
-          dob: formatDate(response.data.dob)
-        };
+          // Map values from database to the format expected by MultiSelect
+          const selectedIntakes = datAvl.map(intake => ({ label: intake, value: intake }));
+          const selectedProvince = proCan.map(province => ({ label: province, value: province }));
+          const selectedPrograms = intAre.map(program => ({ label: program, value: program }));
 
-        setUserDetail(response.data);
-        setFormData(formattedData);
-      } catch (error) {
-        console.error("Error fetching user details:", error);
-      }
-    };
-    fetchUserDetails();
-  }
-}, []);
+          // Set state variables with selected values
+          setSelectedIntakes(selectedIntakes);
+          setSelectedProvince(selectedProvince);
+          setSelectedPrograms(selectedPrograms);
+
+
+          const formDataUpdates = {
+            datAvl: datAvl,
+            proCan: proCan,
+            intAre: intAre
+          };
+          const formattedData = {
+            datAvl: datAvl.map(option => ({ label: option, value: option })),
+            proCan: proCan.map(option => ({ label: option, value: option })),
+            intAre: intAre.map(option => ({ label: option, value: option })),
+            ...response.data,
+            dob: formatDate(response.data.dob)
+          };
+
+          setUserDetail(response.data);
+          setFormData(prevData => ({ ...prevData, ...formDataUpdates, ...formattedData }));
+          // setFormData(formattedData);
+
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      };
+      fetchUserDetails();
+    }
+  }, []);
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const isOtherSelected = selectedPrograms.some(program => program.value === "Other");
-    const isOtherProgramEmpty = formData.otherProgram.trim() === '';
+    const otherProgramValue = formData.otherProgram || ''; // Initialize otherProgramValue to an empty string if formData.otherProgram is null
+    const isOtherProgramEmpty = otherProgramValue.trim() === '';
+
 
     const isOtherLevelSelected = formData.eduLev === "Other";
     const isOtherLevelEmpty = isOtherLevelSelected && (!formData.otherLevel || formData.otherLevel.trim() === '');

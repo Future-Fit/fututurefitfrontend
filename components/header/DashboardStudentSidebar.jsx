@@ -51,15 +51,16 @@ const DashboardStudentSidebar = () => {
       });
 
       // Assuming the API returns the updated user details as response
-      console.log('User profile updated successfully:');
+      console.log('User unsubscribed successfully.');
       setUserDetail(response.data);
       setFormData(response.data);
+      alert("User unsubscribed successfully.")
+
       // Perform any success actions, like updating UI or state
-      alert("User profile updated successfully.")
       await clearSession(); // Clear session (assuming this can be made async)
       return
     } catch (error) {
-      console.error("Error updating user details:", error.response ? error.response.data : error);
+      console.error("Error in unsubscribing", error.response ? error.response.data : error);
       alert("Error updating user details.")
       // Handle errors (e.g., show error message to the user)
     }
