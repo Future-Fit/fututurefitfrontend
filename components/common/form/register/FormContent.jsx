@@ -91,8 +91,8 @@ const FormContent = ({ onReset, closeModal, myToast, myError }) => {
                 email: formData.email,
               }),
             });
-      myToast("Thank you for signing up with FFI. A verification email has been sent to your email. Please check your email. You many need to check your spam folder.");
-           
+            myToast("Thank you for signing up with FFI. A verification email has been sent to your email. Please check your email. You many need to check your spam folder.");
+
             setRegistrationMessage("Thank you for signing up with FFI. A verification email has been sent to your email. Please check your email. You many need to check your spam folder.")
             closeModal();
           } catch (error) {
@@ -103,7 +103,7 @@ const FormContent = ({ onReset, closeModal, myToast, myError }) => {
           myToast(responseData.message || "Registration failed.");
           setRegistrationMessage(responseData.message || "Registration failed.");
           resetForm();
-          myError("Registration failed. Email is already registerd please sign in instead");
+          myError("Registration failed. Email or Phone number is already registerd. So, please try to use another phone and/or email, Thank you");
           return
         }
       } catch (error) {

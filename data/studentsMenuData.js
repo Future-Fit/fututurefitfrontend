@@ -42,11 +42,11 @@ module.exports = [
     routePath: "/",
     active: "",
   },
-  // {
-  //   id: 7,
-  //   name: "Unsubscribe",
-  //   icon: "la-briefcase",
-  //   routePath: "",
-  //   active: "",
-  // },
+  {
+    id: 7,
+    name: "Unsubscribe",
+    icon: "la-briefcase",
+    routePath: "",
+    active: "",
+  },
 ];

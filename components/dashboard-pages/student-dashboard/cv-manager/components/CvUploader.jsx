@@ -11,8 +11,8 @@ function checkFileTypes(files) {
         "application/pdf",
         "application/msword",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        "audio/mp3",
-        "video/mp4"
+        "image/png",
+        "image/jpeg",
     ];
     for (let i = 0; i < files.length; i++) {
         if (!allowedTypes.includes(files[i].type)) {
@@ -22,7 +22,7 @@ function checkFileTypes(files) {
     return true;
 }
 
-const MAX_UPLOAD_LIMIT = 5; // Maximum number of uploads allowed per user
+const MAX_UPLOAD_LIMIT = 10; // Maximum number of uploads allowed per user
 
 
 const CvUploader = () => {
@@ -107,6 +107,13 @@ const CvUploader = () => {
 
     const deleteHandler = async (fileId) => {
         try {
+            // Display confirmation dialog before proceeding with deletion
+            const confirmDelete = window.confirm("Are you sure you want to delete this file?");
+            
+            if (!confirmDelete) {
+                return; // User canceled deletion, exit function
+            }
+    
             // Make API call to delete the file using fileId as a query parameter
             console.log("Deleting file with id:", fileId);
             const response = await axios.delete(`${apiConfig.url}/job-seeker/cv`, {
@@ -117,15 +124,16 @@ const CvUploader = () => {
                     fileId: fileId
                 }
             });
-            console.log("File deleted:");
+            console.log("File deleted:", response.data);
             alert("File deleted.");
             window.location.reload();
             // Update the state to remove the deleted file
-            setUserDetail(userDetail.filter(item => item.file && item.file.id !== fileId));
+            setUserDetail(userDetail.filter(item => item.file && item.id !== fileId));
         } catch (error) {
             console.error("Error deleting file:", error);
         }
     };
+    
 
     const onViewFile = (file) => {
         if (file && file.path) {
@@ -167,8 +175,7 @@ const CvUploader = () => {
                         className="uploadButton-input"
                         type="file"
                         name="attachments[]"
-                        // accept=".doc,.docx,.xml,application/msword,application/pdf, image/*"
-                        accept=".doc, .docx, .pdf, .mp3, .mp4, .xml, application/msword, application/pdf, image/*, video/mp4, video/mpeg, audio/mp3"
+                        accept=".doc, .docx, .pdf, .png, .jpeg" // Updated accept attribute
                         id="cv_file_path"
                         multiple
                         onChange={cvManagerHandler}
@@ -178,7 +185,7 @@ const CvUploader = () => {
                     <label className="cv-uploadButton" htmlFor="cv_file_path">
                         <span className="title">Drag files here to upload</span>
                         <span className="text">
-                            Max file size=10Mb, File Types=.doc, .docx, .pdf, .mp3, .mp4
+                            Max file size=10Mb, File Types=.doc, .docx, .pdf, .png, .jpeg
                         </span>
                         <span className="theme-btn btn-style-one">
                             Select Files
@@ -225,7 +232,7 @@ const CvUploader = () => {
                                     <button onClick={() => onViewFile(item.file)}>
                                         <span className="la la-eye"></span>
                                     </button>
-                                    <button onClick={() => deleteHandler(item.file.id)}>
+                                    <button onClick={() => deleteHandler(item.id)}>
                                         <span className="la la-trash"></span>
                                     </button>
                                 </div>

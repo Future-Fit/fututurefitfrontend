@@ -17,6 +17,29 @@ const programOptions = [
   { label: "Other", value: "Other" }
 ];
 
+const intakes = [
+  { label: "September", value: "September" },
+  { label: "January", value: "January" },
+  { label: "May", value: "May" }
+];
+
+const provincesCanada = [
+  { label: "Alberta", value: "Alberta" },
+  { label: "British Columbia", value: "British Columbia" },
+  { label: "Manitoba", value: "Manitoba" },
+  { label: "Newfoundland and Labrador", value: "Newfoundland and Labrador" },
+  { label: "New Brunswick", value: "New Brunswick" },
+  { label: "The Northwest Territories", value: "The Northwest Territories" },
+  { label: "Nova Scotia", value: "Nova Scotia" },
+  { label: "Nunavut", value: "Nunavut" },
+  { label: "Ontario", value: "Ontario" },
+  { label: "Prince Edward Island", value: "Prince Edward Island" },
+  { label: "Quebec", value: "Quebec" },
+  { label: "Saskatchewan", value: "Saskatchewan" },
+  { label: "The Yukon", value: "The Yukon" }
+];
+
+
 
 const FormInfoBox = () => {
   const [userDetail, setUserDetail] = useState(null);
@@ -42,10 +65,10 @@ const FormInfoBox = () => {
     namEmp: '',   // name of employer, if employed
     yrsEmp: '',   // # of years employed
     isIntr: '',    // interested to study or work in Canada? (select yes or no)
-    datAvl: '',   // date avialable for study or employment (select from intake dates)
+    datAvl: [],   // date avialable for study or employment (select from intake dates)
     intAre: [],   // interest area for study or employment (select from choice)
     proCan: [],   // indicate provinces in Canada to study or work in (select from choice)
-    allSrch: [],  // enable searching (select yet or no) 
+    allSrch: '',  // enable searching (select yet or no) 
     detail: '',   // open for user to write anything (limit 500 chars?)
     otherLevel: '',
     otherProgram: '',
@@ -54,15 +77,34 @@ const FormInfoBox = () => {
     resC: '',     // reserved
     resD: ''      // reserved
   });
+
   const [countries, setCountries] = useState([]);
   const [selectedPrograms, setSelectedPrograms] = useState([]);
+  const [selectedIntakes, setSelectedIntakes] = useState([]);
+  const [selectedProvince, setSelectedProvince] = useState([]);
 
-  const handleSelect = (selected) => {
+  const handleSelectedProgram = (selected) => {
     setFormData({
       ...formData,
-      intAre: selected.map(program => program.value), // Extract program values
+      intAre: selected.map(program => program.value),
     });
-    setSelectedPrograms(selected); // Update selectedPrograms state for UI
+    setSelectedPrograms(selected);
+  };
+
+  const handleSelectIntakes = (selected) => {
+    setFormData({
+      ...formData,
+      datAvl: selected.map(intakes => intakes.value),
+    });
+    setSelectedIntakes(selected);
+  };
+
+  const handleSelectProvince = (selected) => {
+    setFormData({
+      ...formData,
+      proCan: selected.map(provinceCanada => provinceCanada.value),
+    });
+    setSelectedProvince(selected);
   };
 
   const formatDate = (dateString) => {
@@ -70,10 +112,10 @@ const FormInfoBox = () => {
       return ''; // Return empty string if date is invalid or empty
     }
     const date = new Date(dateString);
-    const month =  (date.getMonth()+1).toString().length < 2 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString(); 
-    const day =  date.getDate().length < 2 ? "0" +  date.getDate() : date.getDate();
+    const month = (date.getMonth() + 1).toString().length < 2 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
+    const day = date.getDate().length < 2 ? "0" + date.getDate() : date.getDate();
     const year = date.getFullYear();
-  
+
     return `${year}-${month}-${day}`;
   };
 
@@ -94,8 +136,6 @@ const FormInfoBox = () => {
 
     fetchCountries();
   }, []);
-
-
 
   const updateUser = async (data) => {
     try {
@@ -125,41 +165,55 @@ const FormInfoBox = () => {
     }
   };
 
-  useEffect(() => {
-    const userId = localStorage.getItem("loggedInUserId");
-    const token = localStorage.getItem("accessToken");
-    console.log('user id', userId);
-    if (userId) {
-      const fetchUserDetails = async () => {
-        try {
-          const response = await axios.get(`${apiConfig.url}/users/me`, {
-            headers: {
-              "Authorization": `Bearer ${token}`
-            }
-          });
-          console.log('Response from server:');
+ useEffect(() => {
+  const userId = localStorage.getItem("loggedInUserId");
+  const token = localStorage.getItem("accessToken");
+  console.log('user id', userId);
+  if (userId) {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await axios.get(`${apiConfig.url}/users/me`, {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
+        console.log('Response from server:', response.data);
 
-          //   const parsedIntAre = JSON.parse(response.data.intAre);
-          // setSelectedPrograms(parsedIntAre.map(program => ({ label: program, value: program })));
-          // setFormData({ ...response.data, intAre: parsedIntAre }); // Update formData with parsed array
-          
-          const formattedData = {
-            ...response.data,
-            dob: formatDate(response.data.dob)
-          };
+        const formattedData = {
+          ...response.data,
+          dob: formatDate(response.data.dob)
+        };
 
-          setUserDetail(response.data);
-          setFormData(formattedData);
-        } catch (error) {
-          console.error("Error fetching user details:", error);
-        }
-      };
-      fetchUserDetails();
-    }
-  }, []);
+        setUserDetail(response.data);
+        setFormData(formattedData);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+    fetchUserDetails();
+  }
+}, []);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    const isOtherSelected = selectedPrograms.some(program => program.value === "Other");
+    const isOtherProgramEmpty = formData.otherProgram.trim() === '';
+
+    const isOtherLevelSelected = formData.eduLev === "Other";
+    const isOtherLevelEmpty = isOtherLevelSelected && (!formData.otherLevel || formData.otherLevel.trim() === '');
+
+    if (isOtherSelected && isOtherProgramEmpty) {
+      alert("Other Program should not be empty");
+      return; // Prevent form submission
+    }
+
+
+    if (isOtherLevelEmpty) {
+      alert("Other Level should not be empty");
+      return; // Prevent form submission
+    }
     // Create DTO object from form data
     const userDto = { ...formData };
     updateUser(userDto);
@@ -323,6 +377,8 @@ const FormInfoBox = () => {
               <option value="Other">Other</option>
             </select>
           </div>
+          {/* {selectedPrograms.some(program => program.value === "Other") && ( */}
+
           {formData.eduLev === "Other" && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6"
               style={{ marginBottom: "20px" }}>
@@ -407,40 +463,26 @@ const FormInfoBox = () => {
             </select>
           </div>
 
-          <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "20px" }} >
+          <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
             <label>Which Intake?*</label>
-            <select style={{ height: "32px", padding: "0px 0px" }}
-              name="datAvl" value={formData.datAvl}
-              onChange={handleInputChange} className="chosen-single form-select" >
-              <option value="" disabled>Select...</option>
-              <option value="September">September</option>
-              <option value="January">January</option>
-              <option value="May">May</option>
-            </select>
+            <MultiSelect
+              options={intakes}
+              value={selectedIntakes}
+              onChange={handleSelectIntakes}
+              labelledBy="Select"
+              name='datAvl'
+            />
           </div>
 
-          <div className="form-group col-lg-4 col-md-4 col-sm-6"
-            style={{ marginBottom: "20px" }} >
+          <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
             <label>Province Interested In*</label>
-            <select style={{ height: "32px", padding: "0px 0px" }}
-              name="proCan" value={formData.proCan}
-              onChange={handleInputChange} className="chosen-single form-select" >
-              <option value="" disabled>Select...</option>
-              <option value="Alberta">Alberta</option>
-              <option value="British Columbia">British Columbia</option>
-              <option value="Manitoba">Manitoba</option>
-              <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-              <option value="New Brunswick">New Brunswick</option>
-              <option value="The Northwest Territories">The Northwest Territories</option>
-              <option value="Nova Scotia">Nova Scotia</option>
-              <option value="Nunavut">Nunavut</option>
-              <option value="Ontario">Ontario</option>
-              <option value="Prince Edward Island">Prince Edward Island</option>
-              <option value="Quebec">Quebec</option>
-              <option value="Saskatchewan">Saskatchewan</option>
-              <option value="The Yukon">The Yukon</option>
-            </select>
+            <MultiSelect
+              options={provincesCanada}
+              value={selectedProvince}
+              onChange={handleSelectProvince}
+              labelledBy="Select"
+              name='proCan'
+            />
           </div>
         </div>
 
@@ -451,7 +493,7 @@ const FormInfoBox = () => {
             <MultiSelect
               options={programOptions}
               value={selectedPrograms}
-              onChange={handleSelect}
+              onChange={handleSelectedProgram}
               labelledBy="Select"
               name='intAre'
             />
