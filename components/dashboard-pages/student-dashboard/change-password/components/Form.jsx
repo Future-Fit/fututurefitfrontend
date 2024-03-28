@@ -76,19 +76,19 @@ const Form = () => {
       <div className="row">
         {/* <!-- Input --> */}
         <div className="form-group col-lg-7 col-md-12">
-          <label>Old Password </label>
+          <label style={{marginTop: "20px"}}>Old Password* </label>
           <input type="password" name="oldPassword" value={formData.oldPassword} onChange={handleInputChange} required />
         </div>
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-7 col-md-12">
-          <label>New Password</label>
+          <label>New Password* </label>
           <input type="password" name="newPassword" value={formData.newPassword} onChange={handleInputChange} required />
         </div>
 
         {/* <!-- Input --> */}
         <div className="form-group col-lg-7 col-md-12">
-          <label>Confirm Password</label>
+          <label>Confirm Password* </label>
           <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleInputChange} required />
         </div>
 

@@ -1,14 +1,52 @@
+
+"use client"
 import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardStudentsSidebar from "../../../header/DashboardStudentSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import CopyrightFooter from "../../CopyrightFooter";
-import CvUploader from "./components/CvUploader";
 import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
+import CvUploader from "./components/CvUploader";
 import FooterDefault from "../../../footer/common-footer";
 
+import { useEffect, useState } from "react";
+import axios from "axios";
+import apiConfig from "@/app.config";
+
+  // import DefaultConfig from "app.config.js";
+
 const index = () => {
+
+  const [userDetail, setUserDetail] = useState(null);
+  const [formData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    mname: '',
+  })
+
+  useEffect(() => {
+    const userId = localStorage.getItem("loggedInUserId");
+    const token = localStorage.getItem("accessToken");
+    console.log('user id', userId);
+    if (userId) {
+      const fetchUserDetails = async () => {
+        try {
+          const response = await axios.get(`${apiConfig.url}/users/me`, {
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          });
+          console.log('Response from server for profile:', response.data);
+          setUserDetail(response.data);
+          setFormData(response.data);
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      };
+      fetchUserDetails();
+    }
+  }, []);
+
   return (
     <div className="page-wrapper dashboard">
       <span className="header-span"></span>
@@ -29,7 +67,8 @@ const index = () => {
       {/* <!-- Dashboard --> */}
       <section className="user-dashboard">
         <div className="dashboard-outer">
-          <BreadCrumb title="File Manager!" />
+          <BreadCrumb/>
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - File Manager</b>
           {/* breadCrumb */}
 
           <MenuToggler />
@@ -40,7 +79,7 @@ const index = () => {
               {/* <!-- Ls widget --> */}
               <div className="cv-manager-widget ls-widget">
                 <div className="widget-title">
-                  <h4>File Manager</h4>
+                  {/* <h4>File Manager</h4> */}
                 </div>
                 {/* End widget-title */}
                 <div className="widget-content">

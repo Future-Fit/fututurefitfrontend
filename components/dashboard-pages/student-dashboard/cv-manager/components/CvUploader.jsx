@@ -35,7 +35,7 @@ const CvUploader = () => {
     useEffect(() => {
         const fetchUserDetails = async () => {
             try {
-                const response = await axios.get(`${apiConfig.url}/student/cv`, {
+                const response = await axios.get(`${apiConfig.url}/job-seeker/cv`, {
                     headers: {
                         "Authorization": `Bearer ${token}`
                     }
@@ -62,7 +62,7 @@ const CvUploader = () => {
             formData.append('file', file); // Assuming the API expects the file under the key 'cv'
 
             try {
-                const response = await axios.post(`${apiConfig.url}/student/cv`, formData, {
+                const response = await axios.post(`${apiConfig.url}/job-seeker/cv`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         "Authorization": `Bearer ${token}`
@@ -109,7 +109,7 @@ const CvUploader = () => {
         try {
             // Make API call to delete the file using fileId as a query parameter
             console.log("Deleting file with id:", fileId);
-            const response = await axios.delete(`${apiConfig.url}/student/cv`, {
+            const response = await axios.delete(`${apiConfig.url}/job-seeker/cv`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 },

@@ -4,13 +4,17 @@ import Link from "next/link";
 import MobileSidebar from "./mobile-sidebar";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import GlobalConfig from "@/Global.config";
 import { debounce } from "lodash";
 import axios from 'axios';
 import Autosuggest from "react-autosuggest";
 import apiConfig from "@/app.config";
 import { useDispatch, useSelector } from "react-redux";
+import { clearSession } from "../common/form/login/sessionHandler";
+import { isActiveLink } from "../../utils/linkActiveChecker";
+import { usePathname, useRouter } from "next/navigation";
+
+
 
 
 const MobileMenu = () => {
@@ -29,6 +33,7 @@ const MobileMenu = () => {
   const [filteredPostings, setFilteredPostings] = useState([]);
   const [suggestionValue, setSuggestionValue] = useState('');
   const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null; // Check if user is logged in
+  const [userDetail, setUserDetail] = useState(null);
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
@@ -59,28 +64,17 @@ const MobileMenu = () => {
     top: 0 // Ensure it sticks to the top
   });
 
-  const clearSession = () => {
-    try {
-      console.log("Clearing session...");
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('userType');
-      localStorage.removeItem('loggedInUserId');
-
-      console.log("Session cleared successfully.");
-    } catch (error) {
-      console.error("Error clearing session:", error);
-    }
-  };
 
   const handleLogout = () => {
     const confirmLogout = window.confirm("Are you sure you want to logout?");
     if (confirmLogout) {
-        clearSession(); // Clear the session
-        return
+      clearSession();
+      return
     } else {
-        return
+      window.location.reload();
+      return
     }
-};
+  };
 
   const handleProfileRedirect = () => {
     const userType = localStorage.getItem("userType");
@@ -88,6 +82,10 @@ const MobileMenu = () => {
       router.push("/candidates-dashboard/my-profile");
     } else if (userType === "3") {
       router.push("/employers-dashboard/dashboard");
+    } else if (userType === "5") {
+      router.push("/student-dashboard/my-profile");
+    } else if (userType === "1") {
+      router.push("/admin-dashboard/dashboard");
     }
   };
 
@@ -153,8 +151,6 @@ const MobileMenu = () => {
     const modalBackDrop = document.getElementsByClassName('modal-backdrop');
     const body = document.getElementsByTagName("body");
 
-
-
     if (accessToken && userType) {
       e.preventDefault();
       if (userType === "4") {
@@ -169,14 +165,23 @@ const MobileMenu = () => {
         body[0].classList.remove("modal-open");
         body[0].style.overflow = "auto";
         router.push("/employers-dashboard/dashboard");
+      } else if (userType === "5") {
+        modalElement.style.display = "none";
+        modalBackDrop[0].style.display = "none";
+        body[0].classList.remove("modal-open");
+        body[0].style.overflow = "auto";
+        router.push("/student-dashboard/my-profile");
+      } else if (userType === "1") {
+        modalElement.style.display = "none";
+        modalBackDrop[0].style.display = "none";
+        body[0].classList.remove("modal-open");
+        body[0].style.overflow = "auto";
+        router.push("/admin-dashboard/dashboard");
       }
     }
   };
 
   const [searchExpanded, setSearchExpanded] = useState(false);
-  // const [iconsShifted, setIconsShifted] = useState(false);
-
-
   const toggleSearch = () => {
     setSearchExpanded(!searchExpanded);
 
@@ -276,6 +281,35 @@ const MobileMenu = () => {
     };
   }, []);
 
+  // Check if the current page is My Profile
+  const isMyProfilePage = router.pathname === '/student-dashboard/my-profile';
+
+  // If on My Profile page, render nothing (return null)
+  if (isMyProfilePage) return null;
+
+  useEffect(() => {
+    const userId = localStorage.getItem("loggedInUserId");
+    const token = localStorage.getItem("accessToken");
+    console.log('user id', userId);
+    if (userId) {
+      const fetchUserDetails = async () => {
+        try {
+          const response = await axios.get(`${apiConfig.url}/users/me`, {
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          });
+          console.log('Response from server:', response.data);
+          setUserDetail(response.data);
+          setFormData(response.data);
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      };
+      fetchUserDetails();
+    }
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!suggestionValue && searchValue.trim() !== '') {
@@ -324,7 +358,7 @@ const MobileMenu = () => {
               ) : (
                 // If the user is not logged in, render a text prompting the user to login
                 <Link href="/login">
-                <button className="menu-btn me-3">
+                  <button className="menu-btn me-3">
                     <span className="count">{cart.length}</span>
                     <span className="icon flaticon-shopping-cart" />
                   </button>
@@ -332,21 +366,58 @@ const MobileMenu = () => {
               )
             )}
 
-
-
-
             {loggedIn ? (
-              <div className="dropdown" style={{ display: 'flex', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px' }}>
-                <div className="login-box" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-                  <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
-                    <span className="fas fa-user"></span>
-                  </a>
-                  <div className="dropdown-menu" style={{ position: 'absolute', top: '100%', left: 0 }}>
-                    <a className="dropdown-item" href="#" onClick={handleProfileRedirect}>My Profile</a>
-                    <a className="dropdown-item" href="#" onClick={handleLogout}>Logout</a>
-                  </div>
+
+              <div className="dropdown dashboard-option" onMouseEnter={() => { }} onMouseLeave={() => { }}>
+                <div className="dropdown-toggle"
+                  style={{ display: 'flex', alignItems: 'center', paddingLeft: "10px" }}>
+                  {userDetail && userDetail.user_image ? (
+                    <img
+                      width={30}
+                      height={30}
+                      style={{ borderRadius: "50%", objectFit: "fill" }}
+                      src={`${apiConfig.url}/${userDetail.user_image.path}`}
+                      alt="Profile"
+                    />
+                  ) : (
+                    <Image
+                      alt="avatar"
+                      src="/images/user-flat.svg"
+                      width={30}
+                      height={30}
+                    />
+                  )}
                 </div>
+                <ul className="dropdown-menu">
+                  <li className="mb-1">
+                    <Link href="/student-dashboard/my-profile">
+                      <i className="la la-lock"></i> My Profile
+                    </Link>
+                  </li>
+                  <li className="mb-1">
+                    <a href="#" onClick={handleLogout}>
+                      <i className="la la-sign-out"></i> Logout
+                    </a>
+                  </li>
+                </ul>
               </div>
+              // <div className="dropdown" style={{ display: 'flex', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px' }}>
+              //   <div className="login-box" style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+              //     <a href="#" className="dropdown-toggle" data-bs-toggle="dropdown" style={{ display: 'flex', alignItems: 'center' }}>
+
+              //       {userDetail && userDetail.user_image ? (
+              //         <img width={30} height={30} style={{ borderRadius: "50%", objectFit: "cover" }} src={`${apiConfig.url}/${userDetail.user_image.path}`} alt="Profile" />
+              //       ) : (
+              //         <span className="fas fa-user"></span>
+              //       )}
+
+              //     </a>
+              //     <div className="dropdown-menu">
+              //       <a className="dropdown-item" href="#" onClick={handleProfileRedirect}>My Profile</a>
+              //       <a className="dropdown-item" href="#" onClick={handleLogout}>Logout</a>
+              //     </div>
+              //   </div>
+              // </div>
             ) : (
               <div className="login-box" style={{ display: 'flex', alignItems: 'center' }}>
                 <a href="#" className="call-modal" data-bs-toggle="modal" data-bs-target="#loginPopupModal" onClick={handleLoginRedirect}>
@@ -354,6 +425,8 @@ const MobileMenu = () => {
                 </a>
               </div>
             )}
+
+
             <a
               href="#"
               className="mobile-nav-toggler"

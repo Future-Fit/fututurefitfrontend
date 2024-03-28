@@ -15,7 +15,6 @@ import GlobalConfig from "@/Global.config";
 import { debounce } from "lodash";
 import Autosuggest from "react-autosuggest";
 import apiConfig from "@/app.config";
-import { Avatar } from "flowbite-react";
 import "./dropdownremover.scss"
 
 
@@ -328,14 +327,19 @@ const DashboardStudentHeader = () => {
                         <div className="dropdown dashboard-option" onMouseEnter={() => { }} onMouseLeave={() => { }}>
                             <div className="dropdown-toggle" style={{ display: 'flex', alignItems: 'center', paddingLeft: "10px" }}>
                                 {userDetail && userDetail.user_image ? (
-                                    <img width={30} height={30} style={{ borderRadius: "50%" }} src={`${apiConfig.url}/${userDetail.user_image.path}`} alt="Profile" />
+                                    <img
+                                        width={30}
+                                        height={30}
+                                        style={{ borderRadius: "50%", objectFit: "fill" }}
+                                        src={`${apiConfig.url}/${userDetail.user_image.path}`}
+                                        alt="Profile"
+                                    />
                                 ) : (
                                     <Image
                                         alt="avatar"
                                         src="/images/user-flat.svg"
                                         width={30}
                                         height={30}
-                                        style={{ borderRadius: "50%" }}
                                     />
                                 )}
                             </div>
@@ -357,7 +361,7 @@ const DashboardStudentHeader = () => {
 
                         {cart && cart.length > 0 && ( // Check if cart exists and is not empty
                             <Link href="/shop/cart">
-                                <button className="menu-btn me-3" style={{marginLeft: "10px"}}>
+                                <button className="menu-btn me-3" style={{ marginLeft: "10px" }}>
                                     <span className="count">{cart.length}</span>
                                     <span className="icon flaticon-shopping-cart" />
                                 </button>

@@ -24,7 +24,7 @@ module.exports = [
   }, {
     id: 4,
     name: "File manager",
-    icon: "la la-file-invoice",
+    icon: "la la-file",
     routePath: "/student-dashboard/cv-manager",
     active: "",
   },
@@ -42,11 +42,11 @@ module.exports = [
     routePath: "/",
     active: "",
   },
-  {
-    id: 7,
-    name: "Unsubscribe",
-    icon: "la-briefcase",
-    routePath: "",
-    active: "",
-  },
+  // {
+  //   id: 7,
+  //   name: "Unsubscribe",
+  //   icon: "la-briefcase",
+  //   routePath: "",
+  //   active: "",
+  // },
 ];

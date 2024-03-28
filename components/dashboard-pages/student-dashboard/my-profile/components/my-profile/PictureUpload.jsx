@@ -92,10 +92,11 @@ const PictureUpload = () => {
                 {userDetail && userDetail.user_image ? (
                     <div onClick={handleImageClick} style={{ cursor: 'pointer' }}>
                         <img
-                            width={100}
-                            height={100}
+                            width={150}
+                            height={150}
                             src={`${apiConfig.url}/${userDetail.user_image.path}`}
                             alt="Profile"
+                            style={{height: "150px", width: "150px", objectFit: "fill"}}
                         /> <br />
                         <button className="deleteButton" onClick={handleDelete}>
                             <span className="la la-trash"></span>
