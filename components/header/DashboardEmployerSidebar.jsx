@@ -39,7 +39,7 @@ const DashboardEmployerSidebar = () => {
     return (
         <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
 
-            <div className="pro-header text-end pb-0 mb-0 show-1023" style={{ backgroundColor: GlobalConfig.BgHeader }}>
+            <div className="pro-header text-end pb-0 mb-0 show-992" style={{ backgroundColor: GlobalConfig.BgHeader }}>
                 <div className="pro-header" style={{ paddingTop: '50px', backgroundColor: GlobalConfig.BgHeader }}>
                     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                         {/* This div is for positioning the close icon to the right */}
@@ -49,7 +49,7 @@ const DashboardEmployerSidebar = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="pro-header text-end pb-0 mb-0 show-1023" style={{backgroundColor: GlobalConfig.BgHeader}}>
+            {/* <div className="pro-header text-end pb-0 mb-0 show-992" style={{backgroundColor: GlobalConfig.BgHeader}}>
                 <div className="pro-header" style={{paddingTop: '50px', backgroundColor: GlobalConfig.BgHeader}}>
                    
                     <div className="fix-icon" onClick={menuToggleHandler} data-bs-dismiss="offcanvas" aria-label="Close">

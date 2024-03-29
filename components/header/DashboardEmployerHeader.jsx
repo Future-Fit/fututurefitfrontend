@@ -386,7 +386,7 @@ const DashboardHeader = () => {
                                 )}
                             </div>
                         )}
-                        <div className="dropdown">
+                        {/* <div className="dropdown">
                             <button
                                 className="btn btn-secondary dropdown-toggle"
                                 type="button"
@@ -440,9 +440,8 @@ const DashboardHeader = () => {
                                         AM
                                     </a>
                                 </li>
-                                {/* Add more languages as needed */}
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
 
                 </div>

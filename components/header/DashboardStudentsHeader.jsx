@@ -384,8 +384,8 @@ const DashboardStudentHeader = () => {
 
                         {searchExpanded && (
                             <div style={{
-                                position: 'absolute',
-                                top: '0%',
+                                position: 'relative',
+                                top: '200%',
                                 zIndex: 1100,
                                 background: 'rgba(0, 0, 0, 0.6)',
                                 color: 'white',
@@ -429,7 +429,7 @@ const DashboardStudentHeader = () => {
                         )}
                     </div>
 
-                    <div className="dropdown">
+                    {/* <div className="dropdown">
 
                         <button
                             className="btn btn-secondary dropdown-toggle"
@@ -484,9 +484,8 @@ const DashboardStudentHeader = () => {
                                     AM
                                 </a>
                             </li>
-                            {/* Add more languages as needed */}
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </header>

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
 import { MultiSelect } from "react-multi-select-component";
-
+import "./error.scss"
 
 const programOptions = [
   { label: "Grade Level", value: "Grade Level" },
@@ -72,6 +72,7 @@ const FormInfoBox = () => {
     detail: '',   // open for user to write anything (limit 500 chars?)
     otherLevel: '',
     otherProgram: '',
+    applied: [],  // applied to (schools or jobs)
     resA: '',     // reserved
     resB: '',     // reserved
     resC: '',     // reserved
@@ -82,6 +83,7 @@ const FormInfoBox = () => {
   const [selectedPrograms, setSelectedPrograms] = useState([]);
   const [selectedIntakes, setSelectedIntakes] = useState([]);
   const [selectedProvince, setSelectedProvince] = useState([]);
+  const [requiredFieldsError, setRequiredFieldsError] = useState({}); // State to track required fields errors
 
   const handleSelectedProgram = (selected) => {
     setFormData({
@@ -160,7 +162,7 @@ const FormInfoBox = () => {
       window.location.reload();
     } catch (error) {
       console.error("Error updating user details:", error.response ? error.response.data : error);
-      alert("Error updating user details.")
+      alert("Error updating user details. Please fill in all required data.")
       // Handle errors (e.g., show error message to the user)
     }
   };
@@ -168,6 +170,7 @@ const FormInfoBox = () => {
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
+
     if (userId) {
       const fetchUserDetails = async () => {
         try {
@@ -176,7 +179,10 @@ const FormInfoBox = () => {
               "Authorization": `Bearer ${token}`
             }
           });
-          const { datAvl, proCan, intAre } = response.data;
+
+          const datAvl = response.data.datAvl ?? [];
+          const proCan = response.data.proCan ?? [];
+          const intAre = response.data.intAre ?? [];
 
           // Map values from database to the format expected by MultiSelect
           const selectedIntakes = datAvl.map(intake => ({ label: intake, value: intake }));
@@ -188,12 +194,13 @@ const FormInfoBox = () => {
           setSelectedProvince(selectedProvince);
           setSelectedPrograms(selectedPrograms);
 
-
+          // Update formData with selected values
           const formDataUpdates = {
             datAvl: datAvl,
             proCan: proCan,
             intAre: intAre
           };
+
           const formattedData = {
             datAvl: datAvl.map(option => ({ label: option, value: option })),
             proCan: proCan.map(option => ({ label: option, value: option })),
@@ -204,15 +211,15 @@ const FormInfoBox = () => {
 
           setUserDetail(response.data);
           setFormData(prevData => ({ ...prevData, ...formDataUpdates, ...formattedData }));
-          // setFormData(formattedData);
-
         } catch (error) {
           console.error("Error fetching user details:", error);
         }
       };
+
       fetchUserDetails();
     }
   }, []);
+
 
 
   const handleSubmit = (event) => {
@@ -225,6 +232,26 @@ const FormInfoBox = () => {
 
     const isOtherLevelSelected = formData.eduLev === "Other";
     const isOtherLevelEmpty = isOtherLevelSelected && (!formData.otherLevel || formData.otherLevel.trim() === '');
+
+
+    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs", "proEng", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
+
+    const errors = {};
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        errors[field] = true;
+      } else {
+        errors[field] = false;
+      }
+    });
+    setRequiredFieldsError(errors);
+
+    // Check if there are any errors
+    if (Object.values(errors).some(error => error)) {
+      // If there are errors, prevent form submission
+      alert("Error updating user details. Please fill in all required data.");
+      return;
+    }
 
     if (isOtherSelected && isOtherProgramEmpty) {
       alert("Other Program should not be empty");
@@ -255,6 +282,20 @@ const FormInfoBox = () => {
 
   return (
     <form action="#" className="default-form">
+
+      <div className="row">
+        {/* {Object.entries(requiredFieldsError).map(([fieldName, hasError]) => (
+          hasError && (
+            <div key={fieldName} className="error-indicator" style={{
+              width: '10px',
+              height: '10px',
+              borderRadius: '50%',
+              backgroundColor: 'red',
+              marginRight: '5px'
+            }}></div>
+          )
+        ))} */}
+      </div>
       <div className="row">
         <div className="row">
           {/* <!-- Input --> */}
@@ -268,7 +309,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Last (Family) Name*</label>
             <input type="text" name="lname" value={formData.lname}
-              onChange={handleInputChange} placeholder="Last Name" />
+              onChange={handleInputChange} placeholder="Last Name" required />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
@@ -281,7 +322,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>First (Given) Name*</label>
             <input type="text" name="fname" value={formData.fname}
-              onChange={handleInputChange} placeholder="First Name" />
+              onChange={handleInputChange} placeholder="First Name" required />
           </div>
         </div>
 
@@ -297,14 +338,14 @@ const FormInfoBox = () => {
                 boxSizing: "border-box", borderRadius: "8px"
               }}
                 type="date" name="dob" value={formData.dob} //
-                onChange={handleInputChange} placeholder="MM/DD/YYYY" />
+                onChange={handleInputChange} placeholder="MM/DD/YYYY" required />
             </div>
           </div>
-          <div className="form-group col-lg-4 col-md-4 col-sm-4"
+          <div className={`form-group col-lg-4 col-md-4 col-sm-12 ${requiredFieldsError.fname ? 'error-indicator' : ''}`}
             style={{ width: "150px", marginBottom: "20px" }}>
             <label>Gender*</label>
             <input type="text" name="gen" value={formData.gen}
-              onChange={handleInputChange} placeholder="" />
+              onChange={handleInputChange} placeholder="" required />
           </div>
         </div>
 
@@ -313,7 +354,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Place of Birth*</label>
             <input type="text" name="plcBir" value={formData.plcBir}
-              onChange={handleInputChange} placeholder="City" />
+              onChange={handleInputChange} placeholder="City" required />
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
@@ -321,6 +362,7 @@ const FormInfoBox = () => {
             <label>Citizenship*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="ctzn"
+              required
               value={formData.ctzn}
               onChange={(e) => setFormData({ ...formData, ctzn: e.target.value })}
             >
@@ -337,20 +379,20 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Current Address*</label>
-            <input type="text" name="addr" value={formData.addr}
+            <input type="text" name="addr" value={formData.addr} required
               onChange={handleInputChange} placeholder="Include Street Name, Postal Code" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Current City*</label>
-            <input type="text" name="city" value={formData.city}
+            <input type="text" name="city" value={formData.city} required
               onChange={handleInputChange} placeholder="Current City" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Country of Residence*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="resid"
+              name="resid" required
               value={formData.resid}
               onChange={(e) => setFormData({ ...formData, resid: e.target.value })}
             >
@@ -367,15 +409,18 @@ const FormInfoBox = () => {
           style={{ borderBottom: "1px solid #f1f3f7", paddingBottom: "10px" }}>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
-            <label>Phone Number*</label>
+            <label>Phone Number</label>
             <input type="text" name="phone" value={formData.phone}
               onChange={handleInputChange} placeholder="[+][country code][phone number]" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Email Address*</label>
-            <input type="email" name="email" value={formData.email}
+            <input type="email" name="email" value={formData.email} required disabled
               onChange={handleInputChange} placeholder="email address" />
+            {/* <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
+              * If you change your email address here, make sure to us it to sign in.
+            </text> */}
           </div>
         </div>
 
@@ -388,7 +433,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Highest Level Attained*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="eduLev" value={formData.eduLev}
+              name="eduLev" value={formData.eduLev} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="Grade Level">Grade Level</option>
@@ -420,7 +465,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Total Years of Study*</label>
             <input type="text" name="eduYrs" value={formData.eduYrs}
-              onChange={handleInputChange}
+              onChange={handleInputChange} required
               placeholder="Primary to post-secondary" />
           </div>
         </div>
@@ -430,7 +475,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "10px" }}>
             <label>English Proficiency*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="proEng" value={formData.proEng}
+              name="proEng" value={formData.proEng} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="Native Speaker">Native Speaker</option>
@@ -477,7 +522,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }} >
             <label>Interested to Study in Canada?*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="isIntr" value={formData.isIntr}
+              name="isIntr" value={formData.isIntr} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="true">Yes</option>
@@ -493,6 +538,7 @@ const FormInfoBox = () => {
               onChange={handleSelectIntakes}
               labelledBy="Select"
               name='datAvl'
+              required
             />
           </div>
 
@@ -504,6 +550,7 @@ const FormInfoBox = () => {
               onChange={handleSelectProvince}
               labelledBy="Select"
               name='proCan'
+              required
             />
           </div>
         </div>
@@ -518,12 +565,13 @@ const FormInfoBox = () => {
               onChange={handleSelectedProgram}
               labelledBy="Select"
               name='intAre'
+              required
             />
           </div>
           {selectedPrograms.some(program => program.value === "Other") && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
               <label>Other Program(s) Applying For*</label>
-              <input type="text" name="otherProgram" value={formData.otherProgram} onChange={handleInputChange} placeholder="Write other programs applying for" />
+              <input type="text" name="otherProgram" required value={formData.otherProgram} onChange={handleInputChange} placeholder="Write other programs applying for" />
             </div>
           )}
 

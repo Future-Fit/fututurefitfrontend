@@ -24,7 +24,7 @@ const ChatBox = () => {
           <div className="card-header">
             {/* Startclose chatbox in mobile menu */}
             <div
-              className="fix-icon position-absolute top-0 end-0 show-1023"
+              className="fix-icon position-absolute top-0 end-0 show-992"
               onClick={chatToggle}
             >
               <span className="flaticon-close" style={{color:'#fff'}}></span>

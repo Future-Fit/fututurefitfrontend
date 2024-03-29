@@ -67,14 +67,14 @@ const DashboardStudentSidebar = () => {
   };
 
   const handleMenuItemClick = async (item, event) => {
-    if (item.id === 6) { // Check if the clicked item is the logout option
+    if (item.id === 7) { // Check if the clicked item is the logout option
       event.preventDefault(); // Prevent default Link navigation
       const confirmLogout = window.confirm("Are you sure you want to logout?");
       if (confirmLogout) {
         await clearSession(); // Clear session (assuming this can be made async)
         return;
       } // If not confirmed, do nothing
-    } else if (item.id === 7) {
+    } else if (item.id === 8) {
       event.preventDefault(); // Prevent default Link navigation
       const confirmUnsubscribe = window.confirm("Are you sure you want to unsubscribe?"); // Confirmation dialog
 
@@ -94,7 +94,7 @@ const DashboardStudentSidebar = () => {
   return (
     <div className={`user-sidebar ${menu ? "sidebar_open" : ""}`}>
       {/* Start sidebar close icon */}
-      <div className="pro-header text-end pb-0 mb-0 show-1023" style={{ backgroundColor: GlobalConfig.BgHeader }}>
+      <div className="pro-header text-end pb-0 mb-0 show-992" style={{ backgroundColor: GlobalConfig.BgHeader }}>
         <div className="pro-header" style={{ paddingTop: '50px', backgroundColor: GlobalConfig.BgHeader }}>
 
           <div className="fix-icon" onClick={menuToggleHandler} data-bs-dismiss="offcanvas" aria-label="Close">

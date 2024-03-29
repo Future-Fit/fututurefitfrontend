@@ -175,7 +175,7 @@ const CvUploader = () => {
                         className="uploadButton-input"
                         type="file"
                         name="attachments[]"
-                        accept=".doc, .docx, .pdf, .png, .jpeg" // Updated accept attribute
+                        accept=".doc, .docx, .pdf, .png, .jpg, .jpeg" // Updated accept attribute
                         id="cv_file_path"
                         multiple
                         onChange={cvManagerHandler}
@@ -185,7 +185,7 @@ const CvUploader = () => {
                     <label className="cv-uploadButton" htmlFor="cv_file_path">
                         <span className="title">Drag files here to upload</span>
                         <span className="text">
-                            Max file size=10Mb, File Types=.doc, .docx, .pdf, .png, .jpeg
+                            Max file size=10MB, Max file number=10, File Types=.doc, .docx, .pdf, .png, .jpg/jpeg
                         </span>
                         <span className="theme-btn btn-style-one">
                             Select Files
@@ -222,7 +222,7 @@ const CvUploader = () => {
                 ))}
             </div>
             {/* place the incoming files here down below */}
-            <div className="files-outer">
+            <div className="files-outer" style={{height: "fit-content"}}>
                 {userDetail.map((item, i) => (
                     <div key={i} className="file-edit-box">
                         {item.file ? (
