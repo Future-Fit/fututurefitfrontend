@@ -90,7 +90,7 @@ const FormContent2 = ({ onReset }) => {
           router.push('/employers-dashboard/dashboard');
         
         } else if (user.user_type_id === 4) {
-          router.push('/candidates-dashboard/my-profile');
+          router.push('/jobseeker-dashboard/my-profile');
         }
         else if(user.user_type_id === 5){
           router.push('/student-dashboard/my-profile');        

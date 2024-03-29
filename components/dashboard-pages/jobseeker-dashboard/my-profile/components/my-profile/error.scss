@@ -1,0 +1,9 @@
+.error-indicator {
+    width: calc(100% + 2px); /* Account for border */
+    height: 2px;
+    background-color: red;
+    position: absolute;
+    top: 100%; /* Position below the input field */
+    left: 0;
+    z-index: 1; /* Ensure indicator appears above the input field */
+  }

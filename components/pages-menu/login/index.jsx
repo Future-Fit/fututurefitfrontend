@@ -12,6 +12,7 @@ import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import FormContent2 from "@/components/common/form/login/FormContent2";
 import { Toast } from 'react-bootstrap';
+import DashboardJobseekrHeader from "@/components/header/DashboardJobseekerHeader";
 
 
 const index = () => {
@@ -70,7 +71,7 @@ useEffect(() => {
       }} />}
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardJobseekrHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
       {/* <!--End Main Header -->  */}

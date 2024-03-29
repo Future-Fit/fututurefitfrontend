@@ -12,6 +12,8 @@ import ShopHeader from "../../header/ShopHeader";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import { useEffect, useState } from "react";
 import DashboardStudentSidebar from "@/components/header/DashboardStudentSidebar";
+import DashboardJobseekrHeader from "@/components/header/DashboardJobseekerHeader";
+import DashboardJobseekridebar from "@/components/header/DashboardJobseekerSidebar";
 
 
 const index = () => {
@@ -35,14 +37,16 @@ const index = () => {
 
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardJobseekrHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
 
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <DashboardStudentSidebar />
+      {userType === 4 && <DashboardJobseekridebar />}
+      {userType === 5 && <DashboardStudentSidebar />}
+
 
 
       <Breadcrumb title="Checkout" meta="Checkout" />

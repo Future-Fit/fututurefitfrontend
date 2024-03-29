@@ -5,7 +5,7 @@ import MobileMenu from "../../header/MobileMenu";
 import Breadcrumb from "../../../components/shop/Breadcrumb";
 import DashboardAdminHeader from "../../../components/header/DashboardAdminHeader"
 import DashboardEmployeeHeader from "../../../components/header/DashboardEmployerHeader"
-import DashboardCandidatesHeader from "../../../components/header/DashboardCandidatesHeader"
+import DashboardJobseekerHeader from "../../../components/header/DashboardJobseekerHeader"
 import DashboardStudentHeader from "../../../components/header/DashboardStudentsHeader"
 import CartTable from "./components/CartTable";
 import Coupon from "./components/Coupon";
@@ -13,6 +13,7 @@ import CartTotal from "./components/CartTotal";
 import ShopHeader from "../../header/ShopHeader";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import { useEffect, useState } from "react";
+import DashboardJobseekridebar from "@/components/header/DashboardJobseekerSidebar";
 import DashboardStudentSidebar from "@/components/header/DashboardStudentSidebar";
 
 const index = () => {
@@ -37,7 +38,7 @@ const index = () => {
 
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardJobseekerHeader/>}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
       {/* <!--End Main Header --> */}
@@ -45,7 +46,10 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <DashboardStudentSidebar />
+      {userType === 4 && <DashboardJobseekridebar/>}
+      {userType === 5 && <DashboardStudentSidebar/>}
+
+
 
 
       <Breadcrumb title="Cart" meta="Cart" />

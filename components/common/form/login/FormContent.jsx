@@ -112,7 +112,7 @@ const FormContent = ({ onReset ,closeModal}) => {
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
-          router.push('/candidates-dashboard/my-profile');
+          router.push('/jobseeker-dashboard/my-profile');
         } else if (user.user_type_id === 5) {
           const modalElement = document.getElementById("loginPopupModal");
           const modalBackDrop = document.getElementsByClassName('modal-backdrop');

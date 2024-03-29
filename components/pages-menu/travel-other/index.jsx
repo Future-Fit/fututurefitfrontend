@@ -10,6 +10,7 @@ import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 import CallToAction3 from "@/components/call-to-action/CallToAction3";
+import DashboardJobseekrHeader from "@/components/header/DashboardJobseekerHeader";
 
 const index = () => {
 
@@ -32,7 +33,7 @@ const index = () => {
 
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardCandidatesHeader />}
+      {userType === 4 && <DashboardJobseekrHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
       {/* <DefaulHeader /> */}
