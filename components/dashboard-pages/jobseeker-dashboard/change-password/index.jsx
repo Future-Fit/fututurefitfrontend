@@ -11,6 +11,7 @@ import DashboardJobseekerSidebar from "@/components/header/DashboardJobseekerSid
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
+import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 
 const index = () => {
 
@@ -52,7 +53,7 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardStudenstsHeader />
+      <DashboardJobseekerHeader />
       {/* End Header */}
 
       <MobileMenu />

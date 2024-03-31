@@ -7,12 +7,11 @@ import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardJobseekerSidebar from "../../../header/DashboardJobseekerSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import CopyrightFooter from "../../CopyrightFooter";
 import ChatBox from "./components";
-import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
 import { useSelector } from "react-redux";
 import FooterDefault from "../../../footer/common-footer";
+import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 const Index = () => {
   const { chatSidebar } = useSelector((state) => state.toggle);
 
@@ -24,7 +23,7 @@ const Index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardStudentsHeader />
+      <DashboardJobseekerHeader />
       {/* End Header */}
 
       <MobileMenu />

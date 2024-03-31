@@ -2,11 +2,10 @@ import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardJobseekerSidebar from "../../../header/DashboardJobseekerSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import CopyrightFooter from "../../CopyrightFooter";
 import Resume from "./components";
-import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
+import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 const index = () => {
   return (
     <div className="page-wrapper dashboard">
@@ -16,7 +15,7 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardStudentsHeader />
+      <DashboardJobseekerHeader />
       {/* End Header */}
 
       <MobileMenu />

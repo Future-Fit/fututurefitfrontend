@@ -109,17 +109,29 @@ const FormInfoBox = () => {
     setSelectedProvince(selected);
   };
 
+  // const formatDate = (dateString) => {
+  //   if (!dateString || isNaN(Date.parse(dateString))) {
+  //     return ''; // Return empty string if date is invalid or empty
+  //   }
+  //   const date = new Date(dateString);
+  //   const month = (date.getMonth() + 1).toString().length < 2 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
+  //   const day = date.getDate().length < 2 ? "0" + date.getDate() : date.getDate();
+  //   const year = date.getFullYear();
+
+  //   return `${year}-${month}-${day}`;
+  // };
+
   const formatDate = (dateString) => {
     if (!dateString || isNaN(Date.parse(dateString))) {
-      return ''; // Return empty string if date is invalid or empty
+        return ''; // Return empty string if date is invalid or empty
     }
     const date = new Date(dateString);
-    const month = (date.getMonth() + 1).toString().length < 2 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
-    const day = date.getDate().length < 2 ? "0" + date.getDate() : date.getDate();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
     const year = date.getFullYear();
 
     return `${year}-${month}-${day}`;
-  };
+};
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -284,17 +296,6 @@ const FormInfoBox = () => {
     <form action="#" className="default-form">
 
       <div className="row">
-        {/* {Object.entries(requiredFieldsError).map(([fieldName, hasError]) => (
-          hasError && (
-            <div key={fieldName} className="error-indicator" style={{
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              backgroundColor: 'red',
-              marginRight: '5px'
-            }}></div>
-          )
-        ))} */}
       </div>
       <div className="row">
         <div className="row">
@@ -332,13 +333,23 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Date of Birth*</label>
             <div>
-              <input style={{
-                fontSize: "15px", color: "#696969",
-                backgroundColor: "#f0f5f7", border: "1px solid #f0f5f7",
-                boxSizing: "border-box", borderRadius: "8px"
-              }}
-                type="date" name="dob" value={formData.dob} //
-                onChange={handleInputChange} placeholder="MM/DD/YYYY" required />
+              <input
+                style={{
+                  fontSize: "15px",
+                  color: "#696969",
+                  backgroundColor: "#f0f5f7",
+                  border: "1px solid #f0f5f7",
+                  boxSizing: "border-box",
+                  borderRadius: "8px"
+                }}
+                type="date"
+                name="dob"
+                value={formData.dob}
+                onChange={handleInputChange}
+                placeholder="MM/DD/YYYY"
+                max={new Date().toISOString().split('T')[0]}
+                required
+              />
             </div>
           </div> */}
 

@@ -25,8 +25,6 @@ const ResetPassword = ({ token }) => {
         return passwordRegex.test(password);
     };
 
-
-
     const resetPassword = async (e) => {
         e.preventDefault()
         setPasswordError("");
@@ -36,8 +34,7 @@ const ResetPassword = ({ token }) => {
         }
         if (validatePassword(password)) {
             try {
-                // const response = await axios.post(`${apiConfig.url}/auth/reset-password/${token}`, {
-                const response = await axios.post(`https://api.futurefitinternational.com/auth/reset-password/${token}`, {
+                const response = await axios.post(`${apiConfig.url}/auth/reset-password/${token}`, {
                     newPassword: password,
                     confirmPassword: confirmPassword
                 });

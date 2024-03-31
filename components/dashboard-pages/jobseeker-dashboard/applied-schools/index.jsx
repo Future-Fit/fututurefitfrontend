@@ -1,5 +1,5 @@
 import MobileMenu from "../../../header/MobileMenu";
-import DashboardJobseekrHeader from "../../../header/DashboardJobseekerHeader";
+import DashboardJobseekerHeader from "../../../header/DashboardJobseekerHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import BreadCrumb from "../../BreadCrumb";
 import CopyrightFooter from "../../CopyrightFooter";
@@ -17,7 +17,7 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardJobseekrHeader />
+      <DashboardJobseekerHeader />
       {/* End Header */}
 
       <MobileMenu />

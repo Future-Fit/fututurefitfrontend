@@ -65,7 +65,7 @@ const FormContent2 = ({ onReset }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     // Perform login API request here using username and password
-     
+
     try {
       const response = await fetch(`${DefaultConfig.url}/auth/login`, {
         method: "POST",
@@ -86,14 +86,14 @@ const FormContent2 = ({ onReset }) => {
         localStorage.setItem("loggedInUserId", user.id);
         if (user.user_type_id === 1) {
           router.push('/admin-dashboard/dashboard');
-        }else if(user.user_type_id === 3){
+        } else if (user.user_type_id === 3) {
           router.push('/employers-dashboard/dashboard');
-        
+
         } else if (user.user_type_id === 4) {
           router.push('/jobseeker-dashboard/my-profile');
         }
-        else if(user.user_type_id === 5){
-          router.push('/student-dashboard/my-profile');        
+        else if (user.user_type_id === 5) {
+          router.push('/student-dashboard/my-profile');
         }
       } else {
         // If login fails
@@ -181,19 +181,20 @@ const FormContent2 = ({ onReset }) => {
         <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div className="field-outer" style={{ display: 'flex', alignItems: 'center' }}>
             <div className="input-group checkboxes square">
-              <input
+              {/* <input
                 type="checkbox"
                 name="remember-me"
                 id="remember"
-              // checked={rememberMe}
-              // onChange={handleRememberMe}
-              />
+                checked={rememberMe}
+                onChange={handleRememberMe}
+              /> */}
               <label htmlFor="remember" className="remember" style={{ marginLeft: '5px' }}>
                 <span className="custom-checkbox"></span>
-                <span style={{ verticalAlign: 'middle' }}>Remember me</span>
+                <span style={{ verticalAlign: 'middle' }}>Remember me now</span>
               </label>
             </div>
           </div>
+          
 
           <div className="text">
             <Link
@@ -269,30 +270,6 @@ const FormContent2 = ({ onReset }) => {
         <Toast.Body style={{ backgroundColor: 'rgba(255, 0, 0, 0.1)', color: 'red', fontSize: '18px' }}>{error}</Toast.Body>
         {/* Increased font size for the body */}
       </Toast>
-
-      {/* <Toast
-        onClose={() => {
-          setError('');
-        }}
-        show={Boolean(error)}
-        delay={180000}
-        autohide
-        style={{
-          position: 'fixed',
-          top: '50%', // Adjust the top position
-          left: '50%', // Adjust the left position
-          transform: 'translate(-50%, -50%)', // Center the toast using transform
-          minWidth: '200px',
-          zIndex: 10000, // Ensure the Toast is above the backdrop
-        }}
-      >
-        <Toast.Header closeButton={true}>
-          <strong className="me-auto">Error</strong>
-        </Toast.Header>
-        <Toast.Body>{error}</Toast.Body>
-      </Toast> */}
-
-      {/* End bottom-box LoginWithSocial */}
     </div>
   );
 };

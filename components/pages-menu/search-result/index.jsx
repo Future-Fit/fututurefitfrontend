@@ -8,7 +8,7 @@ import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Script from 'next/script';
-import DashboardJobseekrHeader from "@/components/header/DashboardJobseekerHeader";
+import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 const index = () => {
   const router = useRouter();
   const [searchResults, setSearchResults] = useState([]);
@@ -43,7 +43,7 @@ const index = () => {
       {/* End Login Popup Modal */}
 
       {userType === 3 && <DashboardHeader />}
-      {userType === 4 && <DashboardJobseekrHeader />}
+      {userType === 4 && <DashboardJobseekerHeader />}
       {userType !== 3 && userType !== 4 && <DefaulHeader2 />}
       {/* <DefaulHeader /> */}
 

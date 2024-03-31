@@ -10,8 +10,7 @@ import DashboardStudentHeader from '../../../../components/header/DashboardStude
 import blogs from "@/data/blogs";
 import Image from "next/image";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
-import DashboardJobseekrHeader from "../../../../components/header/da";
-import DashboardHeader from "../../../../components/header/DashboardEmployerHeader";
+import DashboardJobseekerHeader from "../../../../components/header/DashboardJobseekerHeader";
 import { useEffect, useState } from "react";
 
 
@@ -44,7 +43,7 @@ const BlogDetailsDynamic = ({ params }) => {
 
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardJobseekrHeader />}
+      {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
       {/* <!--End Main Header --> */}

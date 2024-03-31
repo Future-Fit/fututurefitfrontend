@@ -17,7 +17,7 @@ import apiConfig from "@/app.config";
 import "./dropdownremover.scss"
 
 
-const DashboardJobseekrHeader = () => {
+const DashboardJobseekerHeader = () => {
     const [navbar, setNavbar] = useState(false);
     const [user, setUser] = useState(null);
     const [userDetail, setUserDetail] = useState(null);
@@ -491,4 +491,4 @@ const DashboardJobseekrHeader = () => {
     );
 };
 
-export default DashboardJobseekrHeader;
+export default DashboardJobseekerHeader;

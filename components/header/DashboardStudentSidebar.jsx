@@ -103,7 +103,7 @@ const DashboardStudentSidebar = () => {
       // alert('Delete profile image?');
       // window.location.reload();
       await clearSession(); // Clear session (assuming this can be made async)
-        return;
+      return;
     } catch (error) {
       console.error('Error deleting image:', error.response ? error.response.data : error);
       // alert('Error deleting profile image.');
@@ -119,6 +119,8 @@ const DashboardStudentSidebar = () => {
       if (confirmLogout) {
         await clearSession(); // Clear session (assuming this can be made async)
         return;
+      } else {
+        return false
       } // If not confirmed, do nothing
     } else if (item.id === 8) {
       event.preventDefault(); // Prevent default Link navigation

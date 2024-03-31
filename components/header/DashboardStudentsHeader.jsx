@@ -37,14 +37,6 @@ const DashboardStudentHeader = () => {
     const [suggestionValue, setSuggestionValue] = useState('');
     const { cart } = useSelector((state) => state.shop) || {};
 
-    const DropdownMenu = ({ userDetail, handleLogout }) => {
-        const [isOpen, setIsOpen] = useState(false);
-
-        const toggleDropdown = () => {
-            setIsOpen(!isOpen);
-        };
-    }
-
     useEffect(() => {
         dispatch(reloadCart());
     }, [dispatch, reloadCart]);

@@ -4,7 +4,7 @@ import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardJobseekrSidebar from "../../../header/DashboardJobseekerSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import DashboardJobseekrHeader from "../../../header/DashboardJobseekerHeader";
+import DashboardJobseekerHeader from "../../../header/DashboardJobseekerHeader";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import { useEffect, useState } from "react";
@@ -59,7 +59,7 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardJobseekrHeader />
+      <DashboardJobseekerHeader />
       {/* End Header */}
 
       <MobileMenu />

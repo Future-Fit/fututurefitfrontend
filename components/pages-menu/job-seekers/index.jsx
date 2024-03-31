@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import GlobalConfig from "@/Global.config";
 
 import JobSeekerBody from "@/components/job-seeker/JobSeekerBody";
-import DashboardJobseekrHeader from "@/components/header/DashboardJobseekerHeader";
+import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 
 
 const index = () => {
@@ -38,7 +38,7 @@ const index = () => {
 
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardJobseekrHeader />}
+      {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
       {/* <DefaulHeader /> */}

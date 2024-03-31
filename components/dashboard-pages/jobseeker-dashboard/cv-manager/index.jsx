@@ -4,7 +4,7 @@ import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardJobseekrSidebar from "../../../header/DashboardJobseekerSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import DashboardJobseekrHeader from "../../../header/DashboardJobseekerHeader";
+import DashboardJobseekerHeader from "../../../header/DashboardJobseekerHeader";
 import MenuToggler from "../../MenuToggler";
 import CvUploader from "./components/CvUploader";
 import FooterDefault from "../../../footer/common-footer";
@@ -55,7 +55,7 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardJobseekrHeader />
+      <DashboardJobseekerHeader />
       {/* End Header */}
 
       <MobileMenu />

@@ -26,36 +26,33 @@ const ForgetPassword = () => {
     }
   }, [resetInfo]);
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
-      // Make an HTTP POST request to the password reset API
-      // const response = await axios.post(`${apiConfig.url}/auth/forget-password`, {
-        const response = await axios.post("https://api.futurefitinternational.com/auth/forget-password", {
-
-        email: username // Pass the email entered in the form
+      const response = await axios.post(`${apiConfig.url}/auth/forget-password`, {
+        email: username
       });
-      setResetInfo(response.data); // Store response data in resetInfo state
-      setShowResetDialog(true); // Show reset password dialog on successful email sent
-
-      // Handle the response here (e.g., show a success message)
-      console.log("Password reset request sent:", response.data);
+      setResetInfo(response.data);
+      setShowResetDialog(true);
     } catch (error) {
-      // Handle errors (e.g., display error message)
-      setError("Password reset failed. Please try again.");
+      if (error.response && error.response.data.message === 'User email does not exist.') {
+        setError("User email does not exist.");
+      } else {
+        setError("Password reset failed. Please try again.");
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
+
+
   useEffect(() => {
     if (showResetDialog) {
       const timer = setTimeout(() => {
         setShowResetDialog(false);
       }, 5000); // 5 seconds timeout
-  
+
       return () => clearTimeout(timer);
     }
   }, [showResetDialog]);
@@ -64,70 +61,79 @@ const ForgetPassword = () => {
 
 
   return (
-    
-      <div className="form-inner">
-        <h3>Reset Your Password</h3>
-        <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>Reset Password</h3>
 
-        {/* <!--Login Form--> */}
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Email Address</label>
-            <input
-              type="text"
-              name="username"
-              placeholder="Email Address"
-              required value={username}
-              onChange={(e) => setUsername(e.target.value)} />
-          </div>
+    <div className="form-inner">
+      <h3>Reset Your Password</h3>
+      <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>Reset Password</h3>
 
-          <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
-            <button
-              className="theme-btn btn-style-one"
-              type="submit"
-              name="log-in"
-              disabled={isSubmitting}
-            >
-              Reset Password
-            </button>
-          </div>
-          {/* login */}
-        </form>
-        {/* End form */}
+      {/* <!--Login Form--> */}
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Email Address</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Email Address"
+            required value={username}
+            onChange={(e) => setUsername(e.target.value)} />
+        </div>
 
-        {/* {error && <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>{error}</div>} */}
+        <div className="form-group" style={{ display: 'flex', justifyContent: 'center' }}>
+          <button
+            className="theme-btn btn-style-one"
+            type="submit"
+            name="log-in"
+            disabled={isSubmitting}
+          >
+            Reset Password
+          </button>
+        </div>
+        {/* login */}
+      </form>
+      {/* End form */}
 
-        {redirectTo && (
-          <Link href={redirectTo}>
-            <span>Redirecting...</span>
-          </Link>
-        )}
-        {resetInfo && (
+      {redirectTo && (
+        <Link href={redirectTo}>
+          <span>Redirecting...</span>
+        </Link>
+      )}
+      {/* {resetInfo && (
           <div className="reset-info">
             <p style={{ color: 'green' }}>Password reset email sent successfully, Please check your email</p>
           </div>
-        )}
+        )} */}
 
-        <div className="bottom-box">
-          <div className="text d-flex align-items-center justify-content-center">
-            Don&apos;t have an account?{" "}
-            <Link
-              href="#"
-              className="call-modal signup"
-              data-bs-toggle="modal"
-              data-bs-target="#registerModal"
-             style={{color:'blue'}}
-            >
-              Sign Up
-            </Link>
-          </div>
+      {resetInfo && (
+        <div className="reset-info">
+          <p style={{ color: "green" }}>{resetInfo.message}</p>
         </div>
-        {error && (
-          <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>
-            {error}
-          </div>
-        )}
+      )}
+      {error && (
+        <div className="error-message" style={{ color: "red", fontWeight: "bold" }}>
+          {error}
+        </div>
+      )}
+
+      <div className="bottom-box">
+        <div className="text d-flex align-items-center justify-content-center">
+          Don&apos;t have an account?{" "}
+          <Link
+            href="#"
+            className="call-modal signup"
+            data-bs-toggle="modal"
+            data-bs-target="#registerModal"
+            style={{ color: 'blue' }}
+          >
+            Sign Up
+          </Link>
+        </div>
       </div>
+      {error && (
+        <div className="error-message" style={{ color: 'red', fontWeight: 'bold' }}>
+          {error}
+        </div>
+      )}
+    </div>
 
   );
 };

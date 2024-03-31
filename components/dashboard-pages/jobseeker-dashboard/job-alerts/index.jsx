@@ -7,6 +7,7 @@ import JobAlertsTable from "./components/JobAlertsTable";
 import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
+import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 
 const index = () => {
   return (
@@ -17,7 +18,7 @@ const index = () => {
       <LoginPopup />
       {/* End Login Popup Modal */}
 
-      <DashboardStudentsHeader />
+      <DashboardJobseekerHeader />
       {/* End Header */}
 
       <MobileMenu />

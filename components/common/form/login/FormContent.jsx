@@ -6,7 +6,7 @@ import DefaultConfig from "app.config.js";
 import { Toast } from 'react-bootstrap';
 import GlobalConfig from "@/Global.config";
 
-const FormContent = ({ onReset ,closeModal}) => {
+const FormContent = ({ onReset, closeModal }) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -219,8 +219,8 @@ const FormContent = ({ onReset ,closeModal}) => {
                 type="checkbox"
                 name="remember-me"
                 id="remember"
-              // checked={rememberMe}
-              // onChange={handleRememberMe}
+                checked={rememberMe}
+                onChange={handleRememberMe}
               />
               <label htmlFor="remember" className="remember" style={{ marginLeft: '5px' }}>
                 <span className="custom-checkbox"></span>

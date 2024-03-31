@@ -13,7 +13,7 @@ import CartTotal from "./components/CartTotal";
 import ShopHeader from "../../header/ShopHeader";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import { useEffect, useState } from "react";
-import DashboardJobseekridebar from "@/components/header/DashboardJobseekerSidebar";
+import DashboardJobseekrSidebar from "@/components/header/DashboardJobseekerSidebar";
 import DashboardStudentSidebar from "@/components/header/DashboardStudentSidebar";
 
 const index = () => {
@@ -46,7 +46,7 @@ const index = () => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      {userType === 4 && <DashboardJobseekridebar/>}
+      {userType === 4 && <DashboardJobseekrSidebar/>}
       {userType === 5 && <DashboardStudentSidebar/>}
 
 

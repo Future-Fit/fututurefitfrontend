@@ -14,13 +14,38 @@ import { useState } from "react";
 import apiConfig from "@/app.config";
 
 
-const DashboardJobseekridebar = () => {
+const DashboardJobseekrSidebar = () => {
   const { menu } = useSelector((state) => state.toggle);
 
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
     is_archived: '',    // is archived to true
-    is_email_verified: ''
+    is_email_verified: '',
+    mname: '',
+    gen: '',      // gender
+    plcBir: '',   // place of birth
+    ctzn: '',     // citizenship
+    addr: '',      // current address
+    city: '',      // current city
+    resid: '',      // current country (residency)
+    eduLev: '',   // education level (select from choice)
+    eduYrs: '',   // tot. # of years attended school (prim to univ) 
+    proEng: '',   // English lang. proficiency (select from choices)
+    proFre: '',   // Frech lang. proficiency (select from choices)
+    proOth: '',   // list other language(s) and proficiency level
+    isEmp: '',    // currently employed? (select yes or no)
+    namEmp: '',   // name of employer, if employed
+    yrsEmp: '',   // # of years employed
+    isIntr: '',    // interested to study or work in Canada? (select yes or no)
+    datAvl: [],   // date avialable for study or employment (select from intake dates)
+    intAre: [],   // interest area for study or employment (select from choice)
+    proCan: [],   // indicate provinces in Canada to study or work in (select from choice)
+    allSrch: '',  // enable searching (select yet or no) 
+    detail: '',   // open for user to write anything (limit 500 chars?)
+    otherLevel: '',
+    // dob: '',
+    otherProgram: '',
+    // user_image: {}
   });
 
   const dispatch = useDispatch();
@@ -61,8 +86,29 @@ const DashboardJobseekridebar = () => {
       return
     } catch (error) {
       console.error("Error in unsubscribing", error.response ? error.response.data : error);
-      alert("Error updating user details.")
+      alert("Error in unsubscribing")
       // Handle errors (e.g., show error message to the user)
+    }
+  };
+
+  const handleDelete = async () => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      const response = await axios.delete(`${apiConfig.url}/users/userImage`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      // console.log('Image deleted successfully:', response.data);
+      // alert('Delete profile image?');
+      // window.location.reload();
+      await clearSession(); // Clear session (assuming this can be made async)
+        return;
+    } catch (error) {
+      console.error('Error deleting image:', error.response ? error.response.data : error);
+      // alert('Error deleting profile image.');
+      await clearSession(); // Clear session (assuming this can be made async)
+      return
     }
   };
 
@@ -73,14 +119,43 @@ const DashboardJobseekridebar = () => {
       if (confirmLogout) {
         await clearSession(); // Clear session (assuming this can be made async)
         return;
-      } // If not confirmed, do nothing
+      } else{
+        return false
+      }
     } else if (item.id === 8) {
       event.preventDefault(); // Prevent default Link navigation
       const confirmUnsubscribe = window.confirm("Are you sure you want to unsubscribe?"); // Confirmation dialog
 
       if (confirmUnsubscribe) {
-        const dataToUpdate = { is_archived: true, is_email_verified: false };
+        const dataToUpdate = {
+          is_archived: true,
+          is_email_verified: false,
+          mname: '',
+          gen: '',      // gender
+          plcBir: '',   // place of birth
+          ctzn: '',     // citizenship
+          addr: '',      // current address
+          city: '',      // current city
+          resid: '',      // current country (residency)
+          eduLev: '',   // education level (select from choice)
+          eduYrs: '',   // tot. # of years attended school (prim to univ) 
+          proEng: '',   // English lang. proficiency (select from choices)
+          proFre: '',   // Frech lang. proficiency (select from choices)
+          proOth: '',   // list other language(s) and proficiency level
+          isEmp: '',    // currently employed? (select yes or no)
+          namEmp: '',   // name of employer, if employed
+          yrsEmp: '',   // # of years employed
+          isIntr: '',    // interested to study or work in Canada? (select yes or no)
+          datAvl: [],   // date avialable for study or employment (select from intake dates)
+          intAre: [],   // interest area for study or employment (select from choice)
+          proCan: [],   // indicate provinces in Canada to study or work in (select from choice)  // indicate provinces in Canada to study or work in (select from choice)
+          allSrch: '',  // enable searching (select yet or no) 
+          detail: '',   // open for user to write anything (limit 500 chars?)
+          otherLevel: '',
+          otherProgram: '',
+        };
         updateUser(dataToUpdate); // Pass the data to updateUser
+        handleDelete()
       }
       else {
         return
@@ -127,4 +202,4 @@ const DashboardJobseekridebar = () => {
   );
 };
 
-export default DashboardJobseekridebar;
+export default DashboardJobseekrSidebar;

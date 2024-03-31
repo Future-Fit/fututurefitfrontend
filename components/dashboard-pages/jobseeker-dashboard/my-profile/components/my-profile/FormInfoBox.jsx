@@ -112,17 +112,29 @@ const FormInfoBox = () => {
     setSelectedProvince(selected);
   };
 
+  // const formatDate = (dateString) => {
+  //   if (!dateString || isNaN(Date.parse(dateString))) {
+  //     return ''; // Return empty string if date is invalid or empty
+  //   }
+  //   const date = new Date(dateString);
+  //   const month = (date.getMonth() + 1).toString().length < 2 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
+  //   const day = date.getDate().length < 2 ? "0" + date.getDate() : date.getDate();
+  //   const year = date.getFullYear();
+
+  //   return `${year}-${month}-${day}`;
+  // };
+
   const formatDate = (dateString) => {
     if (!dateString || isNaN(Date.parse(dateString))) {
-      return ''; // Return empty string if date is invalid or empty
+        return ''; // Return empty string if date is invalid or empty
     }
     const date = new Date(dateString);
-    const month = (date.getMonth() + 1).toString().length < 2 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
-    const day = date.getDate().length < 2 ? "0" + date.getDate() : date.getDate();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
     const year = date.getFullYear();
 
     return `${year}-${month}-${day}`;
-  };
+};
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -236,10 +248,11 @@ const FormInfoBox = () => {
     const isOtherLevelSelected = formData.eduLev === "Other";
     const isOtherLevelEmpty = isOtherLevelSelected && (!formData.otherLevel || formData.otherLevel.trim() === '');
 
-    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs", "proEng", "isEmp", "yrsEmp", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
     const isEmpSelected = formData.isEmp === "Yes";
     const namEmpEmpty = isEmpSelected && (!formData.namEmp || formData.namEmp.trim() === '');
 
+    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs", "proEng", "yrsEmp", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
+    
     const errors = {};
     requiredFields.forEach(field => {
       if (!formData[field]) {
@@ -553,7 +566,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "20px" }}>
             <label>Total Work Experience in Years*</label>
-            <input type="text" name="yrsEmp" value={formData.yrsEmp}
+            <input type="number" name="yrsEmp" value={formData.yrsEmp}
               onChange={handleInputChange} required
               placeholder="If no work experience, enter 0." />
           </div>
@@ -643,7 +656,6 @@ const FormInfoBox = () => {
             </text>
           </div>
         </div>
-
 
         <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
           Details

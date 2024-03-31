@@ -21,7 +21,7 @@ import DashboardCandidatesHeader from "../../../components/header/DashboardCandi
 import DashboardStudentHeader from "../../../components/header/DashboardStudentsHeader"
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import Link from "next/link";
-import DashboardJobseekrHeader from "@/components/header/DashboardJobseekerHeader";
+import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 
 
 const ShopSingleDyanmic = ({ id }) => {
@@ -79,7 +79,7 @@ const ShopSingleDyanmic = ({ id }) => {
 
       {userType === 1 && <DashboardAdminHeader />}
       {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardJobseekrHeader />}
+      {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
 
