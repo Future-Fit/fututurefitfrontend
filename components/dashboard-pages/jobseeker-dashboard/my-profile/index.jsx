@@ -71,7 +71,7 @@ const index = () => {
       <section className="user-dashboard">
         <div className="dashboard-outer">
           <BreadCrumb />
-          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - My Profile</b>
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - Job Seeker Profile</b>
           {/* breadCrumb */}
 
           <MenuToggler />

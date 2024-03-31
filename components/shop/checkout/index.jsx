@@ -28,40 +28,46 @@ const index = () => {
 
   return (
     <>
-    <div className="page-wrapper dashboard">
-      {/* <!-- Header Span --> */}
-      <span className="header-span"></span>
+      <div className="page-wrapper dashboard">
+        {/* <!-- Header Span --> */}
+        <span className="header-span"></span>
 
-      <LoginPopup />
-      {/* End Login Popup Modal */}
+        <LoginPopup />
+        {/* End Login Popup Modal */}
 
-      {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardJobseekrHeader />}
-      {userType === 5 && <DashboardStudentHeader />}
-      {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
+        {userType === 1 && <DashboardAdminHeader />}
+        {userType === 3 && <DashboardEmployeeHeader />}
+        {userType === 4 && <DashboardJobseekrHeader />}
+        {userType === 5 && <DashboardStudentHeader />}
+        {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
 
-      <MobileMenu />
-      {/* End MobileMenu */}
+        <MobileMenu />
+        {/* End MobileMenu */}
 
-      {userType === 4 && <DashboardJobseekridebar />}
-      {userType === 5 && <DashboardStudentSidebar />}
+        {userType === 4 && <DashboardJobseekridebar />}
+        {userType === 5 && <DashboardStudentSidebar />}
 
 
 
-      <Breadcrumb title="Checkout" meta="Checkout" />
-      {/* <!--End Page Title--> */}
+        <Breadcrumb title="Checkout" meta="Checkout" />
+        {/* <!--End Page Title--> */}
 
-      {/* <!--CheckOut Page--> */}
-      <section className="checkout-page">
-        <div className="auto-container">
-          <BillingAll />
-        </div>
-      </section>
-      {/* <!--End CheckOut Page--> */}
+        {/* <!--CheckOut Page--> */}
+        <section className="checkout-page">
+          <div className="auto-container">
+            {/* <BillingAll /> */}
+            <b style={{ display: "grid", justifyItems: "center", fontSize: "1.2em" }}>
+              Please contact us to finalize checkout.
+            </b>
+            <b style={{ display: "grid", justifyItems: "right", fontSize: "1em" }}>
+              Thank you!
+            </b>
+          </div>
+        </section>
+        {/* <!--End CheckOut Page--> */}
 
-      <FooterDefault footerStyle="alternate5" />
-      {/* <!-- End Main Footer --> */}
+        <FooterDefault footerStyle="alternate5" />
+        {/* <!-- End Main Footer --> */}
 
       </div>
     </>

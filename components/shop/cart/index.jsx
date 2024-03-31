@@ -67,9 +67,9 @@ const index = () => {
                 </div>
                 {/* End table-outer */}
 
-                <div className="cart-options clearfix">
+                {/* <div className="cart-options clearfix">
                   <Coupon />
-                </div>
+                </div> */}
                 {/* End coupon */}
               </div>
               {/* End .cart-outer */}

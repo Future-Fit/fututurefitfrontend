@@ -100,7 +100,7 @@ const index = () => {
                   <h4>Notifications</h4>
                 </div>
                 <div className="widget-content">
-                  <Notification />
+                  {/* <Notification /> */}
                 </div>
               </div>
             </div>
@@ -110,13 +110,13 @@ const index = () => {
               {/* <!-- applicants Widget --> */}
               <div className="applicants-widget ls-widget">
                 <div className="widget-title">
-                  <h4>Schools Applied To</h4>
+                  <h4>Applied</h4>
                 </div>
                 <div className="widget-content">
                   <div className="row">
                     {/* <!-- Candidate block three --> */}
 
-                    <SchoolsApplied />
+                    {/* <SchoolsApplied /> */}
                   </div>
                 </div>
               </div>

@@ -201,14 +201,16 @@ const CvUploader = () => {
 
             </div>
 
-            <button style={{ marginTop: "10px" }} className="theme-btn btn-style-one" onClick={uploadFiles}>Upload Files</button>
+            <button className="theme-btn btn-style-one" style={{ margin: "10px 0" }} 
+            onClick={uploadFiles}>Upload Files</button>
 
             {/* End upload-resume */}
 
             {/* Start resume Preview  */}
             <div className="files-outer">
                 {getManager?.map((file, i) => (
-                    <div key={i} className="file-edit-box">
+                    <div key={i} className="file-edit-box" style={{height: "auto", 
+                    padding: "10px 0 10px 0"}}>
                         <span className="title">{file.name}</span>
                         <div className="edit-btns">
                             <button>
@@ -224,7 +226,8 @@ const CvUploader = () => {
             {/* place the incoming files here down below */}
             <div className="files-outer" style={{height: "fit-content"}}>
                 {userDetail.map((item, i) => (
-                    <div key={i} className="file-edit-box">
+                    <div key={i} className="file-edit-box" style={{height: "auto", 
+                    padding: "10px 0 10px 0"}}>
                         {item.file ? (
                             <>
                                 <span className="title">{item.file.fileName}</span>

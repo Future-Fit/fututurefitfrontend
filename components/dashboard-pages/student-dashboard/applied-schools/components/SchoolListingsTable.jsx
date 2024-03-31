@@ -6,7 +6,7 @@ const SchoolListingsTable = () => {
   return (
     <div className="tabs-box">
       <div className="widget-title">
-        <h4>Schools Applied To</h4>
+        {/* <h4>Schools Applied To</h4> */}
 
         <div className="chosen-outer">
           {/* <!--Tabs Box--> */}
@@ -28,18 +28,17 @@ const SchoolListingsTable = () => {
             <table className="default-table manage-job-table">
               <thead>
                 <tr>
-                  <th>Job Title</th>
+                  <th>Institution Name</th>
                   <th>Date Applied</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
 
-              <tbody>
+              {/* <tbody>
                 {schools.slice(0, 4).map((item) => (
                   <tr key={item.id}>
                     <td>
-                      {/* <!-- Job Block --> */}
                       <div className="job-block">
                         <div className="inner-box">
                           <div className="content">
@@ -90,7 +89,7 @@ const SchoolListingsTable = () => {
                     </td>
                   </tr>
                 ))}
-              </tbody>
+              </tbody> */}
             </table>
           </div>
         </div>

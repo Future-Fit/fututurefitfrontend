@@ -5,7 +5,7 @@ const CartTable = () => {
         <table className="default-table ">
             <thead className="cart-header">
                 <tr>
-                    <th className="product-name">Product/Service</th>
+                    <th className="product-name">Item</th>
                     <th className="product-thumbnail">&nbsp;</th>
                     <th className="product-price">Price</th>
                     <th className="product-quantity">Quantity</th>

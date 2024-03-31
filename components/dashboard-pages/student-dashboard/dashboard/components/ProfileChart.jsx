@@ -86,7 +86,7 @@ const ProfileChart = () => {
       {/* End widget top bar */}
 
       <div className="widget-content">
-        <Line options={options} data={data} />
+        {/* <Line options={options} data={data} /> */}
       </div>
       {/* End  profile chart */}
     </div>

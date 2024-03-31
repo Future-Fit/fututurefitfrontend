@@ -328,7 +328,7 @@ const FormInfoBox = () => {
 
         {/* <!-- Input --> */}
         <div className="row">
-          <div className="form-group col-lg-4 col-md-4 col-sm-4"
+          {/* <div className="form-group col-lg-4 col-md-4 col-sm-4"
             style={{ marginBottom: "20px" }}>
             <label>Date of Birth*</label>
             <div>
@@ -340,7 +340,31 @@ const FormInfoBox = () => {
                 type="date" name="dob" value={formData.dob} //
                 onChange={handleInputChange} placeholder="MM/DD/YYYY" required />
             </div>
+          </div> */}
+
+          <div className="form-group col-lg-4 col-md-4 col-sm-4"
+            style={{ marginBottom: "20px" }}>
+            <label>Date of Birth*</label>
+            <div>
+              <input
+                style={{
+                  fontSize: "15px",
+                  color: "#696969",
+                  backgroundColor: "#f0f5f7",
+                  border: "1px solid #f0f5f7",
+                  boxSizing: "border-box",
+                  borderRadius: "8px"
+                }}
+                type="date"
+                name="dob"
+                value={formData.dob}
+
+                onChange={handleInputChange} placeholder="MM/DD/YYY"
+                max={new Date().toISOString().split('T')[0]} required />
+            </div>
           </div>
+
+
           <div className={`form-group col-lg-4 col-md-4 col-sm-12 ${requiredFieldsError.fname ? 'error-indicator' : ''}`}
             style={{ width: "150px", marginBottom: "20px" }}>
             <label>Gender*</label>

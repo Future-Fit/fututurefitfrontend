@@ -9,18 +9,21 @@ import { MultiSelect } from "react-multi-select-component";
 import "./error.scss"
 
 const programOptions = [
-  { label: "Grade Level", value: "Grade Level" },
-  { label: "High School", value: "High School" },
-  { label: "Undergraduate", value: "Undergraduate" },
-  { label: "Postgraduate", value: "Postgraduate" },
-  { label: "Certificate/Vocational", value: "Certificate/Vocational" },
+  { label: "Healthcare", value: "Healthcare" },
+  { label: "Engineering/IT", value: "Engineering/IT" },
+  { label: "Manufacturing", value: "Manufacturing" },
+  { label: "Transportation/Logistics", value: "Transportation/Logistics" },
+  { label: "Aviation", value: "Aviation" },
+  { label: "Construction", value: "Construction" },
+  { label: "Hospitality/Services", value: "Hospitality/Services" },
+  { label: "Skilled Trade", value: "Skilled Trade" },
   { label: "Other", value: "Other" }
 ];
 
 const intakes = [
-  { label: "September", value: "September" },
-  { label: "January", value: "January" },
-  { label: "May", value: "May" }
+  { label: "0 to 3 Months", value: "0 to 3 Months" },
+  { label: "3 to 6 Months", value: "3 to 6 Months" },
+  { label: "After 1 Year", value: "After 1 Year" }
 ];
 
 const provincesCanada = [
@@ -44,34 +47,34 @@ const provincesCanada = [
 const FormInfoBox = () => {
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
-    lname: '',    // last/family name               
+    lname: '',    // last/family name (required)               
     mname: '',    // middle name (NMN if none)
-    fname: '',    // first/given name
-    dob: '',      // date of birth (mm/dd/yyyy)
-    gen: '',      // gender
-    plcBir: '',   // place of birth
-    ctzn: '',     // citizenship
-    addr: '',      // current address
-    city: '',      // current city
-    resid: '',      // current country (residency)
-    phone: '',      // phone number
-    email: '',    // email address
-    eduLev: '',   // education level (select from choice)
-    eduYrs: '',   // tot. # of years attended school (prim to univ) 
-    proEng: '',   // English lang. proficiency (select from choices)
-    proFre: '',   // Frech lang. proficiency (select from choices)
+    fname: '',    // first/given name (required)
+    dob: '',      // date of birth (mm/dd/yyyy) (required)
+    gen: '',      // gender (required)
+    plcBir: '',   // place of birth (required)
+    ctzn: '',     // citizenship (required)
+    addr: '',     // current address (required)
+    city: '',     // current city (required)
+    resid: '',    // current country (residency) (required)
+    phone: '',    // phone number
+    email: '',    // email address (required)
+    eduLev: '',   // education level (choose one only) (required)
+    otherLevel: '', // education level attained other than listed choice 
+    eduYrs: '',   // tot. # of years attended school (prim to univ) (required) 
+    proEng: '',   // English lang. proficiency (choose one only) (required)
+    proFre: '',   // Frech lang. proficiency (choose one only)
     proOth: '',   // list other language(s) and proficiency level
-    isEmp: '',    // currently employed? (select yes or no)
-    namEmp: '',   // name of employer, if employed
-    yrsEmp: '',   // # of years employed
-    isIntr: '',    // interested to study or work in Canada? (select yes or no)
-    datAvl: [],   // date avialable for study or employment (select from intake dates)
-    intAre: [],   // interest area for study or employment (select from choice)
-    proCan: [],   // indicate provinces in Canada to study or work in (select from choice)
-    allSrch: '',  // enable searching (select yet or no) 
+    isEmp: '',    // job seeker only, currently employed? (yes or no) (required)
+    namEmp: '',   // job seeker only, name of employer (required)
+    yrsEmp: '',   // job seeker only, # of years employed (required)
+    isIntr: '',   // interested to study/work in Canada? (yes or no) (required)
+    datAvl: [],   // date avialable for study/employment (select from dates) (required)
+    intAre: [],   // interest area for study/employment (select from choices) (required)
+    otherProgram: '', // other areas interested in studying/working 
+    proCan: [],   // provinces interested to study/work in (select from choices) (required)
+    allSrch: '',  // enable searching? (yes or no) (required)  
     detail: '',   // open for user to write anything (limit 500 chars?)
-    otherLevel: '',
-    otherProgram: '',
     applied: [],  // applied to (schools or jobs)
     resA: '',     // reserved
     resB: '',     // reserved
@@ -233,8 +236,9 @@ const FormInfoBox = () => {
     const isOtherLevelSelected = formData.eduLev === "Other";
     const isOtherLevelEmpty = isOtherLevelSelected && (!formData.otherLevel || formData.otherLevel.trim() === '');
 
-
-    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs", "proEng", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
+    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs", "proEng", "isEmp", "yrsEmp", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
+    const isEmpSelected = formData.isEmp === "Yes";
+    const namEmpEmpty = isEmpSelected && (!formData.namEmp || formData.namEmp.trim() === '');
 
     const errors = {};
     requiredFields.forEach(field => {
@@ -261,6 +265,11 @@ const FormInfoBox = () => {
 
     if (isOtherLevelEmpty) {
       alert("Other Level should not be empty");
+      return; // Prevent form submission
+    }
+
+    if (namEmpEmpty) {
+      alert("Employer Name should not be empty");
       return; // Prevent form submission
     }
     // Create DTO object from form data
@@ -341,7 +350,8 @@ const FormInfoBox = () => {
                 onChange={handleInputChange} placeholder="MM/DD/YYYY" required />
             </div>
           </div>
-          <div className={`form-group col-lg-4 col-md-4 col-sm-12 ${requiredFieldsError.fname ? 'error-indicator' : ''}`}
+          {/* <div className={`form-group col-lg-4 col-md-4 col-sm-12 ${requiredFieldsError.fname ? 'error-indicator' : ''}`} */}
+          <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ width: "150px", marginBottom: "20px" }}>
             <label>Gender*</label>
             <input type="text" name="gen" value={formData.gen}
@@ -354,7 +364,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Place of Birth*</label>
             <input type="text" name="plcBir" value={formData.plcBir}
-              onChange={handleInputChange} placeholder="City" required />
+              onChange={handleInputChange} placeholder="Place of Birth (City)" required />
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
@@ -411,13 +421,13 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Phone Number</label>
             <input type="text" name="phone" value={formData.phone}
-              onChange={handleInputChange} placeholder="[+][country code][phone number]" />
+              onChange={handleInputChange} placeholder="[+][Country Code][Phone Number]" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Email Address*</label>
             <input type="email" name="email" value={formData.email} required disabled
-              onChange={handleInputChange} placeholder="email address" />
+              onChange={handleInputChange} placeholder="Email Address" />
             {/* <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
               * If you change your email address here, make sure to us it to sign in.
             </text> */}
@@ -425,7 +435,7 @@ const FormInfoBox = () => {
         </div>
 
         <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
-          Background in Education
+          Education Background
         </text>
 
         <div className="row">
@@ -444,8 +454,6 @@ const FormInfoBox = () => {
               <option value="Other">Other</option>
             </select>
           </div>
-          {/* {selectedPrograms.some(program => program.value === "Other") && ( */}
-
           {formData.eduLev === "Other" && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6"
               style={{ marginBottom: "20px" }}>
@@ -456,7 +464,6 @@ const FormInfoBox = () => {
                 value={formData.otherLevel}
                 onChange={handleInputChange}
                 placeholder="Write other education level attained."
-
               />
             </div>
           )}
@@ -514,13 +521,56 @@ const FormInfoBox = () => {
         </div>
 
         <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
-          Interests
+          Work Experience
+        </text>
+
+        <div className="row" style={{ borderBottom: "1px solid #f1f3f7" }}>
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "20px" }}>
+            <label>Currently Working?*</label>
+            <select style={{ height: "32px", padding: "0px 0px" }}
+              name="isEmp" value={formData.isEmp} required
+              onChange={handleInputChange} className="chosen-single form-select" >
+              <option value="" disabled>Select...</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          {formData.isEmp === "Yes" && (
+            <div className="form-group col-lg-4 col-md-4 col-sm-6"
+              style={{ marginBottom: "20px" }}>
+              <label>Employer Name*</label>
+              <input
+                type="text"
+                name="namEmp"
+                value={formData.namEmp}
+                onChange={handleInputChange}
+                placeholder="If self employed, enter Self."
+              />
+            </div>
+          )}
+
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "20px" }}>
+            <label>Total Work Experience in Years*</label>
+            <input type="text" name="yrsEmp" value={formData.yrsEmp}
+              onChange={handleInputChange} required
+              placeholder="If no work experience, enter 0." />
+          </div>
+
+          <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
+            * Upload your resume/CV using File Manager.
+          </text>
+        </div>
+
+        <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
+          Job Interests
         </text>
 
         <div className="row">
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "20px" }} >
-            <label>Interested to Study in Canada?*</label>
+            <label>Interested in Working in Canada?*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="isIntr" value={formData.isIntr} required
               onChange={handleInputChange} className="chosen-single form-select" >
@@ -530,8 +580,9 @@ const FormInfoBox = () => {
             </select>
           </div>
 
-          <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
-            <label>Which Intake?*</label>
+          <div className="form-group col-lg-4 col-md-4 col-sm-6"
+            style={{ marginBottom: "20px" }}>
+            <label>Availability*</label>
             <MultiSelect
               options={intakes}
               value={selectedIntakes}
@@ -540,10 +591,11 @@ const FormInfoBox = () => {
               name='datAvl'
               required
             />
+
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
-            <label>Province Interested In*</label>
+            <label>Province(s) Interested In*</label>
             <MultiSelect
               options={provincesCanada}
               value={selectedProvince}
@@ -558,7 +610,7 @@ const FormInfoBox = () => {
         <div className="row"
           style={{ borderBottom: "1px solid #f1f3f7", paddingBottom: "10px" }}>
           <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
-            <label>Programs Applying For*</label>
+            <label>Job Sectors Applying For*</label>
             <MultiSelect
               options={programOptions}
               value={selectedPrograms}
@@ -570,23 +622,28 @@ const FormInfoBox = () => {
           </div>
           {selectedPrograms.some(program => program.value === "Other") && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
-              <label>Other Program(s) Applying For*</label>
-              <input type="text" name="otherProgram" required value={formData.otherProgram} onChange={handleInputChange} placeholder="Write other programs applying for" />
+              <label>Other Sector(s) Applying For*</label>
+              <input type="text" name="otherProgram" required value={formData.otherProgram}
+                onChange={handleInputChange} placeholder="Write other job sectors applying for." />
             </div>
           )}
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "20px" }} >
-            <label>Allow In Search & Listing</label>
+            <label>Allow In Search & Listing*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="allSrch" value={formData.allSrch}
+              name="allSrch" value={formData.allSrch} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
+            <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
+              Allows your profile to be visible during search.
+            </text>
           </div>
         </div>
+
 
         <text style={{ margin: "30px 0px 10px 0px", textAlign: "center", fontWeight: "bolder", fontSize: "1em" }}>
           Details
@@ -596,12 +653,12 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-12 col-md-12"
             style={{ marginBottom: "5px" }}>
             <textarea name="detail" value={formData.detail} onChange={handleInputChange}
-              placeholder="Please describe your goals and interests in pursuing your education in Canada."></textarea>
+              placeholder="Please describe your interests, skills and experience. Highlight anything that helps Canadian job posters to know you better."></textarea>
           </div>
         </div>
 
         <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
-          * Upload any supporting document using File Manager.
+          Upload supporting documents using File Manager.
         </text>
 
         <div className="row">

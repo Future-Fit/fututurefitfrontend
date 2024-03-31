@@ -137,7 +137,7 @@ const handleMouseEnter = (itemId, event) => {
         )}
         {/* End - Conditional rendering based on windowWidth */}
 
-        {/* {hoveredItem !== null && (
+        {hoveredItem !== null && (
           <div
             className="popover"
             style={{
@@ -154,7 +154,7 @@ const handleMouseEnter = (itemId, event) => {
           >
             {blockContent.find(item => item.id === hoveredItem)?.popupDetail}
           </div>
-        )} */}
+        )}
       </div>
     </section>
   );
