@@ -499,9 +499,9 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "20px" }}>
             <label>Total Years of Study*</label>
-            <input type="text" name="eduYrs" value={formData.eduYrs}
+            <input type="number" name="eduYrs" value={formData.eduYrs}
               onChange={handleInputChange} required
-              placeholder="Primary to post-secondary" />
+              placeholder="Primary to post-secondary" min="0" />
           </div>
         </div>
 

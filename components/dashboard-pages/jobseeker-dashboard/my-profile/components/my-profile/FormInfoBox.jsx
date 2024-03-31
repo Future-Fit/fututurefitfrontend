@@ -484,9 +484,9 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "20px" }}>
             <label>Total Years of Study*</label>
-            <input type="text" name="eduYrs" value={formData.eduYrs}
+            <input type="number" name="eduYrs" value={formData.eduYrs}
               onChange={handleInputChange} required
-              placeholder="Primary to post-secondary" />
+              placeholder="Primary to post-secondary" min="0" />
           </div>
         </div>
 
@@ -568,7 +568,7 @@ const FormInfoBox = () => {
             <label>Total Work Experience in Years*</label>
             <input type="number" name="yrsEmp" value={formData.yrsEmp}
               onChange={handleInputChange} required
-              placeholder="If no work experience, enter 0." />
+              placeholder="If no work experience, enter 0." min="0"/>
           </div>
 
           <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
