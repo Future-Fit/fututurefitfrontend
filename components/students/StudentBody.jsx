@@ -56,7 +56,7 @@ const StudentBody = () => {
                   {shopItems.filter(item => item.category === "Student Service").map((item) => (
                     <ul className="list-style-five" >
                       <a href={`/shop/shop-single/${item.id}`} rel="noreferrer noopener">
-                        <li>{item.title} </li>
+                        <li style={{textDecoration: "underline"}}>{item.title} </li>
                       </a>
                     </ul>
                   ))}

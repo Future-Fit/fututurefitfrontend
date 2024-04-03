@@ -1,12 +1,12 @@
 import Link from "next/link.js";
-import schools from "../../../../../data/school-featured.js";
+import jobs from "../../../../../data/job-featured.js";
 import Image from "next/image.js";
 
-const SchoolListingsTable = () => {
+const JobListingsTable = () => {
   return (
     <div className="tabs-box">
       <div className="widget-title">
-        <h4>Schools Applied To</h4>
+        <h4>Applied Jobs</h4>
 
         <div className="chosen-outer">
           {/* <!--Tabs Box--> */}
@@ -35,11 +35,10 @@ const SchoolListingsTable = () => {
                 </tr>
               </thead>
 
-              <tbody>
-                {schools.slice(0, 4).map((item) => (
+              {/* <tbody>
+                {jobs.slice(0, 4).map((item) => (
                   <tr key={item.id}>
                     <td>
-                      {/* <!-- Job Block --> */}
                       <div className="job-block">
                         <div className="inner-box">
                           <div className="content">
@@ -90,7 +89,7 @@ const SchoolListingsTable = () => {
                     </td>
                   </tr>
                 ))}
-              </tbody>
+              </tbody> */}
             </table>
           </div>
         </div>
@@ -100,4 +99,4 @@ const SchoolListingsTable = () => {
   );
 };
 
-export default SchoolListingsTable;
+export default JobListingsTable;

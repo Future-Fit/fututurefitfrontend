@@ -2,7 +2,7 @@ import CartItems from "./CartItems";
 
 const CartTable = () => {
     return (
-        <table className="default-table ">
+        <table className="default-table" style={{minWidth: "auto"}}>
             <thead className="cart-header">
                 <tr>
                     <th className="product-name">Item</th>

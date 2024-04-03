@@ -126,7 +126,7 @@ const FormInfoBox = () => {
 
   const formatDate = (dateString) => {
     if (!dateString || isNaN(Date.parse(dateString))) {
-        return ''; // Return empty string if date is invalid or empty
+      return ''; // Return empty string if date is invalid or empty
     }
     const date = new Date(dateString);
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -134,7 +134,7 @@ const FormInfoBox = () => {
     const year = date.getFullYear();
 
     return `${year}-${month}-${day}`;
-};
+  };
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -177,7 +177,7 @@ const FormInfoBox = () => {
       window.location.reload();
     } catch (error) {
       console.error("Error updating user details:", error.response ? error.response.data : error);
-      alert("Error updating user details. Please fill in all required data.")
+      alert("test Error updating user details. Please fill in all required data.")
       // Handle errors (e.g., show error message to the user)
     }
   };
@@ -221,7 +221,7 @@ const FormInfoBox = () => {
             proCan: proCan.map(option => ({ label: option, value: option })),
             intAre: intAre.map(option => ({ label: option, value: option })),
             ...response.data,
-            dob: formatDate(response.data.dob)
+            // dob: formatDate(response.data.dob)
           };
 
           setUserDetail(response.data);
@@ -234,9 +234,6 @@ const FormInfoBox = () => {
       fetchUserDetails();
     }
   }, []);
-
-
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -248,40 +245,54 @@ const FormInfoBox = () => {
     const isOtherLevelSelected = formData.eduLev === "Other";
     const isOtherLevelEmpty = isOtherLevelSelected && (!formData.otherLevel || formData.otherLevel.trim() === '');
 
-    const isEmpSelected = formData.isEmp === "Yes";
+    const isEmpSelected = formData.isEmp === true;
     const namEmpEmpty = isEmpSelected && (!formData.namEmp || formData.namEmp.trim() === '');
 
-    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs", "proEng", "yrsEmp", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
-    
+    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs",
+      "proEng", "yrsEmp", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
+
     const errors = {};
     requiredFields.forEach(field => {
-      if (!formData[field]) {
-        errors[field] = true;
-      } else {
-        errors[field] = false;
-      }
+      errors[field] = !formData[field]; // Set error to true if field is empty
     });
     setRequiredFieldsError(errors);
 
-    // Check if there are any errors
-    if (Object.values(errors).some(error => error)) {
+    // const errors = {};
+    // requiredFields.forEach(field => {
+    //   if (!formData[field]) {
+    //     errors[field] = true;
+    //   } else {
+    //     errors[field] = false;
+    //   }
+    // });
+    // setRequiredFieldsError(errors);
+
+    const unfilledFields = Object.keys(errors).filter(field => errors[field]);
+    if (unfilledFields.length > 0) {
       // If there are errors, prevent form submission
-      alert("Error updating user details. Please fill in all required data.");
+      // alert(`Error updating user details. Please fill in all required data for fields: ${unfilledFields.join(", ")}.`);
+      alert(`Error updating user details. Please fill in all required data for fields underlined by red`);
       return;
     }
+
+    // Check if there are any errors
+    // if (Object.values(errors).some(error => error)) {
+    //   // If there are errors, prevent form submission
+    //   alert("Error updating user details. Please fill in all required data.");
+    //   return;
+    // }
 
     if (isOtherSelected && isOtherProgramEmpty) {
       alert("Other Program should not be empty");
       return; // Prevent form submission
     }
 
-
-    if (isOtherLevelEmpty) {
+    if (isOtherLevelSelected && isOtherLevelEmpty) {
       alert("Other Level should not be empty");
       return; // Prevent form submission
     }
 
-    if (namEmpEmpty) {
+    if (isEmpSelected && namEmpEmpty) {
       alert("Employer Name should not be empty");
       return; // Prevent form submission
     }
@@ -304,20 +315,6 @@ const FormInfoBox = () => {
 
   return (
     <form action="#" className="default-form">
-
-      <div className="row">
-        {/* {Object.entries(requiredFieldsError).map(([fieldName, hasError]) => (
-          hasError && (
-            <div key={fieldName} className="error-indicator" style={{
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              backgroundColor: 'red',
-              marginRight: '5px'
-            }}></div>
-          )
-        ))} */}
-      </div>
       <div className="row">
         <div className="row">
           {/* <!-- Input --> */}
@@ -332,6 +329,8 @@ const FormInfoBox = () => {
             <label>Last (Family) Name*</label>
             <input type="text" name="lname" value={formData.lname}
               onChange={handleInputChange} placeholder="Last Name" required />
+            {requiredFieldsError["lname"] && <div className="error-indicator" />}
+
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
@@ -345,6 +344,8 @@ const FormInfoBox = () => {
             <label>First (Given) Name*</label>
             <input type="text" name="fname" value={formData.fname}
               onChange={handleInputChange} placeholder="First Name" required />
+            {requiredFieldsError["fname"] && <div className="error-indicator" />}
+
           </div>
         </div>
 
@@ -359,8 +360,10 @@ const FormInfoBox = () => {
                 backgroundColor: "#f0f5f7", border: "1px solid #f0f5f7",
                 boxSizing: "border-box", borderRadius: "8px"
               }}
-                type="date" name="dob" value={formData.dob} //
+                type="text" name="dob" value={formData.dob} //
                 onChange={handleInputChange} placeholder="MM/DD/YYYY" required />
+              {requiredFieldsError["dob"] && <div className="error-indicator" />}
+
             </div>
           </div>
           {/* <div className={`form-group col-lg-4 col-md-4 col-sm-12 ${requiredFieldsError.fname ? 'error-indicator' : ''}`} */}
@@ -369,6 +372,7 @@ const FormInfoBox = () => {
             <label>Gender*</label>
             <input type="text" name="gen" value={formData.gen}
               onChange={handleInputChange} placeholder="" required />
+            {requiredFieldsError["gen"] && <div className="error-indicator" />}
           </div>
         </div>
 
@@ -378,6 +382,8 @@ const FormInfoBox = () => {
             <label>Place of Birth*</label>
             <input type="text" name="plcBir" value={formData.plcBir}
               onChange={handleInputChange} placeholder="Place of Birth (City)" required />
+            {requiredFieldsError["plcBir"] && <div className="error-indicator" />}
+
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
@@ -395,6 +401,8 @@ const FormInfoBox = () => {
                 </option>
               ))}
             </select>
+            {requiredFieldsError["ctzn"] && <div className="error-indicator" />}
+
           </div>
         </div>
 
@@ -404,12 +412,16 @@ const FormInfoBox = () => {
             <label>Current Address*</label>
             <input type="text" name="addr" value={formData.addr} required
               onChange={handleInputChange} placeholder="Include Street Name, Postal Code" />
+            {requiredFieldsError["addr"] && <div className="error-indicator" />}
+
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Current City*</label>
             <input type="text" name="city" value={formData.city} required
               onChange={handleInputChange} placeholder="Current City" />
+            {requiredFieldsError["city"] && <div className="error-indicator" />}
+
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
@@ -425,6 +437,8 @@ const FormInfoBox = () => {
                 </option>
               ))}
             </select>
+            {requiredFieldsError["resid"] && <div className="error-indicator" />}
+
           </div>
         </div>
 
@@ -441,6 +455,8 @@ const FormInfoBox = () => {
             <label>Email Address*</label>
             <input type="email" name="email" value={formData.email} required disabled
               onChange={handleInputChange} placeholder="Email Address" />
+            {requiredFieldsError["email"] && <div className="error-indicator" />}
+
             {/* <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
               * If you change your email address here, make sure to us it to sign in.
             </text> */}
@@ -466,6 +482,8 @@ const FormInfoBox = () => {
               <option value="Certificate/Vocational">Certificate/Vocational</option>
               <option value="Other">Other</option>
             </select>
+            {requiredFieldsError["eduLev"] && <div className="error-indicator" />}
+
           </div>
           {formData.eduLev === "Other" && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6"
@@ -487,6 +505,8 @@ const FormInfoBox = () => {
             <input type="number" name="eduYrs" value={formData.eduYrs}
               onChange={handleInputChange} required
               placeholder="Primary to post-secondary" min="0" />
+            {requiredFieldsError["eduYrs"] && <div className="error-indicator" />}
+
           </div>
         </div>
 
@@ -504,6 +524,8 @@ const FormInfoBox = () => {
               <option value="Beginner">Beginner</option>
               <option value="None">None</option>
             </select>
+            {requiredFieldsError["proEng"] && <div className="error-indicator" />}
+
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
@@ -545,11 +567,13 @@ const FormInfoBox = () => {
               name="isEmp" value={formData.isEmp} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
             </select>
+            {requiredFieldsError["isEmp"] && <div className="error-indicator" />}
+
           </div>
-          {formData.isEmp === "Yes" && (
+          {formData.isEmp === true && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6"
               style={{ marginBottom: "20px" }}>
               <label>Employer Name*</label>
@@ -568,7 +592,8 @@ const FormInfoBox = () => {
             <label>Total Work Experience in Years*</label>
             <input type="number" name="yrsEmp" value={formData.yrsEmp}
               onChange={handleInputChange} required
-              placeholder="If no work experience, enter 0." min="0"/>
+              placeholder="If no work experience, enter 0." min="0" />
+            {requiredFieldsError["yrsEmp"] && <div className="error-indicator" />}
           </div>
 
           <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
@@ -591,6 +616,8 @@ const FormInfoBox = () => {
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
+            {requiredFieldsError["isIntr"] && <div className="error-indicator" />}
+
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
@@ -604,7 +631,7 @@ const FormInfoBox = () => {
               name='datAvl'
               required
             />
-
+            {requiredFieldsError["datAvl"] && <div className="error-indicator" />}
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
@@ -617,6 +644,8 @@ const FormInfoBox = () => {
               name='proCan'
               required
             />
+            {requiredFieldsError["proCan"] && <div className="error-indicator" />}
+
           </div>
         </div>
 
@@ -632,12 +661,15 @@ const FormInfoBox = () => {
               name='intAre'
               required
             />
+            {requiredFieldsError["intAre"] && <div className="error-indicator" />}
+
           </div>
           {selectedPrograms.some(program => program.value === "Other") && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
               <label>Other Sector(s) Applying For*</label>
               <input type="text" name="otherProgram" required value={formData.otherProgram}
                 onChange={handleInputChange} placeholder="Write other job sectors applying for." />
+
             </div>
           )}
 
@@ -651,6 +683,8 @@ const FormInfoBox = () => {
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
+            {requiredFieldsError["allSrch"] && <div className="error-indicator" />}
+
             <text style={{ fontWeight: "lighter", fontSize: "0.8em", paddingBottom: "15px" }}>
               Allows your profile to be visible during search.
             </text>

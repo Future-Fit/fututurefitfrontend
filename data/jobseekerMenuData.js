@@ -31,9 +31,9 @@ module.exports = [
   },
   {
     id: 5,
-    name: "Applied Schools",
+    name: "Applied Jobs",
     icon: "la-briefcase",
-    routePath: "/jobseeker-dashboard/applied-schools",
+    routePath: "/jobseeker-dashboard/applied-jobs",
     active: "",
   },
   {

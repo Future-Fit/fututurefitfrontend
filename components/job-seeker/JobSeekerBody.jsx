@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import GlobalConfig from "@/Global.config";
+import shopItems from "@/data/shopItems";
 
 const JobSeekerBody = () => {
 
@@ -39,6 +40,27 @@ const JobSeekerBody = () => {
                 </div>
               </div>
             </div>
+            &nbsp;
+
+            <div className="inner-column" style={{ display: "grid", justifyContent: "center" }}>
+              <div className="list" style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.1)', borderRadius: '5px',
+                width: "fit-content", height: "fit-content", padding: "20px 20px"
+              }}>
+                <h4 style={{ fontWeight: "600", color: GlobalConfig.LogoBlu }}>
+                  Select Services to Order:</h4>
+                <div style={{ color: GlobalConfig.BgrClr1, textAlign: "justify" }}>
+                  {shopItems.filter(item => item.category === "Job Seeker Service").map((item) => (
+                    <ul className="list-style-five" >
+                      <a href={`/shop/shop-single/${item.id}`} rel="noreferrer noopener">
+                        <li style={{ textDecoration: "underline"}}>{item.title} </li>
+                      </a>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
           <div className="content-column col-md-8 col-sm-12">
             <div className="inner-column" data-aos="fade-left">
@@ -61,15 +83,20 @@ const JobSeekerBody = () => {
                     businesses, providing you current updates on relevant rules and regulations,
                     and making the entire application process as easy as possible. <br /><br />
 
-                    <strong> Summary of Services: </strong><br />
+                    Services we offer to job seekers include: <br />
 
-                    <ul className="list-style-five" style={{ color: GlobalConfig.BgrClr1, textAlign: "justify", left: "5px", paddingLeft: "17px" }}>
-                      <li>Access to opportunities that can lead to great job offers for qualified
-                        applicants </li>
-                      <li>Personalized support for applicants tailored to specific needs</li>
-                      <li>Services in qualifying, checking and translating documentation and credentials</li>
-                      <li>Providing services in international travel, resettlement and related activities  </li>
+                    <ul className="list-style-five" >
+                      <li><strong>Matching Services</strong> - conduct job search based on your
+                        skills, preferences, location, and other criteria; offer advise you on which opportunties
+                        are good match with your skills and ambitions; and provide support in job applications.</li>
+                      <li><strong>Personalized Services</strong> - provide customized services that are specific to your objectives; identify and offer language and skills
+                        development services based on individual consultation.</li>
+                      <li><strong>Verification, Translation and Documentation</strong> - conduct
+                        document verification, translation and preparation services.</li>
+                      <li><strong>Pre-Arrival/After-Arrival Support</strong> - provide extended
+                        services on travel, relocation and family support for students and their families.</li>
                     </ul>
+                    <br />
                   </span>
                 </div>
               </div>

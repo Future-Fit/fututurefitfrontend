@@ -27,8 +27,8 @@ const CartItems = () => {
           <td className="product-thumbnail">
             <Link href={`/shop/shop-single/${item.id}`}>
               <Image
-                width={50}
-                height={50}
+                width={30}
+                height={30}
                 src={item.img}
                 alt="cart added product"
               />

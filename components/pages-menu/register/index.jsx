@@ -16,14 +16,14 @@ import { Toast } from 'react-bootstrap';
 
 const index = () => {
   const [userType, setUserType] = useState();
- 
+
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [registrationMessage, setRegistrationMessage] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
-  const myError = ()=>{
+  const myError = () => {
 
   }
-  const myToast = ()=>{
+  const myToast = () => {
 
   }
   useEffect(() => {
@@ -35,16 +35,6 @@ const index = () => {
 
   return (
     <>
-
-      {/* { <LoginPopup />} */}
-      {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
-      {userType === 4 && <DashboardJobseekerHeader />}
-      {userType === 5 && <DashboardStudentHeader />}
-      {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
-      {/* <!--End Main Header -->  */}
-
-      <MobileMenu />
       <Toast
         onClose={() => {
 
@@ -74,24 +64,40 @@ const index = () => {
 
         </Toast.Body>
       </Toast>
+
+      {  <LoginPopup myError={(value) => setPasswordError(value)} myToast={(value) => setRegistrationMessage(value)} closeMe={() => {
+        const element = document.getElementById("btn-del");
+        element.click();
+      }} />}
+
+      {/* { <LoginPopup />} */}
+      {userType === 1 && <DashboardAdminHeader />}
+      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 4 && <DashboardJobseekerHeader />}
+      {userType === 5 && <DashboardStudentHeader />}
+      {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}
+      {/* <!--End Main Header -->  */}
+
+      <MobileMenu />
+
       {/* End MobileMenu */}
 
-      { <div className="login-section">
+      {<div className="login-section">
         <div
           className="image-layer"
           style={{ backgroundImage: "url(/images/background/17.jpeg)" }}
         ></div>
         <div className="outer-box">
-          
+
           {/* <!-- Login Form --> */}
           {isModalOpen && <div className="login-form default-form">
-            <Register  myError={(value) => setPasswordError(value)} myToast={(value) => setRegistrationMessage(value)} closeMe={() => {
-      
-             setTimeout(() => {
-              window.location.replace('/login');
-            }, 4000);
+            <Register myError={(value) => setPasswordError(value)} myToast={(value) => setRegistrationMessage(value)} closeMe={() => {
 
-      }}  />
+              setTimeout(() => {
+                window.location.replace('/login');
+              }, 4000);
+
+            }} />
           </div>}
           {/* <!--End Login Form --> */}
         </div>

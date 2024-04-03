@@ -71,15 +71,14 @@ const MobileMenu = () => {
       clearSession();
       return
     } else {
-      window.location.reload();
-      return
+      return false
     }
   };
 
   const handleProfileRedirect = () => {
     const userType = localStorage.getItem("userType");
     if (userType === "4") {
-      router.push("/candidates-dashboard/my-profile");
+      router.push("/jobseeker-dashboard/my-profile");
     } else if (userType === "3") {
       router.push("/employers-dashboard/dashboard");
     } else if (userType === "5") {
@@ -254,7 +253,7 @@ const MobileMenu = () => {
     // Fetch job postings from the API
     const fetchJobPostings = async () => {
       try {
-        const response = await axios.get(`${apiConfig.url}/jobpost'`);
+        const response = await axios.get(`${apiConfig.url}/jobpost`);
         setJobPostings(response.data);
       } catch (error) {
         console.error('Error fetching job postings:', error);

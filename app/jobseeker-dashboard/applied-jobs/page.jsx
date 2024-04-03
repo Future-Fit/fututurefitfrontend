@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import AppliedSchools from "@/components/dashboard-pages/jobseeker-dashboard/applied-schools";
+import AppliedJobs from "@/components/dashboard-pages/jobseeker-dashboard/applied-jobs";
 
 export const metadata = {
   title: "Applied Jobs || Future Fit International - Job Portal Platform",
@@ -9,7 +9,7 @@ export const metadata = {
 const index = () => {
   return (
     <>
-      <AppliedSchools />
+      <AppliedJobs />
     </>
   );
 };

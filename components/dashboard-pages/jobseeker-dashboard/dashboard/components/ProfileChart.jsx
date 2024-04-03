@@ -61,7 +61,7 @@ export const data = {
       data: labels.map(() => faker.datatype.number({ min: 100, max: 400 })),
       borderColor: "#1967d2",
       backgroundColor: "#1967d2",
-      data: [196, 132, 215, 362, 210, 252],
+      data: [],
       fill: false,
     },
   ],
@@ -86,7 +86,7 @@ const ProfileChart = () => {
       {/* End widget top bar */}
 
       <div className="widget-content">
-        <Line options={options} data={data} />
+        {/* <Line options={options} data={data} /> */}
       </div>
       {/* End  profile chart */}
     </div>

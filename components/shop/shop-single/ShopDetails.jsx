@@ -86,7 +86,7 @@ const ShopSingleDyanmic = ({ id }) => {
       <MobileMenu />
       {/* End MobileMenu */}
 
-      <Breadcrumb title="FFI - Service Ordering Details" meta={product?.title} />
+      <Breadcrumb title="Order Details" meta={product?.title} />
       {/* <!--End Page Title--> */}
 
       {/* <!-- Start Shop Single --> */}
@@ -103,8 +103,8 @@ const ShopSingleDyanmic = ({ id }) => {
                       <Item
                         original={product?.img}
                         thumbnail={product?.img}
-                        width={100}
-                        height={100}
+                        width={80}
+                        height={80}
                       >
                         {({ ref, open }) => (
                           <div
@@ -113,8 +113,8 @@ const ShopSingleDyanmic = ({ id }) => {
                             onClick={open}
                           >
                             <Image
-                              width={100}
-                              height={100}
+                              width={80}
+                              height={80}
                               src={product?.img}
                               alt="shop single product for job board"
                             />
@@ -130,17 +130,24 @@ const ShopSingleDyanmic = ({ id }) => {
                 <div className="info-column col-md-6 col-sm-12">
                   <div className="inner-column">
                     <h4 className="product-name">
-                      {product?.title} - {product?.description}
+                      {product?.title} - 
+                    </h4>
+                    <h4 className="product-name" style={{ fontSize: "1.5em" }}>
+                      {product?.description}
                     </h4>
                     <div className="text">
-                    {product?.details}
+                      {product?.details}
                     </div>
-                    {/* {isLoggedIn ? (
-                      <div className="item-price">
-                        ${product?.price}
-                        <del>${product?.oldPrice}</del>
+                    {isLoggedIn ? (
+                      <div className="item-price" style={{color: "red"}}>
+                        ${product?.price} - contact us!
+                        {/* <del>${product?.oldPrice}</del> */}
                       </div>
-                    ) : "To see price details, please sign in."} */}
+                    ) :
+                      <div className="item-price" style={{color: "red"}}>
+                        Login or sign up to see price!
+                      </div>
+                    }
 
                     <div className="other-options">
                       <div className="item-quantity">
@@ -207,10 +214,10 @@ const ShopSingleDyanmic = ({ id }) => {
       </section>
       {/* <!-- End Shop Single --> */}
 
-       {/* Related Product Tab */}
-       <section className="related-products">
+      {/* Related Product Tab */}
+      <section className="related-products">
         <div className="auto-container">
-        <h3>Related Services</h3>
+          <h3>Related Services</h3>
           <div className="related-products-container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
             {relatedProducts.map((item) => (
               <Link key={item.id} href={`/shop/shop-single/${item.id}`} passHref>

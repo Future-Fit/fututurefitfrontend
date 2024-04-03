@@ -56,11 +56,12 @@ const index = () => {
         <section className="checkout-page">
           <div className="auto-container">
             {/* <BillingAll /> */}
-            <b style={{ display: "grid", justifyItems: "center", fontSize: "1.2em" }}>
-              Please contact us to finalize checkout.
+            <b style={{ display: "grid", justifyItems: "center", color: "red", fontSize: "1em" }}>
+              Automatic payment is not yet enabled. Please contact us to checkout. Thank you!
             </b>
-            <b style={{ display: "grid", justifyItems: "right", fontSize: "1em" }}>
-              Thank you!
+            <div><br/></div>
+            <b style={{ display: "grid", justifyItems: "right", color: "red", fontSize: "1em" }}>
+              Management
             </b>
           </div>
         </section>
