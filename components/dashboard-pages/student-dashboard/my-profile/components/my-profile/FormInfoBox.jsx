@@ -122,16 +122,24 @@ const FormInfoBox = () => {
   // };
 
   const formatDate = (dateString) => {
+  console.log(dateString,"here we go")
     if (!dateString || isNaN(Date.parse(dateString))) {
-        return ''; // Return empty string if date is invalid or empty
+      return '';
     }
     const date = new Date(dateString);
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
-    const year = date.getFullYear();
+    console.log(date,dateString,"this is the date");
+    
+    
+    
+ 
+  const year = date.getUTCFullYear();
+ 
+  const month = (date.getUTCMonth()+ 1).toString().padStart(2,0);
+  const day = date.getUTCDate().toString().padStart(2,0);
+    
+  return `${year}-${month}-${day}`;
 
-    return `${year}-${month}-${day}`;
-};
+  };
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -223,6 +231,7 @@ const FormInfoBox = () => {
 
           setUserDetail(response.data);
           setFormData(prevData => ({ ...prevData, ...formDataUpdates, ...formattedData }));
+          console.log(formData, "test this", response.data);
         } catch (error) {
           console.error("Error fetching user details:", error);
         }
@@ -259,11 +268,15 @@ const FormInfoBox = () => {
     setRequiredFieldsError(errors);
 
     // Check if there are any errors
-    if (Object.values(errors).some(error => error)) {
-      // If there are errors, prevent form submission
-      alert("Error updating user details. Please fill in all required data.");
-      return;
-    }
+    // if (Object.values(errors).some(error => error)) {
+    // If there are errors, prevent form submission
+
+
+    //   alert("Error updating user details. Please fill in all required data.");
+
+    //   return;
+
+    // }
 
     if (isOtherSelected && isOtherProgramEmpty) {
       alert("Other Program should not be empty");
@@ -358,22 +371,18 @@ const FormInfoBox = () => {
             <label>Date of Birth*</label>
             <div>
               <input
-                style={{
-                  fontSize: "15px",
-                  color: "#696969",
-                  backgroundColor: "#f0f5f7",
-                  border: "1px solid #f0f5f7",
-                  boxSizing: "border-box",
-                  borderRadius: "8px"
-                }}
+
                 type="date"
                 name="dob"
                 value={formData.dob}
-
                 onChange={handleInputChange} placeholder="MM/DD/YYY"
-                max={new Date().toISOString().split('T')[0]} required />
+                max={new Date().toISOString().split('T')[0]}
+                // 
+                required />
             </div>
           </div>
+
+
 
 
           <div className={`form-group col-lg-4 col-md-4 col-sm-12 ${requiredFieldsError.fname ? 'error-indicator' : ''}`}
