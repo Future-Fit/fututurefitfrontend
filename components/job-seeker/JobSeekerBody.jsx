@@ -107,8 +107,8 @@ const JobSeekerBody = () => {
           <div className="inner-column">
             <div className="text" style={{ color: GlobalConfig.Fgr1Clr, fontSize: "1.1em", textAlign: "justify", lineHeight: "1.4em" }}>
               <span>
-                To learn more and explore available opportunities, sign up
-                below and start building your profile.
+                To learn more about Canadian rules and regulations on hiring international workers and explore available opportunities, 
+                sign up below. FFI will be able to assist you after your profile is complete.
               </span>
             </div>
           </div>

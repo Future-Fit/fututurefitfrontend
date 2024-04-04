@@ -80,9 +80,6 @@ const AboutBody = () => {
                   Thank you for visiting our website! We hope that you will be happy with the quality 
                   and range of services we provide. For any inquiries, please contact us. <br /> <br />
 
-                  <strong>Management</strong>
-                  <br /> <br />
-
                   <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}>
                     <Link href="/service" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.LogoBlu, backgroundColor: GlobalConfig.LogoOrg }}>
                       <span className="btn-title"><strong>Our Services</strong></span>

@@ -48,8 +48,8 @@ const AboutTop = () => {
                 alt={item.alt}
               />
               <h4 className="title" style={{ color: item.color, fontWeight: "800" }}>{item.title}</h4>
-              <h4 className="text" style={{ color: GlobalConfig.Fgr1Clr, fontWeight: "800", fontSize: "16px", fontFamily: GlobalConfig.Fnt1Fam }}>{item.text}</h4>
-              <div className="sec-title" style={{ color: GlobalConfig.Fgr1Clr, fontWeight: "800", fontSize: "16px", fontFamily: GlobalConfig.Fnt1Fam }}>
+              <h4 className="text" style={{ color: GlobalConfig.Fgr1Clr, fontWeight: "700", fontSize: "16px" }}>{item.text}</h4>
+              <div className="sec-title" style={{ color: GlobalConfig.Fgr1Clr, fontWeight: "700", fontSize: "16px", margin: "0px"}}>
                 {item.list1 || item.list2 || item.list3 || item.list4 ? (
                   <ul className="list-style-five">
                     {item.list1 && <li>{item.list1}</li>}

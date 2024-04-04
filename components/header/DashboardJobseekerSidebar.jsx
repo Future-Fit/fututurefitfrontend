@@ -120,7 +120,7 @@ const DashboardJobseekrSidebar = () => {
         await clearSession(); // Clear session (assuming this can be made async)
         return;
       } else{
-        return false
+        return
       }
     } else if (item.id === 8) {
       event.preventDefault(); // Prevent default Link navigation

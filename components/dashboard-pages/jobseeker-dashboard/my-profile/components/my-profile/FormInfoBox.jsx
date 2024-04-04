@@ -112,28 +112,19 @@ const FormInfoBox = () => {
     setSelectedProvince(selected);
   };
 
-  // const formatDate = (dateString) => {
-  //   if (!dateString || isNaN(Date.parse(dateString))) {
-  //     return ''; // Return empty string if date is invalid or empty
-  //   }
-  //   const date = new Date(dateString);
-  //   const month = (date.getMonth() + 1).toString().length < 2 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
-  //   const day = date.getDate().length < 2 ? "0" + date.getDate() : date.getDate();
-  //   const year = date.getFullYear();
-
-  //   return `${year}-${month}-${day}`;
-  // };
-
   const formatDate = (dateString) => {
     if (!dateString || isNaN(Date.parse(dateString))) {
-      return ''; // Return empty string if date is invalid or empty
+      return '';
     }
     const date = new Date(dateString);
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
-    const year = date.getFullYear();
+    console.log(date, dateString, "this is the date");
+
+    const year = date.getUTCFullYear();
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, 0);
+    const day = date.getUTCDate().toString().padStart(2, 0);
 
     return `${year}-${month}-${day}`;
+
   };
 
   useEffect(() => {
@@ -177,7 +168,7 @@ const FormInfoBox = () => {
       window.location.reload();
     } catch (error) {
       console.error("Error updating user details:", error.response ? error.response.data : error);
-      alert("test Error updating user details. Please fill in all required data.")
+      alert("Error updating user details. Please fill in all required data.")
       // Handle errors (e.g., show error message to the user)
     }
   };
@@ -221,7 +212,7 @@ const FormInfoBox = () => {
             proCan: proCan.map(option => ({ label: option, value: option })),
             intAre: intAre.map(option => ({ label: option, value: option })),
             ...response.data,
-            // dob: formatDate(response.data.dob)
+            dob: formatDate(response.data.dob)
           };
 
           setUserDetail(response.data);
@@ -248,8 +239,7 @@ const FormInfoBox = () => {
     const isEmpSelected = formData.isEmp === true;
     const namEmpEmpty = isEmpSelected && (!formData.namEmp || formData.namEmp.trim() === '');
 
-    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs",
-      "proEng", "yrsEmp", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
+    const requiredFields = ["lname", "fname", "dob", "gen", "plcBir", "ctzn", "addr", "city", "resid", "email", "eduLev", "eduYrs", "proEng", "yrsEmp", "isIntr", "datAvl", "intAre", "proCan", "allSrch"];
 
     const errors = {};
     requiredFields.forEach(field => {
@@ -257,15 +247,6 @@ const FormInfoBox = () => {
     });
     setRequiredFieldsError(errors);
 
-    // const errors = {};
-    // requiredFields.forEach(field => {
-    //   if (!formData[field]) {
-    //     errors[field] = true;
-    //   } else {
-    //     errors[field] = false;
-    //   }
-    // });
-    // setRequiredFieldsError(errors);
 
     const unfilledFields = Object.keys(errors).filter(field => errors[field]);
     if (unfilledFields.length > 0) {
@@ -274,13 +255,6 @@ const FormInfoBox = () => {
       alert(`Error updating user details. Please fill in all required data for fields underlined by red`);
       return;
     }
-
-    // Check if there are any errors
-    // if (Object.values(errors).some(error => error)) {
-    //   // If there are errors, prevent form submission
-    //   alert("Error updating user details. Please fill in all required data.");
-    //   return;
-    // }
 
     if (isOtherSelected && isOtherProgramEmpty) {
       alert("Other Program should not be empty");
@@ -355,13 +329,14 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Date of Birth*</label>
             <div>
-              <input style={{
-                fontSize: "15px", color: "#696969",
-                backgroundColor: "#f0f5f7", border: "1px solid #f0f5f7",
-                boxSizing: "border-box", borderRadius: "8px"
-              }}
-                type="text" name="dob" value={formData.dob} //
-                onChange={handleInputChange} placeholder="MM/DD/YYYY" required />
+            <input
+                type="date"
+                name="dob"
+                value={formData.dob}
+                onChange={handleInputChange} placeholder="MM/DD/YYY"
+                max={new Date().toISOString().split('T')[0]}
+                // 
+                required />
               {requiredFieldsError["dob"] && <div className="error-indicator" />}
 
             </div>

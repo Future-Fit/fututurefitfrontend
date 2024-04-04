@@ -71,7 +71,7 @@ const MobileMenu = () => {
       clearSession();
       return
     } else {
-      return false
+      return
     }
   };
 
