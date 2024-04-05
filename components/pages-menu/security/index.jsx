@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
 import DashboardAdminHeader from '../../header/DashboardAdminHeader'
-import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardEmployerHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 
@@ -34,7 +34,7 @@ const index = () => {
       {/* End Login Popup Modal */}
 
       {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 3 && <DashboardEmployerHeader />}
       {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}

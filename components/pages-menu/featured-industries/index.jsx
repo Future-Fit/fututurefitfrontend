@@ -6,7 +6,7 @@ import DefaulHeader2 from "@/components/header/DefaultHeader";
 import FooterDefault from "../../../components/footer/common-footer";
 import DashboardCandidatesHeader from "../../header/DashboardCandidatesHeader";
 import DashboardAdminHeader from '../../header/DashboardAdminHeader'
-import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardEmployerHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import DashboardHeader from "../../header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
@@ -34,7 +34,7 @@ const index = () => {
       {/* End Login Popup Modal */}
 
       {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 3 && <DashboardEmployerHeader />}
       {userType === 4 && <DashboardJobseekerHeader />}
 
       {userType === 5 && <DashboardStudentHeader />}

@@ -7,7 +7,7 @@ import FaqChild from "./FaqChild";
 import { useEffect, useState } from "react";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
 import DashboardAdminHeader from '../../header/DashboardAdminHeader'
-import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardEmployerHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
@@ -33,7 +33,7 @@ const index = () => {
 
 
       {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 3 && <DashboardEmployerHeader />}
       {userType === 4 && <DashboardJobseekerHeader />}
 
       {userType === 5 && <DashboardStudentHeader />}

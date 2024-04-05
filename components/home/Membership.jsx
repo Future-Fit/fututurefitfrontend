@@ -45,7 +45,7 @@ const Membership = () => {
       id: 1,
       icon: "icon-user",
       title: "Register",
-      text: "(Job Seekers/Students)",
+      text: "Easy and Free",
       linkPath: '/register',
       bgClass: "-blue",
       bgcolor: GlobalConfig.LogoOrg
@@ -54,17 +54,17 @@ const Membership = () => {
       id: 2,
       icon: "icon-sign",
       title: "Sign-In",
-      text: "(Build Your Profile)",
-      linkPath: (isLoggedIn && (userType === 4 || userType === 5)) ? '/candidates-dashboard/my-profile' : '/login',
+      text: "Build Your Profile",
+      linkPath: isLoggedIn ? (userType === 4 ? '/jobseeker-dashboard/my-profile' : (userType === 5 ? '/student-dashboard/my-profile' : '/login')) : '/login',
       bgClass: "-red",
       bgcolor: GlobalConfig.LogoOrg
     },
     {
       id: 3,
       icon: "icon-profile",
-      title: "Search & Apply ",
-      text: "(FFI Is Here To Help!)",
-      linkPath: (isLoggedIn && (userType === 4 || userType === 5)) ? '/candidates-dashboard/my-profile' : '/login',
+      title: "Select Services",
+      text: "FFI Is Here To Help!",
+      linkPath: isLoggedIn ? (userType === 4 ? 'service/job-seekers' : (userType === 5 ? 'service/students' : '/login')) : '/login',
       bgClass: "-yellow",
       bgcolor: GlobalConfig.LogoOrg
     },
@@ -79,7 +79,7 @@ const Membership = () => {
             <div className="sec-title text-center">
               <h2 style={{ color: '#fff' }}>Become A Member</h2>
               <h2 style={{ color: '#fff', fontSize: "20px"}}>
-                (Job Seekers & Students)</h2> <br />
+                Job Seekers & Students</h2> <br />
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import DefaulHeader2 from "@/components/header/DefaultHeader";
 import FooterDefault from "@/components/footer/common-footer";
 import DashboardCandidatesHeader from "@/components/header/DashboardCandidatesHeader";
 import DashboardAdminHeader from '../../header/DashboardAdminHeader'
-import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardEmployerHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import { useEffect, useState } from "react";
@@ -37,7 +37,7 @@ const index = () => {
 
 
       {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 3 && <DashboardEmployerHeader />}
       {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}

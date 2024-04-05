@@ -4,7 +4,7 @@ import FooterDefault from "../../footer/common-footer";
 import MobileMenu from "../../header/MobileMenu";
 import Breadcrumb from "../../../components/shop/Breadcrumb";
 import DashboardAdminHeader from "../../../components/header/DashboardAdminHeader"
-import DashboardEmployeeHeader from "../../../components/header/DashboardEmployerHeader"
+import DashboardEmployerHeader from "../../../components/header/DashboardEmployerHeader"
 import DashboardJobseekerHeader from "../../../components/header/DashboardJobseekerHeader"
 import DashboardStudentHeader from "../../../components/header/DashboardStudentsHeader"
 import CartTable from "./components/CartTable";
@@ -37,7 +37,7 @@ const index = () => {
         {/* End Login Popup Modal */}
 
         {userType === 1 && <DashboardAdminHeader />}
-        {userType === 3 && <DashboardEmployeeHeader />}
+        {userType === 3 && <DashboardEmployerHeader />}
         {userType === 4 && <DashboardJobseekerHeader />}
         {userType === 5 && <DashboardStudentHeader />}
         {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}

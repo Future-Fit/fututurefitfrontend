@@ -8,7 +8,7 @@ import JobSearchForm from "./JobSearchForm";
 // import DashboardCandidatesHeader from "../../.. header/DashboardCandidatesHeader";
 import DashboardJobseekerHeader from "../../header/DashboardJobseekerHeader"
 import DashboardAdminHeader from '../../header/DashboardAdminHeader'
-import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardEmployerHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import { useEffect, useState } from "react";
 
@@ -30,7 +30,7 @@ const index = () => {
       {/* End Login Popup Modal */}
 
       {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 3 && <DashboardEmployerHeader />}
       {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}

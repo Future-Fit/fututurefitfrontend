@@ -4,7 +4,7 @@ import DefaulHeader2 from "@/components/header/DefaultHeader";
 import LoginPopup from "@/components/common/form/login/LoginPopup";
 import { useEffect, useState } from "react";
 import DashboardAdminHeader from '../../header/DashboardAdminHeader'
-import DashboardEmployeeHeader from '../../header/DashboardEmployerHeader'
+import DashboardEmployerHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import FormContent2 from "@/components/common/form/login/FormContent2";
 import { Toast } from 'react-bootstrap';
@@ -66,7 +66,7 @@ useEffect(() => {
         element.click();
       }} />}
       {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 3 && <DashboardEmployerHeader />}
       {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}

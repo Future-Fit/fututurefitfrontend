@@ -27,7 +27,7 @@ const AboutBody = () => {
                     process of applying to colleges and universities in Canada. Using technology,
                     on the ground work, and partnerships with stakeholders, FFI makes these tasks
                     as seamless as possible by providing all-inclusive services including: assessment
-                    of "right fit" for employers and employees; searching for institutions and supporting
+                    of "right fit" for employers and Employers; searching for institutions and supporting
                     students throughout the application process; and promoting both Canadian businesses
                     and academic institutions globally. As part of our integrated service model, we
                     interviews candidates on behalf of employers; perform document preparation,

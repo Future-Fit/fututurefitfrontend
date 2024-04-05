@@ -6,7 +6,7 @@ import Breadcrumb from "../../common/Breadcrumb";
 import ShopItems from "./components/ShopItems";
 import Pagination from "./components/Pagination";
 import DashboardAdminHeader from "../../../components/header/DashboardAdminHeader"
-import DashboardEmployeeHeader from "../../../components/header/DashboardEmployerHeader"
+import DashboardEmployerHeader from "../../../components/header/DashboardEmployerHeader"
 import DashboardCandidatesHeader from "../../../components/header/DashboardCandidatesHeader"
 import DashboardStudentHeader from "../../../components/header/DashboardStudentsHeader"
 import DefaulHeader2 from "@/components/header/DefaultHeader";
@@ -32,7 +32,7 @@ const index = () => {
       {/* End Login Popup Modal */}
 
       {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 3 && <DashboardEmployerHeader />}
       {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}

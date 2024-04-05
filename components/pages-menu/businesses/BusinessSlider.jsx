@@ -108,7 +108,7 @@ const BusinessSlider = () => {
     {
       imgSrc: "/images/icons/Integration-icon.svg",
       title: "Settlement & Integration",
-      detail1: "- Arrange travel/housing for employees",
+      detail1: "- Arrange travel/housing for Employers",
       detail2: "- Settle & integrate workers in Canada",
       detail3: "- Provide social & professional support",
       detail4: "- Outreach services",
@@ -126,7 +126,7 @@ const BusinessSlider = () => {
       detail1: "- Skills development program",
       detail2: "- Language proficiency courses",
       detail3: "- Company specific training",
-      detail4: "- New employee orientation",
+      detail4: "- New Employer orientation",
       detail5: "",
       price: "Premium service",
       type: "Premium Service",

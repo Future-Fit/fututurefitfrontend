@@ -8,7 +8,7 @@ import MobileMenu from "../header/MobileMenu";
 import LoginPopup from "../common/form/login/LoginPopup";
 import GlobalConfig from "@/Global.config";
 import DashboardAdminHeader from "../header/DashboardAdminHeader"
-import DashboardEmployeeHeader from "../header/DashboardEmployerHeader"
+import DashboardEmployerHeader from "../header/DashboardEmployerHeader"
 import DashboardStudentHeader from "../header/DashboardStudentsHeader"
 import { Toast } from 'react-bootstrap';
 import CookiesPopup from "./CookiesPopup";
@@ -88,7 +88,7 @@ const index = () => {
 
       {/* Dashboards depend on user types */}
       {userType === 1 && <DashboardAdminHeader />}
-      {userType === 3 && <DashboardEmployeeHeader />}
+      {userType === 3 && <DashboardEmployerHeader />}
       {userType === 4 && <DashboardJobseekerHeader />}
       {userType === 5 && <DashboardStudentHeader />}
       {userType !== 1 && userType !== 3 && userType !== 4 && userType !== 5 && <DefaulHeader2 />}

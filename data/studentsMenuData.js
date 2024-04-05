@@ -17,18 +17,19 @@ module.exports = [
   },
   {
     id: 3,
-    name: "Services Ordered",
-    icon: "la la-file-invoice",
-    routePath: "/shop/cart",
-    active: "",
-  }, 
-  {
-    id: 4,
     name: "File manager",
     icon: "la la-file",
     routePath: "/student-dashboard/cv-manager",
     active: "",
   },
+  {
+    id: 4,
+    name: "Services Ordered",
+    icon: "la la-file-invoice",
+    routePath: "/shop/cart",
+    active: "",
+  }, 
+
   {
     id: 5,
     name: "Applied Schools",
