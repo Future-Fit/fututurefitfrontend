@@ -5,9 +5,9 @@ import MobileMenu from "../../header/MobileMenu";
 import Breadcrumb from "../../common/Breadcrumb";
 import ShopItems from "./components/ShopItems";
 import Pagination from "./components/Pagination";
-import DashboardAdminHeader from "../../../components/header/DashboardAdminHeader"
-import DashboardEmployerHeader from "../../../components/header/DashboardEmployerHeader"
-import DashboardStudentHeader from "../../../components/header/DashboardStudentsHeader"
+import DashboardAdminHeader from "../../header/DashboardAdminHeader"
+import DashboardEmployerHeader from "../../header/DashboardEmployerHeader"
+import DashboardStudentHeader from "../../header/DashboardStudentsHeader"
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import { useEffect, useState } from "react";
 import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
@@ -45,7 +45,7 @@ const index = () => {
       <div className="products-section">
         <div className="auto-container">
           <div className="row">
-            <ShopItems />
+          <ShopItems category="Job Seeker Service" />
           </div>
           {/* End .row */}
 

@@ -12,9 +12,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
 import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
+import { useRouter } from 'next/navigation';
 
 const index = () => {
+  const router = useRouter();
 
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
     fname: '',

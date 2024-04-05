@@ -16,10 +16,20 @@ import ProfileChart from "./components/ProfileChart";
 import Notification from "./components/Notification";
 import SchoolsApplied from "./components/SchoolsApplied";
 
+import { useRouter } from 'next/navigation';
 
 // import DefaultConfig from "app.config.js";
 
 const index = () => {
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
 
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({

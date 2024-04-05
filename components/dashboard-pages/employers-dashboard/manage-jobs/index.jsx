@@ -11,7 +11,19 @@ import FooterDefault from "../../../footer/common-footer";
 import { useEffect, useState } from "react";
 import axios  from "axios";
 import apiConfig from "@/app.config";
+import { useRouter } from 'next/navigation';
+
 const index = () => {
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
+
   const [jobLists,setJobLists] = useState([]);
   const [numberOfMonths,setNumberOfMonths] = useState(6);
   const [company,setCompany] = useState();

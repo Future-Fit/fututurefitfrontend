@@ -16,8 +16,18 @@ import axios from "axios";
 import apiConfig from "@/app.config";
 import CvUploader from "../../candidates-dashboard/cv-manager/components/CvUploader";
 // import DefaultConfig from "app.config.js";
+import { useRouter } from 'next/navigation';
 
 const index = () => {
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
 
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({

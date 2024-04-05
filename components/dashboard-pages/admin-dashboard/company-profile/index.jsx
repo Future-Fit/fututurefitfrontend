@@ -13,7 +13,17 @@ import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import apiConfig from "@/app.config";
 import axios from "axios";
+import { useRouter } from 'next/navigation';
+
 const index = () => {
+    const router = useRouter();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
     const [company,setCompany] =  useState(null);
     const token = localStorage.getItem("accessToken");
     const getComany  = async ()=>{

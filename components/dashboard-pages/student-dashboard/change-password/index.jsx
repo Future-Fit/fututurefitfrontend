@@ -11,8 +11,20 @@ import DashboardStudentsSidebar from "@/components/header/DashboardStudentSideba
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
+import { useRouter } from 'next/navigation';
 
 const index = () => {
+
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check if user is logged in
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      // Redirect to login page if not logged in
+      router.push('/login');
+    }
+  }, []);
 
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({

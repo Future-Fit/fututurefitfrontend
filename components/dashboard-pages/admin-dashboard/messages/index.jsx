@@ -10,7 +10,17 @@ import ChatBox from "./components";
 import MenuToggler from "../../MenuToggler";
 import { useSelector } from "react-redux";
 import FooterDefault from "../../../footer/common-footer";
+import { useRouter } from 'next/navigation';
+
 const Index = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
   const { chatSidebar } = useSelector((state) => state.toggle);
   return (
     <div className="page-wrapper dashboard">

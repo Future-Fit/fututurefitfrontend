@@ -13,9 +13,18 @@ import DashboardStudentsHeader from "../../../header/DashboardStudentsHeader";
 import MenuToggler from "../../MenuToggler";
 import { useSelector } from "react-redux";
 import FooterDefault from "../../../footer/common-footer";
+import { useRouter } from 'next/navigation';
+
 const Index = () => {
   const { chatSidebar } = useSelector((state) => state.toggle);
+  const router = useRouter();
 
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
   return (
     <div className="page-wrapper dashboard">
       <span className="header-span"></span>
