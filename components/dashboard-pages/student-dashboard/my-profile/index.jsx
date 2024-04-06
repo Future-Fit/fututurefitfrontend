@@ -26,19 +26,30 @@ const index = () => {
       router.push('/login');
     }
   }, []);
-  
 
-  const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
     mname: '',
   })
 
+  // Get userType from local storage outside of useEffect
+  const userType = localStorage.getItem('userType');
+
+  // Update label based on userType
+  if (userType === '5') {
+    formData.label = 'Student Profile';
+  } else if (userType === '4') {
+    formData.label = 'Job Seeker Profile'
+  } else if (userType === '1') {
+    formData.label = 'Admin Profile'
+  } else {
+    formData.label = 'My Profile'
+  }
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
-    console.log('user id', userId);
+
     if (userId) {
       const fetchUserDetails = async () => {
         try {
@@ -47,8 +58,6 @@ const index = () => {
               "Authorization": `Bearer ${token}`
             }
           });
-          console.log('Response from server for profile:', response.data);
-          setUserDetail(response.data);
           setFormData(response.data);
         } catch (error) {
           console.error("Error fetching user details:", error);
@@ -79,7 +88,7 @@ const index = () => {
       <section className="user-dashboard">
         <div className="dashboard-outer">
           <BreadCrumb />
-          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - My Profile</b>
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - {formData.label ? formData.label : 'My Profile'}</b>
           {/* breadCrumb */}
 
           <MenuToggler />

@@ -1,20 +1,21 @@
+'use client'
 import MobileMenu from "../../../header/MobileMenu";
 import DashboardHeader from "../../../header/DashboardAdminHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardAdminSidebar from "../../../header/DashboardAdminSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import CopyrightFooter from "../../CopyrightFooter";
 import Form from "./components/Form";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 const index = () => {
 
   const router = useRouter();
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    const isLoggedIn = localStorage.getItem('accessToken');
     if (!isLoggedIn) {
       router.push('/login');
     }

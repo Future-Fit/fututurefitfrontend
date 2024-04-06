@@ -27,12 +27,8 @@ const Membership = () => {
 
   const arrowIconUrl = windowWidth < 768 ? arrowdown : arrowright;
 
-  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
-  const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
-
-
-  // const isLoggedIn = localStorage.getItem('accessToken') !== null;
-  // const userType = parseInt(localStorage.getItem('userType'));
+  const isLoggedIn =  localStorage.getItem('accessToken') !== null;
+  const userType =  parseInt(localStorage.getItem('userType'));
 
   const iconMap = {
     "icon-user": faUser,

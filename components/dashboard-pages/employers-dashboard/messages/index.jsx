@@ -5,12 +5,12 @@ import DashboardHeader from "../../../header/DashboardEmployerHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardEmployerSidebar from "../../../header/DashboardEmployerSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import CopyrightFooter from "../../CopyrightFooter";
 import ChatBox from "./components";
 import MenuToggler from "../../MenuToggler";
 import { useSelector } from "react-redux";
 import FooterDefault from "../../../footer/common-footer";
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 const Index = () => {
   const router = useRouter();

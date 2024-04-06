@@ -44,7 +44,7 @@ const DashboardHeader = () => {
     useEffect(() => {
         const userId = localStorage.getItem("loggedInUserId");
         const token = localStorage.getItem("accessToken");
-        console.log('user id', userId);
+        
         if (userId) {
             const fetchUserDetails = async () => {
                 try {
@@ -53,7 +53,7 @@ const DashboardHeader = () => {
                             "Authorization": `Bearer ${token}`
                         }
                     });
-                    console.log('Response from server:', response.data);
+                    
                     setUserDetail(response.data);
                     setFormData(response.data);
                 } catch (error) {
@@ -113,12 +113,12 @@ const DashboardHeader = () => {
 
     useEffect(() => {
         const userId = localStorage.getItem("loggedInUserId");
-        console.log('user id', userId);
+        
         if (userId) {
             const fetchUserDetails = async () => {
                 try {
                     const response = await axios.get(`${apiConfig.url}/users/${userId}`);
-                    console.log('Response from server:', response.data);
+                    
                     setUserDetail(response.data);
                 } catch (error) {
                     console.error("Error fetching user details:", error);

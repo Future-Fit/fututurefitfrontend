@@ -66,7 +66,7 @@ const PictureUpload = () => {
                             "Authorization": `Bearer ${token}`
                         }
                     });
-                    console.log('Response from server:', response.data);
+                    
                     setUserDetail(response.data);
                 } catch (error) {
                     console.error("Error fetching user details:", error);

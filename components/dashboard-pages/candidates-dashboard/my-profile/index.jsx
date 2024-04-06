@@ -7,14 +7,12 @@ import BreadCrumb from "../../BreadCrumb";
 import MyProfile from "./components/my-profile";
 import SocialNetworkBox from "./components/SocialNetworkBox";
 import ContactInfoBox from "./components/ContactInfoBox";
-import CopyrightFooter from "../../CopyrightFooter";
 import DashboardCandidatesHeader from "../../../header/DashboardCandidatesHeader";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
-import CvUploader from "../../candidates-dashboard/cv-manager/components/CvUploader";
 // import DefaultConfig from "app.config.js";
 import { useRouter } from 'next/navigation';
 
@@ -39,7 +37,7 @@ const index = () => {
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
-    console.log('user id', userId);
+    
     if (userId) {
       const fetchUserDetails = async () => {
         try {
@@ -48,7 +46,7 @@ const index = () => {
               "Authorization": `Bearer ${token}`
             }
           });
-          console.log('Response from server for profile:', response.data);
+          
           setUserDetail(response.data);
           setFormData(response.data);
         } catch (error) {

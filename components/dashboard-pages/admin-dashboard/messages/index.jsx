@@ -11,6 +11,7 @@ import MenuToggler from "../../MenuToggler";
 import { useSelector } from "react-redux";
 import FooterDefault from "../../../footer/common-footer";
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 const Index = () => {
   const router = useRouter();

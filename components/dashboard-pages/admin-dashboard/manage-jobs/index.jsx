@@ -1,13 +1,14 @@
+"use client"
 import MobileMenu from "../../../header/MobileMenu";
 import DashboardHeader from "../../../header/DashboardAdminHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardAdminSidebar from "../../../header/DashboardAdminSidebar";
 import BreadCrumb from "../../BreadCrumb";
-import CopyrightFooter from "../../CopyrightFooter";
 import JobListingsTable from "./components/JobListingsTable";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 const index = () => {
   const router = useRouter();

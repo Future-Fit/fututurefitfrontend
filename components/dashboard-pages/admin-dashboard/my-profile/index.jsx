@@ -8,7 +8,6 @@ import BreadCrumb from "../../BreadCrumb";
 import MyProfile from "./components/my-profile";
 import SocialNetworkBox from "./components/SocialNetworkBox";
 import ContactInfoBox from "./components/ContactInfoBox";
-import CopyrightFooter from "../../CopyrightFooter";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import apiConfig from "@/app.config";
@@ -17,6 +16,36 @@ import { useRouter } from 'next/navigation';
 
 const index = () => {
     const router = useRouter();
+
+    const [userDetail, setUserDetail] = useState(null);
+  const [formData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    mname: '',
+  })
+
+  useEffect(() => {
+    const userId = localStorage.getItem("loggedInUserId");
+    const token = localStorage.getItem("accessToken");
+    
+    if (userId) {
+      const fetchUserDetails = async () => {
+        try {
+          const response = await axios.get(`${apiConfig.url}/users/me`, {
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          });
+          
+          setUserDetail(response.data);
+          setFormData(response.data);
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      };
+      fetchUserDetails();
+    }
+  }, []);
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
@@ -61,8 +90,9 @@ const index = () => {
             {/* <!-- Dashboard --> */}
             <section className="user-dashboard">
                 <div className="dashboard-outer">
-                    <BreadCrumb title="Company Profile!" />
+                    <BreadCrumb title="My Profile!" />
                     {/* breadCrumb */}
+                    <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - Admin Profile</b>
 
                     <MenuToggler />
                     {/* Collapsible sidebar button */}

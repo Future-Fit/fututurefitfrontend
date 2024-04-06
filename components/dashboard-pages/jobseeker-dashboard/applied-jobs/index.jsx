@@ -1,4 +1,3 @@
-
 "use client"
 import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
@@ -8,15 +7,10 @@ import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHead
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import JobListingsTable from "./components/JobsListingsTable";
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
-
 import { useRouter } from 'next/navigation';
-
-
-  // import DefaultConfig from "app.config.js";
 
 const index = () => {
   const router = useRouter();
@@ -38,7 +32,7 @@ const index = () => {
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
-    console.log('user id', userId);
+    
     if (userId) {
       const fetchUserDetails = async () => {
         try {
@@ -47,7 +41,7 @@ const index = () => {
               "Authorization": `Bearer ${token}`
             }
           });
-          console.log('Response from server for profile:', response.data);
+          
           setUserDetail(response.data);
           setFormData(response.data);
         } catch (error) {

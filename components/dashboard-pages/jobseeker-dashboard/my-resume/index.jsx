@@ -1,3 +1,4 @@
+'use client'
 import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardJobseekerSidebar from "../../../header/DashboardJobseekerSidebar";
@@ -7,6 +8,7 @@ import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 const index = () => {
 

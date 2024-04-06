@@ -1,3 +1,4 @@
+"use client"
 import MobileMenu from "../../../header/MobileMenu";
 import DashboardHeader from "../../../header/DashboardAdminHeader";
 import LoginPopup from "../../../common/form/login/LoginPopup";
@@ -11,6 +12,7 @@ import CopyrightFooter from "../../CopyrightFooter";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 const Index = () => {
   const router = useRouter();

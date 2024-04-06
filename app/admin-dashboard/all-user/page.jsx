@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import AllApplicants from "@/components/dashboard-pages/admin-dashboard/all-applicants";
+import AllUser from "@/components/dashboard-pages/admin-dashboard/all-users";
 
 export const metadata = {
   title: "All Applicants || Future Fit International - Job Portal Platform",
@@ -9,7 +9,7 @@ export const metadata = {
 const index = () => {
   return (
     <>
-      <AllApplicants />
+      <AllUser />
     </>
   );
 };

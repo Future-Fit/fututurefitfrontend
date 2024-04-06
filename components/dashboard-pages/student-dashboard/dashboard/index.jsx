@@ -10,11 +10,8 @@ import FooterDefault from "../../../footer/common-footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config";
-import CvUploader from "../../candidates-dashboard/cv-manager/components/CvUploader";
 import TopCardBlock from "./components/TopCardBlock";
 import ProfileChart from "./components/ProfileChart";
-import Notification from "./components/Notification";
-import SchoolsApplied from "./components/SchoolsApplied";
 
 import { useRouter } from 'next/navigation';
 
@@ -31,17 +28,30 @@ const index = () => {
     }
   }, []);
 
-  const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
     mname: '',
   })
 
+  // Get userType from local storage outside of useEffect
+  const userType = localStorage.getItem('userType');
+
+  // Update label based on userType
+  if (userType === '5') {
+    formData.label = 'Student Profile';
+  } else if (userType === '4') {
+    formData.label = 'Job Seeker Profile'
+  } else if (userType === '1') {
+    formData.label = 'Admin Profile'
+  } else {
+    formData.label = 'My Profile'
+  }
+
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
-    console.log('user id', userId);
+    
     if (userId) {
       const fetchUserDetails = async () => {
         try {
@@ -50,8 +60,6 @@ const index = () => {
               "Authorization": `Bearer ${token}`
             }
           });
-          console.log('Response from server for profile:', response.data);
-          setUserDetail(response.data);
           setFormData(response.data);
         } catch (error) {
           console.error("Error fetching user details:", error);
@@ -82,7 +90,7 @@ const index = () => {
       <section className="user-dashboard">
         <div className="dashboard-outer">
           <BreadCrumb />
-          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - Dashboard</b>
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - {formData.label ? formData.label : 'My Profile'}</b>
           {/* breadCrumb */}
 
           <MenuToggler />

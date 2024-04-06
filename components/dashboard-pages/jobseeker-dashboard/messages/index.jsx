@@ -1,8 +1,4 @@
-
-
 'use client'
-
-
 import MobileMenu from "../../../header/MobileMenu";
 import LoginPopup from "../../../common/form/login/LoginPopup";
 import DashboardJobseekerSidebar from "../../../header/DashboardJobseekerSidebar";
@@ -13,6 +9,7 @@ import { useSelector } from "react-redux";
 import FooterDefault from "../../../footer/common-footer";
 import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
 
 const Index = () => {
   const { chatSidebar } = useSelector((state) => state.toggle);

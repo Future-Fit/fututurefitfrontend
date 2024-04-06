@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import CompanyProfile from "@/components/dashboard-pages/admin-dashboard/company-profile";
+import MyProfile from "@/components/dashboard-pages/admin-dashboard/my-profile";
 
 export const metadata = {
   title: "Company Profile || Future Fit International - Job Portal Platform",
@@ -9,7 +9,7 @@ export const metadata = {
 const index = () => {
   return (
     <>
-      <CompanyProfile />
+      <MyProfile />
     </>
   );
 };

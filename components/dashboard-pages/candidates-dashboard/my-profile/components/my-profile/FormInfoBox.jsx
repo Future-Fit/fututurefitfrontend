@@ -91,7 +91,7 @@ const FormInfoBox = () => {
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
-    console.log('user id', userId);
+    
     if (userId) {
       const fetchUserDetails = async () => {
         try {
@@ -100,7 +100,7 @@ const FormInfoBox = () => {
               "Authorization": `Bearer ${token}`
             }
           });
-          console.log('Response from server:');
+          
           setUserDetail(response.data);
           setFormData(response.data);
         } catch (error) {
