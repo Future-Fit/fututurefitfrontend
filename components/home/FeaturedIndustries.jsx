@@ -9,50 +9,50 @@ const FeaturedIndustries = () => {
       id: 1,
       icon: "/images/icons/Healthcare-icon.svg",
       title: "Healthcare",
-      linkPath: "/featured-industries/"
+      linkPath: "/featured-industries/Healthcare/"
     },
     {
       id: 2,
       icon: "/images/icons/Eng-Htech-IT-icon.svg",
-      title: "Engineering/IT",
-      linkPath: "/featured-industries/"
+      title: "Engineering/ICT",
+      linkPath: "/featured-industries/Engineering/"
     },
     {
       id: 3,
       icon: "/images/icons/Mfg-icon.svg",
       title: "Manufacturing",
-      linkPath: "/featured-industries/"
+      linkPath: "/featured-industries/Manufacturing/"
     },
     {
       id: 4,
-      icon: "/images/icons/Transportation-icon.svg",
+      icon: "/images/icons/Delivery-icon-blue.svg",
       title: "Transportation/Logistics",
-      linkPath: "/featured-industries/"
+      linkPath: "/featured-industries/Transportation/"
     },
     {
       id: 5,
       icon: "/images/icons/Aviation-icon.svg",
       title: "Aviation",
-      linkPath: "/featured-industries/"
+      linkPath: "/featured-industries/Aviation/"
     },
     {
       id: 6,
       icon: "/images/icons/Construction-icon.svg",
       title: "Construction",
-      linkPath: "/featured-industries/"
+      linkPath: "/featured-industries/Construction/"
     },
     {
       id: 7,
       icon: "/images/icons/Hospitality-icon.svg",
       title: "Hospitality/Services",
-      linkPath: "/featured-industries/"
+      linkPath: "/featured-industries/Hospitality/"
 
     },
     {
       id: 8,
       icon: "/images/icons/Skilled-trade-icon.svg",
       title: "Skilled Trade",
-      linkPath: "/featured-industries/"
+      linkPath: "/featured-industries/Trade/"
 
     }
   ];

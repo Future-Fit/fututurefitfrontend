@@ -55,25 +55,25 @@ const handleMouseEnter = (itemId, event) => {
       id: 1,
       icon: "icon-visit",
       title: "Visit",
-      linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html',
+      linkPath: 'canada-visit/',
       bgcolor: GlobalConfig.LogoOrg,
-      popupDetail: "Visit Visit Visit Visit Visit Visit Visit Visit Visit"
+      popupDetail: ""
     },
     {
       id: 2,
       icon: "icon-study",
       title: "Study",
-      linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html',
+      linkPath: 'canada-study/',
       bgcolor: GlobalConfig.LogoOrg,
-      popupDetail: "Study Study Study Study Study Study Study Study Study"
+      popupDetail: ""
     },
     {
       id: 3,
       icon: "icon-work",
       title: "Work",
-      linkPath: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html',
+      linkPath: 'canada-work/',
       bgcolor: GlobalConfig.LogoOrg,
-      popupDetail: "Work Work Work Work Work Work Work Work Work Work"
+      popupDetail: ""
     },
   ];
 

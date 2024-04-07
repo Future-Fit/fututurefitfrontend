@@ -90,14 +90,14 @@ const ShopSingleDyanmic = ({ id }) => {
       {/* <!--End Page Title--> */}
 
       {/* <!-- Start Shop Single --> */}
-      <section className="shop-single">
+      <section className="shop-single" style={{paddingTop: "20px"}}>
         <div className="auto-container">
           {/* <!-- Start Product Detail --> */}
           <div className="product-details">
             {/*  <!--Start Basic Details--> */}
             <div className="basic-details">
               <div className="row clearfix">
-                <div className="image-column col-md-4">
+                <div className="image-column col-md-4" style={{height: "fit-content"}}>
                   <Gallery>
                     <figure className="image">
                       <Item

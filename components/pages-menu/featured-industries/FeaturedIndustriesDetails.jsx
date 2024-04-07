@@ -103,8 +103,8 @@ const FeaturedIndustriesDetails = () => {
             <Image
               width={60}
               height={60}
-              src="/images/icons/Transportation-icon.svg"
-              alt="Manufacturing"
+              src="/images/icons/Delivery-icon-blue.svg"
+              alt="Transportation"
               style={{ borderRadius: '5px', marginTop: '20px', justifyContent: 'center' }}
             />
           </div>

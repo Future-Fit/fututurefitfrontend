@@ -50,7 +50,7 @@ const index = () => {
           </div>
           {/* End .row */}
 
-          <Pagination />
+          {/* <Pagination /> */}
           {/* End .pagination */}
         </div>
         {/* End auto-container */}

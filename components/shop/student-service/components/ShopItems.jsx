@@ -20,7 +20,7 @@ const ShopItems = ({category}) => {
     <>
       {filteredItems.map((item) => (
         <div
-          className="product-block col-lg-3 col-md-6 col-sm-12"
+          className="product-block col-lg-3 col-md-6 col-sm-12" style={{width: "auto"}}
           key={item.id}
         >
           <div className="inner-box">
@@ -28,8 +28,8 @@ const ShopItems = ({category}) => {
               <figure className="image">
                 <Link href={`/shop/shop-single/${item.id}`}>
                   <Image
-                    width={240}
-                    height={240}
+                    width={50}
+                    height={50}
                     src={item.img}
                     alt="shop items"
                   />

@@ -60,7 +60,7 @@ const Membership = () => {
       icon: "icon-profile",
       title: "Select Services",
       text: "FFI Is Here To Help!",
-      linkPath: isLoggedIn ? (userType === 4 ? 'service/job-seekers' : (userType === 5 ? 'service/students' : '/login')) : '/login',
+      linkPath: isLoggedIn ? (userType === 4 ? 'shop/jobseeker-service' : (userType === 5 ? 'shop/student-service' : '/login')) : '/login',
       bgClass: "-yellow",
       bgcolor: GlobalConfig.LogoOrg
     },
