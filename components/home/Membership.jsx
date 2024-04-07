@@ -9,6 +9,14 @@ import arrowright from '../../public/images/icons/arrow-right.svg'
 const Membership = () => {
 
   const [windowWidth, setWindowWidth] = useState(0);
+  const [linkPaths, setLinkPaths] = useState({});
+
+  const iconMap = {
+    "icon-user": faUser,
+    "icon-sign": faSignIn,
+    "icon-profile": faUserEdit,
+  };
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
@@ -27,14 +35,26 @@ const Membership = () => {
 
   const arrowIconUrl = windowWidth < 768 ? arrowdown : arrowright;
 
-  const isLoggedIn =  localStorage.getItem('accessToken') !== null;
-  const userType =  parseInt(localStorage.getItem('userType'));
+  let linkPath1, linkPath2, linkPath3;
 
-  const iconMap = {
-    "icon-user": faUser,
-    "icon-sign": faSignIn,
-    "icon-profile": faUserEdit,
-  };
+  useEffect(() => {
+    if (Object.keys(linkPaths).length === 0) {
+      if (typeof window !== 'undefined') {
+        const isLoggedIn = localStorage.getItem('accessToken');
+        const userType = parseInt(localStorage.getItem('userType'));
+
+        // Set the link paths based on isLoggedIn and userType
+        const path1 = '/register';
+        const path2 = isLoggedIn ? (userType === 4 ? '/jobseeker-dashboard/my-profile' : (userType === 5 ? '/student-dashboard/my-profile' : '/login')) : '/login';
+        const path3 = isLoggedIn ? (userType === 4 ? 'shop/jobseeker-service' : (userType === 5 ? 'shop/student-service' : '/login')) : '/login';
+
+        setLinkPaths({ linkPath1: path1, linkPath2: path2, linkPath3: path3 });
+      }
+    }
+  }, [linkPaths]);
+
+  // const isLoggedIn =  localStorage.getItem('accessToken');
+  // const userType =  parseInt(localStorage.getItem('userType'));
 
   const blockContent = [
     {
@@ -51,7 +71,7 @@ const Membership = () => {
       icon: "icon-sign",
       title: "Sign-In",
       text: "Build Your Profile",
-      linkPath: isLoggedIn ? (userType === 4 ? '/jobseeker-dashboard/my-profile' : (userType === 5 ? '/student-dashboard/my-profile' : '/login')) : '/login',
+      linkPath: linkPaths.linkPath2,
       bgClass: "-red",
       bgcolor: GlobalConfig.LogoOrg
     },
@@ -60,12 +80,11 @@ const Membership = () => {
       icon: "icon-profile",
       title: "Select Services",
       text: "FFI Is Here To Help!",
-      linkPath: isLoggedIn ? (userType === 4 ? 'shop/jobseeker-service' : (userType === 5 ? 'shop/student-service' : '/login')) : '/login',
+      linkPath: linkPaths.linkPath3,
       bgClass: "-yellow",
       bgcolor: GlobalConfig.LogoOrg
     },
   ];
-
 
   return (
     <section style={{ padding: "40px 20px" }}>
@@ -74,7 +93,7 @@ const Membership = () => {
           <div className="col-lg-5">
             <div className="sec-title text-center">
               <h2 style={{ color: '#fff' }}>Become A Member</h2>
-              <h2 style={{ color: '#fff', fontSize: "20px"}}>
+              <h2 style={{ color: '#fff', fontSize: "20px" }}>
                 Job Seekers & Students</h2> <br />
             </div>
           </div>
@@ -98,11 +117,11 @@ const Membership = () => {
                   </div>
                 </div>
                 {index < blockContent.length - 1 && (
-                  <div className="col-lg-1 col-md-1 col-sm-1" style={{width: '100%'}}>
+                  <div className="col-lg-1 col-md-1 col-sm-1" style={{ width: '100%' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                       {/* <Image src="/images/icons/arrow-down.svg" width={50} height={50} alt="arrow icon" /> */}
                       <Image src={arrowIconUrl} width={40} height={40} alt="arrow icon" />
-                      
+
                     </div>
                   </div>
                 )}

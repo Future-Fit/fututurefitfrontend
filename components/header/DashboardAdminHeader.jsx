@@ -53,7 +53,7 @@ const DashboardHeader = () => {
                             "Authorization": `Bearer ${token}`
                         }
                     });
-                    console.log('Response from server Admin Header:', response.data);
+                    // console.log('Response from server Admin Header:', response.data);
                     setUserDetail(response.data);
                 } catch (error) {
                     console.error("Error fetching user details:", error);

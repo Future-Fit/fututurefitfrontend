@@ -152,7 +152,7 @@ const AllUserLists = () => {
       {/* End table widget content */}
 
       {/* Pagination */}
-      <div className="pagination" style={{ display: "flex", justifyContent: "center" }}>
+      <div className="ls-pagination" style={{ display: "flex", justifyContent: "center" }}>
         <ul style={{ listStyle: "none", padding: 0 }}>
           {[...Array(Math.ceil(filteredUsers.length / usersPerPage)).keys()].map(
             (number) => (
