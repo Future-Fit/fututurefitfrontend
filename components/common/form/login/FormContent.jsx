@@ -13,9 +13,6 @@ const FormContent = ({ onReset, closeModal }) => {
   const [error, setError] = useState("");
   const [redirectTo, setRedirectTo] = useState(null);
   const [rememberMe, setRememberMe] = useState(false);
-  const [formData, setFormData] = useState();
-
-
   const router = useRouter();
 
   const handleRememberMe = (e) => {
@@ -213,7 +210,7 @@ const FormContent = ({ onReset, closeModal }) => {
         {/* password */}
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div className="field-outer" style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="field-outer">
             <div className="input-group checkboxes square">
               <input
                 type="checkbox"

@@ -9,13 +9,24 @@ import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
 import FormContent2 from "@/components/common/form/login/FormContent2";
 import { Toast } from 'react-bootstrap';
 import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
-
+import { useRouter } from 'next/navigation';
 
 const index = () => {
   const [userType, setUserType] = useState();
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [registrationMessage, setRegistrationMessage] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+    else{
+      return
+    }
+  }, []);
 const myToast = ()=>{
 
 }

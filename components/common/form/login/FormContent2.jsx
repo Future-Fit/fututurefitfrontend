@@ -14,7 +14,6 @@ const FormContent2 = ({ onReset }) => {
   const [error, setError] = useState("");
   const [redirectTo, setRedirectTo] = useState(null);
   const [rememberMe, setRememberMe] = useState(false);
-  const [formData, setFormData] = useState();
   const router = useRouter();
 
   const handleRememberMe = (e) => {
@@ -135,12 +134,15 @@ const FormContent2 = ({ onReset }) => {
     if (rememberMe) {
       // If "Remember Me" is checked, store credentials in local storage
       localStorage.setItem("rememberedUsername", username);
+      localStorage.setItem("rememberedPassword", password);
     } else {
       // If not checked, clear stored credentials
       localStorage.removeItem("rememberedUsername");
+      localStorage.removeItem("rememberedPassword");
     }
     handleLogin(e); // Proceed with login
   };
+
   return (
     <div className="form-inner">
       <div style={{ display: "grid", justifyContent: "center", fontWeight: "600", fontSize: "24px", color: GlobalConfig.Fgr1Clr }}>
@@ -179,22 +181,21 @@ const FormContent2 = ({ onReset }) => {
         {/* password */}
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div className="field-outer" style={{ display: 'flex', alignItems: 'center' }}>
-            <div className="input-group checkboxes square">
-              {/* <input
-                type="checkbox"
-                name="remember-me"
-                id="remember"
-                checked={rememberMe}
-                onChange={handleRememberMe}
-              /> */}
-              <label htmlFor="remember" className="remember" style={{ marginLeft: '5px' }}>
-                <span className="custom-checkbox"></span>
-                <span style={{ verticalAlign: 'middle' }}>Remember me now</span>
-              </label>
-            </div>
+          <div className="field-outer">
+            <input
+              type="checkbox"
+              name="remember-me"
+              id="remember"
+              checked={rememberMe}
+              onChange={handleRememberMe}
+            />
+            <label htmlFor="remember" className="remember" style={{ marginLeft: '5px' }}>
+              <span className="custom-checkbox"></span>
+              <span style={{ verticalAlign: 'middle' }}>Remember me</span>
+            </label>
           </div>
-          
+
+
 
           <div className="text">
             <Link
