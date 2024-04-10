@@ -6,6 +6,7 @@ import Link from "next/link";
 import GlobalConfig from "@/Global.config";
 import FormInfoBox from "../../my-profile/components/my-profile/FormInfoBox";
 import SingleUserDetail from "../../my-profile/components/my-profile/SingleUserDetail";
+import EditSingleUser from "../../my-profile/components/my-profile/EditUserDetail";
 
 
 const AllUserLists = () => {
@@ -140,6 +141,38 @@ const AllUserLists = () => {
         </div>
 
       )}
+
+{singleUserDetail && (
+        <div className="modal fade" id="editSingleUser">
+          <div className="modal-dialog modal-lg modal-dialog-centered login-modal modal-dialog-scrollable">
+            <div className="modal-content">
+              <button
+                type="button"
+                className="closed-modal"
+                data-bs-dismiss="modal"
+                onClick={closeModal}
+                id="btn-del"
+              ></button>
+              {/* End close modal btn */}
+
+              <div className="modal-body">
+                {/* <!-- Login modal --> */}
+                <div id="login-modal">
+                  {/* <!-- Login Form --> */}
+                  <div className="login-form default-form">
+                    <EditSingleUser user={singleUserDetail} onClose={closeModal} />
+                  </div>
+                  {/* <!--End Login Form --> */}
+                </div>
+                {/* <!-- End Login Module --> */}
+              </div>
+              {/* En modal-body */}
+            </div>
+            {/* End modal-content */}
+          </div>
+        </div>
+
+      )}
       <div className="widget-title">
         <h4>All System Users</h4>
         <div className="bottom-box">
@@ -224,9 +257,12 @@ const AllUserLists = () => {
                           </button>
                         </li>
                         <li>
-                          <button data-text="Edit User">
+                        <button data-text="View User" data-bs-toggle="modal" data-bs-target="#editSingleUser" onClick={() => handleViewUser(user.id)}>
                             <span className="la la-pencil"></span>
                           </button>
+                          {/* <button data-text="Edit User">
+                            <span className="la la-pencil"></span>
+                          </button> */}
                         </li>
                         <li>
                           <button data-text="Block User" onClick={() => handleBanUser(user.email)}>
