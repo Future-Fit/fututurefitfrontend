@@ -44,7 +44,7 @@ const provincesCanada = [
 
 
 
-const FormInfoBox = () => {
+const SingleUserDetail = ({user, onClose}) => {
   const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
     lname: '',    // last/family name (required)               
@@ -301,7 +301,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Last (Family) Name*</label>
-            <input type="text" name="lname" value={formData.lname}
+            <input type="text" name="lname" value={user.lname}
               onChange={handleInputChange} placeholder="Last Name" required />
             {requiredFieldsError["lname"] && <div className="error-indicator" />}
 
@@ -309,14 +309,14 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Middle Name</label>
-            <input type="text" name="mname" value={formData.mname}
+            <input type="text" name="mname" value={user.mname}
               onChange={handleInputChange}
               placeholder="If No Middle Name, Put 'NMN'" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>First (Given) Name*</label>
-            <input type="text" name="fname" value={formData.fname}
+            <input type="text" name="fname" value={user.fname}
               onChange={handleInputChange} placeholder="First Name" required />
             {requiredFieldsError["fname"] && <div className="error-indicator" />}
 
@@ -332,7 +332,7 @@ const FormInfoBox = () => {
             <input
                 type="date"
                 name="dob"
-                value={formData.dob}
+                value={user.dob}
                 onChange={handleInputChange} placeholder="MM/DD/YYY"
                 max={new Date().toISOString().split('T')[0]}
                 // 
@@ -345,7 +345,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ width: "150px", marginBottom: "20px" }}>
             <label>Gender*</label>
-            <input type="text" name="gen" value={formData.gen}
+            <input type="text" name="gen" value={user.gen}
               onChange={handleInputChange} placeholder="" required />
             {requiredFieldsError["gen"] && <div className="error-indicator" />}
           </div>
@@ -355,7 +355,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Place of Birth*</label>
-            <input type="text" name="plcBir" value={formData.plcBir}
+            <input type="text" name="plcBir" value={user.plcBir}
               onChange={handleInputChange} placeholder="Place of Birth (City)" required />
             {requiredFieldsError["plcBir"] && <div className="error-indicator" />}
 
@@ -367,7 +367,7 @@ const FormInfoBox = () => {
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="ctzn"
               required
-              value={formData.ctzn}
+              value={user.ctzn}
               onChange={(e) => setFormData({ ...formData, ctzn: e.target.value })}
             >
               <option value="" disabled>Select...</option>
@@ -385,7 +385,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Current Address*</label>
-            <input type="text" name="addr" value={formData.addr} required
+            <input type="text" name="addr" value={user.addr} required
               onChange={handleInputChange} placeholder="Include Street Name, Postal Code" />
             {requiredFieldsError["addr"] && <div className="error-indicator" />}
 
@@ -393,7 +393,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Current City*</label>
-            <input type="text" name="city" value={formData.city} required
+            <input type="text" name="city" value={user.city} required
               onChange={handleInputChange} placeholder="Current City" />
             {requiredFieldsError["city"] && <div className="error-indicator" />}
 
@@ -403,7 +403,7 @@ const FormInfoBox = () => {
             <label>Country of Residence*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
               name="resid" required
-              value={formData.resid}
+              value={user.resid}
               onChange={(e) => setFormData({ ...formData, resid: e.target.value })}
             >
               <option value="" disabled>Select...</option>
@@ -422,13 +422,13 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Phone Number</label>
-            <input type="text" name="phone" value={formData.phone}
+            <input type="text" name="phone" value={user.phone}
               onChange={handleInputChange} placeholder="[+][Country Code][Phone Number]" />
           </div>
           <div className="form-group col-lg-4 col-md-4 col-sm-12"
             style={{ marginBottom: "20px" }}>
             <label>Email Address*</label>
-            <input type="email" name="email" value={formData.email} required disabled
+            <input type="email" name="email" value={user.email} required disabled
               onChange={handleInputChange} placeholder="Email Address" />
             {requiredFieldsError["email"] && <div className="error-indicator" />}
 
@@ -447,7 +447,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Highest Level Attained*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="eduLev" value={formData.eduLev} required
+              name="eduLev" value={user.eduLev} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="Grade Level">Grade Level</option>
@@ -460,14 +460,14 @@ const FormInfoBox = () => {
             {requiredFieldsError["eduLev"] && <div className="error-indicator" />}
 
           </div>
-          {formData.eduLev === "Other" && (
+          {user.eduLev === "Other" && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6"
               style={{ marginBottom: "20px" }}>
               <label>Other Level Attained</label>
               <input
                 type="text"
                 name="otherLevel"
-                value={formData.otherLevel}
+                value={user.otherLevel}
                 onChange={handleInputChange}
                 placeholder="Write other education level attained."
               />
@@ -477,7 +477,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "20px" }}>
             <label>Total Years of Study*</label>
-            <input type="number" name="eduYrs" value={formData.eduYrs}
+            <input type="number" name="eduYrs" value={user.eduYrs}
               onChange={handleInputChange} required
               placeholder="Primary to post-secondary" min="0" />
             {requiredFieldsError["eduYrs"] && <div className="error-indicator" />}
@@ -490,7 +490,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "10px" }}>
             <label>English Proficiency*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="proEng" value={formData.proEng} required
+              name="proEng" value={user.proEng} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="Native Speaker">Native Speaker</option>
@@ -507,7 +507,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "10px" }}>
             <label>French Proficiency</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="proFre" value={formData.proFre}
+              name="proFre" value={user.proFre}
               onChange={handleInputChange} className="chosen-single form-select">
               <option value="" disabled>Select...</option>
               <option value="Native Speaker">Native Speaker</option>
@@ -521,7 +521,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "10px" }} >
             <label>Other Language(s)/Proficiency</label>
-            <input type="text" name="proOth" value={formData.proOth}
+            <input type="text" name="proOth" value={user.proOth}
               onChange={handleInputChange}
               placeholder="Lan./prof. level, comma separated" />
           </div>
@@ -539,7 +539,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Currently Working?*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="isEmp" value={formData.isEmp} required
+              name="isEmp" value={user.isEmp} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="true">Yes</option>
@@ -548,14 +548,14 @@ const FormInfoBox = () => {
             {requiredFieldsError["isEmp"] && <div className="error-indicator" />}
 
           </div>
-          {formData.isEmp === true && (
+          {user.isEmp === true && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6"
               style={{ marginBottom: "20px" }}>
               <label>Employer Name*</label>
               <input
                 type="text"
                 name="namEmp"
-                value={formData.namEmp}
+                value={user.namEmp}
                 onChange={handleInputChange}
                 placeholder="If self employed, enter Self."
               />
@@ -565,7 +565,7 @@ const FormInfoBox = () => {
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "20px" }}>
             <label>Total Work Experience in Years*</label>
-            <input type="number" name="yrsEmp" value={formData.yrsEmp}
+            <input type="number" name="yrsEmp" value={user.yrsEmp}
               onChange={handleInputChange} required
               placeholder="If no work experience, enter 0." min="0" />
             {requiredFieldsError["yrsEmp"] && <div className="error-indicator" />}
@@ -585,7 +585,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }} >
             <label>Interested in Working in Canada?*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="isIntr" value={formData.isIntr} required
+              name="isIntr" value={user.isIntr} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="true">Yes</option>
@@ -642,7 +642,7 @@ const FormInfoBox = () => {
           {selectedPrograms.some(program => program.value === "Other") && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
               <label>Other Sector(s) Applying For*</label>
-              <input type="text" name="otherProgram" required value={formData.otherProgram}
+              <input type="text" name="otherProgram" required value={user.otherProgram}
                 onChange={handleInputChange} placeholder="Write other job sectors applying for." />
 
             </div>
@@ -652,7 +652,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }} >
             <label>Allow In Search & Listing*</label>
             <select style={{ height: "32px", padding: "0px 0px" }}
-              name="allSrch" value={formData.allSrch} required
+              name="allSrch" value={user.allSrch} required
               onChange={handleInputChange} className="chosen-single form-select" >
               <option value="" disabled>Select...</option>
               <option value="true">Yes</option>
@@ -673,7 +673,7 @@ const FormInfoBox = () => {
         <div className="row">
           <div className="form-group col-lg-12 col-md-12"
             style={{ marginBottom: "5px" }}>
-            <textarea name="detail" value={formData.detail} onChange={handleInputChange}
+            <textarea name="detail" value={user.detail} onChange={handleInputChange}
               placeholder="Please describe your interests, skills and experience. Highlight anything that helps Canadian job posters to know you better."></textarea>
           </div>
         </div>
@@ -682,17 +682,17 @@ const FormInfoBox = () => {
           Upload supporting documents using File Manager.
         </text>
 
-        <div className="row">
+        {/* <div className="row">
           <div className="form-group col-lg-6 col-md-12" style={{ justifyContent: "center" }}>
             <button type="submit" onClick={handleSubmit} className="theme-btn btn-style-one">
               Save
             </button>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </form >
   );
 };
 
-export default FormInfoBox;
+export default SingleUserDetail;

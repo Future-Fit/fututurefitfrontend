@@ -20,20 +20,27 @@ const index = () => {
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    const userType = localStorage.getItem('userType');
     if (!isLoggedIn) {
       router.push('/login');
     }
-    else{
-      return
+    else {
+      if (userType === '1') {
+        router.push('/admin-dashboard/dashboard')
+      } else if (userType === '3') {
+        router.push('/employers-dashboard/dashboard')
+
+      } else if (userType === '4') {
+        router.push('/jobseeker-dashboard/my-profile')
+
+      } else if (userType === '3') {
+        router.push('/student-dashboard/my-profile')
+
+      }
     }
   }, []);
-const myToast = ()=>{
-
-}
-const myError = ()=>{
-
-}
-useEffect(() => {
+ 
+  useEffect(() => {
     const storedUserType = localStorage.getItem('userType');
     if (storedUserType) {
       setUserType(JSON.parse(storedUserType));
@@ -45,7 +52,6 @@ useEffect(() => {
     <>
       <Toast
         onClose={() => {
-
           setPasswordError('');
           setRegistrationMessage(null);
         }}
@@ -69,10 +75,9 @@ useEffect(() => {
         </Toast.Header>
         <Toast.Body style={{ fontSize: '18px' }}>
           {passwordError ? passwordError : registrationMessage}
-
         </Toast.Body>
       </Toast>
-      {  <LoginPopup myError={(value) => setPasswordError(value)} myToast={(value) => setRegistrationMessage(value)} closeMe={() => {
+      {<LoginPopup myError={(value) => setPasswordError(value)} myToast={(value) => setRegistrationMessage(value)} closeMe={() => {
         const element = document.getElementById("btn-del");
         element.click();
       }} />}

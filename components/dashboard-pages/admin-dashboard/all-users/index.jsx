@@ -30,6 +30,20 @@ const index = () => {
     mname: '',
   })
 
+   // Get userType from local storage outside of useEffect
+   const userType = localStorage.getItem('userType');
+
+   // Update label based on userType
+   if (userType === '5') {
+     formData.label = 'Student Profile';
+   } else if (userType === '4') {
+     formData.label = 'Job Seeker Profile'
+   } else if (userType === '1') {
+     formData.label = 'Admin Profile'
+   } else {
+     formData.label = 'My Profile'
+   }
+
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
@@ -71,10 +85,10 @@ const index = () => {
       {/* <!-- Dashboard --> */}
       <section className="user-dashboard">
         <div className="dashboard-outer">
-          <BreadCrumb title="Manage Users!" />
+          <BreadCrumb/>
           {/* breadCrumb */}
 
-          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - My Profile</b>
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - {formData.label ? formData.label : 'My Profile'}</b>
 
 
           <MenuToggler />

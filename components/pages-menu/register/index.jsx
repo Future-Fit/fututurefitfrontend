@@ -3,15 +3,11 @@ import MobileMenu from "../../header/MobileMenu";
 import DefaulHeader2 from "@/components/header/DefaultHeader";
 import LoginPopup from "@/components/common/form/login/LoginPopup";
 import { useEffect, useState } from "react";
-import DashboardHeader from "@/components/header/DashboardEmployerHeader";
 import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHeader";
 import DashboardAdminHeader from '../../header/DashboardAdminHeader'
 import DashboardEmployerHeader from '../../header/DashboardEmployerHeader'
 import DashboardStudentHeader from '../../header/DashboardStudentsHeader'
-import Register2 from "../../common/form/register/Register2";
 import Register from "@/components/common/form/register/Register";
-import FormContent from "@/components/common/form/register/FormContent";
-import FormContent2 from "@/components/common/form/register/FormContent2";
 import { Toast } from 'react-bootstrap';
 
 const index = () => {
@@ -20,12 +16,7 @@ const index = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [registrationMessage, setRegistrationMessage] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
-  const myError = () => {
 
-  }
-  const myToast = () => {
-
-  }
   useEffect(() => {
     const storedUserType = localStorage.getItem('userType');
     if (storedUserType) {

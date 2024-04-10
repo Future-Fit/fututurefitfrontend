@@ -194,9 +194,6 @@ const FormContent2 = ({ onReset }) => {
               <span style={{ verticalAlign: 'middle' }}>Remember me</span>
             </label>
           </div>
-
-
-
           <div className="text">
             <Link
               href="#"

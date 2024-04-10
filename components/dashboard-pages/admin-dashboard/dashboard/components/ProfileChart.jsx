@@ -71,8 +71,7 @@ const ProfileChart = () => {
     <div className="tabs-box">
       <div className="widget-title">
         <h4>Your Profile Views</h4>
-        <div className="chosen-outer">
-          {/* <!--Tabs Box--> */}
+        {/* <div className="chosen-outer">
           <select className="chosen-single form-select">
             <option>Last 6 Months</option>
             <option>Last 12 Months</option>
@@ -80,12 +79,12 @@ const ProfileChart = () => {
             <option>Last 24 Months</option>
             <option>Last 5 year</option>
           </select>
-        </div>
+        </div> */}
       </div>
       {/* End widget top bar */}
 
       <div className="widget-content">
-        <Line options={options} data={data} />
+        {/* <Line options={options} data={data} /> */}
       </div>
       {/* End  profile chart */}
     </div>

@@ -2,15 +2,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config.js";
+import Link from "next/link";
+import GlobalConfig from "@/Global.config";
+import FormInfoBox from "../../my-profile/components/my-profile/FormInfoBox";
+import SingleUserDetail from "../../my-profile/components/my-profile/SingleUserDetail";
+
 
 const AllUserLists = () => {
   const [userDetail, setUserDetail] = useState([]);
+  const [singleUserDetail, setSingleUserDetail] = useState(null);
   const [userTypes, setUserTypes] = useState([]);
   const [selectedUserType, setSelectedUserType] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(20);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -34,6 +40,32 @@ const AllUserLists = () => {
       fetchData();
     }
   }, []);
+
+  const fetchSingleUserDetail = async (userId) => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      const response = await axios.get(`${apiConfig.url}/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log("here is user detail: ", response.data)
+      setSingleUserDetail(response.data);
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+    }
+  };
+
+  const handleViewUser = (userId) => {
+    fetchSingleUserDetail(userId);
+    setShowModal(true); // Open modal
+  };
+
+  const closeModal = () => {
+    setSingleUserDetail(null);
+    setShowModal(false); // Close modal
+  };
+
 
   // Filter userDetail based on selectedUserType
   const filteredUsers = userDetail.filter((user) => {
@@ -59,17 +91,60 @@ const AllUserLists = () => {
 
   return (
     <div className="tabs-box">
+      {singleUserDetail && (
+        <div className="modal fade" id="viewSingleUser">
+          <div className="modal-dialog modal-lg modal-dialog-centered login-modal modal-dialog-scrollable">
+            <div className="modal-content">
+              <button
+                type="button"
+                className="closed-modal"
+                data-bs-dismiss="modal"
+                onClick={closeModal}
+                id="btn-del"
+              ></button>
+              {/* End close modal btn */}
+
+              <div className="modal-body">
+                {/* <!-- Login modal --> */}
+                <div id="login-modal">
+                  {/* <!-- Login Form --> */}
+                  <div className="login-form default-form">
+                    <SingleUserDetail user={singleUserDetail} onClose={closeModal}/>
+                  </div>
+                  {/* <!--End Login Form --> */}
+                </div>
+                {/* <!-- End Login Module --> */}
+              </div>
+              {/* En modal-body */}
+            </div>
+            {/* End modal-content */}
+          </div>
+        </div>
+
+      )}
       <div className="widget-title">
         <h4>All System Users</h4>
+        <div className="bottom-box">
+          <div className="text d-flex align-items-center justify-content-center">
+            <button
+              className="theme-btn btn-style-one"
+              data-bs-toggle="modal"
+              data-bs-target="#registerModalAdmin"
+            >
+              Add User
+            </button>
+          </div>
+        </div>
+
         <div className="form-group col-lg-6 col-md-12">
           <input
-          type="text"
-          placeholder="Search here "
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+            type="text"
+            placeholder="Search here "
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
         <div className="chosen-outer">
-        <select
+          <select
             className="chosen-single form-select"
             onChange={(e) => setSelectedUserType(e.target.value)}
             value={selectedUserType}
@@ -82,7 +157,7 @@ const AllUserLists = () => {
             ))}
           </select>
         </div>
-       
+
       </div>
       {/* End filter top bar */}
 
@@ -126,7 +201,7 @@ const AllUserLists = () => {
                     <div className="option-box">
                       <ul className="option-list">
                         <li>
-                          <button data-text="View User">
+                          <button data-text="View User" data-bs-toggle="modal" data-bs-target="#viewSingleUser" onClick={() => handleViewUser(user.id)}>
                             <span className="la la-eye"></span>
                           </button>
                         </li>

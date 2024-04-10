@@ -15,19 +15,33 @@ import axios from "axios";
 import { useRouter } from 'next/navigation';
 
 const index = () => {
-    const router = useRouter();
+  const router = useRouter();
 
-    const [userDetail, setUserDetail] = useState(null);
+  const [userDetail, setUserDetail] = useState(null);
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
     mname: '',
   })
 
+    // Get userType from local storage outside of useEffect
+    const userType = localStorage.getItem('userType');
+
+    // Update label based on userType
+    if (userType === '5') {
+      formData.label = 'Student Profile';
+    } else if (userType === '4') {
+      formData.label = 'Job Seeker Profile'
+    } else if (userType === '1') {
+      formData.label = 'Admin Profile'
+    } else {
+      formData.label = 'My Profile'
+    }
+
   useEffect(() => {
     const userId = localStorage.getItem("loggedInUserId");
     const token = localStorage.getItem("accessToken");
-    
+
     if (userId) {
       const fetchUserDetails = async () => {
         try {
@@ -36,7 +50,7 @@ const index = () => {
               "Authorization": `Bearer ${token}`
             }
           });
-          
+
           setUserDetail(response.data);
           setFormData(response.data);
         } catch (error) {
@@ -48,106 +62,106 @@ const index = () => {
   }, []);
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('accessToken'); // Assuming you store accessToken in localStorage
+    const isLoggedIn = localStorage.getItem('accessToken');
     if (!isLoggedIn) {
       router.push('/login');
     }
   }, []);
-    const [company,setCompany] =  useState(null);
-    const token = localStorage.getItem("accessToken");
-    const getComany  = async ()=>{
-        try{
-            const company  = await axios.get(`${apiConfig.url}/company/my-company`,{headers:{Authorization:`Bearer ${token}`}})    
-            
-           console.log("compnay data",company);
-            setCompany(company.data);
-    
-        }catch(err){
-            console.error("can not fetch company",err);
-        }
+  const [company, setCompany] = useState(null);
+  const token = localStorage.getItem("accessToken");
+  const getComany = async () => {
+    try {
+      const company = await axios.get(`${apiConfig.url}/company/my-company`, { headers: { Authorization: `Bearer ${token}` } })
+
+      console.log("compnay data", company);
+      setCompany(company.data);
+
+    } catch (err) {
+      console.error("can not fetch company", err);
     }
-    useEffect(()=>{
-        getComany();
-      
-    },[])
-    return (
-        <div className="page-wrapper dashboard">
-            <span className="header-span"></span>
-            {/* <!-- Header Span for hight --> */}
+  }
+  useEffect(() => {
+    getComany();
 
-            <LoginPopup />
-            {/* End Login Popup Modal */}
+  }, [])
+  return (
+    <div className="page-wrapper dashboard">
+      <span className="header-span"></span>
+      {/* <!-- Header Span for hight --> */}
 
-            <DashboardHeader />
-            {/* End Header */}
+      <LoginPopup />
+      {/* End Login Popup Modal */}
 
-            <MobileMenu />
-            {/* End MobileMenu */}
+      <DashboardHeader />
+      {/* End Header */}
 
-            <DashboardAdminSidebar />
-            {/* <!-- End User Sidebar Menu --> */}
+      <MobileMenu />
+      {/* End MobileMenu */}
 
-            {/* <!-- Dashboard --> */}
-            <section className="user-dashboard">
-                <div className="dashboard-outer">
-                    <BreadCrumb title="My Profile!" />
-                    {/* breadCrumb */}
-                    <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - Admin Profile</b>
+      <DashboardAdminSidebar />
+      {/* <!-- End User Sidebar Menu --> */}
 
-                    <MenuToggler />
-                    {/* Collapsible sidebar button */}
+      {/* <!-- Dashboard --> */}
+      <section className="user-dashboard">
+        <div className="dashboard-outer">
+          <BreadCrumb />
+          {/* breadCrumb */}
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - {formData.label ? formData.label : 'My Profile'}</b>
 
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="ls-widget">
-                                <div className="tabs-box">
-                                    <div className="widget-title">
-                                        <h4>My Profile</h4>
-                                    </div>
-                                    <MyProfile />
-                                </div>
-                            </div>
-                            {/* <!-- Ls widget --> */}
+          <MenuToggler />
+          {/* Collapsible sidebar button */}
 
-                            <div className="ls-widget">
-                                <div className="tabs-box">
-                                    <div className="widget-title">
-                                        <h4>Social Network</h4>
-                                    </div>
-                                    {/* End .widget-title */}
-                                    <div className="widget-content">
-                                        <SocialNetworkBox company={company} />
-                                    </div>
-                                </div>
-                            </div>
-                            {/* <!-- Ls widget --> */}
-
-                            <div className="ls-widget">
-                                <div className="tabs-box">
-                                    <div className="widget-title">
-                                        <h4>Contact Information</h4>
-                                    </div>
-                                    {/* End .widget-title */}
-
-                                    <div className="widget-content">
-                                        <ContactInfoBox company={company} />
-                                    </div>
-                                </div>
-                            </div>
-                            {/* <!-- Ls widget --> */}
-                        </div>
-                    </div>
-                    {/* End .row */}
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="ls-widget">
+                <div className="tabs-box">
+                  <div className="widget-title">
+                    <h4>My Profile</h4>
+                  </div>
+                  <MyProfile />
                 </div>
-                {/* End dashboard-outer */}
-            </section>
-            {/* <!-- End Dashboard --> */}
+              </div>
+              {/* <!-- Ls widget --> */}
 
-            <FooterDefault />
-            {/* <!-- End Copyright --> */}
+              <div className="ls-widget">
+                <div className="tabs-box">
+                  <div className="widget-title">
+                    <h4>Social Network</h4>
+                  </div>
+                  {/* End .widget-title */}
+                  <div className="widget-content">
+                    <SocialNetworkBox company={company} />
+                  </div>
+                </div>
+              </div>
+              {/* <!-- Ls widget --> */}
+
+              <div className="ls-widget">
+                <div className="tabs-box">
+                  <div className="widget-title">
+                    <h4>Contact Information</h4>
+                  </div>
+                  {/* End .widget-title */}
+
+                  <div className="widget-content">
+                    <ContactInfoBox company={company} />
+                  </div>
+                </div>
+              </div>
+              {/* <!-- Ls widget --> */}
+            </div>
+          </div>
+          {/* End .row */}
         </div>
-        // End page-wrapper
-    );
+        {/* End dashboard-outer */}
+      </section>
+      {/* <!-- End Dashboard --> */}
+
+      <FooterDefault />
+      {/* <!-- End Copyright --> */}
+    </div>
+    // End page-wrapper
+  );
 };
 
 export default index;

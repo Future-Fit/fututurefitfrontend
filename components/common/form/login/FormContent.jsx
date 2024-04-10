@@ -63,7 +63,6 @@ const FormContent = ({ onReset, closeModal }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     // Perform login API request here using username and password
-    console.log("datas are", username, password);
     try {
       const response = await fetch(`${DefaultConfig.url}/auth/login`, {
         method: "POST",
@@ -259,10 +258,8 @@ const FormContent = ({ onReset, closeModal }) => {
         </Link>
       )}
 
-      <div
-        className="bottom-box">
-        <div
-          className="text d-flex align-items-center justify-content-center">
+      <div className="bottom-box">
+        <div className="text d-flex align-items-center justify-content-center">
           If you don&apos;t have an account with us, please&nbsp;
           <Link
             href="#"
@@ -274,7 +271,6 @@ const FormContent = ({ onReset, closeModal }) => {
             Sign Up
           </Link>
         </div>
-
       </div>
       {/* End bottom-box LoginWithSocial */}
 

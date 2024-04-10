@@ -12,7 +12,9 @@ import CopyrightFooter from "../../CopyrightFooter";
 import MenuToggler from "../../MenuToggler";
 import FooterDefault from "../../../footer/common-footer";
 import { useRouter } from 'next/navigation';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import apiConfig from "@/app.config";
 
 const Index = () => {
   const router = useRouter();
@@ -23,6 +25,46 @@ const Index = () => {
       router.push('/login');
     }
   }, []);
+  const [formData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    mname: '',
+  })
+
+    // Get userType from local storage outside of useEffect
+    const userType = localStorage.getItem('userType');
+
+    // Update label based on userType
+    if (userType === '5') {
+      formData.label = 'Student Profile';
+    } else if (userType === '4') {
+      formData.label = 'Job Seeker Profile'
+    } else if (userType === '1') {
+      formData.label = 'Admin Profile'
+    } else {
+      formData.label = 'My Profile'
+    }
+
+    useEffect(() => {
+      const userId = localStorage.getItem("loggedInUserId");
+      const token = localStorage.getItem("accessToken");
+  
+      if (userId) {
+        const fetchUserDetails = async () => {
+          try {
+            const response = await axios.get(`${apiConfig.url}/users/me`, {
+              headers: {
+                "Authorization": `Bearer ${token}`
+              }
+            });
+              setFormData(response.data);
+          } catch (error) {
+            console.error("Error fetching user details:", error);
+          }
+        };
+        fetchUserDetails();
+      }
+    }, []);
   return (
     <div className="page-wrapper dashboard">
       <span className="header-span"></span>
@@ -43,8 +85,10 @@ const Index = () => {
       {/* <!-- Dashboard --> */}
       <section className="user-dashboard">
         <div className="dashboard-outer">
-          <BreadCrumb title="Dashboard Home!" />
+          <BreadCrumb/>
           {/* breadCrumb */}
+          <b style={{ fontSize: "1.5em" }}><u>{formData.fname} {formData.lname}</u> - {formData.label ? formData.label : 'My Profile'}</b>
+
 
           <MenuToggler />
           {/* Collapsible sidebar button */}
@@ -87,7 +131,7 @@ const Index = () => {
                   <div className="row">
                     {/* <!-- Candidate block three --> */}
 
-                    <Applicants />
+                    {/* <Applicants /> */}
                   </div>
                 </div>
               </div>

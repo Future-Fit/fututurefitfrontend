@@ -3,16 +3,16 @@
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import LoginWithSocial from "./LoginWithSocial";
-import Form from "./FormContent";
+import FormContent from "./FormContentAdmin";
 import Link from "next/link";
 import FormContent2 from "./FormContent2";
 import GlobalConfig from "@/Global.config";
 import { useState } from "react";
 
-const Register = ({ closeMe, myToast, myError }) => {
+const Register = ({ closeAdminMe, myAdminToast, myAdminError }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const closeModal = () => { closeMe(); }
+  const closeModal = () => { closeAdminMe(); }
 
   return (isModalOpen && <div className="form-inner" >
     <div style={{ display: "grid", justifyContent: "center", fontWeight: "600", fontSize: "24px", color: GlobalConfig.Fgr1Clr }}>
@@ -28,7 +28,7 @@ const Register = ({ closeMe, myToast, myError }) => {
         <TabList className="btn-box row">
           <Tab className="col-lg-6 col-md-12" style={{ color: GlobalConfig.Fgr1Clr }}>
             {/* <button className="theme-btn btn-style-four" style={{ paddingLeft: '10px' }}> */}
-            <strong> <i className="la la-user"></i> Job Seeker/Student </strong>
+            <strong> <i className="la la-user"></i> Job Seeker/Student/Admin </strong>
             {/* </button> */}
           </Tab>
 
@@ -43,7 +43,7 @@ const Register = ({ closeMe, myToast, myError }) => {
 
       <TabPanel>
         {/* <Form /> */}
-        <Form closeModal={closeModal} myError={myError} myToast={myToast} />
+        <FormContent closeModal={closeModal} myAdminError={myAdminError} myAdminToast={myAdminToast} />
 
       </TabPanel>
       {/* End cadidates Form */}
