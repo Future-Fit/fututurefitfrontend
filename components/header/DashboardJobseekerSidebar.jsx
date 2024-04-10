@@ -21,6 +21,7 @@ const DashboardJobseekrSidebar = () => {
   const [formData, setFormData] = useState({
     is_archived: '',    // is archived to true
     is_email_verified: '',
+    is_active : '',
     mname: '',
     gen: '',      // gender
     plcBir: '',   // place of birth
@@ -130,6 +131,7 @@ const DashboardJobseekrSidebar = () => {
         const dataToUpdate = {
           is_archived: true,
           is_email_verified: false,
+          is_active : false,
           mname: '',
           gen: '',      // gender
           plcBir: '',   // place of birth

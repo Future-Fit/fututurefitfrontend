@@ -89,6 +89,24 @@ const AllUserLists = () => {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const handleBanUser = async (useremail) => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      await axios.put(`${apiConfig.url}/auth/toggle-verify/`,
+      { email: useremail, is_active: false, is_email_verified: false },
+       {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      // Update userDetail state to reflect the change in is_active status
+      setUserDetail(userDetail.map(user => user.email === useremail ? { ...user, is_active: false, is_email_verified: false } : user));
+      console.log("User banned successfully");
+    } catch (error) {
+      console.error("Error banning user:", error);
+    }
+  };
+
   return (
     <div className="tabs-box">
       {singleUserDetail && (
@@ -109,7 +127,7 @@ const AllUserLists = () => {
                 <div id="login-modal">
                   {/* <!-- Login Form --> */}
                   <div className="login-form default-form">
-                    <SingleUserDetail user={singleUserDetail} onClose={closeModal}/>
+                    <SingleUserDetail user={singleUserDetail} onClose={closeModal} />
                   </div>
                   {/* <!--End Login Form --> */}
                 </div>
@@ -211,7 +229,7 @@ const AllUserLists = () => {
                           </button>
                         </li>
                         <li>
-                          <button data-text="Block User">
+                          <button data-text="Block User" onClick={() => handleBanUser(user.email)}>
                             <span className="la la-ban"></span>
                           </button>
                         </li>
