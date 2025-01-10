@@ -149,7 +149,7 @@ const FormContent2 = ({ onReset }) => {
         Sign In
       </div> <br />
       <div className="col-lg-6 col-md-12" style={{ color: GlobalConfig.Fgr1Clr }}>
-        <strong> <i className="la la-user"></i> Job Seeker/Student </strong>
+        <strong> <i className="la la-user"></i> Sign in to your account here... </strong>
       </div>
 
       {/* <!--Login Form--> */}

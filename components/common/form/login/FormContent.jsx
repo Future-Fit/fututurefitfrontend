@@ -175,7 +175,7 @@ const FormContent = ({ onReset, closeModal }) => {
       </div>
 
       <div style={{ color: GlobalConfig.Fgr1Clr }}>
-        <strong> <i className="la la-user"></i> Job Seeker/Student </strong>
+        <strong> <i className="la la-user"></i> Sign in to your account here... </strong>
       </div>
       {/* <h3>Sign In</h3> */}
       {/* <h3 style={{ fontSize: '15px', fontWeight: 'lighter' }}>If you have already signed up with us, please sign in below.</h3> */}
