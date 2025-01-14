@@ -1,11 +1,16 @@
 import apiConfig from "@/app.config";
 import { useEffect, useState } from "react";
 import { Toast } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importing eye icons
+
 
 const FormContent = ({ onReset, closeModal, myToast, myError }) => {
 
   const [logoImg, setLogoImg] = useState("");
   const [userType, setUserType] = useState(""); // Added state for user type
+  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
+  const [passwordconVisible, setPasswordConVisible] = useState(false); // State to toggle password visibility
+
   const initialUserTypeId = userType === "student" ? 5 : 4;
   const [formData, setFormData] = useState({
     user_type_id: initialUserTypeId,
@@ -129,6 +134,13 @@ const FormContent = ({ onReset, closeModal, myToast, myError }) => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible); // Toggle password visibility
+  };
+  const togglePasswordConVisibility = () => {
+    setPasswordConVisible(!passwordconVisible); // Toggle password visibility
+  };
+
   const validatePassword = (password) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
     return passwordRegex.test(password);
@@ -200,13 +212,25 @@ const FormContent = ({ onReset, closeModal, myToast, myError }) => {
             <label style={{ color: 'red', display: 'inline-block' }}>*</label>
             <input
               id="password-field"
-              type="password"
+              type={passwordVisible ? "text" : "password"} // Toggle between text and password              
               name="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
               required
             />
+            <div
+              style={{
+                position: 'absolute',
+                top: '70%',
+                right: '10px',
+                transform: 'translateY(-50%)',
+                cursor: 'pointer',
+              }}
+              onClick={togglePasswordVisibility}
+            >
+              {passwordVisible ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye icons */}
+            </div>
             {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
           </div>
 
@@ -215,13 +239,25 @@ const FormContent = ({ onReset, closeModal, myToast, myError }) => {
             <label style={{ color: 'red', display: 'inline-block' }}>*</label>
             <input
               id="confirm-password-field"
-              type="password"
+              type={passwordconVisible ? "text" : "password"} // Toggle between text and password              
               name="confirmPassword"
               placeholder="Confirm Password"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
             />
+            <div
+              style={{
+                position: 'absolute',
+                top: '70%',
+                right: '10px',
+                transform: 'translateY(-50%)',
+                cursor: 'pointer',
+              }}
+              onClick={togglePasswordConVisibility}
+            >
+              {passwordconVisible ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye icons */}
+            </div>
             {/* {passwordError && <span className="error-message">{passwordError}</span>} */}
           </div>
 

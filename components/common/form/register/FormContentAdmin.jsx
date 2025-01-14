@@ -1,11 +1,14 @@
 import apiConfig from "@/app.config";
 import { useEffect, useState } from "react";
-import { Toast } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importing eye icons
+
 
 const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
-
   const [logoImg, setLogoImg] = useState("");
   const [userType, setUserType] = useState(""); // Added state for user type
+  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
+  const [passwordconVisible, setPasswordConVisible] = useState(false); // State to toggle password visibility
+
   const initialUserTypeId = userType === "student" ? 5 : 4;
   const [formData, setFormData] = useState({
     user_type_id: initialUserTypeId,
@@ -59,6 +62,7 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
       // Password meets the criteria
       try {
         const { confirmPassword, ...dataToSend } = formData;
+        dataToSend["isVerifiedUser"] = true;
         const formDataToSend = new FormData();
 
         Object.keys(dataToSend).forEach(key => {
@@ -117,6 +121,14 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
     }
   };
 
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible); // Toggle password visibility
+  };
+  const togglePasswordConVisibility = () => {
+    setPasswordConVisible(!passwordconVisible); // Toggle password visibility
+  };
+
   const handleChange = (e) => {
 
     setFormData({
@@ -124,7 +136,7 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
       [e.target.name]: e.target.value,
     });
     if (e.target.name === "password") {
-      myAdminError("");
+      // myAdminError("");
       setPasswordError("");
     }
   };
@@ -209,13 +221,25 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
             <label style={{ color: 'red', display: 'inline-block' }}>*</label>
             <input
               id="password-field"
-              type="password"
+              type={passwordVisible ? "text" : "password"} // Toggle between text and password              
               name="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
               required
             />
+            <div
+              style={{
+                position: 'absolute',
+                top: '70%',
+                right: '10px',
+                transform: 'translateY(-50%)',
+                cursor: 'pointer',
+              }}
+              onClick={togglePasswordVisibility}
+            >
+              {passwordVisible ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye icons */}
+            </div>
           </div>
 
           <div className="form-group">
@@ -223,13 +247,25 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
             <label style={{ color: 'red', display: 'inline-block' }}>*</label>
             <input
               id="confirm-password-field"
-              type="password"
+              type={passwordconVisible ? "text" : "password"} // Toggle between text and password              
               name="confirmPassword"
               placeholder="Confirm Password"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
             />
+            <div
+              style={{
+                position: 'absolute',
+                top: '70%',
+                right: '10px',
+                transform: 'translateY(-50%)',
+                cursor: 'pointer',
+              }}
+              onClick={togglePasswordConVisibility}
+            >
+              {passwordconVisible ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye icons */}
+            </div>
           </div>
 
           <div className="form-group">

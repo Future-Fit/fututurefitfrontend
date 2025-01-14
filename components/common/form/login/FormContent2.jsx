@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import DefaultConfig from "app.config.js";
 import { Toast } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importing eye icons
 
 import GlobalConfig from "@/Global.config";
 
@@ -14,6 +15,8 @@ const FormContent2 = ({ onReset }) => {
   const [error, setError] = useState("");
   const [redirectTo, setRedirectTo] = useState(null);
   const [rememberMe, setRememberMe] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
+
   const router = useRouter();
 
   const handleRememberMe = (e) => {
@@ -32,6 +35,9 @@ const FormContent2 = ({ onReset }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
     clearError(); // Clear error when password changes
+  };
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible); // Toggle password visibility
   };
 
   const resetForm = () => {
@@ -167,17 +173,29 @@ const FormContent2 = ({ onReset }) => {
         </div>
         {/* username */}
 
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
+        <div className="form-group" style={{ position: 'relative' }}>
+                  <label>Password</label>
+                  <input
+                    type={passwordVisible ? "text" : "password"} // Toggle between text and password
+                    name="password"
+                    placeholder="Password"
+                    required
+                    value={password}
+                    onChange={handlePasswordChange}
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '70%',
+                      right: '10px',
+                      transform: 'translateY(-50%)',
+                      cursor: 'pointer',
+                    }}
+                    onClick={togglePasswordVisibility}
+                  >
+                    {passwordVisible ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye icons */}
+                  </div>
+                </div>
         {/* password */}
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
