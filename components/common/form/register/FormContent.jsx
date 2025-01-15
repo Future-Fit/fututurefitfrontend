@@ -1,11 +1,9 @@
 import apiConfig from "@/app.config";
 import { useEffect, useState } from "react";
-import { Toast } from 'react-bootstrap';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importing eye icons
 
 
 const FormContent = ({ onReset, closeModal, myToast, myError }) => {
-
   const [logoImg, setLogoImg] = useState("");
   const [userType, setUserType] = useState(""); // Added state for user type
   const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility

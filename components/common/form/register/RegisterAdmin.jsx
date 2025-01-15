@@ -28,7 +28,7 @@ const Register = ({ closeAdminMe, myAdminToast, myAdminError }) => {
         <TabList className="btn-box row">
           <Tab className="col-lg-6 col-md-12" style={{ color: GlobalConfig.Fgr1Clr }}>
             {/* <button className="theme-btn btn-style-four" style={{ paddingLeft: '10px' }}> */}
-            <strong> <i className="la la-user"></i> Job Seeker/Student/Admin </strong>
+            <strong> <i className="la la-user"></i> Create Account </strong>
             {/* </button> */}
           </Tab>
 
@@ -55,7 +55,7 @@ const Register = ({ closeAdminMe, myAdminToast, myAdminError }) => {
     </Tabs>
     {/* End form-group */}
 
-    <div className="bottom-box" style={{ display: 'flex', justifyContent: 'center' }}>
+    {/* <div className="bottom-box" style={{ display: 'flex', justifyContent: 'center' }}>
       <div className="text">
 
         Already have an account?{" "}
@@ -70,11 +70,7 @@ const Register = ({ closeAdminMe, myAdminToast, myAdminError }) => {
           Sign In
         </Link>
       </div>
-      {/* <div className="divider">
-          <span>or</span>
-        </div>
-        <LoginWithSocial /> */}
-    </div>
+    </div> */}
     {/* End bottom-box LoginWithSocial */}
   </div >
   );

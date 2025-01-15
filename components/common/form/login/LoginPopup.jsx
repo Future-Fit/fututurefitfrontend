@@ -4,6 +4,8 @@ import Register from "../register/Register";
 import RegisterAdmin from "../register/RegisterAdmin";
 import ForgetPassword from "./ForgetPassword";
 import FormContent from "./FormContent";
+ 
+
 
 const LoginPopup = ({ closeMe, myToast, myError, myAdminError, closeAdminMe, myAdminToast }) => {
 
@@ -13,7 +15,8 @@ const LoginPopup = ({ closeMe, myToast, myError, myAdminError, closeAdminMe, myA
       resetForm();
     }
   };
-
+   
+ 
   return (
     <>
       <div className="modal fade" id="loginPopupModal">

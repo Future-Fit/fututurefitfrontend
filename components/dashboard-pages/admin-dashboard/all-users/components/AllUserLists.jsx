@@ -94,12 +94,12 @@ const AllUserLists = () => {
     try {
       const token = localStorage.getItem("accessToken");
       await axios.put(`${apiConfig.url}/auth/toggle-verify/`,
-      { email: useremail, is_active: false, is_email_verified: false },
-       {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+        { email: useremail, is_active: false, is_email_verified: false },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
       // Update userDetail state to reflect the change in is_active status
       setUserDetail(userDetail.map(user => user.email === useremail ? { ...user, is_active: false, is_email_verified: false } : user));
       console.log("User banned successfully");
@@ -142,7 +142,7 @@ const AllUserLists = () => {
 
       )}
 
-{singleUserDetail && (
+      {singleUserDetail && (
         <div className="modal fade" id="editSingleUser">
           <div className="modal-dialog modal-lg modal-dialog-centered login-modal modal-dialog-scrollable">
             <div className="modal-content">
@@ -257,12 +257,9 @@ const AllUserLists = () => {
                           </button>
                         </li>
                         <li>
-                        <button data-text="View User" data-bs-toggle="modal" data-bs-target="#editSingleUser" onClick={() => handleViewUser(user.id)}>
+                          <button data-text="Edit User" data-bs-toggle="modal" data-bs-target="#editSingleUser" onClick={() => handleViewUser(user.id)}>
                             <span className="la la-pencil"></span>
                           </button>
-                          {/* <button data-text="Edit User">
-                            <span className="la la-pencil"></span>
-                          </button> */}
                         </li>
                         <li>
                           <button data-text="Block User" onClick={() => handleBanUser(user.email)}>

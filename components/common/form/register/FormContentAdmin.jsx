@@ -1,14 +1,15 @@
 import apiConfig from "@/app.config";
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importing eye icons
-
+import { Toast } from 'react-bootstrap';
 
 const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
   const [logoImg, setLogoImg] = useState("");
   const [userType, setUserType] = useState(""); // Added state for user type
   const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
   const [passwordconVisible, setPasswordConVisible] = useState(false); // State to toggle password visibility
-
+  const [error,setError] = useState(null);
+  const [success,setSuccess] = useState(null);
   const initialUserTypeId = userType === "student" ? 5 : 4;
   const [formData, setFormData] = useState({
     user_type_id: initialUserTypeId,
@@ -34,10 +35,10 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
       confirmPassword: ""
     });
     setPasswordError("");
-    myAdminError("")
+    setError("")
     setLogoImg("");
     setRegistrationMessage(null);
-    myAdminToast(null);
+    setSuccess(null);
     setUserData(null);
   };
 
@@ -50,10 +51,10 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setRegistrationMessage(null);
-    myAdminToast(null);
+    setSuccess(null);
 
     if (formData.password !== formData.confirmPassword) {
-      myAdminError("passwords do not match");
+      setError("passwords do not match");
       setPasswordError("Passwords do not match");
       return; // Prevent form submission if passwords don't match
     }
@@ -77,7 +78,7 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
 
         if (response.ok) {
           setUserData(responseData.result); // Save user data to state
-          myAdminToast(responseData.message || "Registration successful!");
+          setSuccess(responseData.message || "Registration successful!");
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
           setShowForm(false);
           closeModal();
@@ -95,7 +96,7 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
                 email: formData.email,
               }),
             });
-            myAdminToast("Thank you for signing up with FFI. A verification email has been sent to your email. Please check your email. You many need to check your spam folder.");
+            setSuccess("Thank you for signing up with FFI. A verification email has been sent to your email. Please check your email. You many need to check your spam folder.");
 
             setRegistrationMessage("Thank you for signing up with FFI. A verification email has been sent to your email. Please check your email. You many need to check your spam folder.")
             closeModal();
@@ -104,19 +105,19 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
           }
 
         } else {
-          myAdminToast(responseData.message || "Registration failed.");
+          setSuccess(responseData.message || "Registration failed.");
           setRegistrationMessage(responseData.message || "Registration failed.");
           resetForm();
-          myAdminError("Registration failed. Email or Phone number is already registerd. So, please try to use another phone and/or email, Thank you");
+          setError("Registration failed. Email or Phone number is already registerd. So, please try to use another phone and/or email, Thank you");
           return
         }
       } catch (error) {
         // Handle network errors or other exceptions
-        myAdminToast("An error occured: " + error);
+        setError("An error occured: " + error);
         setRegistrationMessage("An error occurred: " + error);
       }
     } else {
-      myAdminError("Password should contain at least 8 characters, including uppercase, lowercase, number, and special character.");
+  setError("Password should contain at least 8 characters, including uppercase, lowercase, number, and special character.");
       setPasswordError("Password should contain at least 8 characters, including uppercase, lowercase, number, and special character.");
     }
   };
@@ -136,7 +137,7 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
       [e.target.name]: e.target.value,
     });
     if (e.target.name === "password") {
-      // myAdminError("");
+      setError("");
       setPasswordError("");
     }
   };
@@ -287,6 +288,54 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
         </form>
       )}
 
+<Toast
+        onClose={() => {
+          setError('');
+        }}
+        show={Boolean(error)}
+        delay={900000}
+        autohide
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          minWidth: '200px',
+          zIndex: 10000,
+        }}
+      >
+        <Toast.Header closeButton={true}>
+          <strong className="me-auto" style={{ color: 'red', fontSize: '20px' }}>Error</strong>
+          {/* Increased font size for the title */}
+        </Toast.Header>
+        <Toast.Body style={{ backgroundColor: 'rgba(255, 0, 0, 0.1)', color: 'red', fontSize: '18px' }}>{error}</Toast.Body>
+        {/* Increased font size for the body */}
+      </Toast>
+
+      
+      <Toast
+        onClose={() => {
+          setSuccess('');
+        }}
+        show={Boolean(success)}
+        delay={900000}
+        autohide
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          minWidth: '200px',
+          zIndex: 10000,
+        }}
+      >
+        <Toast.Header closeButton={true}>
+          <strong className="me-auto" style={{ color: 'red', fontSize: '20px' }}>Error</strong>
+          {/* Increased font size for the title */}
+        </Toast.Header>
+        <Toast.Body style={{ backgroundColor: 'rgba(255, 0, 0, 0.1)', color: 'red', fontSize: '18px' }}>{error}</Toast.Body>
+        {/* Increased font size for the body */}
+      </Toast>
     </>
   );
 };
