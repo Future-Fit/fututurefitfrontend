@@ -7,6 +7,7 @@ import GlobalConfig from "@/Global.config";
 import FormInfoBox from "../../my-profile/components/my-profile/FormInfoBox";
 import SingleUserDetail from "../../my-profile/components/my-profile/SingleUserDetail";
 import EditSingleUser from "../../my-profile/components/my-profile/EditUserDetail";
+import { color } from "d3";
 
 
 const AllUserLists = () => {
@@ -90,23 +91,66 @@ const AllUserLists = () => {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const handleBanUser = async (useremail) => {
+  const handleToggleUserStatus = async (userId, currentStatus) => {
     try {
+      const confirmed = window.confirm(
+        `Are you sure you want to ${currentStatus ? "deactivate" : "activate"} this user?`
+      );
+      if (!confirmed) return;
+
       const token = localStorage.getItem("accessToken");
-      await axios.put(`${apiConfig.url}/auth/toggle-verify/`,
-        { email: useremail, is_active: false, is_email_verified: false },
+      const response = await axios.put(
+        `${apiConfig.url}/auth/toggle-inactive/${userId}`,
+        {}, // No body is needed
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        });
-      // Update userDetail state to reflect the change in is_active status
-      setUserDetail(userDetail.map(user => user.email === useremail ? { ...user, is_active: false, is_email_verified: false } : user));
-      console.log("User banned successfully");
+        }
+      );
+
+      console.log("API Response:", response.data);
+
+      setUserDetail(
+        userDetail.map((user) =>
+          user.id === userId ? { ...user, is_active: !currentStatus } : user
+        )
+      );
+
+      alert(`User has been ${!currentStatus ? "activated" : "deactivated"} successfully!`);
     } catch (error) {
-      console.error("Error banning user:", error);
+      console.error("Error toggling user status:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      }
+      alert("Failed to update user status. Please try again.", error);
     }
   };
+
+  const handleDeleteUser = async (userId) => {
+    try {
+      const confirmed = window.confirm("Are you sure you want to delete this user?");
+      if (!confirmed) {
+        console.log("User deletion canceled");
+        return;
+      }
+
+      const token = localStorage.getItem("accessToken");
+      await axios.delete(`${apiConfig.url}/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      console.log("User deleted successfully");
+      alert("User deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      alert("Failed to delete user. Please try again.");
+    }
+  };
+
 
   return (
     <div className="tabs-box">
@@ -252,18 +296,18 @@ const AllUserLists = () => {
                     <div className="option-box">
                       <ul className="option-list">
                         <li>
-                          <button data-text="View User" data-bs-toggle="modal" data-bs-target="#viewSingleUser" onClick={() => handleViewUser(user.id)}>
-                            <span className="la la-eye"></span>
-                          </button>
-                        </li>
-                        <li>
                           <button data-text="Edit User" data-bs-toggle="modal" data-bs-target="#editSingleUser" onClick={() => handleViewUser(user.id)}>
                             <span className="la la-pencil"></span>
                           </button>
                         </li>
                         <li>
-                          <button data-text="Block User" onClick={() => handleBanUser(user.email)}>
+                          <button style={{ color: 'red' }} data-text={user.is_active ? "Deactivate" : "Activate"} onClick={() => handleToggleUserStatus(user.id, user.is_active)}>
                             <span className="la la-ban"></span>
+                          </button>
+                        </li>
+                        <li>
+                          <button style={{ color: 'red' }} data-text="Delete User" onClick={() => handleDeleteUser(user.id)}>
+                            <span className="la la-trash"></span>
                           </button>
                         </li>
                       </ul>

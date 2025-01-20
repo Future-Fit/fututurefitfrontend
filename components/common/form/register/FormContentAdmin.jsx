@@ -81,7 +81,7 @@ const FormContent = ({ onReset, closeModal, myAdminToast, myAdminError }) => {
           setSuccess(responseData.message || "Registration successful!");
           setRegistrationMessage(responseData.message || "Registration successful!"); // Set message from API response
           setShowForm(false);
-          closeModal();
+      
           resetForm();
           // Additional API call to send verification email
           try {
