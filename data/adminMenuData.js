@@ -52,6 +52,13 @@ module.exports = [
   },
   {
     id: 8,
+    name: "Activity Log",
+    icon: "la-user-tie",
+    routePath: "/admin-dashboard/activity-log",
+    active: "",
+  },
+  {
+    id: 9,
     name: "Logout",
     icon: "la-sign-out",
     routePath: "/",

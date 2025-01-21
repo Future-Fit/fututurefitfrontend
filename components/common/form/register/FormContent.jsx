@@ -94,9 +94,9 @@ const FormContent = ({ onReset, closeModal, myToast, myError }) => {
                 email: formData.email,
               }),
             });
-            myToast("Thank you for signing up with FFI. A verification email has been sent to your email. Please check your email. You many need to check your spam folder.");
+            myToast("Thank you for signing up with FFI. A verification email has been sent to your email address. Please check your email address. You may need to check your spam folder.");
 
-            setRegistrationMessage("Thank you for signing up with FFI. A verification email has been sent to your email. Please check your email. You many need to check your spam folder.")
+            setRegistrationMessage("Thank you for signing up with FFI. A verification email has been sent to your email address. Please check your email address. You may need to check your spam folder.")
             closeModal();
           } catch (error) {
             console.error("Failed to send verification email:", error);

@@ -23,7 +23,7 @@ const DashboardEmployerSidebar = () => {
 
 
     const handleMenuItemClick = async (item, event) => {
-        if (item.id === 8) { 
+        if (item.id === 9) { 
             event.preventDefault(); 
             const confirmLogout = window.confirm("Are you sure you want to logout?");
             if (confirmLogout) {

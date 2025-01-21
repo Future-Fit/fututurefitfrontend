@@ -2,12 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "@/app.config.js";
-import Link from "next/link";
-import GlobalConfig from "@/Global.config";
-import FormInfoBox from "../../my-profile/components/my-profile/FormInfoBox";
 import SingleUserDetail from "../../my-profile/components/my-profile/SingleUserDetail";
 import EditSingleUser from "../../my-profile/components/my-profile/EditUserDetail";
-import { color } from "d3";
 
 
 const AllUserLists = () => {
@@ -19,6 +15,8 @@ const AllUserLists = () => {
   const [usersPerPage] = useState(20);
   const [searchTerm, setSearchTerm] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: null }); // Sorting state
+
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -42,6 +40,27 @@ const AllUserLists = () => {
       fetchData();
     }
   }, []);
+
+
+  const sortUsers = (users) => {
+    if (sortConfig.key) {
+      return [...users].sort((a, b) => {
+        const aValue = a[sortConfig.key];
+        const bValue = b[sortConfig.key];
+        if (aValue < bValue) return sortConfig.direction === "asc" ? -1 : 1;
+        if (aValue > bValue) return sortConfig.direction === "asc" ? 1 : -1;
+        return 0;
+      });
+    }
+    return users;
+  };
+
+  const handleSort = (key) => {
+    setSortConfig((prev) => {
+      const isAscending = prev.key === key && prev.direction === "asc";
+      return { key, direction: isAscending ? "desc" : "asc" };
+    });
+  };
 
   const fetchSingleUserDetail = async (userId) => {
     try {
@@ -68,7 +87,6 @@ const AllUserLists = () => {
     setShowModal(false); // Close modal
   };
 
-
   // Filter userDetail based on selectedUserType
   const filteredUsers = userDetail.filter((user) => {
     const userType = userTypes.find((type) => type.id === user.user_type_id);
@@ -83,11 +101,15 @@ const AllUserLists = () => {
     return userTypeMatch && searchTermMatch;
   });
 
+  const sortedAndFilteredUsers = sortUsers(filteredUsers);
+
   // Pagination
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
-
+  const currentUsers = sortedAndFilteredUsers.slice(
+    indexOfFirstUser,
+    indexOfLastUser
+  );
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -127,6 +149,43 @@ const AllUserLists = () => {
       alert("Failed to update user status. Please try again.", error);
     }
   };
+
+  // const handleArchiveUserStatus = async (userId, currentStatus) => {
+  //   try {
+  //     const confirmed = window.confirm(
+  //       `Are you sure you want to ${currentStatus ? "Unarchive" : "Archive"} this user?`
+  //     );
+  //     if (!confirmed) return;
+
+  //     const token = localStorage.getItem("accessToken");
+  //     const response = await axios.put(
+  //       `${apiConfig.url}/auth/archive-user/${userId}`,
+  //       {}, // No body is needed
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+
+  //     console.log("API Response:", response.data);
+
+  //     setUserDetail(
+  //       userDetail.map((user) =>
+  //         user.id === userId ? { ...user, is_active: !currentStatus } : user
+  //       )
+  //     );
+
+  //     alert(`User has been ${!currentStatus ? "Archive" : "Unarchive"} successfully!`);
+  //   } catch (error) {
+  //     console.error("Error toggling user status:", error);
+  //     if (error.response) {
+  //       console.error("Response data:", error.response.data);
+  //       console.error("Response status:", error.response.status);
+  //     }
+  //     alert("Failed to update user status. Please try again.", error);
+  //   }
+  // };
 
   const handleDeleteUser = async (userId) => {
     try {
@@ -262,12 +321,12 @@ const AllUserLists = () => {
           <table className="default-table manage-job-table">
             <thead>
               <tr>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Phone</th>
+                <th onClick={() => handleSort("fname")}>Full Name</th>
+                <th onClick={() => handleSort("email")}>Email</th>
+                <th onClick={() => handleSort("phone")}>Phone</th>
                 <th>Email Verified</th>
                 <th>User Type</th>
-                <th>Status</th>
+                <th onClick={() => handleSort("is_active")}>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
