@@ -12,11 +12,11 @@ const AllUserLists = () => {
   const [userTypes, setUserTypes] = useState([]);
   const [selectedUserType, setSelectedUserType] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-  const [usersPerPage] = useState(20);
+  // const [usersPerPage] = useState(20);
+  const [usersPerPage, setUsersPerPage] = useState(20);
   const [searchTerm, setSearchTerm] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null }); // Sorting state
-
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -103,13 +103,17 @@ const AllUserLists = () => {
 
   const sortedAndFilteredUsers = sortUsers(filteredUsers);
 
-  // Pagination
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = sortedAndFilteredUsers.slice(
-    indexOfFirstUser,
-    indexOfLastUser
-  );
+  const currentUsers = sortedAndFilteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+
+  // Pagination
+  // const indexOfLastUser = currentPage * usersPerPage;
+  // const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  // const currentUsers = sortedAndFilteredUsers.slice(
+  //   indexOfFirstUser,
+  //   indexOfLastUser
+  // );
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -210,6 +214,34 @@ const AllUserLists = () => {
     }
   };
 
+  const getSortIcon = (key) => {
+    if (sortConfig.key === key) {
+      return sortConfig.direction === "asc" ? "▲" : "▼"; // Ascending and descending icons
+    }
+    return "⇅"; // Default unsorted icon
+  };
+
+  const styles = {
+    container: {
+      margin: "10px 0",
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+    },
+    label: {
+      fontSize: "14px",
+      color: "#333",
+    },
+    select: {
+      padding: "4px 8px",
+      fontSize: "14px",
+    },
+    sort_icon: {
+      marginLeft: "5px",
+      fontSize: "12px",
+      color: "#666", /* Optional: Change color to suit your design */
+    }
+  };
 
   return (
     <div className="tabs-box">
@@ -278,6 +310,27 @@ const AllUserLists = () => {
       )}
       <div className="widget-title">
         <h4>All System Users</h4>
+
+        <div style={styles.container}>
+          <label htmlFor="itemsPerPage" style={styles.label}>
+            Show
+          </label>
+          <select
+            id="itemsPerPage"
+            value={usersPerPage}
+            onChange={(e) => setUsersPerPage(Number(e.target.value))}
+            style={styles.select}
+          >
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+            <option value={100}>100</option>
+          </select>
+          <label htmlFor="itemsPerPage" style={styles.label}>
+            Entries
+          </label>
+        </div>
+
         <div className="bottom-box">
           <div className="text d-flex align-items-center justify-content-center">
             <button
@@ -321,12 +374,24 @@ const AllUserLists = () => {
           <table className="default-table manage-job-table">
             <thead>
               <tr>
-                <th onClick={() => handleSort("fname")}>Full Name</th>
-                <th onClick={() => handleSort("email")}>Email</th>
-                <th onClick={() => handleSort("phone")}>Phone</th>
-                <th>Email Verified</th>
-                <th>User Type</th>
-                <th onClick={() => handleSort("is_active")}>Status</th>
+                <th onClick={() => handleSort("fname")}>
+                  Full Name <span style={styles.sort_icon}>{getSortIcon("fname")}</span>
+                </th>
+                <th onClick={() => handleSort("email")}>
+                  Email <span style={styles.sort_icon}>{getSortIcon("email")}</span>
+                </th>
+                <th onClick={() => handleSort("phone")}>
+                  Phone <span style={styles.sort_icon}>{getSortIcon("phone")}</span>
+                </th>
+                <th onClick={() => handleSort("is_email_verified")}>
+                  Email Verified <span style={styles.sort_icon}>{getSortIcon("is_email_verified")}</span>
+                </th>
+                <th onClick={() => handleSort("user_type_id")}>
+                  User Type <span style={styles.sort_icon}>{getSortIcon("user_type_id")}</span>
+                </th>
+                <th onClick={() => handleSort("is_active")}>
+                  Status <span style={styles.sort_icon}>{getSortIcon("is_active")}</span>
+                </th>
                 <th>Action</th>
               </tr>
             </thead>
