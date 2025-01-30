@@ -8,12 +8,30 @@ import { Provider } from "react-redux";
 import { store } from "../store/store";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import useSessionTimeout from "@/components/hooks/useSessionTimeout";
+import { useRouter } from "next/navigation";
+
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
 
 export default function RootLayout({ children }) {
+  const router = useRouter();
+
+  // Check session expiry on page load
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const expiry = localStorage.getItem("expiry");
+
+    if (!token || !expiry || Date.now() > parseInt(expiry)) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("expiry");
+      router.push("/login"); // Redirect to login page if session is expired
+    }
+  }, [router]);
+
+  useSessionTimeout();
   useEffect(() => {
     Aos.init({
       duration: 800,

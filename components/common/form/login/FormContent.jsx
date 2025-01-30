@@ -88,6 +88,7 @@ const FormContent = ({ onReset, closeModal }) => {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userType", user.user_type_id);
         localStorage.setItem("loggedInUserId", user.id);
+        localStorage.setItem('expiry', Date.now() + 30 * 60 * 1000); // Store the expiry time (30 minutes)
         if (user.user_type_id === 1) {
           const modalElement = document.getElementById("loginPopupModal");
           console.log(modalElement);
