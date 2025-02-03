@@ -21,13 +21,16 @@ export default function RootLayout({ children }) {
 
   // Check session expiry on page load
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("accessToken");
     const expiry = localStorage.getItem("expiry");
+    const userType = localStorage.getItem("userType");
 
-    if (!token || !expiry || Date.now() > parseInt(expiry)) {
-      localStorage.removeItem("token");
+    if (!token || !userType || !expiry || Date.now() > parseInt(expiry)) {
+      localStorage.removeItem("accessToken");
       localStorage.removeItem("expiry");
-      router.push("/login"); // Redirect to login page if session is expired
+      localStorage.removeItem("userType");
+      localStorage.removeItem("loggedInUserId");
+      router.push("/");
     }
   }, [router]);
 

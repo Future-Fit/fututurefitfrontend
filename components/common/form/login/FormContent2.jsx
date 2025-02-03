@@ -89,6 +89,7 @@ const FormContent2 = ({ onReset }) => {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("userType", user.user_type_id);
         localStorage.setItem("loggedInUserId", user.id);
+        localStorage.setItem('expiry', Date.now() + 30 * 60 * 1000);
         if (user.user_type_id === 1) {
           router.push('/admin-dashboard/dashboard');
         } else if (user.user_type_id === 3) {

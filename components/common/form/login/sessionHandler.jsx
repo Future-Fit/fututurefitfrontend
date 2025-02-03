@@ -4,7 +4,7 @@ const clearSession = () => {
       localStorage.removeItem('accessToken'); // Clear authentication token
       localStorage.removeItem('userType');    // Clear user data
       localStorage.removeItem('loggedInUserId');
-
+      localStorage.removeItem("expiry");
 
       console.log("Session cleared successfully.");
 

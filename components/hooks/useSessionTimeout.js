@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-const useSessionTimeout = (timeoutDuration = 30 * 60 * 1000) => { // Default: 30 minutes
+const useSessionTimeout = (timeoutDuration = 30 * 60 * 1000) => { 
   const router = useRouter();
   const [isActive, setIsActive] = useState(true);
 
@@ -13,8 +13,11 @@ const useSessionTimeout = (timeoutDuration = 30 * 60 * 1000) => { // Default: 30
       if (timeoutId) clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         // Log out the user
-        localStorage.removeItem('token'); // Clear the JWT token
-        router.push('/login'); // Redirect to login page
+        localStorage.removeItem('accessToken'); // Clear the JWT token
+        localStorage.removeItem("expiry");
+        localStorage.removeItem("userType");
+        localStorage.removeItem("loggedInUserId");
+        router.push('/'); // Redirect to login page
       }, timeoutDuration);
     };
 
