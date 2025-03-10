@@ -78,13 +78,17 @@ const MobileMenu = () => {
   const handleProfileRedirect = () => {
     const userType = localStorage.getItem("userType");
     if (userType === "4") {
-      router.push("/jobseeker-dashboard/my-profile");
+      // router.push("/jobseeker-dashboard/my-profile");
+      window.location.reload();
     } else if (userType === "3") {
-      router.push("/employers-dashboard/dashboard");
+      // router.push("/employers-dashboard/dashboard");
+      window.location.reload();
     } else if (userType === "5") {
-      router.push("/student-dashboard/my-profile");
+      // router.push("/student-dashboard/my-profile");
+      window.location.reload();
     } else if (userType === "1") {
-      router.push("/admin-dashboard/dashboard");
+      // router.push("/admin-dashboard/dashboard");
+      window.location.reload();
     }
   };
 
@@ -157,25 +161,29 @@ const MobileMenu = () => {
         modalBackDrop[0].style.display = "none";
         body[0].classList.remove("modal-open");
         body[0].style.overflow = "auto";
-        router.push("/candidates-dashboard/my-profile");
+        // router.push("/candidates-dashboard/my-profile");
+        window.location.reload();
       } else if (userType === "3") {
         modalElement.style.display = "none";
         modalBackDrop[0].style.display = "none";
         body[0].classList.remove("modal-open");
         body[0].style.overflow = "auto";
-        router.push("/employers-dashboard/dashboard");
+        // router.push("/employers-dashboard/dashboard");
+        window.location.reload();
       } else if (userType === "5") {
         modalElement.style.display = "none";
         modalBackDrop[0].style.display = "none";
         body[0].classList.remove("modal-open");
         body[0].style.overflow = "auto";
-        router.push("/student-dashboard/my-profile");
+        // router.push("/student-dashboard/my-profile");
+        window.location.reload();
       } else if (userType === "1") {
         modalElement.style.display = "none";
         modalBackDrop[0].style.display = "none";
         body[0].classList.remove("modal-open");
         body[0].style.overflow = "auto";
-        router.push("/admin-dashboard/dashboard");
+        // router.push("/admin-dashboard/dashboard");
+        window.location.reload();
       }
     }
   };

@@ -1,5 +1,6 @@
 import Wrapper from "@/layout/Wrapper";
 import Home from "@/components/home";
+import '../styles/globals.css';
 
 export const metadata = {
   title: "Future Fit International | Job Portal ",

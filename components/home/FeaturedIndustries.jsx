@@ -90,11 +90,11 @@ const FeaturedIndustries = () => {
             ))}
           </div>
         </div>
-        {/* <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
-          <Link href="/featured-industries" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.BgrClr1 }}>
-            <span className="btn-title"><strong>Learn More</strong></span>
+        <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', padding: '20px 20px' }}>
+          <Link href="/jobs-list" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.BgrClr1 }}>
+            <span className="btn-title"><strong>See Available Jobs</strong></span>
           </Link>
-        </div> */}
+        </div>
       </section >
     </>
   );

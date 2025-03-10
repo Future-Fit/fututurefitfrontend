@@ -26,11 +26,7 @@ const WhyCanada = () => {
       }
     };
   }, []);
-
-  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('accessToken') !== null;
-  const userType = typeof window !== 'undefined' && parseInt(localStorage.getItem('userType'));
-
-const handleMouseEnter = (itemId, event) => {
+  const handleMouseEnter = (itemId, event) => {
     setHoveredItem(itemId);
     setPopoverPosition({
       x: event.clientX,
@@ -41,9 +37,6 @@ const handleMouseEnter = (itemId, event) => {
   const handleMouseLeave = () => {
     setHoveredItem(null);
   };
-  // const isLoggedIn = localStorage.getItem('accessToken') !== null;
-  // const userType = parseInt(localStorage.getItem('userType'));
-
   const iconMap = {
     "icon-visit": faEarthAfrica,
     "icon-study": faGraduationCap,
@@ -51,14 +44,14 @@ const handleMouseEnter = (itemId, event) => {
   };
 
   const blockContent = [
-    {
-      id: 1,
-      icon: "icon-visit",
-      title: "Visit",
-      linkPath: 'canada-visit/',
-      bgcolor: GlobalConfig.LogoOrg,
-      popupDetail: ""
-    },
+    // {
+    //   id: 1,
+    //   icon: "icon-visit",
+    //   title: "Visit",
+    //   linkPath: 'canada-visit/',
+    //   bgcolor: GlobalConfig.LogoOrg,
+    //   popupDetail: ""
+    // },
     {
       id: 2,
       icon: "icon-study",
@@ -98,7 +91,7 @@ const handleMouseEnter = (itemId, event) => {
               <React.Fragment key={item.id}>
                 <div className="col-md-4 col-sm-12 mb-3" >
                   <div className="work-block -type-2 mb-0" onMouseEnter={(event) => handleMouseEnter(item.id, event)}
-                  onMouseLeave={handleMouseLeave}>
+                    onMouseLeave={handleMouseLeave}>
                     <div className="inner-box" >
                       <div className="icon-wrap" >
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />
@@ -116,7 +109,7 @@ const handleMouseEnter = (itemId, event) => {
               <React.Fragment key={item.id}>
                 <div className="col-lg-4 col-md-4 col-sm-12" style={{ flex: '1', margin: '0 10px' }}>
                   <div className="work-block -type-2 mb-0" onMouseEnter={(event) => handleMouseEnter(item.id, event)}
-                  onMouseLeave={handleMouseLeave}>
+                    onMouseLeave={handleMouseLeave}>
                     <div className="inner-box">
                       <div className="icon-wrap">
                         <FontAwesomeIcon icon={iconMap[item.icon]} style={{ color: GlobalConfig.LogoBlu }} />

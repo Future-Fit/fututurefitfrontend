@@ -3,18 +3,18 @@
 import { useEffect, useState } from "react";
 import Link from "next/link.js";
 import apiConfig from "@/app.config.js";
-const JobListingsTable = () => {
+const AllApplication = () => {
   const [jobApplications, setJobApplications] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    console.log("Retrieved Token:", token);
+    // console.log("Retrieved Token:", token);
     if (token) {
       const fetchJobApplications = async () => {
         try {
           const response = await fetch(
-            `${apiConfig.url}/job-seeker/myjobApplications`,
+            `${apiConfig.url}/job-seeker/allJobApplications`,
             {
               method: "GET",
               headers: {
@@ -43,11 +43,11 @@ const JobListingsTable = () => {
   return (
     <div className="tabs-box">
       <div className="widget-title">
-        <h4>Applied Jobs</h4>
+        <h4>All Application</h4>
 
         <div className="chosen-outer">
           <select className="chosen-single form-select">
-            <option>All</option>
+          <option>All</option>
           </select>
         </div>
       </div>
@@ -63,6 +63,9 @@ const JobListingsTable = () => {
               <thead>
                 <tr>
                   <th>Job Title</th>
+                  <th>Applicant</th>
+                  <th>Email</th>
+                  <th>Phone</th>
                   <th>Date Applied</th>
                   <th>Status</th>
                   <th>Action</th>
@@ -74,20 +77,35 @@ const JobListingsTable = () => {
                     <td>
                       <div className="job-block">
                         <h4>
-                          <Link href={`/job-single-v3/${application.jobPost.id}`}>
-                            {application.jobPost.job_title}
-                          </Link>
+                          {application.jobPost ? (
+                            <Link href={`/job-single-v3/${application.jobPost.id}`}>
+                              {application.jobPost.job_title}
+                            </Link>
+                          ) : (
+                            "Job Not Available"
+                          )}
                         </h4>
                         <ul className="job-info">
                           <li>
                             <span className="icon flaticon-map-locator"></span>
-                            {application.jobPost.city || "N/A"}, {application.jobPost.country}
+                            {application.jobPost
+                              ? `${application.jobPost.city || "N/A"}, ${application.jobPost.country || "N/A"}`
+                              : "Location Not Available"}
                           </li>
                         </ul>
                       </div>
                     </td>
-                    <td>{new Date(application.jobPost.createdAt).toLocaleDateString()}</td>
+
+                    <td>{application.applicant ? `${application.applicant.fname} ${application.applicant.lname}` : "N/A"}</td>
+                    <td>{application.applicant ? application.applicant.email : "N/A"}</td>
+                    <td>{application.applicant ? application.applicant.phone : "N/A"}</td>
+                    <td>
+                      {application.jobPost && application.jobPost.createdAt
+                        ? new Date(application.jobPost.createdAt).toLocaleDateString()
+                        : "N/A"}
+                    </td>
                     <td className="status">{application.status}</td>
+
                     <td>
                       <div className="option-box">
                         <ul className="option-list">
@@ -107,6 +125,8 @@ const JobListingsTable = () => {
                   </tr>
                 ))}
               </tbody>
+
+
             </table>
           )}
         </div>
@@ -115,4 +135,4 @@ const JobListingsTable = () => {
   );
 };
 
-export default JobListingsTable;
+export default AllApplication;

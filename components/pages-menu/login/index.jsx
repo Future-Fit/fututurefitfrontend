@@ -23,19 +23,19 @@ const index = () => {
     const userType = localStorage.getItem('userType');
     if (!isLoggedIn) {
       router.push('/login');
-    }
-    else {
+    } else {
       if (userType === '1') {
-        router.push('/admin-dashboard/dashboard')
+        window.location.reload();
+        // router.push('/admin-dashboard/dashboard')
       } else if (userType === '3') {
-        router.push('/employers-dashboard/dashboard')
-
+        window.location.reload();
+        // router.push('/employers-dashboard/dashboard')
       } else if (userType === '4') {
-        router.push('/jobseeker-dashboard/my-profile')
-
+        window.location.reload();
+        // router.push('/jobseeker-dashboard/my-profile')
       } else if (userType === '3') {
-        router.push('/student-dashboard/my-profile')
-
+        // router.push('/student-dashboard/my-profile')
+        window.location.reload();
       }
     }
   }, []);

@@ -49,7 +49,12 @@ const HeaderNavContent = () => {
               {/* Add more dropdown items as needed */}
             </ul>
           </li>
-
+          <li
+            className={`${isActiveParent("/jobs-list", usePathname()) ? "current" : ""
+              }`}
+          >
+            <Link style={{ color: '#fff' }} href="/jobs-list">Jobs</Link>
+          </li>
           {/* <li
             className={`${isActiveParent("/blog-list-v1", usePathname()) ? "current" : ""
               }`}
@@ -62,6 +67,7 @@ const HeaderNavContent = () => {
           >
             <Link style={{ color: '#fff' }} href="/contact">Contact</Link>
           </li>
+
         </ul>
       </nav>
     </>

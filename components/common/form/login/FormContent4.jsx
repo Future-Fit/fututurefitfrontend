@@ -92,7 +92,8 @@ const FormContent4 = ({ onReset }) => {
           // const body = document.getElementsByTagName("body");
           // body[0].classList.remove("modal-open");
           // body[0].style.overflow = "auto";
-          router.push('/employers-dashboard/dashboard');
+          // router.push('/employers-dashboard/dashboard');
+          window.location.reload();
         } else if (user.user_type_id === 4) {
           // const modalElement = document.getElementById("loginPopupModal");
           // const modalBackDrop = document.getElementsByClassName('modal-backdrop');
@@ -101,7 +102,8 @@ const FormContent4 = ({ onReset }) => {
           // const body = document.getElementsByTagName("body");
           // body[0].classList.remove("modal-open");
           // body[0].style.overflow = "auto";
-          router.push('/candidates-dashboard/my-profile');
+          // router.push('/candidates-dashboard/my-profile');
+          window.location.reload();
         }
       } else {
         // If login fails

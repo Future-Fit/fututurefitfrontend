@@ -39,7 +39,7 @@ const HeroSliderGallery = () => {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(100, 120, 150, 0.8)',
+    backgroundColor: 'rgba(100, 120, 150, 0.9)',
     pointerEvents: 'none',
     zIndex: 1,
   };

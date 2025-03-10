@@ -44,6 +44,13 @@ module.exports = [
     active: "",
   },
   {
+    id: 10,
+    name: "All Application",
+    icon: "la-file-invoice",
+    routePath: "/admin-dashboard/all-application",
+    active: "",
+  },
+  {
     id: 7,
     name: "Change Password",
     icon: "la-lock",

@@ -7,6 +7,7 @@ import axios from "axios";
 import apiConfig from "@/app.config";
 import { MultiSelect } from "react-multi-select-component";
 import "./error.scss"
+import { useRouter } from "next/navigation";
 
 const programOptions = [
   { label: "Healthcare", value: "Healthcare" },
@@ -87,7 +88,7 @@ const FormInfoBox = () => {
   const [selectedIntakes, setSelectedIntakes] = useState([]);
   const [selectedProvince, setSelectedProvince] = useState([]);
   const [requiredFieldsError, setRequiredFieldsError] = useState({}); // State to track required fields errors
-
+  const router = useRouter();
   const handleSelectedProgram = (selected) => {
     setFormData({
       ...formData,
@@ -165,7 +166,15 @@ const FormInfoBox = () => {
       setFormData(response.data);
       // Perform any success actions, like updating UI or state
       alert("User profile updated successfully.")
-      window.location.reload();
+      const redirectPath = localStorage.getItem("redirectAfterLogin");
+      if (redirectPath) {
+        console.log("Redirecting to saved path:", redirectPath);
+        localStorage.removeItem("redirectAfterLogin"); // Clear after using
+        router.push(redirectPath);
+      } else {
+        console.log("No redirect path found, staying on the profile page.");
+      }
+      // window.location.reload();
     } catch (error) {
       console.error("Error updating user details:", error.response ? error.response.data : error);
       alert("Error updating user details. Please fill in all required data.")
@@ -329,7 +338,7 @@ const FormInfoBox = () => {
             style={{ marginBottom: "20px" }}>
             <label>Date of Birth*</label>
             <div>
-            <input
+              <input
                 type="date"
                 name="dob"
                 value={formData.dob}
@@ -597,7 +606,7 @@ const FormInfoBox = () => {
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6"
             style={{ marginBottom: "20px" }}>
-            <label>Availability*</label>
+            <label>Availability</label>
             <MultiSelect
               options={intakes}
               value={selectedIntakes}
@@ -610,7 +619,7 @@ const FormInfoBox = () => {
           </div>
 
           <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
-            <label>Province(s) Interested In*</label>
+            <label>Province(s) Interested In</label>
             <MultiSelect
               options={provincesCanada}
               value={selectedProvince}
@@ -627,7 +636,7 @@ const FormInfoBox = () => {
         <div className="row"
           style={{ borderBottom: "1px solid #f1f3f7", paddingBottom: "10px" }}>
           <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
-            <label>Job Sectors Applying For*</label>
+            <label>Job Sectors Applying For</label>
             <MultiSelect
               options={programOptions}
               value={selectedPrograms}
@@ -641,7 +650,7 @@ const FormInfoBox = () => {
           </div>
           {selectedPrograms.some(program => program.value === "Other") && (
             <div className="form-group col-lg-4 col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
-              <label>Other Sector(s) Applying For*</label>
+              <label>Other Sector(s) Applying For</label>
               <input type="text" name="otherProgram" required value={formData.otherProgram}
                 onChange={handleInputChange} placeholder="Write other job sectors applying for." />
 

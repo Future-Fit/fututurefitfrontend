@@ -98,7 +98,8 @@ const FormContent = ({ onReset, closeModal }) => {
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
-          router.push('/admin-dashboard/dashboard');
+          // router.push('/admin-dashboard/dashboard');
+          window.location.reload();
         } else if (user.user_type_id === 3) {
           const modalElement = document.getElementById("loginPopupModal");
           const modalBackDrop = document.getElementsByClassName('modal-backdrop');
@@ -107,7 +108,8 @@ const FormContent = ({ onReset, closeModal }) => {
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
-          router.push('/employer-dashboard/my-profile');
+          // router.push('/employer-dashboard/my-profile');
+          window.location.reload();
         } else if (user.user_type_id === 4) {
           const modalElement = document.getElementById("loginPopupModal");
           const modalBackDrop = document.getElementsByClassName('modal-backdrop');
@@ -116,7 +118,8 @@ const FormContent = ({ onReset, closeModal }) => {
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
-          router.push('/jobseeker-dashboard/my-profile');
+          // router.push('/jobseeker-dashboard/my-profile');
+          window.location.reload();
         } else if (user.user_type_id === 5) {
           const modalElement = document.getElementById("loginPopupModal");
           const modalBackDrop = document.getElementsByClassName('modal-backdrop');
@@ -125,7 +128,8 @@ const FormContent = ({ onReset, closeModal }) => {
           const body = document.getElementsByTagName("body");
           body[0].classList.remove("modal-open");
           body[0].style.overflow = "auto";
-          router.push('/student-dashboard/my-profile');
+          // router.push('/student-dashboard/my-profile');
+          window.location.reload();
         }
       } else {
         // If login fails

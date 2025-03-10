@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       localStorage.removeItem("expiry");
       localStorage.removeItem("userType");
       localStorage.removeItem("loggedInUserId");
-      router.push("/");
+      // router.push("/");
     }
   }, [router]);
 

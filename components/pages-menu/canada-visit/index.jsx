@@ -16,14 +16,14 @@ import DashboardJobseekerHeader from "@/components/header/DashboardJobseekerHead
 
 const index = () => {
 
-  const [userType, setUserType] = useState();
+  // const [userType, setUserType] = useState();
 
-  useEffect(() => {
-    const storedUserType = localStorage.getItem('userType');
-    if (storedUserType) {
-      setUserType(JSON.parse(storedUserType));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedUserType = localStorage.getItem('userType');
+  //   if (storedUserType) {
+  //     setUserType(JSON.parse(storedUserType));
+  //   }
+  // }, []);
 
   return (
     <>

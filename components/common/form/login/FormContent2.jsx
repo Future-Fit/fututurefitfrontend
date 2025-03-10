@@ -69,7 +69,6 @@ const FormContent2 = ({ onReset }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // Perform login API request here using username and password
 
     try {
       const response = await fetch(`${DefaultConfig.url}/auth/login`, {
@@ -82,58 +81,79 @@ const FormContent2 = ({ onReset }) => {
           password: password,
         }),
       });
+
+      // Parse JSON response safely
       const data = await response.json();
-      if (response.ok) {
-        // Login successful
-        const { accessToken, user } = data.data;
-        localStorage.setItem("accessToken", accessToken);
-        localStorage.setItem("userType", user.user_type_id);
-        localStorage.setItem("loggedInUserId", user.id);
-        localStorage.setItem('expiry', Date.now() + 30 * 60 * 1000);
-        if (user.user_type_id === 1) {
-          router.push('/admin-dashboard/dashboard');
-        } else if (user.user_type_id === 3) {
-          router.push('/employers-dashboard/dashboard');
+      console.log("Login Response:", data); // Debugging
 
-        } else if (user.user_type_id === 4) {
-          router.push('/jobseeker-dashboard/my-profile');
-        }
-        else if (user.user_type_id === 5) {
-          router.push('/student-dashboard/my-profile');
-        }
-      } else {
-        // If login fails
+      if (!response.ok) {
         if (response.status === 403) {
-          // If status is 403 (Forbidden), send verification link
-          try {
-            const verificationResponse = await fetch(`${DefaultConfig.url}/auth/verify-email`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: username,
-              }),
-            });
-
-            if (verificationResponse.ok) {
-              setError("Since your email is not verfified, we have sent you verification link. Please check your email. Thank you");
-            } else {
-              setError("Failed to send verification link");
-            }
-          } catch (error) {
-            setError("Failed to send verification link");
-            console.error("Error sending verification link:", error);
-          }
+          console.log("User email is not verified. Sending verification email...");
+          await fetch(`${DefaultConfig.url}/auth/verify-email`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: username }),
+          });
+          setError("Email not verified. A verification link has been sent to your email.");
         } else {
           setError(data.message || "Login failed");
         }
+        return;
+      }
+
+      // Ensure data structure is valid
+      if (!data || !data.data || !data.data.accessToken || !data.data.user) {
+        setError("Invalid response from server");
+        console.error("Unexpected API response:", data);
+        return;
+      }
+
+      // Extract user details
+      const { accessToken, user } = data.data;
+      console.log("User Info:", user); // Debugging
+
+      // Save user details to localStorage
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("userType", user.user_type_id);
+      localStorage.setItem("loggedInUserId", user.id);
+      localStorage.setItem("expiry", Date.now() + 30 * 60 * 1000); // Set expiration time
+      // Check if redirectAfterLogin is stored
+      const redirectPath = localStorage.getItem("redirectAfterLogin");
+
+      if (redirectPath) {
+        console.log("Redirecting to saved path:", redirectPath);
+        localStorage.removeItem("redirectAfterLogin"); // Clear after using
+        router.push(redirectPath);
+      } else {
+        // Redirect based on user type
+        switch (user.user_type_id) {
+          case 1:
+            // router.push("/admin-dashboard/dashboard");
+            window.location.reload();
+            break;
+          case 3:
+            // router.push("/employers-dashboard/dashboard");
+            window.location.reload();
+            break;
+          case 4:
+            // router.push("/jobseeker-dashboard/my-profile");
+            window.location.reload();
+            break;
+          case 5:
+            // router.push("/student-dashboard/my-profile");
+            window.location.reload();
+            break;
+          default:
+            setError("Unknown user type");
+            console.error("Unhandled user type:", user.user_type_id);
+        }
       }
     } catch (error) {
-      console.error("What is the error here", error); // Log the specific error for debugging
-      setError("An error occurred while logging in");
+      console.error("Login error:", error); // Improved debugging
+      setError("An error occurred while logging in. Please try again.");
     }
   };
+
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -175,28 +195,28 @@ const FormContent2 = ({ onReset }) => {
         {/* username */}
 
         <div className="form-group" style={{ position: 'relative' }}>
-                  <label>Password</label>
-                  <input
-                    type={passwordVisible ? "text" : "password"} // Toggle between text and password
-                    name="password"
-                    placeholder="Password"
-                    required
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '70%',
-                      right: '10px',
-                      transform: 'translateY(-50%)',
-                      cursor: 'pointer',
-                    }}
-                    onClick={togglePasswordVisibility}
-                  >
-                    {passwordVisible ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye icons */}
-                  </div>
-                </div>
+          <label>Password</label>
+          <input
+            type={passwordVisible ? "text" : "password"} // Toggle between text and password
+            name="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              top: '70%',
+              right: '10px',
+              transform: 'translateY(-50%)',
+              cursor: 'pointer',
+            }}
+            onClick={togglePasswordVisibility}
+          >
+            {passwordVisible ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye icons */}
+          </div>
+        </div>
         {/* password */}
 
         <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

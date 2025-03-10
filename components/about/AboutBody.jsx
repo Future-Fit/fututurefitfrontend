@@ -81,7 +81,7 @@ const AboutBody = () => {
                   and range of services we provide. For any inquiries, please contact us. <br /> <br />
 
                   <div className="btn-box text-center" style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}>
-                    <Link href="/service" className="theme-btn btn-style-one bg-blue" style={{ color: GlobalConfig.LogoBlu, backgroundColor: GlobalConfig.LogoOrg }}>
+                    <Link href="/service" className="theme-btn btn-style-one bg-blue" style={{ color: "white", backgroundColor: GlobalConfig.BgrClr1 }}>
                       <span className="btn-title"><strong>Our Services</strong></span>
                     </Link>
                   </div>

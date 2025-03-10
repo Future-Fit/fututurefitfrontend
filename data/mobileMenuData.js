@@ -40,6 +40,12 @@ module.exports = [
       // },
     ],
   },
+   {
+    id: 4,
+    label: "Jobs",
+    routePath: "/jobs-list",
+
+  },
   // {
   //   id: 4,
   //   label: "Blog",
